@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "javadoc-miner"
+version = "0.1.0"
+description = "Mine Java repositories for code-related JavaDoc update samples."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+javadoc-miner = "javadoc_miner.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["javadoc_miner*"]
