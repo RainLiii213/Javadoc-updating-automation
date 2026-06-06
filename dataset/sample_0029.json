@@ -1,19 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "bda0680763ad90264b9cca8233bb3369c03f4e13",
-  "commit_url": "https://github.com/apache/commons-lang/commit/bda0680763ad90264b9cca8233bb3369c03f4e13",
-  "issue": "#1683",
-  "issues": [
-    "#1683"
-  ],
-  "entity_type": "method",
-  "entity_name": "toMillisSince",
-  "old_javadoc": "",
-  "new_javadoc": "/**\n     * Converts an Instant to milliseconds sicne that Instant bound to a {@code long} without throwing {@link ArithmeticException}.\n     * <ul>\n     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n     * </ul>\n     *\n     * @param instant The instant to convert, not null.\n     * @return long The duration in milliseconds since the given Instant.\n     */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/Instants.java b/src/main/java/org/apache/commons/lang3/time/Instants.java\n--- a/src/main/java/org/apache/commons/lang3/time/Instants.java\n+++ b/src/main/java/org/apache/commons/lang3/time/Instants.java\n@@ -0,0 +51,20 @@\n+        }\n+    }\n+\n+    /**\n+     * Converts an Instant to milliseconds sicne that Instant bound to a {@code long} without throwing {@link ArithmeticException}.\n+     * <ul>\n+     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n+     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n+     * </ul>\n+     *\n+     * @param instant The instant to convert, not null.\n+     * @return long The duration in milliseconds since the given Instant.\n+     */\n+    public static long toMillisSince(final Instant instant) {\n+        try {\n+            return DurationUtils.since(instant).toMillis();\n+        } catch (final ArithmeticException e) {\n+            return toBound(instant, Long.MIN_VALUE, Long.MAX_VALUE);\n+        }\n+    }",
-  "commit_message": "Add Instants.toMillisSince(Instant) (#1683)",
-  "change_type": "method_addition",
-  "javadoc_change_type": "JAVADOC_ADDITION",
-  "method_change_type": "METHOD_ADDITION",
-  "quality": "B"
+  "commit_hash": "7489d6e21334673dc56399de7decaaa00f11ebcf",
+  "commit_message": "CharSet now maintains iteration order\n\nJavadoc",
+  "issue_summary": "StringUtils.abbreviate(String, String, int) contract violations",
+  "code_before": "/*public*/ CharRange[] getCharRanges() {\n        return set.toArray(CharRange.EMPTY_ARRAY);\n    }",
+  "code_after": "Set<CharRange> getCharRanges() {\n        return set;\n    }",
+  "javadoc_before": "/**\n     * Gets the internal set as an array of CharRange objects.\n     *\n     * @return an array of immutable CharRange objects\n     * @since 2.0\n     */",
+  "javadoc_after": "/**\n     * Gets the set of character ranges.\n     * <p>\n     * Package private for testing.\n     * </p>\n     *\n     * @return the set of character ranges.\n     */",
+  "entity_name": "getCharRanges",
+  "entity_signature": "Set<CharRange> getCharRanges()",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "A",
+  "issue_id": "#1572",
+  "commit_url": "https://github.com/apache/commons-lang/commit/7489d6e21334673dc56399de7decaaa00f11ebcf",
+  "entity_type": "method"
 }

@@ -1,6 +1,7 @@
 import subprocess
 from pathlib import Path
 
+from javadoc_miner import cli
 from javadoc_miner.cli import _classify_file_entities
 from javadoc_miner.cli import mine_repository
 from javadoc_miner.config import MinerConfig
@@ -253,3 +254,65 @@ public class Names {
     assert "given" not in last_sample.code_after
     assert first_sample.javadoc_change_type == "JAVADOC_MODIFICATION"
     assert first_sample.method_change_type == "METHOD_MODIFICATION"
+
+
+def test_mine_repository_resolves_issue_summary_only_for_extracted_samples(tmp_path, monkeypatch):
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    git(repo, "init")
+    git(repo, "config", "user.email", "test@example.com")
+    git(repo, "config", "user.name", "Test User")
+
+    java_path = repo / "src/main/java/org/example/Name.java"
+    java_path.parent.mkdir(parents=True)
+    java_path.write_text(
+        """
+package org.example;
+
+public class Name {
+    /**
+     * Returns name.
+     */
+    public String get() {
+        return "name";
+    }
+}
+""".strip(),
+        encoding="utf-8",
+    )
+    git(repo, "add", ".")
+    git(repo, "commit", "-m", "initial")
+
+    java_path.write_text(
+        """
+package org.example;
+
+public class Name {
+    /**
+     * Returns display name.
+     */
+    public String get() {
+        return "name";
+    }
+}
+""".strip(),
+        encoding="utf-8",
+    )
+    git(repo, "add", ".")
+    git(repo, "commit", "-m", "LANG-1234 doc-only change")
+
+    def fail_issue_lookup(repo_url, issue_ids, commit_message):
+        raise AssertionError("issue lookup should not run when no sample is extracted")
+
+    monkeypatch.setattr(cli, "resolve_issue_context", fail_issue_lookup)
+
+    config = MinerConfig(
+        repo_url=str(repo),
+        cache_dir=tmp_path / "cache",
+        output_dir=tmp_path / "dataset",
+        max_commits=10,
+        max_samples=10,
+        min_quality="C",
+    )
+
+    assert mine_repository(config) == []

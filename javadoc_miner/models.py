@@ -1,4 +1,4 @@
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 
 
 @dataclass(frozen=True)
@@ -84,54 +84,108 @@ class OutputSample:
 
 @dataclass
 class ExtractionStats:
-    total_commits_processed: int = 0
+    total_commits_scanned: int = 0
     total_commits_containing_javadoc_changes: int = 0
-    total_samples_extracted: int = 0
-    quality_a_samples: int = 0
-    quality_b_samples: int = 0
-    quality_c_samples: int = 0
-    javadoc_additions: int = 0
-    javadoc_modifications: int = 0
-    javadoc_deletions: int = 0
-    method_additions: int = 0
-    method_modifications: int = 0
-    method_deletions: int = 0
+    total_samples_generated: int = 0
+    quality_distribution: dict[str, int] = field(
+        default_factory=lambda: {"A": 0, "B": 0, "C": 0}
+    )
+    method_change_distribution: dict[str, int] = field(
+        default_factory=lambda: {
+            "METHOD_ADDITION": 0,
+            "METHOD_MODIFICATION": 0,
+            "METHOD_DELETION": 0,
+        }
+    )
+    javadoc_change_distribution: dict[str, int] = field(
+        default_factory=lambda: {
+            "JAVADOC_ADDITION": 0,
+            "JAVADOC_MODIFICATION": 0,
+            "JAVADOC_DELETION": 0,
+        }
+    )
     target_a_samples: int = 40
     target_b_samples: int = 5
     target_c_samples: int = 5
     a_sample_yield: float = 0.0
     a_sample_density: float = 0.0
     a_sample_shortfall: int = 0
+    a_sample_shortfall_reason: str = ""
 
     def record(self, classification: Classification) -> None:
-        self.total_samples_extracted += 1
-        if classification.quality == "A":
-            self.quality_a_samples += 1
-        elif classification.quality == "B":
-            self.quality_b_samples += 1
-        elif classification.quality == "C":
-            self.quality_c_samples += 1
-
-        if classification.javadoc_change_type == "JAVADOC_ADDITION":
-            self.javadoc_additions += 1
-        elif classification.javadoc_change_type == "JAVADOC_MODIFICATION":
-            self.javadoc_modifications += 1
-        elif classification.javadoc_change_type == "JAVADOC_DELETION":
-            self.javadoc_deletions += 1
-
-        if classification.method_change_type == "METHOD_ADDITION":
-            self.method_additions += 1
-        elif classification.method_change_type == "METHOD_MODIFICATION":
-            self.method_modifications += 1
-        elif classification.method_change_type == "METHOD_DELETION":
-            self.method_deletions += 1
+        self.total_samples_generated += 1
+        if classification.quality in self.quality_distribution:
+            self.quality_distribution[classification.quality] += 1
+        if classification.method_change_type in self.method_change_distribution:
+            self.method_change_distribution[classification.method_change_type] += 1
+        if classification.javadoc_change_type in self.javadoc_change_distribution:
+            self.javadoc_change_distribution[classification.javadoc_change_type] += 1
 
     def finalize(self) -> None:
-        if self.total_commits_processed:
-            self.a_sample_yield = self.quality_a_samples / self.total_commits_processed
-        if self.total_samples_extracted:
-            self.a_sample_density = self.quality_a_samples / self.total_samples_extracted
-        self.a_sample_shortfall = max(0, self.target_a_samples - self.quality_a_samples)
+        a_samples = self.quality_distribution["A"]
+        if self.total_commits_scanned:
+            self.a_sample_yield = a_samples / self.total_commits_scanned
+        if self.total_samples_generated:
+            self.a_sample_density = a_samples / self.total_samples_generated
+        self.a_sample_shortfall = max(0, self.target_a_samples - a_samples)
+        if self.a_sample_shortfall:
+            self.a_sample_shortfall_reason = (
+                f"Only {a_samples} A-quality samples were generated. "
+                "A-quality requires METHOD_MODIFICATION plus JAVADOC_MODIFICATION "
+                "at the same entity level, so B/C samples were not used to fill the A target."
+            )
+        else:
+            self.a_sample_shortfall_reason = ""
 
     def to_json_dict(self) -> dict:
-        return asdict(self)
+        data = asdict(self)
+        data["target_distribution"] = {
+            "A": self.target_a_samples,
+            "B": self.target_b_samples,
+            "C": self.target_c_samples,
+        }
+        return data
+
+    @property
+    def total_commits_processed(self) -> int:
+        return self.total_commits_scanned
+
+    @property
+    def total_samples_extracted(self) -> int:
+        return self.total_samples_generated
+
+    @property
+    def quality_a_samples(self) -> int:
+        return self.quality_distribution["A"]
+
+    @property
+    def quality_b_samples(self) -> int:
+        return self.quality_distribution["B"]
+
+    @property
+    def quality_c_samples(self) -> int:
+        return self.quality_distribution["C"]
+
+    @property
+    def javadoc_additions(self) -> int:
+        return self.javadoc_change_distribution["JAVADOC_ADDITION"]
+
+    @property
+    def javadoc_modifications(self) -> int:
+        return self.javadoc_change_distribution["JAVADOC_MODIFICATION"]
+
+    @property
+    def javadoc_deletions(self) -> int:
+        return self.javadoc_change_distribution["JAVADOC_DELETION"]
+
+    @property
+    def method_additions(self) -> int:
+        return self.method_change_distribution["METHOD_ADDITION"]
+
+    @property
+    def method_modifications(self) -> int:
+        return self.method_change_distribution["METHOD_MODIFICATION"]
+
+    @property
+    def method_deletions(self) -> int:
+        return self.method_change_distribution["METHOD_DELETION"]

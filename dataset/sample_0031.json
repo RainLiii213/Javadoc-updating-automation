@@ -1,20 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "531e2a2cf1c1e56708859ad2579a5e5760140714",
-  "commit_url": "https://github.com/apache/commons-lang/commit/531e2a2cf1c1e56708859ad2579a5e5760140714",
-  "issue": "#1680",
-  "issues": [
-    "#1680",
-    "LICENSE-2"
-  ],
-  "entity_type": "class",
-  "entity_name": "Instants",
-  "old_javadoc": "",
-  "new_javadoc": "/**\n * Works with {@link Instant}s.\n *\n * @since 3.21.0\n */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/Instants.java b/src/main/java/org/apache/commons/lang3/time/Instants.java\n--- a/src/main/java/org/apache/commons/lang3/time/Instants.java\n+++ b/src/main/java/org/apache/commons/lang3/time/Instants.java\n@@ -0,0 +19,38 @@\n+\n+import java.time.Instant;\n+\n+/**\n+ * Works with {@link Instant}s.\n+ *\n+ * @since 3.21.0\n+ */\n+public class Instants {\n+\n+    /**\n+     * Converts an Instant to milliseconds bound to a {@code long} without throwing {@link ArithmeticException}.\n+     * <ul>\n+     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n+     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n+     * </ul>\n+     *\n+     * @param instant The instant to convert, not null.\n+     * @return long milliseconds.\n+     * @see Instant#toEpochMilli()\n+     * @see Long#MIN_VALUE\n+     * @see Long#MAX_VALUE\n+     */\n+    public static long toEpochMillis(final Instant instant) {\n+        try {\n+            return instant.toEpochMilli();\n+        } catch (final ArithmeticException e) {\n+            return instant.getEpochSecond() < 0 ? Long.MIN_VALUE : Long.MAX_VALUE;\n+        }\n+    }\n+\n+    /**\n+     * No instances needed.\n+     */\n+    private Instants() {\n+        // empty.\n+    }\n+}",
-  "commit_message": "Add Instants.toEpochMillis(Instant) (#1680)",
-  "change_type": "class_addition",
-  "javadoc_change_type": "JAVADOC_ADDITION",
-  "method_change_type": "METHOD_UNCHANGED",
-  "quality": "B"
+  "commit_hash": "4052e9862bf540f0b294bcf58aad5b5e85eae4ad",
+  "commit_message": "LANG-1818: Fix ClassUtils.getShortClassName(Class) to correctly handle $ in valid class names (#1591)\n\n* fix lang-1818\n\n* fix review comments\n\n* Checkstyle\n\n---------\n\nCo-authored-by: Gary Gregory <garydgregory@users.noreply.github.com>",
+  "issue_summary": "ClassUtils.getShortClassName(Class) misinterprets '$' in legitimate class names",
+  "code_before": "public static String getShortClassName(final Class<?> cls) {\n        if (cls == null) {\n            return StringUtils.EMPTY;\n        }\n        return getShortClassName(cls.getName());\n    }",
+  "code_after": "public static String getShortClassName(final Class<?> cls) {\n        if (cls == null) {\n            return StringUtils.EMPTY;\n        }\n        int dim = 0;\n        Class<?> c = cls;\n        while (c.isArray()) {\n            dim++;\n            c = c.getComponentType();\n        }\n        final String base;\n        // Preserve legacy behavior for anonymous/local classes (keeps compiler ordinals: $13, $10Named, etc.)\n        if (c.isAnonymousClass() || c.isLocalClass()) {\n            base = getShortClassName(c.getName());\n        } else {\n            final Deque<String> parts = new ArrayDeque<>();\n            Class<?> x = c;\n            while (x != null) {\n                parts.push(x.getSimpleName());\n                x = x.getDeclaringClass();\n            }\n            base = String.join(\".\", parts);\n        }\n        return base + StringUtils.repeat(\"[]\", dim);\n    }",
+  "javadoc_before": "/**\n     * Gets the class name minus the package name from a {@link Class}.\n     *\n     * <p>\n     * This method simply gets the name using {@code Class.getName()} and then calls {@link #getShortClassName(String)}. See\n     * relevant notes there.\n     * </p>\n     *\n     * @param cls the class to get the short name for.\n     * @return the class name without the package name or an empty string. If the class is an inner class then the returned\n     *         value will contain the outer class or classes separated with {@code .} (dot) character.\n     */",
+  "javadoc_after": "/**\n     * Gets the class name minus the package name from a {@link Class}.\n     *\n     * @param cls the class to get the short name for.\n     * @return the class name without the package name or an empty string. If the class is an inner class then the returned\n     *         value will contain the outer class or classes separated with {@code .} (dot) character.\n     */",
+  "entity_name": "getShortClassName",
+  "entity_signature": "public static String getShortClassName(final Class<?> cls)",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "A",
+  "issue_id": "LANG-1818",
+  "commit_url": "https://github.com/apache/commons-lang/commit/4052e9862bf540f0b294bcf58aad5b5e85eae4ad",
+  "entity_type": "method"
 }

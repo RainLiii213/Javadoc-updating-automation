@@ -1,21 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "9b95001e9801399c62794aadacf198c787d960a9",
-  "commit_url": "https://github.com/apache/commons-lang/commit/9b95001e9801399c62794aadacf198c787d960a9",
-  "issue": "LANG-1825",
-  "issues": [
-    "LANG-1825",
-    "#1647",
-    "LANG-1356"
-  ],
-  "entity_type": "method",
-  "entity_name": "setAccessibleTrue",
-  "old_javadoc": "",
-  "new_javadoc": "/**\n     * Sets the field as accessible by calling {@link AccessibleObject#setAccessible(boolean) AccessibleObject#setAccessible(true)} but <em>only</em> if a field\n     * is not already accessible.\n     *\n     * @param field The field to set, may be null.\n     * @return true if the field is accessible, false otherwise.\n     * @throws SecurityException Thrown if {@code forceAccessible} flag is true and the request is denied.\n     * @see AccessibleObject#setAccessible(boolean)\n     * @see SecurityManager#checkPermission\n     */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java b/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n--- a/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n+++ b/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n@@ -0,0 +126,23 @@\n+        return !field.isAccessible() && forceAccessible && setAccessibleTrue(field);\n+    }\n+\n+    /**\n+     * Sets the field as accessible by calling {@link AccessibleObject#setAccessible(boolean) AccessibleObject#setAccessible(true)} but <em>only</em> if a field\n+     * is not already accessible.\n+     *\n+     * @param field The field to set, may be null.\n+     * @return true if the field is accessible, false otherwise.\n+     * @throws SecurityException Thrown if {@code forceAccessible} flag is true and the request is denied.\n+     * @see AccessibleObject#setAccessible(boolean)\n+     * @see SecurityManager#checkPermission\n+     */\n+    private static boolean setAccessibleTrue(final Field field) {\n+        if (field != null) {\n+            // Test isAccessible() to avoid the permission check.\n+            if (!field.isAccessible()) {\n+                field.setAccessible(true);\n+            }\n+            return field.isAccessible();\n+        }\n+        return false;\n+    }",
-  "commit_message": "[LANG-1825] EqualsBuilder.reflectionAppend tries to set visibility on (#1647)\n\nexcluded fields\n\nDon't force fields to be accessible when excluded.",
-  "change_type": "method_addition",
-  "javadoc_change_type": "JAVADOC_ADDITION",
-  "method_change_type": "METHOD_ADDITION",
-  "quality": "B"
+  "commit_hash": "8e2d1bed8623e0f5b281504d151476689f21690a",
+  "commit_message": "CompareToBuilder lacks cycle guard on Object[] recursion. (#1669)",
+  "issue_summary": "CompareToBuilder lacks cycle guard on Object[] recursion.",
+  "code_before": "static Pair<IDKey, IDKey> getRegisterPair(final Object lhs, final Object rhs) {\n        return Pair.of(new IDKey(lhs), new IDKey(rhs));\n    }",
+  "code_after": "",
+  "javadoc_before": "/**\n     * Converters value pair into a register pair.\n     *\n     * @param lhs {@code this} object\n     * @param rhs the other object\n     * @return the pair\n     */",
+  "javadoc_after": "",
+  "entity_name": "getRegisterPair",
+  "entity_signature": "static Pair<IDKey, IDKey> getRegisterPair(final Object lhs, final Object rhs)",
+  "javadoc_change_type": "JAVADOC_DELETION",
+  "method_change_type": "METHOD_DELETION",
+  "quality": "C",
+  "issue_id": "#1669",
+  "commit_url": "https://github.com/apache/commons-lang/commit/8e2d1bed8623e0f5b281504d151476689f21690a",
+  "entity_type": "method"
 }

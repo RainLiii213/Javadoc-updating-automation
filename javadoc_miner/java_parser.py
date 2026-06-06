@@ -92,7 +92,9 @@ def _parse_declaration(
             code_end_line=code_end_line,
         )
 
-    if "(" not in declaration or ")" not in declaration:
+    equals_index = declaration.find("=")
+    paren_index = declaration.find("(")
+    if "(" not in declaration or ")" not in declaration or (equals_index != -1 and equals_index < paren_index):
         return _parse_field(declaration, javadoc, start_line, end_line, code_start_line, code_end_line)
     return _parse_method(declaration, javadoc, start_line, end_line, code_start_line, code_end_line)
 

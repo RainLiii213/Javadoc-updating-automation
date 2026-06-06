@@ -1,19 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "2c0b8483606efbfbaccf600e3bc31fe10533e004",
-  "commit_url": "https://github.com/apache/commons-lang/commit/2c0b8483606efbfbaccf600e3bc31fe10533e004",
-  "issue": "#1674",
-  "issues": [
-    "#1674"
-  ],
-  "entity_type": "method",
-  "entity_name": "getTimeZone",
-  "old_javadoc": "/**\n     * Gets a TimeZone, looking first for GMT custom ids, then falling back to Olson ids.\n     * A GMT custom id can be 'Z', or 'UTC', or has an optional prefix of GMT,\n     * followed by sign, hours digit(s), optional colon(':'), and optional minutes digits.\n     * i.e. <em>[GMT] (+|-) Hours [[:] Minutes]</em>\n     *\n     * @param id A GMT custom id (or Olson id\n     * @return A time zone\n     */",
-  "new_javadoc": "/**\n     * Gets a TimeZone, looking first for GMT custom ids, then falling back to Olson ids. A GMT custom id can be 'Z', or 'UTC', or has an optional prefix of\n     * GMT, followed by sign, hours digit(s), optional colon(':'), and optional minutes digits. i.e. <em>[GMT] (+|-) Hours [[:] Minutes]</em>\n     *\n     * @param id A GMT custom id or Olson id.\n     * @return A time zone.\n     */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java b/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java\n--- a/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java\n+++ b/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java\n@@ -65,18 +73,13 @@\n     }\n \n     /**\n-     * Gets a TimeZone, looking first for GMT custom ids, then falling back to Olson ids.\n-     * A GMT custom id can be 'Z', or 'UTC', or has an optional prefix of GMT,\n-     * followed by sign, hours digit(s), optional colon(':'), and optional minutes digits.\n-     * i.e. <em>[GMT] (+|-) Hours [[:] Minutes]</em>\n+     * Gets a TimeZone, looking first for GMT custom ids, then falling back to Olson ids. A GMT custom id can be 'Z', or 'UTC', or has an optional prefix of\n+     * GMT, followed by sign, hours digit(s), optional colon(':'), and optional minutes digits. i.e. <em>[GMT] (+|-) Hours [[:] Minutes]</em>\n      *\n-     * @param id A GMT custom id (or Olson id\n-     * @return A time zone\n+     * @param id A GMT custom id or Olson id.\n+     * @return A time zone.\n      */\n     public static TimeZone getTimeZone(final String id) {\n         final TimeZone tz = getGmtTimeZone(id);\n-        if (tz != null) {\n-            return tz;\n-        }\n-        return TimeZones.getTimeZone(id);\n+        return tz != null ? tz : TimeZones.getTimeZone(id);\n     }",
-  "commit_message": "FastTimeZone.getGmtTimeZone() Javadoc promises null on no-match; regex always matches. (#1674)\n\n* NumericEntityUnescaper.translate() for entity values out of range passed\nto Character.toChars() throw IllegalArgumentException\n\n* FastTimeZone.getGmtTimeZone Javadoc promises null on no-match; regex\nalways matches\n\n- Use ternary expression\n- Add Javadoc\n- Update Javadoc\n- Add tests",
-  "change_type": "nearby_code_and_javadoc_change",
+  "commit_hash": "9b95001e9801399c62794aadacf198c787d960a9",
+  "commit_message": "[LANG-1825] EqualsBuilder.reflectionAppend tries to set visibility on (#1647)\n\nexcluded fields\n\nDon't force fields to be accessible when excluded.",
+  "issue_summary": "EqualsBuilder.reflectionAppend tries to set visibility on excluded fields",
+  "code_before": "static void setAccessible(final boolean forceAccessible, final Field... fields) {\n        if (forceAccessible) {\n            for (final Field field : fields) {\n                // Test to avoid the permission check if there is a security manager.\n                if (field != null && !field.isAccessible()) {\n                    field.setAccessible(true);\n                }\n            }\n        }\n    }",
+  "code_after": "static boolean setAccessible(final boolean forceAccessible, final Field field) {\n        return !field.isAccessible() && forceAccessible && setAccessibleTrue(field);\n    }",
+  "javadoc_before": "/**\n     * If {@code forceAccessible} flag is true, each field in the given array is made accessible by calling {@link AccessibleObject#setAccessible(boolean)\n     * AccessibleObject#setAccessible(true)} but <em>only</em> if a field is not already accessible.\n     *\n     * @param forceAccessible Whether to call {@link AccessibleObject#setAccessible(boolean)} if a field is not already accessible.\n     * @param fields          The fields to set.\n     * @throws SecurityException Thrown if {@code forceAccessible} flag is true and the request is denied.\n     * @see AccessibleObject#setAccessible(boolean)\n     * @see SecurityManager#checkPermission\n     */",
+  "javadoc_after": "/**\n     * If {@code forceAccessible} flag is true, then the field is made accessible by calling {@link AccessibleObject#setAccessible(boolean)\n     * AccessibleObject#setAccessible(true)} but <em>only</em> if a field is not already accessible.\n     *\n     * @param forceAccessible Whether to call {@link AccessibleObject#setAccessible(boolean)} if a field is not already accessible.\n     * @param field          The field to set.\n     * @return true if the field is accessible, false otherwise.\n     * @throws SecurityException Thrown if {@code forceAccessible} flag is true and the request is denied.\n     * @see AccessibleObject#setAccessible(boolean)\n     * @see SecurityManager#checkPermission\n     */",
+  "entity_name": "setAccessible",
+  "entity_signature": "static boolean setAccessible(final boolean forceAccessible, final Field field)",
   "javadoc_change_type": "JAVADOC_MODIFICATION",
   "method_change_type": "METHOD_MODIFICATION",
-  "quality": "C"
+  "quality": "A",
+  "issue_id": "LANG-1825",
+  "commit_url": "https://github.com/apache/commons-lang/commit/9b95001e9801399c62794aadacf198c787d960a9",
+  "entity_type": "method"
 }

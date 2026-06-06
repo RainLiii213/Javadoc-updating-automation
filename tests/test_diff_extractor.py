@@ -20,6 +20,40 @@ def test_parse_changed_paths_filters_main_java_files():
     assert parse_changed_paths(name_status) == ["src/main/java/org/example/Foo.java"]
 
 
+def test_parse_changed_paths_keeps_deleted_main_java_files():
+    name_status = "\n".join(
+        [
+            "D\tsrc/main/java/org/example/Removed.java",
+            "D\tsrc/test/java/org/example/RemovedTest.java",
+        ]
+    )
+
+    assert parse_changed_paths(name_status) == ["src/main/java/org/example/Removed.java"]
+
+
+def test_extract_file_changes_does_not_carry_full_commit_patch():
+    from javadoc_miner.diff_extractor import extract_file_changes
+
+    class FakeRepo:
+        def show_name_status(self, commit_hash):
+            return "M\tsrc/main/java/org/example/Foo.java"
+
+        def show_commit_patch(self, commit_hash):
+            raise AssertionError("full commit patch should not be loaded into FileChange")
+
+        def show_file(self, commit_ref, path):
+            if commit_ref.endswith("^"):
+                return "old"
+            return "new"
+
+    changes = extract_file_changes(FakeRepo(), "abc123")
+
+    assert len(changes) == 1
+    assert changes[0].old_content == "old"
+    assert changes[0].new_content == "new"
+    assert changes[0].patch == ""
+
+
 def test_commit_has_javadoc_and_code_changes_requires_both():
     patch = """
 diff --git a/src/main/java/Foo.java b/src/main/java/Foo.java

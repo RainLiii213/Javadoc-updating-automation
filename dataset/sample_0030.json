@@ -1,19 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "bd7ffdf5b27004908f10345f3048d4790291fbe0",
-  "commit_url": "https://github.com/apache/commons-lang/commit/bd7ffdf5b27004908f10345f3048d4790291fbe0",
-  "issue": "#1681",
-  "issues": [
-    "#1681"
-  ],
-  "entity_type": "method",
-  "entity_name": "trimControl",
-  "old_javadoc": "",
-  "new_javadoc": "/**\n     * Removes control characters (char &lt;= 31) from both ends of this String, handling {@code null} by returning {@code null}.\n     *\n     * <p>\n     * To trim your choice of characters, use the {@link #strip(String, String)} methods.\n     * </p>\n     *\n     * <pre>{@code\n     * StringUtils.trim(null)          = null\n     * StringUtils.trim(\"\")            = \"\"\n     * StringUtils.trim(\"abc\\u0000\")   = \"abc\"\n     * StringUtils.trim(\"abc\")         = \"abc\"\n     * StringUtils.trim(\" abc \")       = \" abc \"\n     * }</pre>\n     *\n     * @param str the String to be trimmed, may be null.\n     * @return the trimmed string, {@code null} if null String input.\n     * @since 3.21.0\n     */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java\n--- a/src/main/java/org/apache/commons/lang3/StringUtils.java\n+++ b/src/main/java/org/apache/commons/lang3/StringUtils.java\n@@ -0,0 +8777,37 @@\n+        return str == null ? null : str.trim();\n+    }\n+\n+    /**\n+     * Removes control characters (char &lt;= 31) from both ends of this String, handling {@code null} by returning {@code null}.\n+     *\n+     * <p>\n+     * To trim your choice of characters, use the {@link #strip(String, String)} methods.\n+     * </p>\n+     *\n+     * <pre>{@code\n+     * StringUtils.trim(null)          = null\n+     * StringUtils.trim(\"\")            = \"\"\n+     * StringUtils.trim(\"abc\\u0000\")   = \"abc\"\n+     * StringUtils.trim(\"abc\")         = \"abc\"\n+     * StringUtils.trim(\" abc \")       = \" abc \"\n+     * }</pre>\n+     *\n+     * @param str the String to be trimmed, may be null.\n+     * @return the trimmed string, {@code null} if null String input.\n+     * @since 3.21.0\n+     */\n+    public static String trimControl(final String str) {\n+        if (str == null) {\n+            return null;\n+        }\n+        int len = str.length();\n+        int st = 0;\n+\n+        while (st < len && str.charAt(st) < ' ') {\n+            st++;\n+        }\n+        while (st < len && str.charAt(len - 1) < ' ') {\n+            len--;\n+        }\n+        return st > 0 || len < str.length() ? str.substring(st, len) : str;\n+    }",
-  "commit_message": "Add StringUtils.trimControl(String) (#1681)",
-  "change_type": "method_addition",
-  "javadoc_change_type": "JAVADOC_ADDITION",
-  "method_change_type": "METHOD_ADDITION",
-  "quality": "B"
+  "commit_hash": "e1ffb6ea0b9e21ea71c4540b0fca4db8e4c1dd93",
+  "commit_message": "ThreadUtils.sleepQuietly(Duration) now restores the current thread's\ninterrupt flag when catching InterruptedException.",
+  "issue_summary": "ArrayUtils contains/indexOf/indexesOf with tolerance fail to match NaN values",
+  "code_before": "public static void sleepQuietly(final Duration duration) {\n        try {\n            sleep(duration);\n        } catch (final InterruptedException ignore) {\n            // Ignore & be quiet.\n        }\n    }",
+  "code_after": "public static void sleepQuietly(final Duration duration) {\n        try {\n            sleep(duration);\n        } catch (final InterruptedException ignore) {\n            Thread.currentThread().interrupt();\n        }\n    }",
+  "javadoc_before": "/**\n     * Sleeps for the given duration while ignoring {@link InterruptedException}.\n     * <p>\n     * The sleep duration may be shorter than duration if we catch a {@link InterruptedException}.\n     * </p>\n     *\n     * @param duration the length of time to sleep.\n     * @since 3.13.0\n     */",
+  "javadoc_after": "/**\n     * Sleeps for the given duration without throwing {@link InterruptedException}.\n     * <p>\n     * The sleep duration may be shorter than the given duration if we catch a {@link InterruptedException}.\n     * </p>\n     *\n     * @param duration the length of time to sleep.\n     * @see #sleep(Duration)\n     * @see Thread#interrupted()\n     * @since 3.13.0\n     */",
+  "entity_name": "sleepQuietly",
+  "entity_signature": "public static void sleepQuietly(final Duration duration)",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "A",
+  "issue_id": "LANG-1816",
+  "commit_url": "https://github.com/apache/commons-lang/commit/e1ffb6ea0b9e21ea71c4540b0fca4db8e4c1dd93",
+  "entity_type": "method"
 }

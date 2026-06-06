@@ -1,19 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "2c0b8483606efbfbaccf600e3bc31fe10533e004",
-  "commit_url": "https://github.com/apache/commons-lang/commit/2c0b8483606efbfbaccf600e3bc31fe10533e004",
-  "issue": "#1674",
-  "issues": [
-    "#1674"
-  ],
-  "entity_type": "method",
-  "entity_name": "getGmtTimeZone",
-  "old_javadoc": "/**\n     * Gets a TimeZone with GMT offsets.  A GMT offset must be either 'Z', or 'UTC', or match\n     * <em>(GMT)? hh?(:?mm?)?</em>, where h and m are digits representing hours and minutes.\n     *\n     * @param pattern The GMT offset\n     * @return A TimeZone with offset from GMT or null, if pattern does not match.\n     */",
-  "new_javadoc": "/**\n     * Gets a TimeZone with GMT offsets. A GMT offset must be either 'Z', or 'UTC', or match <em>(GMT)? hh?(:?mm?)?</em>, where h and m are digits representing\n     * hours and minutes.\n     *\n     * <p>\n     * Note: the underlying regex is lenient — every capture group (sign, hours, minutes, and the {@code GMT} prefix) is optional. Inputs that lack any digit\n     * group, such as the empty string, {@code \"+\"}, {@code \"-\"}, or {@code \"GMT\"} alone, still match and the method returns the GMT TimeZone with a raw offset\n     * of zero (mirroring {@link TimeZone#getTimeZone(String)} JDK-parity for unrecognized ids). Only inputs that fail the regex outright return\n     * {@code null}.\n     * </p>\n     *\n     * @param pattern The GMT offset.\n     * @return a TimeZone matching the (possibly partial or empty) GMT offset pattern, defaulting to GMT for an unrecognized but parseable input, or\n     *         {@code null} if the pattern fails the regex.\n     */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java b/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java\n--- a/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java\n+++ b/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java\n@@ -41,17 +42,24 @@\n     }\n \n     /**\n-     * Gets a TimeZone with GMT offsets.  A GMT offset must be either 'Z', or 'UTC', or match\n-     * <em>(GMT)? hh?(:?mm?)?</em>, where h and m are digits representing hours and minutes.\n+     * Gets a TimeZone with GMT offsets. A GMT offset must be either 'Z', or 'UTC', or match <em>(GMT)? hh?(:?mm?)?</em>, where h and m are digits representing\n+     * hours and minutes.\n      *\n-     * @param pattern The GMT offset\n-     * @return A TimeZone with offset from GMT or null, if pattern does not match.\n+     * <p>\n+     * Note: the underlying regex is lenient — every capture group (sign, hours, minutes, and the {@code GMT} prefix) is optional. Inputs that lack any digit\n+     * group, such as the empty string, {@code \"+\"}, {@code \"-\"}, or {@code \"GMT\"} alone, still match and the method returns the GMT TimeZone with a raw offset\n+     * of zero (mirroring {@link TimeZone#getTimeZone(String)} JDK-parity for unrecognized ids). Only inputs that fail the regex outright return\n+     * {@code null}.\n+     * </p>\n+     *\n+     * @param pattern The GMT offset.\n+     * @return a TimeZone matching the (possibly partial or empty) GMT offset pattern, defaulting to GMT for an unrecognized but parseable input, or\n+     *         {@code null} if the pattern fails the regex.\n      */\n     public static TimeZone getGmtTimeZone(final String pattern) {\n         if (\"Z\".equals(pattern) || \"UTC\".equals(pattern)) {\n             return GREENWICH;\n         }\n-\n         final Matcher m = GMT_PATTERN.matcher(pattern);\n         if (m.matches()) {\n             final int hours = parseInt(m.group(2));",
-  "commit_message": "FastTimeZone.getGmtTimeZone() Javadoc promises null on no-match; regex always matches. (#1674)\n\n* NumericEntityUnescaper.translate() for entity values out of range passed\nto Character.toChars() throw IllegalArgumentException\n\n* FastTimeZone.getGmtTimeZone Javadoc promises null on no-match; regex\nalways matches\n\n- Use ternary expression\n- Add Javadoc\n- Update Javadoc\n- Add tests",
-  "change_type": "nearby_code_and_javadoc_change",
+  "commit_hash": "552d7d07d06708961b12272280cca3704901b835",
+  "commit_message": "ToStringStyle.appendDetail(StringBuffer,String,Collection|Map) bypass (#1648)\n\ncycle registry.\n\nFixes Stack overflow on mutually-referential collections",
+  "issue_summary": "ToStringStyle.appendDetail(StringBuffer,String,Collection|Map) bypass cycle registry.",
+  "code_before": "private static final ThreadLocal<WeakHashMap<Object, Object>> REGISTRY = ThreadLocal.withInitial(WeakHashMap::new);",
+  "code_after": "private static final ThreadLocal<IdentityHashMap<Object, Object>> REGISTRY = ThreadLocal.withInitial(IdentityHashMap::new);",
+  "javadoc_before": "/**\n     * A registry of objects used by {@code reflectionToString} methods to detect cyclical object references and avoid infinite loops.\n     */",
+  "javadoc_after": "/**\n     * A registry of objects used by {@code reflectionToString} methods to detect cyclical object references and avoid infinite loops.\n     * Identity-based comparison is required so that cyclic objects (e.g. an ArrayList whose hashCode() would recurse) can be\n     * registered and looked up without triggering infinite recursion through equals/hashCode.\n     */",
+  "entity_name": "REGISTRY",
+  "entity_signature": "private static final ThreadLocal<IdentityHashMap<Object, Object>> REGISTRY",
   "javadoc_change_type": "JAVADOC_MODIFICATION",
   "method_change_type": "METHOD_MODIFICATION",
-  "quality": "C"
+  "quality": "A",
+  "issue_id": "#1648",
+  "commit_url": "https://github.com/apache/commons-lang/commit/552d7d07d06708961b12272280cca3704901b835",
+  "entity_type": "field"
 }

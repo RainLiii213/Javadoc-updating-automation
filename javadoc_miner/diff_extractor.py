@@ -11,10 +11,7 @@ def parse_changed_paths(name_status: str) -> list[str]:
         parts = line.split("\t")
         if not parts:
             continue
-        status = parts[0]
         path = parts[-1]
-        if status.startswith("D"):
-            continue
         if is_target_java_path(path):
             paths.append(path)
     return paths
@@ -46,7 +43,6 @@ def commit_has_javadoc_changes(patch: str) -> bool:
 
 def extract_file_changes(repo: GitRepo, commit_hash: str) -> list[FileChange]:
     changed_paths = parse_changed_paths(repo.show_name_status(commit_hash))
-    patch = repo.show_commit_patch(commit_hash)
     changes: list[FileChange] = []
     for path in changed_paths:
         old_content = repo.show_file(f"{commit_hash}^", path)
@@ -56,7 +52,7 @@ def extract_file_changes(repo: GitRepo, commit_hash: str) -> list[FileChange]:
                 path=path,
                 old_content=old_content,
                 new_content=new_content,
-                patch=patch,
+                patch="",
             )
         )
     return changes

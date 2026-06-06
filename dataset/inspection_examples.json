@@ -1,0 +1,50 @@
+{
+  "A": [
+    {
+      "issue_summary": "Add Instants.toMillisSince(Instant)",
+      "code_before": "public static long toEpochMillis(final Instant instant) {\n        try {\n            return instant.toEpochMilli();\n        } catch (final ArithmeticException e) {\n            return instant.getEpochSecond() < 0 ? Long.MIN_VALUE : Long.MAX_VALUE;\n        }\n    }",
+      "code_after": "public static long toEpochMillis(final Instant instant) {\n        try {\n            return instant.toEpochMilli();\n        } catch (final ArithmeticException e) {\n            return toBound(instant, Long.MIN_VALUE, Long.MAX_VALUE);\n        }\n    }",
+      "javadoc_before": "/**\n     * Converts an Instant to milliseconds bound to a {@code long} without throwing {@link ArithmeticException}.\n     * <ul>\n     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n     * </ul>\n     *\n     * @param instant The instant to convert, not null.\n     * @return long milliseconds.\n     * @see Instant#toEpochMilli()\n     * @see Long#MIN_VALUE\n     * @see Long#MAX_VALUE\n     */",
+      "javadoc_after": "/**\n     * Converts an Instant to milliseconds bound to a {@code long} without throwing {@link ArithmeticException}.\n     * <ul>\n     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n     * </ul>\n     *\n     * @param instant The instant to convert, not null.\n     * @return long The given Instant in milliseconds.\n     * @see Instant#toEpochMilli()\n     * @see Long#MIN_VALUE\n     * @see Long#MAX_VALUE\n     */"
+    },
+    {
+      "issue_summary": "Add DurationUtils.toMillisLong(Duration)",
+      "code_before": "public static int toMillisInt(final Duration duration) {\n        Objects.requireNonNull(duration, \"duration\");\n        // intValue() does not do a narrowing conversion here\n        final long millis;\n        try {\n            millis = duration.toMillis();\n        } catch (final ArithmeticException e) {\n            return duration.isNegative() ? Integer.MIN_VALUE : Integer.MAX_VALUE;\n        }\n        return LONG_TO_INT_RANGE.fit(Long.valueOf(millis)).intValue();\n    }",
+      "code_after": "public static int toMillisInt(final Duration duration) {\n        Objects.requireNonNull(duration, \"duration\");\n        // intValue() does not do a narrowing conversion here\n        return LONG_TO_INT_RANGE.fit(Long.valueOf(toMillisLong(duration))).intValue();\n    }",
+      "javadoc_before": "/**\n     * Converts a Duration to milliseconds bound to an {@code int} (instead of a {@code long}).\n     * <p>\n     * Handy for low-level APIs that take millisecond timeouts in ints rather than longs.\n     * </p>\n     * <ul>\n     * <li>If the duration milliseconds are greater than {@link Integer#MAX_VALUE}, then return\n     * {@link Integer#MAX_VALUE}.</li>\n     * <li>If the duration milliseconds are lesser than {@link Integer#MIN_VALUE}, then return\n     * {@link Integer#MIN_VALUE}.</li>\n     * </ul>\n     *\n     * @param duration The duration to convert, not null.\n     * @return int milliseconds.\n     */",
+      "javadoc_after": "/**\n     * Converts a Duration to milliseconds bound to an {@code int} (instead of a {@code long}).\n     * <p>\n     * Handy for low-level APIs that take millisecond timeouts in ints rather than longs.\n     * </p>\n     * <ul>\n     * <li>If the duration milliseconds are greater than {@link Integer#MAX_VALUE}, then return {@link Integer#MAX_VALUE}.</li>\n     * <li>If the duration milliseconds are lesser than {@link Integer#MIN_VALUE}, then return {@link Integer#MIN_VALUE}.</li>\n     * </ul>\n     *\n     * @param duration The duration to convert, not null.\n     * @return int milliseconds.\n     * @see Duration#toMillis()\n     * @see Integer#MIN_VALUE\n     * @see Integer#MAX_VALUE\n     */"
+    }
+  ],
+  "B": [
+    {
+      "issue_summary": "Add CharUtils isHex(int), isAsciiNumeric(int), isOctal(int).",
+      "code_before": "",
+      "code_after": "public static boolean isAsciiNumeric(final int ch) {\n        return ch >= '0' && ch <= '9';\n    }",
+      "javadoc_before": "",
+      "javadoc_after": "/**\n     * Tests whether the character is ASCII 7 bit numeric.\n     *\n     * <pre>\n     *   CharUtils.isAsciiNumeric('a')  = false\n     *   CharUtils.isAsciiNumeric('A')  = false\n     *   CharUtils.isAsciiNumeric('3')  = true\n     *   CharUtils.isAsciiNumeric('-')  = false\n     *   CharUtils.isAsciiNumeric('\\n') = false\n     *   CharUtils.isAsciiNumeric('&copy;') = false\n     * </pre>\n     *\n     * @param ch  the code point to check.\n     * @return true if between 48 and 57 inclusive.\n     * @since 3.21.0\n     */"
+    },
+    {
+      "issue_summary": "Add CharUtils isHex(int), isAsciiNumeric(int), isOctal(int).",
+      "code_before": "",
+      "code_after": "public static boolean isHex(final int ch) {\n        return isAsciiNumeric(ch) || ch >= 'a' && ch <= 'f' || ch >= 'A' && ch <= 'F';\n    }",
+      "javadoc_before": "",
+      "javadoc_after": "/**\n     * Tests whether a character is a hexadecimal character.\n     *\n     * <pre>\n     *   CharUtils.isHex('0')  = true\n     *   CharUtils.isHex('3')  = true\n     *   CharUtils.isHex('9')  = true\n     *   CharUtils.isHex('a')  = true\n     *   CharUtils.isHex('f')  = true\n     *   CharUtils.isHex('g')  = false\n     *   CharUtils.isHex('A')  = true\n     *   CharUtils.isHex('F')  = true\n     *   CharUtils.isHex('G')  = false\n     *   CharUtils.isHex('#')  = false\n     *   CharUtils.isHex('-')  = false\n     *   CharUtils.isHex('\\n') = false\n     *   CharUtils.isHex('&copy;') = false\n     * </pre>\n     *\n     * @param ch  the code point to test.\n     * @return true if character is a hexadecimal character.\n     * @since 3.21.0\n     */"
+    }
+  ],
+  "C": [
+    {
+      "issue_summary": "CompareToBuilder lacks cycle guard on Object[] recursion.",
+      "code_before": "static Pair<IDKey, IDKey> getRegisterPair(final Object lhs, final Object rhs) {\n        return Pair.of(new IDKey(lhs), new IDKey(rhs));\n    }",
+      "code_after": "",
+      "javadoc_before": "/**\n     * Converters value pair into a register pair.\n     *\n     * @param lhs {@code this} object\n     * @param rhs the other object\n     * @return the pair\n     */",
+      "javadoc_after": ""
+    },
+    {
+      "issue_summary": "Add bypass option for classes to recursive and reflective EqualsBuilder",
+      "code_before": "public ToStringBuilder(final Object object, ToStringStyle style, StringBuffer buffer) {\n        if (style == null) {\n            style = getDefaultStyle();\n        }\n        if (buffer == null) {\n            buffer = new StringBuffer(512);\n        }\n        this.buffer = buffer;\n        this.style = style;\n        this.object = object;\n\n        style.appendStart(buffer, object);\n    }",
+      "code_after": "",
+      "javadoc_before": "/**\n     * Constructs a builder for the specified object.\n     *\n     * <p>If the style is {@code null}, the default style is used.</p>\n     *\n     * <p>If the buffer is {@code null}, a new one is created.</p>\n     *\n     * @param object  the Object to build a {@code toString} for, not recommended to be null\n     * @param style  the style of the {@code toString} to create, null uses the default style\n     * @param buffer  the {@link StringBuffer} to populate, may be null\n     */",
+      "javadoc_after": ""
+    }
+  ]
+}

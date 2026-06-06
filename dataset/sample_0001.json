@@ -1,21 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "9b95001e9801399c62794aadacf198c787d960a9",
-  "commit_url": "https://github.com/apache/commons-lang/commit/9b95001e9801399c62794aadacf198c787d960a9",
-  "issue": "LANG-1825",
-  "issues": [
-    "LANG-1825",
-    "#1647",
-    "LANG-1356"
-  ],
-  "entity_type": "method",
-  "entity_name": "setAccessible",
-  "old_javadoc": "/**\n     * If {@code forceAccessible} flag is true, each field in the given array is made accessible by calling {@link AccessibleObject#setAccessible(boolean)\n     * AccessibleObject#setAccessible(true)} but <em>only</em> if a field is not already accessible.\n     *\n     * @param forceAccessible Whether to call {@link AccessibleObject#setAccessible(boolean)} if a field is not already accessible.\n     * @param fields          The fields to set.\n     * @throws SecurityException Thrown if {@code forceAccessible} flag is true and the request is denied.\n     * @see AccessibleObject#setAccessible(boolean)\n     * @see SecurityManager#checkPermission\n     */",
-  "new_javadoc": "/**\n     * If {@code forceAccessible} flag is true, then the field is made accessible by calling {@link AccessibleObject#setAccessible(boolean)\n     * AccessibleObject#setAccessible(true)} but <em>only</em> if a field is not already accessible.\n     *\n     * @param forceAccessible Whether to call {@link AccessibleObject#setAccessible(boolean)} if a field is not already accessible.\n     * @param field          The field to set.\n     * @return true if the field is accessible, false otherwise.\n     * @throws SecurityException Thrown if {@code forceAccessible} flag is true and the request is denied.\n     * @see AccessibleObject#setAccessible(boolean)\n     * @see SecurityManager#checkPermission\n     */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java b/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n--- a/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n+++ b/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n@@ -112,22 +112,16 @@\n     }\n \n     /**\n-     * If {@code forceAccessible} flag is true, each field in the given array is made accessible by calling {@link AccessibleObject#setAccessible(boolean)\n+     * If {@code forceAccessible} flag is true, then the field is made accessible by calling {@link AccessibleObject#setAccessible(boolean)\n      * AccessibleObject#setAccessible(true)} but <em>only</em> if a field is not already accessible.\n      *\n      * @param forceAccessible Whether to call {@link AccessibleObject#setAccessible(boolean)} if a field is not already accessible.\n-     * @param fields          The fields to set.\n+     * @param field          The field to set.\n+     * @return true if the field is accessible, false otherwise.\n      * @throws SecurityException Thrown if {@code forceAccessible} flag is true and the request is denied.\n      * @see AccessibleObject#setAccessible(boolean)\n      * @see SecurityManager#checkPermission\n      */\n-    static void setAccessible(final boolean forceAccessible, final Field... fields) {\n-        if (forceAccessible) {\n-            for (final Field field : fields) {\n-                // Test to avoid the permission check if there is a security manager.\n-                if (field != null && !field.isAccessible()) {\n-                    field.setAccessible(true);\n-                }\n-            }\n-        }\n+    static boolean setAccessible(final boolean forceAccessible, final Field field) {\n+        return !field.isAccessible() && forceAccessible && setAccessibleTrue(field);\n     }",
-  "commit_message": "[LANG-1825] EqualsBuilder.reflectionAppend tries to set visibility on (#1647)\n\nexcluded fields\n\nDon't force fields to be accessible when excluded.",
-  "change_type": "parameter_change",
+  "commit_hash": "bda0680763ad90264b9cca8233bb3369c03f4e13",
+  "commit_message": "Add Instants.toMillisSince(Instant) (#1683)",
+  "issue_summary": "Add Instants.toMillisSince(Instant)",
+  "code_before": "public static long toEpochMillis(final Instant instant) {\n        try {\n            return instant.toEpochMilli();\n        } catch (final ArithmeticException e) {\n            return instant.getEpochSecond() < 0 ? Long.MIN_VALUE : Long.MAX_VALUE;\n        }\n    }",
+  "code_after": "public static long toEpochMillis(final Instant instant) {\n        try {\n            return instant.toEpochMilli();\n        } catch (final ArithmeticException e) {\n            return toBound(instant, Long.MIN_VALUE, Long.MAX_VALUE);\n        }\n    }",
+  "javadoc_before": "/**\n     * Converts an Instant to milliseconds bound to a {@code long} without throwing {@link ArithmeticException}.\n     * <ul>\n     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n     * </ul>\n     *\n     * @param instant The instant to convert, not null.\n     * @return long milliseconds.\n     * @see Instant#toEpochMilli()\n     * @see Long#MIN_VALUE\n     * @see Long#MAX_VALUE\n     */",
+  "javadoc_after": "/**\n     * Converts an Instant to milliseconds bound to a {@code long} without throwing {@link ArithmeticException}.\n     * <ul>\n     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n     * </ul>\n     *\n     * @param instant The instant to convert, not null.\n     * @return long The given Instant in milliseconds.\n     * @see Instant#toEpochMilli()\n     * @see Long#MIN_VALUE\n     * @see Long#MAX_VALUE\n     */",
+  "entity_name": "toEpochMillis",
+  "entity_signature": "public static long toEpochMillis(final Instant instant)",
   "javadoc_change_type": "JAVADOC_MODIFICATION",
   "method_change_type": "METHOD_MODIFICATION",
-  "quality": "A"
+  "quality": "A",
+  "issue_id": "#1683",
+  "commit_url": "https://github.com/apache/commons-lang/commit/bda0680763ad90264b9cca8233bb3369c03f4e13",
+  "entity_type": "method"
 }

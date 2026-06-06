@@ -1,5 +1,7 @@
 import argparse
+from dataclasses import dataclass
 from pathlib import Path
+from typing import TypeVar
 
 from .classifier import classify_entity_change, quality_meets_threshold
 from .config import MinerConfig
@@ -11,10 +13,36 @@ from .diff_extractor import (
     extract_file_changes,
 )
 from .git_repo import GitCommandError, GitRepo
-from .issue_finder import find_issues, resolve_issue_summary
+from .issue_finder import find_issues, resolve_issue_context
 from .java_parser import parse_entities
 from .models import Classification, EntityDoc, ExtractionStats, FileChange, OutputSample
 from .writer import SampleWriter
+
+
+@dataclass(frozen=True)
+class PendingOutputSample:
+    commit_hash: str
+    commit_message: str
+    issue_ids: list[str]
+    file_change: FileChange
+    old_entity: EntityDoc | None
+    new_entity: EntityDoc | None
+    classification: Classification
+
+    @property
+    def quality(self) -> str:
+        return self.classification.quality
+
+    @property
+    def javadoc_change_type(self) -> str:
+        return self.classification.javadoc_change_type
+
+    @property
+    def method_change_type(self) -> str:
+        return self.classification.method_change_type
+
+
+SelectableSample = TypeVar("SelectableSample", OutputSample, PendingOutputSample)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -44,7 +72,7 @@ def main(argv: list[str] | None = None) -> int:
 
 def mine_repository(config: MinerConfig) -> list[OutputSample]:
     repo = GitRepo.clone_or_update(config.repo_url, config.cache_dir, config.force_refresh)
-    samples: list[OutputSample] = []
+    candidate_samples: list[PendingOutputSample] = []
     scanned = 0
     javadoc_commits = 0
     code_and_javadoc_commits = 0
@@ -67,7 +95,6 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
             continue
 
         issues = find_issues(f"{commit_message}\n{patch}")
-        issue_summary = resolve_issue_summary(repo.repo_url, issues, commit_message)
         for file_change in file_changes:
             old_entities = parse_entities(file_change.old_content or "")
             new_entities = parse_entities(file_change.new_content or "")
@@ -77,13 +104,11 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
                 config.min_quality,
                 file_change,
             ):
-                samples.append(
-                    _build_output_sample(
-                        repo=repo,
+                candidate_samples.append(
+                    PendingOutputSample(
                         commit_hash=commit_hash,
                         commit_message=commit_message,
-                        issue_id=issues[0] if issues else "",
-                        issue_summary=issue_summary,
+                        issue_ids=issues,
                         file_change=file_change,
                         old_entity=old_entity,
                         new_entity=new_entity,
@@ -91,7 +116,8 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
                     )
                 )
 
-    samples, shortfall = _select_target_distribution(samples, config)
+    selected_candidates, shortfall = _select_target_distribution(candidate_samples, config)
+    samples = _build_output_samples(repo, selected_candidates)
     stats = _stats_for_samples(scanned, javadoc_commits, samples, config)
     SampleWriter(config.output_dir).write_samples(samples, stats)
     print(
@@ -100,21 +126,42 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
     )
     print(
         "Stats: "
-        f"samples={stats.total_samples_extracted}, "
-        f"A={stats.quality_a_samples}, "
-        f"B={stats.quality_b_samples}, "
-        f"C={stats.quality_c_samples}, "
-        f"javadoc_additions={stats.javadoc_additions}, "
-        f"javadoc_modifications={stats.javadoc_modifications}, "
-        f"javadoc_deletions={stats.javadoc_deletions}, "
-        f"method_additions={stats.method_additions}, "
-        f"method_modifications={stats.method_modifications}, "
-        f"method_deletions={stats.method_deletions}, "
+        f"samples_generated={stats.total_samples_generated}, "
+        f"quality_distribution={stats.quality_distribution}, "
+        f"javadoc_change_distribution={stats.javadoc_change_distribution}, "
+        f"method_change_distribution={stats.method_change_distribution}, "
         f"A_sample_yield={stats.a_sample_yield:.2%}, "
         f"A_sample_density={stats.a_sample_density:.2%}"
     )
     if shortfall:
-        print(f"Warning: requested {config.target_a_samples} A samples but found {stats.quality_a_samples}.")
+        print(stats.a_sample_shortfall_reason)
+    return samples
+
+
+def _build_output_samples(repo: GitRepo, candidates: list[PendingOutputSample]) -> list[OutputSample]:
+    samples: list[OutputSample] = []
+    issue_context_by_commit: dict[str, tuple[str, str]] = {}
+    for candidate in candidates:
+        if candidate.commit_hash not in issue_context_by_commit:
+            issue_context_by_commit[candidate.commit_hash] = resolve_issue_context(
+                repo.repo_url,
+                candidate.issue_ids,
+                candidate.commit_message,
+            )
+        issue_id, issue_summary = issue_context_by_commit[candidate.commit_hash]
+        samples.append(
+            _build_output_sample(
+                repo=repo,
+                commit_hash=candidate.commit_hash,
+                commit_message=candidate.commit_message,
+                issue_id=issue_id,
+                issue_summary=issue_summary,
+                file_change=candidate.file_change,
+                old_entity=candidate.old_entity,
+                new_entity=candidate.new_entity,
+                classification=candidate.classification,
+            )
+        )
     return samples
 
 
@@ -280,11 +327,11 @@ def _entity_code_changed(
     return entity_code_changed(file_change, old_entity, new_entity)
 
 
-def _prioritize_samples(samples: list[OutputSample]) -> list[OutputSample]:
+def _prioritize_samples(samples: list[SelectableSample]) -> list[SelectableSample]:
     return sorted(samples, key=_sample_priority)
 
 
-def _sample_priority(sample: OutputSample) -> tuple[int, int]:
+def _sample_priority(sample: SelectableSample) -> tuple[int, int]:
     if (
         sample.method_change_type == "METHOD_MODIFICATION"
         and sample.javadoc_change_type == "JAVADOC_MODIFICATION"
@@ -301,9 +348,9 @@ def _sample_priority(sample: OutputSample) -> tuple[int, int]:
 
 
 def _select_target_distribution(
-    samples: list[OutputSample],
+    samples: list[SelectableSample],
     config: MinerConfig,
-) -> tuple[list[OutputSample], bool]:
+) -> tuple[list[SelectableSample], bool]:
     prioritized = _prioritize_samples(samples)
     targets = {
         "A": config.target_a_samples,
@@ -319,13 +366,13 @@ def _select_target_distribution(
 
 
 def _stats_for_samples(
-    total_commits_processed: int,
+    total_commits_scanned: int,
     total_commits_containing_javadoc_changes: int,
     samples: list[OutputSample],
     config: MinerConfig,
 ) -> ExtractionStats:
     stats = ExtractionStats(
-        total_commits_processed=total_commits_processed,
+        total_commits_scanned=total_commits_scanned,
         total_commits_containing_javadoc_changes=total_commits_containing_javadoc_changes,
         target_a_samples=config.target_a_samples,
         target_b_samples=config.target_b_samples,

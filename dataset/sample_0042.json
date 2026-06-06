@@ -1,19 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "8e2d1bed8623e0f5b281504d151476689f21690a",
-  "commit_url": "https://github.com/apache/commons-lang/commit/8e2d1bed8623e0f5b281504d151476689f21690a",
-  "issue": "#1669",
-  "issues": [
-    "#1669"
-  ],
-  "entity_type": "method",
-  "entity_name": "getRegistry",
-  "old_javadoc": "",
-  "new_javadoc": "/**\n     * Gets the registry of object pairs being traversed by the reflection\n     * methods in the current thread.\n     *\n     * @return Set the registry of objects being traversed\n     */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java\n--- a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java\n+++ b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java\n@@ -0,0 +135,12 @@\n+        return new Builder();\n+    }\n+\n+    /**\n+     * Gets the registry of object pairs being traversed by the reflection\n+     * methods in the current thread.\n+     *\n+     * @return Set the registry of objects being traversed\n+     */\n+    static Set<Pair<IDKey, IDKey>> getRegistry() {\n+        return REGISTRY.get();\n+    }",
-  "commit_message": "CompareToBuilder lacks cycle guard on Object[] recursion. (#1669)",
-  "change_type": "method_addition",
+  "commit_hash": "9abd79314b19676c54eab02d441cfb3051bb2d8c",
+  "commit_message": "Add CharUtils isHex(int), isAsciiNumeric(int), isOctal(int). (#1685)",
+  "issue_summary": "Add CharUtils isHex(int), isAsciiNumeric(int), isOctal(int).",
+  "code_before": "",
+  "code_after": "public static boolean isHex(final int ch) {\n        return isAsciiNumeric(ch) || ch >= 'a' && ch <= 'f' || ch >= 'A' && ch <= 'F';\n    }",
+  "javadoc_before": "",
+  "javadoc_after": "/**\n     * Tests whether a character is a hexadecimal character.\n     *\n     * <pre>\n     *   CharUtils.isHex('0')  = true\n     *   CharUtils.isHex('3')  = true\n     *   CharUtils.isHex('9')  = true\n     *   CharUtils.isHex('a')  = true\n     *   CharUtils.isHex('f')  = true\n     *   CharUtils.isHex('g')  = false\n     *   CharUtils.isHex('A')  = true\n     *   CharUtils.isHex('F')  = true\n     *   CharUtils.isHex('G')  = false\n     *   CharUtils.isHex('#')  = false\n     *   CharUtils.isHex('-')  = false\n     *   CharUtils.isHex('\\n') = false\n     *   CharUtils.isHex('&copy;') = false\n     * </pre>\n     *\n     * @param ch  the code point to test.\n     * @return true if character is a hexadecimal character.\n     * @since 3.21.0\n     */",
+  "entity_name": "isHex",
+  "entity_signature": "public static boolean isHex(final int ch)",
   "javadoc_change_type": "JAVADOC_ADDITION",
   "method_change_type": "METHOD_ADDITION",
-  "quality": "B"
+  "quality": "B",
+  "issue_id": "#1685",
+  "commit_url": "https://github.com/apache/commons-lang/commit/9abd79314b19676c54eab02d441cfb3051bb2d8c",
+  "entity_type": "method"
 }

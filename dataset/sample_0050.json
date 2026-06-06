@@ -1,22 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "b353b31066b0f0626fcc743039161b2f2be63a1f",
-  "commit_url": "https://github.com/apache/commons-lang/commit/b353b31066b0f0626fcc743039161b2f2be63a1f",
-  "issue": "#1558",
-  "issues": [
-    "#1558",
-    "LICENSE-2",
-    "LANG-1356",
-    "LANG-1337"
-  ],
-  "entity_type": "method",
-  "entity_name": "setForceAccessible",
-  "old_javadoc": "",
-  "new_javadoc": "/**\n         * Whether the {@link AbstractReflection} subclass will call {@link AccessibleObject#setAccessible(boolean) AccessibleObject#setAccessible(true)} on\n         * inaccessible fields.\n         * <p>\n         * In general, controls whether the instances built by this builder will force the accessible flag for reflection.\n         * </p>\n         * <p>\n         * Defaults to {@code getForceAccessible()}, which defaults to true for compatibility.\n         * </p>\n         * <p>\n         * This default is read from the system property {@code \"AbstractReflection.forceAccessible\"}, which defaults to true for compatibility.\n         * </p>\n         * <p>\n         * The parsing rules are as {@link Boolean#parseBoolean(String)}.\n         * </p>\n         * <p>\n         * See subclassses for specific behavior.\n         * </p>\n         *\n         * @param forceAccessible Whether to force accessibility by calling {@link AccessibleObject#setAccessible(boolean)\n         *                        AccessibleObject#setAccessible(true)}.\n         * @return {@code this} instance.\n         * @see AccessibleObject#setAccessible(boolean)\n         */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java b/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n--- a/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n+++ b/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n@@ -0,0 +65,31 @@\n+            return (B) this;\n+        }\n+\n+        /**\n+         * Whether the {@link AbstractReflection} subclass will call {@link AccessibleObject#setAccessible(boolean) AccessibleObject#setAccessible(true)} on\n+         * inaccessible fields.\n+         * <p>\n+         * In general, controls whether the instances built by this builder will force the accessible flag for reflection.\n+         * </p>\n+         * <p>\n+         * Defaults to {@code getForceAccessible()}, which defaults to true for compatibility.\n+         * </p>\n+         * <p>\n+         * This default is read from the system property {@code \"AbstractReflection.forceAccessible\"}, which defaults to true for compatibility.\n+         * </p>\n+         * <p>\n+         * The parsing rules are as {@link Boolean#parseBoolean(String)}.\n+         * </p>\n+         * <p>\n+         * See subclassses for specific behavior.\n+         * </p>\n+         *\n+         * @param forceAccessible Whether to force accessibility by calling {@link AccessibleObject#setAccessible(boolean)\n+         *                        AccessibleObject#setAccessible(true)}.\n+         * @return {@code this} instance.\n+         * @see AccessibleObject#setAccessible(boolean)\n+         */\n+        public B setForceAccessible(final boolean forceAccessible) {\n+            this.forceAccessible = forceAccessible;\n+            return asThis();\n+        }",
-  "commit_message": "Make object accessibility optional (#1558)",
-  "change_type": "method_addition",
-  "javadoc_change_type": "JAVADOC_ADDITION",
-  "method_change_type": "METHOD_ADDITION",
-  "quality": "B"
+  "commit_hash": "19adcd792fb514e741cabdeda87e41f405fed268",
+  "commit_message": "Sort members",
+  "issue_summary": "Sort members",
+  "code_before": "private static final int MAX_DIMENSIONS = 255;",
+  "code_after": "",
+  "javadoc_before": "/**\n     * The maximum number of array dimensions.\n     */",
+  "javadoc_after": "",
+  "entity_name": "MAX_DIMENSIONS",
+  "entity_signature": "private static final int MAX_DIMENSIONS",
+  "javadoc_change_type": "JAVADOC_DELETION",
+  "method_change_type": "METHOD_DELETION",
+  "quality": "C",
+  "issue_id": "",
+  "commit_url": "https://github.com/apache/commons-lang/commit/19adcd792fb514e741cabdeda87e41f405fed268",
+  "entity_type": "field"
 }

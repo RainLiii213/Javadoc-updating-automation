@@ -1,19 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "d95e17f1c173a6259886e577cf5acc914ec44c2d",
-  "commit_url": "https://github.com/apache/commons-lang/commit/d95e17f1c173a6259886e577cf5acc914ec44c2d",
-  "issue": "#1679",
-  "issues": [
-    "#1679"
-  ],
-  "entity_type": "method",
-  "entity_name": "toMillisLong",
-  "old_javadoc": "",
-  "new_javadoc": "/**\n     * Converts a Duration to milliseconds bound to a {@code long} without throwing {@link ArithmeticException}.\n     * <ul>\n     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n     * </ul>\n     *\n     * @param duration The duration to convert, not null.\n     * @return long milliseconds.\n     * @see Duration#toMillis()\n     * @see Long#MIN_VALUE\n     * @see Long#MAX_VALUE\n     * @since 3.21.0\n     */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/DurationUtils.java b/src/main/java/org/apache/commons/lang3/time/DurationUtils.java\n--- a/src/main/java/org/apache/commons/lang3/time/DurationUtils.java\n+++ b/src/main/java/org/apache/commons/lang3/time/DurationUtils.java\n@@ -0,0 +256,25 @@\n+        return LONG_TO_INT_RANGE.fit(Long.valueOf(toMillisLong(duration))).intValue();\n+    }\n+\n+    /**\n+     * Converts a Duration to milliseconds bound to a {@code long} without throwing {@link ArithmeticException}.\n+     * <ul>\n+     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n+     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n+     * </ul>\n+     *\n+     * @param duration The duration to convert, not null.\n+     * @return long milliseconds.\n+     * @see Duration#toMillis()\n+     * @see Long#MIN_VALUE\n+     * @see Long#MAX_VALUE\n+     * @since 3.21.0\n+     */\n+    public static long toMillisLong(final Duration duration) {\n+        Objects.requireNonNull(duration, \"duration\");\n+        try {\n+            return duration.toMillis();\n+        } catch (final ArithmeticException e) {\n+            return duration.isNegative() ? Long.MIN_VALUE : Long.MAX_VALUE;\n+        }\n+    }",
-  "commit_message": "Add DurationUtils.toMillisLong(Duration) (#1679)",
-  "change_type": "method_addition",
-  "javadoc_change_type": "JAVADOC_ADDITION",
-  "method_change_type": "METHOD_ADDITION",
-  "quality": "B"
+  "commit_hash": "8089a0c2d3207ed26531f877352336baf1c6c5bb",
+  "commit_message": "[LANG-1806] NumberUtils.isParsable(\"1.f\") should return true (#1560)\n\n* Add testLang1641()\n\n* Rename some test methods\n\n* [LANG-1806] NumberUtils.isParsable(\"1.f\") should return true\n\n- Return true for numbers like 1.2e-5d and 1.2e-5f\n- Use a regular expression\n\n* [LANG-1806] NumberUtils.isParsable(\"1.f\") should return true\n\n- Return true for numbers like 1.2e-5d and 1.2e-5f\n- Return true when one of the following would work:\n-- Double.parseDouble(String)\n-- Float.parseFloat(String)\n-- Long.parseLong(String)\n-- Integer.parseInteger(String)\n\nThere are so many cases that it's simpler to try to parse and catch\nexceptions, instead of re-creating all the parsing rules from the JRE.\nThe only downside is that number instances are created and discarded.",
+  "issue_summary": "NumberUtils.isParsable(\"1.f\") should return true",
+  "code_before": "public static boolean isParsable(final String str) {\n        if (StringUtils.isEmpty(str)) {\n            return false;\n        }\n        if (str.charAt(0) == '-') {\n            if (str.length() == 1) {\n                return false;\n            }\n            return isParsableDecimal(str, 1);\n        }\n        return isParsableDecimal(str, 0);\n    }",
+  "code_after": "public static boolean isParsable(final String str) {\n        return accept(Double::parseDouble, str) || accept(Long::parseLong, str) || accept(Float::parseFloat, str) || accept(Long::parseLong, str);\n    }",
+  "javadoc_before": "/**\n     * Checks whether the given String is a parsable number.\n     *\n     * <p>\n     * Parsable numbers include those Strings understood by {@link Integer#parseInt(String)}, {@link Long#parseLong(String)}, {@link Float#parseFloat(String)}\n     * or {@link Double#parseDouble(String)}. This method can be used instead of catching {@link java.text.ParseException} when calling one of those methods.\n     * </p>\n     *\n     * <p>\n     * Hexadecimal and scientific notations are <strong>not</strong> considered parsable. See {@link #isCreatable(String)} on those cases.\n     * </p>\n     *\n     * <p>\n     * {@code null} and empty String will return {@code false}.\n     * </p>\n     *\n     * @param str the String to check.\n     * @return {@code true} if the string is a parsable number.\n     * @since 3.4\n     */",
+  "javadoc_after": "/**\n     * Checks whether the given String is a parsable number.\n     *\n     * <p>\n     * Parsable numbers include those Strings understood by {@link Integer#parseInt(String)}, {@link Long#parseLong(String)}, {@link Float#parseFloat(String)}\n     * or {@link Double#parseDouble(String)}. This method can be used instead of catching {@link java.text.ParseException} when calling one of those methods.\n     * </p>\n     *\n     * <p>\n     * Scientific notation (for example, {@code \"1.2e-5\"}) and type suffixes (e.g., {@code \"2.0f\"}, {@code \"2.0d\"}) are supported\n     * as they are valid for {@link Float#parseFloat(String)} and {@link Double#parseDouble(String)}.\n     * </p>\n     *\n     * <p>\n     * {@code null} and empty String will return {@code false}.\n     * </p>\n     *\n     * @param str the String to check.\n     * @return {@code true} if the string is a parsable number.\n     * @see Integer#parseInt(String)\n     * @see Long#parseLong(String)\n     * @see Double#parseDouble(String)\n     * @see Float#parseFloat(String)\n     * @since 3.4\n     */",
+  "entity_name": "isParsable",
+  "entity_signature": "public static boolean isParsable(final String str)",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "A",
+  "issue_id": "LANG-1806",
+  "commit_url": "https://github.com/apache/commons-lang/commit/8089a0c2d3207ed26531f877352336baf1c6c5bb",
+  "entity_type": "method"
 }

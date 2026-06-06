@@ -1,19 +1,18 @@
 {
   "repo": "apache/commons-lang",
-  "commit_hash": "7db3e126dd480698eb523e72e8dc4e5ed7e7a5c7",
-  "commit_url": "https://github.com/apache/commons-lang/commit/7db3e126dd480698eb523e72e8dc4e5ed7e7a5c7",
-  "issue": "#1667",
-  "issues": [
-    "#1667"
-  ],
-  "entity_type": "method",
-  "entity_name": "clear",
-  "old_javadoc": "",
-  "new_javadoc": "/**\n     * Fills and returns the given array, assigning {@code 0} to each element of the array.\n     * <pre>\n     * ArrayFill.fill(a, (byte) 0);\n     * </pre>\n     *\n     * @param a   the array to fill (may be null).\n     * @return the given array.\n     * @see Arrays#fill(byte[],byte)\n     * @see ArrayFill#fill(byte[],byte)\n     * @since 3.21.0\n     */",
-  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/ArrayFill.java b/src/main/java/org/apache/commons/lang3/ArrayFill.java\n--- a/src/main/java/org/apache/commons/lang3/ArrayFill.java\n+++ b/src/main/java/org/apache/commons/lang3/ArrayFill.java\n@@ -0,0 +49,18 @@\n+        return fill(a, CharUtils.NUL); // and not '0'!\n+    }\n+\n+    /**\n+     * Fills and returns the given array, assigning {@code 0} to each element of the array.\n+     * <pre>\n+     * ArrayFill.fill(a, (byte) 0);\n+     * </pre>\n+     *\n+     * @param a   the array to fill (may be null).\n+     * @return the given array.\n+     * @see Arrays#fill(byte[],byte)\n+     * @see ArrayFill#fill(byte[],byte)\n+     * @since 3.21.0\n+     */\n+    public static byte[] clear(final byte[] a) {\n+        return fill(a, (byte) 0);\n+    }",
-  "commit_message": "Add ArrayFill.clear(char[]|byte[]) (#1667)\n\nJavadoc",
-  "change_type": "method_addition",
-  "javadoc_change_type": "JAVADOC_ADDITION",
-  "method_change_type": "METHOD_ADDITION",
-  "quality": "B"
+  "commit_hash": "623235ebca46bea1a6e8cc02b7d7084c1698ab80",
+  "commit_message": "[LANG-1811] ArrayUtils.shuffle() throws NullPointerException for null\narray input.\n\n- Null test assertions are from PR #1553.\n- null inputs are now no-ops\n- This follows the class Javadoc and other method implementations in\nthis class\n- Javadoc @param updates",
+  "issue_summary": "ArrayUtils.shuffle() throws NullPointerException for null array input",
+  "code_before": "public static void shuffle(final float[] array, final Random random) {\n        for (int i = array.length; i > 1; i--) {\n            swap(array, i - 1, random.nextInt(i), 1);\n        }\n    }",
+  "code_after": "public static void shuffle(final float[] array, final Random random) {\n        if (array != null && random != null) {\n            for (int i = array.length; i > 1; i--) {\n                swap(array, i - 1, random.nextInt(i), 1);\n            }\n        }\n    }",
+  "javadoc_before": "/**\n     * Shuffles randomly the elements of the specified array using the <a href=\"https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle\">Fisher-Yates shuffle\n     * algorithm</a>.\n     *\n     * @param array  the array to shuffle.\n     * @param random the source of randomness used to permute the elements.\n     * @see <a href=\"https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle\">Fisher-Yates shuffle algorithm</a>\n     * @since 3.6\n     */",
+  "javadoc_after": "/**\n     * Shuffles randomly the elements of the specified array using the <a href=\"https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle\">Fisher-Yates shuffle\n     * algorithm</a>.\n     *\n     * @param array  the array to shuffle, no-op if {@code null}.\n     * @param random the source of randomness used to permute the elements, no-op if {@code null}.\n     * @see <a href=\"https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle\">Fisher-Yates shuffle algorithm</a>\n     * @since 3.6\n     */",
+  "entity_name": "shuffle",
+  "entity_signature": "public static void shuffle(final float[] array, final Random random)",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "A",
+  "issue_id": "LANG-1811",
+  "commit_url": "https://github.com/apache/commons-lang/commit/623235ebca46bea1a6e8cc02b7d7084c1698ab80",
+  "entity_type": "method"
 }
