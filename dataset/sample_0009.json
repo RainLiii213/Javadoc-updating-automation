@@ -1,0 +1,17 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "093cf417bfc2a295c62fd541d39a994fa1d37804",
+  "commit_url": "https://github.com/apache/commons-lang/commit/093cf417bfc2a295c62fd541d39a994fa1d37804",
+  "issue": "",
+  "issues": [],
+  "entity_type": "method",
+  "entity_name": "format",
+  "old_javadoc": "/**\n     * The internal method to do the formatting.\n     *\n     * @param tokens  the tokens\n     * @param years  the number of years\n     * @param months  the number of months\n     * @param days  the number of days\n     * @param hours  the number of hours\n     * @param minutes  the number of minutes\n     * @param seconds  the number of seconds\n     * @param milliseconds  the number of millis\n     * @param padWithZeros  whether to pad\n     * @return the formatted string\n     */",
+  "new_javadoc": "/**\n     * The internal method to do the formatting.\n     *\n     * @param tokens  the tokens.\n     * @param years  the number of years.\n     * @param months  the number of months.\n     * @param days  the number of days.\n     * @param hours  the number of hours.\n     * @param minutes  the number of minutes.\n     * @param seconds  the number of seconds.\n     * @param milliseconds  the number of milliseconds.\n     * @param padWithZeros  whether to pad.\n     * @return the formatted string.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java\n--- a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java\n+++ b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java\n@@ -236,16 +233,16 @@\n     /**\n      * The internal method to do the formatting.\n      *\n-     * @param tokens  the tokens\n-     * @param years  the number of years\n-     * @param months  the number of months\n-     * @param days  the number of days\n-     * @param hours  the number of hours\n-     * @param minutes  the number of minutes\n-     * @param seconds  the number of seconds\n-     * @param milliseconds  the number of millis\n-     * @param padWithZeros  whether to pad\n-     * @return the formatted string\n+     * @param tokens  the tokens.\n+     * @param years  the number of years.\n+     * @param months  the number of months.\n+     * @param days  the number of days.\n+     * @param hours  the number of hours.\n+     * @param minutes  the number of minutes.\n+     * @param seconds  the number of seconds.\n+     * @param milliseconds  the number of milliseconds.\n+     * @param padWithZeros  whether to pad.\n+     * @return the formatted string.\n      */\n     static String format(final Token[] tokens, final long years, final long months, final long days, final long hours, final long minutes,\n             final long seconds,\n@@ -327,7 +324,7 @@\n                 }\n                 lastOutputSeconds = false;\n             }\n-            //as soon as we hit first nonliteral in optional, check for literal prefix\n+            // as soon as we hit first nonliteral in optional, check for literal prefix\n             if (inOptional && !isLiteral && !firstOptionalNonLiteral) {\n                 firstOptionalNonLiteral = true;\n                 if (lastOutputZero) {",
+  "commit_message": "Javadoc",
+  "change_type": "nearby_code_and_javadoc_change",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "C"
+}

@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "8e2d1bed8623e0f5b281504d151476689f21690a",
+  "commit_url": "https://github.com/apache/commons-lang/commit/8e2d1bed8623e0f5b281504d151476689f21690a",
+  "issue": "#1669",
+  "issues": [
+    "#1669"
+  ],
+  "entity_type": "method",
+  "entity_name": "register",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Registers the given object pair.\n     * Used by the reflection methods to avoid infinite loops.\n     *\n     * @param lhs {@code this} object to register\n     * @param rhs the other object to register\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java\n--- a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java\n+++ b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java\n@@ -0,0 +383,13 @@\n+        return reflectionCompare(lhs, rhs, false, null, excludeFields);\n+    }\n+\n+    /**\n+     * Registers the given object pair.\n+     * Used by the reflection methods to avoid infinite loops.\n+     *\n+     * @param lhs {@code this} object to register\n+     * @param rhs the other object to register\n+     */\n+    private static void register(final Object lhs, final Object rhs) {\n+        register(lhs, rhs, getRegistry());\n+    }",
+  "commit_message": "CompareToBuilder lacks cycle guard on Object[] recursion. (#1669)",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

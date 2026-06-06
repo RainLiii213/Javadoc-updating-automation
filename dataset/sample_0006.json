@@ -1,0 +1,21 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "7489d6e21334673dc56399de7decaaa00f11ebcf",
+  "commit_url": "https://github.com/apache/commons-lang/commit/7489d6e21334673dc56399de7decaaa00f11ebcf",
+  "issue": "#1572",
+  "issues": [
+    "#1572",
+    "#1596",
+    "#1605"
+  ],
+  "entity_type": "method",
+  "entity_name": "getCharRanges",
+  "old_javadoc": "/**\n     * Gets the internal set as an array of CharRange objects.\n     *\n     * @return an array of immutable CharRange objects\n     * @since 2.0\n     */",
+  "new_javadoc": "/**\n     * Gets the set of character ranges.\n     * <p>\n     * Package private for testing.\n     * </p>\n     *\n     * @return the set of character ranges.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/CharSet.java b/src/main/java/org/apache/commons/lang3/CharSet.java\n--- a/src/main/java/org/apache/commons/lang3/CharSet.java\n+++ b/src/main/java/org/apache/commons/lang3/CharSet.java\n@@ -265,13 +266,13 @@\n     }\n \n     /**\n-     * Gets the internal set as an array of CharRange objects.\n+     * Gets the set of character ranges.\n+     * <p>\n+     * Package private for testing.\n+     * </p>\n      *\n-     * @return an array of immutable CharRange objects\n-     * @since 2.0\n+     * @return the set of character ranges.\n      */\n-// NOTE: This is no longer public as CharRange is no longer a public class.\n-//       It may be replaced when CharSet moves to Range.\n-    /*public*/ CharRange[] getCharRanges() {\n-        return set.toArray(CharRange.EMPTY_ARRAY);\n+    Set<CharRange> getCharRanges() {\n+        return set;\n     }",
+  "commit_message": "CharSet now maintains iteration order\n\nJavadoc",
+  "change_type": "return_type_change",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "A"
+}

@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "d95e17f1c173a6259886e577cf5acc914ec44c2d",
+  "commit_url": "https://github.com/apache/commons-lang/commit/d95e17f1c173a6259886e577cf5acc914ec44c2d",
+  "issue": "#1679",
+  "issues": [
+    "#1679"
+  ],
+  "entity_type": "method",
+  "entity_name": "toMillisLong",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Converts a Duration to milliseconds bound to a {@code long} without throwing {@link ArithmeticException}.\n     * <ul>\n     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n     * </ul>\n     *\n     * @param duration The duration to convert, not null.\n     * @return long milliseconds.\n     * @see Duration#toMillis()\n     * @see Long#MIN_VALUE\n     * @see Long#MAX_VALUE\n     * @since 3.21.0\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/DurationUtils.java b/src/main/java/org/apache/commons/lang3/time/DurationUtils.java\n--- a/src/main/java/org/apache/commons/lang3/time/DurationUtils.java\n+++ b/src/main/java/org/apache/commons/lang3/time/DurationUtils.java\n@@ -0,0 +256,25 @@\n+        return LONG_TO_INT_RANGE.fit(Long.valueOf(toMillisLong(duration))).intValue();\n+    }\n+\n+    /**\n+     * Converts a Duration to milliseconds bound to a {@code long} without throwing {@link ArithmeticException}.\n+     * <ul>\n+     * <li>If the duration milliseconds are greater than {@link Long#MAX_VALUE}, then return {@link Long#MAX_VALUE}.</li>\n+     * <li>If the duration milliseconds are lesser than {@link Long#MIN_VALUE}, then return {@link Long#MIN_VALUE}.</li>\n+     * </ul>\n+     *\n+     * @param duration The duration to convert, not null.\n+     * @return long milliseconds.\n+     * @see Duration#toMillis()\n+     * @see Long#MIN_VALUE\n+     * @see Long#MAX_VALUE\n+     * @since 3.21.0\n+     */\n+    public static long toMillisLong(final Duration duration) {\n+        Objects.requireNonNull(duration, \"duration\");\n+        try {\n+            return duration.toMillis();\n+        } catch (final ArithmeticException e) {\n+            return duration.isNegative() ? Long.MIN_VALUE : Long.MAX_VALUE;\n+        }\n+    }",
+  "commit_message": "Add DurationUtils.toMillisLong(Duration) (#1679)",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

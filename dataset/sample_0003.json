@@ -1,0 +1,21 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "9b95001e9801399c62794aadacf198c787d960a9",
+  "commit_url": "https://github.com/apache/commons-lang/commit/9b95001e9801399c62794aadacf198c787d960a9",
+  "issue": "LANG-1825",
+  "issues": [
+    "LANG-1825",
+    "#1647",
+    "LANG-1356"
+  ],
+  "entity_type": "method",
+  "entity_name": "reflectionAppend",
+  "old_javadoc": "/**\n     * Appends the fields and values defined by the given object of the given {@link Class}.\n     *\n     * @param object\n     *            the object to append details of\n     * @param clazz\n     *            the class to append details of\n     * @param builder\n     *            the builder to append to\n     * @param useTransients\n     *            whether to use transient fields\n     * @param excludeFields\n     *            Collection of String field names to exclude from use in calculation of hash code\n     * @param setAccessible Whether to set fields' accessible flags\n     */",
+  "new_javadoc": "/**\n     * Appends the fields and values defined by the given object of the given {@link Class}.\n     *\n     * @param object\n     *            the object to append details of\n     * @param clazz\n     *            the class to append details of\n     * @param builder\n     *            the builder to append to\n     * @param useTransients\n     *            whether to use transient fields\n     * @param excludeFields\n     *            Collection of String field names to exclude from use in calculation of hash code\n     * @param forceAccessible Whether to set fields' accessible flags\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java\n--- a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java\n+++ b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java\n@@ -229,10 +234,10 @@\n      *            whether to use transient fields\n      * @param excludeFields\n      *            Collection of String field names to exclude from use in calculation of hash code\n-     * @param setAccessible Whether to set fields' accessible flags\n+     * @param forceAccessible Whether to set fields' accessible flags\n      */\n     private static void reflectionAppend(final Object object, final Class<?> clazz, final HashCodeBuilder builder, final boolean useTransients,\n-            final String[] excludeFields, final boolean setAccessible) {\n+            final String[] excludeFields, final boolean forceAccessible) {\n         if (isRegistered(object)) {\n             return;\n         }\n@@ -240,14 +245,15 @@\n             register(object);\n             // The elements in the returned array are not sorted and are not in any particular order.\n             final Field[] fields = ArraySorter.sort(clazz.getDeclaredFields(), Comparator.comparing(Field::getName));\n-            setAccessible(setAccessible, fields);\n             for (final Field field : fields) {\n                 if (!ArrayUtils.contains(excludeFields, field.getName())\n                     && !field.getName().contains(\"$\")\n                     && (useTransients || !Modifier.isTransient(field.getModifiers()))\n                     && !Modifier.isStatic(field.getModifiers())\n                     && !field.isAnnotationPresent(HashCodeExclude.class)) {\n-                    builder.append(Reflection.getUnchecked(field, object));\n+                    if (setAccessible(forceAccessible, field)) {\n+                        builder.append(Reflection.getUnchecked(field, object));\n+                    }\n                 }\n             }\n         } finally {",
+  "commit_message": "[LANG-1825] EqualsBuilder.reflectionAppend tries to set visibility on (#1647)\n\nexcluded fields\n\nDon't force fields to be accessible when excluded.",
+  "change_type": "parameter_change",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "A"
+}

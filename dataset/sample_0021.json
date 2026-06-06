@@ -1,0 +1,22 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "e9d7d3508bd825fdce00d673f06968a75bb50b23",
+  "commit_url": "https://github.com/apache/commons-lang/commit/e9d7d3508bd825fdce00d673f06968a75bb50b23",
+  "issue": "LANG-771",
+  "issues": [
+    "LANG-771",
+    "LANG-1819",
+    "#1614",
+    "LANG-1813"
+  ],
+  "entity_type": "method",
+  "entity_name": "Validate",
+  "old_javadoc": "/**\n     * Constructs a new instance. This class should not normally be instantiated.\n     */",
+  "new_javadoc": "/**\n     * Constructs a new instance. This class should not normally be instantiated.\n     *\n     * @deprecated Will be made private in 4.0. Use static methods.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/Validate.java b/src/main/java/org/apache/commons/lang3/Validate.java\n--- a/src/main/java/org/apache/commons/lang3/Validate.java\n+++ b/src/main/java/org/apache/commons/lang3/Validate.java\n@@ -1274,6 +1274,9 @@\n \n     /**\n      * Constructs a new instance. This class should not normally be instantiated.\n+     *\n+     * @deprecated Will be made private in 4.0. Use static methods.\n      */\n+    @Deprecated\n     public Validate() {\n     }",
+  "commit_message": "Deprecate Validate.Validate().",
+  "change_type": "nearby_code_and_javadoc_change",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "C"
+}

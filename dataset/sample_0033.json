@@ -1,0 +1,20 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "531e2a2cf1c1e56708859ad2579a5e5760140714",
+  "commit_url": "https://github.com/apache/commons-lang/commit/531e2a2cf1c1e56708859ad2579a5e5760140714",
+  "issue": "#1680",
+  "issues": [
+    "#1680",
+    "LICENSE-2"
+  ],
+  "entity_type": "method",
+  "entity_name": "Instants",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * No instances needed.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/Instants.java b/src/main/java/org/apache/commons/lang3/time/Instants.java\n--- a/src/main/java/org/apache/commons/lang3/time/Instants.java\n+++ b/src/main/java/org/apache/commons/lang3/time/Instants.java\n@@ -0,0 +47,9 @@\n+        }\n+    }\n+\n+    /**\n+     * No instances needed.\n+     */\n+    private Instants() {\n+        // empty.\n+    }",
+  "commit_message": "Add Instants.toEpochMillis(Instant) (#1680)",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

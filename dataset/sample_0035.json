@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "2c0b8483606efbfbaccf600e3bc31fe10533e004",
+  "commit_url": "https://github.com/apache/commons-lang/commit/2c0b8483606efbfbaccf600e3bc31fe10533e004",
+  "issue": "#1674",
+  "issues": [
+    "#1674"
+  ],
+  "entity_type": "method",
+  "entity_name": "setRawOffset",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Always throws {@link UnsupportedOperationException}.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/GmtTimeZone.java b/src/main/java/org/apache/commons/lang3/time/GmtTimeZone.java\n--- a/src/main/java/org/apache/commons/lang3/time/GmtTimeZone.java\n+++ b/src/main/java/org/apache/commons/lang3/time/GmtTimeZone.java\n@@ -0,0 +96,10 @@\n+        return false;\n+    }\n+\n+    /**\n+     * Always throws {@link UnsupportedOperationException}.\n+     */\n+    @Override\n+    public void setRawOffset(final int offsetMillis) {\n+        throw new UnsupportedOperationException(\"GmtTimeZone.setRawOffset(int)\");\n+    }",
+  "commit_message": "FastTimeZone.getGmtTimeZone() Javadoc promises null on no-match; regex always matches. (#1674)\n\n* NumericEntityUnescaper.translate() for entity values out of range passed\nto Character.toChars() throw IllegalArgumentException\n\n* FastTimeZone.getGmtTimeZone Javadoc promises null on no-match; regex\nalways matches\n\n- Use ternary expression\n- Add Javadoc\n- Update Javadoc\n- Add tests",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

@@ -1,0 +1,20 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "b401c34a438f0dd7ec1e98939fb68232af86a448",
+  "commit_url": "https://github.com/apache/commons-lang/commit/b401c34a438f0dd7ec1e98939fb68232af86a448",
+  "issue": "#1652",
+  "issues": [
+    "#1652",
+    "LICENSE-2"
+  ],
+  "entity_type": "method",
+  "entity_name": "clear",
+  "old_javadoc": "/**\n     * Clears the string builder (convenience Collections API style method).\n     * <p>\n     * This method does not reduce the size of the internal character buffer.\n     * To do that, call {@code clear()} followed by {@link #minimizeCapacity()}.\n     * </p>\n     * <p>\n     * This method is the same as {@link #setLength(int)} called with zero\n     * and is provided to match the API of Collections.\n     * </p>\n     *\n     * @return {@code this} instance.\n     */",
+  "new_javadoc": "/**\n     * Clears the string builder (convenience Collections API style method).\n     * <p>\n     * This method does not reduce the size of the internal character buffer.\n     * To do that, call {@code clear()} followed by {@link #minimizeCapacity()}.\n     * </p>\n     *\n     * @return {@code this} instance.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java\n--- a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java\n+++ b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java\n@@ -1609,14 +1609,11 @@\n      * This method does not reduce the size of the internal character buffer.\n      * To do that, call {@code clear()} followed by {@link #minimizeCapacity()}.\n      * </p>\n-     * <p>\n-     * This method is the same as {@link #setLength(int)} called with zero\n-     * and is provided to match the API of Collections.\n-     * </p>\n      *\n      * @return {@code this} instance.\n      */\n     public StrBuilder clear() {\n         size = 0;\n+        Arrays.fill(buffer, '0');\n         return this;\n     }",
+  "commit_message": "StrBuilder.readFrom(Readable), exposes stale internal buffer to Readable parameter (#1652)",
+  "change_type": "nearby_code_and_javadoc_change",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "C"
+}

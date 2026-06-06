@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "9abd79314b19676c54eab02d441cfb3051bb2d8c",
+  "commit_url": "https://github.com/apache/commons-lang/commit/9abd79314b19676c54eab02d441cfb3051bb2d8c",
+  "issue": "#1685",
+  "issues": [
+    "#1685"
+  ],
+  "entity_type": "method",
+  "entity_name": "isOctal",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Tests if the given char is an octal digit. Octal digits are the character representations of the digits 0 to 7.\n     *\n     * @param ch the byte to check.\n     * @return true if the given char is the character representation of one of the digits from 0 to 7.\n     * @since 3.21.0\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/CharUtils.java b/src/main/java/org/apache/commons/lang3/CharUtils.java\n--- a/src/main/java/org/apache/commons/lang3/CharUtils.java\n+++ b/src/main/java/org/apache/commons/lang3/CharUtils.java\n@@ -0,0 +300,13 @@\n+        return isAsciiNumeric(ch) || ch >= 'a' && ch <= 'f' || ch >= 'A' && ch <= 'F';\n+    }\n+\n+    /**\n+     * Tests if the given char is an octal digit. Octal digits are the character representations of the digits 0 to 7.\n+     *\n+     * @param ch the byte to check.\n+     * @return true if the given char is the character representation of one of the digits from 0 to 7.\n+     * @since 3.21.0\n+     */\n+    public static boolean isOctal(final byte ch) {\n+        return ch >= '0' && ch <= '7';\n+    }",
+  "commit_message": "Add CharUtils isHex(int), isAsciiNumeric(int), isOctal(int). (#1685)",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

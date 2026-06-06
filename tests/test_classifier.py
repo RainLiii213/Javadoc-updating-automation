@@ -23,6 +23,8 @@ def test_classify_method_rename_as_quality_a():
     result = classify_entity_change(old, new, nearby_code_changed=True)
 
     assert result.change_type == "method_rename"
+    assert result.javadoc_change_type == "JAVADOC_MODIFICATION"
+    assert result.method_change_type == "METHOD_MODIFICATION"
     assert result.quality == "A"
 
 
@@ -46,6 +48,8 @@ def test_classify_new_method_with_javadoc_as_quality_b():
     result = classify_entity_change(None, new, nearby_code_changed=True)
 
     assert result.change_type == "method_addition"
+    assert result.javadoc_change_type == "JAVADOC_ADDITION"
+    assert result.method_change_type == "METHOD_ADDITION"
     assert result.quality == "B"
 
 
@@ -56,3 +60,14 @@ def test_filter_only_see_change():
     result = classify_entity_change(old, new, nearby_code_changed=True)
 
     assert result is None
+
+
+def test_classify_deleted_method_javadoc():
+    old = entity("getName", "/** Returns name. */")
+
+    result = classify_entity_change(old, None, nearby_code_changed=True)
+
+    assert result.change_type == "method_deletion"
+    assert result.javadoc_change_type == "JAVADOC_DELETION"
+    assert result.method_change_type == "METHOD_DELETION"
+    assert result.quality == "C"

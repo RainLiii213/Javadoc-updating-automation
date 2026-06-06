@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "9abd79314b19676c54eab02d441cfb3051bb2d8c",
+  "commit_url": "https://github.com/apache/commons-lang/commit/9abd79314b19676c54eab02d441cfb3051bb2d8c",
+  "issue": "#1685",
+  "issues": [
+    "#1685"
+  ],
+  "entity_type": "method",
+  "entity_name": "isHex",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Tests whether a character is a hexadecimal character.\n     *\n     * <pre>\n     *   CharUtils.isHex('0')  = true\n     *   CharUtils.isHex('3')  = true\n     *   CharUtils.isHex('9')  = true\n     *   CharUtils.isHex('a')  = true\n     *   CharUtils.isHex('f')  = true\n     *   CharUtils.isHex('g')  = false\n     *   CharUtils.isHex('A')  = true\n     *   CharUtils.isHex('F')  = true\n     *   CharUtils.isHex('G')  = false\n     *   CharUtils.isHex('#')  = false\n     *   CharUtils.isHex('-')  = false\n     *   CharUtils.isHex('\\n') = false\n     *   CharUtils.isHex('&copy;') = false\n     * </pre>\n     *\n     * @param ch  the code point to test.\n     * @return true if character is a hexadecimal character.\n     * @since 3.21.0\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/CharUtils.java b/src/main/java/org/apache/commons/lang3/CharUtils.java\n--- a/src/main/java/org/apache/commons/lang3/CharUtils.java\n+++ b/src/main/java/org/apache/commons/lang3/CharUtils.java\n@@ -0,0 +273,29 @@\n+        return isAsciiNumeric(ch) || ch >= 'a' && ch <= 'f' || ch >= 'A' && ch <= 'F';\n+    }\n+\n+    /**\n+     * Tests whether a character is a hexadecimal character.\n+     *\n+     * <pre>\n+     *   CharUtils.isHex('0')  = true\n+     *   CharUtils.isHex('3')  = true\n+     *   CharUtils.isHex('9')  = true\n+     *   CharUtils.isHex('a')  = true\n+     *   CharUtils.isHex('f')  = true\n+     *   CharUtils.isHex('g')  = false\n+     *   CharUtils.isHex('A')  = true\n+     *   CharUtils.isHex('F')  = true\n+     *   CharUtils.isHex('G')  = false\n+     *   CharUtils.isHex('#')  = false\n+     *   CharUtils.isHex('-')  = false\n+     *   CharUtils.isHex('\\n') = false\n+     *   CharUtils.isHex('&copy;') = false\n+     * </pre>\n+     *\n+     * @param ch  the code point to test.\n+     * @return true if character is a hexadecimal character.\n+     * @since 3.21.0\n+     */\n+    public static boolean isHex(final int ch) {\n+        return isAsciiNumeric(ch) || ch >= 'a' && ch <= 'f' || ch >= 'A' && ch <= 'F';\n+    }",
+  "commit_message": "Add CharUtils isHex(int), isAsciiNumeric(int), isOctal(int). (#1685)",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

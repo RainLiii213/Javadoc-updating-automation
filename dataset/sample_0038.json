@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "f3e64b3b0e67d7faa0f10b698e08207f972a15b1",
+  "commit_url": "https://github.com/apache/commons-lang/commit/f3e64b3b0e67d7faa0f10b698e08207f972a15b1",
+  "issue": "#1671",
+  "issues": [
+    "#1671"
+  ],
+  "entity_type": "method",
+  "entity_name": "getBuffer",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Gets the internal buffer for testing.\n     *\n     * @return the internal buffer.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java\n--- a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java\n+++ b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java\n@@ -0,0 +1920,11 @@\n+        return true;\n+    }\n+\n+    /**\n+     * Gets the internal buffer for testing.\n+     *\n+     * @return the internal buffer.\n+     */\n+    char[] getBuffer() {\n+        return buffer;\n+    }",
+  "commit_message": "StrBuilder.setLength(int) shrink-branch leaves residual chars in buffer tail (#1671)\n\n* Add ArrayFill.clear(char[], int, int)\n* Add ArrayFill.fill(char[], int, int, char)\n\n* StrBuilder.setLength(int) shrink-branch leaves residual chars in buffer\ntail",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "f3e64b3b0e67d7faa0f10b698e08207f972a15b1",
+  "commit_url": "https://github.com/apache/commons-lang/commit/f3e64b3b0e67d7faa0f10b698e08207f972a15b1",
+  "issue": "#1671",
+  "issues": [
+    "#1671"
+  ],
+  "entity_type": "method",
+  "entity_name": "clear",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Fills and returns the given array, assigning {@code '\\0'} to each element of the array.\n     * <p>\n     * Equivalent to:\n     * </p>\n     * <pre>\n     * ArrayFill.fill(a, fromIndex, toIndex, '\\0'); // and not '0'!\n     * </pre>\n     *\n     * @param a         the array to fill (may be null).\n     * @param fromIndex the index of the first element (inclusive) to be filled with {@code '\\0'}.\n     * @param toIndex   the index of the last element (exclusive) to be filled with {@code '\\0'}.\n     * @return the given array.\n     * @see Arrays#fill(char[], int, int, char)\n     * @since 3.21.0\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/ArrayFill.java b/src/main/java/org/apache/commons/lang3/ArrayFill.java\n--- a/src/main/java/org/apache/commons/lang3/ArrayFill.java\n+++ b/src/main/java/org/apache/commons/lang3/ArrayFill.java\n@@ -0,0 +65,22 @@\n+        return fill(a, CharUtils.NUL); // and not '0'!\n+    }\n+\n+    /**\n+     * Fills and returns the given array, assigning {@code '\\0'} to each element of the array.\n+     * <p>\n+     * Equivalent to:\n+     * </p>\n+     * <pre>\n+     * ArrayFill.fill(a, fromIndex, toIndex, '\\0'); // and not '0'!\n+     * </pre>\n+     *\n+     * @param a         the array to fill (may be null).\n+     * @param fromIndex the index of the first element (inclusive) to be filled with {@code '\\0'}.\n+     * @param toIndex   the index of the last element (exclusive) to be filled with {@code '\\0'}.\n+     * @return the given array.\n+     * @see Arrays#fill(char[], int, int, char)\n+     * @since 3.21.0\n+     */\n+    public static char[] clear(char[] a, int fromIndex, int toIndex) {\n+        return fill(a, fromIndex, toIndex, CharUtils.NUL);\n+    }",
+  "commit_message": "StrBuilder.setLength(int) shrink-branch leaves residual chars in buffer tail (#1671)\n\n* Add ArrayFill.clear(char[], int, int)\n* Add ArrayFill.fill(char[], int, int, char)\n\n* StrBuilder.setLength(int) shrink-branch leaves residual chars in buffer\ntail",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

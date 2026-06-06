@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "8e2d1bed8623e0f5b281504d151476689f21690a",
+  "commit_url": "https://github.com/apache/commons-lang/commit/8e2d1bed8623e0f5b281504d151476689f21690a",
+  "issue": "#1669",
+  "issues": [
+    "#1669"
+  ],
+  "entity_type": "method",
+  "entity_name": "toRegisterPair",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Converters value pair into a register pair.\n     *\n     * @param lhs {@code this} object.\n     * @param rhs the other object.\n     * @return the pair.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java b/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n--- a/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n+++ b/src/main/java/org/apache/commons/lang3/builder/AbstractReflection.java\n@@ -0,0 +159,13 @@\n+        return false;\n+    }\n+\n+    /**\n+     * Converters value pair into a register pair.\n+     *\n+     * @param lhs {@code this} object.\n+     * @param rhs the other object.\n+     * @return the pair.\n+     */\n+    static Pair<IDKey, IDKey> toRegisterPair(final Object lhs, final Object rhs) {\n+        return Pair.of(new IDKey(lhs), new IDKey(rhs));\n+    }",
+  "commit_message": "CompareToBuilder lacks cycle guard on Object[] recursion. (#1669)",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

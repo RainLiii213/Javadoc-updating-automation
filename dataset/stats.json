@@ -1,0 +1,10 @@
+{
+  "total_commits_processed": 200,
+  "total_samples_extracted": 50,
+  "javadoc_additions": 25,
+  "javadoc_modifications": 25,
+  "javadoc_deletions": 0,
+  "method_additions": 22,
+  "method_modifications": 21,
+  "method_deletions": 0
+}

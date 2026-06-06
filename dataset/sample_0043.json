@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "8e2d1bed8623e0f5b281504d151476689f21690a",
+  "commit_url": "https://github.com/apache/commons-lang/commit/8e2d1bed8623e0f5b281504d151476689f21690a",
+  "issue": "#1669",
+  "issues": [
+    "#1669"
+  ],
+  "entity_type": "method",
+  "entity_name": "isRegistered",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Tests whether the registry contains the given object pair.\n     * <p>\n     * Used by the reflection methods to avoid infinite loops.\n     * Objects might be swapped therefore a check is needed if the object pair\n     * is registered in the given or swapped order.\n     * </p>\n     *\n     * @param lhs {@code this} object to lookup in registry\n     * @param rhs the other object to lookup on registry\n     * @return boolean {@code true} if the registry contains the given object.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java\n--- a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java\n+++ b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java\n@@ -0,0 +145,18 @@\n+        return REGISTRY.get();\n+    }\n+\n+    /**\n+     * Tests whether the registry contains the given object pair.\n+     * <p>\n+     * Used by the reflection methods to avoid infinite loops.\n+     * Objects might be swapped therefore a check is needed if the object pair\n+     * is registered in the given or swapped order.\n+     * </p>\n+     *\n+     * @param lhs {@code this} object to lookup in registry\n+     * @param rhs the other object to lookup on registry\n+     * @return boolean {@code true} if the registry contains the given object.\n+     */\n+    static boolean isRegistered(final Object lhs, final Object rhs) {\n+        return isRegistered(lhs, rhs, getRegistry());\n+    }",
+  "commit_message": "CompareToBuilder lacks cycle guard on Object[] recursion. (#1669)",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

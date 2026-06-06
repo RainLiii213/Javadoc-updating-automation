@@ -1,0 +1,17 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "093cf417bfc2a295c62fd541d39a994fa1d37804",
+  "commit_url": "https://github.com/apache/commons-lang/commit/093cf417bfc2a295c62fd541d39a994fa1d37804",
+  "issue": "",
+  "issues": [],
+  "entity_type": "method",
+  "entity_name": "lexx",
+  "old_javadoc": "/**\n     * Parses a classic date format string into Tokens\n     *\n     * @param format  the format to parse, not null\n     * @return array of Token[]\n     */",
+  "new_javadoc": "/**\n     * Parses a classic date format string into Tokens\n     *\n     * @param format  the format to parse, not null.\n     * @return array of Token[].\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java\n--- a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java\n+++ b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java\n@@ -685,12 +649,11 @@\n     /**\n      * Parses a classic date format string into Tokens\n      *\n-     * @param format  the format to parse, not null\n-     * @return array of Token[]\n+     * @param format  the format to parse, not null.\n+     * @return array of Token[].\n      */\n     static Token[] lexx(final String format) {\n         final ArrayList<Token> list = new ArrayList<>(format.length());\n-\n         boolean inLiteral = false;\n         // Although the buffer is stored in a Token, the Tokens are only\n         // used internally, so cannot be accessed by other threads\n@@ -758,7 +721,6 @@\n                 }\n                 buffer.append(ch);\n             }\n-\n             if (value != null) {\n                 if (previous != null && previous.getValue().equals(value)) {\n                     previous.increment();",
+  "commit_message": "Javadoc",
+  "change_type": "nearby_code_and_javadoc_change",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "C"
+}

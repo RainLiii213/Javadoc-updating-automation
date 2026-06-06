@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "8e2d1bed8623e0f5b281504d151476689f21690a",
+  "commit_url": "https://github.com/apache/commons-lang/commit/8e2d1bed8623e0f5b281504d151476689f21690a",
+  "issue": "#1669",
+  "issues": [
+    "#1669"
+  ],
+  "entity_type": "method",
+  "entity_name": "isRegistered",
+  "old_javadoc": "/**\n     * Tests whether the registry contains the given object pair.\n     * <p>\n     * Used by the reflection methods to avoid infinite loops.\n     * Objects might be swapped therefore a check is needed if the object pair\n     * is registered in the given or swapped order.\n     * </p>\n     *\n     * @param lhs {@code this} object to lookup in registry\n     * @param rhs the other object to lookup on registry\n     * @return boolean {@code true} if the registry contains the given object.\n     * @since 3.0\n     */",
+  "new_javadoc": "/**\n     * Tests whether the registry contains the given object pair.\n     * <p>\n     * Used by the reflection methods to avoid infinite loops.\n     * Objects might be swapped therefore a check is needed if the object pair\n     * is registered in the given or swapped order.\n     * </p>\n     *\n     * @param lhs {@code this} object to lookup in registry\n     * @param rhs the other object to lookup on registry\n     * @return boolean {@code true} if the registry contains the given object.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java\n--- a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java\n+++ b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java\n@@ -173,11 +162,7 @@\n      * @param lhs {@code this} object to lookup in registry\n      * @param rhs the other object to lookup on registry\n      * @return boolean {@code true} if the registry contains the given object.\n-     * @since 3.0\n      */\n     static boolean isRegistered(final Object lhs, final Object rhs) {\n-        final Set<Pair<IDKey, IDKey>> registry = getRegistry();\n-        final Pair<IDKey, IDKey> pair = getRegisterPair(lhs, rhs);\n-        final Pair<IDKey, IDKey> swappedPair = Pair.of(pair.getRight(), pair.getLeft());\n-        return registry != null && (registry.contains(pair) || registry.contains(swappedPair));\n+        return isRegistered(lhs, rhs, getRegistry());\n     }",
+  "commit_message": "CompareToBuilder lacks cycle guard on Object[] recursion. (#1669)",
+  "change_type": "nearby_code_and_javadoc_change",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "C"
+}

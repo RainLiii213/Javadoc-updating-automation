@@ -3,17 +3,27 @@ import json
 import shutil
 from pathlib import Path
 
-from .models import OutputSample
+from .models import ExtractionStats, OutputSample
 
 
-SUMMARY_FIELDS = ["sample_id", "repo", "commit_hash", "entity_name", "change_type", "quality"]
+SUMMARY_FIELDS = [
+    "sample_id",
+    "repo",
+    "commit_hash",
+    "entity_type",
+    "entity_name",
+    "change_type",
+    "javadoc_change_type",
+    "method_change_type",
+    "quality",
+]
 
 
 class SampleWriter:
     def __init__(self, output_dir: Path):
         self.output_dir = output_dir
 
-    def write_samples(self, samples: list[OutputSample]) -> None:
+    def write_samples(self, samples: list[OutputSample], stats: ExtractionStats | None = None) -> None:
         if self.output_dir.exists():
             shutil.rmtree(self.output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -31,8 +41,11 @@ class SampleWriter:
                     "sample_id": sample_id,
                     "repo": sample.repo,
                     "commit_hash": sample.commit_hash,
+                    "entity_type": sample.entity_type,
                     "entity_name": sample.entity_name,
                     "change_type": sample.change_type,
+                    "javadoc_change_type": sample.javadoc_change_type,
+                    "method_change_type": sample.method_change_type,
                     "quality": sample.quality,
                 }
             )
@@ -41,3 +54,9 @@ class SampleWriter:
             writer = csv.DictWriter(handle, fieldnames=SUMMARY_FIELDS)
             writer.writeheader()
             writer.writerows(summary_rows)
+
+        if stats is not None:
+            (self.output_dir / "stats.json").write_text(
+                json.dumps(stats.to_json_dict(), ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )

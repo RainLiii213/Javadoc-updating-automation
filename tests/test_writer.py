@@ -19,6 +19,8 @@ def make_sample(name="getFullName"):
         patch="diff --git a/A.java b/A.java",
         commit_message="LANG-1234 rename method",
         change_type="method_rename",
+        javadoc_change_type="JAVADOC_MODIFICATION",
+        method_change_type="METHOD_MODIFICATION",
         quality="A",
     )
 
@@ -36,4 +38,6 @@ def test_writer_creates_json_and_summary_csv(tmp_path):
         rows = list(csv.DictReader(handle))
 
     assert rows[0]["sample_id"] == "sample_0001"
+    assert rows[0]["javadoc_change_type"] == "JAVADOC_MODIFICATION"
+    assert rows[0]["method_change_type"] == "METHOD_MODIFICATION"
     assert rows[0]["quality"] == "A"

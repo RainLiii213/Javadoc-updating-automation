@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "2c0b8483606efbfbaccf600e3bc31fe10533e004",
+  "commit_url": "https://github.com/apache/commons-lang/commit/2c0b8483606efbfbaccf600e3bc31fe10533e004",
+  "issue": "#1674",
+  "issues": [
+    "#1674"
+  ],
+  "entity_type": "method",
+  "entity_name": "getTimeZone",
+  "old_javadoc": "/**\n     * Gets a TimeZone, looking first for GMT custom ids, then falling back to Olson ids.\n     * A GMT custom id can be 'Z', or 'UTC', or has an optional prefix of GMT,\n     * followed by sign, hours digit(s), optional colon(':'), and optional minutes digits.\n     * i.e. <em>[GMT] (+|-) Hours [[:] Minutes]</em>\n     *\n     * @param id A GMT custom id (or Olson id\n     * @return A time zone\n     */",
+  "new_javadoc": "/**\n     * Gets a TimeZone, looking first for GMT custom ids, then falling back to Olson ids. A GMT custom id can be 'Z', or 'UTC', or has an optional prefix of\n     * GMT, followed by sign, hours digit(s), optional colon(':'), and optional minutes digits. i.e. <em>[GMT] (+|-) Hours [[:] Minutes]</em>\n     *\n     * @param id A GMT custom id or Olson id.\n     * @return A time zone.\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java b/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java\n--- a/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java\n+++ b/src/main/java/org/apache/commons/lang3/time/FastTimeZone.java\n@@ -65,18 +73,13 @@\n     }\n \n     /**\n-     * Gets a TimeZone, looking first for GMT custom ids, then falling back to Olson ids.\n-     * A GMT custom id can be 'Z', or 'UTC', or has an optional prefix of GMT,\n-     * followed by sign, hours digit(s), optional colon(':'), and optional minutes digits.\n-     * i.e. <em>[GMT] (+|-) Hours [[:] Minutes]</em>\n+     * Gets a TimeZone, looking first for GMT custom ids, then falling back to Olson ids. A GMT custom id can be 'Z', or 'UTC', or has an optional prefix of\n+     * GMT, followed by sign, hours digit(s), optional colon(':'), and optional minutes digits. i.e. <em>[GMT] (+|-) Hours [[:] Minutes]</em>\n      *\n-     * @param id A GMT custom id (or Olson id\n-     * @return A time zone\n+     * @param id A GMT custom id or Olson id.\n+     * @return A time zone.\n      */\n     public static TimeZone getTimeZone(final String id) {\n         final TimeZone tz = getGmtTimeZone(id);\n-        if (tz != null) {\n-            return tz;\n-        }\n-        return TimeZones.getTimeZone(id);\n+        return tz != null ? tz : TimeZones.getTimeZone(id);\n     }",
+  "commit_message": "FastTimeZone.getGmtTimeZone() Javadoc promises null on no-match; regex always matches. (#1674)\n\n* NumericEntityUnescaper.translate() for entity values out of range passed\nto Character.toChars() throw IllegalArgumentException\n\n* FastTimeZone.getGmtTimeZone Javadoc promises null on no-match; regex\nalways matches\n\n- Use ternary expression\n- Add Javadoc\n- Update Javadoc\n- Add tests",
+  "change_type": "nearby_code_and_javadoc_change",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_MODIFICATION",
+  "quality": "C"
+}

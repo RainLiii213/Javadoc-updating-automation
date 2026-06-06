@@ -1,0 +1,19 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "9abd79314b19676c54eab02d441cfb3051bb2d8c",
+  "commit_url": "https://github.com/apache/commons-lang/commit/9abd79314b19676c54eab02d441cfb3051bb2d8c",
+  "issue": "#1685",
+  "issues": [
+    "#1685"
+  ],
+  "entity_type": "method",
+  "entity_name": "isAsciiNumeric",
+  "old_javadoc": "",
+  "new_javadoc": "/**\n     * Tests whether the character is ASCII 7 bit numeric.\n     *\n     * <pre>\n     *   CharUtils.isAsciiNumeric('a')  = false\n     *   CharUtils.isAsciiNumeric('A')  = false\n     *   CharUtils.isAsciiNumeric('3')  = true\n     *   CharUtils.isAsciiNumeric('-')  = false\n     *   CharUtils.isAsciiNumeric('\\n') = false\n     *   CharUtils.isAsciiNumeric('&copy;') = false\n     * </pre>\n     *\n     * @param ch  the code point to check.\n     * @return true if between 48 and 57 inclusive.\n     * @since 3.21.0\n     */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/CharUtils.java b/src/main/java/org/apache/commons/lang3/CharUtils.java\n--- a/src/main/java/org/apache/commons/lang3/CharUtils.java\n+++ b/src/main/java/org/apache/commons/lang3/CharUtils.java\n@@ -0,0 +207,22 @@\n+        return ch >= '0' && ch <= '9';\n+    }\n+\n+    /**\n+     * Tests whether the character is ASCII 7 bit numeric.\n+     *\n+     * <pre>\n+     *   CharUtils.isAsciiNumeric('a')  = false\n+     *   CharUtils.isAsciiNumeric('A')  = false\n+     *   CharUtils.isAsciiNumeric('3')  = true\n+     *   CharUtils.isAsciiNumeric('-')  = false\n+     *   CharUtils.isAsciiNumeric('\\n') = false\n+     *   CharUtils.isAsciiNumeric('&copy;') = false\n+     * </pre>\n+     *\n+     * @param ch  the code point to check.\n+     * @return true if between 48 and 57 inclusive.\n+     * @since 3.21.0\n+     */\n+    public static boolean isAsciiNumeric(final int ch) {\n+        return ch >= '0' && ch <= '9';\n+    }",
+  "commit_message": "Add CharUtils isHex(int), isAsciiNumeric(int), isOctal(int). (#1685)",
+  "change_type": "method_addition",
+  "javadoc_change_type": "JAVADOC_ADDITION",
+  "method_change_type": "METHOD_ADDITION",
+  "quality": "B"
+}

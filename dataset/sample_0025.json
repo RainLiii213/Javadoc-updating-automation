@@ -1,0 +1,20 @@
+{
+  "repo": "apache/commons-lang",
+  "commit_hash": "eb202b0b905ac3bbea742f1aad426f5a6c7d604d",
+  "commit_url": "https://github.com/apache/commons-lang/commit/eb202b0b905ac3bbea742f1aad426f5a6c7d604d",
+  "issue": "#1641",
+  "issues": [
+    "#1641",
+    "LICENSE-2"
+  ],
+  "entity_type": "class",
+  "entity_name": "FailableConsumer",
+  "old_javadoc": "/**\n * A functional interface like {@link Consumer} that declares a {@link Throwable}.\n *\n * <p>\n * This is a functional interface whose functional method is {@link #accept(Object)}.\n * </p>\n *\n * @param <T> the type of the input to the operation\n * @param <E> Thrown exception type.\n * @since 3.11\n */",
+  "new_javadoc": "/**\n * A functional interface like {@link Consumer} that declares a {@link Throwable}.\n *\n * <p>\n * This is a functional interface whose functional method is {@link #accept(Object)}.\n * </p>\n *\n * @param <T> the type of the argument the consumer accepts.\n * @param <E> The thrown exception type.\n * @since 3.11\n */",
+  "patch": "diff --git a/src/main/java/org/apache/commons/lang3/function/FailableConsumer.java b/src/main/java/org/apache/commons/lang3/function/FailableConsumer.java\n--- a/src/main/java/org/apache/commons/lang3/function/FailableConsumer.java\n+++ b/src/main/java/org/apache/commons/lang3/function/FailableConsumer.java\n@@ -28,8 +28,8 @@\n  * This is a functional interface whose functional method is {@link #accept(Object)}.\n  * </p>\n  *\n- * @param <T> the type of the input to the operation\n- * @param <E> Thrown exception type.\n+ * @param <T> the type of the argument the consumer accepts.\n+ * @param <E> The thrown exception type.\n  * @since 3.11\n  */\n @FunctionalInterface\n@@ -40,10 +40,26 @@\n     FailableConsumer NOP = Function.identity()::apply;\n \n     /**\n+     * Applies the given {@link FailableConsumer} action to the object if the consumer is not {@code null}. Otherwise, does nothing.\n+     *\n+     * @param consumer the consumer to consume.\n+     * @param object   the object to be consumed.\n+     * @param <T>      the type of the argument the consumer accepts.\n+     * @param <E>      The thrown exception type.\n+     * @throws E Thrown when the consumer fails.\n+     * @since 3.21.0\n+     */\n+    static <T, E extends Throwable> void accept(final FailableConsumer<T, E> consumer, final T object) throws E {\n+        if (consumer != null) {\n+            consumer.accept(object);\n+        }\n+    }\n+\n+    /**\n      * Gets the NOP singleton.\n      *\n-     * @param <T> Consumed type 1.\n-     * @param <E> The kind of thrown exception or error.\n+     * @param <T> the type of the argument the consumer accepts.\n+     * @param <E> The thrown exception type.\n      * @return The NOP singleton.\n      */\n     @SuppressWarnings(\"unchecked\")",
+  "commit_message": "Add FailableConsumer.accept(FailableConsumer<T, E>, T) (#1641)\n\nAdd missing test class",
+  "change_type": "nearby_code_and_javadoc_change",
+  "javadoc_change_type": "JAVADOC_MODIFICATION",
+  "method_change_type": "METHOD_UNCHANGED",
+  "quality": "C"
+}

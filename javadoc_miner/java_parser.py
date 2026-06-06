@@ -25,7 +25,10 @@ MODIFIERS = {
 def parse_entities(source: str) -> list[EntityDoc]:
     entities: list[EntityDoc] = []
     for match in JAVADOC_PATTERN.finditer(source):
-        declaration = _read_declaration_after(source, match.end())
+        declaration_info = _read_declaration_after(source, match.end())
+        if declaration_info is None:
+            continue
+        declaration, declaration_start_offset, declaration_end_offset = declaration_info
         if not declaration:
             continue
         entity = _parse_declaration(
@@ -33,25 +36,39 @@ def parse_entities(source: str) -> list[EntityDoc]:
             javadoc=match.group(0),
             start_line=_line_number(source, match.start()),
             end_line=_line_number(source, match.end()),
+            code_start_line=_line_number(source, declaration_start_offset),
+            code_end_line=_entity_end_line(source, declaration_start_offset, declaration_end_offset),
         )
         if entity is not None:
             entities.append(entity)
     return entities
 
 
-def _read_declaration_after(source: str, offset: int) -> str:
+def _read_declaration_after(source: str, offset: int) -> tuple[str, int, int] | None:
     declaration_lines: list[str] = []
-    for line in source[offset:].splitlines():
+    search_offset = offset
+    declaration_start_offset = -1
+    for line in source[offset:].splitlines(keepends=True):
         stripped = line.strip()
         if not stripped:
+            search_offset += len(line)
             continue
         if stripped.startswith("//"):
+            search_offset += len(line)
             continue
+        if declaration_start_offset == -1:
+            declaration_start_offset = search_offset + line.index(stripped)
         declaration_lines.append(stripped)
         joined = " ".join(declaration_lines)
         if "{" in stripped or ";" in stripped:
-            return joined.split("{", 1)[0].split(";", 1)[0].strip()
-    return ""
+            declaration_end_offset = search_offset + len(line)
+            return (
+                joined.split("{", 1)[0].split(";", 1)[0].strip(),
+                declaration_start_offset,
+                declaration_end_offset,
+            )
+        search_offset += len(line)
+    return None
 
 
 def _parse_declaration(
@@ -59,6 +76,8 @@ def _parse_declaration(
     javadoc: str,
     start_line: int,
     end_line: int,
+    code_start_line: int,
+    code_end_line: int,
 ) -> EntityDoc | None:
     class_match = CLASS_PATTERN.search(declaration)
     if class_match:
@@ -69,11 +88,13 @@ def _parse_declaration(
             javadoc=javadoc,
             start_line=start_line,
             end_line=end_line,
+            code_start_line=code_start_line,
+            code_end_line=code_end_line,
         )
 
     if "(" not in declaration or ")" not in declaration:
-        return None
-    return _parse_method(declaration, javadoc, start_line, end_line)
+        return _parse_field(declaration, javadoc, start_line, end_line, code_start_line, code_end_line)
+    return _parse_method(declaration, javadoc, start_line, end_line, code_start_line, code_end_line)
 
 
 def _parse_method(
@@ -81,6 +102,8 @@ def _parse_method(
     javadoc: str,
     start_line: int,
     end_line: int,
+    code_start_line: int,
+    code_end_line: int,
 ) -> EntityDoc | None:
     equals_index = declaration.find("=")
     paren_index = declaration.find("(")
@@ -109,6 +132,36 @@ def _parse_method(
         return_type=return_type,
         parameters=parameters,
         throws=throws,
+        code_start_line=code_start_line,
+        code_end_line=code_end_line,
+    )
+
+
+def _parse_field(
+    declaration: str,
+    javadoc: str,
+    start_line: int,
+    end_line: int,
+    code_start_line: int,
+    code_end_line: int,
+) -> EntityDoc | None:
+    declaration = declaration.split("=", 1)[0].strip()
+    tokens = _clean_type_tokens(declaration.split())
+    if len(tokens) < 2:
+        return None
+    name = tokens[-1].rstrip("[]")
+    if not re.match(r"^[A-Za-z_$][\w$]*$", name):
+        return None
+    return EntityDoc(
+        entity_type="field",
+        name=name,
+        signature=declaration,
+        javadoc=javadoc,
+        start_line=start_line,
+        end_line=end_line,
+        return_type=tokens[-2],
+        code_start_line=code_start_line,
+        code_end_line=code_end_line,
     )
 
 
@@ -136,3 +189,24 @@ def _parse_throws(after_params: str) -> list[str]:
 
 def _line_number(source: str, offset: int) -> int:
     return source.count("\n", 0, offset) + 1
+
+
+def _entity_end_line(source: str, declaration_start_offset: int, declaration_end_offset: int) -> int:
+    declaration_text = source[declaration_start_offset:declaration_end_offset]
+    if ";" in declaration_text and "{" not in declaration_text:
+        return _line_number(source, max(declaration_start_offset, declaration_end_offset - 1))
+
+    open_index = source.find("{", declaration_start_offset)
+    if open_index == -1:
+        return _line_number(source, max(declaration_start_offset, declaration_end_offset - 1))
+
+    depth = 0
+    for index in range(open_index, len(source)):
+        char = source[index]
+        if char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                return _line_number(source, index)
+    return _line_number(source, declaration_end_offset)

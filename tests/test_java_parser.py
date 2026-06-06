@@ -62,7 +62,7 @@ public class Person {
     assert entities[0].return_type == ""
 
 
-def test_ignore_javadoc_on_field_with_constructor_initializer():
+def test_parse_field_javadoc_with_constructor_initializer():
     source = """
 public class Fraction {
     /**
@@ -72,4 +72,9 @@ public class Fraction {
 }
 """
 
-    assert parse_entities(source) == []
+    entities = parse_entities(source)
+
+    assert entities[0].entity_type == "field"
+    assert entities[0].name == "ZERO"
+    assert entities[0].return_type == "Fraction"
+    assert entities[0].code_end_line == entities[0].code_start_line

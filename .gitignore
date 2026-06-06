@@ -1,7 +1,29 @@
-.cache/
-dataset/
-.venv/
+# IDE
+.idea/
+.vscode/
+
+# Python
 __pycache__/
-.pytest_cache/
 *.pyc
-*.egg-info/
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Generated datasets
+output/
+results/
+datasets/
+cache/
+
+# Environment
+.env

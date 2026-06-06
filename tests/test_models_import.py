@@ -29,8 +29,11 @@ def test_output_sample_serializes_required_fields():
         patch="diff --git a/A.java b/A.java",
         commit_message="LANG-1234 rename method",
         change_type="method_rename",
+        javadoc_change_type="JAVADOC_MODIFICATION",
+        method_change_type="METHOD_MODIFICATION",
         quality="A",
     )
 
     assert sample.to_json_dict()["quality"] == "A"
     assert sample.to_json_dict()["entity_name"] == "getFullName"
+    assert sample.to_json_dict()["javadoc_change_type"] == "JAVADOC_MODIFICATION"
