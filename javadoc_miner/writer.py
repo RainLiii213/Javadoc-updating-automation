@@ -10,12 +10,13 @@ SUMMARY_FIELDS = [
     "sample_id",
     "repo",
     "commit_hash",
-    "entity_type",
     "entity_name",
-    "change_type",
+    "entity_signature",
     "javadoc_change_type",
     "method_change_type",
     "quality",
+    "issue_id",
+    "issue_summary",
 ]
 
 
@@ -41,12 +42,13 @@ class SampleWriter:
                     "sample_id": sample_id,
                     "repo": sample.repo,
                     "commit_hash": sample.commit_hash,
-                    "entity_type": sample.entity_type,
                     "entity_name": sample.entity_name,
-                    "change_type": sample.change_type,
+                    "entity_signature": sample.entity_signature,
                     "javadoc_change_type": sample.javadoc_change_type,
                     "method_change_type": sample.method_change_type,
                     "quality": sample.quality,
+                    "issue_id": sample.issue_id,
+                    "issue_summary": sample.issue_summary,
                 }
             )
 
@@ -60,3 +62,24 @@ class SampleWriter:
                 json.dumps(stats.to_json_dict(), ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
+
+        (self.output_dir / "inspection_examples.json").write_text(
+            json.dumps(_inspection_examples(samples), ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
+
+def _inspection_examples(samples: list[OutputSample]) -> dict[str, list[dict[str, str]]]:
+    examples: dict[str, list[dict[str, str]]] = {"A": [], "B": [], "C": []}
+    for quality in ("A", "B", "C"):
+        for sample in [sample for sample in samples if sample.quality == quality][:2]:
+            examples[quality].append(
+                {
+                    "issue_summary": sample.issue_summary,
+                    "code_before": sample.code_before,
+                    "code_after": sample.code_after,
+                    "javadoc_before": sample.javadoc_before,
+                    "javadoc_after": sample.javadoc_after,
+                }
+            )
+    return examples

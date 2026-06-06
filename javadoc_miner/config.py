@@ -8,7 +8,10 @@ class MinerConfig:
     cache_dir: Path = Path(".cache/repos")
     output_dir: Path = Path("dataset")
     max_commits: int = 1000
-    max_samples: int = 100
+    max_samples: int = 50
     full_history: bool = False
-    min_quality: str = "B"
+    min_quality: str = "C"
     force_refresh: bool = False
+    target_a_samples: int = 40
+    target_b_samples: int = 5
+    target_c_samples: int = 5

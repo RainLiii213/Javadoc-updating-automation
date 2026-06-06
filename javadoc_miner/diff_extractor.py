@@ -35,6 +35,15 @@ def commit_has_javadoc_and_code_changes(patch: str) -> bool:
     return False
 
 
+def commit_has_javadoc_changes(patch: str) -> bool:
+    for line in patch.splitlines():
+        if not line.startswith(("+", "-")) or line.startswith(("+++", "---")):
+            continue
+        if is_javadoc_diff_line(line):
+            return True
+    return False
+
+
 def extract_file_changes(repo: GitRepo, commit_hash: str) -> list[FileChange]:
     changed_paths = parse_changed_paths(repo.show_name_status(commit_hash))
     patch = repo.show_commit_patch(commit_hash)
@@ -92,6 +101,12 @@ def entity_code_changed(
     old_code = _entity_code_without_javadoc(file_change.old_content or "", old_entity)
     new_code = _entity_code_without_javadoc(file_change.new_content or "", new_entity)
     return old_code != new_code
+
+
+def entity_code_text(source: str | None, entity: EntityDoc | None) -> str:
+    if source is None or entity is None:
+        return ""
+    return _entity_code_without_javadoc(source, entity)
 
 
 def _entity_window(source: str, entity: EntityDoc | None, context_lines: int) -> list[str]:

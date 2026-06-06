@@ -74,7 +74,7 @@ public class Person {
 
     assert len(samples) == 1
     assert samples[0].entity_name == "getFullName"
-    assert samples[0].change_type == "method_rename"
+    assert samples[0].entity_signature == "public String getFullName()"
     assert samples[0].javadoc_change_type == "JAVADOC_MODIFICATION"
     assert samples[0].method_change_type == "METHOD_MODIFICATION"
     assert samples[0].quality == "A"
@@ -249,7 +249,7 @@ public class Names {
     assert {sample.entity_name for sample in samples} == {"first", "last"}
     first_sample = next(sample for sample in samples if sample.entity_name == "first")
     last_sample = next(sample for sample in samples if sample.entity_name == "last")
-    assert "family" not in first_sample.patch
-    assert "given" not in last_sample.patch
+    assert "family" not in first_sample.code_after
+    assert "given" not in last_sample.code_after
     assert first_sample.javadoc_change_type == "JAVADOC_MODIFICATION"
     assert first_sample.method_change_type == "METHOD_MODIFICATION"

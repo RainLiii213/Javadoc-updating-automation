@@ -19,10 +19,19 @@ def classify_entity_change(
             change_type = "field_deletion"
         else:
             change_type = "class_deletion"
-        return Classification(change_type, "C", "JAVADOC_DELETION", _method_change_label(old, new, True))
+        javadoc_change_type = "JAVADOC_DELETION"
+        method_change_type = _method_change_label(old, new, True)
+        return Classification(change_type, _quality_for(method_change_type, javadoc_change_type), javadoc_change_type, method_change_type)
     if old is None:
         if normalize_doc_text(new.javadoc):
-            return Classification(_addition_type(new), "B", "JAVADOC_ADDITION", _method_change_label(old, new, True))
+            javadoc_change_type = "JAVADOC_ADDITION"
+            method_change_type = _method_change_label(old, new, True)
+            return Classification(
+                _addition_type(new),
+                _quality_for(method_change_type, javadoc_change_type),
+                javadoc_change_type,
+                method_change_type,
+            )
         return None
     if not _javadoc_changed(old.javadoc, new.javadoc):
         return None
@@ -30,23 +39,24 @@ def classify_entity_change(
         return None
     javadoc_change_type = "JAVADOC_MODIFICATION"
     method_change_type = _method_change_label(old, new, nearby_code_changed)
+    quality = _quality_for(method_change_type, javadoc_change_type)
     if old.entity_type != new.entity_type:
-        return Classification("class_api_change", "A", javadoc_change_type, method_change_type)
+        return Classification("class_api_change", quality, javadoc_change_type, method_change_type)
     if old.name != new.name:
         return Classification(
             "method_rename" if new.entity_type == "method" else "class_api_change",
-            "A",
+            quality,
             javadoc_change_type,
             method_change_type,
         )
     if old.parameters != new.parameters:
-        return Classification("parameter_change", "A", javadoc_change_type, method_change_type)
+        return Classification("parameter_change", quality, javadoc_change_type, method_change_type)
     if old.return_type != new.return_type:
-        return Classification("return_type_change", "A", javadoc_change_type, method_change_type)
+        return Classification("return_type_change", quality, javadoc_change_type, method_change_type)
     if old.throws != new.throws:
-        return Classification("exception_change", "A", javadoc_change_type, method_change_type)
+        return Classification("exception_change", quality, javadoc_change_type, method_change_type)
     if nearby_code_changed:
-        return Classification("nearby_code_and_javadoc_change", "C", javadoc_change_type, method_change_type)
+        return Classification("nearby_code_and_javadoc_change", quality, javadoc_change_type, method_change_type)
     return None
 
 
@@ -63,9 +73,6 @@ def _addition_type(entity: EntityDoc) -> str:
 
 
 def _method_change_label(old: EntityDoc | None, new: EntityDoc | None, code_changed: bool) -> str:
-    entity = new or old
-    if entity is None or entity.entity_type != "method":
-        return "METHOD_UNCHANGED"
     if old is None and new is not None:
         return "METHOD_ADDITION"
     if old is not None and new is None:
@@ -73,6 +80,14 @@ def _method_change_label(old: EntityDoc | None, new: EntityDoc | None, code_chan
     if code_changed:
         return "METHOD_MODIFICATION"
     return "METHOD_UNCHANGED"
+
+
+def _quality_for(method_change_type: str, javadoc_change_type: str) -> str:
+    if method_change_type == "METHOD_MODIFICATION" and javadoc_change_type == "JAVADOC_MODIFICATION":
+        return "A"
+    if method_change_type == "METHOD_ADDITION" and javadoc_change_type == "JAVADOC_ADDITION":
+        return "B"
+    return "C"
 
 
 def _javadoc_changed(old_doc: str, new_doc: str) -> bool:
