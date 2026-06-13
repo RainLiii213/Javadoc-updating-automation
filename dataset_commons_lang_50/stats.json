@@ -1,0 +1,32 @@
+{
+  "total_commits_scanned": 2730,
+  "total_commits_containing_javadoc_changes": 931,
+  "total_samples_generated": 37,
+  "quality_distribution": {
+    "A": 37,
+    "B": 0,
+    "C": 0
+  },
+  "method_change_distribution": {
+    "METHOD_ADDITION": 0,
+    "METHOD_MODIFICATION": 37,
+    "METHOD_DELETION": 0
+  },
+  "javadoc_change_distribution": {
+    "JAVADOC_ADDITION": 0,
+    "JAVADOC_MODIFICATION": 37,
+    "JAVADOC_DELETION": 0
+  },
+  "target_a_samples": 50,
+  "target_b_samples": 0,
+  "target_c_samples": 0,
+  "a_sample_yield": 0.013553113553113554,
+  "a_sample_density": 1.0,
+  "a_sample_shortfall": 13,
+  "a_sample_shortfall_reason": "Only 37 A-quality samples were generated. Strict A-quality requires a substantial entity-level code modification, a meaningful Javadoc modification, and a clear logical connection.",
+  "target_distribution": {
+    "A": 50,
+    "B": 0,
+    "C": 0
+  }
+}

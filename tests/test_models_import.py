@@ -35,13 +35,14 @@ def test_output_sample_serializes_required_fields():
         entity_type="method",
     )
 
-    assert sample.to_json_dict()["quality"] == "A"
-    assert sample.to_json_dict()["entity_name"] == "getFullName"
-    assert sample.to_json_dict()["javadoc_change_type"] == "JAVADOC_MODIFICATION"
-    assert "issues" not in sample.to_json_dict()
-    assert "old_javadoc" not in sample.to_json_dict()
-    assert "new_javadoc" not in sample.to_json_dict()
-    assert "patch" not in sample.to_json_dict()
+    assert set(sample.to_json_dict()) == {
+        "commit_hash",
+        "issue_summary",
+        "code_before",
+        "code_after",
+        "javadoc_before",
+        "javadoc_after",
+    }
 
 
 def test_extraction_stats_reports_required_dataset_metrics():

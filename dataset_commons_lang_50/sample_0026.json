@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ede98ffdb928586528a8b2876b049cb8bf362926",
+  "issue_summary": "Return ToStringStyle.nullText instead of NPE for ReflectionToStringBuilder.toString(Object) and friends.",
+  "code_before": "public ReflectionToStringBuilder(final Object object) {\n        super(Objects.requireNonNull(object, \"obj\"));\n    }",
+  "code_after": "public ReflectionToStringBuilder(final Object object) {\n        super(object);\n    }",
+  "javadoc_before": "/**\n     * Constructs a new instance.\n     *\n     * <p>\n     * This constructor outputs using the default style set with {@code setDefaultStyle}.\n     * </p>\n     *\n     * @param object\n     *            the Object to build a {@code toString} for, must not be {@code null}\n     * @throws IllegalArgumentException\n     *             if the Object passed in is {@code null}\n     */",
+  "javadoc_after": "/**\n     * Constructs a new instance.\n     *\n     * <p>\n     * This constructor outputs using the default style set with {@code setDefaultStyle}.\n     * </p>\n     *\n     * @param object\n     *            the Object to build a {@code toString} for, must not be {@code null}\n     */"
+}

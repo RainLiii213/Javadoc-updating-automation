@@ -105,6 +105,22 @@ def entity_code_text(source: str | None, entity: EntityDoc | None) -> str:
     return _entity_code_without_javadoc(source, entity)
 
 
+def bounded_entity_code_pair(
+    file_change: FileChange,
+    old_entity: EntityDoc,
+    new_entity: EntityDoc,
+    max_lines: int = 100,
+) -> tuple[str, str]:
+    old_code = entity_code_text(file_change.old_content, old_entity)
+    new_code = entity_code_text(file_change.new_content, new_entity)
+    if len(old_code.splitlines()) <= max_lines and len(new_code.splitlines()) <= max_lines:
+        return old_code, new_code
+    return (
+        _changed_code_window(old_code, new_code, old_side=True, max_lines=max_lines),
+        _changed_code_window(old_code, new_code, old_side=False, max_lines=max_lines),
+    )
+
+
 def _entity_window(source: str, entity: EntityDoc | None, context_lines: int) -> list[str]:
     if entity is None:
         return []
@@ -124,6 +140,30 @@ def _entity_code_without_javadoc(source: str, entity: EntityDoc) -> str:
     lines = source.splitlines()
     code_lines = lines[entity.code_start_line - 1 : entity.code_end_line]
     return "\n".join(line.rstrip() for line in code_lines).strip()
+
+
+def _changed_code_window(old_code: str, new_code: str, old_side: bool, max_lines: int) -> str:
+    old_lines = old_code.splitlines()
+    new_lines = new_code.splitlines()
+    opcodes = difflib.SequenceMatcher(None, old_lines, new_lines).get_opcodes()
+    changed_indexes: list[int] = []
+    for tag, old_start, old_end, new_start, new_end in opcodes:
+        if tag == "equal":
+            continue
+        start, end = (old_start, old_end) if old_side else (new_start, new_end)
+        changed_indexes.extend(range(start, max(start + 1, end)))
+    lines = old_lines if old_side else new_lines
+    if not lines:
+        return ""
+    center = changed_indexes[0] if changed_indexes else 0
+    half = max(1, (max_lines - 2) // 2)
+    start = max(0, center - half)
+    end = min(len(lines), start + max_lines)
+    start = max(0, end - max_lines)
+    window = lines[start:end]
+    if start > 0:
+        window = [lines[0], "    // ... relevant changed context ...", *window[2:]]
+    return "\n".join(window).strip()
 
 
 def _with_adjusted_hunk_headers(diff_lines: list[str], old_start: int, new_start: int) -> list[str]:

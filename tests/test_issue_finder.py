@@ -1,5 +1,5 @@
 from javadoc_miner import issue_finder
-from javadoc_miner.issue_finder import find_issues, resolve_issue_summary
+from javadoc_miner.issue_finder import commit_summary, find_issues, resolve_issue_summary
 
 
 def test_find_issues_extracts_github_and_apache_ids_in_order():
@@ -51,18 +51,14 @@ def test_resolve_issue_summary_preserves_method_signature_parentheses(monkeypatc
     assert summary == "Add Instants.toMillisSince(Instant)"
 
 
-def test_resolve_issue_summary_prefers_github_issue_title_over_jira_title(monkeypatch):
+def test_resolve_issue_summary_does_not_call_github_api(monkeypatch):
     issue_finder._SUMMARY_CACHE.clear()
     monkeypatch.setattr(
         issue_finder,
         "_github_issue_metadata",
-        lambda repo_url, issue_id: {
-            "title": "GitHub issue title",
-            "is_pull_request": False,
-        },
+        lambda repo_url, issue_id: (_ for _ in ()).throw(AssertionError("GitHub API must not be called")),
         raising=False,
     )
-    monkeypatch.setattr(issue_finder, "_github_issue_title", lambda repo_url, issue_id: "GitHub issue title")
     monkeypatch.setattr(issue_finder, "_jira_issue_title", lambda issue_id: "JIRA issue title")
 
     summary = resolve_issue_summary(
@@ -71,27 +67,28 @@ def test_resolve_issue_summary_prefers_github_issue_title_over_jira_title(monkey
         commit_message="LANG-1234 fallback (#56)",
     )
 
-    assert summary == "GitHub issue title"
+    assert summary == "JIRA issue title"
 
 
-def test_resolve_issue_summary_prefers_jira_title_over_pull_request_title(monkeypatch):
+def test_resolve_issue_summary_falls_back_for_github_issue_only(monkeypatch):
     issue_finder._SUMMARY_CACHE.clear()
     monkeypatch.setattr(
         issue_finder,
         "_github_issue_metadata",
-        lambda repo_url, issue_id: {
-            "title": "Pull request implementation title",
-            "is_pull_request": True,
-        },
+        lambda repo_url, issue_id: (_ for _ in ()).throw(AssertionError("GitHub API must not be called")),
         raising=False,
     )
-    monkeypatch.setattr(issue_finder, "_github_issue_title", lambda repo_url, issue_id: "Pull request implementation title")
-    monkeypatch.setattr(issue_finder, "_jira_issue_title", lambda issue_id: "JIRA issue title")
 
     summary = resolve_issue_summary(
         repo_url="https://github.com/apache/commons-lang",
-        issue_ids=["#56", "LANG-1234"],
-        commit_message="LANG-1234 fallback (#56)",
+        issue_ids=["#56"],
+        commit_message="Improve fallback behavior (#56)",
     )
 
-    assert summary == "JIRA issue title"
+    assert summary == "Improve fallback behavior"
+
+
+def test_commit_summary_joins_wrapped_current_commit_subject():
+    message = "Fix NullPointerException when the\ncurrent thread is stopped.\n\nLong body."
+
+    assert commit_summary(message) == "Fix NullPointerException when the current thread is stopped."

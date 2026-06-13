@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a1ea0e4412ce551a3ca605024c005a293d40acb3",
+  "issue_summary": "Deprecate NumberUtils.compare(byte, byte) in favor of Byte.compare(byte byte)",
+  "code_before": "public static int compare(final byte x, final byte y) {\n        return x - y;\n    }",
+  "code_after": "@Deprecated\n    public static int compare(final byte x, final byte y) {\n        return Byte.compare(x, y);\n    }",
+  "javadoc_before": "/**\n     * Compares two {@code byte} values numerically. This is the same functionality as provided in Java 7.\n     *\n     * @param x the first {@code byte} to compare\n     * @param y the second {@code byte} to compare\n     * @return the value {@code 0} if {@code x == y};\n     *         a value less than {@code 0} if {@code x < y}; and\n     *         a value greater than {@code 0} if {@code x > y}\n     * @since 3.4\n     */",
+  "javadoc_after": "/**\n     * Compares two {@code byte} values numerically. This is the same functionality as provided in Java 7.\n     *\n     * @param x the first {@code byte} to compare\n     * @param y the second {@code byte} to compare\n     * @return the value {@code 0} if {@code x == y};\n     *         a value less than {@code 0} if {@code x < y}; and\n     *         a value greater than {@code 0} if {@code x > y}\n     * @since 3.4\n     * @deprecated Use {@link Byte#compare(byte, byte)}.\n     */"
+}

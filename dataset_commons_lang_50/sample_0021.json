@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8e05b7141a8fc302b35f412834d660f234a10648",
+  "issue_summary": "Make ArrayFill null-safe",
+  "code_before": "public static byte[] fill(final byte[] a, final byte val) {\n        Arrays.fill(a, val);\n        return a;\n    }",
+  "code_after": "public static byte[] fill(final byte[] a, final byte val) {\n        if (a != null) {\n            Arrays.fill(a, val);\n        }\n        return a;\n    }",
+  "javadoc_before": "/**\n     * Fills and returns the given array.\n     *\n     * @param a   the array to be filled.\n     * @param val the value to be stored in all elements of the array.\n     * @return the given array.\n     * @see Arrays#fill(byte[],byte)\n     */",
+  "javadoc_after": "/**\n     * Fills and returns the given array.\n     *\n     * @param a   the array to be filled (may be null).\n     * @param val the value to be stored in all elements of the array.\n     * @return the given array.\n     * @see Arrays#fill(byte[],byte)\n     */"
+}

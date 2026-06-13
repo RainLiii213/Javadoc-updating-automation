@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a4ba12e80c1b82b814b0165704934ef182ad069f",
+  "issue_summary": "org.apache.commons.lang3.EnumUtils.getFirstEnumIgnoreCase(Class<E> String, Function<E, String>, E) now returns the given default enum on null enumClass input",
+  "code_before": "public static <T> Stream<T> stream(final Class<T> clazz) {\n        return Streams.of(clazz.getEnumConstants());\n    }",
+  "code_after": "public static <T> Stream<T> stream(final Class<T> clazz) {\n        return clazz != null ? Streams.of(clazz.getEnumConstants()) : Stream.empty();\n    }",
+  "javadoc_before": "/**\n     * Returns a sequential ordered stream whose elements are the given class' enum values.\n     *\n     * @param <T>   the type of stream elements.\n     * @param clazz the class containing the enum values.\n     * @return the new stream.\n     * @since 3.18.0\n     * @see Class#getEnumConstants()\n     */",
+  "javadoc_after": "/**\n     * Returns a sequential ordered stream whose elements are the given class' enum values.\n     *\n     * @param <T>   the type of stream elements.\n     * @param clazz the class containing the enum values, may be null.\n     * @return the new stream, empty of {@code clazz} is null.\n     * @since 3.18.0\n     * @see Class#getEnumConstants()\n     */"
+}

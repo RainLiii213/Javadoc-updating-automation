@@ -10,6 +10,8 @@ SUMMARY_FIELDS = [
     "sample_id",
     "repo",
     "commit_hash",
+    "file_path",
+    "entity_type",
     "entity_name",
     "entity_signature",
     "javadoc_change_type",
@@ -42,6 +44,8 @@ class SampleWriter:
                     "sample_id": sample_id,
                     "repo": sample.repo,
                     "commit_hash": sample.commit_hash,
+                    "file_path": sample.file_path,
+                    "entity_type": sample.entity_type,
                     "entity_name": sample.entity_name,
                     "entity_signature": sample.entity_signature,
                     "javadoc_change_type": sample.javadoc_change_type,
@@ -65,6 +69,10 @@ class SampleWriter:
 
         (self.output_dir / "inspection_examples.json").write_text(
             json.dumps(_inspection_examples(samples), ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        (self.output_dir / "combined_samples.json").write_text(
+            json.dumps([sample.to_json_dict() for sample in samples], ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
 

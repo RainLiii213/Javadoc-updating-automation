@@ -1,0 +1,8 @@
+{
+  "commit_hash": "096b05e89f55eacf574b3214c2dfe3692123afb9",
+  "issue_summary": "Make Failable.run(FailableRunnable) null-safe",
+  "code_before": "public static <E extends Throwable> void run(final FailableRunnable<E> runnable) {\n        try {\n            runnable.run();\n        } catch (final Throwable t) {\n            throw rethrow(t);\n        }\n    }",
+  "code_after": "public static <E extends Throwable> void run(final FailableRunnable<E> runnable) {\n        if (runnable != null) {\n            try {\n                runnable.run();\n            } catch (final Throwable t) {\n                throw rethrow(t);\n            }\n        }\n    }",
+  "javadoc_before": "/**\n     * Runs a runnable and rethrows any exception as a {@link RuntimeException}.\n     *\n     * @param runnable The runnable to run\n     * @param <E> the type of checked exception the runnable may throw\n     */",
+  "javadoc_after": "/**\n     * Runs a runnable and rethrows any exception as a {@link RuntimeException}.\n     *\n     * @param runnable The runnable to run, may be null for a noop.\n     * @param <E> the type of checked exception the runnable may throw.\n     */"
+}

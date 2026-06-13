@@ -1,0 +1,8 @@
+{
+  "commit_hash": "aa4eef85cfd88e55677df238b44c6cc463d0af91",
+  "issue_summary": "Customize text pattern in DiffResult#toString()",
+  "code_before": "@Override\n    public DiffResult<T> build() {\n        return new DiffResult<>(left, right, diffs, style, toStringFormat);\n    }",
+  "code_after": "public DiffBuilder<T> build() {\n            return new DiffBuilder<>(left, right, style, testObjectsEquals, toStringFormat);\n        }",
+  "javadoc_before": "/**\n     * Builds a {@link DiffResult} based on the differences appended to this\n     * builder.\n     *\n     * @return a {@link DiffResult} containing the differences between the two\n     *         objects.\n     */",
+  "javadoc_after": "/**\n         * Builds a new configured {@link DiffBuilder}.\n         *\n         * @return a new configured {@link DiffBuilder}.\n         */"
+}

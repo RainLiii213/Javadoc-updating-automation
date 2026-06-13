@@ -31,6 +31,10 @@ def resolve_issue_summary(repo_url: str, issue_ids: list[str], commit_message: s
     return resolve_issue_context(repo_url, issue_ids, commit_message)[1]
 
 
+def commit_summary(commit_message: str) -> str:
+    return _commit_summary(commit_message)
+
+
 def resolve_issue_context(repo_url: str, issue_ids: list[str], commit_message: str) -> tuple[str, str]:
     candidates = [
         candidate
@@ -54,14 +58,7 @@ def _resolve_issue_candidate(repo_url: str, issue_id: str) -> IssueCandidate | N
     if cache_key in _SUMMARY_CACHE:
         return _SUMMARY_CACHE[cache_key]
     candidate = None
-    if issue_id.startswith("#"):
-        metadata = _github_issue_metadata(repo_url, issue_id)
-        if metadata:
-            title = metadata.get("title", "").strip()
-            if title:
-                source = "pull_request" if metadata.get("is_pull_request") else "github_issue"
-                candidate = IssueCandidate(issue_id=issue_id, title=title, source=source)
-    else:
+    if not issue_id.startswith("#"):
         title = _jira_issue_title(issue_id)
         if title:
             candidate = IssueCandidate(issue_id=issue_id, title=title, source="jira_issue")
@@ -136,11 +133,16 @@ def _github_repo_path(repo_url: str) -> str:
 
 
 def _commit_summary(commit_message: str) -> str:
+    summary_lines: list[str] = []
     for line in commit_message.splitlines():
+        if not line.strip():
+            if summary_lines:
+                break
+            continue
         stripped = _clean_commit_summary_line(line)
         if stripped:
-            return stripped
-    return ""
+            summary_lines.append(stripped)
+    return " ".join(summary_lines)
 
 
 def _clean_commit_summary_line(line: str) -> str:

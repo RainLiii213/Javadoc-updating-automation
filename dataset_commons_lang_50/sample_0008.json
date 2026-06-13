@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1d9093c5062806db6c13ec635648c71aeac6a09f",
+  "issue_summary": "Deprecate NumberUtils.compare(int, int) in favor of Integer.compare(int int)",
+  "code_before": "public static int compare(final int x, final int y) {\n        if (x == y) {\n            return 0;\n        }\n        return x < y ? -1 : 1;\n    }",
+  "code_after": "@Deprecated\n    public static int compare(final int x, final int y) {\n        return Integer.compare(x, y);\n    }",
+  "javadoc_before": "/**\n     * Compares two {@code int} values numerically. This is the same functionality as provided in Java 7.\n     *\n     * @param x the first {@code int} to compare\n     * @param y the second {@code int} to compare\n     * @return the value {@code 0} if {@code x == y};\n     *         a value less than {@code 0} if {@code x < y}; and\n     *         a value greater than {@code 0} if {@code x > y}\n     * @since 3.4\n     */",
+  "javadoc_after": "/**\n     * Compares two {@code int} values numerically. This is the same functionality as provided in Java 7.\n     *\n     * @param x the first {@code int} to compare\n     * @param y the second {@code int} to compare\n     * @return the value {@code 0} if {@code x == y};\n     *         a value less than {@code 0} if {@code x < y}; and\n     *         a value greater than {@code 0} if {@code x > y}\n     * @since 3.4\n     * @deprecated Use {@link Integer#compare(int, int)}.\n     */"
+}

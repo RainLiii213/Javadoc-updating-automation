@@ -1,0 +1,8 @@
+{
+  "commit_hash": "85212f1738e98bd90767b0c8106fb76b38151591",
+  "issue_summary": "Make it obvious that DurationFormatUtils.Token wraps non-null values",
+  "code_before": "Token(final Object value, final int count) {\n            this.value = value;\n            this.count = count;\n        }",
+  "code_after": "Token(final Object value, final int count) {\n            this.value = Objects.requireNonNull(value, \"value\");\n            this.count = count;\n        }",
+  "javadoc_before": "/**\n         * Wraps a token around a repeated number of a value, for example it would\n         * store 'yyyy' as a value for y and a count of 4.\n         *\n         * @param value to wrap\n         * @param count to wrap\n         */",
+  "javadoc_after": "/**\n         * Wraps a token around a repeated number of a value, for example it would\n         * store 'yyyy' as a value for y and a count of 4.\n         *\n         * @param value to wrap, non-null.\n         * @param count to wrap.\n         */"
+}

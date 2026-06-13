@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6a65b76f2ab90cad2c297ff0d9f747ebb982e515",
+  "issue_summary": "Throw NumberFormatException instead of IndexOutOfBoundsException in NumberUtils.getMantissa(String, int)",
+  "code_before": "private static String getMantissa(final String str, final int stopPos) {\n        final char firstChar = str.charAt(0);\n        final boolean hasSign = firstChar == '-' || firstChar == '+';\n\n        return hasSign ? str.substring(1, stopPos) : str.substring(0, stopPos);\n    }",
+  "code_after": "private static String getMantissa(final String str, final int stopPos) {\n         final char firstChar = str.charAt(0);\n         final boolean hasSign = firstChar == '-' || firstChar == '+';\n         final int length = str.length();\n         if (length <= (hasSign ? 1 : 0) || length < stopPos) {\n             throw new NumberFormatException(str + \" is not a valid number.\");\n         }\n         return hasSign ? str.substring(1, stopPos) : str.substring(0, stopPos);\n    }",
+  "javadoc_before": "/**\n     * Utility method for {@link #createNumber(java.lang.String)}.\n     *\n     * <p>Returns mantissa of the given number.</p>\n     *\n     * @param str the string representation of the number\n     * @param stopPos the position of the exponent or decimal point\n     * @return mantissa of the given number\n     */",
+  "javadoc_after": "/**\n     * Utility method for {@link #createNumber(java.lang.String)}.\n     *\n     * <p>Returns mantissa of the given number.</p>\n     *\n     * @param str the string representation of the number\n     * @param stopPos the position of the exponent or decimal point\n     * @return mantissa of the given number\n     * @throws NumberFormatException if no mantissa can be retrieved\n     */"
+}

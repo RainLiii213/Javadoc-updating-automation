@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4369537d8b1387b94a1126a36a4fc400a35d35cc",
+  "issue_summary": "ArrayUtils.toPrimitive(Boolean...) null array elements map to false like Boolean.parseBoolean(null) and its callers return false.",
+  "code_before": "public static boolean[] toPrimitive(final Boolean[] array) {\n        if (array == null) {\n            return null;\n        }\n        if (array.length == 0) {\n            return EMPTY_BOOLEAN_ARRAY;\n        }\n        final boolean[] result = new boolean[array.length];\n        for (int i = 0; i < array.length; i++) {\n            result[i] = array[i].booleanValue();\n        }\n        return result;\n    }",
+  "code_after": "public static boolean[] toPrimitive(final Boolean[] array) {\n        return toPrimitive(array, false);\n    }",
+  "javadoc_before": "/**\n     * Converts an array of object Booleans to primitives.\n     * <p>\n     * This method returns {@code null} for a {@code null} input array.\n     * </p>\n     *\n     * @param array  a {@code Boolean} array, may be {@code null}\n     * @return a {@code boolean} array, {@code null} if null array input\n     * @throws NullPointerException if an array element is {@code null}\n     */",
+  "javadoc_after": "/**\n     * Converts an array of object Booleans to primitives.\n     * <p>\n     * This method returns {@code null} for a {@code null} input array.\n     * </p>\n     * <p>\n     * Null array elements map to false, like {@code Boolean.parseBoolean(null)} and its callers return false.\n     * </p>\n     *\n     * @param array a {@code Boolean} array, may be {@code null}\n     * @return a {@code boolean} array, {@code null} if null array input\n     */"
+}

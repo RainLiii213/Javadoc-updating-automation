@@ -1,158 +1,137 @@
-# JavaDoc Miner
+# Patch-Aware Javadoc Miner
 
-JavaDoc Miner 是一个用于研究 JavaDoc 如何随代码变更更新的 Python 挖掘工具。
+This tool builds a high-precision dataset for **Patch-Aware Javadoc Updating**.
+Precision is more important than recall: borderline samples are discarded.
 
-它会从 GitHub Java 仓库中遍历 commit 历史，筛选同时修改 Java 代码和 JavaDoc 的提交，并输出实体级样本。这里的“实体级”指一个 JSON 样本对应一个方法、构造器或类，而不是整个 commit。
-
-第一版主要面向 Apache Commons Lang，也可以用于其他 Apache Java 项目。
-
-## 能做什么
-
-工具会自动完成：
-
-1. 从 GitHub URL clone 仓库到 `.cache/repos/`。
-2. 遍历 commit 历史，默认只扫最近一部分，也支持全量历史。
-3. 只分析 `src/main/java/**/*.java`。
-4. 忽略 `src/test/java/`、测试类、Markdown、XML、构建脚本等无关文件。
-5. 检测同一个 commit 中是否同时存在 Java 代码变化和 JavaDoc 变化。
-6. 解析 JavaDoc，并尽量绑定到对应的方法、构造器或类。
-7. 输出一个样本一个 JSON 文件，并生成 `summary.csv`。
-
-## 输出格式
-
-默认输出目录是 `dataset/`：
+The target task is:
 
 ```text
-dataset/
-  sample_0001.json
-  sample_0002.json
-  summary.csv
+Input:  issue_summary, code_before, code_after, javadoc_before
+Output: javadoc_after
 ```
 
-单个样本大致如下：
+Every retained sample must let a reviewer clearly explain why the code change
+required the Javadoc update.
 
-```json
-{
-  "repo": "apache/commons-lang",
-  "commit_hash": "9abd79314b19676c54eab02d441cfb3051bb2d8c",
-  "commit_url": "https://github.com/apache/commons-lang/commit/9abd79314b19676c54eab02d441cfb3051bb2d8c",
-  "issue": "#1685",
-  "issues": ["#1685"],
-  "entity_type": "method",
-  "entity_name": "isAsciiNumeric",
-  "old_javadoc": "",
-  "new_javadoc": "/** ... */",
-  "patch": "commit ...",
-  "commit_message": "Add CharUtils isHex(int), isAsciiNumeric(int), isOctal(int). (#1685)",
-  "change_type": "method_addition",
-  "quality": "B"
-}
-```
+## Strict Retention Rules
 
-## 质量等级
+A sample is retained only when all of these conditions hold:
 
-- `A`：方法或类的 API 发生变化，并且 JavaDoc 同步更新。例如方法改名、参数变化、返回类型变化、异常变化。
-- `B`：新增方法或新增类，并且新增实体带有 JavaDoc。
-- `C`：JavaDoc 和代码都变了，但关系较弱，只能作为低置信候选。
+1. The same existing method or class is present before and after the commit.
+2. Existing Javadoc is modified; Javadoc creation and deletion are excluded.
+3. Code changes are substantial, such as behavior, parameter handling,
+   nullability, exceptions, return behavior, API contracts, or edge cases.
+4. Javadoc changes are semantically meaningful.
+5. Changed code terms and changed Javadoc terms have a clear direct or
+   contract-level relationship.
 
-默认只输出 `A` 和 `B`。如果想保留弱相关样本，可以使用 `--min-quality C`。
+The miner aggressively rejects:
 
-## 安装
+- method/class additions and deletions;
+- empty `code_after`, `javadoc_before`, or `javadoc_after`;
+- field-level samples;
+- formatting, whitespace, imports, reordering, and identifier-only renames;
+- punctuation, HTML formatting, typo, capitalization, and tag-order edits;
+- versions, issue IDs, dates, URLs, and only `@see/@since/@version/@author`;
+- substantial code and documentation changes whose relationship is unclear.
 
-需要：
+Very high Javadoc similarity is treated as suspicious. Such a sample is kept
+only when the changed terms expose a strong contract link, for example
+`milliseconds`, `null`, an exception, or a changed parameter contract.
 
-- Python 3.10 或更高版本
-- Git
-- 能访问 GitHub 的网络
+## Code Context
 
-推荐创建虚拟环境：
+Method samples contain only the modified method. Class samples contain bounded
+class declaration/change context. Large entities are cropped to at most about
+100 lines around the relevant change rather than storing an entire source file.
+
+## Installation
+
+Requires Python 3.10+ and Git:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev]"
 ```
 
-macOS / Linux：
-
-```bash
-python3 -m venv .venv
-./.venv/bin/python -m pip install -e ".[dev]"
-```
-
-如果只运行工具，不跑测试，也可以：
-
-```powershell
-.\.venv\Scripts\python.exe -m pip install -e .
-```
-
-## 使用
-
-挖掘 Apache Commons Lang 最近一部分历史：
+## Generate Commons Lang Samples
 
 ```powershell
 .\.venv\Scripts\python.exe -m javadoc_miner mine `
   --repo-url https://github.com/apache/commons-lang `
-  --max-commits 200 `
-  --max-samples 10 `
-  --output-dir dataset
-```
-
-安装为可执行命令后，也可以这样运行：
-
-```powershell
-javadoc-miner mine `
-  --repo-url https://github.com/apache/commons-lang `
-  --max-commits 200 `
-  --max-samples 10 `
-  --output-dir dataset
-```
-
-全量扫描：
-
-```powershell
-javadoc-miner mine `
-  --repo-url https://github.com/apache/commons-lang `
   --full-history `
-  --min-quality B `
-  --output-dir dataset
+  --max-samples 50 `
+  --output-dir dataset_commons_lang_50 `
+  --force-refresh
 ```
 
-## 常用参数
+For development, use `--max-commits 3000` or `--max-commits 5000`.
 
-- `--repo-url`：目标 GitHub 仓库 URL。
-- `--cache-dir`：仓库缓存目录，默认 `.cache/repos`。
-- `--output-dir`：样本输出目录，默认 `dataset`。
-- `--max-commits`：默认扫描 commit 数上限，默认 `1000`。
-- `--max-samples`：默认输出样本数上限，默认 `100`。
-- `--full-history`：扫描完整历史。
-- `--min-quality A|B|C`：最小质量等级，默认 `B`。
-- `--force-refresh`：删除缓存仓库并重新 clone。
+The output directory is automatically deleted and recreated on every run, so
+old dataset files cannot leak into a new result.
 
-## 运行测试
+To avoid review clutter, repeated overloads are deduplicated: for one commit,
+only one sample is retained for the same entity type and entity name, and each
+commit contributes at most three samples. Mining stops after enough unique
+high-confidence samples are found.
+
+## Output
+
+```text
+dataset_commons_lang_50/
+  sample_0001.json
+  sample_0002.json
+  ...
+  combined_samples.json
+  summary.csv
+  stats.json
+  inspection_examples.json
+```
+
+Each `sample_*.json` and each item in `combined_samples.json` uses the final
+review schema:
+
+```json
+{
+  "commit_hash": "...",
+  "issue_summary": "...",
+  "code_before": "...",
+  "code_after": "...",
+  "javadoc_before": "...",
+  "javadoc_after": "..."
+}
+```
+
+`combined_samples.json` puts all retained samples in one file for GPT or human
+review. `summary.csv` and `stats.json` retain additional mining metadata for
+local auditing.
+
+`issue_summary` always comes from the current commit message. Issue references
+are not extracted from arbitrary patch text, preventing unrelated issue
+summaries from being attached.
+
+## Quality
+
+All retained samples are classified as `A`: high-confidence existing Javadoc
+updates connected to substantial code changes. The miner may produce fewer
+than the requested `--max-samples`; this is intentional when not enough
+high-confidence samples exist.
+
+## Tests
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -v
 ```
 
-当前实现包含针对 issue 提取、路径过滤、JavaDoc 解析、实体对齐、分类、写入器和 CLI 集成流程的测试。
+Tests cover creation/deletion rejection, rename/reordering rejection,
+substantive code changes, meaningful Javadoc changes, logical connection,
+bounded context, output replacement, and combined review output.
 
-## 实现思路
+## Current Limitations
 
-工具分成两阶段：
-
-1. 粗筛 commit：通过 git patch 判断是否同时存在 JavaDoc 变化和 Java 代码变化。
-2. 实体抽取：读取 commit 前后版本的 Java 文件，解析 JavaDoc 块并绑定到紧邻的方法、构造器或类，再按规则分类。
-
-这个实现没有依赖 GitHub API，也没有依赖完整 Java AST parser。原因是第一版的目标是稳定产出可审查样本，先把数据链路跑通。后续如果需要更高精度，可以把 `java_parser.py` 替换为基于 Java parser 的实现。
-
-## 当前限制
-
-- Java 结构识别是启发式解析，不是完整 Java 语法解析。
-- 对复杂泛型、多行注解、非常规格式的签名可能漏检。
-- 默认遍历 `HEAD` 的 first-parent 历史，偏向主线提交。
-- 输出的 `dataset/` 默认不提交到仓库，因为真实数据集可能很大。
-
-## 文档
-
-- 设计文档：`docs/superpowers/specs/2026-06-04-javadoc-miner-design.md`
-- 实现计划：`docs/superpowers/plans/2026-06-04-javadoc-miner.md`
+- Only Java/Javadoc is supported.
+- Java parsing and semantic linkage are conservative heuristics, not a full AST
+  or language-model analysis.
+- Some valid samples are intentionally discarded when the relationship is not
+  immediately clear.
+- Python, C++, and larger 1k+ datasets are future work.

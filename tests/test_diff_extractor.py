@@ -1,5 +1,6 @@
 from javadoc_miner.diff_extractor import (
     build_entity_patch,
+    bounded_entity_code_pair,
     commit_has_javadoc_and_code_changes,
     entity_code_changed,
     parse_changed_paths,
@@ -111,3 +112,17 @@ public class Foo {
     assert entity_code_changed(file_change, old_entity, new_entity)
     assert 'return "full name";' in patch
     assert "other() { return 2; }" not in patch
+
+
+def test_bounded_entity_code_pair_limits_large_class_context():
+    old = "/** Class docs. */\npublic class Large {\n" + "\n".join(f"int value{i};" for i in range(150)) + "\n}"
+    new = old.replace("int value120;", "String value120;")
+    old_entity = parse_entities(old)[0]
+    new_entity = parse_entities(new)[0]
+
+    before, after = bounded_entity_code_pair(FileChange("src/main/java/Large.java", old, new, ""), old_entity, new_entity)
+
+    assert len(before.splitlines()) <= 100
+    assert len(after.splitlines()) <= 100
+    assert "value120" in before
+    assert "value120" in after

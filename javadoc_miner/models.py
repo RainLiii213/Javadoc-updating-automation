@@ -77,9 +77,17 @@ class OutputSample:
     issue_id: str
     commit_url: str
     entity_type: str = ""
+    file_path: str = ""
 
     def to_json_dict(self) -> dict:
-        return asdict(self)
+        return {
+            "commit_hash": self.commit_hash,
+            "issue_summary": self.issue_summary,
+            "code_before": self.code_before,
+            "code_after": self.code_after,
+            "javadoc_before": self.javadoc_before,
+            "javadoc_after": self.javadoc_after,
+        }
 
 
 @dataclass
@@ -104,9 +112,9 @@ class ExtractionStats:
             "JAVADOC_DELETION": 0,
         }
     )
-    target_a_samples: int = 40
-    target_b_samples: int = 5
-    target_c_samples: int = 5
+    target_a_samples: int = 50
+    target_b_samples: int = 0
+    target_c_samples: int = 0
     a_sample_yield: float = 0.0
     a_sample_density: float = 0.0
     a_sample_shortfall: int = 0
@@ -131,8 +139,8 @@ class ExtractionStats:
         if self.a_sample_shortfall:
             self.a_sample_shortfall_reason = (
                 f"Only {a_samples} A-quality samples were generated. "
-                "A-quality requires METHOD_MODIFICATION plus JAVADOC_MODIFICATION "
-                "at the same entity level, so B/C samples were not used to fill the A target."
+                "Strict A-quality requires a substantial entity-level code modification, "
+                "a meaningful Javadoc modification, and a clear logical connection."
             )
         else:
             self.a_sample_shortfall_reason = ""

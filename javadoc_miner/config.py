@@ -12,6 +12,6 @@ class MinerConfig:
     full_history: bool = False
     min_quality: str = "C"
     force_refresh: bool = False
-    target_a_samples: int = 40
-    target_b_samples: int = 5
-    target_c_samples: int = 5
+    target_a_samples: int = 50
+    target_b_samples: int = 0
+    target_c_samples: int = 0

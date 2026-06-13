@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7489d6e21334673dc56399de7decaaa00f11ebcf",
+  "issue_summary": "CharSet now maintains iteration order",
+  "code_before": "/*public*/ CharRange[] getCharRanges() {\n        return set.toArray(CharRange.EMPTY_ARRAY);\n    }",
+  "code_after": "Set<CharRange> getCharRanges() {\n        return set;\n    }",
+  "javadoc_before": "/**\n     * Gets the internal set as an array of CharRange objects.\n     *\n     * @return an array of immutable CharRange objects\n     * @since 2.0\n     */",
+  "javadoc_after": "/**\n     * Gets the set of character ranges.\n     * <p>\n     * Package private for testing.\n     * </p>\n     *\n     * @return the set of character ranges.\n     */"
+}

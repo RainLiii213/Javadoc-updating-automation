@@ -6,6 +6,7 @@ from typing import TypeVar
 from .classifier import classify_entity_change, quality_meets_threshold
 from .config import MinerConfig
 from .diff_extractor import (
+    bounded_entity_code_pair,
     commit_has_javadoc_and_code_changes,
     commit_has_javadoc_changes,
     entity_code_changed,
@@ -13,9 +14,10 @@ from .diff_extractor import (
     extract_file_changes,
 )
 from .git_repo import GitCommandError, GitRepo
-from .issue_finder import find_issues, resolve_issue_context
+from .issue_finder import commit_summary, find_issues
 from .java_parser import parse_entities
 from .models import Classification, EntityDoc, ExtractionStats, FileChange, OutputSample
+from .text_utils import is_low_signal_commit_message
 from .writer import SampleWriter
 
 
@@ -41,8 +43,19 @@ class PendingOutputSample:
     def method_change_type(self) -> str:
         return self.classification.method_change_type
 
+    @property
+    def entity_name(self) -> str:
+        entity = self.new_entity or self.old_entity
+        return entity.name if entity else ""
+
+    @property
+    def entity_type(self) -> str:
+        entity = self.new_entity or self.old_entity
+        return entity.entity_type if entity else ""
+
 
 SelectableSample = TypeVar("SelectableSample", OutputSample, PendingOutputSample)
+MAX_SAMPLES_PER_COMMIT = 3
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -86,15 +99,18 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
         if not commit_has_javadoc_changes(patch):
             continue
         javadoc_commits += 1
-        if commit_has_javadoc_and_code_changes(patch):
-            code_and_javadoc_commits += 1
+        if not commit_has_javadoc_and_code_changes(patch):
+            continue
+        code_and_javadoc_commits += 1
         try:
             file_changes = extract_file_changes(repo, commit_hash)
             commit_message = repo.commit_message(commit_hash)
         except GitCommandError:
             continue
+        if is_low_signal_commit_message(commit_message):
+            continue
 
-        issues = find_issues(f"{commit_message}\n{patch}")
+        issues = find_issues(commit_message)
         for file_change in file_changes:
             old_entities = parse_entities(file_change.old_content or "")
             new_entities = parse_entities(file_change.new_content or "")
@@ -115,6 +131,8 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
                         classification=classification,
                     )
                 )
+        if _unique_sample_count(candidate_samples) >= config.max_samples:
+            break
 
     selected_candidates, shortfall = _select_target_distribution(candidate_samples, config)
     samples = _build_output_samples(repo, selected_candidates)
@@ -140,15 +158,9 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
 
 def _build_output_samples(repo: GitRepo, candidates: list[PendingOutputSample]) -> list[OutputSample]:
     samples: list[OutputSample] = []
-    issue_context_by_commit: dict[str, tuple[str, str]] = {}
     for candidate in candidates:
-        if candidate.commit_hash not in issue_context_by_commit:
-            issue_context_by_commit[candidate.commit_hash] = resolve_issue_context(
-                repo.repo_url,
-                candidate.issue_ids,
-                candidate.commit_message,
-            )
-        issue_id, issue_summary = issue_context_by_commit[candidate.commit_hash]
+        issue_id = candidate.issue_ids[0] if candidate.issue_ids else ""
+        issue_summary = commit_summary(candidate.commit_message)
         samples.append(
             _build_output_sample(
                 repo=repo,
@@ -182,10 +194,13 @@ def _classify_file_entities(
         matched_old.add(old_index)
         matched_new.add(new_index)
         old_entity = old_entities[old_index] if old_index is not None else None
+        code_before, code_after = _entity_code_pair(file_change, old_entity, new_entity)
         classification = classify_entity_change(
             old_entity,
             new_entity,
             nearby_code_changed=_entity_code_changed(file_change, old_entity, new_entity),
+            code_before=code_before,
+            code_after=code_after,
         )
         if classification is None:
             continue
@@ -193,40 +208,6 @@ def _classify_file_entities(
             continue
         results.append((old_entity, new_entity, classification))
 
-    for new_index, new_entity in enumerate(new_entities):
-        if new_index in matched_new:
-            continue
-        old_index = _find_parameter_change_candidate(old_entities, new_entity, matched_old)
-        if old_index is None:
-            old_index = _find_rename_candidate(old_entities, new_entity, matched_old)
-        old_entity = old_entities[old_index] if old_index is not None else None
-        classification = classify_entity_change(
-            old_entity,
-            new_entity,
-            nearby_code_changed=_entity_code_changed(file_change, old_entity, new_entity),
-        )
-        if classification is None:
-            continue
-        if not quality_meets_threshold(classification.quality, min_quality):
-            continue
-        if old_index is not None:
-            matched_old.add(old_index)
-            matched_new.add(new_index)
-        results.append((old_entity, new_entity, classification))
-
-    for old_index, old_entity in enumerate(old_entities):
-        if old_index in matched_old:
-            continue
-        classification = classify_entity_change(
-            old_entity,
-            None,
-            nearby_code_changed=_entity_code_changed(file_change, old_entity, None),
-        )
-        if classification is None:
-            continue
-        if not quality_meets_threshold(classification.quality, min_quality):
-            continue
-        results.append((old_entity, None, classification))
     return results
 
 
@@ -235,6 +216,7 @@ def _find_exact_entity(
     new_entity: EntityDoc,
     matched_old: set[int],
 ) -> int | None:
+    candidates: list[tuple[float, int, int]] = []
     for index, old_entity in enumerate(old_entities):
         if index in matched_old:
             continue
@@ -245,42 +227,18 @@ def _find_exact_entity(
         if old_entity.entity_type == "method":
             if old_entity.parameters != new_entity.parameters:
                 continue
-        return index
-    return None
+        doc_similarity = _entity_doc_similarity(old_entity, new_entity)
+        line_distance = abs(old_entity.code_start_line - new_entity.code_start_line)
+        candidates.append((doc_similarity, -line_distance, index))
+    if not candidates:
+        return None
+    return max(candidates)[2]
 
 
-def _find_parameter_change_candidate(
-    old_entities: list[EntityDoc],
-    new_entity: EntityDoc,
-    matched_old: set[int],
-) -> int | None:
-    for index, old_entity in enumerate(old_entities):
-        if index in matched_old:
-            continue
-        if old_entity.entity_type != new_entity.entity_type:
-            continue
-        if old_entity.name != new_entity.name:
-            continue
-        return index
-    return None
+def _entity_doc_similarity(old_entity: EntityDoc, new_entity: EntityDoc) -> float:
+    from .text_utils import javadoc_similarity
 
-
-def _find_rename_candidate(
-    old_entities: list[EntityDoc],
-    new_entity: EntityDoc,
-    matched_old: set[int],
-) -> int | None:
-    for index, old_entity in enumerate(old_entities):
-        if index in matched_old:
-            continue
-        if old_entity.entity_type != new_entity.entity_type:
-            continue
-        if old_entity.entity_type == "method":
-            if old_entity.return_type == new_entity.return_type and old_entity.parameters == new_entity.parameters:
-                return index
-        elif old_entity.entity_type == "class":
-            return index
-    return None
+    return javadoc_similarity(old_entity.javadoc, new_entity.javadoc)
 
 
 def _build_output_sample(
@@ -297,13 +255,16 @@ def _build_output_sample(
     entity = new_entity or old_entity
     if entity is None:
         raise ValueError("Output sample requires an old or new entity.")
+    if old_entity is None or new_entity is None:
+        raise ValueError("Patch-aware update samples require both old and new entities.")
+    code_before, code_after = bounded_entity_code_pair(file_change, old_entity, new_entity)
     return OutputSample(
         repo=repo.repo_name(),
         commit_hash=commit_hash,
         commit_message=commit_message,
         issue_summary=issue_summary,
-        code_before=entity_code_text(file_change.old_content, old_entity),
-        code_after=entity_code_text(file_change.new_content, new_entity),
+        code_before=code_before,
+        code_after=code_after,
         javadoc_before=old_entity.javadoc if old_entity else "",
         javadoc_after=new_entity.javadoc if new_entity else "",
         entity_name=entity.name,
@@ -314,6 +275,7 @@ def _build_output_sample(
         issue_id=issue_id,
         commit_url=repo.commit_url(commit_hash),
         entity_type=entity.entity_type,
+        file_path=file_change.path,
     )
 
 
@@ -325,6 +287,22 @@ def _entity_code_changed(
     if file_change is None:
         return True
     return entity_code_changed(file_change, old_entity, new_entity)
+
+
+def _entity_code_pair(
+    file_change: FileChange | None,
+    old_entity: EntityDoc | None,
+    new_entity: EntityDoc | None,
+) -> tuple[str, str]:
+    if file_change is None:
+        return (
+            old_entity.signature if old_entity is not None else "",
+            new_entity.signature if new_entity is not None else "",
+        )
+    return (
+        entity_code_text(file_change.old_content, old_entity),
+        entity_code_text(file_change.new_content, new_entity),
+    )
 
 
 def _prioritize_samples(samples: list[SelectableSample]) -> list[SelectableSample]:
@@ -351,7 +329,7 @@ def _select_target_distribution(
     samples: list[SelectableSample],
     config: MinerConfig,
 ) -> tuple[list[SelectableSample], bool]:
-    prioritized = _prioritize_samples(samples)
+    prioritized = _prioritize_samples(_deduplicate_samples(samples))
     targets = {
         "A": config.target_a_samples,
         "B": config.target_b_samples,
@@ -361,8 +339,28 @@ def _select_target_distribution(
     for quality in ("A", "B", "C"):
         bucket = [sample for sample in prioritized if sample.quality == quality]
         selected.extend(bucket[: targets[quality]])
+    selected_ids = {id(sample) for sample in selected}
+    selected.extend(sample for sample in prioritized if id(sample) not in selected_ids)
     selected = selected[: config.max_samples]
-    return selected, len([sample for sample in samples if sample.quality == "A"]) < config.target_a_samples
+    return selected, len([sample for sample in prioritized if sample.quality == "A"]) < config.target_a_samples
+
+
+def _deduplicate_samples(samples: list[SelectableSample]) -> list[SelectableSample]:
+    unique: list[SelectableSample] = []
+    seen: set[tuple[str, str, str]] = set()
+    per_commit: dict[str, int] = {}
+    for sample in samples:
+        key = (sample.commit_hash, sample.entity_type, sample.entity_name)
+        if key in seen or per_commit.get(sample.commit_hash, 0) >= MAX_SAMPLES_PER_COMMIT:
+            continue
+        seen.add(key)
+        per_commit[sample.commit_hash] = per_commit.get(sample.commit_hash, 0) + 1
+        unique.append(sample)
+    return unique
+
+
+def _unique_sample_count(samples: list[PendingOutputSample]) -> int:
+    return len(_deduplicate_samples(samples))
 
 
 def _stats_for_samples(
@@ -403,7 +401,7 @@ def _build_parser() -> argparse.ArgumentParser:
     mine.add_argument("--full-history", action="store_true")
     mine.add_argument("--min-quality", choices=["A", "B", "C"], default="C")
     mine.add_argument("--force-refresh", action="store_true")
-    mine.add_argument("--target-a", type=int, default=40)
-    mine.add_argument("--target-b", type=int, default=5)
-    mine.add_argument("--target-c", type=int, default=5)
+    mine.add_argument("--target-a", type=int, default=50)
+    mine.add_argument("--target-b", type=int, default=0)
+    mine.add_argument("--target-c", type=int, default=0)
     return parser

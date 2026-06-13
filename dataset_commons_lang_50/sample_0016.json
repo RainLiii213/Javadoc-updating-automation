@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d2eff05cd0e8e50be033240b377a46f1293e3ccc",
+  "issue_summary": "Remove unused exception from deprecated StringUtils.toString(byte String)",
+  "code_before": "@Deprecated\n    public static String toString(final byte[] bytes, final String charsetName) throws UnsupportedEncodingException {\n        return new String(bytes, Charsets.toCharset(charsetName));\n    }",
+  "code_after": "@Deprecated\n    public static String toString(final byte[] bytes, final String charsetName) {\n        return new String(bytes, Charsets.toCharset(charsetName));\n    }",
+  "javadoc_before": "/**\n     * Converts a {@code byte[]} to a String using the specified character encoding.\n     *\n     * @param bytes\n     *            the byte array to read from\n     * @param charsetName\n     *            the encoding to use, if null then use the platform default\n     * @return a new String\n     * @throws UnsupportedEncodingException\n     *             Never thrown\n     * @throws NullPointerException\n     *             if the input is null\n     * @deprecated use {@link StringUtils#toEncodedString(byte[], Charset)} instead of String constants in your code\n     * @since 3.1\n     */",
+  "javadoc_after": "/**\n     * Converts a {@code byte[]} to a String using the specified character encoding.\n     *\n     * @param bytes\n     *            the byte array to read from\n     * @param charsetName\n     *            the encoding to use, if null then use the platform default\n     * @return a new String\n     * @throws NullPointerException\n     *             if the input is null\n     * @deprecated use {@link StringUtils#toEncodedString(byte[], Charset)} instead of String constants in your code\n     * @since 3.1\n     */"
+}

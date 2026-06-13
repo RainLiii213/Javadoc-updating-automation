@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c82d9a4809a94280adb25cd46151bdf139518f1d",
+  "issue_summary": "Use TimeZone from calendar in DateFormatUtils.",
+  "code_before": "public static String format(final Calendar calendar, final String pattern) {\n        return format(calendar, pattern, null, null);\n    }",
+  "code_after": "public static String format(final Calendar calendar, final String pattern) {\n        return format(calendar, pattern, getTimeZone(calendar), null);\n    }",
+  "javadoc_before": "/**\n     * <p>Formats a calendar into a specific pattern.</p>\n     *\n     * @param calendar  the calendar to format, not null\n     * @param pattern  the pattern to use to format the calendar, not null\n     * @return the formatted calendar\n     * @see FastDateFormat#format(Calendar)\n     * @since 2.4\n     */",
+  "javadoc_after": "/**\n     * <p>Formats a calendar into a specific pattern. The TimeZone from the calendar\n     * will be used for formatting.</p>\n     *\n     * @param calendar  the calendar to format, not null\n     * @param pattern  the pattern to use to format the calendar, not null\n     * @return the formatted calendar\n     * @see FastDateFormat#format(Calendar)\n     * @since 2.4\n     */"
+}
