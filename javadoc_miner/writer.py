@@ -16,7 +16,6 @@ SUMMARY_FIELDS = [
     "entity_signature",
     "javadoc_change_type",
     "method_change_type",
-    "quality",
     "issue_id",
     "issue_summary",
 ]
@@ -50,7 +49,6 @@ class SampleWriter:
                     "entity_signature": sample.entity_signature,
                     "javadoc_change_type": sample.javadoc_change_type,
                     "method_change_type": sample.method_change_type,
-                    "quality": sample.quality,
                     "issue_id": sample.issue_id,
                     "issue_summary": sample.issue_summary,
                 }
@@ -67,27 +65,7 @@ class SampleWriter:
                 encoding="utf-8",
             )
 
-        (self.output_dir / "inspection_examples.json").write_text(
-            json.dumps(_inspection_examples(samples), ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
         (self.output_dir / "combined_samples.json").write_text(
             json.dumps([sample.to_json_dict() for sample in samples], ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
-
-
-def _inspection_examples(samples: list[OutputSample]) -> dict[str, list[dict[str, str]]]:
-    examples: dict[str, list[dict[str, str]]] = {"A": [], "B": [], "C": []}
-    for quality in ("A", "B", "C"):
-        for sample in [sample for sample in samples if sample.quality == quality][:2]:
-            examples[quality].append(
-                {
-                    "issue_summary": sample.issue_summary,
-                    "code_before": sample.code_before,
-                    "code_after": sample.code_after,
-                    "javadoc_before": sample.javadoc_before,
-                    "javadoc_after": sample.javadoc_after,
-                }
-            )
-    return examples

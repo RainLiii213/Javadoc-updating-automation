@@ -52,39 +52,9 @@ def extract_file_changes(repo: GitRepo, commit_hash: str) -> list[FileChange]:
                 path=path,
                 old_content=old_content,
                 new_content=new_content,
-                patch="",
             )
         )
     return changes
-
-
-def build_entity_patch(
-    file_change: FileChange,
-    old_entity: EntityDoc | None,
-    new_entity: EntityDoc | None,
-    context_lines: int = 3,
-) -> str:
-    old_lines = _entity_window(file_change.old_content or "", old_entity, context_lines)
-    new_lines = _entity_window(file_change.new_content or "", new_entity, context_lines)
-    old_start = _window_start_line(old_entity, context_lines)
-    new_start = _window_start_line(new_entity, context_lines)
-    old_header = f"a/{file_change.path}"
-    new_header = f"b/{file_change.path}"
-    diff = difflib.unified_diff(
-        old_lines,
-        new_lines,
-        fromfile=old_header,
-        tofile=new_header,
-        fromfiledate="",
-        tofiledate="",
-        n=context_lines,
-        lineterm="",
-    )
-    patch_lines = [
-        f"diff --git {old_header} {new_header}",
-        *_with_adjusted_hunk_headers(list(diff), old_start, new_start),
-    ]
-    return "\n".join(patch_lines).strip()
 
 
 def entity_code_changed(
@@ -121,21 +91,6 @@ def bounded_entity_code_pair(
     )
 
 
-def _entity_window(source: str, entity: EntityDoc | None, context_lines: int) -> list[str]:
-    if entity is None:
-        return []
-    lines = source.splitlines()
-    start = max(1, entity.start_line - context_lines)
-    end = min(len(lines), entity.code_end_line)
-    return lines[start - 1 : end]
-
-
-def _window_start_line(entity: EntityDoc | None, context_lines: int) -> int:
-    if entity is None:
-        return 1
-    return max(1, entity.start_line - context_lines)
-
-
 def _entity_code_without_javadoc(source: str, entity: EntityDoc) -> str:
     lines = source.splitlines()
     code_lines = lines[entity.code_start_line - 1 : entity.code_end_line]
@@ -164,34 +119,3 @@ def _changed_code_window(old_code: str, new_code: str, old_side: bool, max_lines
     if start > 0:
         window = [lines[0], "    // ... relevant changed context ...", *window[2:]]
     return "\n".join(window).strip()
-
-
-def _with_adjusted_hunk_headers(diff_lines: list[str], old_start: int, new_start: int) -> list[str]:
-    adjusted: list[str] = []
-    for line in diff_lines:
-        if line.startswith(("--- ", "+++ ")):
-            adjusted.append(line)
-            continue
-        if line.startswith("@@ "):
-            adjusted.append(_adjust_hunk_header(line, old_start, new_start))
-            continue
-        adjusted.append(line)
-    return adjusted
-
-
-def _adjust_hunk_header(header: str, old_start: int, new_start: int) -> str:
-    parts = header.split(" ")
-    if len(parts) < 3:
-        return header
-    parts[1] = _adjust_range(parts[1], old_start)
-    parts[2] = _adjust_range(parts[2], new_start)
-    return " ".join(parts)
-
-
-def _adjust_range(range_text: str, base_start: int) -> str:
-    sign = range_text[0]
-    body = range_text[1:]
-    if "," in body:
-        start_text, length_text = body.split(",", 1)
-        return f"{sign}{int(start_text) + base_start - 1},{length_text}"
-    return f"{sign}{int(body) + base_start - 1}"

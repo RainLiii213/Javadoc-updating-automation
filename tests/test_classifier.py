@@ -62,7 +62,7 @@ def test_keep_parameter_unit_contract_change():
         code_after="return wait(TimeUnit.MILLISECONDS.toNanos(timeout));",
     )
 
-    assert result.quality == "A"
+    assert result.change_type == "code_and_javadoc_change"
 
 
 def test_filter_new_method_with_javadoc():

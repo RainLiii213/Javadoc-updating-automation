@@ -1,2 +1,0 @@
-[console_scripts]
-javadoc-miner = javadoc_miner.cli:main

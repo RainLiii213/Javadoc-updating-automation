@@ -3,7 +3,7 @@ from pathlib import Path
 
 from javadoc_miner.cli import _classify_file_entities
 from javadoc_miner.cli import mine_repository
-from javadoc_miner.cli import _select_target_distribution
+from javadoc_miner.cli import _select_samples
 from javadoc_miner.config import MinerConfig
 from javadoc_miner.java_parser import parse_entities
 from javadoc_miner.models import EntityDoc, FileChange, OutputSample
@@ -79,7 +79,6 @@ public class Person {
     assert samples[0].entity_signature == "public String normalize(String value)"
     assert samples[0].javadoc_change_type == "JAVADOC_MODIFICATION"
     assert samples[0].method_change_type == "METHOD_MODIFICATION"
-    assert samples[0].quality == "A"
     assert samples[0].file_path == "src/main/java/org/example/Person.java"
     assert samples[0].issue_summary == "handle null values"
 
@@ -130,7 +129,7 @@ def test_entity_alignment_does_not_cross_match_overloads():
         ),
     ]
 
-    assert _classify_file_entities(old_entities, new_entities, min_quality="B") == []
+    assert _classify_file_entities(old_entities, new_entities) == []
 
 
 def test_entity_alignment_filters_new_overload_as_creation():
@@ -169,7 +168,7 @@ def test_entity_alignment_filters_new_overload_as_creation():
         ),
     ]
 
-    results = _classify_file_entities(old_entities, new_entities, min_quality="B")
+    results = _classify_file_entities(old_entities, new_entities)
 
     assert results == []
 
@@ -184,7 +183,7 @@ def test_entity_alignment_does_not_cross_match_reordered_same_signature_methods(
         EntityDoc("method", "getDuration", "Duration getDuration()", "/** Stopwatch duration. */", 20, 21, parameters=[]),
     ]
 
-    assert _classify_file_entities(old_entities, new_entities, min_quality="C") == []
+    assert _classify_file_entities(old_entities, new_entities) == []
 
 
 def test_mine_repository_extracts_one_sample_per_changed_entity(tmp_path):
@@ -252,7 +251,6 @@ public class Names {
         output_dir=tmp_path / "dataset",
         max_commits=10,
         max_samples=10,
-        min_quality="C",
     )
 
     samples = mine_repository(config)
@@ -318,7 +316,6 @@ public class Name {
         output_dir=tmp_path / "dataset",
         max_commits=10,
         max_samples=10,
-        min_quality="C",
     )
 
     assert mine_repository(config) == []
@@ -345,12 +342,11 @@ public class Person {
     }
 }
 """.strip()
-    file_change = FileChange("src/main/java/org/example/Person.java", old_source, new_source, "")
+    file_change = FileChange("src/main/java/org/example/Person.java", old_source, new_source)
 
     results = _classify_file_entities(
         parse_entities(old_source),
         parse_entities(new_source),
-        min_quality="C",
         file_change=file_change,
     )
 
@@ -373,12 +369,11 @@ public class Person {
     private final String name;
 }
 """.strip()
-    file_change = FileChange("src/main/java/org/example/Person.java", old_source, new_source, "")
+    file_change = FileChange("src/main/java/org/example/Person.java", old_source, new_source)
 
     results = _classify_file_entities(
         parse_entities(old_source),
         parse_entities(new_source),
-        min_quality="C",
         file_change=file_change,
     )
 
@@ -386,7 +381,7 @@ public class Person {
 
 
 def test_selection_keeps_only_available_high_confidence_samples():
-    def sample(index, quality):
+    def sample(index):
         return OutputSample(
             repo="apache/commons-lang",
             commit_hash=str(index),
@@ -398,27 +393,17 @@ def test_selection_keeps_only_available_high_confidence_samples():
             javadoc_after="new docs",
             entity_name=f"method{index}",
             entity_signature=f"method{index}()",
-            javadoc_change_type="JAVADOC_ADDITION" if quality == "B" else "JAVADOC_MODIFICATION",
-            method_change_type="METHOD_ADDITION" if quality == "B" else "METHOD_MODIFICATION",
-            quality=quality,
+            javadoc_change_type="JAVADOC_MODIFICATION",
+            method_change_type="METHOD_MODIFICATION",
             issue_id="",
             commit_url="",
             entity_type="method",
         )
 
-    samples = [sample(index, "A") for index in range(2)]
-    config = MinerConfig(
-        repo_url="https://github.com/apache/commons-lang",
-        max_samples=10,
-        target_a_samples=8,
-        target_b_samples=1,
-        target_c_samples=1,
-    )
-
-    selected, shortfall = _select_target_distribution(samples, config)
+    samples = [sample(index) for index in range(2)]
+    selected = _select_samples(samples, max_samples=10)
 
     assert len(selected) == 2
-    assert shortfall
 
 
 def test_selection_deduplicates_same_commit_and_entity_name():
@@ -436,7 +421,6 @@ def test_selection_deduplicates_same_commit_and_entity_name():
             entity_signature=f"{entity_name}()",
             javadoc_change_type="JAVADOC_MODIFICATION",
             method_change_type="METHOD_MODIFICATION",
-            quality="A",
             issue_id="",
             commit_url="",
             entity_type="method",
@@ -447,9 +431,7 @@ def test_selection_deduplicates_same_commit_and_entity_name():
         sample("abc", "shuffle"),
         sample("abc", "fill"),
     ]
-    config = MinerConfig(repo_url="https://github.com/apache/commons-lang", max_samples=10)
-
-    selected, _ = _select_target_distribution(samples, config)
+    selected = _select_samples(samples, max_samples=10)
 
     assert [(item.commit_hash, item.entity_name) for item in selected] == [
         ("abc", "shuffle"),
@@ -474,14 +456,11 @@ def test_selection_caps_samples_per_commit_for_review_diversity():
                 entity_signature=f"method{index}()",
                 javadoc_change_type="JAVADOC_MODIFICATION",
                 method_change_type="METHOD_MODIFICATION",
-                quality="A",
                 issue_id="",
                 commit_url="",
                 entity_type="method",
             )
         )
-    config = MinerConfig(repo_url="https://github.com/apache/commons-lang", max_samples=10)
-
-    selected, _ = _select_target_distribution(samples, config)
+    selected = _select_samples(samples, max_samples=10)
 
     assert len(selected) == 3

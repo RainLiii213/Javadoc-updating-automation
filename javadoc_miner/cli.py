@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import TypeVar
 
-from .classifier import classify_entity_change, quality_meets_threshold
+from .classifier import classify_entity_change
 from .config import MinerConfig
 from .diff_extractor import (
     bounded_entity_code_pair,
@@ -30,10 +30,6 @@ class PendingOutputSample:
     old_entity: EntityDoc | None
     new_entity: EntityDoc | None
     classification: Classification
-
-    @property
-    def quality(self) -> str:
-        return self.classification.quality
 
     @property
     def javadoc_change_type(self) -> str:
@@ -72,11 +68,7 @@ def main(argv: list[str] | None = None) -> int:
         max_commits=args.max_commits,
         max_samples=args.max_samples,
         full_history=args.full_history,
-        min_quality=args.min_quality,
         force_refresh=args.force_refresh,
-        target_a_samples=args.target_a,
-        target_b_samples=args.target_b,
-        target_c_samples=args.target_c,
     )
     samples = mine_repository(config)
     print(f"Wrote {len(samples)} samples to {config.output_dir}")
@@ -117,7 +109,6 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
             for old_entity, new_entity, classification in _classify_file_entities(
                 old_entities,
                 new_entities,
-                config.min_quality,
                 file_change,
             ):
                 candidate_samples.append(
@@ -134,9 +125,15 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
         if _unique_sample_count(candidate_samples) >= config.max_samples:
             break
 
-    selected_candidates, shortfall = _select_target_distribution(candidate_samples, config)
+    selected_candidates = _select_samples(candidate_samples, config.max_samples)
     samples = _build_output_samples(repo, selected_candidates)
-    stats = _stats_for_samples(scanned, javadoc_commits, samples, config)
+    stats = _stats_for_samples(
+        scanned,
+        javadoc_commits,
+        code_and_javadoc_commits,
+        len(candidate_samples),
+        len(samples),
+    )
     SampleWriter(config.output_dir).write_samples(samples, stats)
     print(
         f"Scanned {scanned} commits, found {javadoc_commits} commits with JavaDoc changes "
@@ -144,15 +141,10 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
     )
     print(
         "Stats: "
-        f"samples_generated={stats.total_samples_generated}, "
-        f"quality_distribution={stats.quality_distribution}, "
-        f"javadoc_change_distribution={stats.javadoc_change_distribution}, "
-        f"method_change_distribution={stats.method_change_distribution}, "
-        f"A_sample_yield={stats.a_sample_yield:.2%}, "
-        f"A_sample_density={stats.a_sample_density:.2%}"
+        f"candidate_samples_found={stats.candidate_samples_found}, "
+        f"samples_retained={stats.samples_retained}, "
+        f"samples_filtered={stats.samples_filtered}"
     )
-    if shortfall:
-        print(stats.a_sample_shortfall_reason)
     return samples
 
 
@@ -180,19 +172,16 @@ def _build_output_samples(repo: GitRepo, candidates: list[PendingOutputSample]) 
 def _classify_file_entities(
     old_entities: list[EntityDoc],
     new_entities: list[EntityDoc],
-    min_quality: str,
     file_change: FileChange | None = None,
 ) -> list[tuple[EntityDoc | None, EntityDoc | None, Classification]]:
     results: list[tuple[EntityDoc | None, EntityDoc | None, Classification]] = []
     matched_old: set[int] = set()
-    matched_new: set[int] = set()
 
-    for new_index, new_entity in enumerate(new_entities):
+    for new_entity in new_entities:
         old_index = _find_exact_entity(old_entities, new_entity, matched_old)
         if old_index is None:
             continue
         matched_old.add(old_index)
-        matched_new.add(new_index)
         old_entity = old_entities[old_index] if old_index is not None else None
         code_before, code_after = _entity_code_pair(file_change, old_entity, new_entity)
         classification = classify_entity_change(
@@ -203,8 +192,6 @@ def _classify_file_entities(
             code_after=code_after,
         )
         if classification is None:
-            continue
-        if not quality_meets_threshold(classification.quality, min_quality):
             continue
         results.append((old_entity, new_entity, classification))
 
@@ -271,7 +258,6 @@ def _build_output_sample(
         entity_signature=entity.signature,
         javadoc_change_type=classification.javadoc_change_type,
         method_change_type=classification.method_change_type,
-        quality=classification.quality,
         issue_id=issue_id,
         commit_url=repo.commit_url(commit_hash),
         entity_type=entity.entity_type,
@@ -305,44 +291,11 @@ def _entity_code_pair(
     )
 
 
-def _prioritize_samples(samples: list[SelectableSample]) -> list[SelectableSample]:
-    return sorted(samples, key=_sample_priority)
-
-
-def _sample_priority(sample: SelectableSample) -> tuple[int, int]:
-    if (
-        sample.method_change_type == "METHOD_MODIFICATION"
-        and sample.javadoc_change_type == "JAVADOC_MODIFICATION"
-    ):
-        primary = 0
-    elif sample.javadoc_change_type == "JAVADOC_MODIFICATION":
-        primary = 1
-    elif sample.javadoc_change_type == "JAVADOC_ADDITION":
-        primary = 2
-    else:
-        primary = 3
-    quality_rank = {"A": 0, "B": 1, "C": 2}.get(sample.quality, 3)
-    return primary, quality_rank
-
-
-def _select_target_distribution(
+def _select_samples(
     samples: list[SelectableSample],
-    config: MinerConfig,
-) -> tuple[list[SelectableSample], bool]:
-    prioritized = _prioritize_samples(_deduplicate_samples(samples))
-    targets = {
-        "A": config.target_a_samples,
-        "B": config.target_b_samples,
-        "C": config.target_c_samples,
-    }
-    selected: list[OutputSample] = []
-    for quality in ("A", "B", "C"):
-        bucket = [sample for sample in prioritized if sample.quality == quality]
-        selected.extend(bucket[: targets[quality]])
-    selected_ids = {id(sample) for sample in selected}
-    selected.extend(sample for sample in prioritized if id(sample) not in selected_ids)
-    selected = selected[: config.max_samples]
-    return selected, len([sample for sample in prioritized if sample.quality == "A"]) < config.target_a_samples
+    max_samples: int,
+) -> list[SelectableSample]:
+    return _deduplicate_samples(samples)[:max_samples]
 
 
 def _deduplicate_samples(samples: list[SelectableSample]) -> list[SelectableSample]:
@@ -366,27 +319,18 @@ def _unique_sample_count(samples: list[PendingOutputSample]) -> int:
 def _stats_for_samples(
     total_commits_scanned: int,
     total_commits_containing_javadoc_changes: int,
-    samples: list[OutputSample],
-    config: MinerConfig,
+    total_commits_containing_code_and_javadoc_changes: int,
+    candidate_samples_found: int,
+    samples_retained: int,
 ) -> ExtractionStats:
-    stats = ExtractionStats(
+    return ExtractionStats(
         total_commits_scanned=total_commits_scanned,
         total_commits_containing_javadoc_changes=total_commits_containing_javadoc_changes,
-        target_a_samples=config.target_a_samples,
-        target_b_samples=config.target_b_samples,
-        target_c_samples=config.target_c_samples,
+        total_commits_containing_code_and_javadoc_changes=total_commits_containing_code_and_javadoc_changes,
+        candidate_samples_found=candidate_samples_found,
+        samples_retained=samples_retained,
+        samples_filtered=max(0, candidate_samples_found - samples_retained),
     )
-    for sample in samples:
-        stats.record(
-            Classification(
-                change_type="",
-                quality=sample.quality,
-                javadoc_change_type=sample.javadoc_change_type,
-                method_change_type=sample.method_change_type,
-            )
-        )
-    stats.finalize()
-    return stats
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -399,9 +343,5 @@ def _build_parser() -> argparse.ArgumentParser:
     mine.add_argument("--max-commits", type=int, default=1000)
     mine.add_argument("--max-samples", type=int, default=50)
     mine.add_argument("--full-history", action="store_true")
-    mine.add_argument("--min-quality", choices=["A", "B", "C"], default="C")
     mine.add_argument("--force-refresh", action="store_true")
-    mine.add_argument("--target-a", type=int, default=50)
-    mine.add_argument("--target-b", type=int, default=0)
-    mine.add_argument("--target-c", type=int, default=0)
     return parser

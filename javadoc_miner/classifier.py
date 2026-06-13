@@ -10,7 +10,6 @@ from .text_utils import (
 )
 
 
-QUALITY_ORDER = {"A": 3, "B": 2, "C": 1}
 JAVA_KEYWORDS = {
     "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char",
     "class", "continue", "default", "do", "double", "else", "enum", "extends",
@@ -70,23 +69,21 @@ def classify_entity_change(
         return None
     javadoc_change_type = "JAVADOC_MODIFICATION"
     method_change_type = "METHOD_MODIFICATION"
-    quality = "A"
     if old.entity_type != new.entity_type:
-        return Classification("class_api_change", quality, javadoc_change_type, method_change_type)
+        return Classification("class_api_change", javadoc_change_type, method_change_type)
     if old.name != new.name:
         return Classification(
             "method_rename" if new.entity_type == "method" else "class_api_change",
-            quality,
             javadoc_change_type,
             method_change_type,
         )
     if old.parameters != new.parameters:
-        return Classification("parameter_change", quality, javadoc_change_type, method_change_type)
+        return Classification("parameter_change", javadoc_change_type, method_change_type)
     if old.return_type != new.return_type:
-        return Classification("return_type_change", quality, javadoc_change_type, method_change_type)
+        return Classification("return_type_change", javadoc_change_type, method_change_type)
     if old.throws != new.throws:
-        return Classification("exception_change", quality, javadoc_change_type, method_change_type)
-    return Classification("code_and_javadoc_change", quality, javadoc_change_type, method_change_type)
+        return Classification("exception_change", javadoc_change_type, method_change_type)
+    return Classification("code_and_javadoc_change", javadoc_change_type, method_change_type)
 
 
 def is_substantial_code_change(
@@ -224,9 +221,5 @@ def _parameter_types(parameters: list[str]) -> list[str]:
         tokens = [token for token in parameter.split() if token not in {"final"} and not token.startswith("@")]
         types.append(" ".join(tokens[:-1]) if len(tokens) > 1 else " ".join(tokens))
     return types
-
-
-def quality_meets_threshold(quality: str, min_quality: str) -> bool:
-    return QUALITY_ORDER[quality] >= QUALITY_ORDER[min_quality]
 
 

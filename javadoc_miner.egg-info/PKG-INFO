@@ -1,7 +1,0 @@
-Metadata-Version: 2.4
-Name: javadoc-miner
-Version: 0.1.0
-Summary: Mine Java repositories for code-related JavaDoc update samples.
-Requires-Python: >=3.10
-Provides-Extra: dev
-Requires-Dist: pytest>=8.0; extra == "dev"

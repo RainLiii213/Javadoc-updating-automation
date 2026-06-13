@@ -1,6 +1,6 @@
-# Patch-Aware Javadoc Miner
+# High-Quality Javadoc Evolution Dataset Mining Pipeline
 
-This tool builds a high-precision dataset for **Patch-Aware Javadoc Updating**.
+This pipeline builds a high-precision dataset for **Patch-Aware Javadoc Updating**.
 Precision is more important than recall: borderline samples are discarded.
 
 The target task is:
@@ -75,6 +75,23 @@ only one sample is retained for the same entity type and entity name, and each
 commit contributes at most three samples. Mining stops after enough unique
 high-confidence samples are found.
 
+## Dataset Organization
+
+Temporary mining outputs must identify their source and retained sample count:
+
+```text
+dataset_<source>_<count>/
+```
+
+For example, the current Apache Commons Lang result is stored as
+`dataset_apache_commons_lang_37`.
+
+Only manually reviewed, accepted samples belong in `final_dataset/`. Each
+source has its own subdirectory, while `final_dataset/combined_samples.json`
+aggregates all accepted samples for final delivery. This keeps future results
+from other Java projects separate during review while supporting the long-term
+goal of a 1,000+ sample final dataset.
+
 ## Output
 
 ```text
@@ -85,7 +102,6 @@ dataset_commons_lang_50/
   combined_samples.json
   summary.csv
   stats.json
-  inspection_examples.json
 ```
 
 Each `sample_*.json` and each item in `combined_samples.json` uses the final
@@ -104,18 +120,17 @@ review schema:
 
 `combined_samples.json` puts all retained samples in one file for GPT or human
 review. `summary.csv` and `stats.json` retain additional mining metadata for
-local auditing.
+local auditing. Statistics report commits scanned, candidate samples found,
+samples retained, and samples filtered; the pipeline does not assign A/B/C
+quality grades.
 
 `issue_summary` always comes from the current commit message. Issue references
 are not extracted from arbitrary patch text, preventing unrelated issue
 summaries from being attached.
 
-## Quality
-
-All retained samples are classified as `A`: high-confidence existing Javadoc
-updates connected to substantial code changes. The miner may produce fewer
-than the requested `--max-samples`; this is intentional when not enough
-high-confidence samples exist.
+All output samples have passed the same strict high-confidence filters. The
+miner may produce fewer than the requested `--max-samples`; this is intentional
+when not enough suitable samples exist.
 
 ## Tests
 

@@ -1,8 +1,6 @@
 from javadoc_miner.diff_extractor import (
-    build_entity_patch,
     bounded_entity_code_pair,
     commit_has_javadoc_and_code_changes,
-    entity_code_changed,
     parse_changed_paths,
 )
 from javadoc_miner.java_parser import parse_entities
@@ -52,7 +50,6 @@ def test_extract_file_changes_does_not_carry_full_commit_patch():
     assert len(changes) == 1
     assert changes[0].old_content == "old"
     assert changes[0].new_content == "new"
-    assert changes[0].patch == ""
 
 
 def test_commit_has_javadoc_and_code_changes_requires_both():
@@ -76,51 +73,13 @@ def test_commit_has_javadoc_and_code_changes_rejects_docs_only():
     assert not commit_has_javadoc_and_code_changes(patch)
 
 
-def test_build_entity_patch_excludes_neighbor_method_changes():
-    old = """
-public class Foo {
-    /**
-     * Returns name.
-     */
-    public String getName() {
-        return "name";
-    }
-
-    /** Other. */
-    public int other() { return 1; }
-}
-""".strip()
-    new = """
-public class Foo {
-    /**
-     * Returns full name.
-     */
-    public String getName() {
-        return "full name";
-    }
-
-    /** Other. */
-    public int other() { return 2; }
-}
-""".strip()
-    old_entity = parse_entities(old)[0]
-    new_entity = parse_entities(new)[0]
-    file_change = FileChange("src/main/java/Foo.java", old, new, "")
-
-    patch = build_entity_patch(file_change, old_entity, new_entity)
-
-    assert entity_code_changed(file_change, old_entity, new_entity)
-    assert 'return "full name";' in patch
-    assert "other() { return 2; }" not in patch
-
-
 def test_bounded_entity_code_pair_limits_large_class_context():
     old = "/** Class docs. */\npublic class Large {\n" + "\n".join(f"int value{i};" for i in range(150)) + "\n}"
     new = old.replace("int value120;", "String value120;")
     old_entity = parse_entities(old)[0]
     new_entity = parse_entities(new)[0]
 
-    before, after = bounded_entity_code_pair(FileChange("src/main/java/Large.java", old, new, ""), old_entity, new_entity)
+    before, after = bounded_entity_code_pair(FileChange("src/main/java/Large.java", old, new), old_entity, new_entity)
 
     assert len(before.splitlines()) <= 100
     assert len(after.splitlines()) <= 100

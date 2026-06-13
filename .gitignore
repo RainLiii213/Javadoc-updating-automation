@@ -20,10 +20,15 @@ Thumbs.db
 *.log
 
 # Generated datasets
-output/
-results/
-datasets/
-cache/
+.cache/
+dataset*/
+output*/
+results*/
+cache*/
+tmp*/
+outputs/
+work/
+*.egg-info/
 
 # Environment
 .env

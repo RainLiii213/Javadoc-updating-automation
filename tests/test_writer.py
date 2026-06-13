@@ -19,7 +19,6 @@ def make_sample(name="getFullName"):
         entity_signature="public String getFullName()",
         javadoc_change_type="JAVADOC_MODIFICATION",
         method_change_type="METHOD_MODIFICATION",
-        quality="A",
         issue_id="LANG-1234",
         commit_url="https://github.com/apache/commons-lang/commit/abc123",
         entity_type="method",
@@ -55,7 +54,6 @@ def test_writer_creates_json_and_summary_csv(tmp_path):
     assert rows[0]["entity_type"] == "method"
     assert rows[0]["javadoc_change_type"] == "JAVADOC_MODIFICATION"
     assert rows[0]["method_change_type"] == "METHOD_MODIFICATION"
-    assert rows[0]["quality"] == "A"
-    assert (tmp_path / "inspection_examples.json").exists()
+    assert "quality" not in rows[0]
     combined = json.loads((tmp_path / "combined_samples.json").read_text(encoding="utf-8"))
     assert combined == [sample_data]

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "javadoc-miner"
 version = "0.1.0"
-description = "Mine Java repositories for code-related JavaDoc update samples."
+description = "A high-quality Javadoc Evolution Dataset mining pipeline."
 requires-python = ">=3.10"
 dependencies = []
 
