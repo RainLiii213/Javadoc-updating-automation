@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f4693f0adf5c9994127890877d018c4ba7bbca06",
+  "issue_summary": "Clarify null argument behavior of IterableUtils and FluentIterable: decorators do not accept null values, whereas utility methods are null-safe wrt Iterable instances.",
+  "code_before": "public FluentIterable<E> zip(final Iterable<? extends E>... others) {\n        @SuppressWarnings(\"unchecked\")\n        Iterable<E>[] iterables = new Iterable[1 + others.length];\n        iterables[0] = iterable;\n        System.arraycopy(others, 0, iterables, 1, others.length);\n        return of(IterableUtils.zippingIterable(iterables));\n    }",
+  "code_after": "public FluentIterable<E> zip(final Iterable<? extends E>... others) {\n        return of(IterableUtils.zippingIterable(iterable, others));\n    }",
+  "javadoc_before": "/**\n     * Returns a new FluentIterable whose iterator will traverse\n     * the elements of this iterable and the other iterables in\n     * alternating order.\n     *\n     * @param others  the iterables to interleave\n     * @return a new iterable, interleaving this iterable with others\n     */",
+  "javadoc_after": "/**\n     * Returns a new FluentIterable whose iterator will traverse\n     * the elements of this iterable and the other iterables in\n     * alternating order.\n     *\n     * @param others  the iterables to interleave, may not be null\n     * @return a new iterable, interleaving this iterable with others\n     * @throws NullPointerException if either of the provided iterables is null\n     */"
+}

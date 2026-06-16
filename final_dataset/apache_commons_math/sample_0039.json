@@ -1,0 +1,8 @@
+{
+  "commit_hash": "66d0a9a0a00dbb259425f17745f7dddd7e676f71",
+  "issue_summary": "Check precondition. Thanks to David Georg Reichelt for the report.",
+  "code_before": "private EmpiricalDistribution(int binCount,\n                                  RandomDataGenerator randomData) {\n        super(randomData.getRandomGenerator());\n        this.binCount = binCount;\n        this.randomData = randomData;\n        binStats = new ArrayList<SummaryStatistics>();\n    }",
+  "code_after": "private EmpiricalDistribution(int binCount,\n                                  RandomDataGenerator randomData) {\n        super(randomData.getRandomGenerator());\n        if (binCount <= 0) {\n            throw new NotStrictlyPositiveException(binCount);\n        }\n        this.binCount = binCount;\n        this.randomData = randomData;\n        binStats = new ArrayList<SummaryStatistics>();\n    }",
+  "javadoc_before": "/**\n     * Private constructor to allow lazy initialisation of the RNG contained\n     * in the {@link #randomData} instance variable.\n     *\n     * @param binCount number of bins\n     * @param randomData Random data generator.\n     */",
+  "javadoc_after": "/**\n     * Private constructor to allow lazy initialisation of the RNG contained\n     * in the {@link #randomData} instance variable.\n     *\n     * @param binCount number of bins. Must be strictly positive.\n     * @param randomData Random data generator.\n     * @throws NotStrictlyPositiveException if {@code binCount <= 0}.\n     */"
+}

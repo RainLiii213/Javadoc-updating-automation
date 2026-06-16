@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0eafd7694a41c40f3dee6c3e8c1cae0acd6a2dc7",
+  "issue_summary": "Change ByteStreams.asByteSource calls to ByteSource.wrap and deprecate it. Change CharStreams.asCharSource calls to CharSource.wrap and deprecate it. Change both deprecated methods to delegate to the replacement method. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=44516201",
+  "code_before": "public static ByteSource asByteSource(byte[] b) {\n    return new ByteArrayByteSource(b);\n  }",
+  "code_after": "@Deprecated\n  public static ByteSource asByteSource(byte[] b) {\n    return ByteSource.wrap(b);\n  }",
+  "javadoc_before": "/**\n   * Returns a new {@link ByteSource} that reads bytes from the given byte array.\n   *\n   * @since 14.0\n   */",
+  "javadoc_after": "/**\n   * Returns a new {@link ByteSource} that reads bytes from the given byte array.\n   *\n   * @since 14.0\n   * @deprecated Use {@link ByteSource#wrap(byte[])} instead. This method is\n   *     scheduled to be removed in Guava 16.0.\n   */"
+}

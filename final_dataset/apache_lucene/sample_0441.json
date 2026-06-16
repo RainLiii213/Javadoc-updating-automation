@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5375410807aecf3cc67f82ca1e9ee591f39d0ac7",
+  "issue_summary": "In-place updates of Numeric DocValues",
+  "code_before": "public Document getLuceneDocument() {\n     return DocumentBuilder.toDocument(getSolrInputDocument(), req.getSchema());\n   }",
+  "code_after": "public Document getLuceneDocument() {\n     return getLuceneDocument(false);\n   }",
+  "javadoc_before": "/** Creates and returns a lucene Document to index.  Any changes made to the returned Document\n   * will not be reflected in the SolrInputDocument, or future calls to this method.\n   */",
+  "javadoc_after": "/** Creates and returns a lucene Document to index.  Any changes made to the returned Document\n   * will not be reflected in the SolrInputDocument, or future calls to this method. This defaults\n   * to false for the inPlaceUpdate parameter of {@link #getLuceneDocument(boolean)}.\n   */"
+}

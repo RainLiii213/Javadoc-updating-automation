@@ -14,10 +14,11 @@ from .diff_extractor import (
     extract_file_changes,
 )
 from .git_repo import GitCommandError, GitRepo
-from .issue_finder import commit_summary, find_issues
+from .issue_finder import commit_summary_with_fallback, find_issues
 from .java_parser import parse_entities
 from .models import Classification, EntityDoc, ExtractionStats, FileChange, OutputSample
 from .text_utils import is_low_signal_commit_message
+from .validation import validate_output_sample
 from .writer import SampleWriter
 
 
@@ -57,32 +58,55 @@ MAX_SAMPLES_PER_COMMIT = 3
 def main(argv: list[str] | None = None) -> int:
     parser = _build_parser()
     args = parser.parse_args(argv)
-    if args.command != "mine":
-        parser.print_help()
-        return 1
+    if args.command == "mine":
+        config = MinerConfig(
+            repo_url=args.repo_url,
+            cache_dir=args.cache_dir,
+            output_dir=args.output_dir,
+            max_commits=args.max_commits,
+            max_samples=args.max_samples,
+            full_history=args.full_history,
+            force_refresh=args.force_refresh,
+        )
+        samples = mine_repository(config)
+        print(f"Wrote {len(samples)} samples to {config.output_dir}")
+        return 0
+    if args.command == "mine-multiple":
+        from .multi_repo import MultiRepoConfig, mine_multiple_repositories
 
-    config = MinerConfig(
-        repo_url=args.repo_url,
-        cache_dir=args.cache_dir,
-        output_dir=args.output_dir,
-        max_commits=args.max_commits,
-        max_samples=args.max_samples,
-        full_history=args.full_history,
-        force_refresh=args.force_refresh,
-    )
-    samples = mine_repository(config)
-    print(f"Wrote {len(samples)} samples to {config.output_dir}")
-    return 0
+        config = MultiRepoConfig(
+            root_dir=args.root_dir,
+            final_dir=args.final_dir,
+            cache_dir=args.cache_dir,
+            target_total=args.target_total,
+            start_from=args.start_from,
+            max_commits_per_repo=args.max_commits_per_repo,
+            max_repos=args.max_repos,
+            repo_list=args.repo_list,
+            resume=args.resume,
+            dry_run=args.dry_run,
+            force_refresh=args.force_refresh,
+        )
+        try:
+            mine_multiple_repositories(config)
+        except ValueError as error:
+            parser.error(str(error))
+        return 0
+    parser.print_help()
+    return 1
 
 
 def mine_repository(config: MinerConfig) -> list[OutputSample]:
     repo = GitRepo.clone_or_update(config.repo_url, config.cache_dir, config.force_refresh)
+    commits = repo.iter_commits(config.full_history, config.max_commits)
     candidate_samples: list[PendingOutputSample] = []
     scanned = 0
     javadoc_commits = 0
     code_and_javadoc_commits = 0
+    next_validation_count = config.max_samples
+    stopped_after_target = False
 
-    for commit_hash in repo.iter_commits(config.full_history, config.max_commits):
+    for commit_hash in commits:
         scanned += 1
         try:
             patch = repo.show_commit_patch(commit_hash)
@@ -122,19 +146,27 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
                         classification=classification,
                     )
                 )
-        if _unique_sample_count(candidate_samples) >= config.max_samples:
-            break
-
-    selected_candidates = _select_samples(candidate_samples, config.max_samples)
+        unique_count = _unique_sample_count(candidate_samples)
+        if unique_count >= next_validation_count:
+            if _retained_candidate_count(repo, candidate_samples, config.max_samples) >= config.max_samples:
+                stopped_after_target = True
+                break
+            next_validation_count = unique_count + 10
+    selected_candidates = _deduplicate_samples(candidate_samples)
     samples = _build_output_samples(repo, selected_candidates)
     stats = _stats_for_samples(
         scanned,
         javadoc_commits,
         code_and_javadoc_commits,
         len(candidate_samples),
-        len(samples),
+        0,
     )
-    SampleWriter(config.output_dir).write_samples(samples, stats)
+    stats.history_complete = config.full_history and not stopped_after_target and scanned == len(commits)
+    samples = SampleWriter(config.output_dir).write_samples(
+        samples,
+        stats,
+        max_samples=config.max_samples,
+    )
     print(
         f"Scanned {scanned} commits, found {javadoc_commits} commits with JavaDoc changes "
         f"({code_and_javadoc_commits} also changed code)."
@@ -143,7 +175,11 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
         "Stats: "
         f"candidate_samples_found={stats.candidate_samples_found}, "
         f"samples_retained={stats.samples_retained}, "
-        f"samples_filtered={stats.samples_filtered}"
+        f"samples_filtered={stats.samples_filtered}, "
+        f"discarded_truncated_code_context={stats.discarded_truncated_code_context}, "
+        f"moved_to_review={stats.moved_to_review}, "
+        f"discarded_weak_inheritdoc={stats.discarded_weak_inheritdoc}, "
+        f"issue_summary_fallbacks={stats.issue_summary_fallbacks}"
     )
     return samples
 
@@ -152,7 +188,7 @@ def _build_output_samples(repo: GitRepo, candidates: list[PendingOutputSample]) 
     samples: list[OutputSample] = []
     for candidate in candidates:
         issue_id = candidate.issue_ids[0] if candidate.issue_ids else ""
-        issue_summary = commit_summary(candidate.commit_message)
+        issue_summary, fallback_applied = commit_summary_with_fallback(candidate.commit_message)
         samples.append(
             _build_output_sample(
                 repo=repo,
@@ -164,6 +200,7 @@ def _build_output_samples(repo: GitRepo, candidates: list[PendingOutputSample]) 
                 old_entity=candidate.old_entity,
                 new_entity=candidate.new_entity,
                 classification=candidate.classification,
+                issue_summary_fallback_applied=fallback_applied,
             )
         )
     return samples
@@ -238,6 +275,7 @@ def _build_output_sample(
     old_entity: EntityDoc | None,
     new_entity: EntityDoc | None,
     classification: Classification,
+    issue_summary_fallback_applied: bool = False,
 ) -> OutputSample:
     entity = new_entity or old_entity
     if entity is None:
@@ -262,6 +300,7 @@ def _build_output_sample(
         commit_url=repo.commit_url(commit_hash),
         entity_type=entity.entity_type,
         file_path=file_change.path,
+        issue_summary_fallback_applied=issue_summary_fallback_applied,
     )
 
 
@@ -316,6 +355,20 @@ def _unique_sample_count(samples: list[PendingOutputSample]) -> int:
     return len(_deduplicate_samples(samples))
 
 
+def _retained_candidate_count(
+    repo: GitRepo,
+    candidates: list[PendingOutputSample],
+    limit: int,
+) -> int:
+    retained = 0
+    for sample in _build_output_samples(repo, _deduplicate_samples(candidates)):
+        if validate_output_sample(sample).disposition == "retain":
+            retained += 1
+            if retained >= limit:
+                return retained
+    return retained
+
+
 def _stats_for_samples(
     total_commits_scanned: int,
     total_commits_containing_javadoc_changes: int,
@@ -344,4 +397,24 @@ def _build_parser() -> argparse.ArgumentParser:
     mine.add_argument("--max-samples", type=int, default=50)
     mine.add_argument("--full-history", action="store_true")
     mine.add_argument("--force-refresh", action="store_true")
+
+    multiple = subparsers.add_parser(
+        "mine-multiple",
+        help="Mine the configured Java repositories sequentially.",
+    )
+    multiple.add_argument("--root-dir", type=Path, default=Path("."))
+    multiple.add_argument("--final-dir", type=Path, default=Path("final_dataset"))
+    multiple.add_argument("--cache-dir", type=Path, default=Path(".cache/repos"))
+    multiple.add_argument("--target-total", type=int, default=1000)
+    multiple.add_argument("--start-from", default="")
+    multiple.add_argument("--max-commits-per-repo", type=int)
+    multiple.add_argument("--max-repos", type=int)
+    multiple.add_argument("--repo-list", choices=["default_java"], default="default_java")
+    multiple.add_argument("--resume", action="store_true")
+    multiple.add_argument("--dry-run", action="store_true")
+    multiple.add_argument("--force-refresh", action="store_true")
     return parser
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

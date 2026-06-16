@@ -1,0 +1,8 @@
+{
+  "commit_hash": "92e67ec626b32a95145dcc1f7dff8d50f28ae393",
+  "issue_summary": "Rename vector float classes and methods",
+  "code_before": "public abstract VectorValues getVectorValues(String field) throws IOException;",
+  "code_after": "@Deprecated\n  public VectorValues getVectorValues(String field) throws IOException {\n    return new FilterVectorValues(getFloatVectorValues(field)) {};\n  }",
+  "javadoc_before": "/**\n   * Returns {@link VectorValues} for this field, or null if no {@link VectorValues} were indexed.\n   * The returned instance should only be used by a single thread.\n   *\n   * @lucene.experimental\n   */",
+  "javadoc_after": "/**\n   * Returns {@link VectorValues} for this field, or null if no {@link VectorValues} were indexed.\n   * The returned instance should only be used by a single thread.\n   *\n   * @deprecated use {@link #getFloatVectorValues(String)} instead\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b9559bfce972a8b079ebc5ac8b6326a524ce29f8",
+  "issue_summary": "Refactored the \"solvers\" package. Implementations refer to number of evaluation of the objective function (instead of the number of iterations). New interfaces and base classes. \"NewtonSolver\" fits in the design without resorting to a cast. Created class \"MullerSolver2\" to contain the code of the method named \"solve2\" in class \"MullerSolver\". Removed \"UnivariateRealSolverFactory\" and \"UnivariateRealSolverFactoryImpl\". Default solver in \"UnivariateRealSolverUtils\" is explicitely instantiated. \"AbstractContinuousDistribution\": Type of exception thrown changed in \"UnivariateRealSolverUtils\". Factored out duplicate code (in \"GaussNewtonOptimizerTest\" and \"LevenbergMarquardtOptimizerTest\"): class \"Circle\" is now called \"CircleVectorial\". Also factored out the \"Circle\" class from \"NonLinearConjugateGradientOptimizerTest\": class is named \"CircleScalar\". Created \"SecantSolverTest\", moving there all the tests for the class \"SecantSolver\" that were located in class \"BrentSolverTest\". Created new interface and base class for polynomial functions solvers (\"LaguerreSolver\") so that the function type is now checked at compile time. Removed deprecated exceptions . Javadoc clean-up. Lowered tolerance values in some unit tests. Tests upgraded to Junit 4 .",
+  "code_before": "public BisectionSolver() {\n        super(100, 1E-6);\n    }",
+  "code_after": "public BisectionSolver() {\n        this(DEFAULT_ABSOLUTE_ACCURACY);\n    }",
+  "javadoc_before": "/**\n     * Construct a solver.\n     *\n     */",
+  "javadoc_after": "/**\n     * Construct a solver with default accuracy.\n     */"
+}

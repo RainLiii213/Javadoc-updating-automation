@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6d3ce61418fe49031c6b75f58253a2d5a9eceddc",
+  "issue_summary": "Backport `Objects.checkFromIndexSize` to `IOUtils`",
+  "code_before": "@Override\n    public Writer append(final CharSequence csq, final int start, final int end) {\n        //to /dev/null\n        return this;\n    }",
+  "code_after": "@Override\n    public Writer append(final CharSequence csq, final int start, final int end) {\n        IOUtils.checkFromToIndex(csq, start, end);\n        //to /dev/null\n        return this;\n    }",
+  "javadoc_before": "/**\n     * Does nothing, like writing to {@code /dev/null}.\n     *\n     * @param csq The character sequence to write.\n     * @param start The index of the first character to write.\n     * @param end  The index of the first character to write (exclusive).\n     * @return this writer.\n     * @since 2.0\n     */",
+  "javadoc_after": "/**\n     * Does nothing except argument validation, like writing to {@code /dev/null}.\n     *\n     * @param csq   The character sequence from which a subsequence will be\n     *              appended.\n     *              If {@code csq} is {@code null}, it is treated as if it were\n     *              {@code \"null\"}.\n     * @param start The index of the first character in the subsequence.\n     * @param end   The index of the character following the last character in the\n     *              subsequence.\n     * @return {@code this} instance.\n     * @throws IndexOutOfBoundsException If {@code start} or {@code end} are negative, {@code end} is\n     *                                   greater than {@code csq.length()}, or {@code start} is greater\n     *                                   than {@code end}.\n     * @since 2.0\n     */"
+}

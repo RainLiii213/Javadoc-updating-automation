@@ -1,0 +1,8 @@
+{
+  "commit_hash": "92e67ec626b32a95145dcc1f7dff8d50f28ae393",
+  "issue_summary": "Rename vector float classes and methods",
+  "code_before": "public abstract class VectorValues extends DocIdSetIterator {\n\n  /** The maximum length of a vector */\n  public static final int MAX_DIMENSIONS = 1024;\n\n  /** Sole constructor */\n  protected VectorValues() {}\n\n  /** Return the dimension of the vectors */\n  public abstract int dimension();\n\n  /**\n   * Return the number of vectors for this field.\n   *\n   * @return the number of vectors returned by this iterator\n   */\n  public abstract int size();\n\n  @Override\n  public final long cost() {\n    return size();\n  }\n\n  /**\n   * Return the vector value for the current document ID. It is illegal to call this method when the\n   * iterator is not positioned: before advancing, or after failing to advance. The returned array\n   * may be shared across calls, re-used, and modified as the iterator advances.\n   *\n   * @return the vector value\n   */\n  public abstract float[] vectorValue() throws IOException;\n}",
+  "code_after": "@Deprecated\npublic abstract class VectorValues extends FloatVectorValues {\n\n  /** Creates an instance to hold floating point vector values for a single document */\n  VectorValues() {}\n}",
+  "javadoc_before": "/**\n * This class provides access to per-document floating point vector values indexed as {@link\n * KnnVectorField}.\n *\n * @lucene.experimental\n */",
+  "javadoc_after": "/**\n * This class provides access to per-document floating point vector values indexed as {@link\n * KnnFloatVectorField}.\n *\n * @deprecated use {@link FloatVectorValues} instead\n */"
+}

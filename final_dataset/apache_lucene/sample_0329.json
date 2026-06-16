@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8095139da3598e9f76c8d960855535553b753ee9",
+  "issue_summary": "Allow nested child documents to be in field values of a SolrInputDocument. * AddUpdateCommand and it's relationship with DirectUpdateHandler2 was reworked substantially.",
+  "code_before": "public Document getLuceneDocument() {\n     return getLuceneDocument(false);\n   }",
+  "code_after": "public Document getLuceneDocument() {\n     final boolean ignoreNestedDocs = false; // throw an exception if found\n     return DocumentBuilder.toDocument(getSolrInputDocument(), req.getSchema(), isInPlaceUpdate(), ignoreNestedDocs);\n   }",
+  "javadoc_before": "/** Creates and returns a lucene Document to index.  Any changes made to the returned Document\n   * will not be reflected in the SolrInputDocument, or future calls to this method. This defaults\n   * to false for the inPlaceUpdate parameter of {@link #getLuceneDocument(boolean)}.\n   */",
+  "javadoc_after": "/**\n   * Creates and returns a lucene Document to index.\n   * Nested documents, if found, will cause an exception to be thrown.  Call {@link #getLuceneDocsIfNested()} for that.\n   * Any changes made to the returned Document will not be reflected in the SolrInputDocument, or future calls to this\n   * method.\n   * Note that the behavior of this is sensitive to {@link #isInPlaceUpdate()}.\n   */"
+}

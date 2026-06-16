@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5a9079f2ec8a14ec661604a028b3272c1d95fbdb",
+  "issue_summary": "Pass the number of allowed function evaluations as a parameter to the \"optimize\" methods.",
+  "code_before": "protected abstract RealPointValuePair doOptimize() throws MathUserException;",
+  "code_after": "protected abstract RealPointValuePair doOptimize();",
+  "javadoc_before": "/**\n     * Perform the bulk of the optimization algorithm.\n     *\n     * @return the point/value pair giving the optimal value for objective function.\n     * @throws MathUserException if objective function throws one\n     */",
+  "javadoc_after": "/**\n     * Perform the bulk of the optimization algorithm.\n     *\n     * @return the point/value pair giving the optimal value for the\n     * objective function.\n     * @throws org.apache.commons.math.exception.MathUserException if\n     * the objective function throws one.\n     */"
+}

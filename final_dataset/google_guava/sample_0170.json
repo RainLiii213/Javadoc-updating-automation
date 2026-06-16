@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b99b83e93dd3f0a448db8f0284c14b0ae759d85b",
+  "issue_summary": "Split off Multimaps.filterXXX overloads for SetMultimap (and filterKeys(ListMultimap)). Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=41190071",
+  "code_before": "@GwtCompatible\nabstract class FilteredMultimap<K, V> extends AbstractMultimap<K, V> {\n  final Multimap<K, V> unfiltered;\n\n  FilteredMultimap(Multimap<K, V> unfiltered) {\n    this.unfiltered = checkNotNull(unfiltered);\n  }\n\n  abstract Predicate<? super Entry<K, V>> entryPredicate();\n}",
+  "code_after": "@GwtCompatible\ninterface FilteredMultimap<K, V> extends Multimap<K, V> {\n  Multimap<K, V> unfiltered();\n\n  Predicate<? super Entry<K, V>> entryPredicate();\n}",
+  "javadoc_before": "/**\n * A superclass of all filtered multimap types.\n * \n * @author Louis Wasserman\n */",
+  "javadoc_after": "/**\n * An interface for all filtered multimap types.\n * \n * @author Louis Wasserman\n */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4a57fb4d888f83457ea774a7e03c998eb2da59ba",
+  "issue_summary": "Remove defaultSearchField completely in 7.0",
+  "code_before": "public static Map<String, Float> parseQueryFields(final IndexSchema indexSchema, final SolrParams solrParams)\n      throws SyntaxError {\n    Map<String, Float> queryFields = SolrPluginUtils.parseFieldBoosts(solrParams.getParams(DisMaxParams.QF));\n    if (queryFields.isEmpty()) {\n      String df = QueryParsing.getDefaultField(indexSchema, solrParams.get(CommonParams.DF));\n      if (df == null) {\n        throw new SyntaxError(\"Neither \"+DisMaxParams.QF+\", \"+CommonParams.DF +\", nor the default search field are present.\");\n      }\n      queryFields.put(df, 1.0f);\n    }\n    return queryFields;\n  }",
+  "code_after": "public static Map<String, Float> parseQueryFields(final IndexSchema indexSchema, final SolrParams solrParams)\n      throws SyntaxError {\n    Map<String, Float> queryFields = SolrPluginUtils.parseFieldBoosts(solrParams.getParams(DisMaxParams.QF));\n    if (queryFields.isEmpty()) {\n      String df = solrParams.get(CommonParams.DF);\n      if (df == null) {\n        throw new SyntaxError(\"Neither \"+DisMaxParams.QF+\" nor \"+CommonParams.DF +\" are present.\");\n      }\n      queryFields.put(df, 1.0f);\n    }\n    return queryFields;\n  }",
+  "javadoc_before": "/**\n   * Uses {@link SolrPluginUtils#parseFieldBoosts(String)} with the 'qf' parameter. Falls back to the 'df' parameter\n   * or {@link org.apache.solr.schema.IndexSchema#getDefaultSearchFieldName()}.\n   */",
+  "javadoc_after": "/**\n   * Uses {@link SolrPluginUtils#parseFieldBoosts(String)} with the 'qf' parameter. Falls back to the 'df' parameter\n   */"
+}

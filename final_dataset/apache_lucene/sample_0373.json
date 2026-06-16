@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5c9bcc9e900de027931a86704a8ab5fd4c525d9f",
+  "issue_summary": "Add PayloadDecoder",
+  "code_before": "public PayloadScoreQuery(SpanQuery wrappedQuery, PayloadFunction function, boolean includeSpanScore) {\n    this.wrappedQuery = Objects.requireNonNull(wrappedQuery);\n    this.function = Objects.requireNonNull(function);\n    this.includeSpanScore = includeSpanScore;\n  }",
+  "code_after": "@Deprecated\n  public PayloadScoreQuery(SpanQuery wrappedQuery, PayloadFunction function, boolean includeSpanScore) {\n    this(wrappedQuery, function, null, includeSpanScore);\n  }",
+  "javadoc_before": "/**\n   * Creates a new PayloadScoreQuery\n   * @param wrappedQuery the query to wrap\n   * @param function a PayloadFunction to use to modify the scores\n   * @param includeSpanScore include both span score and payload score in the scoring algorithm\n   */",
+  "javadoc_after": "/**\n   * Creates a new PayloadScoreQuery\n   * @param wrappedQuery the query to wrap\n   * @param function a PayloadFunction to use to modify the scores\n   * @param includeSpanScore include both span score and payload score in the scoring algorithm\n   * @deprecated Use {@link #PayloadScoreQuery(SpanQuery, PayloadFunction, PayloadDecoder, boolean)}\n   */"
+}

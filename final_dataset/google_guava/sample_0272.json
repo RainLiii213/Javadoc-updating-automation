@@ -1,0 +1,8 @@
+{
+  "commit_hash": "48736a0b064bb5c3ba32cc13496f4a5770fccf46",
+  "issue_summary": "Rework RegularImmutableSortedSet to be backed by an ImmutableList instead of an array.",
+  "code_before": "private int findPublicSuffix() {\n    final int partsSize = parts.size();\n\n    for (int i = 0; i < partsSize; i++) {\n      String ancestorName = DOT_JOINER.join(parts.subList(i, partsSize));\n\n      if (isPublicSuffixInternal(ancestorName)) {\n        return i;\n      }\n    }\n\n    return NO_PUBLIC_SUFFIX_FOUND;\n  }",
+  "code_after": "private int findPublicSuffix() {\n    final int partsSize = parts.size();\n\n    for (int i = 0; i < partsSize; i++) {\n      String ancestorName = DOT_JOINER.join(parts.subList(i, partsSize));\n\n      if (TldPatterns.EXACT.contains(ancestorName)) {\n        return i;\n      }\n\n      // Excluded domains (e.g. !nhs.uk) use the next highest\n      // domain as the effective public suffix (e.g. uk).\n\n      if (TldPatterns.EXCLUDED.contains(ancestorName)) {\n        return i + 1;\n      }\n\n      if (matchesWildcardPublicSuffix(ancestorName)) {\n        return i;\n      }\n    }\n\n    return NO_PUBLIC_SUFFIX_FOUND;\n  }",
+  "javadoc_before": "/**\n   * Returns the index of the leftmost part of the public suffix, or -1 if not\n   * found.\n   */",
+  "javadoc_after": "/**\n   * Returns the index of the leftmost part of the public suffix, or -1 if not\n   * found. Note that the value defined as the \"public suffix\" may not be a\n   * public suffix according to {@link #isPublicSuffix()} if the domain ends\n   * with an excluded domain pattern such as \"nhs.uk\".\n   */"
+}

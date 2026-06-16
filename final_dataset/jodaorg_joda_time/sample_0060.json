@@ -1,0 +1,8 @@
+{
+  "commit_hash": "14ca195dfadb4b2f2c71eae03b2d58d165c033f9",
+  "issue_summary": "Move code from BasePeriod to chrono",
+  "code_before": "public void setPeriod(ReadableInterval interval) {\n        setPeriod(interval, null);\n    }",
+  "code_after": "public void setPeriod(ReadableInterval interval) {\n        if (interval == null) {\n            setPeriod(0L);\n        } else {\n            Chronology chrono = DateTimeUtils.getChronology(interval.getChronology());\n            setPeriod(interval.getStartMillis(), interval.getEndMillis(), chrono);\n        }\n    }",
+  "javadoc_before": "/**\n     * Sets all the fields in one go from an interval using the ISO chronology\n     * and dividing the fields using the period type.\n     * \n     * @param interval  the interval to set, null means zero length\n     */",
+  "javadoc_after": "/**\n     * Sets all the fields in one go from an interval using the ISO chronology\n     * and dividing the fields using the period type.\n     * \n     * @param interval  the interval to set, null means zero length\n     * @throws ArithmeticException if the set exceeds the capacity of the period\n     */"
+}

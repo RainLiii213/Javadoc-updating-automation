@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a4456b8fd51adf73e007cb7d598bf2feb3e4f6df",
+  "issue_summary": "Reverting commit 4fc5b3402c58d6a4b317bf23b896ea91d22af6fe as per Gilles request.",
+  "code_before": "@Override\n    public void setSeed(int seed) {\n        setSeedInternal(seed);\n    }",
+  "code_after": "@Override\n    public void setSeed(int seed) {\n        // we use a long masked by 0xffffffffL as a poor man unsigned int\n        long longMT = seed;\n        // NB: unlike original C code, we are working with java longs, the cast below makes masking unnecessary\n        mt[0]= (int) longMT;\n        for (mti = 1; mti < N; ++mti) {\n            // See Knuth TAOCP Vol2. 3rd Ed. P.106 for multiplier.\n            // initializer from the 2002-01-09 C version by Makoto Matsumoto\n            longMT = (1812433253l * (longMT ^ (longMT >> 30)) + mti) & 0xffffffffL;\n            mt[mti]= (int) longMT;\n        }\n\n        clear(); // Clear normal deviate cache\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/** Reinitialize the generator as if just built with the given int seed.\n     * <p>The state of the generator is exactly the same as a new\n     * generator built with the same seed.</p>\n     * @param seed the initial seed (32 bits integer)\n     */"
+}

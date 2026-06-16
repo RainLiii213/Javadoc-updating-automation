@@ -1,0 +1,8 @@
+{
+  "commit_hash": "67f9245ce30bb21d3976c05548856c81cf7ee8a1",
+  "issue_summary": "Optimize CoreContainer.getAllCoreNames and getLoadedCoreNames. Also optimize getCoreDescriptors.",
+  "code_before": "public Collection<String> getAllCoreNames() {\n    Set<String> set;\n    synchronized (modifyLock) {\n      set = new TreeSet<>(cores.keySet());\n      if (getTransientCacheHandler() != null) {\n        set.addAll(getTransientCacheHandler().getAllCoreNames());\n      }\n      set.addAll(residentDesciptors.keySet());\n    }\n    return set;\n  }",
+  "code_after": "public List<String> getAllCoreNames() {\n    synchronized (modifyLock) {\n      return distinctSetsUnion(residentDescriptors.keySet(), getTransientCacheHandler().getAllCoreNames());\n    }\n  }",
+  "javadoc_before": "/**\n   * Gets a list of all cores, loaded and unloaded \n   *\n   * @return all cores names, whether loaded or unloaded, transient or permanent.\n   */",
+  "javadoc_after": "/**\n   * Gets a collection of all cores names, loaded and unloaded.\n   * For efficiency, prefer to check {@link #getCoreDescriptor(String)} != null instead of {@link #getAllCoreNames()}.contains(String)\n   *\n   * @return An unsorted list. This list is a new copy, it can be modified by the caller (e.g. it can be sorted).\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8d969d60536b8878f73fd494c517de5d18be9d89",
+  "issue_summary": "Revert \" : throws IOException if non-number exists in pax header\"",
+  "code_before": "void updateEntryFromPaxHeaders(Map<String, String> headers) throws IOException {\n        for (final Map.Entry<String, String> ent : headers.entrySet()) {\n            final String key = ent.getKey();\n            final String val = ent.getValue();\n            processPaxHeader(key, val, headers);\n        }\n    }",
+  "code_after": "void updateEntryFromPaxHeaders(Map<String, String> headers) {\n        for (final Map.Entry<String, String> ent : headers.entrySet()) {\n            final String key = ent.getKey();\n            final String val = ent.getValue();\n            processPaxHeader(key, val, headers);\n        }\n    }",
+  "javadoc_before": "/**\n     * Update the entry using a map of pax headers.\n     *\n     * @param headers\n     * @throws IOException if error occurs when parsing pax header\n     * @since 1.15\n     */",
+  "javadoc_after": "/**\n     * Update the entry using a map of pax headers.\n     * @param headers\n     * @since 1.15\n     */"
+}

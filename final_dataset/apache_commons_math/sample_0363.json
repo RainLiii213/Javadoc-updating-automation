@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+  "issue_summary": "Eliminated MathException from distribution interfaces and impls.",
+  "code_before": "public double sample() throws MathException {\n        return randomData.nextInversionDeviate(this);\n    }",
+  "code_after": "public double sample() {\n        return randomData.nextInversionDeviate(this);\n    }",
+  "javadoc_before": "/**\n     * Generate a random value sampled from this distribution. The default\n     * implementation uses the\n     * <a href=\"http://en.wikipedia.org/wiki/Inverse_transform_sampling\">\n     *  inversion method.\n     * </a>\n     *\n     * @return a random value.\n     * @throws MathException if an error occurs generating the random value.\n     * @since 2.2\n     */",
+  "javadoc_after": "/**\n     * Generate a random value sampled from this distribution. The default\n     * implementation uses the\n     * <a href=\"http://en.wikipedia.org/wiki/Inverse_transform_sampling\">\n     *  inversion method.\n     * </a>\n     *\n     * @return a random value.\n     * @since 2.2\n     */"
+}

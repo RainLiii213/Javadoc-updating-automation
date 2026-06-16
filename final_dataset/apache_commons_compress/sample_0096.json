@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0c4f64c2bebd85a96be8a07b1ad700c7688cbe02",
+  "issue_summary": "introduce a parameter class for zip readers",
+  "code_before": "public ZipArchiveInputStream(final InputStream inputStream) {\n        this(inputStream, ZipEncodingHelper.UTF8);\n    }",
+  "code_after": "public ZipArchiveInputStream(final InputStream inputStream) {\n        this(inputStream, ZipReadingOptions.DEFAULT);\n    }",
+  "javadoc_before": "/**\n     * Create an instance using UTF-8 encoding\n     * @param inputStream the stream to wrap\n     */",
+  "javadoc_after": "/**\n     * Create an instance using the {@link ZipReadingOptions#DEFAULT default reading options}.\n     * @param inputStream the stream to wrap\n     */"
+}

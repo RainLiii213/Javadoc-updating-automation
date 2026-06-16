@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6bd8733fdbe504d5510603723bc1ee6af31a6df3",
+  "issue_summary": "No need to rewrite queries in unified highlighter",
+  "code_before": "protected static Set<Term> extractTerms(Query query) throws IOException {\n    Set<Term> queryTerms = new HashSet<>();\n    EMPTY_INDEXSEARCHER.rewrite(query).visit(QueryVisitor.termCollector(queryTerms));\n    return queryTerms;\n  }",
+  "code_after": "protected static Set<Term> extractTerms(Query query) {\n    Set<Term> queryTerms = new HashSet<>();\n    query.visit(QueryVisitor.termCollector(queryTerms));\n    return queryTerms;\n  }",
+  "javadoc_before": "/** Extracts matching terms after rewriting against an empty index */",
+  "javadoc_after": "/** Extracts matching terms */"
+}

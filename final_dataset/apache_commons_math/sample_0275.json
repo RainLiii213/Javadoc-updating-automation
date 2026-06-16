@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f81d4ff3a0a38839b415f6ba6699e729fce98245",
+  "issue_summary": "Cleanup ListPopulation class after suggestion from Reid Hochstedler added more sanity checks/exceptions in ctor and setters, unit tests, hide and protect internal representation.",
+  "code_before": "public void setChromosomes(final List<Chromosome> chromosomes) {\n        this.chromosomes = chromosomes;\n    }",
+  "code_after": "public void setChromosomes(final List<Chromosome> chromosomes) {\n        if (chromosomes == null) {\n            throw new NullArgumentException();\n        }\n        if (chromosomes.size() > populationLimit) {\n            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,\n                                                chromosomes.size(), populationLimit, false);\n        }\n        this.chromosomes.clear();\n        this.chromosomes.addAll(chromosomes);\n    }",
+  "javadoc_before": "/**\n     * Sets the list of chromosomes.\n     * @param chromosomes the list of chromosomes\n     */",
+  "javadoc_after": "/**\n     * Sets the list of chromosomes.\n     * <p>Note: this method removed all existing chromosomes in the population and adds all chromosomes\n     * of the specified list to the population.</p>\n     * @param chromosomes the list of chromosomes\n     * @throws NullArgumentException if the list of chromosomes is {@code null}\n     * @throws NumberIsTooLargeException if the list of chromosomes exceeds the population limit\n     * @deprecated use {@link #addChromosomes(Collection)} instead\n     */"
+}

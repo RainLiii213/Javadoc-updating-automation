@@ -1,0 +1,8 @@
+{
+  "commit_hash": "92a9c20dc56dddc8710226d40c079fc13ab5331d",
+  "issue_summary": "changed the localization mechanism for error messages. The new system is based on an enum rather than on duplicated string literals. JIRA",
+  "code_before": "public MathException(String pattern, Object ... arguments) {\n      this.pattern   = pattern;\n      this.arguments = (arguments == null) ? new Object[0] : arguments.clone();\n    }",
+  "code_after": "@Deprecated\n    public MathException(String pattern, Object ... arguments) {\n      this(new DummyLocalizable(pattern), arguments);\n    }",
+  "javadoc_before": "/**\n     * Constructs a new <code>MathException</code> with specified\n     * formatted detail message.\n     * Message formatting is delegated to {@link java.text.MessageFormat}.\n     * @param pattern format specifier\n     * @param arguments format arguments\n     */",
+  "javadoc_after": "/**\n     * Constructs a new <code>MathException</code> with specified\n     * formatted detail message.\n     * Message formatting is delegated to {@link java.text.MessageFormat}.\n     * @param pattern format specifier\n     * @param arguments format arguments\n     * @deprecated as of 2.2 replaced by {@link #MathException(Localizable, Object...)}\n     */"
+}

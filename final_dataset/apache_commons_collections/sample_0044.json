@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2d00ed4676f637af5d81333d750c74e3ad185313",
+  "issue_summary": "Move more methods from CollectionUtils.",
+  "code_before": "public static <T, C extends Closure<? super T>> C forAllDo(final Iterable<T> collection, final C closure) {\n        if (collection != null && closure != null) {\n            for (final T element : collection) {\n                closure.execute(element);\n            }\n        }\n        return closure;\n    }",
+  "code_after": "@Deprecated\n    public static <T, C extends Closure<? super T>> C forAllDo(final Iterable<T> collection, final C closure) {\n        if (closure != null) {\n            IterableUtils.apply(collection, closure);\n        }\n        return closure;\n    }",
+  "javadoc_before": "/**\n     * Executes the given closure on each element in the collection.\n     * <p>\n     * If the input collection or closure is null, there is no change made.\n     *\n     * @param <T>  the type of object the {@link Iterable} contains\n     * @param <C>  the closure type\n     * @param collection  the collection to get the input from, may be null\n     * @param closure  the closure to perform, may be null\n     * @return closure\n     */",
+  "javadoc_after": "/**\n     * Executes the given closure on each element in the collection.\n     * <p>\n     * If the input collection or closure is null, there is no change made.\n     *\n     * @param <T>  the type of object the {@link Iterable} contains\n     * @param <C>  the closure type\n     * @param collection  the collection to get the input from, may be null\n     * @param closure  the closure to perform, may be null\n     * @return closure\n     * @deprecated since 4.1, use {@link IterableUtils#apply(Iterable, Closure)} instead\n     */"
+}

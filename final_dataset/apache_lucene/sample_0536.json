@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fb0aa2dc49cb57e148f5adde430983795c5545b9",
+  "issue_summary": "throw IAE on illegal bm25 parameter values",
+  "code_before": "public BM25Similarity(float k1, float b) {\n    this.k1 = k1;\n    this.b  = b;\n  }",
+  "code_after": "public BM25Similarity(float k1, float b) {\n    if (Float.isFinite(k1) == false || k1 < 0) {\n      throw new IllegalArgumentException(\"illegal k1 value: \" + k1 + \", must be a non-negative finite value\");\n    }\n    if (Float.isNaN(b) || b < 0 || b > 1) {\n      throw new IllegalArgumentException(\"illegal b value: \" + b + \", must be between 0 and 1\");\n    }\n    this.k1 = k1;\n    this.b  = b;\n  }",
+  "javadoc_before": "/**\n   * BM25 with the supplied parameter values.\n   * @param k1 Controls non-linear term frequency normalization (saturation).\n   * @param b Controls to what degree document length normalizes tf values.\n   */",
+  "javadoc_after": "/**\n   * BM25 with the supplied parameter values.\n   * @param k1 Controls non-linear term frequency normalization (saturation).\n   * @param b Controls to what degree document length normalizes tf values.\n   * @throws IllegalArgumentException if {@code k1} is infinite or negative, or if {@code b} is \n   *         not within the range {@code [0..1]}\n   */"
+}

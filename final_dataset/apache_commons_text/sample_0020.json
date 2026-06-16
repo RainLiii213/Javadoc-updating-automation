@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c5145b71c443e1445a162e324168c082ee1bf045",
+  "issue_summary": "Update Apache Commons Lang from 3.10 to 3.11. org.apache.commons.text.lookup.AbstractStringLookup",
+  "code_before": "protected String substringAfter(final String value, final char ch) {\n        // TODO Reuse Commons Lang 3.11 StringUtils.substringAfter(String, int)\n        final int indexOf = value.indexOf(ch);\n        return indexOf > -1 ? value.substring(indexOf + 1) : EMPTY;\n    }",
+  "code_after": "@Deprecated\n    protected String substringAfter(final String value, final char ch) {\n        return StringUtils.substringAfter(value, ch);\n    }",
+  "javadoc_before": "/**\n     * Returns the substring after the first occurrence of {@code ch} in {@code value}.\n     *\n     * @param value The source string.\n     * @param ch The character to search.\n     * @return a new string.\n     */",
+  "javadoc_after": "/**\n     * Returns the substring after the first occurrence of {@code ch} in {@code value}.\n     *\n     * @param value The source string.\n     * @param ch The character to search.\n     * @return a new string.\n     * @deprecated Use {@link StringUtils#substringAfter(String, int)}.\n     */"
+}

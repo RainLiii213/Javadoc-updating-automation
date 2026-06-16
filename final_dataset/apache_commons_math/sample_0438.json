@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a28aac9aa8e7288673200c10f33184455937f298",
+  "issue_summary": "Removed occurrences of \"MathException\" in multidimensional interpolator. Replaced \"DimensionMismatchException\" by its unchecked equivalent . I forgot to make those changes as part of . Fixed Javadoc.",
+  "code_before": "double value(double[] point)\n        throws MathUserException, IllegalArgumentException;",
+  "code_after": "double value(double[] point);",
+  "javadoc_before": "/**\n     * Compute the value for the function at the given point.\n     * @param point point at which the function must be evaluated\n     * @return function value for the given point\n     * @exception MathUserException if the function evaluation fails\n     * @exception IllegalArgumentException if points dimension is wrong\n     */",
+  "javadoc_after": "/**\n     * Compute the value for the function at the given point.\n     *\n     * @param point Point at which the function must be evaluated.\n     * @return the function value for the given point.\n     * @throws org.apache.commons.math.exception.MathUserException if\n     * the function evaluation fails.\n     * @throws org.apache.commons.math.exception.DimensionMismatchException\n     * if the parameter's dimension is wrong for the function being evaluated.\n     * @throws  org.apache.commons.math.exception.MathIllegalArgumentException\n     * when the activated method itself can ascertain that preconditions,\n     * specified in the API expressed at the level of the activated method,\n     * have been violated.  In the vast majority of cases where Commons Math\n     * throws this exception, it is the result of argument checking of actual\n     * parameters immediately passed to a method.\n     */"
+}

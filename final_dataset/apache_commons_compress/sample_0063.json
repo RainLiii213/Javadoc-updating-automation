@@ -1,0 +1,8 @@
+{
+  "commit_hash": "650ad0555e3702177c7403544ae8850f4ebbc9b1",
+  "issue_summary": "Use FileTime in SevenZArchiveEntry",
+  "code_before": "public Date getAccessDate() {\n        if (hasAccessDate) {\n            return ntfsTimeToJavaTime(accessDate);\n        }\n        throw new UnsupportedOperationException(\n                \"The entry doesn't have this timestamp\");\n    }",
+  "code_after": "public Date getAccessDate() {\n        return TimeUtils.fileTimeToDate(getAccessTime());\n    }",
+  "javadoc_before": "/**\n     * Gets the access date.\n     * @throws UnsupportedOperationException if the entry hasn't got a\n     * access date.\n     * @return the access date\n     */",
+  "javadoc_after": "/**\n     * Gets the access date.\n     * This is equivalent to {@link SevenZArchiveEntry#getAccessTime()}, but precision is truncated to milliseconds.\n     *\n     * @throws UnsupportedOperationException if the entry hasn't got an access date.\n     * @return the access date\n     * @see SevenZArchiveEntry#getAccessTime()\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3a47f39276bb2d0900fdb47c76c80ec32aae17e7",
+  "issue_summary": "BOMInputStream fail-fast and tracks its ByteOrderMark as a final",
+  "code_before": "public ByteOrderMark getBOM() throws IOException {\n        if (firstBytes == null) {\n            byteOrderMark = readBom();\n        }\n        return byteOrderMark;\n    }",
+  "code_after": "public ByteOrderMark getBOM() {\n        return byteOrderMark;\n    }",
+  "javadoc_before": "/**\n     * Gets the ByteOrderMark (Byte Order Mark).\n     *\n     * @return The BOM or null if none matched.\n     * @throws IOException\n     *             if an error reading the first bytes of the stream occurs.\n     */",
+  "javadoc_after": "/**\n     * Gets the ByteOrderMark (Byte Order Mark).\n     *\n     * @return The BOM or null if none matched.\n     */"
+}

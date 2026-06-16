@@ -1,0 +1,8 @@
+{
+  "commit_hash": "67f9245ce30bb21d3976c05548856c81cf7ee8a1",
+  "issue_summary": "Optimize CoreContainer.getAllCoreNames and getLoadedCoreNames. Also optimize getCoreDescriptors.",
+  "code_before": "List<SolrCore> getCores() {\n\n    synchronized (modifyLock) {\n      List<SolrCore> lst = new ArrayList<>(cores.values());\n      return lst;\n    }\n  }",
+  "code_after": "List<SolrCore> getCores() {\n\n    synchronized (modifyLock) {\n      return new ArrayList<>(cores.values());\n    }\n  }",
+  "javadoc_before": "/**\n   *\n   * @return A list of \"permanent\" cores, i.e. cores that  may not be swapped out and are currently loaded.\n   * \n   * A core may be non-transient but still lazily loaded. If it is \"permanent\" and lazy-load _and_\n   * not yet loaded it will _not_ be returned by this call.\n   * \n   * Note: This is one of the places where SolrCloud is incompatible with Transient Cores. This call is used in \n   * cancelRecoveries, transient cores don't participate.\n   */",
+  "javadoc_after": "/**\n   * @return A list of \"permanent\" cores, i.e. cores that may not be swapped out and are currently loaded.\n   *\n   * A core may be non-transient but still lazily loaded. If it is \"permanent\" and lazy-load _and_\n   * not yet loaded it will _not_ be returned by this call.\n   *\n   * This list is a new copy, it can be modified by the caller (e.g. it can be sorted).\n   *\n   * Note: This is one of the places where SolrCloud is incompatible with Transient Cores. This call is used in\n   * cancelRecoveries, transient cores don't participate.\n   */"
+}

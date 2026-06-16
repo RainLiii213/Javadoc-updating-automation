@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8938c9f3d0608544ba6f16832bad7421d4080b7b",
+  "issue_summary": "Classic query parser: disallow autoGeneratePhraseQueries=true when splitOnWhitespace=false (and vice-versa).",
+  "code_before": "public void setSplitOnWhitespace(boolean splitOnWhitespace) {\n    this.splitOnWhitespace = splitOnWhitespace;\n  }",
+  "code_after": "public void setSplitOnWhitespace(boolean splitOnWhitespace) {\n    if (splitOnWhitespace == false && getAutoGeneratePhraseQueries() == true) {\n      throw new IllegalArgumentException\n          (\"setSplitOnWhitespace(false) is disallowed when getAutoGeneratePhraseQueries() == true\");\n    }\n    this.splitOnWhitespace = splitOnWhitespace;\n  }",
+  "javadoc_before": "/**\n   * Whether query text should be split on whitespace prior to analysis.\n   * Default is <code>{@value #DEFAULT_SPLIT_ON_WHITESPACE}</code>.\n   */",
+  "javadoc_after": "/**\n   * Whether query text should be split on whitespace prior to analysis.\n   * Default is <code>{@value #DEFAULT_SPLIT_ON_WHITESPACE}</code>.\n   * <p>\n   * The combination splitOnWhitespace=false and autoGeneratePhraseQueries=true\n   * is disallowed.  See <a href=\"https://issues.apache.org/jira/browse/LUCENE-7533\">LUCENE-7533</a>.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6682ab2abccb5819ec2e62a1f3f9018945bed9cd",
+  "issue_summary": "Test DateTimeZone",
+  "code_before": "public final int getOffset(ReadableInstant instant) {\n        if (instant == null) {\n            throw new IllegalArgumentException(\"The instant must not be null\");\n        }\n        return getOffset(instant.getMillis());\n    }",
+  "code_after": "public final int getOffset(ReadableInstant instant) {\n        if (instant == null) {\n            return getOffset(DateTimeUtils.currentTimeMillis());\n        }\n        return getOffset(instant.getMillis());\n    }",
+  "javadoc_before": "/**\n     * Gets the millisecond offset to add to UTC to get local time.\n     * \n     * @param instant instant to get the offset for\n     * @return the millisecond offset to add to UTC to get local time\n     * @throws IllegalArgumentException if the instant is null\n     */",
+  "javadoc_after": "/**\n     * Gets the millisecond offset to add to UTC to get local time.\n     * \n     * @param instant  instant to get the offset for, null means now\n     * @return the millisecond offset to add to UTC to get local time\n     */"
+}

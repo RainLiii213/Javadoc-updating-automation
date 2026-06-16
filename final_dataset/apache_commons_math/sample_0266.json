@@ -1,0 +1,8 @@
+{
+  "commit_hash": "692c542c5e3038ec9edc5a05ca6ea7c4d2f070ff",
+  "issue_summary": "Reverted changes committed in r1353140. In o.a.c.m3.util.Incrementor, a NullPointerException is now thrown if the call-back function specified at construction is null. o.a.c.m3.util.IterationManager was updated accordingly (used to explicitely use the constructor with null argument).",
+  "code_before": "public Incrementor(int max,\n                       MaxCountExceededCallback cb) {\n        maximalCount = max;\n        if (cb != null) {\n            maxCountCallback = cb;\n        } else {\n            maxCountCallback = new MaxCountExceededCallback() {\n                /** {@inheritDoc} */\n                public void trigger(int max) {\n                    throw new MaxCountExceededException(max);\n                }\n            };\n        }\n    }",
+  "code_after": "public Incrementor(int max,\n                       MaxCountExceededCallback cb) {\n        if (cb == null){\n            throw new NullPointerException();\n        }\n        maximalCount = max;\n        maxCountCallback = cb;\n    }",
+  "javadoc_before": "/**\n     * Defines a maximal count and a callback method to be triggered at\n     * counter exhaustion.\n     *\n     * @param max Maximal count.\n     * @param cb Function to be called when the maximal count has been reached\n     * (can be {@code null}).\n     */",
+  "javadoc_after": "/**\n     * Defines a maximal count and a callback method to be triggered at\n     * counter exhaustion.\n     *\n     * @param max Maximal count.\n     * @param cb Function to be called when the maximal count has been reached.\n     * @throws NullPointerException if {@code cb} is {@code null}\n     */"
+}

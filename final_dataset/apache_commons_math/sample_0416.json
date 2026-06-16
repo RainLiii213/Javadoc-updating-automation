@@ -1,0 +1,8 @@
+{
+  "commit_hash": "62a313f67d40f2cd192b7f5890f0be14f358b390",
+  "issue_summary": "Replaced NullPointerException by NullArgumentException",
+  "code_before": "private void copyIn(final double[][] in) {\n        setSubMatrix(in, 0, 0);\n    }",
+  "code_after": "private void copyIn(final double[][] in)\n        throws DimensionMismatchException, NoDataException, NullArgumentException {\n        setSubMatrix(in, 0, 0);\n    }",
+  "javadoc_before": "/**\n     * Replace data with a fresh copy of the input array.\n     *\n     * @param in Data to copy.\n     * @throws NoDataException if the input array is empty.\n     * @throws DimensionMismatchException if the input array is not rectangular.\n     * @throws org.apache.commons.math.exception.NullArgumentException if\n     * the input array is {@code null}.\n     */",
+  "javadoc_after": "/**\n     * Replace data with a fresh copy of the input array.\n     *\n     * @param in Data to copy.\n     * @throws NoDataException if the input array is empty.\n     * @throws DimensionMismatchException if the input array is not rectangular.\n     * @throws NullArgumentException if\n     * the input array is {@code null}.\n     */"
+}

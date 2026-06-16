@@ -1,0 +1,8 @@
+{
+  "commit_hash": "92a9c20dc56dddc8710226d40c079fc13ab5331d",
+  "issue_summary": "changed the localization mechanism for error messages. The new system is based on an enum rather than on duplicated string literals. JIRA",
+  "code_before": "public String getPattern() {\n        return pattern;\n    }",
+  "code_after": "@Deprecated\n    public String getPattern() {\n        return pattern.getSourceString();\n    }",
+  "javadoc_before": "/** Gets the pattern used to build the message of this throwable.\n     *\n     * @return the pattern used to build the message of this throwable\n     * @since 1.2\n     */",
+  "javadoc_after": "/** Gets the pattern used to build the message of this throwable.\n     *\n     * @return the pattern used to build the message of this throwable\n     * @since 1.2\n     * @deprecated as of 2.2 replaced by {@link #getLocalizablePattern()}\n     */"
+}

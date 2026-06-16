@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bebc6eddeddb8bd40c1299fa6e468b56edd997fc",
+  "issue_summary": "allow different strategies when parsing extra fields.",
+  "code_before": "public static ZipExtraField[] parse(byte[] data) throws ZipException {\n        return parse(data, true);\n    }",
+  "code_after": "public static ZipExtraField[] parse(byte[] data) throws ZipException {\n        return parse(data, true, UnparseableExtraField.THROW);\n    }",
+  "javadoc_before": "/**\n     * Split the array into ExtraFields and populate them with the\n     * given data as local file data.\n     * @param data an array of bytes as it appears in local file data\n     * @return an array of ExtraFields\n     * @throws ZipException on error\n     */",
+  "javadoc_after": "/**\n     * Split the array into ExtraFields and populate them with the\n     * given data as local file data, throwing an exception if the\n     * data cannot be parsed.\n     * @param data an array of bytes as it appears in local file data\n     * @return an array of ExtraFields\n     * @throws ZipException on error\n     */"
+}

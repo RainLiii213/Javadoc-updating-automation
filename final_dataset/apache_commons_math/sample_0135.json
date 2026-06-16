@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c61b08e546703881350346490ecd887266220ba4",
+  "issue_summary": "Fixed naming inconsistencies between Interval and IntervalsSet classes.",
+  "code_before": "public double getLower() {\n        return lower;\n    }",
+  "code_after": "@Deprecated\n    public double getLower() {\n        return getInf();\n    }",
+  "javadoc_before": "/** Get the lower bound of the interval.\n     * @return lower bound of the interval\n     */",
+  "javadoc_after": "/** Get the lower bound of the interval.\n     * @return lower bound of the interval\n     * @deprecated as of 3.1, replaced by {@link #getInf()}\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1824dd31e6a39f5ef2e7b7e01f9b52d7ce0fd1e7",
+  "issue_summary": "Some changes to the interface of iterative linear solvers. Replaced the confusing boolean param inPlace in the solve() methods by two sets of methods: solve() and solveInPlace().",
+  "code_before": "public PreconditionedIterativeLinearSolver(final IterationManager manager) {\n        super(manager);\n    }",
+  "code_after": "public PreconditionedIterativeLinearSolver(final IterationManager manager)\n        throws NullArgumentException {\n        super(manager);\n    }",
+  "javadoc_before": "/**\n     * Creates a new instance of this class, with custom iteration manager.\n     *\n     * @param manager Custom iteration manager.\n     */",
+  "javadoc_after": "/**\n     * Creates a new instance of this class, with custom iteration manager.\n     *\n     * @param manager Custom iteration manager.\n     * @throws NullArgumentException if {@code manager} is {@code null}.\n     */"
+}

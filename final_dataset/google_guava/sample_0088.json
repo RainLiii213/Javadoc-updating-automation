@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b79501ac1cf46d791a0a2f44ac208ee84247f9b3",
+  "issue_summary": "Small tweaks to some methods in AbstractGraph/Networks. Created by MOE: https://github.com/google/moe MOE_MIGRATED_REVID=127546964",
+  "code_before": "@Override\n  public String toString() {\n    return String.format(GRAPH_STRING_FORMAT,\n        getPropertiesString(),\n        nodes(),\n        Maps.asMap(edges(), edgeToEndpointsString()));\n  }",
+  "code_after": "@Override\n  public String toString() {\n    String propertiesString = String.format(\n        \"isDirected: %s, allowsParallelEdges: %s, allowsSelfLoops: %s\",\n        isDirected(), allowsParallelEdges(), allowsSelfLoops());\n    Function<Object, String> edgeToEndpointsString = new Function<Object, String>() {\n      @Override\n      public String apply(Object edge) {\n        return incidentNodes(edge).toString();\n      }\n    };\n    return String.format(GRAPH_STRING_FORMAT,\n        propertiesString,\n        nodes(),\n        Maps.asMap(edges(), edgeToEndpointsString));\n  }",
+  "javadoc_before": "/**\n   * Returns a string representation of this graph. Encodes edge direction if any.\n   */",
+  "javadoc_after": "/**\n   * Returns a string representation of this graph.\n   */"
+}

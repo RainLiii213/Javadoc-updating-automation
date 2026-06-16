@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c51fee9c1a59030bda61b600cca8923410f1e090",
+  "issue_summary": "Make DataInput.skipBytes(long) abstract",
+  "code_before": "public void skipBytes(final long numBytes) throws IOException {\n    if (numBytes < 0) {\n      throw new IllegalArgumentException(\"numBytes must be >= 0, got \" + numBytes);\n    }\n    if (skipBuffer == null) {\n      skipBuffer = new byte[SKIP_BUFFER_SIZE];\n    }\n    assert skipBuffer.length == SKIP_BUFFER_SIZE;\n    for (long skipped = 0; skipped < numBytes; ) {\n      final int step = (int) Math.min(SKIP_BUFFER_SIZE, numBytes - skipped);\n      readBytes(skipBuffer, 0, step, false);\n      skipped += step;\n    }\n  }",
+  "code_after": "public abstract void skipBytes(final long numBytes) throws IOException;",
+  "javadoc_before": "/**\n   * Skip over <code>numBytes</code> bytes. The contract on this method is that it should have the\n   * same behavior as reading the same number of bytes into a buffer and discarding its content.\n   * Negative values of <code>numBytes</code> are not supported.\n   */",
+  "javadoc_after": "/**\n   * Skip over <code>numBytes</code> bytes. This method may skip bytes in whatever way is most\n   * optimal, and may not have the same behavior as reading the skipped bytes. In general, negative\n   * <code>numBytes</code> are not supported.\n   */"
+}

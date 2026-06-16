@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7eadd1a45e96f15594dcf734cb9af26e2af508fa",
+  "issue_summary": "Select DateTimeUtils methods to keep",
+  "code_before": "public static final Chronology getInstantChronology(ReadableInstant instant) {\n        if (instant == null) {\n            return ISOChronology.getInstance();\n        }\n        return instant.getChronology();\n    }",
+  "code_after": "public static final Chronology getInstantChronology(ReadableInstant instant) {\n        if (instant == null) {\n            return ISOChronology.getInstance();\n        }\n        Chronology chrono = instant.getChronology();\n        if (chrono == null) {\n            return ISOChronology.getInstance();\n        }\n        return chrono;\n    }",
+  "javadoc_before": "/**\n     * Gets the chronology from the specified instant object handling null.\n     * <p>\n     * If the instant object is <code>null</code>, {@link ISOChronology#getInstance()}\n     * will be returned. Otherwise, the chronology from the object is returned.\n     * \n     * @param instant  the instant to examine, null means ISO in the default zone\n     * @return the chronology\n     */",
+  "javadoc_after": "/**\n     * Gets the chronology from the specified instant object handling null.\n     * <p>\n     * If the instant object is <code>null</code>, or the instant's chronology is\n     * <code>null</code>, {@link ISOChronology#getInstance()} will be returned.\n     * Otherwise, the chronology from the object is returned.\n     * \n     * @param instant  the instant to examine, null means ISO in the default zone\n     * @return the chronology, never null\n     */"
+}

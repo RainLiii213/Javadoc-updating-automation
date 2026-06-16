@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1a9e32ab8f63ab40517a9e3837ca8c5dce52f20d",
+  "issue_summary": "fill throws clause for genetics package.",
+  "code_before": "public AbstractListChromosome(final T[] representation) {\n        this(Arrays.asList(representation));\n    }",
+  "code_after": "public AbstractListChromosome(final T[] representation) throws InvalidRepresentationException {\n        this(Arrays.asList(representation));\n    }",
+  "javadoc_before": "/**\n     * Constructor.\n     * @param representation inner representation of the chromosome\n     */",
+  "javadoc_after": "/**\n     * Constructor.\n     * @param representation inner representation of the chromosome\n     * @throws InvalidRepresentationException iff the <code>representation</code> can not represent a valid chromosome\n     */"
+}

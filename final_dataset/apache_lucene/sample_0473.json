@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a79a8edbb474aab0dd163c9bd06c8a1ccc881acc",
+  "issue_summary": "Allow JettySolrRunner to restart using a different port",
+  "code_before": "public void start() throws Exception {\n    // Do not let Jetty/Solr pollute the MDC for this thread\n    Map<String, String> prevContext = MDC.getCopyOfContextMap();\n    MDC.clear();\n    try {\n      // if started before, make a new server\n      if (startedBefore) {\n        waitOnSolr = false;\n        init(lastPort);\n      } else {\n        startedBefore = true;\n      }\n\n      if (!server.isRunning()) {\n        server.start();\n      }\n      synchronized (JettySolrRunner.this) {\n        int cnt = 0;\n        while (!waitOnSolr) {\n          this.wait(100);\n          if (cnt++ == 5) {\n            throw new RuntimeException(\"Jetty/Solr unresponsive\");\n          }\n        }\n      }\n\n      if (config.waitForLoadingCoresToFinishMs != null && config.waitForLoadingCoresToFinishMs > 0L) waitForLoadingCoresToFinish(config.waitForLoadingCoresToFinishMs);\n    } finally {\n      if (prevContext != null)  {\n        MDC.setContextMap(prevContext);\n      } else {\n        MDC.clear();\n      }\n    }\n  }",
+  "code_after": "public void start() throws Exception {\n    start(true);\n  }",
+  "javadoc_before": "/**\n   * Start the Jetty server\n   *\n   * @throws Exception if an error occurs on startup\n   */",
+  "javadoc_after": "/**\n   * Start the Jetty server\n   *\n   * If the server has been started before, it will restart using the same port\n   *\n   * @throws Exception if an error occurs on startup\n   */"
+}

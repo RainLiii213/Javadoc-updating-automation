@@ -1,0 +1,8 @@
+{
+  "commit_hash": "64274166b85611b942ff9cc5b5fa896c2db51e0b",
+  "issue_summary": "bin/post (and SimplePostTool in -Dauto=yes mode) now sends rather than skips files without a known content type, as application/octet-stream, provided it still is in the allowed filetypes setting",
+  "code_before": "protected static String guessType(File file) {\n    String name = file.getName();\n    String suffix = name.substring(name.lastIndexOf(\".\")+1);\n    return mimeMap.get(suffix.toLowerCase(Locale.ROOT));\n  }",
+  "code_after": "protected static String guessType(File file) {\n    String name = file.getName();\n    String suffix = name.substring(name.lastIndexOf(\".\")+1);\n    String type = mimeMap.get(suffix.toLowerCase(Locale.ROOT));\n    return (type != null) ? type : \"application/octet-stream\";\n  }",
+  "javadoc_before": "/**\n   * Guesses the type of a file, based on file name suffix\n   * @param file the file\n   * @return the content-type guessed\n   */",
+  "javadoc_after": "/**\n   * Guesses the type of a file, based on file name suffix\n   * Returns \"application/octet-stream\" if no corresponding mimeMap type.\n   * @param file the file\n   * @return the content-type guessed\n   */"
+}

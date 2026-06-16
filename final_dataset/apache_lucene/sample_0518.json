@@ -1,0 +1,8 @@
+{
+  "commit_hash": "40aab73a4c997410fc2c1b8b919e5a30e49b1ee5",
+  "issue_summary": "Split MultiPhraseQuery into an immutable class and a Builder",
+  "code_before": "public List<Term[]> getTermArrays() {\n    return Collections.unmodifiableList(termArrays);\n  }",
+  "code_after": "public Term[][] getTermArrays() {\n    return termArrays;\n  }",
+  "javadoc_before": "/**\n   * Returns a List of the terms in the multi-phrase.\n   * Do not modify the List or its contents.\n   */",
+  "javadoc_after": "/**\n   * Returns the arrays of arrays of terms in the multi-phrase.\n   * Do not modify!\n   */"
+}

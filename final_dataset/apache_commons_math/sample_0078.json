@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b72f31c6bdc26cea7e29248e84556d4804bf81bf",
+  "issue_summary": "Clarified contracts re NaNs, IAEs and when constructor arguments are necessary.",
+  "code_before": "public PearsonsCorrelation(RealMatrix matrix) {\n        checkSufficientData(matrix);\n        nObs = matrix.getRowDimension();\n        correlationMatrix = computeCorrelationMatrix(matrix);\n    }",
+  "code_after": "public PearsonsCorrelation(RealMatrix matrix) {\n        nObs = matrix.getRowDimension();\n        correlationMatrix = computeCorrelationMatrix(matrix);\n    }",
+  "javadoc_before": "/**\n     * Create a PearsonsCorrelation from a RealMatrix whose columns\n     * represent variables to be correlated.\n     *\n     * @param matrix matrix with columns representing variables to correlate\n     */",
+  "javadoc_after": "/**\n     * Create a PearsonsCorrelation from a RealMatrix whose columns\n     * represent variables to be correlated.\n     *\n     * Throws MathIllegalArgumentException if the matrix does not have at least\n     * two columns and two rows.  Pairwise correlations are set to NaN if one\n     * of the correlates has zero variance.\n     *\n     * @param matrix matrix with columns representing variables to correlate\n     * @throws MathIllegalArgumentException if the matrix does not contain sufficient data\n     * @see #correlation(double[], double[])\n     */"
+}

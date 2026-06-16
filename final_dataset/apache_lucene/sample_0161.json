@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d2c98912eb224e3ee8ba65914ccf138f25b75f69",
+  "issue_summary": "This reverts commit a7b50f723d6c6249faa688a1a4423cc4006d37dd.",
+  "code_before": "public UkrainianMorfologikAnalyzer() {\n    this(DefaultSetHolder.DEFAULT_STOP_SET);\n  }",
+  "code_after": "public UkrainianMorfologikAnalyzer() {\n    this(getDefaultResources().stopSet);\n  }",
+  "javadoc_before": "/** Builds an analyzer with the default stop words: {@link #DEFAULT_STOPWORD_FILE}. */",
+  "javadoc_after": "/** Builds an analyzer with the default stop words. */"
+}

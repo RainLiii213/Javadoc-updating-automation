@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4cb3ad4a1c40b4326aec64577a7e60018f7f1a5e",
+  "issue_summary": "* : Nested docs indexing perf & robustness",
+  "code_before": "public BytesRef getIndexedId() {\n     if (indexedId == null) {\n       IndexSchema schema = req.getSchema();\n       SchemaField sf = schema.getUniqueKeyField();\n       if (sf != null) {\n         if (solrDoc != null) {\n           SolrInputField field = solrDoc.getField(sf.getName());\n\n           int count = field==null ? 0 : field.getValueCount();\n           if (count == 0) {\n             if (overwrite) {\n               throw new SolrException( SolrException.ErrorCode.BAD_REQUEST,\"Document is missing mandatory uniqueKey field: \" + sf.getName());\n             }\n           } else if (count  > 1) {\n             throw new SolrException( SolrException.ErrorCode.BAD_REQUEST,\"Document contains multiple values for uniqueKey field: \" + field);\n           } else {\n             BytesRefBuilder b = new BytesRefBuilder();\n             sf.getType().readableToIndexed(field.getFirstValue().toString(), b);\n             indexedId = b.get();\n           }\n         }\n       }\n     }\n     return indexedId;\n   }",
+  "code_after": "public BytesRef getIndexedId() {\n    extractIdsIfNeeded();\n    return indexedId;\n  }",
+  "javadoc_before": "/** Returns the indexed ID for this document.  The returned BytesRef is retained across multiple calls, and should not be modified. */",
+  "javadoc_after": "/**\n   * Returns the indexed ID for this document, or the root ID for nested documents. The returned\n   * BytesRef should be treated as immutable. It will not be re-used/modified for additional docs.\n   *\n   * @return possibly null if there's no uniqueKey field\n   */"
+}

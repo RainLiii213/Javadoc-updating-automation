@@ -1,0 +1,8 @@
+{
+  "commit_hash": "adda4c1829aaae45939e370f47b478ef7f3e7e33",
+  "issue_summary": "Fixes for CPIO bugs",
+  "code_before": "protected void completed(final double value) {\n        firePropertyChange(\"pack.progress\", null, String.valueOf((int) (100 * value))); //$NON-NLS-1$\n    }",
+  "code_after": "protected void completed(final double value) throws IOException {\n        firePropertyChange(\"pack.progress\", null, String.valueOf((int) (100 * value))); //$NON-NLS-1$\n    }",
+  "javadoc_before": "/**\n     * Completion between 0..1.\n     *\n     * @param value Completion between 0..1.\n     */",
+  "javadoc_after": "/**\n     * Completion between 0..1.\n     *\n     * @param value Completion between 0..1.\n     * @throws IOException if the value cannot be parsed\n     */"
+}

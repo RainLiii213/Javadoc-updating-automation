@@ -1,0 +1,8 @@
+{
+  "commit_hash": "02d7cea111cfe0bebba42d1c030dadd1b82036db",
+  "issue_summary": "Patch contributed by Christian Winter .",
+  "code_before": "public PoissonDistribution(double p, double epsilon, int maxIterations) {\n        if (p <= 0) {\n            throw new NotStrictlyPositiveException(LocalizedFormats.MEAN, p);\n        }\n        mean = p;\n        normal = new NormalDistribution(p, FastMath.sqrt(p));\n        this.epsilon = epsilon;\n        this.maxIterations = maxIterations;\n    }",
+  "code_after": "public PoissonDistribution(double p, double epsilon, int maxIterations)\n    throws NotStrictlyPositiveException {\n        if (p <= 0) {\n            throw new NotStrictlyPositiveException(LocalizedFormats.MEAN, p);\n        }\n        mean = p;\n        normal = new NormalDistribution(p, FastMath.sqrt(p));\n        this.epsilon = epsilon;\n        this.maxIterations = maxIterations;\n    }",
+  "javadoc_before": "/**\n     * Creates a new Poisson distribution with specified mean, convergence\n     * criterion and maximum number of iterations.\n     *\n     * @param p Poisson mean.\n     * @param epsilon Convergence criterion for cumulative probabilities.\n     * @param maxIterations the maximum number of iterations for cumulative\n     * probabilities.\n     * @since 2.1\n     */",
+  "javadoc_after": "/**\n     * Creates a new Poisson distribution with specified mean, convergence\n     * criterion and maximum number of iterations.\n     *\n     * @param p Poisson mean.\n     * @param epsilon Convergence criterion for cumulative probabilities.\n     * @param maxIterations the maximum number of iterations for cumulative\n     * probabilities.\n     * @throws NotStrictlyPositiveException if {@code p <= 0}.\n     * @since 2.1\n     */"
+}

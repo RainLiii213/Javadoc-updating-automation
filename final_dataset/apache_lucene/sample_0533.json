@@ -1,0 +1,8 @@
+{
+  "commit_hash": "84f44589f6f91250666b5f66f7c7667d347e1e3a",
+  "issue_summary": "migrate current patch from svn",
+  "code_before": "@Override\n  public void deleteFile(String name) throws IOException {\n    ensureOpen();\n    Files.delete(directory.resolve(name));\n  }",
+  "code_after": "private boolean deleteFile(String name) throws IOException {\n    try {\n      Files.delete(directory.resolve(name));\n      pendingDeletes.remove(name);\n      return true;\n    } catch (NoSuchFileException | FileNotFoundException e) {\n      // We were asked to delete a non-existent file:\n      pendingDeletes.remove(name);\n      throw e;\n    } catch (IOException ioe) {\n      // On windows, a file delete can fail because there's still an open\n      // file handle against it.  We record this in pendingDeletes and\n      // try again later.\n\n      // TODO: this is hacky/lenient (we don't know which IOException this is), and\n      // it should only happen on filesystems that can do this, so really we should\n      // move this logic to WindowsDirectory or something\n\n      // TODO: can/should we do if (Constants.WINDOWS) here, else throw the exc?\n      // but what about a Linux box with a CIFS mount?\n      //System.out.println(\"FS.deleteFile failed (\" + ioe + \"): will retry later\");\n      pendingDeletes.add(name);\n      return false;\n    }\n  }",
+  "javadoc_before": "/** Removes an existing file in the directory. */",
+  "javadoc_after": "/** Returns true if the file was successfully removed. */"
+}

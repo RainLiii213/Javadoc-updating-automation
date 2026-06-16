@@ -1,0 +1,8 @@
+{
+  "commit_hash": "86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8",
+  "issue_summary": "Commons IO 2.21.0 and more",
+  "code_before": "protected ArchiveInputStream(final InputStream inputStream, final String charsetName) {\n        this(inputStream, Charsets.toCharset(charsetName));\n    }",
+  "code_after": "@Deprecated\n    protected ArchiveInputStream(final InputStream inputStream, final String charsetName) {\n        super(inputStream == null ? new NullInputStream() : inputStream);\n        this.charset = Charsets.toCharset(charsetName);\n        this.maxEntryNameLength = Short.MAX_VALUE;\n    }",
+  "javadoc_before": "/**\n     * Constructs a new instance.\n     *\n     * @param inputStream the underlying input stream, or {@code null} if this instance is to be created without an underlying stream.\n     * @param charsetName charset name.\n     * @since 1.26.0\n     */",
+  "javadoc_after": "/**\n     * Constructs a new instance.\n     *\n     * @param inputStream the underlying input stream, or {@code null} if this instance is to be created without an underlying stream.\n     * @param charsetName charset name.\n     * @since 1.26.0\n     * @deprecated Since 1.29.0, use {@link #ArchiveInputStream(AbstractArchiveBuilder)} instead.\n     */"
+}

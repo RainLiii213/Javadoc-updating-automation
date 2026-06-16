@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c7e9e83f831de261eefbf0e29380fff125eb9eb3",
+  "issue_summary": "apply signature change to factory method.",
+  "code_before": "public static <E> List<E> growthList(List<E> list) {\n        return new GrowthList<E>(list);\n    }",
+  "code_after": "public static <E> GrowthList<E> growthList(List<E> list) {\n        return new GrowthList<E>(list);\n    }",
+  "javadoc_before": "/**\n     * Factory method to create a growth list.\n     *\n     * @param list  the list to decorate, must not be null\n     * @throws IllegalArgumentException if list is null\n     */",
+  "javadoc_after": "/**\n     * Factory method to create a growth list.\n     *\n     * @param <E> the type of the elements in the list\n     * @param list  the list to decorate, must not be null\n     * @return a new growth list\n     * @throws IllegalArgumentException if list is null\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "12fc7bf49fff033ac585c2a2317e62e9749627ea",
+  "issue_summary": "Consolidate FSTStore and BytesStore in FST",
+  "code_before": "public interface FSTStore extends Accountable {\n  void init(DataInput in, long numBytes) throws IOException;\n\n  long size();\n\n  FST.BytesReader getReverseBytesReader();\n\n  void writeTo(DataOutput out) throws IOException;\n}",
+  "code_after": "public interface FSTStore extends FSTReader {\n  void init(DataInput in, long numBytes) throws IOException;\n}",
+  "javadoc_before": "/** Abstraction for reading/writing bytes necessary for FST. */",
+  "javadoc_after": "/** A type of {@link FSTReader} which needs data to be initialized before use */"
+}

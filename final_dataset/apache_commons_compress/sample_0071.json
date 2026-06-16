@@ -1,0 +1,8 @@
+{
+  "commit_hash": "39abfb17b02acd7d07b0c3ff5bac666a7bd35ea7",
+  "issue_summary": "Remove unused exceptions.",
+  "code_before": "public SevenZArchiveEntry createArchiveEntry(final File inputFile,\n            final String entryName) throws IOException {\n        final SevenZArchiveEntry entry = new SevenZArchiveEntry();\n        entry.setDirectory(inputFile.isDirectory());\n        entry.setName(entryName);\n        entry.setLastModifiedDate(new Date(inputFile.lastModified()));\n        return entry;\n    }",
+  "code_after": "public SevenZArchiveEntry createArchiveEntry(final File inputFile,\n            final String entryName) {\n        final SevenZArchiveEntry entry = new SevenZArchiveEntry();\n        entry.setDirectory(inputFile.isDirectory());\n        entry.setName(entryName);\n        entry.setLastModifiedDate(new Date(inputFile.lastModified()));\n        return entry;\n    }",
+  "javadoc_before": "/**\n     * Create an archive entry using the inputFile and entryName provided.\n     *\n     * @param inputFile file to create an entry from\n     * @param entryName the name to use\n     * @return the ArchiveEntry set up with details from the file\n     *\n     * @throws IOException on error\n     */",
+  "javadoc_after": "/**\n     * Create an archive entry using the inputFile and entryName provided.\n     *\n     * @param inputFile file to create an entry from\n     * @param entryName the name to use\n     * @return the ArchiveEntry set up with details from the file\n     */"
+}

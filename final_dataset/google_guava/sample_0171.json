@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a072275f7ec6cd71835baef23020a766ba0497e6",
+  "issue_summary": "Simplify ImmutableCollection implementation and related code. Specifically",
+  "code_before": "private static <E> ImmutableList<E> construct(Object... elements) {\n    for (int i = 0; i < elements.length; i++) {\n      ObjectArrays.checkElementNotNull(elements[i], i);\n    }\n    return new RegularImmutableList<E>(elements);\n  }",
+  "code_after": "private static <E> ImmutableList<E> construct(Object... elements) {\n    return asImmutableList(checkElementsNotNull(elements));\n  }",
+  "javadoc_before": "/** {@code elements} has to be internally created array. */",
+  "javadoc_after": "/**\n   * Views the array as an immutable list.  Checks for nulls; does not copy.\n   */"
+}

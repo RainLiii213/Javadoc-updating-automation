@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4cce3340e889eefbb4f4cc7567ce318dc086e4c6",
+  "issue_summary": "Removed references to deprecated MathRuntimeException .",
+  "code_before": "public double[] inverseTransform(UnivariateFunction f,\n        double min, double max, int n) throws IllegalArgumentException {\n\n        final double[] data = FastFourierTransformer.sample(f, min, max, n);\n        return inverseTransform(data);\n    }",
+  "code_after": "public double[] inverseTransform(UnivariateFunction f,\n        double min, double max, int n) throws\n        NonMonotonicSequenceException,\n        NotStrictlyPositiveException,\n        MathIllegalArgumentException {\n\n        final double[] data = FastFourierTransformer.sample(f, min, max, n);\n        return inverseTransform(data);\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/**\n     * {@inheritDoc}\n     *\n     * @throws NonMonotonicSequenceException if the lower bound is greater\n     * than, or equal to the upper bound\n     * @throws NotStrictlyPositiveException if the number of sample points is\n     * negative\n     * @throws MathIllegalArgumentException if the number of sample points is\n     * not a power of two plus one\n     */"
+}

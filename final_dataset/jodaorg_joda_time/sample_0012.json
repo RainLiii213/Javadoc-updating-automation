@@ -1,0 +1,8 @@
+{
+  "commit_hash": "53eadfbd0ec9d6b4a02dae38730b77b14000c1f3",
+  "issue_summary": "Support parsing of date-time zone IDs like Europe/London",
+  "code_before": "public void setZone(DateTimeZone zone) {\n        iSavedState = null;\n        iZone = zone == DateTimeZone.UTC ? null : zone;\n        iOffset = 0;\n    }",
+  "code_after": "public void setZone(DateTimeZone zone) {\n        iSavedState = null;\n        iZone = zone;\n    }",
+  "javadoc_before": "/**\n     * Set a time zone to be used when computeMillis is called, which\n     * overrides any set time zone offset.\n     *\n     * @param zone the date time zone to operate in, or null if UTC\n     */",
+  "javadoc_after": "/**\n     * Set a time zone to be used when computeMillis is called.\n     *\n     * @param zone the date time zone to operate in, not null\n     */"
+}

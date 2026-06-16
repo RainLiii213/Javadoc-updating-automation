@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3c53c39c453b73af4971c7654f31b10bbd674359",
+  "issue_summary": "Don't decode and reencode characters in a potentially different charset in AbstractOrigin.CharSequenceOrigin.getReader(Charset)",
+  "code_before": "public OutputStream getOutputStream(final OpenOption... options) throws IOException {\n        return Files.newOutputStream(getPath(), options);\n    }",
+  "code_after": "@Override\n        public OutputStream getOutputStream(final OpenOption... options) {\n            // No conversion\n            return get();\n        }",
+  "javadoc_before": "/**\n     * Gets this origin as an OutputStream, if possible.\n     *\n     * @param options options specifying how the file is opened\n     * @return this origin as an OutputStream, if possible.\n     * @throws IOException                   if an I/O error occurs.\n     * @throws UnsupportedOperationException if the origin cannot be converted to a Path.\n     */",
+  "javadoc_after": "/**\n         * {@inheritDoc}\n         * <p>\n         * The {@code options} parameter is ignored since a {@link OutputStream} does not need an {@link OpenOption} to be written.\n         * </p>\n         */"
+}

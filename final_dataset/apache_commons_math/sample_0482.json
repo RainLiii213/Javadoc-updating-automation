@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f3d957dfbe751df8c15f9435819fc62469c6ad88",
+  "issue_summary": "Removed deprecated \"MatrixVisitorException\". Modified affected files.",
+  "code_before": "T visit(int row, int column, T value)\n        throws MatrixVisitorException;",
+  "code_after": "T visit(int row, int column, T value);",
+  "javadoc_before": "/**\n     * Visit one matrix entry.\n     * @param row row index of the entry\n     * @param column column index of the entry\n     * @param value current value of the entry\n     * @return the new value to be set for the entry\n     * @throws MatrixVisitorException if something wrong occurs\n     */",
+  "javadoc_after": "/**\n     * Visit one matrix entry.\n     * @param row row index of the entry\n     * @param column column index of the entry\n     * @param value current value of the entry\n     * @return the new value to be set for the entry\n     * @throws org.apache.commons.math.exception.MathUserException if the visitor\n     * cannot process an entry.\n     */"
+}

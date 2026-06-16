@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2a671338058e46b26a951ba01246b33a67d0eff4",
+  "issue_summary": "Generalized use of customizable tolerance in BSP trees.",
+  "code_before": "public SubLine(final Segment segment) throws MathIllegalArgumentException {\n        this(segment.getLine(), buildIntervalSet(segment.getStart(), segment.getEnd()));\n    }",
+  "code_after": "/** Create a sub-line from a segment.\n     * @param segment single segment forming the sub-line\n     * @exception MathIllegalArgumentException if the segment endpoints are equal\n     */\n    public SubLine(final Segment segment) throws MathIllegalArgumentException {\n        this(segment.getLine(),\n             buildIntervalSet(segment.getStart(), segment.getEnd(), segment.getLine().getTolerance()));\n    }",
+  "javadoc_before": "/** Create a sub-line from a segment.\n     * @param segment single segment forming the sub-line\n     * @exception MathIllegalArgumentException if the segment endpoints are equal\n     */",
+  "javadoc_after": "/** Create a sub-line from two endpoints.\n//     * @param start start point\n//     * @param end end point\n//     * @exception MathIllegalArgumentException if the points are equal\n//     * @deprecated as of 3.3, replaced with {@link #SubLine(Vector3D, Vector3D, double)}\n//     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2fd0bbbeec512c34a202fbf7aca781d9d1695a1b",
+  "issue_summary": "Finalized implementation of diagonal matrix.",
+  "code_before": "public DiagonalMatrix(final double[] d, final boolean copyArray) {\n        data = copyArray ? d.clone() : d;\n    }",
+  "code_after": "public DiagonalMatrix(final double[] d, final boolean copyArray)\n        throws NullArgumentException {\n        MathUtils.checkNotNull(d);\n        data = copyArray ? d.clone() : d;\n    }",
+  "javadoc_before": "/**\n     * Creates a matrix using the input array as the underlying data.\n     * <br/>\n     * If an array is created specially in order to be embedded in a\n     * this instance and not used directly, the {@code copyArray} may be\n     * set to {@code false}.\n     * This will prevent the copying and improve performance as no new\n     * array will be built and no data will be copied.\n     *\n     * @param d Data for new matrix.\n     * @param copyArray if {@code true}, the input array will be copied,\n     * otherwise it will be referenced.\n     */",
+  "javadoc_after": "/**\n     * Creates a matrix using the input array as the underlying data.\n     * <br/>\n     * If an array is created specially in order to be embedded in a\n     * this instance and not used directly, the {@code copyArray} may be\n     * set to {@code false}.\n     * This will prevent the copying and improve performance as no new\n     * array will be built and no data will be copied.\n     *\n     * @param d Data for new matrix.\n     * @param copyArray if {@code true}, the input array will be copied,\n     * otherwise it will be referenced.\n     * @exception NullArgumentException if d is null\n     */"
+}

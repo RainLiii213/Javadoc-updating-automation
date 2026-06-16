@@ -1,0 +1,8 @@
+{
+  "commit_hash": "afaaacf8ce5ffd0735c4b5e70259068327741ab0",
+  "issue_summary": "Don't delegate the file constructor to the path constructor",
+  "code_before": "public TarArchiveEntry(final Path file) {\n        this(file, file.toString());\n    }",
+  "code_after": "public TarArchiveEntry(final Path file) throws IOException {\n        this(file, file.toString());\n    }",
+  "javadoc_before": "/**\n     * Construct an entry for a file. File is set to file, and the\n     * header is constructed from information from the file.\n     * The name is set from the normalized file path.\n     *\n     * <p>The entry's name will be the value of the {@code file}'s\n     * path with all file separators replaced by forward slashes and\n     * leading slashes as well as Windows drive letters stripped. The\n     * name will end in a slash if the {@code file} represents a\n     * directory.</p>\n     *\n     * @param file The file that the entry represents.\n     * @since 1.21\n     */",
+  "javadoc_after": "/**\n     * Construct an entry for a file. File is set to file, and the\n     * header is constructed from information from the file.\n     * The name is set from the normalized file path.\n     *\n     * <p>The entry's name will be the value of the {@code file}'s\n     * path with all file separators replaced by forward slashes and\n     * leading slashes as well as Windows drive letters stripped. The\n     * name will end in a slash if the {@code file} represents a\n     * directory.</p>\n     *\n     * @param file The file that the entry represents.\n     * @throws IOException if an I/O error occurs\n     * @since 1.21\n     */"
+}

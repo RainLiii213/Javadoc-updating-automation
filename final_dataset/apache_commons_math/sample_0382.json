@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4107ac1db878bcf7f952e17beed187c54430f7ad",
+  "issue_summary": "Removed completely MathUserException.",
+  "code_before": "public abstract void iterate(final MultivariateRealFunction evaluationFunction,\n                                 final Comparator<RealPointValuePair> comparator)\n        throws MathUserException;",
+  "code_after": "public abstract void iterate(final MultivariateRealFunction evaluationFunction,\n                                 final Comparator<RealPointValuePair> comparator);",
+  "javadoc_before": "/**\n     * Compute the next simplex of the algorithm.\n     *\n     * @param evaluationFunction Evaluation function.\n     * @param comparator Comparator to use to sort simplex vertices from best\n     * to worst.\n     * @throws org.apache.commons.math.exception.TooManyEvaluationsException\n     * if the algorithm fails to converge.\n     * @throws MathUserException if evaluation function throws one\n     */",
+  "javadoc_after": "/**\n     * Compute the next simplex of the algorithm.\n     *\n     * @param evaluationFunction Evaluation function.\n     * @param comparator Comparator to use to sort simplex vertices from best\n     * to worst.\n     * @throws org.apache.commons.math.exception.TooManyEvaluationsException\n     * if the algorithm fails to converge.\n     */"
+}

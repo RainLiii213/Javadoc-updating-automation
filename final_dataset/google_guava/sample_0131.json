@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9f90d2c3f0c897b030941a2d8f424f2a06048439",
+  "issue_summary": "Add isSupertypeOf and isSubtypeOf, deprecating isAssignableFrom. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=85327607",
+  "code_before": "public final boolean isAssignableFrom(TypeToken<?> type) {\n    return type.extendsFrom(runtimeType);\n  }",
+  "code_after": "@Deprecated\n  public final boolean isAssignableFrom(TypeToken<?> type) {\n    return isSupertypeOf(type);\n  }",
+  "javadoc_before": "/** Returns true if this type is assignable from the given {@code type}. */",
+  "javadoc_after": "/**\n   * Returns true if this type is a supertype of the given {@code type}. \"Supertype\" is defined\n   * according to <a href=\"http://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.5.1\"\n   * >the rules for type arguments</a> introduced with Java generics.\n   *\n   * @deprecated Use the method under its new name, {@link #isSupertypeOf(TypeToken)}.\n   */"
+}

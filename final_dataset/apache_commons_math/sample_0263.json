@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9a0794de0f932dbfd162c68285f53a0044ef64e1",
+  "issue_summary": "Allow explicit setting of RNG (parameter of the constructor). Removed dependency on \"RandomDataImpl\" for the \"sample\" method.",
+  "code_before": "protected AbstractRealDistribution() { }",
+  "code_after": "@Deprecated\n    protected AbstractRealDistribution() {\n        // Legacy users are only allowed to access the deprecated \"randomData\".\n        // New users are forbidden to use this constructor.\n        random = null;\n    }",
+  "javadoc_before": "/** Default constructor. */",
+  "javadoc_after": "/**\n     * @deprecated As of 3.1, to be removed in 4.0. Please use\n     * {@link #AbstractRealDistribution(RandomGenerator)} instead.\n     */"
+}

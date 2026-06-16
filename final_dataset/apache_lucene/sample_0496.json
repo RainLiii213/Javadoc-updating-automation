@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c7cdf2832bbfbc46d9bfa3cb5041a821fbb7be1d",
+  "issue_summary": "PointValues aggregated stats fail if the provided field does not have points on one of the leaves.",
+  "code_before": "public static long size(IndexReader reader, String field) throws IOException {\n    long size = 0;\n    for (LeafReaderContext ctx : reader.leaves()) {\n      PointValues values = ctx.reader().getPointValues();\n      if (values != null) {\n        size += values.size(field);\n      }\n    }\n    return size;\n  }",
+  "code_after": "public static long size(IndexReader reader, String field) throws IOException {\n    long size = 0;\n    for (LeafReaderContext ctx : reader.leaves()) {\n      FieldInfo info = ctx.reader().getFieldInfos().fieldInfo(field);\n      if (info == null || info.getPointDimensionCount() == 0) {\n        continue;\n      }\n      PointValues values = ctx.reader().getPointValues();\n      size += values.size(field);\n    }\n    return size;\n  }",
+  "javadoc_before": "/** Return the cumulated number of points across all leaves of the given\n   * {@link IndexReader}.\n   *  @see PointValues#size(String) */",
+  "javadoc_after": "/** Return the cumulated number of points across all leaves of the given\n   * {@link IndexReader}. Leaves that do not have points for the given field\n   * are ignored.\n   *  @see PointValues#size(String) */"
+}

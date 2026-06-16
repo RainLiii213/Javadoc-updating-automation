@@ -1,0 +1,8 @@
+{
+  "commit_hash": "10d9e0467e29c2fed3c4a4fead24f39bc6ef87bb",
+  "issue_summary": "Deprecate BaseNCodec.isWhiteSpace(byte) and use Character.isWhitespace(int)",
+  "code_before": "protected static boolean isWhiteSpace(final byte byteToCheck) {\n        switch (byteToCheck) {\n            case ' ' :\n            case '\\n' :\n            case '\\r' :\n            case '\\t' :\n                return true;\n            default :\n                return false;\n        }\n    }",
+  "code_after": "@Deprecated\n    protected static boolean isWhiteSpace(final byte byteToCheck) {\n        return Character.isWhitespace(byteToCheck);\n    }",
+  "javadoc_before": "/**\n     * Checks if a byte value is whitespace or not.\n     * Whitespace is taken to mean: space, tab, CR, LF\n     * @param byteToCheck\n     *            the byte to check\n     * @return true if byte is whitespace, false otherwise\n     */",
+  "javadoc_after": "/**\n     * Checks if a byte value is whitespace or not.\n     * @param byteToCheck\n     *            the byte to check\n     * @return true if byte is whitespace, false otherwise\n     * @see Character#isWhitespace(int)\n     * @deprecated Use {@link Character#isWhitespace(int)}.\n     */"
+}

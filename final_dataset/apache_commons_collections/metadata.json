@@ -1,0 +1,18 @@
+{
+  "project_slug": "apache_commons_collections",
+  "repository_name": "apache/commons-collections",
+  "repository_url": "https://github.com/apache/commons-collections.git",
+  "retained_samples": 72,
+  "source_folder": "dataset_apache_commons_collections_72",
+  "final_folder": "final_dataset/apache_commons_collections",
+  "mined_at_utc": "2026-06-14T15:01:38+00:00",
+  "commits_scanned": 5086,
+  "candidate_samples_found": 107,
+  "filtered_samples": 34,
+  "discarded_truncated_code_context": 0,
+  "moved_to_review": 1,
+  "discarded_weak_inheritdoc": 0,
+  "issue_summary_fallbacks": 1,
+  "complete_history": true,
+  "stop_reason": "full_history_scanned"
+}

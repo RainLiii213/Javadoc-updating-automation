@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e12caa8de164261e29b4d0c045e6aad6cf28a0e6",
+  "issue_summary": "specify the field to use for field vectors and field matrices when possible JIRA",
+  "code_before": "public static <T extends FieldElement<T>> FieldVector<T> createFieldVector(final T[] data) {\n        if (data == null) {\n            throw new NullArgumentException();\n        }\n        return new ArrayFieldVector<T>(data, true);\n    }",
+  "code_after": "public static <T extends FieldElement<T>> FieldVector<T> createFieldVector(final T[] data) {\n        if (data == null) {\n            throw new NullArgumentException();\n        }\n        if (data.length == 0) {\n            throw new ZeroException(LocalizedFormats.VECTOR_MUST_HAVE_AT_LEAST_ONE_ELEMENT);\n        }\n        return new ArrayFieldVector<T>(data[0].getField(), data, true);\n    }",
+  "javadoc_before": "/**\n     * Creates a {@link FieldVector} using the data from the input array.\n     *\n     * @param <T> the type of the field elements\n     * @param data the input data\n     * @return a data.length FieldVector\n     * @throws NoDataException if {@code data} is empty.\n     * @throws NullArgumentException if {@code data} is {@code null}.\n     */",
+  "javadoc_after": "/**\n     * Creates a {@link FieldVector} using the data from the input array.\n     *\n     * @param <T> the type of the field elements\n     * @param data the input data\n     * @return a data.length FieldVector\n     * @throws NoDataException if {@code data} is empty.\n     * @throws NullArgumentException if {@code data} is {@code null}.\n     * @throws ZeroException if {@code data} has 0 elements\n     */"
+}

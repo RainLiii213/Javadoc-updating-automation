@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e5be9136a6fdbc17538ad4ead186ba9024aee63e",
+  "issue_summary": "CoreDescriptor takes a Path for its instance dir, rather than a String",
+  "code_before": "public String getInstanceDir() {\n    return coreProperties.getProperty(CORE_ABS_INSTDIR);\n  }",
+  "code_after": "public Path getInstanceDir() {\n    return instanceDir;\n  }",
+  "javadoc_before": "/**\n   *\n   * @return the core instance directory, prepended with solr_home if not an absolute path.\n   */",
+  "javadoc_after": "/**\n   * @return the core instance directory\n   */"
+}

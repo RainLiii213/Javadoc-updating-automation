@@ -1,0 +1,8 @@
+{
+  "commit_hash": "76b7413d2b1eb2dc22f05de5b76f9519be5142e0",
+  "issue_summary": "Removed broken and deprecated synchronization support in ResizableDoubleArray.",
+  "code_before": "@Deprecated\n    public int getExpansionMode() {\n        switch (expansionMode) {\n        case MULTIPLICATIVE:\n            return MULTIPLICATIVE_MODE;\n        case ADDITIVE:\n            return ADDITIVE_MODE;\n        default:\n            throw new MathInternalError(); // Should never happen.\n        }\n    }",
+  "code_after": "public ExpansionMode getExpansionMode() {\n        return expansionMode;\n    }",
+  "javadoc_before": "/**\n     * The expansion mode determines whether the internal storage\n     * array grows additively or multiplicatively when it is expanded.\n     *\n     * @return the expansion mode.\n     * @deprecated As of 3.1. Return value to be changed to\n     * {@link ExpansionMode} in 4.0.\n     */",
+  "javadoc_after": "/**\n     * The expansion mode determines whether the internal storage\n     * array grows additively or multiplicatively when it is expanded.\n     *\n     * @return the expansion mode.\n     */"
+}

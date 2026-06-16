@@ -1,0 +1,8 @@
+{
+  "commit_hash": "227256d951accc1b5c9bb554715ee145bce7cf90",
+  "issue_summary": "Set BM25Similarity discountOverlaps via the constructor",
+  "code_before": "public BM25Similarity() {\n    this(1.2f, 0.75f);\n  }",
+  "code_after": "public BM25Similarity() {\n    this(1.2f, 0.75f, true);\n  }",
+  "javadoc_before": "/**\n   * BM25 with these default values:\n   *\n   * <ul>\n   *   <li>{@code k1 = 1.2}\n   *   <li>{@code b = 0.75}\n   * </ul>\n   */",
+  "javadoc_after": "/**\n   * BM25 with these default values:\n   *\n   * <ul>\n   *   <li>{@code k1 = 1.2}\n   *   <li>{@code b = 0.75}\n   *   <li>{@code discountOverlaps = true}\n   * </ul>\n   */"
+}

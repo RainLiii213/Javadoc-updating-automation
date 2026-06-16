@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ffe65f8eaca4ab6705816cc378c241c2ab078bb1",
+  "issue_summary": "fill the \"throws\" clause of RealVector.",
+  "code_before": "@Override\n    public int hashCode() {\n        throw new MathUnsupportedOperationException();\n    }",
+  "code_after": "@Override\n    public int hashCode() throws MathUnsupportedOperationException {\n        throw new MathUnsupportedOperationException();\n    }",
+  "javadoc_before": "/**\n     * {@inheritDoc}. This method <em>must</em> be overriden by concrete\n     * subclasses of {@link RealVector}.\n     */",
+  "javadoc_after": "/**\n     * {@inheritDoc}. This method <em>must</em> be overriden by concrete\n     * subclasses of {@link RealVector} (current implementation throws an\n     * exception).\n     *\n     * @throws MathUnsupportedOperationException if this method is not\n     * overridden.\n     */"
+}

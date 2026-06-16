@@ -6,6 +6,7 @@ from urllib.request import Request, urlopen
 
 
 ISSUE_PATTERN = re.compile(r"#[0-9]+|[A-Z][A-Z0-9]+-[0-9]+")
+DANGLING_SUMMARY_WORDS = {"by", "to", "for", "with", "of", "in", "on", "and", "or", "from", "into"}
 _SUMMARY_CACHE: dict[tuple[str, str], "IssueCandidate | None"] = {}
 
 
@@ -32,7 +33,33 @@ def resolve_issue_summary(repo_url: str, issue_ids: list[str], commit_message: s
 
 
 def commit_summary(commit_message: str) -> str:
-    return _commit_summary(commit_message)
+    return commit_summary_with_fallback(commit_message)[0]
+
+
+def commit_summary_with_fallback(commit_message: str) -> tuple[str, bool]:
+    summary = _commit_summary(commit_message)
+    if not _ends_with_dangling_word(summary):
+        return summary, False
+
+    lines = [line for line in commit_message.splitlines() if line.strip()]
+    subject = _clean_commit_summary_line(lines[0]) if lines else summary
+    for line in lines[1:]:
+        continuation = _clean_commit_summary_line(line)
+        if (
+            continuation
+            and continuation[0].islower()
+            and not continuation.startswith(("-", "*"))
+        ):
+            completed = f"{subject} {continuation}".strip()
+            if not _ends_with_dangling_word(completed):
+                return completed, True
+    raw_subject = lines[0].strip() if lines else ""
+    issue_ids = ISSUE_PATTERN.findall(raw_subject)
+    if raw_subject and not _ends_with_dangling_word(raw_subject):
+        return raw_subject, True
+    if summary and issue_ids:
+        return f"{summary} issue {issue_ids[-1]}", True
+    return subject or summary, True
 
 
 def resolve_issue_context(repo_url: str, issue_ids: list[str], commit_message: str) -> tuple[str, str]:
@@ -157,3 +184,12 @@ def _clean_commit_summary_line(line: str) -> str:
 
 def _looks_like_issue_id(text: str) -> bool:
     return ISSUE_PATTERN.fullmatch(text.strip()) is not None
+
+
+def _ends_with_dangling_word(text: str) -> bool:
+    normalized = text.lower().rstrip()
+    spaced_punctuation = re.search(r"([A-Za-z]+)\s+[.!?]$", normalized)
+    if spaced_punctuation:
+        return spaced_punctuation.group(1) in DANGLING_SUMMARY_WORDS
+    match = re.search(r"([A-Za-z]+)$", normalized)
+    return bool(match and match.group(1) in DANGLING_SUMMARY_WORDS)

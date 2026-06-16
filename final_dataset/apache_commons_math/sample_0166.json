@@ -1,0 +1,8 @@
+{
+  "commit_hash": "19c954cabcf87dee4ebec17b028b061fccc35877",
+  "issue_summary": "populated throws clause of AbstractRealMatrix.",
+  "code_before": "RealMatrix getSubMatrix(int startRow, int endRow, int startColumn,\n        int endColumn)\n        throws OutOfRangeException;",
+  "code_after": "RealMatrix getSubMatrix(int startRow, int endRow, int startColumn,\n                            int endColumn)\n        throws OutOfRangeException, NumberIsTooSmallException;",
+  "javadoc_before": "/**\n     * Gets a submatrix. Rows and columns are indicated\n     * counting from 0 to n-1.\n     *\n     * @param startRow Initial row index\n     * @param endRow Final row index (inclusive)\n     * @param startColumn Initial column index\n     * @param endColumn Final column index (inclusive)\n     * @return The subMatrix containing the data of the\n     * specified rows and columns.\n     * @throws OutOfRangeException if the indices are not valid.\n     */",
+  "javadoc_after": "/**\n     * Gets a submatrix. Rows and columns are indicated\n     * counting from 0 to n-1.\n     *\n     * @param startRow Initial row index\n     * @param endRow Final row index (inclusive)\n     * @param startColumn Initial column index\n     * @param endColumn Final column index (inclusive)\n     * @return The subMatrix containing the data of the\n     * specified rows and columns.\n     * @throws OutOfRangeException if the indices are not valid.\n     * @throws NumberIsTooSmallException if {@code endRow < startRow} or\n     * {@code endColumn < startColumn}.\n     */"
+}

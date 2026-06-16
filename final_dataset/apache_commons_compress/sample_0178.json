@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+  "issue_summary": "applied patch by Christian Grobmeier",
+  "code_before": "public Object clone()\n    {\n        ZipEntry entry = null;\n        try\n        {\n            entry = new ZipEntry( (java.util.zip.ZipEntry)super.clone() );\n        }\n        catch( final Exception e )\n        {\n            // impossible as extra data is in correct format\n            e.printStackTrace();\n            return null;\n        }\n\n        entry.setInternalAttributes( getInternalAttributes() );\n        entry.setExternalAttributes( getExternalAttributes() );\n        entry.setExtraFields( getExtraFields() );\n        return entry;\n    }",
+  "code_after": "public Object clone() {\n        ZipEntry e = (ZipEntry) super.clone();\n\n        e.extraFields = extraFields != null ? (Vector) extraFields.clone() : null;\n        e.setInternalAttributes(getInternalAttributes());\n        e.setExternalAttributes(getExternalAttributes());\n        e.setExtraFields(getExtraFields());\n        return e;\n    }",
+  "javadoc_before": "/**\n     * Overwrite clone\n     *\n     * @return Description of the Returned Value\n     * @since 1.1\n     */",
+  "javadoc_after": "/**\n     * Overwrite clone.\n     * @return a cloned copy of this ZipEntry\n     * @since 1.1\n     */"
+}

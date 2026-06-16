@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8263a182d4a682974934dd26497a2f9b1e829e07",
+  "issue_summary": "Next code drop, r05 should be later today.",
+  "code_before": "public ThreadFactory build() {\n    return new ThreadFactory() {\n      private final AtomicLong count = (nameFormat != null)\n          ? new AtomicLong(0)\n          : null;\n      @Override public Thread newThread(Runnable runnable) {\n        Thread thread = (backingThreadFactory != null)\n            ? backingThreadFactory.newThread(runnable)\n            : new Thread(runnable);\n        if (wasDaemonSet) {\n          thread.setDaemon(daemon);\n        }\n        if (nameFormat != null) {\n          thread.setName(String.format(nameFormat, count.getAndIncrement()));\n        }\n        if (priority >= Thread.MIN_PRIORITY) {\n          thread.setPriority(priority);\n        }\n        if (uncaughtExceptionHandler != null) {\n          thread.setUncaughtExceptionHandler(uncaughtExceptionHandler);\n        }\n        return thread;\n      }\n    };\n  }",
+  "code_after": "public ThreadFactory build() {\n    return build(this);\n  }",
+  "javadoc_before": "/**\n   * Returns a new thread factory using the options supplied during the building\n   * process.\n   *\n   * @return the fully constructed {@link ThreadFactory}\n   */",
+  "javadoc_after": "/**\n   * Returns a new thread factory using the options supplied during the building\n   * process. After building, it is still possible to change the options used to\n   * build the ThreadFactory and/or build again. State is not shared amongst\n   * built instances.\n   *\n   * @return the fully constructed {@link ThreadFactory}\n   */"
+}

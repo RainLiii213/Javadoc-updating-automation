@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d537013e70872015364c745e5f320727efc034b7",
+  "issue_summary": "Hunspell: add tools to aid dictionary editing: analysis introspection, stem expansion and stem/flag suggestion",
+  "code_before": "String getMorphologicalData(int entryIndex);",
+  "code_after": "default String getMorphologicalData(int entryIndex) {\n    return get(entryIndex).getMorphologicalData();\n  }",
+  "javadoc_before": "/**\n   * @param entryIndex an index from 0 (inclusive) to {@link #size()} (exclusive)\n   * @return morphological fields (of {@code kk:vvvvvv} form, sorted, space-separated, excluding\n   *     {@code ph:}) associated with the homonym at the given entry index, or an empty string\n   */",
+  "javadoc_after": "/** Same as {@code get(entryIndex).getMorphologicalData()} */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0912bac5201d98af64a832766146797a9d75bb6f",
+  "issue_summary": "\"lambda\" and \"inputSigma\" should be passed to \"optimize\" as arguments of type \"OptimizationData\". Deprecated constructors. Updated unit tests.",
+  "code_before": "public Sigma(double[] s) {\n            sigma = s.clone();\n        }",
+  "code_after": "public Sigma(double[] s)\n            throws NotPositiveException {\n            for (int i = 0; i < s.length; i++) {\n                if (s[i] < 0) {\n                    throw new NotPositiveException(s[i]);\n                }\n            }\n\n            sigma = s.clone();\n        }",
+  "javadoc_before": "/**\n         * @param s Sigma values.\n         */",
+  "javadoc_after": "/**\n         * @param s Sigma values.\n         * @throws NotPositiveException if any of the array entries is smaller\n         * than zero.\n         */"
+}

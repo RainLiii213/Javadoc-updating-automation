@@ -1,0 +1,8 @@
+{
+  "commit_hash": "54d00b13c6351a1e7e676db7c4bf05409ff9f63f",
+  "issue_summary": "Added throw declarations for package complex.",
+  "code_before": "public ComplexFormat(NumberFormat format) {\n        this(DEFAULT_IMAGINARY_CHARACTER, format);\n    }",
+  "code_after": "public ComplexFormat(NumberFormat format) throws NullArgumentException {\n        if (format == null) {\n            throw new NullArgumentException(LocalizedFormats.IMAGINARY_FORMAT);\n        }\n        this.imaginaryCharacter = DEFAULT_IMAGINARY_CHARACTER;\n        this.imaginaryFormat = format;\n        this.realFormat = format;\n    }",
+  "javadoc_before": "/**\n     * Create an instance with a custom number format for both real and\n     * imaginary parts.\n     * @param format the custom format for both real and imaginary parts.\n     */",
+  "javadoc_after": "/**\n     * Create an instance with a custom number format for both real and\n     * imaginary parts.\n     * @param format the custom format for both real and imaginary parts.\n     * @throws NullArgumentException if {@code realFormat} is {@code null}.\n     */"
+}

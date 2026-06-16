@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1744e2803f1600761afb2ea8a91a7fd12f7fbc94",
+  "issue_summary": "Factored Kth selector and pivoting strategy out from Percentile.",
+  "code_before": "public Percentile(final double quantile) throws MathIllegalArgumentException {\n        this(quantile, EstimationType.LEGACY, NaNStrategy.FIXED, PivotingStrategy.MEDIAN_OF_3);\n    }",
+  "code_after": "public Percentile(final double quantile) throws MathIllegalArgumentException {\n        this(quantile, EstimationType.LEGACY, NaNStrategy.REMOVED,\n             new KthSelector(new MedianOf3PivotingStrategy()));\n    }",
+  "javadoc_before": "/**\n     * Constructs a Percentile with the specific quantile value.\n     * <ul>\n     *   <li>default method type: {@link EstimationType#LEGACY}</li>\n     *   <li>default NaN strategy: {@link NaNStrategy#FIXED}</li>\n     *   <li>default pivoting strategy: {@link PivotingStrategy#MEDIAN_OF_3}</li>\n     * </ul>\n     * @param quantile the quantile\n     * @throws MathIllegalArgumentException  if p is not greater than 0 and less\n     * than or equal to 100\n     */",
+  "javadoc_after": "/**\n     * Constructs a Percentile with the specific quantile value and the following\n     * <ul>\n     *   <li>default method type: {@link EstimationType#LEGACY}</li>\n     *   <li>default NaN strategy: {@link NaNStrategy#REMOVED}</li>\n     *   <li>a Kth Selector : {@link KthSelector}</li>\n     * </ul>\n     * @param quantile the quantile\n     * @throws MathIllegalArgumentException  if p is not greater than 0 and less\n     * than or equal to 100\n     */"
+}

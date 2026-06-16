@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0fd4c5832699b3fb43bfe280794e02d29ba51ea2",
+  "issue_summary": "Collect all resource URLs in the ResourceInfo objects.",
+  "code_before": "public final URL url() {\n      return checkNotNull(loader.getResource(resourceName),\n          \"Failed to load resource: %s\", resourceName);\n    }",
+  "code_after": "public final URL url() {\n      return urls.get(0);\n    }",
+  "javadoc_before": "/** Returns the url identifying the resource. */",
+  "javadoc_after": "/**\n     * Returns the url identifying the resource.\n     *\n     * <p>See {@link ClassLoader#getResource}\n     */"
+}

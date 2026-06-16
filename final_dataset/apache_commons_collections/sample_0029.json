@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e08f0be55b9e17d9e03e6f311b76044cb786cd7a",
+  "issue_summary": "Revert CountingBloomFilter to ignore counts from another filter.",
+  "code_before": "@Override\n    public void merge(final BloomFilter other) {\n        verifyShape(other);\n        if (other instanceof CountingBloomFilter) {\n            // TODO - This should use the entrySet and increment each key by the count\n            merge(((CountingBloomFilter) other).counts.keySet().iterator());\n        } else {\n            merge(BitSet.valueOf(other.getBits()).stream().iterator());\n        }\n    }",
+  "code_after": "@Override\n    public void merge(final BloomFilter other) {\n        verifyShape(other);\n        if (other instanceof CountingBloomFilter) {\n            // Only use the keys and not the counts\n            ((CountingBloomFilter) other).counts.keySet().forEach(this::addIndex);\n        } else {\n            BitSet.valueOf(other.getBits()).stream().forEach(this::addIndex);\n        }\n    }",
+  "javadoc_before": "/**\n     * Merge this Bloom filter with the other creating a new filter. The counts for\n     * bits that are on in the other filter are incremented.\n     * <p>\n     * For each bit that is turned on in the other filter; if the other filter is\n     * also a CountingBloomFilter the count is added to this filter, otherwise the\n     * count is incremented by one.\n     * </p>\n     *\n     * @param other the other filter.\n     */",
+  "javadoc_after": "/**\n     * {@inheritDoc}\n     * <p>\n     * Note: If the other filter is also a CountingBloomFilter the counts are not used.\n     * </p>\n     *\n     * @throws IllegalStateException If the counts overflow {@link Integer#MAX_VALUE}\n     */"
+}

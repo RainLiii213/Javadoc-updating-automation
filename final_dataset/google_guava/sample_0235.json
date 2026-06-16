@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b21e63569b69aa02124b2df97b7571f7449d3eb0",
+  "issue_summary": "Make AbstractFuture.cancel/done and ListenableFutureTask constructors visible and @Deprecated.",
+  "code_before": "private ListenableFutureTask(Callable<V> callable) {\n    super(callable);\n  }",
+  "code_after": "@Beta @Deprecated public\n  ListenableFutureTask(Callable<V> callable) {\n    super(callable);\n  }",
+  "javadoc_before": "/**\n   * Creates a {@code ListenableFutureTask} that will upon running, execute the\n   * given {@code Callable}.\n   *\n   * @param callable the callable task\n   */",
+  "javadoc_after": "/**\n   * <b>Deprecated.</b> Use {@link #create(Callable)} instead. This method will be\n   * removed in Guava release 11.\n   *\n   * Creates a {@code ListenableFutureTask} that will upon running, execute the\n   * given {@code Callable}.\n   *\n   * @param callable the callable task\n   */"
+}

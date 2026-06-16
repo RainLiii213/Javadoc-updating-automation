@@ -1,0 +1,8 @@
+{
+  "commit_hash": "50569e5bfb1526c54acf0abe5a6e4d5463c5a4bd",
+  "issue_summary": "add testcases for extracting sparse",
+  "code_before": "public long getRealSize() {\n        return realSize;\n    }",
+  "code_after": "public long getRealSize() {\n        if (!isSparse()) {\n            return size;\n        }\n        return realSize;\n    }",
+  "javadoc_before": "/**\n     * Get this entry's real file size in case of a sparse file.\n     *\n     * @return This entry's real file size.\n     */",
+  "javadoc_after": "/**\n     * Get this entry's real file size in case of a sparse file.\n     * If the file is not a sparse file, return size instead of realSize.\n     *\n     * @return This entry's real file size, if the file is not a sparse file, return size instead of realSize.\n     */"
+}

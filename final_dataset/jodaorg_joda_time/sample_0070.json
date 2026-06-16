@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5fd28fcd3425461dfcff1800753513f94807f652",
+  "issue_summary": "Fix and simplify zero handling in period format",
+  "code_before": "public PeriodFormatter toFormatter() {\n        PeriodFormatter formatter = toFormatter(iFormatters);\n        List altFormatters = iAlternateFormatters;\n        if (altFormatters.size() > 0) {\n            // Alternate is needed only if field formatters were\n            // appended. Literals may have been appended as well.\n            for (int i=altFormatters.size(); --i>=0; ) {\n                if (altFormatters.get(i) instanceof FieldFormatter) {\n                    formatter = new AlternateSelector\n                        (formatter, altFormatters, iFavorFirstFieldForZero);\n                    break;\n                }\n            }\n        }\n        return formatter;\n    }",
+  "code_after": "public PeriodFormatter toFormatter() {\n        PeriodFormatter formatter = toFormatter(iFormatters);\n        iFieldFormatters = (FieldFormatter[]) iFieldFormatters.clone();\n        return formatter;\n    }",
+  "javadoc_before": "/**\n     * Converts to a PeriodFormatter that formats using all the appended\n     * elements. Subsequent changes to this builder do not affect the returned\n     * formatter.\n     */",
+  "javadoc_after": "/**\n     * Converts to a PeriodFormatter that formats using all the appended elements.\n     * Subsequent changes to this builder do not affect the returned formatter.\n     * \n     * @return the newly created formatter\n     */"
+}

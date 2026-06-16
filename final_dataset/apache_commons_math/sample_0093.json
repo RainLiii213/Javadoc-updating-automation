@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cb5e94419fd43756bd2abda1e9a25ebde7e8a6c9",
+  "issue_summary": "Improved checking of null vector elements.",
+  "code_before": "public FieldVector<T> append(T d) {\n        FieldVector<T> res = new SparseFieldVector<T>(this, 1);\n        res.setEntry(virtualSize, d);\n        return res;\n     }",
+  "code_after": "public FieldVector<T> append(T d) throws NullArgumentException {\n        MathUtils.checkNotNull(d);\n        FieldVector<T> res = new SparseFieldVector<T>(this, 1);\n        res.setEntry(virtualSize, d);\n        return res;\n     }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/** {@inheritDoc}\n     * @exception NullArgumentException if d is null\n     */"
+}

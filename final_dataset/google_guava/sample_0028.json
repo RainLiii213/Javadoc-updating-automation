@@ -1,0 +1,8 @@
+{
+  "commit_hash": "410627262beccfab185209f0d2e7126177dba7c8",
+  "issue_summary": "Add ClassInfo.isTopLevel().",
+  "code_before": "public ImmutableSet<ClassInfo> getTopLevelClasses() {\n    return FluentIterable.from(resources).filter(ClassInfo.class).filter(IS_TOP_LEVEL).toSet();\n  }",
+  "code_after": "public ImmutableSet<ClassInfo> getTopLevelClasses() {\n    return FluentIterable.from(resources)\n        .filter(ClassInfo.class)\n        .filter(\n            new Predicate<ClassInfo>() {\n              @Override\n              public boolean apply(ClassInfo info) {\n                return info.isTopLevel();\n              }\n            })\n        .toSet();\n  }",
+  "javadoc_before": "/** Returns all top level classes loadable from the current class path. */",
+  "javadoc_after": "/**\n   * Returns all top level classes loadable from the current class path. Note that \"top-level-ness\"\n   * is determined heuristically by class name (see {@link ClassInfo#isTopLevel}).\n   */"
+}

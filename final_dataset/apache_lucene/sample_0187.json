@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d669ddebc53845e921bc3703f16aa2c1daef0124",
+  "issue_summary": "Support multi-value fields in range facet counting",
+  "code_before": "public LongRangeFacetCounts(String field, FacetsCollector hits, LongRange... ranges)\n      throws IOException {\n    this(field, LongValuesSource.fromLongField(field), hits, ranges);\n  }",
+  "code_after": "public LongRangeFacetCounts(String field, FacetsCollector hits, LongRange... ranges)\n      throws IOException {\n    this(field, null, hits, ranges);\n  }",
+  "javadoc_before": "/**\n   * Create {@code LongRangeFacetCounts}, using {@link LongValuesSource} from the specified field.\n   */",
+  "javadoc_after": "/**\n   * Create {@code LongRangeFacetCounts} using long values from the specified field. The field may\n   * be single-valued ({@link NumericDocValues}) or multi-valued ({@link SortedNumericDocValues}),\n   * and will be interpreted as containing long values.\n   */"
+}

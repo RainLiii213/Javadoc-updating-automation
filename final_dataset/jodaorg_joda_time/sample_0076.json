@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8fe006070aebd84b6cd2b8870e1095c932a36248",
+  "issue_summary": "Optimise toXxx() methods",
+  "code_before": "public Interval toInterval() {\n        if (this instanceof Interval) {\n            return (Interval) this;\n        }\n        return new Interval(getStartMillis(), getEndMillis());\n    }",
+  "code_after": "public Interval toInterval() {\n        return new Interval(getStartMillis(), getEndMillis());\n    }",
+  "javadoc_before": "/**\n     * Get this interval as an immutable <code>Interval</code> object.\n     * <p>\n     * This will either typecast this instance, or create a new <code>Interval</code>.\n     *\n     * @return the interval as an Interval object\n     */",
+  "javadoc_after": "/**\n     * Get this interval as an immutable <code>Interval</code> object.\n     *\n     * @return the interval as an Interval object\n     */"
+}

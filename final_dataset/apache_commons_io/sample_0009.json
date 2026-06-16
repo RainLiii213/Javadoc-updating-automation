@@ -1,0 +1,8 @@
+{
+  "commit_hash": "31149134d8f16f9d64a7b9d1f94e5715536c9548",
+  "issue_summary": "Add timeout support to `AbstractOrigin.URIOrigin.getInputStream(OpenOption...)`",
+  "code_before": "public InputStream getInputStream(final OpenOption... options) throws IOException {\n        return Files.newInputStream(getPath(), options);\n    }",
+  "code_after": "@Override\n        public InputStream getInputStream(final OpenOption... options) throws IOException {\n            final URI uri = get();\n            final String scheme = uri.getScheme();\n            if (SCHEME_HTTP.equalsIgnoreCase(scheme) || SCHEME_HTTPS.equalsIgnoreCase(scheme)) {\n                return getInputStream(uri, options);\n            }\n            return Files.newInputStream(getPath(), options);\n        }",
+  "javadoc_before": "/**\n     * Gets this origin as an InputStream, if possible.\n     *\n     * @param options options specifying how the file is opened.\n     * @return this origin as an InputStream, if possible.\n     * @throws IOException                   if an I/O error occurs.\n     * @throws UnsupportedOperationException if the origin cannot be converted to a Path.\n     */",
+  "javadoc_after": "/**\n         * {@inheritDoc}\n         * <p>\n         * Set timeouts with a {@link URIOpenOption}.\n         * </p>\n         *\n         * @see URIOpenOption\n         * @see URLConnection#setConnectTimeout(int)\n         * @see URLConnection#setReadTimeout(int)\n         */"
+}

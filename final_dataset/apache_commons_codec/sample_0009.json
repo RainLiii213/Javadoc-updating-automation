@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0839e1a99bf61ee4d66a265b942981760f6a0265",
+  "issue_summary": "Ensure all public method args are validated and documented",
+  "code_before": "public void update(final byte[] in, final int offset, final int length) {\n        Objects.requireNonNull(in);\n        engineState.inputData(in, offset, length);\n    }",
+  "code_after": "public void update(final byte[] in, final int offset, final int length) {\n        checkBufferArgs(in, offset, length);\n        engineState.inputData(in, offset, length);\n    }",
+  "javadoc_before": "/**\n     * Updates this hash state using the provided bytes at an offset.\n     *\n     * @param in     source array to update data from\n     * @param offset where in the array to begin reading bytes\n     * @param length number of bytes to update\n     */",
+  "javadoc_after": "/**\n     * Updates this hash state using the provided bytes at an offset.\n     *\n     * @param in     source array to update data from\n     * @param offset where in the array to begin reading bytes\n     * @param length number of bytes to update\n     * @throws NullPointerException      if in is null\n     * @throws IndexOutOfBoundsException if offset or length are negative or if offset + length is greater than the\n     *                                   length of the provided array\n     */"
+}

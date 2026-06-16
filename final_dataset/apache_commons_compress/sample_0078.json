@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b86feb61e7d96e36c9348b4c4ac9ead331fc714a",
+  "issue_summary": "Do not return false if the entry is a tar sparse entry",
+  "code_before": "@Override\n    public boolean canReadEntryData(final ArchiveEntry ae) {\n        if (ae instanceof TarArchiveEntry) {\n            final TarArchiveEntry te = (TarArchiveEntry) ae;\n            return !te.isSparse();\n        }\n        return false;\n    }",
+  "code_after": "@Override\n    public boolean canReadEntryData(final ArchiveEntry ae) {\n        return ae instanceof TarArchiveEntry;\n    }",
+  "javadoc_before": "/**\n     * Whether this class is able to read the given entry.\n     *\n     * <p>May return false if the current entry is a sparse file.</p>\n     */",
+  "javadoc_after": "/**\n     * Whether this class is able to read the given entry.\n     *\n     * @return The implementation will return true if the {@link ArchiveEntry} is an instance of {@link TarArchiveEntry}\n     */"
+}

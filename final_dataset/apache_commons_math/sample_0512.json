@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2c508b8458fe1f8c3506032b4b0a4b6d6230a635",
+  "issue_summary": "Introduced \"MatrixDimensionMismatchException\" to replace \"InvalidMatrixException\" whenever it was used to signal a row or column dimension mismatch. \"MessageFactory\": Fixed wrong order of appearance of general and specific messages.",
+  "code_before": "void setRowVector(int row, FieldVector<T> vector)\n       throws MatrixIndexException, InvalidMatrixException;",
+  "code_after": "void setRowVector(int row, FieldVector<T> vector);",
+  "javadoc_before": "/**\n    * Sets the entries in row number <code>row</code>\n    * as a vector.  Row indices start at 0.\n    *\n    * @param row the row to be set\n    * @param vector row vector (must have the same number of columns\n    * as the instance)\n    * @throws MatrixIndexException if the specified row index is invalid\n    * @throws InvalidMatrixException if the vector dimension does not match one\n    * instance row\n    */",
+  "javadoc_after": "/**\n    * Sets the entries in row number <code>row</code>\n    * as a vector.  Row indices start at 0.\n    *\n    * @param row the row to be set\n    * @param vector row vector (must have the same number of columns\n    * as the instance)\n    * @throws MatrixIndexException if the specified row index is invalid\n    * @throws org.apache.commons.math.exception.MatrixDimensionMismatchException\n    * if the vector dimension does not match one instance row.\n    */"
+}

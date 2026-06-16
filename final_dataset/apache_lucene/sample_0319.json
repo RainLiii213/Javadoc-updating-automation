@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4ccf0fb8f6ce269de8b4501fca201f5b4763cfe7",
+  "issue_summary": "MultiFields.getIndexedFields optimize to not call getMergedFieldInfos",
+  "code_before": "public static Collection<String> getIndexedFields(IndexReader reader) {\n    final Collection<String> fields = new HashSet<>();\n    for(final FieldInfo fieldInfo : getMergedFieldInfos(reader)) {\n      if (fieldInfo.getIndexOptions() != IndexOptions.NONE) {\n        fields.add(fieldInfo.name);\n      }\n    }\n    return fields;\n  }",
+  "code_after": "public static Collection<String> getIndexedFields(IndexReader reader) {\n    return reader.leaves().stream()\n        .flatMap(l -> StreamSupport.stream(l.reader().getFieldInfos().spliterator(), false)\n        .filter(fi -> fi.getIndexOptions() != IndexOptions.NONE))\n        .map(fi -> fi.name)\n        .collect(Collectors.toSet());\n  }",
+  "javadoc_before": "/** Call this to get the (merged) FieldInfos representing the\n   *  set of indexed fields <b>only</b> for a composite reader. \n   *  <p>\n   *  NOTE: the returned field numbers will likely not\n   *  correspond to the actual field numbers in the underlying\n   *  readers, and codec metadata ({@link FieldInfo#getAttribute(String)}\n   *  will be unavailable.\n   */",
+  "javadoc_after": "/** Returns a set of names of fields that have a terms index.  The order is undefined. */"
+}

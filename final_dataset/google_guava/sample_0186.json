@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f877b7159836ffeb3a66f86e1308bd0b58ae2f8e",
+  "issue_summary": "Change ImmutableRangeSet.Builder to reject overlaps Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=36498240",
+  "code_before": "public Builder<C> add(Range<C> range) {\n      rangeSet.add(range);\n      return this;\n    }",
+  "code_after": "public Builder<C> add(Range<C> range) {\n      if (range.isEmpty()) {\n        throw new IllegalArgumentException(\"range must not be empty, but was \" + range);\n      } else if (!rangeSet.complement().encloses(range)) {\n        for (Range<C> currentRange : rangeSet.asRanges()) {\n          checkArgument(\n              !currentRange.isConnected(range) || currentRange.intersection(range).isEmpty(),\n              \"Ranges may not overlap, but received %s and %s\", currentRange, range);\n        }\n        throw new AssertionError(\"should have thrown an IAE above\");\n      }\n      rangeSet.add(range);\n      return this;\n    }",
+  "javadoc_before": "/**\n     * Add the specified range to this builder. Duplicate or connected ranges are permitted, and\n     * will be merged in the resulting immutable range set.\n     */",
+  "javadoc_after": "/**\n     * Add the specified range to this builder.  {@linkplain Range#isConnected Connected} ranges\n     * will be {@linkplain Range#span(Range) coalesced}.\n     *\n     * @throws IllegalArgumentException if {@code range} is empty or overlaps any ranges already\n     *         added to the builder\n     */"
+}

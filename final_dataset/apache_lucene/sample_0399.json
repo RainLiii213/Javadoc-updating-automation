@@ -1,0 +1,8 @@
+{
+  "commit_hash": "abc393dbfdb805361747ef651393332968851f3d",
+  "issue_summary": "Remove LeafReader.fields in lieu of LeafReader.terms. Optimized MultiFields.getTerms.",
+  "code_before": "public static Terms getTerms(IndexReader r, String field) throws IOException {\n    return getFields(r).terms(field);\n  }",
+  "code_after": "public static Terms getTerms(IndexReader r, String field) throws IOException {\n    final List<LeafReaderContext> leaves = r.leaves();\n    if (leaves.size() == 1) {\n      return leaves.get(0).reader().terms(field);\n    }\n\n    final List<Terms> termsPerLeaf = new ArrayList<>(leaves.size());\n    final List<ReaderSlice> slicePerLeaf = new ArrayList<>(leaves.size());\n\n    for (int leafIdx = 0; leafIdx < leaves.size(); leafIdx++) {\n      LeafReaderContext ctx = leaves.get(leafIdx);\n      Terms subTerms = ctx.reader().terms(field);\n      if (subTerms != null) {\n        termsPerLeaf.add(subTerms);\n        slicePerLeaf.add(new ReaderSlice(ctx.docBase, r.maxDoc(), leafIdx - 1));\n      }\n    }\n\n    if (termsPerLeaf.size() == 0) {\n      return null;\n    } else {\n      return new MultiTerms(termsPerLeaf.toArray(Terms.EMPTY_ARRAY),\n          slicePerLeaf.toArray(ReaderSlice.EMPTY_ARRAY));\n    }\n  }",
+  "javadoc_before": "/**  This method may return null if the field does not exist.*/",
+  "javadoc_after": "/** This method may return null if the field does not exist or if it has no terms. */"
+}

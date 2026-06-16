@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8485330b17d5cd0b93fbb2f1429c09bf2a4155ab",
+  "issue_summary": "Trim lots of unused and redundant code. In particular",
+  "code_before": "static <V> V safeGet(Map<?, V> map, Object key) {\n    try {\n      return map.get(key);\n    } catch (ClassCastException e) {\n      return null;\n    }\n  }",
+  "code_after": "static <V> V safeGet(Map<?, V> map, Object key) {\n    checkNotNull(map);\n    try {\n      return map.get(key);\n    } catch (ClassCastException e) {\n      return null;\n    } catch (NullPointerException e) {\n      return null;\n    }\n  }",
+  "javadoc_before": "/**\n   * Delegates to {@link Map#get}. Returns {@code null} on {@code\n   * ClassCastException}.\n   */",
+  "javadoc_after": "/**\n   * Delegates to {@link Map#get}. Returns {@code null} on {@code\n   * ClassCastException} and {@code NullPointerException}.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "956d3d3a40c6148de35957b1d0d4d8b268ba1ee6",
+  "issue_summary": "manual sync",
+  "code_before": "public void register(Object object) {\n    Multimap<Class<?>, EventHandler> methodsInListener =\n        finder.findAllHandlers(object);\n    if (methodsInListener.isEmpty()) {\n      throw new IllegalArgumentException(\"no subscribe method found on: \" + object);\n    }\n    for (Class<?> eventClass : methodsInListener.keySet()) {\n      Set<EventHandler> currentHandlers =\n          getOrCreateHandlersForEventType(eventClass);\n      currentHandlers.addAll(methodsInListener.get(eventClass));\n    }\n  }",
+  "code_after": "public void register(Object object) {\n    handlersByType.putAll(finder.findAllHandlers(object));\n  }",
+  "javadoc_before": "/**\n   * Registers all handler methods on {@code object} to receive events.\n   * Handler methods are selected and classified using this EventBus's\n   * {@link HandlerFindingStrategy}; the default strategy is the\n   * {@link AnnotatedHandlerFinder}.\n   *\n   * @param object  object whose handler methods should be registered.\n   * @throws IllegalArgumentException if no public subscribe methods are found on object\n   */",
+  "javadoc_after": "/**\n   * Registers all handler methods on {@code object} to receive events.\n   * Handler methods are selected and classified using this EventBus's\n   * {@link HandlerFindingStrategy}; the default strategy is the\n   * {@link AnnotatedHandlerFinder}.\n   *\n   * @param object  object whose handler methods should be registered.\n   */"
+}

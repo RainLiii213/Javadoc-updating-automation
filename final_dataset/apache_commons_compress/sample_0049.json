@@ -1,0 +1,8 @@
+{
+  "commit_hash": "856a540d3eeb463527c509853f4d205f4adc272f",
+  "issue_summary": "Resue commons-io",
+  "code_before": "public static void closeQuietly(final Closeable c) {\n        if (c != null) {\n            try {\n                c.close();\n            } catch (final IOException ignored) { // NOPMD NOSONAR\n            }\n        }\n    }",
+  "code_after": "@Deprecated\n    public static void closeQuietly(final Closeable c) {\n        org.apache.commons.io.IOUtils.closeQuietly(c);\n    }",
+  "javadoc_before": "/**\n     * Closes the given Closeable and swallows any IOException that may occur.\n     *\n     * @param c Closeable to close, can be null\n     * @since 1.7\n     */",
+  "javadoc_after": "/**\n     * Closes the given Closeable and swallows any IOException that may occur.\n     *\n     * @param c Closeable to close, can be null\n     * @since 1.7\n     * @deprecated Use {@link org.apache.commons.io.IOUtils#closeQuietly(Closeable)}.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7495a9d75bb2efde2f76d68b376560ab86693cd9",
+  "issue_summary": "Use totalTermFreq=sumDocFreq when scoring DOCS_ONLY fields",
+  "code_before": "protected float avgFieldLength(CollectionStatistics collectionStats) {\n    final long sumTotalTermFreq = collectionStats.sumTotalTermFreq();\n    if (sumTotalTermFreq <= 0) {\n      return 1f;       // field does not exist, or stat is unsupported\n    } else {\n      final long docCount = collectionStats.docCount() == -1 ? collectionStats.maxDoc() : collectionStats.docCount();\n      return (float) (sumTotalTermFreq / (double) docCount);\n    }\n  }",
+  "code_after": "protected float avgFieldLength(CollectionStatistics collectionStats) {\n    final long sumTotalTermFreq;\n    if (collectionStats.sumTotalTermFreq() == -1) {\n      // frequencies are omitted (tf=1), its # of postings\n      if (collectionStats.sumDocFreq() == -1) {\n        // theoretical case only: remove!\n        return 1f;\n      }\n      sumTotalTermFreq = collectionStats.sumDocFreq();\n    } else {\n      sumTotalTermFreq = collectionStats.sumTotalTermFreq();\n    }\n    final long docCount = collectionStats.docCount() == -1 ? collectionStats.maxDoc() : collectionStats.docCount();\n    return (float) (sumTotalTermFreq / (double) docCount);\n  }",
+  "javadoc_before": "/** The default implementation computes the average as <code>sumTotalTermFreq / docCount</code>,\n   * or returns <code>1</code> if the index does not store sumTotalTermFreq:\n   * any field that omits frequency information). */",
+  "javadoc_after": "/** The default implementation computes the average as <code>sumTotalTermFreq / docCount</code> */"
+}

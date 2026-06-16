@@ -1,0 +1,8 @@
+{
+  "commit_hash": "69f087edcb8dc2dc3753eeffe52890606ccb30df",
+  "issue_summary": "Differentiable function can trigger any MathIllegalArgumentException.",
+  "code_before": "DerivativeStructure value(DerivativeStructure[] point)\n        throws DimensionMismatchException, MathIllegalArgumentException;",
+  "code_after": "DerivativeStructure value(DerivativeStructure[] point)\n        throws MathIllegalArgumentException;",
+  "javadoc_before": "/**\n     * Compute the value for the function at the given point.\n     *\n     * @param point Point at which the function must be evaluated.\n     * @return the function value for the given point.\n     * @throws org.apache.commons.math3.exception.DimensionMismatchException\n     * if the parameter's dimension is wrong for the function being evaluated.\n     * @throws  org.apache.commons.math3.exception.MathIllegalArgumentException\n     * when the activated method itself can ascertain that preconditions,\n     * specified in the API expressed at the level of the activated method,\n     * have been violated.  In the vast majority of cases where Commons Math\n     * throws this exception, it is the result of argument checking of actual\n     * parameters immediately passed to a method.\n     */",
+  "javadoc_after": "/**\n     * Compute the value for the function at the given point.\n     *\n     * @param point Point at which the function must be evaluated.\n     * @return the function value for the given point.\n     * @exception MathIllegalArgumentException if {@code point} does not\n     * fulfill functions constraints (wrong dimension, argument out of bound,\n     * or unsupported derivative order for example)\n     */"
+}

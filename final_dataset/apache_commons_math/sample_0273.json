@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ebadb558aaac32dd82e1355a915d42c521a3e740",
+  "issue_summary": "Fixed iterator() method in ListPopulation to return an iterator of the unmodifiable list, thanks to Reid Hochstedler.",
+  "code_before": "public Iterator<Chromosome> iterator() {\n        return chromosomes.iterator();\n    }",
+  "code_after": "public Iterator<Chromosome> iterator() {\n        return getChromosomes().iterator();\n    }",
+  "javadoc_before": "/**\n     * Chromosome list iterator\n     *\n     * @return chromosome iterator\n     */",
+  "javadoc_after": "/**\n     * Returns an iterator over the unmodifiable list of chromosomes.\n     * <p>Any call to {@link Iterator#remove()} will result in a {@link UnsupportedOperationException}.</p>\n     *\n     * @return chromosome iterator\n     */"
+}

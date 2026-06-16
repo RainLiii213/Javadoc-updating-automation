@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9e2e73e4ec334756fc221f65ad16192fee121dac",
+  "issue_summary": "Added missing throws declarations, suppressed warnings. JIRA: .",
+  "code_before": "public void addValue(int v) {\n        addValue(Long.valueOf(v));\n    }",
+  "code_after": "public void addValue(int v) throws MathIllegalArgumentException {\n        addValue(Long.valueOf(v));\n    }",
+  "javadoc_before": "/**\n     * Adds 1 to the frequency count for v.\n     *\n     * @param v the value to add.\n     */",
+  "javadoc_after": "/**\n     * Adds 1 to the frequency count for v.\n     *\n     * @param v the value to add.\n     * @throws MathIllegalArgumentException if the table contains entries not\n     * comparable to Integer\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "022877fefabadd5865c335a5b289874d182ed852",
+  "issue_summary": "read/write Shapes to String",
+  "code_before": "protected String shapeToString(Shape shape) {\n//    return ctx.toString(shape);\n    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,\n        \"Getting a String from a Shape is no longer possible. See javadocs for commentary.\");\n  }",
+  "code_after": "public String shapeToString(Shape shape) {\n    if(shapeWriter!=null) {\n      return shapeWriter.toString(shape);\n    }\n    // This will only happen if the context does not have any writers\n    throw new SolrException(ErrorCode.SERVER_ERROR, \"ShapeWriter not configured\");\n  }",
+  "javadoc_before": "/**\n   * Returns a String version of a shape to be used for the stored value. This method in Solr is only called if for some\n   * reason a Shape object is passed to the field type (perhaps via a custom UpdateRequestProcessor),\n   * *and* the field is marked as stored.  <em>The default implementation throws an exception.</em>\n   * <p>\n   * Spatial4j 0.4 is probably the last release to support SpatialContext.toString(shape) but it's deprecated with no\n   * planned replacement.  Shapes do have a toString() method but they are generally internal/diagnostic and not\n   * standard WKT.\n   * The solution is subclassing and calling ctx.toString(shape) or directly using LegacyShapeReadWriterFormat or\n   * passing in some sort of custom wrapped shape that holds a reference to a String or can generate it.\n   */",
+  "javadoc_after": "/**\n   * Returns a String version of a shape to be used for the stored value.\n   *\n   * The format can be selected using the initParam <code>format={WKT|GeoJSON}</code>\n   */"
+}

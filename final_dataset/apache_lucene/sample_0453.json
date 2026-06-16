@@ -1,0 +1,8 @@
+{
+  "commit_hash": "713b65d1dcc80c1fe147a5bf999e1a88b63b9dce",
+  "issue_summary": "Deprecate ValueSource methods in facets module",
+  "code_before": "public LongRangeFacetCounts(String field, FacetsCollector hits, LongRange... ranges) throws IOException {\n    this(field, new LongFieldSource(field), hits, ranges);\n  }",
+  "code_after": "public LongRangeFacetCounts(String field, FacetsCollector hits, LongRange... ranges) throws IOException {\n    this(field, LongValuesSource.fromLongField(field), hits, ranges);\n  }",
+  "javadoc_before": "/** Create {@code LongRangeFacetCounts}, using {@link\n   *  LongFieldSource} from the specified field. */",
+  "javadoc_after": "/** Create {@code LongRangeFacetCounts}, using {@link\n   *  LongValuesSource} from the specified field. */"
+}

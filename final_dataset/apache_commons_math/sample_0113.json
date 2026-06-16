@@ -1,0 +1,8 @@
+{
+  "commit_hash": "905aaf45670c63aff879ab3b3b03667fc00cda40",
+  "issue_summary": "Added RealDistribution methods to EmpiricalDistribution. JIRA: .",
+  "code_before": "public void load(double[] in) throws NullArgumentException, MathIllegalStateException {\n        DataAdapter da = new ArrayDataAdapter(in);\n        try {\n            da.computeStats();\n            // new adapter for the second pass\n            fillBinStats(new ArrayDataAdapter(in));\n        } catch (IOException e) {\n            throw new MathIllegalStateException(e, LocalizedFormats.SIMPLE_MESSAGE, e.getLocalizedMessage());\n        }\n        loaded = true;\n\n    }",
+  "code_after": "public void load(double[] in) throws NullArgumentException {\n        DataAdapter da = new ArrayDataAdapter(in);\n        try {\n            da.computeStats();\n            // new adapter for the second pass\n            fillBinStats(new ArrayDataAdapter(in));\n        } catch (IOException ex) {\n            // Can't happen\n            throw new MathInternalError();\n        }\n        loaded = true;\n\n    }",
+  "javadoc_before": "/**\n     * Computes the empirical distribution from the provided\n     * array of numbers.\n     *\n     * @param in the input data array\n     * @exception NullArgumentException if in is null\n     * @throws MathIllegalStateException if an IOException occurs\n     */",
+  "javadoc_after": "/**\n     * Computes the empirical distribution from the provided\n     * array of numbers.\n     *\n     * @param in the input data array\n     * @exception NullArgumentException if in is null\n     */"
+}

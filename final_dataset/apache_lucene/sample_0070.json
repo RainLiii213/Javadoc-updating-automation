@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d0d2aa274fb58f8ddab827551f544b9692589182",
+  "issue_summary": "Removed Scorer#getWeight",
+  "code_before": "public FilterScorer(Scorer in) {\n    super(in.weight);\n    this.in = in;\n  }",
+  "code_after": "public FilterScorer(Scorer in) {\n    if (in == null) {\n      throw new NullPointerException(\"wrapped Scorer must not be null\");\n    }\n    this.in = in;\n  }",
+  "javadoc_before": "/**\n   * Create a new FilterScorer\n   *\n   * @param in the {@link Scorer} to wrap\n   */",
+  "javadoc_after": "/**\n   * Create a new FilterScorer with a specific weight\n   *\n   * @param in the {@link Scorer} to wrap\n   */"
+}

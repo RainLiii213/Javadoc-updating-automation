@@ -1,0 +1,8 @@
+{
+  "commit_hash": "09e1c64fe93063b522e75e61162fc2445ac3450f",
+  "issue_summary": "Removed uses of \"FunctionEvaluationException\" and \"MathRuntimeException\".",
+  "code_before": "public double value(double z) throws FunctionEvaluationException {\n       return evaluate(a, c, z);\n    }",
+  "code_after": "public double value(double z) {\n       return evaluate(a, c, z);\n    }",
+  "javadoc_before": "/**\n     * Calculate the function value at the given point.\n     *\n     * @param z the point at which the function value is to be computed\n     * @return the function value\n     * @throws FunctionEvaluationException if a runtime error occurs\n     * @see UnivariateRealFunction#value(double)\n     */",
+  "javadoc_after": "/**\n     * Calculate the function value at the given point.\n     *\n     * @param z Point at which the function value is to be computed.\n     * @return the function value.\n     */"
+}

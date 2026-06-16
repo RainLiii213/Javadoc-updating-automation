@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fbb1e5ed85319343489b13f233d8bea631a77bf9",
+  "issue_summary": "Retrying changelist 56687027. RateLimiter: make the acquire() methods return the time slept (instead of void). Rationale: allow clients to keep track of whether they are rate-limited; useful to update e.g. Varz/Streamz. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=57014398",
+  "code_before": "public void acquire(int permits) {\n    checkPermits(permits);\n    long microsToWait;\n    synchronized (mutex) {\n      microsToWait = reserveNextTicket(permits, readSafeMicros());\n    }\n    ticker.sleepMicrosUninterruptibly(microsToWait);\n  }",
+  "code_after": "public double acquire(int permits) {\n    checkPermits(permits);\n    long microsToWait;\n    synchronized (mutex) {\n      microsToWait = reserveNextTicket(permits, readSafeMicros());\n    }\n    ticker.sleepMicrosUninterruptibly(microsToWait);\n    return 1.0 * microsToWait / TimeUnit.SECONDS.toMicros(1L);\n  }",
+  "javadoc_before": "/**\n   * Acquires the given number of permits from this {@code RateLimiter}, blocking until the\n   * request be granted.\n   *\n   * @param permits the number of permits to acquire\n   */",
+  "javadoc_after": "/**\n   * Acquires the given number of permits from this {@code RateLimiter}, blocking until the\n   * request can be granted. Tells the amount of time slept, if any.\n   *\n   * @param permits the number of permits to acquire\n   * @return time spent sleeping to enforce rate, in seconds; 0.0 if not rate-limited\n   * @since 16.0 (present in 13.0 with {@code void} return type})\n   */"
+}

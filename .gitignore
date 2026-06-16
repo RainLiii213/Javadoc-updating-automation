@@ -22,6 +22,7 @@ Thumbs.db
 # Generated datasets
 .cache/
 dataset*/
+*_backup_full_context/
 output*/
 results*/
 cache*/

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c855dd5a33f6d80dd5da2a888e4ae19fb27ad97c",
+  "issue_summary": "OfflineSorter now uses Directory API; add Directory.createTempOutput and IndexOutput.getName",
+  "code_before": "public FSTCompletionLookup() {\n    this(FSTCompletion.DEFAULT_BUCKETS, true);\n  }",
+  "code_after": "public FSTCompletionLookup() {\n    this(null, null);\n  }",
+  "javadoc_before": "/**\n   * This constructor prepares for creating a suggested FST using the\n   * {@link #build(InputIterator)} method. The number of weight\n   * discretization buckets is set to {@link FSTCompletion#DEFAULT_BUCKETS} and\n   * exact matches are promoted to the top of the suggestions list.\n   */",
+  "javadoc_after": "/**\n   * This constructor should only be used to read a previously saved suggester.\n   */"
+}

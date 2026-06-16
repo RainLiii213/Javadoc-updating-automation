@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2ba61c8fb9c42586a174072276592ddfdff1563b",
+  "issue_summary": "JMX MBeans are not exposed because of race condition between creating platform mbean server and registering mbeans",
+  "code_before": "public static MBeanServer findFirstMBeanServer() {\n    return findMBeanServerForAgentId(null);\n  }",
+  "code_after": "public static MBeanServer findFirstMBeanServer() {\n    MBeanServer mBeanServer = findMBeanServerForAgentId(null);\n    if (mBeanServer == null)  {\n      return ManagementFactory.getPlatformMBeanServer();\n    }\n    return mBeanServer;\n  }",
+  "javadoc_before": "/**\n   * Retrieve the first MBeanServer found.\n   *\n   * @return the first MBeanServer found\n   */",
+  "javadoc_after": "/**\n   * Retrieve the first MBeanServer found and if not found return the platform mbean server\n   *\n   * @return the first MBeanServer found\n   */"
+}

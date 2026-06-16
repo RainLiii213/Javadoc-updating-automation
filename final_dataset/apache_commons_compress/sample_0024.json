@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d4615b412b256317bcdff3bf018ff60d5355409e",
+  "issue_summary": "Reuse PathUtils#getBaseName(Path)",
+  "code_before": "public static String getBaseName(final Path path) {\n        // TODO Use Commons IO 2.16.0\n        if (path == null) {\n            return null;\n        }\n        final Path fileName = path.getFileName();\n        return fileName != null ? FilenameUtils.removeExtension(fileName.toString()) : null;\n    }",
+  "code_after": "@Deprecated\n    public static String getBaseName(final Path path) {\n        return PathUtils.getBaseName(path);\n    }",
+  "javadoc_before": "/**\n     * Gets the base name (i.e. the part up to and not including the last \".\") of the last path segment of a file name.\n     * <p>\n     * Will return the file name itself if it doesn't contain any dots. All leading directories of the {@code file name} parameter are skipped.\n     * </p>\n     *\n     * @return the base name of file name\n     * @param path the path of the file to obtain the base name of.\n     * @since 1.22\n     */",
+  "javadoc_after": "/**\n     * Gets the base name (i.e. the part up to and not including the last \".\") of the last path segment of a file name.\n     * <p>\n     * Will return the file name itself if it doesn't contain any dots. All leading directories of the {@code file name} parameter are skipped.\n     * </p>\n     *\n     * @return the base name of file name\n     * @param path the path of the file to obtain the base name of.\n     * @since 1.22\n     * @deprecated Use {@link PathUtils#getBaseName(Path)}.\n     */"
+}

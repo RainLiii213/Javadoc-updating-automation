@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5ca0a1c3564d35293a5ecf03e5f32e6f0f6f445c",
+  "issue_summary": "check for equal array lengths in distance functions",
+  "code_before": "public static double distance1(double[] p1, double[] p2) {\n        double sum = 0;\n        for (int i = 0; i < p1.length; i++) {\n            sum += FastMath.abs(p1[i] - p2[i]);\n        }\n        return sum;\n    }",
+  "code_after": "public static double distance1(double[] p1, double[] p2)\n    throws DimensionMismatchException {\n        checkEqualLength(p1, p2);\n        double sum = 0;\n        for (int i = 0; i < p1.length; i++) {\n            sum += FastMath.abs(p1[i] - p2[i]);\n        }\n        return sum;\n    }",
+  "javadoc_before": "/**\n     * Calculates the L<sub>1</sub> (sum of abs) distance between two points.\n     *\n     * @param p1 the first point\n     * @param p2 the second point\n     * @return the L<sub>1</sub> distance between the two points\n     */",
+  "javadoc_after": "/**\n     * Calculates the L<sub>1</sub> (sum of abs) distance between two points.\n     *\n     * @param p1 the first point\n     * @param p2 the second point\n     * @return the L<sub>1</sub> distance between the two points\n     * @throws DimensionMismatchException if the array lengths differ.\n     */"
+}

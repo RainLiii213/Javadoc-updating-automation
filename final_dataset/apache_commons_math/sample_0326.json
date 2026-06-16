@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2d16e3fe0a1e777db80a265b4adbe8052ae04797",
+  "issue_summary": "Removed references to deprecated MathRuntimeException .",
+  "code_before": "public double[] transform(UnivariateFunction f,\n        double min, double max, int n) throws IllegalArgumentException {\n\n        final double[] data = FastFourierTransformer.sample(f, min, max, n);\n        data[0] = 0.0;\n        if (orthogonal) {\n            final double s = FastMath.sqrt(2.0 / n);\n            return FastFourierTransformer.scaleArray(fst(data), s);\n        }\n        return fst(data);\n    }",
+  "code_after": "public double[] transform(UnivariateFunction f,\n        double min, double max, int n) throws\n        NonMonotonicSequenceException,\n        NotStrictlyPositiveException,\n        MathIllegalArgumentException {\n\n        final double[] data = FastFourierTransformer.sample(f, min, max, n);\n        data[0] = 0.0;\n        if (orthogonal) {\n            final double s = FastMath.sqrt(2.0 / n);\n            return FastFourierTransformer.scaleArray(fst(data), s);\n        }\n        return fst(data);\n    }",
+  "javadoc_before": "/**\n     * {@inheritDoc}\n     *\n     * This implementation enforces {@code f(x) = 0.0} at {@code x = 0.0}.\n     */",
+  "javadoc_after": "/**\n     * {@inheritDoc}\n     *\n     * This implementation enforces {@code f(x) = 0.0} at {@code x = 0.0}.\n     *\n     * @throws NonMonotonicSequenceException if the lower bound is greater\n     * than, or equal to the upper bound\n     * @throws NotStrictlyPositiveException if the number of sample points is\n     * negative\n     * @throws MathIllegalArgumentException if the number of sample points is\n     * not a power of two\n     */"
+}

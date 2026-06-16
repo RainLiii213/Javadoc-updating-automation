@@ -1,0 +1,8 @@
+{
+  "commit_hash": "06880f1138498473cebcb273d034d0e9d4d4aed6",
+  "issue_summary": "Populated throws clause of RealMatrix ; javadoc + formatting.",
+  "code_before": "RealMatrix add(RealMatrix m);",
+  "code_after": "RealMatrix add(RealMatrix m)\n        throws MatrixDimensionMismatchException;",
+  "javadoc_before": "/**\n     * Compute the sum of this and m.\n     *\n     * @param m    matrix to be added\n     * @return     this + m\n     * @throws  IllegalArgumentException if m is not the same size as this\n     */",
+  "javadoc_after": "/**\n     * Returns the sum of {@code this} and {@code m}.\n     *\n     * @param m matrix to be added\n     * @return {@code this + m}\n     * @throws MatrixDimensionMismatchException if {@code m} is not the same\n     * size as {@code this}.\n     */"
+}

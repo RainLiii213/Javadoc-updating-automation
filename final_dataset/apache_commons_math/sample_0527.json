@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c15e80eba987c7f43462c8fdd38ac0b86f71a3f1",
+  "issue_summary": "Created \"NullArgumentException\" (subclass of \"MathIllegalArgumentException\"). Changed all occurrences of \"createIllegalArgumentException\" (in \"MathRuntime\") to throw the new exception whenever a \"null\" is not allowed. Added a few checks for null in \"BigFraction.java\". Simplified \"LocalizedFormats\" enum. Changed \"ZeroNotAllowedException\" to \"ZeroException\".",
+  "code_before": "public void setImaginaryFormat(NumberFormat imaginaryFormat) {\n        if (imaginaryFormat == null) {\n            throw MathRuntimeException.createIllegalArgumentException(\n                  LocalizedFormats.NULL_IMAGINARY_FORMAT);\n        }\n        this.imaginaryFormat = imaginaryFormat;\n    }",
+  "code_after": "public void setImaginaryFormat(NumberFormat imaginaryFormat) {\n        if (imaginaryFormat == null) {\n            throw new NullArgumentException(LocalizedFormats.IMAGINARY_FORMAT);\n        }\n        this.imaginaryFormat = imaginaryFormat;\n    }",
+  "javadoc_before": "/**\n     * Modify the imaginaryFormat.\n     * @param imaginaryFormat The new imaginaryFormat value.\n     * @throws IllegalArgumentException if <code>imaginaryFormat</code> is\n     *         <code>null</code>.\n     */",
+  "javadoc_after": "/**\n     * Modify the imaginaryFormat.\n     * @param imaginaryFormat The new imaginaryFormat value.\n     * @throws NullArgumentException if {@code imaginaryFormat} is {@code null}.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4e7d797b1c33397378de21f83a132ecbf1305b10",
+  "issue_summary": "fill the throws clause of all methods.",
+  "code_before": "public void addToEntry(int index, double increment) {\n        setEntry(index, getEntry(index) + increment);\n    }",
+  "code_after": "public void addToEntry(int index, double increment)\n        throws OutOfRangeException {\n        setEntry(index, getEntry(index) + increment);\n    }",
+  "javadoc_before": "/**\n     * Change an entry at the specified index.\n     *\n     * @param index Index location of entry to be set.\n     * @param increment Value to add to the vector entry.\n     * @throws org.apache.commons.math3.exception.OutOfRangeException if\n     * the index is not valid.\n     * @since 3.0\n     */",
+  "javadoc_after": "/**\n     * Change an entry at the specified index.\n     *\n     * @param index Index location of entry to be set.\n     * @param increment Value to add to the vector entry.\n     * @throws OutOfRangeException if the index is not valid.\n     * @since 3.0\n     */"
+}

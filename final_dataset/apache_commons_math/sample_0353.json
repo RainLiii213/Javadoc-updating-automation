@@ -1,0 +1,8 @@
+{
+  "commit_hash": "936b93751740c64ad9c77343e25fc9a97fd5856f",
+  "issue_summary": "Merged BetaDistribution and BetaDistributionImpl .",
+  "code_before": "double getAlpha();",
+  "code_after": "public double getAlpha() {\n        return alpha;\n    }",
+  "javadoc_before": "/**\n      * Access the alpha shape parameter.\n      *\n      * @return alpha.\n      */",
+  "javadoc_after": "/**\n     * Access the first shape parameter, {@code alpha}.\n     *\n     * @return the first shape parameter.\n     */"
+}

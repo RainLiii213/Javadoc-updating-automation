@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0955f5db17f6621aac41d8841fbcfc4885673d3a",
+  "issue_summary": "Replaced factory using Object with type-safe version.",
+  "code_before": "public void load(double[] in) throws NullArgumentException {\n        DataAdapter da = new ArrayDataAdapter(in);\n        try {\n            da.computeStats();\n            fillBinStats(in);\n        } catch (IOException e) {\n            throw new MathIllegalStateException(e, LocalizedFormats.SIMPLE_MESSAGE, e.getLocalizedMessage());\n        }\n        loaded = true;\n\n    }",
+  "code_after": "public void load(double[] in) throws NullArgumentException, MathIllegalStateException {\n        DataAdapter da = new ArrayDataAdapter(in);\n        try {\n            da.computeStats();\n            // new adapter for the second pass\n            fillBinStats(new ArrayDataAdapter(in));\n        } catch (IOException e) {\n            throw new MathIllegalStateException(e, LocalizedFormats.SIMPLE_MESSAGE, e.getLocalizedMessage());\n        }\n        loaded = true;\n\n    }",
+  "javadoc_before": "/**\n     * Computes the empirical distribution from the provided\n     * array of numbers.\n     *\n     * @param in the input data array\n     * @exception NullArgumentException if in is null\n     */",
+  "javadoc_after": "/**\n     * Computes the empirical distribution from the provided\n     * array of numbers.\n     *\n     * @param in the input data array\n     * @exception NullArgumentException if in is null\n     * @throws MathIllegalStateException if an IOException occurs\n     */"
+}

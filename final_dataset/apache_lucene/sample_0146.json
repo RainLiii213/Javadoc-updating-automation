@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bd22f199dec5ab767da7481f1ea9c1cd0195bb9f",
+  "issue_summary": "Unify binary dictionary and dictionary writer in kuromoji and nori",
+  "code_before": "public abstract Morpheme[] getMorphemes();",
+  "code_after": "public abstract KoMorphData.Morpheme[] getMorphemes();",
+  "javadoc_before": "/** Get the {@link Morpheme} decomposition of the token. */",
+  "javadoc_after": "/**\n   * Get the {@link org.apache.lucene.analysis.ko.dict.KoMorphData.Morpheme} decomposition of the\n   * token.\n   */"
+}

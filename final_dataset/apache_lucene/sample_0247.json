@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5d5b7e14d41e00671fc938ad0db7714d56bd455e",
+  "issue_summary": "Use SingletonDocumentBatch in monitor when we only have a single document",
+  "code_before": "public static DocumentBatch of(Analyzer analyzer, Document... docs) {\n    return new MultiDocumentBatch(analyzer, docs);\n  }",
+  "code_after": "public static DocumentBatch of(Analyzer analyzer, Document... docs) {\n    if (docs.length == 0) {\n      throw new IllegalArgumentException(\"A DocumentBatch must contain at least one document\");\n    } else if (docs.length == 1) {\n      return new SingletonDocumentBatch(analyzer, docs[0]);\n    } else {\n      return new MultiDocumentBatch(analyzer, docs);\n    }\n  }",
+  "javadoc_before": "/**\n   * Create a DocumentBatch containing a set of InputDocuments\n   *\n   * @param docs Collection of documents to add\n   * @return the batch containing the input documents\n   */",
+  "javadoc_after": "/**\n   * Create a DocumentBatch containing a set of InputDocuments\n   *\n   * @param docs Collection of documents to add.  There must be at least one\n   *             document in the collection.\n   * @return the batch containing the input documents\n   */"
+}

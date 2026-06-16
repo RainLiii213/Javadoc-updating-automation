@@ -1,0 +1,8 @@
+{
+  "commit_hash": "86321681e744be1c1c3192c1e5f7cb1516e79a06",
+  "issue_summary": "Add throw declarations for filter package, javadoc formatting.",
+  "code_before": "public DefaultMeasurementModel(final double[][] measMatrix, final double[][] measNoise) {\n        this(new Array2DRowRealMatrix(measMatrix), new Array2DRowRealMatrix(measNoise));\n    }",
+  "code_after": "public DefaultMeasurementModel(final double[][] measMatrix, final double[][] measNoise)\n            throws NullArgumentException, NoDataException, DimensionMismatchException {\n        this(new Array2DRowRealMatrix(measMatrix), new Array2DRowRealMatrix(measNoise));\n    }",
+  "javadoc_before": "/**\n     * Create a new {@link MeasurementModel}, taking double arrays as input\n     * parameters for the respective measurement matrix and noise.\n     *\n     * @param measMatrix the measurement matrix\n     * @param measNoise the measurement noise matrix\n     */",
+  "javadoc_after": "/**\n     * Create a new {@link MeasurementModel}, taking double arrays as input parameters for the\n     * respective measurement matrix and noise.\n     *\n     * @param measMatrix\n     *            the measurement matrix\n     * @param measNoise\n     *            the measurement noise matrix\n     * @throws NullArgumentException\n     *             if any of the input matrices is {@code null}\n     * @throws NoDataException\n     *             if any row / column dimension of the input matrices is zero\n     * @throws DimensionMismatchException\n     *             if any of the input matrices is non-rectangular\n     */"
+}

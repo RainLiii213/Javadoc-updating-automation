@@ -1,0 +1,8 @@
+{
+  "commit_hash": "12d849221727d3294429397a456adebf583defbc",
+  "issue_summary": "Separate SolrMetricProducer from SolrInfoMBean.",
+  "code_before": "public interface SolrMetricProducer extends SolrInfoMBean {\n\n  /**\n   * Initializes metrics specific to this producer\n   * @param manager an instance of {@link SolrMetricManager}\n   * @param registry registry name where metrics are registered\n   * @param scope scope of the metrics (eg. handler name) to separate metrics of\n   *              instances of the same component executing in different contexts\n   * @return registered (or existing) unqualified names of metrics specific to this producer.\n   */\n  Collection<String> initializeMetrics(SolrMetricManager manager, String registry, String scope);\n}",
+  "code_after": "public interface SolrMetricProducer {\n\n  /**\n   * Initializes metrics specific to this producer\n   * @param manager an instance of {@link SolrMetricManager}\n   * @param registry registry name where metrics are registered\n   * @param scope scope of the metrics (eg. handler name) to separate metrics of\n   *              instances of the same component executing in different contexts\n   */\n  void initializeMetrics(SolrMetricManager manager, String registry, String scope);\n}",
+  "javadoc_before": "/**\n * Extension of {@link SolrInfoMBean} for use by objects that\n * expose metrics through {@link SolrCoreMetricManager}.\n */",
+  "javadoc_after": "/**\n * Used by objects that expose metrics through {@link SolrCoreMetricManager}.\n */"
+}

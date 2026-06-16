@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2106bf5172a9c38a8457db383eb9f5cd1918ddc5",
+  "issue_summary": "Create a task executor when executor is not provided",
+  "code_before": "public LeafSlice[] getSlices() {\n    return (executor == null) ? null : leafSlicesSupplier.get();\n  }",
+  "code_after": "public LeafSlice[] getSlices() {\n    return leafSlicesSupplier.get();\n  }",
+  "javadoc_before": "/**\n   * Returns the leaf slices used for concurrent searching, or null if no {@code Executor} was\n   * passed to the constructor.\n   *\n   * @lucene.experimental\n   */",
+  "javadoc_after": "/**\n   * Returns the leaf slices used for concurrent searching\n   *\n   * @lucene.experimental\n   */"
+}

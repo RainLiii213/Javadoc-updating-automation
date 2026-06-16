@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6bba35a7096ef2d4023ba9339e9cc30268d520ce",
+  "issue_summary": "FST.Arc.BitTable reads directly FST bytes. Arc is lightweight again and FSTEnum traversal faster.",
+  "code_before": "private int readPresenceBytes(Arc<T> arc, BytesReader in) throws IOException {\n    int numPresenceBytes = getNumPresenceBytes(arc.numArcs());\n    Arc.BitTable presenceBits = arc.getOrCreateBitTable().setNumLongs((numPresenceBytes + 7) / Long.BYTES);\n    for (int i = 0; i < numPresenceBytes; i++) {\n      // Read the next unsigned byte, shift it to the left, and appends it to the current long.\n      presenceBits.bits[i / Long.BYTES] |= (in.readByte() & 0xFFL) << (i * Byte.SIZE);\n    }\n    assert assertPresenceBytesAreValid(arc);\n    return numPresenceBytes;\n  }",
+  "code_after": "private void readPresenceBytes(Arc<T> arc, BytesReader in) throws IOException {\n    assert arc.bytesPerArc() > 0;\n    assert arc.nodeFlags() == ARCS_FOR_DIRECT_ADDRESSING;\n    arc.bitTableStart = in.getPosition();\n    in.skipBytes(getNumPresenceBytes(arc.numArcs()));\n  }",
+  "javadoc_before": "/**\n   * Reads the presence bits of a direct-addressing node, store them in the provided arc {@link Arc#bitTable()}\n   * and returns the number of presence bytes.\n   */",
+  "javadoc_after": "/**\n   * Reads the presence bits of a direct-addressing node.\n   * Actually we don't read them here, we just keep the pointer to the bit-table start and we skip them.\n   */"
+}

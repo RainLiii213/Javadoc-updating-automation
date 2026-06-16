@@ -1,0 +1,8 @@
+{
+  "commit_hash": "87e936f1bb76b89acdf8d0c3071bb43349c0e00c",
+  "issue_summary": "Improving Default Segments To Thread Mapping Algorithm",
+  "code_before": "protected LeafSlice[] slices(List<LeafReaderContext> leaves) {\n    LeafSlice[] slices = new LeafSlice[leaves.size()];\n    for (int i = 0; i < slices.length; i++) {\n      slices[i] = new LeafSlice(leaves.get(i));\n    }\n    return slices;\n  }",
+  "code_after": "protected LeafSlice[] slices(List<LeafReaderContext> leaves) {\n    return slices(leaves, MAX_DOCS_PER_SLICE, MAX_SEGMENTS_PER_SLICE);\n  }",
+  "javadoc_before": "/**\n   * Expert: Creates an array of leaf slices each holding a subset of the given leaves.\n   * Each {@link LeafSlice} is executed in a single thread. By default there\n   * will be one {@link LeafSlice} per leaf ({@link org.apache.lucene.index.LeafReaderContext}).\n   */",
+  "javadoc_after": "/**\n   * Expert: Creates an array of leaf slices each holding a subset of the given leaves.\n   * Each {@link LeafSlice} is executed in a single thread. By default, segments with more than\n   * MAX_DOCS_PER_SLICE will get their own thread\n   */"
+}

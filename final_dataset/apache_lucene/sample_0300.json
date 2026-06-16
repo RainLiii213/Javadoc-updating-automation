@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a3a4ecd80b062d7567f4092fd43feb3e3f521333",
+  "issue_summary": "Change TermsEnum.seekExact(BytesRef) to abstract",
+  "code_before": "public boolean seekExact(BytesRef text) throws IOException {\n    return seekCeil(text) == SeekStatus.FOUND;\n  }",
+  "code_after": "public abstract boolean seekExact(BytesRef text) throws IOException;",
+  "javadoc_before": "/** Attempts to seek to the exact term, returning\n   *  true if the term is found.  If this returns false, the\n   *  enum is unpositioned.  For some codecs, seekExact may\n   *  be substantially faster than {@link #seekCeil}. */",
+  "javadoc_after": "/**\n   * Attempts to seek to the exact term, returning true if the term is found. If this returns false, the enum is\n   * unpositioned. For some codecs, seekExact may be substantially faster than {@link #seekCeil}.\n   * <p>\n   * \n   * The default implementation can be <code>seekCeil(text) == SeekStatus.FOUND; </code><br>\n   * But this method is performance critical. In some cases, the default implementation may be slow and consume huge memory,\n   * so subclass SHOULD have its own implementation if possible.\n   * \n   * @return true if the term is found; return false if the enum is unpositioned.\n   */"
+}

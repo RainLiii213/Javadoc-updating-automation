@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5fec8efe4edfb7495f7f4a26893cb87eb15fe900",
+  "issue_summary": "More tidying to make lint happy",
+  "code_before": "@Override\n    public void getBounds(final Bounds bounds) {\n      super.getBounds(bounds);\n      // We need to do all bounding planes as well as corner points\n      bounds\n          .addPoint(start)\n          .addPoint(end)\n          .addPlane(planetModel, normalizedConnectingPlane, startCutoffPlane, endCutoffPlane);\n    }",
+  "code_after": "@Override\n    public void getBounds(final Bounds bounds) {\n      bounds.addPoint(point);\n    }",
+  "javadoc_before": "/**\n     * Get the bounds for a segment endpoint.\n     *\n     * @param planetModel is the planet model.\n     * @param bounds are the bounds to be modified.\n     */",
+  "javadoc_after": "/**\n     * Get the bounds for a segment endpoint.\n     *\n     * @param bounds are the bounds to be modified.\n     */"
+}

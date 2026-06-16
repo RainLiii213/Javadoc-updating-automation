@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2424036c286f0b3dfc280f00a1e835cb52e39375",
+  "issue_summary": "no longer invoke finish from finalize",
+  "code_before": "@Override\n    protected void finalize() throws Throwable {\n        finish();\n        super.finalize();\n    }",
+  "code_after": "@Override\n    protected void finalize() throws Throwable {\n        if (!closed) {\n            System.err.println(\"Unclosed BZip2CompressorOutputStream detected, will *not* close it\");\n        }\n        super.finalize();\n    }",
+  "javadoc_before": "/**\n     * Overriden to close the stream.\n     */",
+  "javadoc_after": "/**\n     * Overriden to warn about an unclosed stream.\n     */"
+}

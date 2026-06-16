@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3fbf39a13d2fa6e515fe31b88f9d19a2068f4ad6",
+  "issue_summary": "implement maximumSize",
+  "code_before": "interface Evictable {\n    /** Sets the last usage timestamp. */\n    void setLastUsage(int timestamp);\n\n    /** Gets the last usage timestamp. */\n    int getLastUsage();\n  }",
+  "code_after": "interface Evictable {\n    /** Gets the next entry in the recency list. */\n    Evictable getNextEvictable();\n\n    /** Sets the next entry in the recency list. */\n    void setNextEvictable(Evictable next);\n\n    /** Gets the previous entry in the recency list. */\n    Evictable getPreviousEvictable();\n\n    /** Sets the previous entry in the recency list. */\n    void setPreviousEvictable(Evictable previous);\n  }",
+  "javadoc_before": "/** Implemented by entries that support eviction. */",
+  "javadoc_after": "/**\n   * Implemented by entries that are evictable. Evictable entries are\n   * maintained in a doubly-linked list. New entries are added at the tail of\n   * the list at write time and stale entries are expired from the head of the\n   * list.\n   */"
+}

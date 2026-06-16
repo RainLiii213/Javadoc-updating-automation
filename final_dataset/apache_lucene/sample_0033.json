@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2dcfd89123efadc727572a50266a2246c51590ef",
+  "issue_summary": "Use the bulk SimScorer#score API to compute impact scores.",
+  "code_before": "public abstract List<Impact> getImpacts(int level);",
+  "code_after": "public abstract FreqAndNormBuffer getImpacts(int level);",
+  "javadoc_before": "/**\n   * Return impacts on the given level. These impacts are sorted by increasing frequency and\n   * increasing unsigned norm, and only valid until the doc ID returned by {@link\n   * #getDocIdUpTo(int)} for the same level, included. The returned list is never empty and should\n   * implement {@link java.util.RandomAccess} if it contains more than a single element. NOTE: There\n   * is no guarantee that these impacts actually appear in postings, only that they trigger scores\n   * that are greater than or equal to the impacts that actually appear in postings.\n   */",
+  "javadoc_after": "/**\n   * Return impacts on the given level. These impacts are sorted by increasing frequency and\n   * increasing unsigned norm, and only valid until the doc ID returned by {@link\n   * #getDocIdUpTo(int)} for the same level, included. The returned buffer is never empty. NOTE:\n   * There is no guarantee that these impacts actually appear in postings, only that they trigger\n   * scores that are greater than or equal to the impacts that actually appear in postings.\n   */"
+}

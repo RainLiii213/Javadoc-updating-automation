@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9e933debcb82fa645c66d561d2dc4c179390b4e6",
+  "issue_summary": "Populate throws declarations for geometry package.",
+  "code_before": "Space getSubSpace();",
+  "code_after": "Space getSubSpace() throws MathUnsupportedOperationException;",
+  "javadoc_before": "/** Get the n-1 dimension subspace of this space.\n     * @return n-1 dimension sub-space of this space\n     * @see #getDimension()\n     */",
+  "javadoc_after": "/** Get the n-1 dimension subspace of this space.\n     * @return n-1 dimension sub-space of this space\n     * @see #getDimension()\n     * @exception MathUnsupportedOperationException for dimension-1 spaces\n     * which do not have sub-spaces\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1a637a4458443361f50b77b085bda23162ddf818",
+  "issue_summary": "Duplicate code in \"MultivariateRealOptimizer\" and \"DifferentiableMultivariateRealOptimizer\" moved to new interface \"BaseMultivariateRealOptimizer\". New \"AbstractScalarOptimizer\" superclass allow implementations that do not use derivatives. Deprecated \"protected\" fields. \"NonLinearConjugateGradientOptimizer\" changed to make use of the newly added accessors instead of the \"protected\" fields.",
+  "code_before": "protected AbstractScalarDifferentiableOptimizer() {\n        setConvergenceChecker(new SimpleScalarValueChecker());\n        setMaxIterations(DEFAULT_MAX_ITERATIONS);\n        setMaxEvaluations(Integer.MAX_VALUE);\n    }",
+  "code_after": "protected AbstractScalarDifferentiableOptimizer() {}",
+  "javadoc_before": "/** Simple constructor with default settings.\n     * <p>The convergence check is set to a {@link SimpleScalarValueChecker}\n     * and the maximal number of evaluation is set to its default value.</p>\n     */",
+  "javadoc_after": "/**\n     * Simple constructor with default settings.\n     * The convergence check is set to a {@link SimpleScalarValueChecker},\n     * the allowed number of iterations and evaluations are set to their\n     * default values.\n     */"
+}

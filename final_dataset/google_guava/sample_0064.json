@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7b53ffdf0d4c7616566cb6953cce15e9247c04c2",
+  "issue_summary": "Add example anti-pattern to getCauseAs() Javadoc.",
+  "code_before": "@Beta\n  @GwtIncompatible // Class.cast(Object)\n  public static <X extends Throwable> X getCauseAs(Throwable throwable, Class<X> expectedCauseType)\n      throws ClassCastException {\n    try {\n      return expectedCauseType.cast(throwable.getCause());\n    } catch (ClassCastException e) {\n      e.initCause(throwable);\n      throw e;\n    }\n  }",
+  "code_after": "@Beta\n  @GwtIncompatible // Class.cast(Object)\n  public static <X extends Throwable> X getCauseAs(\n      Throwable throwable, Class<X> expectedCauseType) {\n    try {\n      return expectedCauseType.cast(throwable.getCause());\n    } catch (ClassCastException e) {\n      e.initCause(throwable);\n      throw e;\n    }\n  }",
+  "javadoc_before": "/**\n   * Returns {@code throwable}'s cause, cast to {@code expectedCauseType}.\n   *\n   * @throws ClassCastException if the cause cannot be cast to the expected type. The {@link\n   *     ClassCastException}'s cause is {@code throwable}.\n   * @since 22.0\n   */",
+  "javadoc_after": "/**\n   * Returns {@code throwable}'s cause, cast to {@code expectedCauseType}.\n   *\n   * <p>Prefer this method instead of manually casting an exception's cause, for example This is\n   * preferable to manually casting (e.g. {@code (IOException) e.getCause()}) because if a {@link\n   * ClassCastException} results {@code throwable} will be preserved as that exception's cause.\n   *\n   * @throws ClassCastException if the cause cannot be cast to the expected type. The {@code\n   *     ClassCastException}'s cause is {@code throwable}.\n   * @since 22.0\n   */"
+}

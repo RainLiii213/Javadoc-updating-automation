@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fef497d841ff264fe73ced794b49ba6710002df3",
+  "issue_summary": "limit visibility of event states list to AbstractIntegrator class only",
+  "code_before": "protected boolean requiresDenseOutput() {\n        for (StepHandler handler : stepHandlers) {\n            if (handler.requiresDenseOutput()) {\n                return true;\n            }\n        }\n        return false;\n    }",
+  "code_after": "protected boolean requiresDenseOutput() {\n        if (!eventsStates.isEmpty()) {\n            return true;\n        }\n        for (StepHandler handler : stepHandlers) {\n            if (handler.requiresDenseOutput()) {\n                return true;\n            }\n        }\n        return false;\n    }",
+  "javadoc_before": "/** Check if one of the step handlers requires dense output.\n     * @return true if one of the step handlers requires dense output\n     */",
+  "javadoc_after": "/** Check if dense output is needed.\n     * @return true if there is at least one event handler or if\n     * one of the step handlers requires dense output\n     */"
+}

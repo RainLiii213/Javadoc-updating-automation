@@ -1,0 +1,8 @@
+{
+  "commit_hash": "df76d9fa660f672e95d621ae5b20b4ff7adf1769",
+  "issue_summary": "introduce RemovalNotification for use by RemovalListener",
+  "code_before": "abstract boolean wasEvicted();",
+  "code_after": "public boolean wasEvicted() {\n      return cause.wasEvicted();\n    }",
+  "javadoc_before": "/**\n       * Returns true if the removal was due to eviction, false if the removal was caused by a user\n       * operation.\n       */",
+  "javadoc_after": "/**\n     * Returns {@code true} if there was an auotmatic removal due to eviction (the cause is neither\n     * {@link #EXPLICIT} nor {@link #REPLACED}).\n     */"
+}

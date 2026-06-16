@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6a14866cfcb0503b4f63819f05194e2cb83277a3",
+  "issue_summary": "Improved type safety for Binary Space Partitioning and reduced complexity using generics where it was relevant and reorganizing interfaces.",
+  "code_before": "Region wholeHyperplane();",
+  "code_after": "SubHyperplane<S> wholeHyperplane();",
+  "javadoc_before": "/** Build a region covering the whole hyperplane.\n     * <p>The region build is restricted to the sub-space defined by the\n     * hyperplane. This means that the regions points are consistent\n     * with the argument of the {@link SubSpace#toSpace toSpace} method\n     * and with the return value of the {@link SubSpace#toSubSpace\n     * toSubSpace} method.<p>\n     * @return a region covering the whole hyperplane\n     */",
+  "javadoc_after": "/** Build a sub-hyperplane covering the whole hyperplane.\n     * @return a sub-hyperplane covering the whole hyperplane\n     */"
+}

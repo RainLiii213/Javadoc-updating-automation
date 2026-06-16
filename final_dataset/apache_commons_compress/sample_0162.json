@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6273f3a6b804aa845747c8859d659373b14199e1",
+  "issue_summary": "finish() does not close archive entries by default any longer",
+  "code_before": "public void close() throws IOException {\n        if (!closed) {\n            finish();\n            buffer.close();\n            out.close();\n            closed = true;\n        }\n    }",
+  "code_after": "public void close() throws IOException {\n        if (!closed) {\n            buffer.close();\n            out.close();\n            closed = true;\n        }\n    }",
+  "javadoc_before": "/**\n     * Ends the TAR archive and closes the underlying OutputStream.\n     * This means that finish() is called followed by calling the\n     * TarBuffer's close().\n     * @throws IOException on error\n     */",
+  "javadoc_after": "/**\n     * Closes the underlying OutputStream.\n     * @throws IOException on error\n     */"
+}

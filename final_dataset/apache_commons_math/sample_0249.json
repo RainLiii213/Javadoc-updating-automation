@@ -1,0 +1,8 @@
+{
+  "commit_hash": "aa79abed6da00ed31cc208f1e5392b869901033b",
+  "issue_summary": "Populate \"throws\" clause.",
+  "code_before": "public double partialDerivativeX(double x, double y) {\n        return partialDerivative(0, x, y);\n    }",
+  "code_after": "public double partialDerivativeX(double x, double y)\n        throws OutOfRangeException {\n        return partialDerivative(0, x, y);\n    }",
+  "javadoc_before": "/**\n     * @param x x-coordinate.\n     * @param y y-coordinate.\n     * @return the value at point (x, y) of the first partial derivative with\n     * respect to x.\n     */",
+  "javadoc_after": "/**\n     * @param x x-coordinate.\n     * @param y y-coordinate.\n     * @return the value at point (x, y) of the first partial derivative with\n     * respect to x.\n     * @throws OutOfRangeException if {@code x} (resp. {@code y}) is outside\n     * the range defined by the boundary values of {@code xval} (resp.\n     * {@code yval}).\n     */"
+}

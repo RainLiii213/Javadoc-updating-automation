@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5998035a9fafcfb68ffbdc33551b8ed41ab14d4e",
+  "issue_summary": "fill the \"throws\" clause of ArrayFieldVector.",
+  "code_before": "public ArrayFieldVector<T> subtract(ArrayFieldVector<T> v) {\n        checkVectorDimensions(v.data.length);\n        T[] out = buildArray(data.length);\n        for (int i = 0; i < data.length; i++) {\n            out[i] = data[i].subtract(v.data[i]);\n        }\n        return new ArrayFieldVector<T>(field, out, false);\n    }",
+  "code_after": "public ArrayFieldVector<T> subtract(ArrayFieldVector<T> v)\n        throws DimensionMismatchException {\n        checkVectorDimensions(v.data.length);\n        T[] out = buildArray(data.length);\n        for (int i = 0; i < data.length; i++) {\n            out[i] = data[i].subtract(v.data[i]);\n        }\n        return new ArrayFieldVector<T>(field, out, false);\n    }",
+  "javadoc_before": "/**\n     * Compute this minus v.\n     * @param v vector to be subtracted\n     * @return this + v\n     * @throws IllegalArgumentException if v is not the same size as this\n     */",
+  "javadoc_after": "/**\n     * Compute {@code this} minus {@code v}.\n     * @param v vector to be subtracted\n     * @return {@code this - v}\n     * @throws DimensionMismatchException if {@code v} is not the same size as\n     * {@code this}\n     */"
+}

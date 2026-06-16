@@ -1,0 +1,8 @@
+{
+  "commit_hash": "812d8a4b53d9758b4f081d9b98a70ea9ef131a0e",
+  "issue_summary": "BoundedInputStream can count its bytes without wrapping a CountingInputStream",
+  "code_before": "public Builder setMaxCount(final long maxCount) {\n            this.maxCount = maxCount;\n            return this;\n        }",
+  "code_after": "public T setMaxCount(final long maxCount) {\n            this.maxCount = Math.max(EOF, maxCount);\n            return asThis();\n        }",
+  "javadoc_before": "/**\n         * Sets the maximum number of bytes to return.\n         * <p>\n         * Default is {@value IOUtils#EOF}.\n         * </p>\n         *\n         * @param maxCount The maximum number of bytes to return.\n         * @return this.\n         */",
+  "javadoc_after": "/**\n         * Sets the maximum number of bytes to return.\n         * <p>\n         * Default is {@value IOUtils#EOF}, negative means unbound.\n         * </p>\n         *\n         * @param maxCount The maximum number of bytes to return.\n         * @return this.\n         */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "068b6babac38998f10a52b1776abca6218d970e1",
+  "issue_summary": "Reduce the memory used by direct addressing of arcs",
+  "code_before": "boolean isExpandedTarget(Arc<T> follow, BytesReader in) throws IOException {\n    if (!targetHasArcs(follow)) {\n      return false;\n    } else {\n      in.setPosition(follow.target());\n      byte flags = in.readByte();\n      return flags == ARCS_AS_ARRAY_PACKED;\n    }\n  }",
+  "code_after": "boolean isExpandedTarget(Arc<T> follow, BytesReader in) throws IOException {\n    if (!targetHasArcs(follow)) {\n      return false;\n    } else {\n      in.setPosition(follow.target());\n      byte flags = in.readByte();\n      return flags == ARCS_FOR_BINARY_SEARCH || flags == ARCS_FOR_DIRECT_ADDRESSING;\n    }\n  }",
+  "javadoc_before": "/**\n   * Checks if <code>arc</code>'s target state is in expanded (or vector) format. \n   * \n   * @return Returns <code>true</code> if <code>arc</code> points to a state in an\n   * expanded array format.\n   */",
+  "javadoc_after": "/**\n   * Returns whether <code>arc</code>'s target points to a node in expanded format (fixed length arcs).\n   */"
+}

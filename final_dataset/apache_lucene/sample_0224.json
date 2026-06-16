@@ -1,0 +1,8 @@
+{
+  "commit_hash": "43b1a2fdc7a4bf8e5c8409013d07858dec6d0c35",
+  "issue_summary": "Metrics reporting should avoid creating objects.",
+  "code_before": "public interface PropertyFilter {\n    PropertyFilter ALL = (name) -> true;\n\n    /**\n     * Return only properties that match.\n     * @param name property name\n     * @return true if this property should be returned, false otherwise.\n     */\n    boolean accept(String name);\n  }",
+  "code_after": "@Deprecated(since = \"8.7\")\n  public interface PropertyFilter {\n    PropertyFilter ALL = (name) -> true;\n\n    /**\n     * Return only properties that match.\n     * @param name property name\n     * @return true if this property should be returned, false otherwise.\n     */\n    boolean accept(String name);\n\n    static Predicate<CharSequence> toPredicate(PropertyFilter filter) {\n      return (name) -> filter.accept(name.toString());\n    }\n  }",
+  "javadoc_before": "/**\n   * This filter can limit what properties of a metric are returned.\n   */",
+  "javadoc_after": "/**\n   * This filter can limit what properties of a metric are returned.\n   * @deprecated use {@link Predicate} instead.\n   */"
+}

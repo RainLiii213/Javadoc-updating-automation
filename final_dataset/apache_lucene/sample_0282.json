@@ -1,0 +1,8 @@
+{
+  "commit_hash": "17f2f96a5cf8e0001a81b9327c2ddced053e6934",
+  "issue_summary": "Simplify MultiSorter.",
+  "code_before": "private interface ComparableProvider {\n    Comparable getComparable(int docID) throws IOException;\n  }",
+  "code_after": "private interface ComparableProvider {\n    long getAsComparableLong(int docID) throws IOException;\n  }",
+  "javadoc_before": "/** Returns an object for this docID whose .compareTo represents the requested {@link SortField} sort order. */",
+  "javadoc_after": "/** Returns a long so that the natural ordering of long values matches the\n   *  ordering of doc IDs for the given comparator. */"
+}

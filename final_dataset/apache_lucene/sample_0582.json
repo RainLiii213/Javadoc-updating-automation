@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a42e164b3d94edbe55b7599f33d7a85e5ec040ec",
+  "issue_summary": "Fix NumericUtils getMin/Max methods to return null if there are no terms for the specified field",
+  "code_before": "public static int getMinInt(Terms terms) throws IOException {\n    // All shift=0 terms are sorted first, so we don't need\n    // to filter the incoming terms; we can just get the\n    // min:\n    return NumericUtils.prefixCodedToInt(terms.getMin());\n  }",
+  "code_after": "public static Integer getMinInt(Terms terms) throws IOException {\n    // All shift=0 terms are sorted first, so we don't need\n    // to filter the incoming terms; we can just get the\n    // min:\n    BytesRef min = terms.getMin();\n    return (min != null) ? NumericUtils.prefixCodedToInt(min) : null;\n  }",
+  "javadoc_before": "/** Returns the minimum int value indexed into this\n   *  numeric field. */",
+  "javadoc_after": "/**\n   * Returns the minimum int value indexed into this\n   * numeric field or null if no terms exist.\n   */"
+}

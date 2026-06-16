@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e6888aadc42b1f3181a09b5c18a55f65218d5a0d",
+  "issue_summary": "Change the behavior of Service.Listener and ServiceManager.Listener such that we guarantee that listener callbacks (for a single listener) will never be called concurrently. Previously, the only semantics we guaranteed was about the order in which callbacks were submitted to executor.execute. This significantly strengthens those guarantees.",
+  "code_before": "void executeListeners() {\n      checkState(!monitor.isOccupiedByCurrentThread(),\n          \"It is incorrect to execute listeners with the monitor held.\");\n      queuedListeners.execute();\n    }",
+  "code_after": "void executeListeners() {\n      checkState(!monitor.isOccupiedByCurrentThread(),\n          \"It is incorrect to execute listeners with the monitor held.\");\n      // iterate by index to avoid concurrent modification exceptions\n      for (int i = 0; i < listeners.size(); i++) {\n        listeners.get(i).execute();\n      }\n    }",
+  "javadoc_before": "/** Attempts to execute all the listeners in {@link #queuedListeners}. */",
+  "javadoc_after": "/** Attempts to execute all the listeners in {@link #listeners}. */"
+}

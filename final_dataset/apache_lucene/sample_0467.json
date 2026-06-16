@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f22b1da261b93f60687431b161828e2fb27fdc8f",
+  "issue_summary": "Ensure SSL connections are re-used",
+  "code_before": "public static HttpClientContext createNewHttpClientRequestContext() {\n    return httpClientRequestContextBuilder.createContext();\n  }",
+  "code_after": "public static HttpClientContext createNewHttpClientRequestContext() {\n    HttpClientContext context = new HttpClientContext();\n\n    context.setUserToken(HttpSolrClient.cacheKey);\n    return context;\n  }",
+  "javadoc_before": "/**\n   * \n   */",
+  "javadoc_after": "/**\n   * Create a HttpClientContext object and {@link HttpClientContext#setUserToken(Object)}\n   * to an internal singleton. It allows to reuse underneath {@link HttpClient} \n   * in connection pools if client authentication is enabled.\n   */"
+}

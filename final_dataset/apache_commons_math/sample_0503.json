@@ -1,0 +1,8 @@
+{
+  "commit_hash": "de001e7bcf9acb761047bdcf40f48244f8b63642",
+  "issue_summary": "Removed deprecated code in implementations of \"IntegerDistribution\". Added \"final\" keyword. Added \"sample\" methods to \"IntegerDistribution\" and \"ContinuousDistribution\" interfaces. Cleaned up Javadoc.",
+  "code_before": "public BinomialDistributionImpl(int trials, double p) {\n        super();\n        setNumberOfTrialsInternal(trials);\n        setProbabilityOfSuccessInternal(p);\n    }",
+  "code_after": "public BinomialDistributionImpl(int trials, double p) {\n        if (trials < 0) {\n            throw new NotPositiveException(LocalizedFormats.NUMBER_OF_TRIALS,\n                                           trials);\n        }\n        if (p < 0 || p > 1) {\n            throw new OutOfRangeException(p, 0, 1);\n        }\n\n        probabilityOfSuccess = p;\n        numberOfTrials = trials;\n    }",
+  "javadoc_before": "/**\n     * Create a binomial distribution with the given number of trials and\n     * probability of success.\n     *\n     * @param trials the number of trials.\n     * @param p the probability of success.\n     */",
+  "javadoc_after": "/**\n     * Create a binomial distribution with the given number of trials and\n     * probability of success.\n     *\n     * @param trials Number of trials.\n     * @param p Probability of success.\n     * @throws NotPositiveException if {@code trials < 0}.\n     * @throws OutOfRangeException if {@code p < 0} or {@code p > 1}.\n     */"
+}

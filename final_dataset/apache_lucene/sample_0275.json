@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c0a446b179e8091f84e795ab04c6c3fcc9396ebe",
+  "issue_summary": "LRUStatsCache size explosion and ineffective caching.",
+  "code_before": "public abstract StatsSource get(SolrQueryRequest req);",
+  "code_after": "public StatsSource get(SolrQueryRequest req) {\n    statsCacheMetrics.lookups.increment();\n    return doGet(req);\n  }",
+  "javadoc_before": "/**\n   * Prepare local {@link StatsSource} to provide stats information to perform\n   * local scoring (to be precise, to build a local {@link Weight} from the\n   * query).\n   *\n   * @param req query request\n   * @return an instance of {@link StatsSource} to use in creating a query\n   * {@link Weight}\n   */",
+  "javadoc_after": "/**\n   * Prepare a {@link StatsSource} that provides stats information to perform\n   * local scoring (to be precise, to build a local {@link Weight} from the\n   * query).\n   * <p>This method updates the cache metrics and calls {@link #doGet(SolrQueryRequest)}.</p>\n   *\n   * @param req query request\n   * @return an instance of {@link StatsSource} to use in creating a query\n   * {@link Weight}\n   */"
+}

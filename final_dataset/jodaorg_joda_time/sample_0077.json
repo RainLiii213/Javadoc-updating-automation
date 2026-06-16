@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5f2aa4794e8094eb6b3018589c3a751f61bd2fa6",
+  "issue_summary": "Create BasePeriod",
+  "code_before": "public void add(ReadableInterval interval) {\n        super.add(interval);\n    }",
+  "code_after": "public void add(ReadableInterval interval) {\n        if (interval != null) {\n            add(interval.toPeriod(getPeriodType()));\n        }\n    }",
+  "javadoc_before": "/**\n     * Adds an interval to this one by converting it to a period using the same\n     * period type and then adding each field in turn.\n     * \n     * @param interval  the interval to add, null means add nothing\n     * @throws ArithmeticException if the addition exceeds the capacity of the period\n     */",
+  "javadoc_after": "/**\n     * Adds an interval to this one by dividing the interval into\n     * fields and calling {@link #add(ReadablePeriod)}.\n     * \n     * @param interval  the interval to add, null means add nothing\n     * @throws ArithmeticException if the addition exceeds the capacity of the period\n     */"
+}

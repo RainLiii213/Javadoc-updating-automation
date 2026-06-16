@@ -1,0 +1,8 @@
+{
+  "commit_hash": "35ea55ace5a029950fdec8b7e9932a028ef1f042",
+  "issue_summary": "Deprecate MergeSpecification#segString(Directory)",
+  "code_before": "public String segString(Directory dir) {\n      StringBuilder b = new StringBuilder();\n      b.append(\"MergeSpec:\\n\");\n      final int count = merges.size();\n      for (int i = 0; i < count; i++) {\n        b.append(\"  \").append(1 + i).append(\": \").append(merges.get(i).segString());\n      }\n      return b.toString();\n    }",
+  "code_after": "@Deprecated\n    public String segString(Directory dir) {\n      return toString();\n    }",
+  "javadoc_before": "/** Returns a description of the merges in this specification. */",
+  "javadoc_after": "/**\n     * Returns a description of the merges in this specification\n     *\n     * @deprecated Use {@link #toString()} instead. The {@code Directory} parameter is ignored and\n     *     will be removed in a future release.\n     */"
+}

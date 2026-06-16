@@ -1,0 +1,8 @@
+{
+  "commit_hash": "12fb9eda87508affa3a601e1ad955951798c25f1",
+  "issue_summary": "Commit from the right directory this time",
+  "code_before": "public class BoostingTermBuilder extends SpanBuilderBase {\n\n  @Override\n  public SpanQuery getSpanQuery(Element e) throws ParserException {\n    String fieldName = DOMUtils.getAttributeWithInheritanceOrFail(e, \"fieldName\");\n    String value = DOMUtils.getNonBlankTextOrFail(e);\n\n    PayloadTermQuery btq = new PayloadTermQuery(new Term(fieldName, value), new AveragePayloadFunction());\n    btq.setBoost(DOMUtils.getAttribute(e, \"boost\", 1.0f));\n    return btq;\n  }\n\n}",
+  "code_after": "public class BoostingTermBuilder extends SpanBuilderBase {\n\n  @Override\n  public SpanQuery getSpanQuery(Element e) throws ParserException {\n    String fieldName = DOMUtils.getAttributeWithInheritanceOrFail(e, \"fieldName\");\n    String value = DOMUtils.getNonBlankTextOrFail(e);\n\n    PayloadScoreQuery btq = new PayloadScoreQuery(new SpanTermQuery(new Term(fieldName, value)),\n        new AveragePayloadFunction());\n    btq.setBoost(DOMUtils.getAttribute(e, \"boost\", 1.0f));\n    return btq;\n  }\n\n}",
+  "javadoc_before": "/**\n * Builder for {@link PayloadTermQuery}\n */",
+  "javadoc_after": "/**\n * Builder for {@link PayloadScoreQuery}\n */"
+}

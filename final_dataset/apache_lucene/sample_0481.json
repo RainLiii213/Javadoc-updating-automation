@@ -1,0 +1,8 @@
+{
+  "commit_hash": "df9efb8b6da5195d6c8454cb7fd9b91147cb93fd",
+  "issue_summary": "deprecate Directory.renameFile, which both renamed and fsync'd the directory, replacing it with separate rename and syncMetaData methods",
+  "code_before": "public abstract void renameFile(String source, String dest) throws IOException;",
+  "code_after": "@Deprecated\n  public final void renameFile(String source, String dest) throws IOException {\n    rename(source, dest);\n    syncMetaData();\n  }",
+  "javadoc_before": "/**\n   * Renames {@code source} to {@code dest} as an atomic operation,\n   * where {@code dest} does not yet exist in the directory.\n   * <p>\n   * Notes: This method is used by IndexWriter to publish commits.\n   * It is ok if this operation is not truly atomic, for example\n   * both {@code source} and {@code dest} can be visible temporarily.\n   * It is just important that the contents of {@code dest} appear\n   * atomically, or an exception is thrown.\n   */",
+  "javadoc_after": "/**\n   * Renames {@code source} to {@code dest} as an atomic operation,\n   * where {@code dest} does not yet exist in the directory.\n   * <p>\n   * Notes: This method is used by IndexWriter to publish commits.\n   * It is ok if this operation is not truly atomic, for example\n   * both {@code source} and {@code dest} can be visible temporarily.\n   * It is just important that the contents of {@code dest} appear\n   * atomically, or an exception is thrown.\n   *\n   * @deprecated Use {@link #rename} and {@link #syncMetaData} instead.\n   */"
+}

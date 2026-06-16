@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cee767aab23b93768812f1027664ff3d83edd7e8",
+  "issue_summary": "Refine API and increase test coverage",
+  "code_before": "public DateTimeZone getZone() {\n        Chronology chrono = getChronology();\n        return (chrono != null ? chrono.getZone() : null);\n    }",
+  "code_after": "public DateTimeZone getZone() {\n        return getChronology().getZone();\n    }",
+  "javadoc_before": "/**\n     * Gets the time zone of the datetime from the chronology, or null if there\n     * isn't any chronology.\n     * \n     * @return the DateTimeZone that the datetime is using\n     */",
+  "javadoc_after": "/**\n     * Gets the time zone of the instant from the chronology.\n     * \n     * @return the DateTimeZone that the instant is using, never null\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5011f8cabdadf7a125e1a9f6dcf05edd2a667cab",
+  "issue_summary": "Fix findbugs warning wrt exposure of internal state.",
+  "code_before": "public Predicate<? super I>[] getPredicates() {\n        return iPredicates;\n    }",
+  "code_after": "public Predicate<? super I>[] getPredicates() {\n        return FunctorUtils.<I>copy(iPredicates);\n    }",
+  "javadoc_before": "/**\n     * Gets the predicates, do not modify the array.\n     * \n     * @return the predicates\n     * @since 3.1\n     */",
+  "javadoc_after": "/**\n     * Gets the predicates.\n     * \n     * @return a copy of the predicates\n     * @since 3.1\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1213c8a2dd83c3cb6931334626955ae853924e25",
+  "issue_summary": "Added random data test for eigen decomposition, improved error handling.",
+  "code_before": "public DecompositionSolver getSolver() {\n        return new Solver(realEigenvalues, imagEigenvalues, eigenvectors);\n    }",
+  "code_after": "public DecompositionSolver getSolver() {\n        for (int i = 0; i < imagEigenvalues.length; i++) {\n            if (imagEigenvalues[i] != 0.0) {\n                throw new MathUnsupportedOperationException();\n            }\n        }\n        return new Solver(realEigenvalues, imagEigenvalues, eigenvectors);\n    }",
+  "javadoc_before": "/**\n     * Gets a solver for finding the A &times; X = B solution in exact\n     * linear sense.\n     *\n     * @return a solver.\n     */",
+  "javadoc_after": "/**\n     * Gets a solver for finding the A &times; X = B solution in exact\n     * linear sense.\n     * <p>\n     * Since 3.1, eigen decomposition of a general matrix is supported,\n     * but the {@link DecompositionSolver} only supports real eigenvalues.\n     *\n     * @return a solver\n     * @throws MathUnsupportedOperationException if the decomposition resulted in\n     * complex eigenvalues\n     */"
+}

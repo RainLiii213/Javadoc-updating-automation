@@ -1,0 +1,8 @@
+{
+  "commit_hash": "49747dc1d34a48e966ceb424f40f0b7994d1cea7",
+  "issue_summary": "Fixed additional equations mapping.",
+  "code_before": "public T[] getSecondaryDerivative(final int index) {\n        return secondaryDerivative[index].clone();\n    }",
+  "code_after": "public T[] getSecondaryDerivative(final int index) {\n        return index == 0 ? derivative.clone() : secondaryDerivative[index - 1].clone();\n    }",
+  "javadoc_before": "/** Get derivative of the secondary state at time.\n     * @param index index of the secondary set as returned\n     * by {@link FieldExpandableODE#addSecondaryEquations(FieldSecondaryEquations)}\n     * @return derivative of the secondary state at time\n     */",
+  "javadoc_after": "/** Get derivative of the secondary state at time.\n     * @param index index of the secondary set as returned\n     * by {@link FieldExpandableODE#addSecondaryEquations(FieldSecondaryEquations)}\n     * (beware index 0 corresponds to main state, additional states start at 1)\n     * @return derivative of the secondary state at time\n     */"
+}

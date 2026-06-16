@@ -1,0 +1,8 @@
+{
+  "commit_hash": "da62c732822f891102820f6b3efb054012f18b1c",
+  "issue_summary": "Change GeoPoint serialization to make serialization/unserialization non-lossy",
+  "code_before": "public GeoPoint(final PlanetModel planetModel, final InputStream inputStream) throws IOException {\n    // Note: this relies on left-right parameter execution order!!  Much code depends on that though and\n    // it is apparently in a java spec: https://stackoverflow.com/questions/2201688/order-of-execution-of-parameters-guarantees-in-java\n    this(planetModel, SerializableObject.readDouble(inputStream), SerializableObject.readDouble(inputStream));\n  }",
+  "code_after": "public GeoPoint(final PlanetModel planetModel, final InputStream inputStream) throws IOException {\n    this(inputStream);\n  }",
+  "javadoc_before": "/** Construct a GeoPoint from a planet model and an input stream.\n   */",
+  "javadoc_after": "/** Construct a GeoPoint from an input stream.\n   * @param planetModel is the planet model\n   * @param inputStream is the input stream\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "750da7c5f7af74f2d9db36265639d7ae9dc9e4eb",
+  "issue_summary": "SpanNotQuery should support negative pre/post distance for overlap",
+  "code_before": "public SpanNotQuery(SpanQuery include, SpanQuery exclude, int pre, int post) {\n    this.include = Objects.requireNonNull(include);\n    this.exclude = Objects.requireNonNull(exclude);\n    this.pre = (pre >=0) ? pre : 0;\n    this.post = (post >= 0) ? post : 0;\n\n    if (include.getField() != null && exclude.getField() != null && !include.getField().equals(exclude.getField()))\n      throw new IllegalArgumentException(\"Clauses must have same field.\");\n  }",
+  "code_after": "public SpanNotQuery(SpanQuery include, SpanQuery exclude, int pre, int post) {\n    this.include = Objects.requireNonNull(include);\n    this.exclude = Objects.requireNonNull(exclude);\n    this.pre = pre;\n    this.post = post;\n\n    if (include.getField() != null && exclude.getField() != null && !include.getField().equals(exclude.getField()))\n      throw new IllegalArgumentException(\"Clauses must have same field.\");\n  }",
+  "javadoc_before": "/** Construct a SpanNotQuery matching spans from <code>include</code> which\n   * have no overlap with spans from <code>exclude</code> within\n   * <code>pre</code> tokens before or <code>post</code> tokens of <code>include</code>. */",
+  "javadoc_after": "/** Construct a SpanNotQuery matching spans from <code>include</code> which\n   * have no overlap with spans from <code>exclude</code> within\n   * <code>pre</code> tokens before or <code>post</code> tokens of\n   * <code>include</code>. Inversely, negative values for <code>pre</code> and/or\n   * <code>post</code> allow a certain amount of overlap to occur. */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c5f349b12a6800dc1664317024269596e8b0305f",
+  "issue_summary": "Changed integration API for consistency with solvers API. Now the main convergence parameters are set in the constructor and remain fixed, but a maximal number of function evaluation must be provided at each call to the integration method.",
+  "code_before": "public SimpsonIntegrator() {\n        super(64);\n    }",
+  "code_after": "public SimpsonIntegrator() {\n        super(DEFAULT_MIN_ITERATIONS_COUNT, SIMPSON_MAX_ITERATIONS_COUNT);\n    }",
+  "javadoc_before": "/**\n     * Construct an integrator.\n     */",
+  "javadoc_after": "/**\n     * Construct an integrator with default settings.\n     * (max iteration count set to {@link #SIMPSON_MAX_ITERATIONS_COUNT})\n     */"
+}

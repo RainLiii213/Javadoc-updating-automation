@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9745076bfb78c1335b94b0c2b877d6425ab2a733",
+  "issue_summary": "add CacheBuilder.refreshInterval Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=25139834",
+  "code_before": "void refresh(K key) throws ExecutionException;",
+  "code_after": "void refresh(K key);",
+  "javadoc_before": "/**\n   * Loads a new value for key {@code key}. While the new value is loading the previous value (if\n   * any) will continue to be returned by {@code get(key)} unless it is evicted. If the new\n   * value is loaded succesfully it will replace the previous value in the cache; if an exception is\n   * thrown while refreshing the previous value will remain.\n   *\n   * @throws ExecutionException if a checked exception was thrown while refreshing the entry\n   * @throws UncheckedExecutionException if an unchecked exception was thrown while refreshing the\n   *     entry\n   * @throws ExecutionError if an error was thrown while refreshing the entry\n   * @since 11.0\n   */",
+  "javadoc_after": "/**\n   * Loads a new value for key {@code key}, possibly asynchronously. While the new value is loading\n   * the previous value (if any) will continue to be returned by {@code get(key)} unless it is\n   * evicted. If the new value is loaded succesfully it will replace the previous value in the\n   * cache; if an exception is thrown while refreshing the previous value will remain, <i>and the\n   * exception will be logged and swallowed</i>.\n   *\n   * @since 11.0\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3160b5c5cc631b731a2b31af0239586c913033fd",
+  "issue_summary": "In o.a.c.m3.SymmLQ.State, created accessors RealVector getRightHandSideVector() RealVector getSolution() double getNormOfResidual() see .",
+  "code_before": "@Override\n        public RealVector getSolution() {\n            final int n = state.x.getDimension();\n            final RealVector x = new ArrayRealVector(n);\n            state.refine(x);\n            return x;\n        }",
+  "code_after": "RealVector getSolution() {\n            return xL;\n        }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/**\n         * Returns the current estimate of the solution (LQ point).\n         *\n         * @return the solution, xL\n         */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3b9c728ab558255eb8329a017b9d235611d7b142",
+  "issue_summary": "MR-JAR rewrite of MMapDirectory with preview Panama APIs (>= -ea+23)",
+  "code_before": "public MMapDirectory(Path path, int maxChunkSize) throws IOException {\n    this(path, FSLockFactory.getDefault(), maxChunkSize);\n  }",
+  "code_after": "@Deprecated\n  public MMapDirectory(Path path, int maxChunkSize) throws IOException {\n    this(path, (long) maxChunkSize);\n  }",
+  "javadoc_before": "/**\n   * Create a new MMapDirectory for the named location and {@link FSLockFactory#getDefault()}. The\n   * directory is created at the named location if it does not yet exist.\n   *\n   * @param path the path of the directory\n   * @param maxChunkSize maximum chunk size (default is 1 GiBytes for 64 bit JVMs and 256 MiBytes\n   *     for 32 bit JVMs) used for memory mapping.\n   * @throws IOException if there is a low-level I/O error\n   */",
+  "javadoc_after": "/**\n   * Create a new MMapDirectory for the named location and {@link FSLockFactory#getDefault()}. The\n   * directory is created at the named location if it does not yet exist.\n   *\n   * @deprecated use {@link #MMapDirectory(Path, long)} instead.\n   */"
+}

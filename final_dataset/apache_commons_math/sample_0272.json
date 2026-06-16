@@ -1,0 +1,8 @@
+{
+  "commit_hash": "afce27e29d42c5caa46a2c7496fedac647405ae9",
+  "issue_summary": "add support for non-symmetric matrices in EigenvalueDecomposition.",
+  "code_before": "public EigenDecomposition(final RealMatrix matrix,\n                                  final double splitTolerance)  {\n        if (isSymmetric(matrix, true)) {\n            transformToTridiagonal(matrix);\n            findEigenVectors(transformer.getQ().getData());\n        }\n    }",
+  "code_after": "public EigenDecomposition(final RealMatrix matrix,\n                              final double splitTolerance)  {\n        if (isSymmetric(matrix, false)) {\n            transformToTridiagonal(matrix);\n            findEigenVectors(transformer.getQ().getData());\n        } else {\n            final SchurTransformer t = transformToSchur(matrix);\n            findEigenVectorsFromSchur(t);\n        }\n    }",
+  "javadoc_before": "/**\n     * Calculates the eigen decomposition of the given symmetric matrix.\n     *\n     * @param matrix Matrix to decompose. It <em>must</em> be symmetric.\n     * @param splitTolerance Dummy parameter (present for backward\n     * compatibility only).\n     * @throws NonSymmetricMatrixException if the matrix is not symmetric.\n     * @throws MaxCountExceededException if the algorithm fails to converge.\n     */",
+  "javadoc_after": "/**\n     * Calculates the eigen decomposition of the given real matrix.\n     *\n     * @param matrix Matrix to decompose.\n     * @param splitTolerance Dummy parameter (present for backward\n     * compatibility only).\n     * @throws MaxCountExceededException if the algorithm fails to converge.\n     */"
+}

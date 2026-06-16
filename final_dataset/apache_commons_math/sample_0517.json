@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7584e481bffc5a5ffb8673b0cb869b56c73d3b87",
+  "issue_summary": "* Modified multiple regression newSample methods to ensure that by default in all cases regression models are estimated with intercept terms. Prior to the fix for this issue newXSampleData(double[][]), newSampleData(double[], double[][]) and newSampleData(double[], double[][], double[][]) all required columns of \"1's\" to be inserted into the x[][] arrays to create a model with an intercept term while newSampleData(double[], int, int) created a model including an intercept term without requiring the unitary column. All methods have been changed to eliminate the need for users to add unitary columns to specify regression models. * Improved javadoc * Improved tests JIRA",
+  "code_before": "protected void newYSampleData(double[] y) {\n        this.Y = new ArrayRealVector(y);\n    }",
+  "code_after": "protected void newYSampleData(double[] y) {\n        if (y == null) {\n            throw MathRuntimeException.createIllegalArgumentException(\n                    LocalizedFormats.NULL_NOT_ALLOWED);\n        }\n        if (y.length == 0) {\n            throw MathRuntimeException.createIllegalArgumentException(\n                    LocalizedFormats.NO_DATA);\n        }\n        this.Y = new ArrayRealVector(y);\n    }",
+  "javadoc_before": "/**\n     * Loads new y sample data, overriding any previous sample\n     *\n     * @param y the [n,1] array representing the y sample\n     */",
+  "javadoc_after": "/**\n     * Loads new y sample data, overriding any previous data.\n     *\n     * @param y the array representing the y sample\n     * @throws IllegalArgumentException if y is null or empty\n     */"
+}

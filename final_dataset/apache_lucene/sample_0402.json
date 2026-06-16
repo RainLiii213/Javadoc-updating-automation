@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e46d39bd5a571522bb2b9ffe97e7e0bca5d9836c",
+  "issue_summary": "Make builder based SolrClient constructors to be the only valid way to construct client objects and increase the visibility of builder elements to be protected so extending the builder, and the clients is possible.",
+  "code_before": "protected LBHttpSolrClient(HttpSolrClient.Builder httpSolrClientBuilder,\n                          HttpClient httpClient, String... solrServerUrl) {\n    clientIsInternal = httpClient == null;\n    this.httpSolrClientBuilder = httpSolrClientBuilder;\n    httpClient = constructClient(null);\n    this.httpClient = httpClient;\n    if (solrServerUrl != null) {\n      for (String s : solrServerUrl) {\n        ServerWrapper wrapper = new ServerWrapper(makeSolrClient(s));\n        aliveServers.put(wrapper.getKey(), wrapper);\n      }\n    }\n    updateAliveList();\n  }",
+  "code_after": "@Deprecated\n  protected LBHttpSolrClient(HttpSolrClient.Builder httpSolrClientBuilder,\n                          HttpClient httpClient, String... solrServerUrl) {\n    this(new Builder()\n        .withHttpSolrClientBuilder(httpSolrClientBuilder)\n        .withHttpClient(httpClient)\n        .withBaseSolrUrls(solrServerUrl));\n  }",
+  "javadoc_before": "/**\n   * The provided httpClient should use a multi-threaded connection manager\n   */",
+  "javadoc_after": "/**\n   * The provided httpClient should use a multi-threaded connection manager\n   *\n   * @deprecated use {@link LBHttpSolrClient#LBHttpSolrClient(Builder)} instead, as it is a more extension/subclassing-friendly alternative\n   */"
+}

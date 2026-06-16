@@ -1,0 +1,8 @@
+{
+  "commit_hash": "525a11091ca9b9076f8c1b3db41b52947090506a",
+  "issue_summary": "Revert \"Allow reusing indexed binary fields. \"",
+  "code_before": "public void setTokenStream(TokenStream tokenStream) {\n    if (!(fieldsData instanceof TokenStream)) {\n      throw new IllegalArgumentException(\n          \"cannot change value type from \"\n              + fieldsData.getClass().getSimpleName()\n              + \" to TokenStream\");\n    }\n    this.fieldsData = tokenStream;\n  }",
+  "code_after": "public void setTokenStream(TokenStream tokenStream) {\n    if (type.indexOptions() == IndexOptions.NONE || !type.tokenized()) {\n      throw new IllegalArgumentException(\"TokenStream fields must be indexed and tokenized\");\n    }\n    this.tokenStream = tokenStream;\n  }",
+  "javadoc_before": "/** Expert: sets the token stream to be used for indexing. */",
+  "javadoc_after": "/**\n   * Expert: sets the token stream to be used for indexing and causes isIndexed() and isTokenized()\n   * to return true. May be combined with stored values from stringValue() or binaryValue()\n   */"
+}

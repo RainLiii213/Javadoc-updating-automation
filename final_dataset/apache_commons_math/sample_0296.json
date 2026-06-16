@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4ea3c7ede679175e61b2a4fa16f80a0f226f271c",
+  "issue_summary": "Exception handling in WilcoxonSignedRankTest made consistent with CM. JIRA",
+  "code_before": "private double[] calculateAbsoluteDifferences(final double[] z)\n            throws IllegalArgumentException {\n        if (z == null) {\n            throw new IllegalArgumentException(\"z must not be null\");\n        }\n\n        if (z.length == 0) {\n            throw new IllegalArgumentException(\n                    \"z must contain at least one element\");\n        }\n\n        final double[] zAbs = new double[z.length];\n\n        for (int i = 0; i < z.length; ++i) {\n            zAbs[i] = FastMath.abs(z[i]);\n        }\n\n        return zAbs;\n    }",
+  "code_after": "private double[] calculateAbsoluteDifferences(final double[] z)\n        throws NullArgumentException, NoDataException {\n\n        if (z == null) {\n            throw new NullArgumentException();\n        }\n\n        if (z.length == 0) {\n            throw new NoDataException();\n        }\n\n        final double[] zAbs = new double[z.length];\n\n        for (int i = 0; i < z.length; ++i) {\n            zAbs[i] = FastMath.abs(z[i]);\n        }\n\n        return zAbs;\n    }",
+  "javadoc_before": "/**\n     * Calculates |z[i]| for all i\n     *\n     * @param z sample\n     * @return |z|\n     * @throws IllegalArgumentException\n     *             if assumptions are not met\n     */",
+  "javadoc_after": "/**\n     * Calculates |z[i]| for all i\n     *\n     * @param z sample\n     * @return |z|\n     * @throws NullArgumentException if {@code z} is {@code null}\n     * @throws NoDataException if {@code z} is zero-length.\n     */"
+}

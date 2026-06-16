@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9fc4624853d170b5982a0d0c9d9e76a477a2b713",
+  "issue_summary": "Speed up flush of points.",
+  "code_before": "private int[] buildHistogram(int from, int to, int k, int[] histogram) {\n    for (int i = from; i < to; ++i) {\n      histogram[getBucket(i, k)]++;\n    }\n    return histogram;\n  }",
+  "code_after": "private void buildHistogram(int from, int to, int k, int[] histogram) {\n    for (int i = from; i < to; ++i) {\n      histogram[getBucket(i, k)]++;\n    }\n  }",
+  "javadoc_before": "/** Build a histogram of the number of values per {@link #getBucket(int, int) bucket}. */",
+  "javadoc_after": "/** Build an histogram of the k-th characters of values occurring between\n   *  offsets {@code from} and {@code to}, using {@link #getBucket}. */"
+}

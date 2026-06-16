@@ -1,0 +1,8 @@
+{
+  "commit_hash": "24e79cfd1b603f32ea78a132762ee03b77ed934f",
+  "issue_summary": "Split Duration and TimePeriod converters and Javadoc",
+  "code_before": "public long getDurationMillis(Object object) {\n        throw new UnsupportedOperationException();\n    }",
+  "code_after": "public long getDurationMillis(Object object) {\n        String str = (String) object;\n        MutableTimePeriod period = new MutableTimePeriod(DurationType.getPreciseAllType());\n        TimePeriodParser parser = ISOTimePeriodFormat.getInstance().standard();\n        int pos = parser.parseInto(period, str, 0);\n        if (pos < str.length()) {\n            if (pos < 0) {\n                // Parse again to get a better exception thrown.\n                parser.parseMutableTimePeriod(period.getDurationType(), str);\n            }\n            throw new IllegalArgumentException(\"Invalid format: \\\"\" + str + '\"');\n        }\n        return period.toDurationMillis();\n    }",
+  "javadoc_before": "/**\n     * @throws UnsupportedOperationException always\n     */",
+  "javadoc_after": "/**\n     * Gets the duration of the string using the PreciseAll type.\n     * This matches the toString() method of ReadableDuration.\n     * \n     * @param object  the object to convert, must not be null\n     * @throws ClassCastException if the object is invalid\n     */"
+}

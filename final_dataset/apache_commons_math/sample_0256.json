@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4fd62ba05b1e81e15ffaddc86fd97d6b100afa97",
+  "issue_summary": "the regular function objects (Acos, Sqrt, ...) now implement the new UnivariateDifferentiable interface.",
+  "code_before": "public UnivariateFunction derivative() {\n        return new UnivariateFunction() {\n            /** {@inheritDoc} */\n            public double value(double x) {\n                return -1 / FastMath.sqrt(1 - x * x);\n            }\n        };\n    }",
+  "code_after": "@Deprecated\n    public UnivariateFunction derivative() {\n        return FunctionUtils.toDifferentiableUnivariateFunction(this).derivative();\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/** {@inheritDoc}\n     * @deprecated as of 3.1, replaced by {@link #value(DerivativeStructure)}\n     */"
+}

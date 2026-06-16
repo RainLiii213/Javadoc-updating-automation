@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1744e2803f1600761afb2ea8a91a7fd12f7fbc94",
+  "issue_summary": "Factored Kth selector and pivoting strategy out from Percentile.",
+  "code_before": "public PivotingStrategy getPivotingStrategy() {\n        return pivotingStrategy;\n    }",
+  "code_after": "public PivotingStrategyInterface getPivotingStrategy() {\n        return kthSelector.getPivotingStrategy();\n    }",
+  "javadoc_before": "/**\n     * Get the {@link PivotingStrategy pivoting strategy} used for computation.\n     * @return the {@link PivotingStrategy pivoting strategy} set\n     */",
+  "javadoc_after": "/**\n     * Get the {@link PivotingStrategyInterface} used in KthSelector for computation.\n     * @return the pivoting strategy set\n     */"
+}

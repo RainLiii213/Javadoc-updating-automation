@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d669ddebc53845e921bc3703f16aa2c1daef0124",
+  "issue_summary": "Support multi-value fields in range facet counting",
+  "code_before": "public DoubleRangeFacetCounts(String field, FacetsCollector hits, DoubleRange... ranges)\n      throws IOException {\n    this(field, DoubleValuesSource.fromDoubleField(field), hits, ranges);\n  }",
+  "code_after": "public DoubleRangeFacetCounts(String field, FacetsCollector hits, DoubleRange... ranges)\n      throws IOException {\n    this(field, null, hits, ranges);\n  }",
+  "javadoc_before": "/**\n   * Create {@code RangeFacetCounts}, using {@link DoubleValues} from the specified field.\n   *\n   * <p>N.B This assumes that the field was indexed with {@link\n   * org.apache.lucene.document.DoubleDocValuesField}. For float-valued fields, use {@link\n   * #DoubleRangeFacetCounts(String, DoubleValuesSource, FacetsCollector, DoubleRange...)}\n   */",
+  "javadoc_after": "/**\n   * Create {@code RangeFacetCounts}, using double value from the specified field. The field may be\n   * single-valued ({@link NumericDocValues}) or multi-valued ({@link SortedNumericDocValues}), and\n   * will be interpreted as containing double values.\n   *\n   * <p>N.B This assumes that the field was indexed with {@link\n   * org.apache.lucene.document.DoubleDocValuesField}. For float-valued fields, use {@link\n   * #DoubleRangeFacetCounts(String, DoubleValuesSource, FacetsCollector, DoubleRange...)}\n   *\n   * <p>TODO: Extend multi-valued support to fields that have been indexed as float values\n   */"
+}

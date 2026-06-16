@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c0bb4b8b357fe060d3868a244a24b3e15ed1d90c",
+  "issue_summary": "Spatial module no longer uses Filter.",
+  "code_before": "public Query makeQuery(SpatialArgs args) {\n    return new ConstantScoreQuery(makeFilter(args));\n  }",
+  "code_after": "public abstract Query makeQuery(SpatialArgs args);",
+  "javadoc_before": "/**\n   * Make a Query based principally on {@link org.apache.lucene.spatial.query.SpatialOperation}\n   * and {@link Shape} from the supplied {@code args}.\n   * The default implementation is\n   * <pre>return new ConstantScoreQuery(makeFilter(args));</pre>\n   *\n   * @throws UnsupportedOperationException If the strategy does not support the shape in {@code args}\n   * @throws org.apache.lucene.spatial.query.UnsupportedSpatialOperation If the strategy does not support the {@link\n   * org.apache.lucene.spatial.query.SpatialOperation} in {@code args}.\n   */",
+  "javadoc_after": "/**\n   * Make a Query based principally on {@link org.apache.lucene.spatial.query.SpatialOperation}\n   * and {@link Shape} from the supplied {@code args}.  It should be constant scoring of 1.\n   *\n   * @throws UnsupportedOperationException If the strategy does not support the shape in {@code args}\n   * @throws org.apache.lucene.spatial.query.UnsupportedSpatialOperation If the strategy does not support the {@link\n   * org.apache.lucene.spatial.query.SpatialOperation} in {@code args}.\n   */"
+}

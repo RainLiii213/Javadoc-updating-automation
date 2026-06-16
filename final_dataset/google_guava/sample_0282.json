@@ -1,0 +1,8 @@
+{
+  "commit_hash": "970ad12d61e18d5171f3a5e8e3d07c83f587d2ed",
+  "issue_summary": "Last little fixes for release 05, will write up release notes on Monday.",
+  "code_before": "public static ThreadFactory daemonThreadFactory() {\n    return daemonThreadFactory(Executors.defaultThreadFactory());\n  }",
+  "code_after": "@Deprecated\n  public static ThreadFactory daemonThreadFactory() {\n    return new ThreadFactoryBuilder()\n        .setThreadFactory(Executors.defaultThreadFactory())\n        .setDaemon(true)\n        .build();\n  }",
+  "javadoc_before": "/**\n   * Returns a {@link ThreadFactory} which creates daemon threads. This is\n   * implemented by wrapping {@link\n   * java.util.concurrent.Executors#defaultThreadFactory()}, marking all new\n   * threads as daemon threads.\n   *\n   * @return a {@link ThreadFactory} which creates daemon threads\n   */",
+  "javadoc_after": "/**\n   * Returns a {@link ThreadFactory} which creates daemon threads. This is\n   * implemented by wrapping {@link Executors#defaultThreadFactory()}, marking\n   * all new threads as daemon threads.\n   *\n   * @return a {@link ThreadFactory} which creates daemon threads\n   * @deprecated Create a {@link ThreadFactoryBuilder} and then use its\n   *     {@link ThreadFactoryBuilder#setDaemon} method.\n   */"
+}

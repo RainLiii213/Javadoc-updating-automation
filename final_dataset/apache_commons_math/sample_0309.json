@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c9369dc298af3ab89ef7252694d7910cd8fb2d6e",
+  "issue_summary": "Changed deprecated MathRuntimeException in package stat.correlation JIRA",
+  "code_before": "private void checkSufficientData(final RealMatrix matrix) {\n        int nRows = matrix.getRowDimension();\n        int nCols = matrix.getColumnDimension();\n        if (nRows < 2 || nCols < 2) {\n            throw MathRuntimeException.createIllegalArgumentException(\n                    LocalizedFormats.INSUFFICIENT_ROWS_AND_COLUMNS,\n                    nRows, nCols);\n        }\n    }",
+  "code_after": "private void checkSufficientData(final RealMatrix matrix) {\n        int nRows = matrix.getRowDimension();\n        int nCols = matrix.getColumnDimension();\n        if (nRows < 2 || nCols < 2) {\n            throw new MathIllegalArgumentException(LocalizedFormats.INSUFFICIENT_ROWS_AND_COLUMNS,\n                                                   nRows, nCols);\n        }\n    }",
+  "javadoc_before": "/**\n     * Throws IllegalArgumentException of the matrix does not have at least\n     * two columns and two rows\n     *\n     * @param matrix matrix to check for sufficiency\n     */",
+  "javadoc_after": "/**\n     * Throws IllegalArgumentException of the matrix does not have at least\n     * two columns and two rows\n     *\n     * @param matrix matrix to check for sufficiency\n     * @throws MathIllegalArgumentException if there is insufficient data\n     */"
+}

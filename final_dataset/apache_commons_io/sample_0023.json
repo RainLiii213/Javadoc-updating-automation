@@ -1,0 +1,8 @@
+{
+  "commit_hash": "025850a680eab989dcfc0536cfdecc00c57d566e",
+  "issue_summary": "Add BrokenOutputStream.BrokenOutputStream(Function<String>, Throwable>)",
+  "code_before": "public BrokenOutputStream(final Supplier<Throwable> exceptionSupplier) {\n        this.exceptionSupplier = exceptionSupplier;\n    }",
+  "code_after": "@Deprecated\n    public BrokenOutputStream(final Supplier<Throwable> exceptionSupplier) {\n        this.exceptionFunction = m -> exceptionSupplier.get();\n    }",
+  "javadoc_before": "/**\n     * Constructs a new stream that always throws the supplied exception.\n     *\n     * @param exceptionSupplier a supplier for the IOException or RuntimeException to be thrown.\n     * @since 2.12.0\n     */",
+  "javadoc_after": "/**\n     * Constructs a new stream that always throws the supplied exception.\n     *\n     * @param exceptionSupplier a supplier for the IOException or RuntimeException to be thrown.\n     * @since 2.12.0\n     * @deprecated Use {@link #BrokenOutputStream(Function)}.\n     */"
+}

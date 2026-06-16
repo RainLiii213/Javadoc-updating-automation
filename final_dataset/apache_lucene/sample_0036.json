@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1b5c25f3d48ca8a581d7a388b08cb66101eaabf0",
+  "issue_summary": "Rewrite expressions module with Java 24 classfile API",
+  "code_before": "private ParseTree getAntlrParseTree() throws ParseException {\n    final ANTLRInputStream antlrInputStream = new ANTLRInputStream(sourceText);\n    final JavascriptErrorHandlingLexer javascriptLexer =\n        new JavascriptErrorHandlingLexer(antlrInputStream);\n    javascriptLexer.removeErrorListeners();\n    final JavascriptParser javascriptParser =\n        new JavascriptParser(new CommonTokenStream(javascriptLexer));\n    javascriptParser.removeErrorListeners();\n    if (picky) {\n      setupPicky(javascriptParser);\n    }\n    javascriptParser.setErrorHandler(new JavascriptParserErrorStrategy());\n    return javascriptParser.compile();\n  }",
+  "code_after": "private ParseTree getAntlrParseTree() {\n    final JavascriptErrorHandlingLexer javascriptLexer =\n        new JavascriptErrorHandlingLexer(CharStreams.fromString(sourceText));\n    javascriptLexer.removeErrorListeners();\n    final JavascriptParser javascriptParser =\n        new JavascriptParser(new CommonTokenStream(javascriptLexer));\n    javascriptParser.removeErrorListeners();\n    if (picky) {\n      setupPicky(javascriptParser);\n    }\n    javascriptParser.setErrorHandler(new JavascriptParserErrorStrategy());\n    return javascriptParser.compile();\n  }",
+  "javadoc_before": "/**\n   * Parses the sourceText into an ANTLR 4 parse tree\n   *\n   * @return The ANTLR parse tree\n   * @throws ParseException on failure to parse\n   */",
+  "javadoc_after": "/**\n   * Parses the sourceText into an ANTLR 4 parse tree\n   *\n   * @return The ANTLR parse tree\n   */"
+}

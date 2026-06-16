@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e6f12f31d084b973f0bb5c16a4804238975043a9",
+  "issue_summary": "Add BinarySortField: index sorting on BinaryDocValues",
+  "code_before": "ComparableProvider[] getComparableProviders(List<? extends LeafReader> readers)\n      throws IOException;",
+  "code_after": "default ComparableProvider[] getComparableProviders(List<? extends LeafReader> readers)\n      throws IOException {\n    throw new UnsupportedOperationException(\n        getClass().getName() + \" does not implement getComparableProviders\");\n  }",
+  "javadoc_before": "/**\n   * Get an array of {@link ComparableProvider}, one per segment, for merge sorting documents in\n   * different segments\n   *\n   * @param readers the readers to be merged\n   */",
+  "javadoc_after": "/**\n   * Get an array of {@link ComparableProvider}, one per segment, for merge sorting documents in\n   * different segments.\n   *\n   * <p>Implementations whose sort value is a {@code long} should implement this method; it is\n   * exposed to the merger through the default {@link #getComparableValues(List)}. Implementations\n   * that override {@link #getComparableValues(List)} directly need not implement this method.\n   *\n   * @param readers the readers to be merged\n   */"
+}

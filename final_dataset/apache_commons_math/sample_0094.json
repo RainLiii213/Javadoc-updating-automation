@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cb5e94419fd43756bd2abda1e9a25ebde7e8a6c9",
+  "issue_summary": "Improved checking of null vector elements.",
+  "code_before": "public void setEntry(int index, T value) throws OutOfRangeException {\n        checkIndex(index);\n        entries.put(index, value);\n    }",
+  "code_after": "public void setEntry(int index, T value) throws NullArgumentException, OutOfRangeException {\n        MathUtils.checkNotNull(value);\n        checkIndex(index);\n        entries.put(index, value);\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/** {@inheritDoc}\n     * @exception NullArgumentException if value is null\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e85e26e7bb433d38d7e383361f6f42c1a8d6aa50",
+  "issue_summary": "When possible use java.lang.Objects#equals; eliminated a couple of nulls",
+  "code_before": "static boolean compare(final Object a, final Object b) {\n        return a == null ? b == null : a.equals(b);\n    }",
+  "code_after": "static boolean compare(final Object a, final Object b) {\n        return Objects.equals(a, b);\n    }",
+  "javadoc_before": "/**\n     * Returns true if both values are either null or equal.\n     */",
+  "javadoc_after": "/**\n     * Delegates to {@link Objects#equals(Object, Object)}.\n     */"
+}

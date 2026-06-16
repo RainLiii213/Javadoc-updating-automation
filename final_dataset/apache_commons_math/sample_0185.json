@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8469bc496c0f6f629b0f6406e11bc8ad5a93b0b4",
+  "issue_summary": "document all exceptions in ArrayFieldVector.",
+  "code_before": "public FieldVector<T> mapAddToSelf(T d) {\n        for (int i = 0; i < data.length; i++) {\n            data[i] = data[i].add(d);\n        }\n        return this;\n    }",
+  "code_after": "public FieldVector<T> mapAddToSelf(T d) throws NullArgumentException {\n        for (int i = 0; i < data.length; i++) {\n            data[i] = data[i].add(d);\n        }\n        return this;\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/**\n     * {@inheritDoc}\n     *\n     * @throws NullArgumentException if {@code d} is {@code null}.\n     */"
+}

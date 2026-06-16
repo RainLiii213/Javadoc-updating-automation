@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1ec3c2f0962d41db0d83e01ac5df26d7b954aa34",
+  "issue_summary": "Support parsing of date-time zone names like BST or British Summer Time",
+  "code_before": "public Integer getOffset() {\n        return iOffset;\n    }",
+  "code_after": "@Deprecated\n    public int getOffset() {\n        return (iOffset != null ? iOffset : 0);\n    }",
+  "javadoc_before": "/**\n     * Returns the time zone offset in milliseconds used by computeMillis.\n     */",
+  "javadoc_after": "/**\n     * Returns the time zone offset in milliseconds used by computeMillis.\n     * @deprecated use Integer version\n     */"
+}

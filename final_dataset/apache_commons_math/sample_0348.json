@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3b94e30307f45a5a0283ac63638a56488feee839",
+  "issue_summary": "Merged KolmogorovSmirnovDistribution and KolmogorovSmirnovDistributionImpl .",
+  "code_before": "double cdf(double d);",
+  "code_after": "public double cdf(double d) throws MathArithmeticException {\n        return this.cdf(d, false);\n    }",
+  "javadoc_before": "/**\n     * Calculates {@code P(D}<sub>n</sub> {@code < d)}.\n     *\n     * @param d statistic\n     * @return the two-sided probability of {@code P(D}<sub>n</sub> {@code < d)}\n     */",
+  "javadoc_after": "/**\n     * Calculates {@code P(D_n < d)} using method described in [1] with quick\n     * decisions for extreme values given in [2] (see above). The result is not\n     * exact as with\n     * {@link KolmogorovSmirnovDistribution#cdfExact(double)} because\n     * calculations are based on {@code double} rather than\n     * {@link org.apache.commons.math.fraction.BigFraction}.\n     *\n     * @param d statistic\n     * @return the two-sided probability of {@code P(D_n < d)}\n     * @throws MathArithmeticException if algorithm fails to convert {@code h}\n     * to a {@link org.apache.commons.math.fraction.BigFraction} in expressing\n     * {@code d} as {@code (k - h) / m} for integer {@code k, m} and\n     * {@code 0 <= h < 1}.\n     */"
+}

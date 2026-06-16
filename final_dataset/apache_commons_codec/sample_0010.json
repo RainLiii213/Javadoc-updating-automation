@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0839e1a99bf61ee4d66a265b942981760f6a0265",
+  "issue_summary": "Ensure all public method args are validated and documented",
+  "code_before": "public void doFinalize(final byte[] out) {\n        doFinalize(out, 0, out.length);\n    }",
+  "code_after": "public void doFinalize(final byte[] out) {\n        Objects.requireNonNull(out);\n        doFinalize(out, 0, out.length);\n    }",
+  "javadoc_before": "/**\n     * Finalizes hash output data that depends on the sequence of updated bytes preceding this invocation and any\n     * previously finalized bytes. Note that this can finalize up to 2<sup>64</sup> bytes per instance.\n     *\n     * @param out destination array to finalize bytes into\n     */",
+  "javadoc_after": "/**\n     * Finalizes hash output data that depends on the sequence of updated bytes preceding this invocation and any\n     * previously finalized bytes. Note that this can finalize up to 2<sup>64</sup> bytes per instance.\n     *\n     * @param out destination array to finalize bytes into\n     * @throws NullPointerException if out is null\n     */"
+}

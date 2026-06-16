@@ -1,0 +1,8 @@
+{
+  "commit_hash": "942065cc3e7e3941167ab1ffacbada225d612d79",
+  "issue_summary": "Convert more classes to record classes",
+  "code_before": "public class TermAndBoost {\n  /** the term */\n  public final BytesRef term;\n\n  /** the boost */\n  public final float boost;\n\n  /** Creates a new TermAndBoost */\n  public TermAndBoost(BytesRef term, float boost) {\n    this.term = BytesRef.deepCopyOf(term);\n    this.boost = boost;\n  }\n}",
+  "code_after": "public record TermAndBoost(BytesRef term, float boost) {\n  /** Creates a new TermAndBoost */\n  public TermAndBoost {\n    term = BytesRef.deepCopyOf(term);\n  }\n}",
+  "javadoc_before": "/** Wraps a term and boost */",
+  "javadoc_after": "/**\n * Wraps a term and boost\n *\n * @param term the term\n * @param boost the boost\n */"
+}

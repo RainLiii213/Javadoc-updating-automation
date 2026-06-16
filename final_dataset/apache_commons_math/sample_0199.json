@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5998035a9fafcfb68ffbdc33551b8ed41ab14d4e",
+  "issue_summary": "fill the \"throws\" clause of ArrayFieldVector.",
+  "code_before": "public ArrayFieldVector<T> ebeMultiply(ArrayFieldVector<T> v) {\n        checkVectorDimensions(v.data.length);\n        T[] out = buildArray(data.length);\n        for (int i = 0; i < data.length; i++) {\n            out[i] = data[i].multiply(v.data[i]);\n        }\n        return new ArrayFieldVector<T>(field, out, false);\n    }",
+  "code_after": "public ArrayFieldVector<T> ebeMultiply(ArrayFieldVector<T> v)\n        throws DimensionMismatchException {\n        checkVectorDimensions(v.data.length);\n        T[] out = buildArray(data.length);\n        for (int i = 0; i < data.length; i++) {\n            out[i] = data[i].multiply(v.data[i]);\n        }\n        return new ArrayFieldVector<T>(field, out, false);\n    }",
+  "javadoc_before": "/**\n     * Element-by-element multiplication.\n     * @param v vector by which instance elements must be multiplied\n     * @return a vector containing this[i] * v[i] for all i\n     * @exception IllegalArgumentException if v is not the same size as this\n     */",
+  "javadoc_after": "/**\n     * Element-by-element multiplication.\n     * @param v vector by which instance elements must be multiplied\n     * @return a vector containing {@code this[i] * v[i]} for all {@code i}\n     * @throws DimensionMismatchException if {@code v} is not the same size as\n     * {@code this}\n     */"
+}

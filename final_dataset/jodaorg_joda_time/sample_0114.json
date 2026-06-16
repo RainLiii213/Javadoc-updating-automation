@@ -1,0 +1,8 @@
+{
+  "commit_hash": "21a05d42260bf6fac5b1bb59d481db14e73c061c",
+  "issue_summary": "Remove withXxx methods from ReadableInstant",
+  "code_before": "public ReadableInstant withMillis(long newMillis) {\n        return newMillis == iMillis ? this : new Instant(newMillis);\n    }",
+  "code_after": "public Instant withMillis(long newMillis) {\n        return newMillis == iMillis ? this : new Instant(newMillis);\n    }",
+  "javadoc_before": "/**\n     * Gets a copy of this instant with different millis, as an Instant.\n     * <p>\n     * The returned object will be either be a new Instant or\n     * <code>this</code>.\n     *\n     * @param newMillis  the new millis, from 1970-01-01T00:00:00Z\n     * @return a copy of this instant with different millis\n     */",
+  "javadoc_after": "/**\n     * Gets a copy of this instant with different millis.\n     * <p>\n     * The returned object will be either be a new Instant or <code>this</code>.\n     *\n     * @param newMillis  the new millis, from 1970-01-01T00:00:00Z\n     * @return a copy of this instant with different millis\n     */"
+}

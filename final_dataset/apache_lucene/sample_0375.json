@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ca5f9b34576545f1a51cde1526f42de519989527",
+  "issue_summary": "Make scoring statistics mandatory",
+  "code_before": "static float termPositionsCost(TermsEnum termsEnum) throws IOException {\n    int docFreq = termsEnum.docFreq();\n    assert docFreq > 0;\n    long totalTermFreq = termsEnum.totalTermFreq(); // -1 when not available\n    float expOccurrencesInMatchingDoc = (totalTermFreq < docFreq) ? 1 : (totalTermFreq / (float) docFreq);\n    return TERM_POSNS_SEEK_OPS_PER_DOC + expOccurrencesInMatchingDoc * TERM_OPS_PER_POS;\n  }",
+  "code_after": "static float termPositionsCost(TermsEnum termsEnum) throws IOException {\n    int docFreq = termsEnum.docFreq();\n    assert docFreq > 0;\n    long totalTermFreq = termsEnum.totalTermFreq();\n    float expOccurrencesInMatchingDoc = totalTermFreq / (float) docFreq;\n    return TERM_POSNS_SEEK_OPS_PER_DOC + expOccurrencesInMatchingDoc * TERM_OPS_PER_POS;\n  }",
+  "javadoc_before": "/** Returns an expected cost in simple operations\n   *  of processing the occurrences of a term\n   *  in a document that contains the term.\n   *  This is for use by {@link TwoPhaseIterator#matchCost} implementations.\n   *  <br>This may be inaccurate when {@link TermsEnum#totalTermFreq()} is not available.\n   *  @param termsEnum The term is the term at which this TermsEnum is positioned.\n   */",
+  "javadoc_after": "/** Returns an expected cost in simple operations\n   *  of processing the occurrences of a term\n   *  in a document that contains the term.\n   *  This is for use by {@link TwoPhaseIterator#matchCost} implementations.\n   *  @param termsEnum The term is the term at which this TermsEnum is positioned.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8ef60672c1dd5407b0761b81408857be44562ecf",
+  "issue_summary": "Update API Instant now ISO UTC withXxx methods added to lots of classes uniform set of methods almost complete",
+  "code_before": "public Chronology getChronology() {\n        return null;\n    }",
+  "code_after": "public Chronology getChronology() {\n        return Chronology.getISOUTC();\n    }",
+  "javadoc_before": "/**\n     * Gets the chronology of the instant, which is null.\n     * <p>\n     * The {@link Chronology} provides conversion from the millisecond\n     * value to meaningful fields in a particular calendar system. This\n     * class represents a chronology free view of time, so this method\n     * returns null.\n     * \n     * @return null\n     */",
+  "javadoc_after": "/**\n     * Gets the chronology of the instant, which is ISO in the UTC zone.\n     * \n     * @return ISO in the UTC zone\n     */"
+}

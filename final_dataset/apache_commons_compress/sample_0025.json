@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2643070b86ce1890bf87b5ae15947036235da6d7",
+  "issue_summary": "Some org.apache.commons.compress.harmony.unpack200 methods now throws Pack200Exception instead of Error on some bad inputs and states",
+  "code_before": "public ConstantPoolEntry getClassPoolEntry(final String name) {\n        final String[] classes = bands.getCpClass();\n        final int index = matchSpecificPoolEntryIndex(classes, name, 0);\n        if (index == -1) {\n            return null;\n        }\n        try {\n            return getConstantPoolEntry(CP_CLASS, index);\n        } catch (final Pack200Exception ex) {\n            throw new Error(\"Error getting class pool entry\");\n        }\n    }",
+  "code_after": "public ConstantPoolEntry getClassPoolEntry(final String name) throws Pack200Exception {\n        final int index = matchSpecificPoolEntryIndex(bands.getCpClass(), name, 0);\n        return index == -1 ? null : getConstantPoolEntry(CP_CLASS, index);\n    }",
+  "javadoc_before": "/**\n     * Gets the CPClass associated with a class name. Returns null if the class doesn't exist.\n     *\n     * @param name Class name to look for (form: java/lang/Object)\n     * @return CPClass for that class name, or null if not found.\n     */",
+  "javadoc_after": "/**\n     * Gets the CPClass associated with a class name. Returns null if the class doesn't exist.\n     *\n     * @param name Class name to look for (form: java/lang/Object)\n     * @return CPClass for that class name, or null if not found.\n     * @throws Pack200Exception if a type is not supported or an index not in the range [0, {@link Integer#MAX_VALUE}].\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7da175b0b6b4185ee6b5df852e59b93d9a9a1c86",
+  "issue_summary": "rename/deprecate numeric classes in favor of dimensional values",
+  "code_before": "public NumericType numericType() {\n    return numericType;\n  }",
+  "code_after": "public LegacyNumericType numericType() {\n    return numericType;\n  }",
+  "javadoc_before": "/** \n   * NumericType: if non-null then the field's value will be indexed\n   * numerically so that {@link NumericRangeQuery} can be used at \n   * search time. \n   * <p>\n   * The default is <code>null</code> (no numeric type) \n   * @see #setNumericType(NumericType)\n   */",
+  "javadoc_after": "/** \n   * LegacyNumericType: if non-null then the field's value will be indexed\n   * numerically so that {@link org.apache.lucene.search.LegacyNumericRangeQuery} can be used at\n   * search time. \n   * <p>\n   * The default is <code>null</code> (no numeric type) \n   * @see #setNumericType(org.apache.lucene.document.FieldType.LegacyNumericType)\n   */"
+}

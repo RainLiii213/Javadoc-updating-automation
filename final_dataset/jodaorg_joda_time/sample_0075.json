@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8fe006070aebd84b6cd2b8870e1095c932a36248",
+  "issue_summary": "Optimise toXxx() methods",
+  "code_before": "public Duration toDuration() {\n        if (this instanceof Duration) {\n            return (Duration) this;\n        }\n        return new Duration(getMillis());\n    }",
+  "code_after": "public Duration toDuration() {\n        return new Duration(getMillis());\n    }",
+  "javadoc_before": "/**\n     * Get this duration as an immutable <code>Duration</code> object.\n     * <p>\n     * This will either typecast this instance, or create a new <code>Duration</code>.\n     * \n     * @return a Duration created using the millisecond duration from this instance\n     */",
+  "javadoc_after": "/**\n     * Get this duration as an immutable <code>Duration</code> object.\n     * \n     * @return a Duration created using the millisecond duration from this instance\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "07f166332003e7f0857954ffc5bd3e85ca762f69",
+  "issue_summary": "Removed usage of exceptions defined in the package \"linear\". Added replacements in package \"exception\". Modified tests to catch the new exception type. Deleted the deprecated package \"estimation\" (test failed because of the changes). Deprecated \"MaxIterationsExceededException\". Changes in package \"optimization.general\" were necessary to comply with the new exceptions and to be consistent in reporting the actual cause of failure.",
+  "code_before": "public ArrayRealVector solve(ArrayRealVector b)\n            throws IllegalArgumentException, InvalidMatrixException {\n            return new ArrayRealVector(solve(b.getDataRef()), false);\n        }",
+  "code_after": "public ArrayRealVector solve(ArrayRealVector b) {\n            return new ArrayRealVector(solve(b.getDataRef()), false);\n        }",
+  "javadoc_before": "/** Solve the linear equation A &times; X = B.\n         * <p>The A matrix is implicit here. It is </p>\n         * @param b right-hand side of the equation A &times; X = B\n         * @return a vector X such that A &times; X = B\n         * @exception IllegalArgumentException if matrices dimensions don't match\n         * @exception InvalidMatrixException if decomposed matrix is singular\n         */",
+  "javadoc_after": "/** Solve the linear equation A &times; X = B.\n         * <p>The A matrix is implicit here. It is </p>\n         * @param b right-hand side of the equation A &times; X = B\n         * @return a vector X such that A &times; X = B\n         * @throws IllegalArgumentException if matrices dimensions don't match\n         * @throws InvalidMatrixException if decomposed matrix is singular\n         */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "89b3eb1405241540dda1313953127fb01d4fc98f",
+  "issue_summary": "Add deprecation notices to mutation methods on ImmutableRange{Set,Map} as per https://github.com/google/guava/issues/2258. Created by MOE: https://github.com/google/moe MOE_MIGRATED_REVID=110711365",
+  "code_before": "public Builder<C> add(Range<C> range) {\n      if (range.isEmpty()) {\n        throw new IllegalArgumentException(\"range must not be empty, but was \" + range);\n      } else if (!rangeSet.complement().encloses(range)) {\n        for (Range<C> currentRange : rangeSet.asRanges()) {\n          checkArgument(\n              !currentRange.isConnected(range) || currentRange.intersection(range).isEmpty(),\n              \"Ranges may not overlap, but received %s and %s\",\n              currentRange,\n              range);\n        }\n        throw new AssertionError(\"should have thrown an IAE above\");\n      }\n      rangeSet.add(range);\n      return this;\n    }",
+  "code_after": "@Deprecated\n  @Override\n  public void add(Range<C> range) {\n    throw new UnsupportedOperationException();\n  }",
+  "javadoc_before": "/**\n     * Add the specified range to this builder.  Adjacent/abutting ranges are permitted, but\n     * empty ranges, or ranges with nonempty overlap, are forbidden.\n     *\n     * @throws IllegalArgumentException if {@code range} is empty or has nonempty intersection with\n     *         any ranges already added to the builder\n     */",
+  "javadoc_after": "/**\n   * Guaranteed to throw an exception and leave the {@code RangeSet} unmodified.\n   *\n   * @throws UnsupportedOperationException always\n   * @deprecated Unsupported operation.\n   */"
+}

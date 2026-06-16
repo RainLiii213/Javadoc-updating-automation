@@ -1,0 +1,8 @@
+{
+  "commit_hash": "03e5bcfa739c8b38bd6f66e59dc611d367154273",
+  "issue_summary": "add geo3d + BKD for fast, accurate earth-surface point-in-shape queries",
+  "code_before": "public Bounds getBounds(final Bounds bounds);",
+  "code_after": "public void getBounds(final Bounds bounds);",
+  "javadoc_before": "/**\n   * Compute longitude/latitude bounds for the shape.\n   *\n   * @param bounds is the optional input bounds object.  If this is null,\n   *               a bounds object will be created.  Otherwise, the input object will be modified.\n   * @return a Bounds object describing the shape's bounds.  If the bounds cannot\n   * be computed, then return a Bounds object with noLongitudeBound,\n   * noTopLatitudeBound, and noBottomLatitudeBound.\n   */",
+  "javadoc_after": "/**\n   * Compute bounds for the shape.\n   *\n   * @param bounds is the input bounds object.\n   *             The input object will be modified.\n   */"
+}

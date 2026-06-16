@@ -1,0 +1,8 @@
+{
+  "commit_hash": "71469066967dde4c30b14e38a2b1c818c619adcd",
+  "issue_summary": "fill the \"throws\" clause of FieldVector.",
+  "code_before": "void setEntry(int index, T value);",
+  "code_after": "void setEntry(int index, T value) throws OutOfRangeException;",
+  "javadoc_before": "/**\n     * Set a single element.\n     * @param index element index.\n     * @param value new value for the element.\n     * @throws org.apache.commons.math3.exception.OutOfRangeException\n     * if the index is inconsistent with vector size.\n     * @see #getEntry(int)\n     */",
+  "javadoc_after": "/**\n     * Set a single element.\n     * @param index element index.\n     * @param value new value for the element.\n     * @throws OutOfRangeException if the index is not valid.\n     * @see #getEntry(int)\n     */"
+}

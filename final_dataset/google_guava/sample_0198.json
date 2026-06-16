@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2ab9e938a833221d2da456a5107c2ea27cb73cb4",
+  "issue_summary": "Added Iterators.advance and deprecated Iterators.skip. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=30972849",
+  "code_before": "@Beta\n  public static int skip(Iterator<?> iterator, int numberToSkip) {\n    checkNotNull(iterator);\n    checkArgument(numberToSkip >= 0, \"number to skip cannot be negative\");\n\n    int i;\n    for (i = 0; i < numberToSkip && iterator.hasNext(); i++) {\n      iterator.next();\n    }\n    return i;\n  }",
+  "code_after": "@Beta\n  @Deprecated\n  public static int skip(Iterator<?> iterator, int numberToSkip) {\n    return advance(iterator, numberToSkip);\n  }",
+  "javadoc_before": "/**\n   * Calls {@code next()} on {@code iterator}, either {@code numberToSkip} times\n   * or until {@code hasNext()} returns {@code false}, whichever comes first.\n   *\n   * @return the number of elements skipped\n   * @since 3.0\n   */",
+  "javadoc_after": "/**\n   * Calls {@code next()} on {@code iterator}, either {@code numberToSkip} times\n   * or until {@code hasNext()} returns {@code false}, whichever comes first.\n   *\n   * @return the number of elements skipped\n   * @since 3.0\n   * @deprecated This method has been renamed to {@link #advance(java.util.Iterator, int) advance}.\n   *     This method is scheduled to be deleted in Guava 14.0.\n   */"
+}

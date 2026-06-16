@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9450bcc7eefa2d6acf1bdbf49740934a6426cf5e",
+  "issue_summary": "properly document difference between tar getSize and getRealSize ...",
+  "code_before": "public long getRealSize() {\n        if (!isSparse()) {\n            return size;\n        }\n        return realSize;\n    }",
+  "code_after": "public long getRealSize() {\n        if (!isSparse()) {\n            return getSize();\n        }\n        return realSize;\n    }",
+  "javadoc_before": "/**\n     * Get this entry's real file size in case of a sparse file.\n     * <p>If the file is not a sparse file, return size instead of realSize.</p>\n     *\n     * @return This entry's real file size, if the file is not a sparse file, return size instead of realSize.\n     */",
+  "javadoc_after": "/**\n     * Get this entry's real file size in case of a sparse file.\n     *\n     * <p>This is the size a file would take on disk if the entry was expanded.</p>\n     *\n     * <p>If the file is not a sparse file, return size instead of realSize.</p>\n     *\n     * @return This entry's real file size, if the file is not a sparse file, return size instead of realSize.\n     */"
+}

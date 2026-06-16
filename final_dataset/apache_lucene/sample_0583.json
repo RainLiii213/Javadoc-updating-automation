@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a42e164b3d94edbe55b7599f33d7a85e5ec040ec",
+  "issue_summary": "Fix NumericUtils getMin/Max methods to return null if there are no terms for the specified field",
+  "code_before": "public static int getMaxInt(Terms terms) throws IOException {\n    return NumericUtils.prefixCodedToInt(intTerms(terms).getMax());\n  }",
+  "code_after": "public static Integer getMaxInt(Terms terms) throws IOException {\n    BytesRef max = intTerms(terms).getMax();\n    return (max != null) ? NumericUtils.prefixCodedToInt(max) : null;\n  }",
+  "javadoc_before": "/** Returns the maximum int value indexed into this\n   *  numeric field. */",
+  "javadoc_after": "/**\n   * Returns the maximum int value indexed into this\n   * numeric field or null if no terms exist.\n   */"
+}

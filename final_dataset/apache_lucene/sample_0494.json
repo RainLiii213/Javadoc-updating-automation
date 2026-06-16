@@ -1,0 +1,8 @@
+{
+  "commit_hash": "aa81ba8642a57181a4eaa017b52d0d3c3462544b",
+  "issue_summary": "Fewer conditionals in DocIdSetBuilder.",
+  "code_before": "public void grow(int numDocs) {\n    if (bitSet == null) {\n      final long newLength = bufferSize + numDocs;\n      if (newLength < threshold) {\n        growBuffer((int) newLength);\n      } else {\n        upgradeToBitSet();\n      }\n    }\n  }",
+  "code_after": "public BulkAdder grow(int numDocs) {\n    if (bitSet == null) {\n      final long newLength = (long) bufferSize + numDocs;\n      if (newLength < threshold) {\n        growBuffer((int) newLength);\n      } else {\n        upgradeToBitSet();\n      }\n    }\n    return adder;\n  }",
+  "javadoc_before": "/**\n   * Reserve space so that this builder can hold {@code numDocs} MORE documents.\n   */",
+  "javadoc_after": "/**\n   * Reserve space and return a {@link BulkAdder} object that can be used to\n   * add up to {@code numDocs} documents.\n   */"
+}

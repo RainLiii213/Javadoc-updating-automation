@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3ad5595706a90adc920105b5c486e4fc0db6d497",
+  "issue_summary": "Removed the log10 declaration in RealFieldElement interface.",
+  "code_before": "public Dfp log10() {\n        return DfpMath.log(this).divide(DfpMath.log(newInstance(10)));\n    }",
+  "code_after": "@Deprecated\n    public int log10()  {\n        return intLog10();\n    }",
+  "javadoc_before": "/** {@inheritDoc}\n     * @since 3.2\n     */",
+  "javadoc_after": "/** Get the exponent of the greatest power of 10 that is less than or equal to abs(this).\n     *  @return integer base 10 logarithm\n     *  @deprecated as of 3.2, replaced by {@link #intLog10()}, in 4.0 the return type\n     *  will be changed to Dfp\n     */"
+}

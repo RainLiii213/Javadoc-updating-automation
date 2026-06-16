@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d161d473bbd756de5092b3fab07134415f40eedc",
+  "issue_summary": "Merged PoissonDistribution and PoissonDistributionImpl . Merged TDistribution and TDistributionImpl . Merged WeibullDistribution and WeibullDistributionImpl .",
+  "code_before": "double normalApproximateProbability(int x) ;",
+  "code_after": "public double normalApproximateProbability(int x)  {\n        // calculate the probability using half-correction\n        return normal.cumulativeProbability(x + 0.5);\n    }",
+  "javadoc_before": "/**\n     * Calculates the Poisson distribution function using a normal approximation.\n     *\n     * @param x the upper bound, inclusive\n     * @return the distribution function value calculated using a normal approximation\n     */",
+  "javadoc_after": "/**\n     * Calculates the Poisson distribution function using a normal\n     * approximation. The {@code N(mean, sqrt(mean))} distribution is used\n     * to approximate the Poisson distribution. The computation uses\n     * \"half-correction\" (evaluating the normal distribution function at\n     * {@code x + 0.5}).\n     *\n     * @param x Upper bound, inclusive.\n     * @return the distribution function value calculated using a normal\n     * approximation.\n     */"
+}

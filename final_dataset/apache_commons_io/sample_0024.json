@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1dd8108a9bf22a95613e56fdca24abdebf842ce2",
+  "issue_summary": "Add ThrottledInputStream.Builder.setMaxBytes(int, ChronoUnit)",
+  "code_before": "public void setMaxBytesPerSecond(final long maxBytesPerSecond) {\n            this.maxBytesPerSecond = maxBytesPerSecond;\n        }",
+  "code_after": "public void setMaxBytesPerSecond(final long maxBytesPerSecond) {\n            setMaxBytesPerSecond((double) maxBytesPerSecond);\n            // TODO 3.0\n            // return asThis();\n        }",
+  "javadoc_before": "/**\n         * Sets the maximum bytes per second.\n         *\n         * @param maxBytesPerSecond the maximum bytes per second.\n         */",
+  "javadoc_after": "/**\n         * Sets the maximum bytes per second.\n         *\n         * @param maxBytesPerSecond the maximum bytes per second.\n         * @throws IllegalArgumentException Thrown if maxBytesPerSecond &lt;= 0.\n         */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "856a540d3eeb463527c509853f4d205f4adc272f",
+  "issue_summary": "Resue commons-io",
+  "code_before": "public static long copyRange(final InputStream input, final long len, final OutputStream output) throws IOException {\n        return copyRange(input, len, output, COPY_BUF_SIZE);\n    }",
+  "code_after": "@Deprecated\n    public static long copyRange(final InputStream input, final long len, final OutputStream output) throws IOException {\n        return org.apache.commons.io.IOUtils.copyLarge(input, output, 0, len);\n    }",
+  "javadoc_before": "/**\n     * Copies part of the content of a InputStream into an OutputStream. Uses a default buffer size of 8024 bytes.\n     *\n     * @param input  the InputStream to copy\n     * @param output the target Stream\n     * @param len    maximum amount of bytes to copy\n     * @return the number of bytes copied\n     * @throws IOException if an error occurs\n     * @since 1.21\n     */",
+  "javadoc_after": "/**\n     * Copies part of the content of a InputStream into an OutputStream. Uses a default buffer size of 8024 bytes.\n     *\n     * @param input  the InputStream to copy\n     * @param output the target Stream\n     * @param len    maximum amount of bytes to copy\n     * @return the number of bytes copied\n     * @throws IOException if an error occurs\n     * @since 1.21\n     * @deprecated Use {@link org.apache.commons.io.IOUtils#copyLarge(InputStream, OutputStream, long, long)}.\n     */"
+}

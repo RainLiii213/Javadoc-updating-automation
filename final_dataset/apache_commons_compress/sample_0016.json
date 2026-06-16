@@ -1,0 +1,8 @@
+{
+  "commit_hash": "212e7a280c925ca6d53dd43120f75ff2195a552b",
+  "issue_summary": "org.apache.commons.compress.archivers.zip.ZipFile.createBoundedInputStream(long long) now throws an ArchiveException instead of IllegalArgumentException",
+  "code_before": "private BoundedArchiveInputStream createBoundedInputStream(final long start, final long remaining) {\n        if (start < 0 || remaining < 0 || start + remaining < start) {\n            throw new IllegalArgumentException(\"Corrupted archive, stream boundaries are out of range\");\n        }\n        return archive instanceof FileChannel ? new BoundedFileChannelInputStream(start, remaining, (FileChannel) archive)\n                : new BoundedSeekableByteChannelInputStream(start, remaining, archive);\n    }",
+  "code_after": "private BoundedArchiveInputStream createBoundedInputStream(final long start, final long remaining) throws ArchiveException {\n        if (start < 0 || remaining < 0 || ArchiveException.addExact(start, remaining) < start) {\n            throw new ArchiveException(\"Corrupted archive, stream boundaries are out of range\");\n        }\n        return archive instanceof FileChannel ? new BoundedFileChannelInputStream(start, remaining, (FileChannel) archive)\n                : new BoundedSeekableByteChannelInputStream(start, remaining, archive);\n    }",
+  "javadoc_before": "/**\n     * Creates new BoundedInputStream, according to implementation of underlying archive channel.\n     */",
+  "javadoc_after": "/**\n     * Creates new BoundedInputStream, according to implementation of underlying archive channel.\n     *\n     * @throws ArchiveException Thrown when the input hints at a corrupted archive.\n     */"
+}

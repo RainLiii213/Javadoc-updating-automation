@@ -1,0 +1,8 @@
+{
+  "commit_hash": "42b35e1ea6626ba910a9c17ef1a70af60cae2190",
+  "issue_summary": "Add Google-internal getAllEntries. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=85375065",
+  "code_before": "public final URL url() {\n      return checkNotNull(loader.getResource(resourceName),\n          \"Failed to load resource: %s\", resourceName);\n    }",
+  "code_after": "public final URL url() {\n      return url;\n    }",
+  "javadoc_before": "/** Returns the url identifying the resource. */",
+  "javadoc_after": "/** A {@link URL} that refers to this resource. */"
+}

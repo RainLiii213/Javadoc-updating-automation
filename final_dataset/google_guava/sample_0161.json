@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1e3cad3fb5bfce262e045a852591d886f7801afd",
+  "issue_summary": "Add Funnels#unencodedCharsFunnel (and deprecate Funnels#stringFunnel()). Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=46350462",
+  "code_before": "public static Funnel<CharSequence> stringFunnel() {\n    return StringFunnel.INSTANCE;\n  }",
+  "code_after": "@Deprecated\n  public static Funnel<CharSequence> stringFunnel() {\n    return unencodedCharsFunnel();\n  }",
+  "javadoc_before": "/**\n   * Returns a funnel that extracts the characters from a {@code CharSequence}.\n   */",
+  "javadoc_after": "/**\n   * Returns a funnel that extracts the characters from a {@code CharSequence}.\n   *\n   * @deprecated Use {@link Funnels#unencodedCharsFunnel} instead. This method is scheduled for\n   *     removal in Guava 16.0.\n   */"
+}

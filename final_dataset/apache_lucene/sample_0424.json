@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9ed722f5655639dd572853df5a5a14130323cf0f",
+  "issue_summary": "improve setMaxTokenLength javadocs for StandardAnalyzer/Tokenizer and UAX29URLEmailAnalyzer/Tokenizer",
+  "code_before": "public void setMaxTokenLength(int length) {\n    if (length < 1) {\n      throw new IllegalArgumentException(\"maxTokenLength must be greater than zero\");\n    }\n    this.maxTokenLength = length;\n    scanner.setBufferSize(Math.min(length, 1024 * 1024)); // limit buffer size to 1M chars\n  }",
+  "code_after": "public void setMaxTokenLength(int length) {\n    if (length < 1) {\n      throw new IllegalArgumentException(\"maxTokenLength must be greater than zero\");\n    } else if (length > MAX_TOKEN_LENGTH_LIMIT) {\n      throw new IllegalArgumentException(\"maxTokenLength may not exceed \" + MAX_TOKEN_LENGTH_LIMIT);\n    }\n    if (length != maxTokenLength) {\n      this.maxTokenLength = length;\n      scanner.setBufferSize(length);\n    }\n  }",
+  "javadoc_before": "/** Set the max allowed token length.  Any token longer\n   *  than this is skipped. */",
+  "javadoc_after": "/**\n   * Set the max allowed token length.  Tokens larger than this will be chopped\n   * up at this token length and emitted as multiple tokens.  If you need to\n   * skip such large tokens, you could increase this max length, and then\n   * use {@code LengthFilter} to remove long tokens.  The default is\n   * {@link UAX29URLEmailAnalyzer#DEFAULT_MAX_TOKEN_LENGTH}.\n   * \n   * @throws IllegalArgumentException if the given length is outside of the\n   *  range [1, {@value #MAX_TOKEN_LENGTH_LIMIT}].\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "63d88c74b7a11d7633584b007e94314ba9a555d1",
+  "issue_summary": "Ensure that bad usage will raise an exception.",
+  "code_before": "public Integer next() {\n            for (int i = last; i >= 0; i--) {\n                if (counter[i] == size[i] - 1) {\n                    counter[i] = 0;\n                } else {\n                    ++counter[i];\n                    break;\n                }\n            }\n\n            return ++count;\n        }",
+  "code_after": "public Integer next() {\n            if (!hasNext()) {\n                throw new NoSuchElementException();\n            }\n\n            for (int i = last; i >= 0; i--) {\n                if (counter[i] == size[i] - 1) {\n                    counter[i] = 0;\n                } else {\n                    ++counter[i];\n                    break;\n                }\n            }\n\n            return ++count;\n        }",
+  "javadoc_before": "/**\n         * @return the unidimensional count after the counter has been\n         * incremented by {@code 1}.\n         */",
+  "javadoc_after": "/**\n         * @return the unidimensional count after the counter has been\n         * incremented by {@code 1}.\n         * @throws NoSuchElementException if {@link #hasNext()} would have\n         * returned {@code false}.\n         */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "db8fcb84bbcad8e057c567d31a68986f1bd442ef",
+  "issue_summary": "Move functional interfaces in IOUtils to top-level interfaces",
+  "code_before": "@FunctionalInterface\n  public interface IOConsumer<T> {\n    /** Performs this operation on the given argument. */\n    void accept(T input) throws IOException;\n  }",
+  "code_after": "@FunctionalInterface\n  @Deprecated(forRemoval = true, since = \"9.1\")\n  public interface IOConsumer<T> {\n    /** Performs this operation on the given argument. */\n    void accept(T input) throws IOException;\n  }",
+  "javadoc_before": "/**\n   * An IO operation with a single input.\n   *\n   * @see java.util.function.Consumer\n   */",
+  "javadoc_after": "/**\n   * An IO operation with a single input.\n   *\n   * @see java.util.function.Consumer\n   * @deprecated was replaced by {@link org.apache.lucene.util.IOConsumer}.\n   */"
+}

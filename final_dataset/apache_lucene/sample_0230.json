@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4d46caa05d01e6f7e2b3a3b432906eb45732bbfe",
+  "issue_summary": "Detach DWPT from DefaultIndexingChain",
+  "code_before": "abstract static class IndexingChain {\n    abstract DocConsumer getChain(DocumentsWriterPerThread documentsWriterPerThread) throws IOException;\n  }",
+  "code_after": "abstract static class IndexingChain {\n    abstract DocConsumer getChain(int indexCreatedVersionMajor, SegmentInfo segmentInfo, Directory directory,\n                                  FieldInfos.Builder fieldInfos, LiveIndexWriterConfig indexWriterConfig,\n                                  Consumer<Throwable> abortingExceptionConsumer);\n  }",
+  "javadoc_before": "/**\n   * The IndexingChain must define the {@link #getChain(DocumentsWriterPerThread)} method\n   * which returns the DocConsumer that the DocumentsWriter calls to process the\n   * documents.\n   */",
+  "javadoc_after": "/**\n   * The IndexingChain must define the {@link #getChain(int, SegmentInfo, Directory, FieldInfos.Builder, LiveIndexWriterConfig, Consumer)} method\n   * which returns the DocConsumer that the DocumentsWriter calls to process the\n   * documents.\n   */"
+}

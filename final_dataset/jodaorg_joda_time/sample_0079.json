@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fa310b0723a1c0ded3328bcf150d242ab6cc2e34",
+  "issue_summary": "Add isXxx() methods Optimise by using DateTimeUtils",
+  "code_before": "public boolean isBefore(ReadableInstant instant) {\n        if (instant == null) {\n            return false;\n        }\n        return (getMillis() < instant.getMillis());\n    }",
+  "code_after": "public boolean isBefore(ReadableInstant instant) {\n        long instantMillis = DateTimeUtils.getInstantMillis(instant);\n        return isBefore(instantMillis);\n    }",
+  "javadoc_before": "/**\n     * Is the millisecond value before the millisecond passed in.\n     *\n     * @param instant  an instant to check against, null returns false\n     * @return true if the instant is before the instant passed in\n     */",
+  "javadoc_after": "/**\n     * Is this instant before the instant passed in\n     * comparing solely by millisecond.\n     *\n     * @param instant  an instant to check against, null means now\n     * @return true if the instant is before the instant passed in\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "30c859c12eb01639d64dfc813187c81b7cba4f05",
+  "issue_summary": "support for concatenated streams in Gzip input. . Submitted by Lasse Collin",
+  "code_before": "public GzipCompressorInputStream(InputStream inputStream) throws IOException {\n        in = new GZIPInputStream(inputStream);\n    }",
+  "code_after": "public GzipCompressorInputStream(InputStream inputStream)\n            throws IOException {\n        this(inputStream, false);\n    }",
+  "javadoc_before": "/**\n     * Constructs a new GZip compressed input stream by the referenced\n     * InputStream.\n     * \n     * @param inputStream the InputStream from which this object should be created of\n     * @throws IOException if the stream could not be created\n     */",
+  "javadoc_after": "/**\n     * Constructs a new input stream that decompresses gzip-compressed data\n     * from the specified input stream.\n     * <p>\n     * This is equivalent to\n     * <code>GzipCompressorInputStream(inputStream, false)</code> and thus\n     * will not decompress concatenated .gz files.\n     *\n     * @param inputStream  the InputStream from which this object should\n     *                     be created of\n     *\n     * @throws IOException if the stream could not be created\n     */"
+}

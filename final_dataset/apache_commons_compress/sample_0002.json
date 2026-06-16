@@ -1,0 +1,8 @@
+{
+  "commit_hash": "86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8",
+  "issue_summary": "Commons IO 2.21.0 and more",
+  "code_before": "public ArArchiveInputStream(final InputStream inputStream) {\n        this(inputStream, builder());\n    }",
+  "code_after": "public ArArchiveInputStream(final InputStream inputStream) throws IOException {\n        this(builder().setInputStream(inputStream));\n    }",
+  "javadoc_before": "/**\n     * Constructs an Ar input stream with the referenced stream\n     *\n     * @param inputStream the ar input stream\n     */",
+  "javadoc_after": "/**\n     * Constructs an Ar input stream with the referenced stream\n     *\n     * <p>Since 1.29.0: throws {@link IOException}.</p>\n     *\n     * @param inputStream the ar input stream\n     * @throws IOException if an I/O error has occurred.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1c032ee45483926f8f539457c342ba33dc1a8cb9",
+  "issue_summary": "Populated throws clause of FieldVector, ArrayFieldVector, SparseFieldVector . Added some missing precondition checks. Corrected some mistakes in javadoc.",
+  "code_before": "FieldVector<T> mapAdd(T d);",
+  "code_after": "FieldVector<T> mapAdd(T d) throws NullArgumentException;",
+  "javadoc_before": "/**\n     * Map an addition operation to each entry.\n     * @param d value to be added to each entry\n     * @return {@code this + d}\n     */",
+  "javadoc_after": "/**\n     * Map an addition operation to each entry.\n     * @param d value to be added to each entry\n     * @return {@code this + d}\n     * @throws NullArgumentException if {@code d} is {@code null}.\n     */"
+}

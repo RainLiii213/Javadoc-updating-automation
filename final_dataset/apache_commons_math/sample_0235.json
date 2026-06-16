@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8a0fef0fb7044d77024699de0448497467b756b5",
+  "issue_summary": "fill the throws clause of all methods.",
+  "code_before": "public void setSubVector(int index, double[] v) {\n        try {\n            System.arraycopy(v, 0, data, index, v.length);\n        } catch (IndexOutOfBoundsException e) {\n            checkIndex(index);\n            checkIndex(index + v.length - 1);\n        }\n    }",
+  "code_after": "public void setSubVector(int index, double[] v)\n        throws OutOfRangeException {\n        try {\n            System.arraycopy(v, 0, data, index, v.length);\n        } catch (IndexOutOfBoundsException e) {\n            checkIndex(index);\n            checkIndex(index + v.length - 1);\n        }\n    }",
+  "javadoc_before": "/**\n     * Set a set of consecutive elements.\n     *\n     * @param index Index of first element to be set.\n     * @param v Vector containing the values to set.\n     * @throws org.apache.commons.math3.exception.OutOfRangeException\n     * if the index is inconsistent with the vector size.\n     */",
+  "javadoc_after": "/**\n     * Set a set of consecutive elements.\n     *\n     * @param index Index of first element to be set.\n     * @param v Vector containing the values to set.\n     * @throws OutOfRangeException if the index is inconsistent with the vector\n     * size.\n     */"
+}

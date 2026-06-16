@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a7cc1bab758df5cca95b412df91640b45bd18651",
+  "issue_summary": "AbstractStreamBuilder.setBufferSizeDefault(int) now resets to default for input less than or equal to zero.",
+  "code_before": "protected B setBufferSizeDefault(final int bufferSizeDefault) {\n        this.bufferSizeDefault = bufferSizeDefault;\n        return asThis();\n    }",
+  "code_after": "protected B setBufferSizeDefault(final int bufferSizeDefault) {\n        this.bufferSizeDefault = checkBufferSize(bufferSizeDefault > 0 ? bufferSizeDefault : IOUtils.DEFAULT_BUFFER_SIZE);\n        return asThis();\n    }",
+  "javadoc_before": "/**\n     * Sets the buffer size for subclasses to initialize.\n     * <p>\n     * Subclasses may ignore this setting.\n     * </p>\n     *\n     * @param bufferSizeDefault the buffer size, null resets to the default.\n     * @return {@code this} instance.\n     */",
+  "javadoc_after": "/**\n     * Sets the buffer size for subclasses to initialize.\n     * <p>\n     * Subclasses may ignore this setting.\n     * </p>\n     *\n     * @param bufferSizeDefault the buffer size, 0 resets to the default {@link IOUtils#DEFAULT_BUFFER_SIZE}.\n     * @return {@code this} instance.\n     */"
+}

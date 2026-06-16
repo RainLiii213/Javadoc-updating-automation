@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2c83cdc53782662168f74c202dc5268426218a3a",
+  "issue_summary": "Correct the spelling of the getSparcity [sic] method. Issue",
+  "code_before": "public double getSparcity() {\n        return (double)entries.size()/(double)getDimension();\n    }",
+  "code_after": "@Deprecated\n    public double getSparcity() {\n        return getSparsity();\n    }",
+  "javadoc_before": "/**\n     *\n     * @return the percentage of none zero elements as a decimal percent.\n     */",
+  "javadoc_after": "/**\n     *\n     * @return the percentage of none zero elements as a decimal percent.\n     * @deprecated Use the correctly spelled {@link #getSparsity()}\n     */"
+}

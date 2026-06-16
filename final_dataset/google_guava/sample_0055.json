@@ -1,0 +1,8 @@
+{
+  "commit_hash": "af5e29f3fd05df9a05e597380b6922cc9fc15995",
+  "issue_summary": "Do not copy in Immutable{List,Set,SortedSet} construction.",
+  "code_before": "static <E> ImmutableList<E> asImmutableList(Object[] elements, int length) {\n    if (length == 0) {\n      return of();\n    }\n    if (length < elements.length) {\n      elements = Arrays.copyOf(elements, length);\n    }\n    return new RegularImmutableList<E>(elements);\n  }",
+  "code_after": "static <E> ImmutableList<E> asImmutableList(Object[] elements, int length) {\n    if (length == 0) {\n      return of();\n    }\n    return new RegularImmutableList<E>(elements, length);\n  }",
+  "javadoc_before": "/**\n   * Views the array as an immutable list. Copies if the specified range does not cover the complete\n   * array. Does not check for nulls.\n   */",
+  "javadoc_after": "/** Views the array as an immutable list. Does not check for nulls. */"
+}

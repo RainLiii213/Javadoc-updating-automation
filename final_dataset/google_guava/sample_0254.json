@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ef2231dbccbafe2b1ed1b49c2a190b550b09e7df",
+  "issue_summary": "move null computation checking out of CustomConcurrentHashMap avoid indirection of ForwardingMap in ComputingMapAdapter",
+  "code_before": "static class ComputingMapAdapter<K, V> extends ForwardingConcurrentMap<K, V>\n      implements Serializable {\n    private static final long serialVersionUID = 0;\n\n    final Cache<K, V> cache;\n\n    ComputingMapAdapter(Cache<K, V> cache) {\n      this.cache = cache;\n    }\n\n    @Override\n    protected ConcurrentMap<K, V> delegate() {\n      return cache.asMap();\n    }\n\n    @SuppressWarnings(\"unchecked\") // unsafe, which is why this is deprecated\n    @Override\n    public V get(Object key) {\n      return cache.apply((K) key);\n    }\n  }",
+  "code_after": "static class ComputingMapAdapter<K, V>\n      extends ComputingConcurrentHashMap<K, V> implements Serializable {\n    private static final long serialVersionUID = 0;\n\n    ComputingMapAdapter(MapMaker mapMaker, Function<? super K, ? extends V> computingFunction) {\n      super(mapMaker, computingFunction);\n    }\n\n    @SuppressWarnings(\"unchecked\") // unsafe, which is why this is deprecated\n    @Override\n    public V get(Object key) {\n      V value = compute((K) key);\n      if (value == null) {\n        throw new NullPointerException(computingFunction + \" returned null for key \" + key + \".\");\n      }\n      return value;\n    }\n  }",
+  "javadoc_before": "/**\n   * Overrides get() to compute on demand.\n   */",
+  "javadoc_after": "/**\n   * Overrides get() to compute on demand. Also throws an exception when null is returned from a\n   * computation.\n   */"
+}

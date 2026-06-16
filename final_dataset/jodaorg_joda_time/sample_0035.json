@@ -1,0 +1,8 @@
+{
+  "commit_hash": "621b83eafe8dcddf5c1b108c41051b5917efbbd9",
+  "issue_summary": "Test LocalTime",
+  "code_before": "public void withMinuteOfHour(int minute) {\n        getChronology().minuteOfHour().set(getLocalMillis(), minute);\n    }",
+  "code_after": "public LocalTime withMinuteOfHour(int minute) {\n        return withLocalMillis(getChronology().minuteOfHour().set(getLocalMillis(), minute));\n    }",
+  "javadoc_before": "/**\n     * Get the minute of hour field value.\n     *\n     * @param minute  the minute of hour\n     */",
+  "javadoc_after": "/**\n     * Sets the minute of hour field in a copy of this LocalTime, leaving this\n     * instance unchanged.\n     * <p>\n     * LocalTime is immutable, so there are no set methods.\n     * Instead, this method returns a new instance with the value of\n     * minute of hour changed.\n     *\n     * @param minute  the minute of hour to set\n     * @return a copy of this object with the field set\n     * @throws IllegalArgumentException if the value is invalid\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "08552fe8aa63614fb389469c047a39c20c9079a8",
+  "issue_summary": "Added getDuration(DurationType); default duration type is average-year-month.",
+  "code_before": "public final Duration getDuration() {\n        if (iDuration == null) {\n            iDuration = new Duration(DurationType.getPreciseYearMonthType(),\n                                     getEndMillis() - getStartMillis());\n        }\n        return iDuration;\n    }",
+  "code_after": "public final Duration getDuration() {\n        if (iDuration == null) {\n            return getDuration(null);\n        }\n        return iDuration;\n    }",
+  "javadoc_before": "/**\n     * Gets the duration of this time interval.\n     * <p>\n     * The duration returned will always be precise because it is relative to\n     * a known date.\n     *\n     * @return the duration of the time interval\n     */",
+  "javadoc_after": "/**\n     * Gets the duration of this time interval.\n     * <p>\n     * The duration returned will always be precise because it is relative to a\n     * known date. If this interval was not specified with a precise duration\n     * type, then the duration type defaults to ISO average-year-month type.\n     *\n     * @return the duration of the time interval\n     */"
+}

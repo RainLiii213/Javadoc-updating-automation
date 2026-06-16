@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c7e9e83f831de261eefbf0e29380fff125eb9eb3",
+  "issue_summary": "apply signature change to factory method.",
+  "code_before": "public static <E> List<E> lazyList(List<E> list, Factory<? extends E> factory) {\n        return new LazyList<E>(list, factory);\n    }",
+  "code_after": "public static <E> LazyList<E> lazyList(List<E> list, Factory<? extends E> factory) {\n        return new LazyList<E>(list, factory);\n    }",
+  "javadoc_before": "/**\n     * Factory method to create a lazily instantiating list.\n     * \n     * @param list  the list to decorate, must not be null\n     * @param factory  the factory to use for creation, must not be null\n     * @throws IllegalArgumentException if list or factory is null\n     */",
+  "javadoc_after": "/**\n     * Factory method to create a lazily instantiating list.\n     * \n     * @param <E> the type of the elements in the list\n     * @param list  the list to decorate, must not be null\n     * @param factory  the factory to use for creation, must not be null\n     * @return a new lazy list\n     * @throws IllegalArgumentException if list or factory is null\n     */"
+}

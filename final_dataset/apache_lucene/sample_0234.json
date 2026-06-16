@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e1392c74400d74366982ccb796063ffdcef08047",
+  "issue_summary": "FunctionMatchQuery: add \"matchCost\" param",
+  "code_before": "public FunctionMatchQuery(DoubleValuesSource source, DoublePredicate filter) {\n    this.source = source;\n    this.filter = filter;\n  }",
+  "code_after": "public FunctionMatchQuery(DoubleValuesSource source, DoublePredicate filter) {\n    this(source, filter, DEFAULT_MATCH_COST);\n  }",
+  "javadoc_before": "/**\n   * Create a FunctionMatchQuery\n   * @param source  a {@link DoubleValuesSource} to use for values\n   * @param filter  the predicate to match against\n   */",
+  "javadoc_after": "/**\n   * Create a FunctionMatchQuery with default TwoPhaseIterator matchCost -\n   * {@link #DEFAULT_MATCH_COST} = {@value #DEFAULT_MATCH_COST}\n   * @param source  a {@link DoubleValuesSource} to use for values\n   * @param filter  the predicate to match against\n   */"
+}

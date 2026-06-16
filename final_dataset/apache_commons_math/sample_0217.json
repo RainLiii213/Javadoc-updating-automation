@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b8f2fb815f7a8f0d97b79dfcb544199ba4a661c6",
+  "issue_summary": "Populate \"throws\" clause.",
+  "code_before": "protected synchronized Pair<T[], T[]> getRuleInternal(int numberOfPoints) {\n        final Pair<T[], T[]> rule = pointsAndWeights.get(numberOfPoints);\n        if (rule == null) {\n            addRule(computeRule(numberOfPoints));\n            // The rule should be available now.\n            return getRuleInternal(numberOfPoints);\n        }\n        return rule;\n    }",
+  "code_after": "protected synchronized Pair<T[], T[]> getRuleInternal(int numberOfPoints)\n        throws NotStrictlyPositiveException {\n        final Pair<T[], T[]> rule = pointsAndWeights.get(numberOfPoints);\n        if (rule == null) {\n            addRule(computeRule(numberOfPoints));\n            // The rule should be available now.\n            return getRuleInternal(numberOfPoints);\n        }\n        return rule;\n    }",
+  "javadoc_before": "/**\n     * Gets a rule.\n     * Synchronization ensures that rules will be computed and added to the\n     * cache at most once.\n     * The returned rule is a reference into the cache.\n     *\n     * @param numberOfPoints Order of the rule to be retrieved.\n     * @return the points and weights corresponding to the given order.\n     */",
+  "javadoc_after": "/**\n     * Gets a rule.\n     * Synchronization ensures that rules will be computed and added to the\n     * cache at most once.\n     * The returned rule is a reference into the cache.\n     *\n     * @param numberOfPoints Order of the rule to be retrieved.\n     * @return the points and weights corresponding to the given order.\n     * @throws NotStrictlyPositiveException if {@code numberOfPoints < 1}.\n     */"
+}

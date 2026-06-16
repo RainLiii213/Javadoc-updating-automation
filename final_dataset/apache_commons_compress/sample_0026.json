@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2643070b86ce1890bf87b5ae15947036235da6d7",
+  "issue_summary": "Some org.apache.commons.compress.harmony.unpack200 methods now throws Pack200Exception instead of Error on some bad inputs and states",
+  "code_before": "public abstract void setByteCodeOperands(ByteCode byteCode, OperandManager operandManager, int codeLength);",
+  "code_after": "public abstract void setByteCodeOperands(ByteCode byteCode, OperandManager operandManager, int codeLength) throws Pack200Exception;",
+  "javadoc_before": "/**\n     * When passed a byteCode, an OperandTable and a SegmentConstantPool, this method will set the rewrite of the byteCode appropriately.\n     *\n     * @param byteCode       ByteCode to be updated (!)\n     * @param operandManager OperandTable from which to draw info\n     * @param codeLength     Length of bytes (excluding this bytecode) from the beginning of the method. Used in calculating padding for some variable-length\n     *                       bytecodes (such as lookupswitch, tableswitch).\n     */",
+  "javadoc_after": "/**\n     * Sets the rewrite of the byteCode.\n     *\n     * @param byteCode       ByteCode to be updated (!)\n     * @param operandManager OperandTable from which to draw info\n     * @param codeLength     Length of bytes (excluding this bytecode) from the beginning of the method. Used in calculating padding for some variable-length\n     *                       bytecodes (such as lookupswitch, tableswitch).\n     * @throws Pack200Exception if a type is not supported or an index not in the range [0, {@link Integer#MAX_VALUE}].\n     */"
+}

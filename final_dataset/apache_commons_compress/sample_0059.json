@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6c20f8b1226cc7dd55bae98b224bb87795390b75",
+  "issue_summary": "Add FileNameUtil.getCompressedFileName(String) and deprecate getCompressedFilename(String)",
+  "code_before": "public boolean isCompressedFilename(final String fileName) {\n        final String lower = fileName.toLowerCase(Locale.ENGLISH);\n        final int n = lower.length();\n        for (int i = shortestCompressedSuffix;\n             i <= longestCompressedSuffix && i < n; i++) {\n            if (uncompressSuffix.containsKey(lower.substring(n - i))) {\n                return true;\n            }\n        }\n        return false;\n    }",
+  "code_after": "@Deprecated\n    public boolean isCompressedFilename(final String fileName) {\n        return isCompressedFileName(fileName);\n    }",
+  "javadoc_before": "/**\n     * Detects common format suffixes in the given file name.\n     *\n     * @param fileName name of a file\n     * @return {@code true} if the file name has a common format suffix,\n     *         {@code false} otherwise\n     */",
+  "javadoc_after": "/**\n     * Detects common format suffixes in the given file name.\n     *\n     * @param fileName name of a file\n     * @return {@code true} if the file name has a common format suffix,\n     *         {@code false} otherwise\n     * @deprecated Use {@link #isCompressedFileName(String)}.\n     */"
+}

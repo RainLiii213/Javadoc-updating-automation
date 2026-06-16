@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0f6096df9105ecbbb2d32017eae8fd63562ab298",
+  "issue_summary": "ValueGraph.edgeValue*: change from * V edgeValue(), V edgeValueOrDefault() to * Optional<V> edgeValue(), V edgeValueOrNull()",
+  "code_before": "V edgeValue(N nodeU, N nodeV);",
+  "code_after": "Optional<V> edgeValue(N nodeU, N nodeV);",
+  "javadoc_before": "/**\n   * If there is an edge connecting {@code nodeU} to {@code nodeV}, returns the non-null value\n   * associated with that edge.\n   *\n   * <p>In an undirected graph, this is equal to {@code edgeValue(nodeV, nodeU)}.\n   *\n   * @throws IllegalArgumentException if there is no edge connecting {@code nodeU} to {@code nodeV}.\n   */",
+  "javadoc_after": "/**\n   * Returns the value of the edge connecting {@code nodeU} to {@code nodeV}, if one is present;\n   * otherwise, returns {@code Optional.empty()}.\n   *\n   * <p>In an undirected graph, this is equal to {@code edgeValue(nodeV, nodeU)}.\n   *\n   * @throws IllegalArgumentException if {@code nodeU} or {@code nodeV} is not an element of this\n   *     graph\n   */"
+}

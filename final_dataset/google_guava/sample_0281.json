@@ -1,0 +1,8 @@
+{
+  "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+  "issue_summary": "Revision created by MOE tool push_codebase.",
+  "code_before": "public boolean isUnderRecognizedTld() {\n    return tldIndex > 0;\n  }",
+  "code_after": "@Deprecated public boolean isUnderRecognizedTld() {\n    return isUnderPublicSuffix();\n  }",
+  "javadoc_before": "/**\n   * Returns {@code true} if the domain name ends in a\n   * {@linkplain #isRecognizedTld() TLD}, but is not a complete\n   * {@linkplain #isRecognizedTld() TLD} itself.  For example, returns\n   * {@code true} for {@code www.google.com}, {@code foo.co.uk}, and\n   * {@code bar.ca.us}; returns {@code false} for {@code google}, {@code com},\n   * and {@code google.foo}.\n   */",
+  "javadoc_after": "/**\n   * Old location of {@link #isUnderPublicSuffix()}.\n   *\n   * @deprecated use {@link #isUnderPublicSuffix()}\n   */"
+}

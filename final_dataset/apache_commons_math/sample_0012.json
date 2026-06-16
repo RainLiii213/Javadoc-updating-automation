@@ -1,0 +1,8 @@
+{
+  "commit_hash": "350c477161a0d1df94efa02109ae07e6acbc527e",
+  "issue_summary": "Use \"DiagonalMatrix\" class. Thanks to Kazuhiro Koshino for the report.",
+  "code_before": "public static RealMatrix createRealDiagonalMatrix(final double[] diagonal) {\n        final RealMatrix m = createRealMatrix(diagonal.length, diagonal.length);\n        for (int i = 0; i < diagonal.length; ++i) {\n            m.setEntry(i, i, diagonal[i]);\n        }\n        return m;\n    }",
+  "code_after": "public static DiagonalMatrix createRealDiagonalMatrix(final double[] diagonal) {\n        return new DiagonalMatrix(diagonal, true);\n    }",
+  "javadoc_before": "/**\n     * Returns a diagonal matrix with specified elements.\n     *\n     * @param diagonal diagonal elements of the matrix (the array elements\n     * will be copied)\n     * @return diagonal matrix\n     * @since 2.0\n     */",
+  "javadoc_after": "/**\n     * Creates a diagonal matrix with the specified diagonal elements.\n     *\n     * @param diagonal Diagonal elements of the matrix.\n     * The array elements will be copied.\n     * @return a diagonal matrix instance.\n     *\n     * @since 2.0\n     */"
+}

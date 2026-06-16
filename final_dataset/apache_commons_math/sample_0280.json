@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4705c4f9246ebc74e96be501c3b1caa07ec5f83e",
+  "issue_summary": "Removed \"throws ArithmeticException\" from the signature of FieldElement<T>.divide(T), as this contract was too restrictive, and indeed broken by nearly all implementations of FieldElement<T>. See .",
+  "code_before": "T divide(T a) throws ArithmeticException;",
+  "code_after": "T divide(T a);",
+  "javadoc_before": "/** Compute this &divide; a.\n     * @param a element to add\n     * @return a new element representing this &divide; a\n     * @exception ArithmeticException if a is the zero of the\n     * additive operation (i.e. additive identity)\n     */",
+  "javadoc_after": "/** Compute this &divide; a.\n     * @param a element to add\n     * @return a new element representing this &divide; a\n     */"
+}

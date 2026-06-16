@@ -1,0 +1,8 @@
+{
+  "commit_hash": "79f99111d595ea500d73fcae489cf285b0a67b59",
+  "issue_summary": "make FieldVector#getData() method deprecated in favor of toArray(), minor formatting, move implementation of SparseFieldVector#getData() to toArray().",
+  "code_before": "public T[] getData() {\n        T[] res = buildArray(virtualSize);\n        OpenIntToFieldHashMap<T>.Iterator iter = entries.iterator();\n        while (iter.hasNext()) {\n            iter.advance();\n            res[iter.key()] = iter.value();\n        }\n        return res;\n     }",
+  "code_after": "@Deprecated\n    public T[] getData() {\n        return toArray();\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/**\n     * {@inheritDoc}\n     *\n     * @deprecated as of 3.1, to be removed in 4.0. Please use the {@link #toArray()} method instead.\n     */"
+}

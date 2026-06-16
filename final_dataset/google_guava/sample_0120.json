@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1b7e2844d82c1114c208bb98ee851f1aade328cc",
+  "issue_summary": "Adds to PairedStats toByteArray() and fromByteArray() to facilitate (faster) serialization. Created by MOE: https://github.com/google/moe MOE_MIGRATED_REVID=110027472",
+  "code_before": "public static Stats fromByteArray(byte[] byteArray) {\n    checkNotNull(byteArray);\n    checkArgument(byteArray.length >= BYTES,\n        \"Expected at least Stats.BYTES = %s, got %s\", BYTES, byteArray.length);\n    ByteBuffer buff = ByteBuffer.wrap(byteArray).order(ByteOrder.LITTLE_ENDIAN);\n    return new Stats(\n        buff.getLong(),\n        buff.getDouble(),\n        buff.getDouble(),\n        buff.getDouble(),\n        buff.getDouble());\n  }",
+  "code_after": "public static Stats fromByteArray(byte[] byteArray) {\n    checkNotNull(byteArray);\n    checkArgument(byteArray.length == BYTES,\n        \"Expected Stats.BYTES = %s remaining , got %s\", BYTES, byteArray.length);\n    return readFrom(ByteBuffer.wrap(byteArray).order(ByteOrder.LITTLE_ENDIAN));\n  }",
+  "javadoc_before": "/**\n   * Creates a Stats instance from the given byte representation. The array must be at least\n   * {@link #BYTES} long, and only the first {@link #BYTES} bytes will be used.\n   *\n   * <p>NOTE: NO guarantees are made regarding stability of the representation between versions.\n   */",
+  "javadoc_after": "/**\n   * Creates a Stats instance from the given byte representation which was obtained by\n   * {@link #toByteArray}.\n   *\n   * <p><b>Note:</b> No guarantees are made regarding stability of the representation between\n   * versions.\n   */"
+}

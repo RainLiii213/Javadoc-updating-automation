@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b7f0cbb63ac7a622dd985e2923193c9a59858f42",
+  "issue_summary": "improve TAR support for file times",
+  "code_before": "public Date getModTime() {\n        return new Date(modTime * MILLIS_PER_SECOND);\n    }",
+  "code_after": "public Date getModTime() {\n        return new Date(mTime.toMillis());\n    }",
+  "javadoc_before": "/**\n     * Get this entry's modification time.\n     *\n     * @return This entry's modification time.\n     */",
+  "javadoc_after": "/**\n     * Get this entry's modification time.\n     * This is equivalent to {@link TarArchiveEntry#getLastModifiedTime()}, but precision is truncated to milliseconds.\n     *\n     * @return This entry's modification time.\n     * @see TarArchiveEntry#getLastModifiedTime()\n     */"
+}

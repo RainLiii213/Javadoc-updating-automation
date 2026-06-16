@@ -1,0 +1,8 @@
+{
+  "commit_hash": "04cb14727d9fad2d0e7db8a7b99c78adbcb4d1a9",
+  "issue_summary": "Extended StepNormalizer with normalization mode and bounds settings.",
+  "code_before": "public StepNormalizer(final double h, final FixedStepHandler handler) {\n        this.h       = FastMath.abs(h);\n        this.handler = handler;\n        reset();\n    }",
+  "code_after": "public StepNormalizer(final double h, final FixedStepHandler handler) {\n        this(h, handler, StepNormalizerMode.INCREMENT,\n             StepNormalizerBounds.FIRST);\n    }",
+  "javadoc_before": "/** Simple constructor.\n     * @param h fixed time step (sign is not used)\n     * @param handler fixed time step handler to wrap\n     */",
+  "javadoc_after": "/** Simple constructor. Uses {@link StepNormalizerMode#INCREMENT INCREMENT}\n     * mode, and {@link StepNormalizerBounds#FIRST FIRST} bounds setting, for\n     * backwards compatibility.\n     * @param h fixed time step (sign is not used)\n     * @param handler fixed time step handler to wrap\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e8d0d4c1ddb40c7752fd4ac6a70ee619323deb4d",
+  "issue_summary": "Remove GrahamScan, GiftWrap, make MonotoneChain more robust wrt collinear points, add ConvergenceException in case the specified tolerance results in a non-convex hull.",
+  "code_before": "ConvexHull<S, P> generate(Collection<P> points) throws NullArgumentException;",
+  "code_after": "ConvexHull<S, P> generate(Collection<P> points) throws NullArgumentException, ConvergenceException;",
+  "javadoc_before": "/**\n     * Builds the convex hull from the set of input points.\n     *\n     * @param points the set of input points\n     * @return the convex hull\n     * @throws NullArgumentException if the input collection is {@code null}\n     */",
+  "javadoc_after": "/**\n     * Builds the convex hull from the set of input points.\n     *\n     * @param points the set of input points\n     * @return the convex hull\n     * @throws NullArgumentException if the input collection is {@code null}\n     * @throws ConvergenceException if generator fails to generate a convex hull for\n     * the given set of input points\n     */"
+}

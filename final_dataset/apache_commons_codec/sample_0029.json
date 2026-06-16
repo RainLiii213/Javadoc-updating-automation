@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fb09a1d1244fe0331a05418f5ccd32b62f2200e7",
+  "issue_summary": "BaseNCodecOutputStream only supports writing EOF on close().",
+  "code_before": "@Override\n    public void close() throws IOException {\n        // Notify encoder of EOF (-1).\n        if (doEncode) {\n            baseNCodec.encode(singleByte, 0, EOF, context);\n        } else {\n            baseNCodec.decode(singleByte, 0, EOF, context);\n        }\n        flush();\n        out.close();\n    }",
+  "code_after": "@Override\n    public void close() throws IOException {\n        eof();\n        flush();\n        out.close();\n    }",
+  "javadoc_before": "/**\n     * Closes this output stream and releases any system resources associated with the stream.\n     *\n     * @throws IOException\n     *             if an I/O error occurs.\n     */",
+  "javadoc_after": "/**\n     * Closes this output stream and releases any system resources associated with the stream.\n     * <p>\n     * To write the EOF marker without closing the stream, call {@link #eof()} or use an\n     * <a href=\"https://commons.apache.org/proper/commons-io/\">Apache Commons IO</a> <a href=\n     * \"https://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/output/CloseShieldOutputStream.html\"\n     * >CloseShieldOutputStream</a>.\n     * </p>\n     *\n     * @throws IOException\n     *             if an I/O error occurs.\n     */"
+}

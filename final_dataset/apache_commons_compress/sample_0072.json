@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e716544cda2457e73d10d9b32ae939d6f7b11461",
+  "issue_summary": "Fix some generics. Remove unused exceptions deep in pack200 (maintains binary compatibility but not source compatibility).",
+  "code_before": "public Archive(final InputStream inputStream, final JarOutputStream outputStream) throws IOException {\n        this.inputStream = inputStream;\n        this.outputStream = outputStream;\n    }",
+  "code_after": "public Archive(final InputStream inputStream, final JarOutputStream outputStream) {\n        this.inputStream = inputStream;\n        this.outputStream = outputStream;\n    }",
+  "javadoc_before": "/**\n     * Creates an Archive with streams for the input and output files. Note: If you use this method then calling\n     * {@link #setRemovePackFile(boolean)} will have no effect.\n     *\n     * @param inputStream TODO\n     * @param outputStream TODO\n     * @throws IOException TODO\n     */",
+  "javadoc_after": "/**\n     * Creates an Archive with streams for the input and output files. Note: If you use this method then calling\n     * {@link #setRemovePackFile(boolean)} will have no effect.\n     *\n     * @param inputStream TODO\n     * @param outputStream TODO\n     */"
+}

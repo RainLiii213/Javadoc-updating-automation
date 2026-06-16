@@ -1,0 +1,8 @@
+{
+  "commit_hash": "81c83b443182cb5869079924637a4d43e9e7917e",
+  "issue_summary": "give GeoPointField and LatLonPoint full polygon support",
+  "code_before": "public GeoPointInPolygonQuery(final String field, final double[] polyLats, final double[] polyLons) {\n    this(field, TermEncoding.PREFIX, GeoUtils.polyToBBox(polyLats, polyLons), polyLats, polyLons);\n  }",
+  "code_after": "@Deprecated\n  public GeoPointInPolygonQuery(final String field, final double[] polyLats, final double[] polyLons) {\n    this(field, TermEncoding.PREFIX, polyLats, polyLons);\n  }",
+  "javadoc_before": "/**\n   * Constructs a new GeoPolygonQuery that will match encoded {@link org.apache.lucene.spatial.geopoint.document.GeoPointField} terms\n   * that fall within or on the boundary of the polygon defined by the input parameters.\n   */",
+  "javadoc_after": "/**\n   * Constructs a new GeoPolygonQuery that will match encoded {@link org.apache.lucene.spatial.geopoint.document.GeoPointField} terms\n   * that fall within or on the boundary of the polygon defined by the input parameters.\n   * @deprecated Use {@link #GeoPointInPolygonQuery(String, Polygon[])}.\n   */"
+}

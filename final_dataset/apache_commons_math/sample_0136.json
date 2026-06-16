@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c61b08e546703881350346490ecd887266220ba4",
+  "issue_summary": "Fixed naming inconsistencies between Interval and IntervalsSet classes.",
+  "code_before": "public double getUpper() {\n        return upper;\n    }",
+  "code_after": "@Deprecated\n    public double getUpper() {\n        return getSup();\n    }",
+  "javadoc_before": "/** Get the upper bound of the interval.\n     * @return upper bound of the interval\n     */",
+  "javadoc_after": "/** Get the upper bound of the interval.\n     * @return upper bound of the interval\n     * @deprecated as of 3.1, replaced by {@link #getSup()}\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a7210d05fc3669383277fdf1305d04406bf1b9e0",
+  "issue_summary": "Update from testing",
+  "code_before": "public long getDifferenceAsLong(ReadableInstant instant) {\n        if (instant == null) {\n            throw new IllegalArgumentException(\"The instant must not be null\");\n        }\n        return getField().getDifferenceAsLong(getReadableInstant().getMillis(), instant.getMillis());\n    }",
+  "code_after": "public long getDifferenceAsLong(ReadableInstant instant) {\n        if (instant == null) {\n            return getField().getDifferenceAsLong(getReadableInstant().getMillis(), DateTimeUtils.currentTimeMillis());\n        }\n        return getField().getDifferenceAsLong(getReadableInstant().getMillis(), instant.getMillis());\n    }",
+  "javadoc_before": "/**\n     * Returns the difference between this field property instant and the one\n     * passed in, in the units of this field. The sign of the difference\n     * matches that of compareTo. In other words, this field property's instant\n     * is the minuend.\n     *\n     * @param instant the subtrahend\n     * @return the difference in the units of this field\n     * @see DateTimeField#getDifference\n     */",
+  "javadoc_after": "/**\n     * Returns the difference between this field property instant and the one\n     * passed in, in the units of this field. The sign of the difference\n     * matches that of compareTo. In other words, this field property's instant\n     * is the minuend.\n     *\n     * @param instant  the subtrahend, null means now\n     * @return the difference in the units of this field\n     * @see DateTimeField#getDifference\n     */"
+}

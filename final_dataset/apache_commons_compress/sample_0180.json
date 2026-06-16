@@ -1,0 +1,8 @@
+{
+  "commit_hash": "46ad24db76c6f65480736006c2da8b8e5bf8ee25",
+  "issue_summary": "applied patch from Christian Grobmeier",
+  "code_before": "public Date getModTime()\n    {\n        return new Date( m_modTime * 1000 );\n    }",
+  "code_after": "public Date getModTime() {\n        return new Date(modTime * MILLIS_PER_SECOND);\n    }",
+  "javadoc_before": "/**\n     * Set this entry's modification time.\n     *\n     * @return The ModTime value\n     */",
+  "javadoc_after": "/**\n     * Set this entry's modification time.\n     *\n     * @return time This entry's new modification time.\n     */"
+}

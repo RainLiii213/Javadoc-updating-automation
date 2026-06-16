@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1de67afcb295c771fb00a98281c6becf74926e76",
+  "issue_summary": "Predicates.subtypeOf, a correctly-named duplicate of Predicates.assignableFrom. Deprecate the latter. Add javadoc.",
+  "code_before": "@GwtIncompatible // Class.isAssignableFrom\n  @Beta\n  public static Predicate<Class<?>> assignableFrom(Class<?> clazz) {\n    return new AssignableFromPredicate(clazz);\n  }",
+  "code_after": "@GwtIncompatible // Class.isAssignableFrom\n  @Beta\n  @Deprecated\n  public static Predicate<Class<?>> assignableFrom(Class<?> clazz) {\n    return subtypeOf(clazz);\n  }",
+  "javadoc_before": "/**\n   * Returns a predicate that evaluates to {@code true} if the class being tested is assignable from\n   * the given class. The returned predicate does not allow null inputs.\n   *\n   * @since 10.0\n   */",
+  "javadoc_after": "/**\n   * Returns a predicate that evaluates to {@code true} if the class being tested is assignable\n   * <b>TO</b> {@code clazz}, that is, if it is a <b>subtype</b> of {@code clazz}. Yes, this method\n   * is named very incorrectly! Example: <pre>   {@code\n   *\n   *   List<Class<?>> classes = Arrays.asList(\n   *       Object.class, String.class, Number.class, Long.class);\n   *   return Iterables.filter(classes, assignableFrom(Number.class));}</pre>\n   *\n   * The code above returns {@code Number.class} and {@code Long.class}, <b>not</b> {@code\n   * Number.class} and {@code Object.class} as the name implies!\n   *\n   * <p>The returned predicate does not allow null inputs.\n   *\n   * @deprecated Use the correctly-named method {@link #subtypeOf} instead.\n   * @since 10.0\n   */"
+}

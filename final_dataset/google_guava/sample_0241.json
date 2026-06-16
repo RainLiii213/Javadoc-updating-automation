@@ -1,0 +1,8 @@
+{
+  "commit_hash": "87df707d642a3cbf8037678aa4ea4c58c502fe85",
+  "issue_summary": "introduce CacheStats.createExceptionCount",
+  "code_before": "public long createCount() {\n    return createCount;\n  }",
+  "code_after": "public long createCount() {\n    return createSuccessCount + createExceptionCount;\n  }",
+  "javadoc_before": "/**\n   * Returns the number of times {@link Cache} lookup methods have successfully created a new value.\n   * This differs from {@link #missCount} only in the case of concurrent calls to {@link Cache}\n   * lookup methods on an absent value, in which case multiple simultaneous misses will result in a\n   * single creation. Thus, the returned value can never exceed the value of {@code missCount()}.\n   */",
+  "javadoc_after": "/**\n   * Returns the total number of times that {@link Cache} lookup methods attempted to create new\n   * values. This includes both successful creations, as well as those that threw exceptions. This\n   * is defined as {@code createSuccessCount + createExceptionCount}.\n   */"
+}

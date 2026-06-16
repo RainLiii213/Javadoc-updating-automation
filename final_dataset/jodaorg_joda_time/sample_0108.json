@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8acb3651b1e903438a4a98811b7422c0f4c00ff3",
+  "issue_summary": "Fixes resulting from testing",
+  "code_before": "public String toString(String pattern) throws IllegalArgumentException {\n        return DateTimeFormat.getInstance(getChronology()).forPattern(pattern).print(this);\n    }",
+  "code_after": "public String toString(String pattern) {\n        if (pattern == null) {\n            return toString();\n        }\n        return DateTimeFormat.getInstance(getChronology()).forPattern(pattern).print(this);\n    }",
+  "javadoc_before": "/**\n     * Output the instant using the specified format pattern.\n     *\n     * @param pattern  the pattern specification\n     * @throws IllegalArgumentException  if pattern is invalid\n     * @see  org.joda.time.format.DateTimeFormat\n     */",
+  "javadoc_after": "/**\n     * Output the instant using the specified format pattern.\n     *\n     * @param pattern  the pattern specification, null means use <code>toString</code>\n     * @see  org.joda.time.format.DateTimeFormat\n     */"
+}

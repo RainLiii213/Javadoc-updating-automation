@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2e3e0829846239f4f1378a81e307ed28b11f9ecc",
+  "issue_summary": "Issues https://issues.apache.org/jira/browse/ https://issues.apache.org/jira/browse/",
+  "code_before": "public void setNumberOfTrials(int trials) {\n        if (trials < 0) {\n            throw MathRuntimeException.createIllegalArgumentException(\n                    \"number of trials must be non-negative ({0})\", trials);\n        }\n        numberOfTrials = trials;\n    }",
+  "code_after": "@Deprecated\n    public void setNumberOfTrials(int trials) {\n        setNumberOfTrialsInternal(trials);\n    }",
+  "javadoc_before": "/**\n     * Change the number of trials for this distribution.\n     *\n     * @param trials the new number of trials.\n     * @throws IllegalArgumentException if <code>trials</code> is not a valid\n     *             number of trials.\n     */",
+  "javadoc_after": "/**\n     * Change the number of trials for this distribution.\n     *\n     * @param trials the new number of trials.\n     * @throws IllegalArgumentException if <code>trials</code> is not a valid\n     *             number of trials.\n     * @deprecated as of 2.1 (class will become immutable in 3.0)\n     */"
+}

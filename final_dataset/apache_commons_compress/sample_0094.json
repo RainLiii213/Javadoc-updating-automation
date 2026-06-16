@@ -1,0 +1,8 @@
+{
+  "commit_hash": "88e26c9ffac61713372378c6f0225cd1a8b676e9",
+  "issue_summary": "Revert \" introduce a parameter class for zip readers\"",
+  "code_before": "public ZipArchiveInputStream(final InputStream inputStream) {\n        this(inputStream, ZipReadingOptions.DEFAULT);\n    }",
+  "code_after": "public ZipArchiveInputStream(final InputStream inputStream) {\n        this(inputStream, ZipEncodingHelper.UTF8);\n    }",
+  "javadoc_before": "/**\n     * Create an instance using the {@link ZipReadingOptions#DEFAULT default reading options}.\n     * @param inputStream the stream to wrap\n     */",
+  "javadoc_after": "/**\n     * Create an instance using UTF-8 encoding\n     * @param inputStream the stream to wrap\n     */"
+}

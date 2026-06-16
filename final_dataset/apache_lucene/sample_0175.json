@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d4e4fe22b1826ec6e96432182a98a6e2fc9b91fc",
+  "issue_summary": "Revert \": Add non thread local based API for term vector reader usage \"",
+  "code_before": "@Deprecated\n  public final Fields getTermVectors(int docID) throws IOException {\n    TermVectors termVectors = getTermVectorsReader();\n    if (termVectors != null) {\n      return termVectors.get(docID);\n    }\n    return null;\n  }",
+  "code_after": "public abstract Fields getTermVectors(int docID) throws IOException;",
+  "javadoc_before": "/**\n   * Retrieve term vectors for this document, or null if term vectors were not indexed. The returned\n   * Fields instance acts like a single-document inverted index (the docID will be 0).\n   *\n   * @deprecated Use {@link IndexReader#getTermVectorsReader} instead.\n   */",
+  "javadoc_after": "/**\n   * Retrieve term vectors for this document, or null if term vectors were not indexed. The returned\n   * Fields instance acts like a single-document inverted index (the docID will be 0).\n   */"
+}

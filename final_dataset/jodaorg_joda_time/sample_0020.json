@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a3cc13c9ce9a47b656823a4836a4f89fea34fb18",
+  "issue_summary": "Fix DST cutover issues for LocalDate.toInterval() [2487417 Raised by Luc Claes",
+  "code_before": "public Interval toInterval(DateTimeZone zone) {\n        zone = DateTimeUtils.getZone(zone);\n        return toDateMidnight(zone).toInterval();\n    }",
+  "code_after": "public Interval toInterval(DateTimeZone zone) {\n        zone = DateTimeUtils.getZone(zone);\n        DateTime start = toDateTimeAtStartOfDay(zone);\n        DateTime end = plusDays(1).toDateTimeAtStartOfDay(zone);\n        return new Interval(start, end);\n    }",
+  "javadoc_before": "/**\n     * Converts this object to an Interval representing the whole day.\n     * <p>\n     * This instance is immutable and unaffected by this method call.\n     *\n     * @param zone  the zone to get the Interval in, null means default\n     * @return a interval over the day\n     */",
+  "javadoc_after": "/**\n     * Converts this object to an Interval representing the whole day.\n     * <p>\n     * The interval may have more or less than 24 hours if this is a daylight\n     * savings cutover date.\n     * <p>\n     * This instance is immutable and unaffected by this method call.\n     *\n     * @param zone  the zone to get the Interval in, null means default\n     * @return a interval over the day\n     */"
+}

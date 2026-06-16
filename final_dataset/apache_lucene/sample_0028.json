@@ -1,0 +1,8 @@
+{
+  "commit_hash": "08538bbaf0e77a271c2d6d2241eead3b7202d370",
+  "issue_summary": "Fix silly inefficiencies in HnswGraph.NodesIterator implementation",
+  "code_before": "public ArrayNodesIterator(int[] nodes, int size) {\n      super(size);\n      assert nodes != null;\n      assert size <= nodes.length;\n      this.nodes = nodes;\n    }",
+  "code_after": "public ArrayNodesIterator(int[] nodes, int size) {\n      super(size);\n      this.nodes = nodes;\n    }",
+  "javadoc_before": "/** Constructor for iterator based on integer array representing nodes */",
+  "javadoc_after": "/** Constructor that allows overriding size, used only for back-compat */"
+}

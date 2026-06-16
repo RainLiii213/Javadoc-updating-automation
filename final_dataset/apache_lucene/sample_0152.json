@@ -1,0 +1,8 @@
+{
+  "commit_hash": "db8fcb84bbcad8e057c567d31a68986f1bd442ef",
+  "issue_summary": "Move functional interfaces in IOUtils to top-level interfaces",
+  "code_before": "@FunctionalInterface\n  public interface IOFunction<T, R> {\n    R apply(T t) throws IOException;\n  }",
+  "code_after": "@FunctionalInterface\n  @Deprecated(forRemoval = true, since = \"9.1\")\n  public interface IOFunction<T, R> {\n    /** Applies this function to the given argument. */\n    R apply(T t) throws IOException;\n  }",
+  "javadoc_before": "/**\n   * A Function that may throw an IOException\n   *\n   * @see java.util.function.Function\n   */",
+  "javadoc_after": "/**\n   * A Function that may throw an IOException\n   *\n   * @see java.util.function.Function\n   * @deprecated was replaced by {@link org.apache.lucene.util.IOFunction}.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b11dca2f006da939879c9729a8af09f8519df007",
+  "issue_summary": "make block size configurable, auto-generate unique values for inode and dev, provide a reasonable default for mode.",
+  "code_before": "public CpioArchiveOutputStream(final OutputStream out, final short format) {\n        this.out = new CountingStream(out);\n        switch (format) {\n        case FORMAT_NEW:\n        case FORMAT_NEW_CRC:\n        case FORMAT_OLD_ASCII:\n        case FORMAT_OLD_BINARY:\n            break;\n        default:\n            throw new IllegalArgumentException(\"Unknown format: \"+format);\n\n        }\n        this.entryFormat = format;\n    }",
+  "code_after": "public CpioArchiveOutputStream(final OutputStream out, final short format) {\n        this(out, format, BLOCK_SIZE);\n    }",
+  "javadoc_before": "/**\n     * Construct the cpio output stream with a specified format\n     * \n     * @param out\n     *            The cpio stream\n     * @param format\n     *            The format of the stream\n     */",
+  "javadoc_after": "/**\n     * Construct the cpio output stream with a specified format and a\n     * blocksize of {@link CpioConstants.BLOCK_SIZE BLOCK_SIZE}.\n     * \n     * @param out\n     *            The cpio stream\n     * @param format\n     *            The format of the stream\n     */"
+}

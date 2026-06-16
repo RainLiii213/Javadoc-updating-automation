@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a072275f7ec6cd71835baef23020a766ba0497e6",
+  "issue_summary": "Simplify ImmutableCollection implementation and related code. Specifically",
+  "code_before": "static <E> ImmutableList<E> asImmutableList(Object[] elements) {\n    switch (elements.length) {\n      case 0:\n        return of();\n      case 1:\n        @SuppressWarnings(\"unchecked\") // collection had only Es in it\n        ImmutableList<E> list = new SingletonImmutableList<E>((E) elements[0]);\n        return list;\n      default:\n        return construct(elements);\n    }\n  }",
+  "code_after": "static <E> ImmutableList<E> asImmutableList(Object[] elements) {\n    return asImmutableList(elements, elements.length);\n  }",
+  "javadoc_before": "/**\n   * Views the array as an immutable list.  The array must have only non-null {@code E} elements.\n   *\n   * <p>The array must be internally created.\n   */",
+  "javadoc_after": "/**\n   * Views the array as an immutable list.  Does not check for nulls; does not copy.\n   *\n   * <p>The array must be internally created.\n   */"
+}

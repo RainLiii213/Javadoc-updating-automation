@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2e3e0829846239f4f1378a81e307ed28b11f9ecc",
+  "issue_summary": "Issues https://issues.apache.org/jira/browse/ https://issues.apache.org/jira/browse/",
+  "code_before": "public void setProbabilityOfSuccess(double p) {\n        if (p < 0.0 || p > 1.0) {\n            throw MathRuntimeException.createIllegalArgumentException(\n                    \"{0} out of [{1}, {2}] range\", p, 0.0, 1.0);\n        }\n        probabilityOfSuccess = p;\n    }",
+  "code_after": "@Deprecated\n    public void setProbabilityOfSuccess(double p) {\n        setProbabilityOfSuccessInternal(p);\n    }",
+  "javadoc_before": "/**\n     * Change the probability of success for this distribution.\n     *\n     * @param p the new probability of success.\n     * @throws IllegalArgumentException if <code>p</code> is not a valid\n     *             probability.\n     */",
+  "javadoc_after": "/**\n     * Change the probability of success for this distribution.\n     *\n     * @param p the new probability of success.\n     * @throws IllegalArgumentException if <code>p</code> is not a valid\n     *             probability.\n     * @deprecated as of 2.1 (class will become immutable in 3.0)\n     */"
+}

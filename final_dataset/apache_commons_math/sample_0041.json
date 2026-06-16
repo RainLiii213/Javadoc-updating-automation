@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5ca0a1c3564d35293a5ecf03e5f32e6f0f6f445c",
+  "issue_summary": "check for equal array lengths in distance functions",
+  "code_before": "double compute(double[] a, double[] b);",
+  "code_after": "double compute(double[] a, double[] b) throws DimensionMismatchException;",
+  "javadoc_before": "/**\n     * Compute the distance between two n-dimensional vectors.\n     * <p>\n     * The two vectors are required to have the same dimension.\n     *\n     * @param a the first vector\n     * @param b the second vector\n     * @return the distance between the two vectors\n     */",
+  "javadoc_after": "/**\n     * Compute the distance between two n-dimensional vectors.\n     * <p>\n     * The two vectors are required to have the same dimension.\n     *\n     * @param a the first vector\n     * @param b the second vector\n     * @return the distance between the two vectors\n     * @throws DimensionMismatchException if the array lengths differ.\n     */"
+}

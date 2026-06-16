@@ -1,0 +1,8 @@
+{
+  "commit_hash": "06880f1138498473cebcb273d034d0e9d4d4aed6",
+  "issue_summary": "Populated throws clause of RealMatrix ; javadoc + formatting.",
+  "code_before": "RealMatrix multiply(RealMatrix m);",
+  "code_after": "RealMatrix multiply(RealMatrix m)\n        throws DimensionMismatchException;",
+  "javadoc_before": "/**\n     * Returns the result of postmultiplying this by m.\n     *\n     * @param m    matrix to postmultiply by\n     * @return     this * m\n     * @throws     IllegalArgumentException\n     *             if columnDimension(this) != rowDimension(m)\n     */",
+  "javadoc_after": "/**\n     * Returns the result of postmultiplying {@code this} by {@code m}.\n     *\n     * @param m matrix to postmultiply by\n     * @return {@code this * m}\n     * @throws DimensionMismatchException if\n     * {@code columnDimension(this) != rowDimension(m)}\n     */"
+}

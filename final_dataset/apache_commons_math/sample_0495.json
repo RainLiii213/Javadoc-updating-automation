@@ -1,0 +1,8 @@
+{
+  "commit_hash": "53ccce4ac16015b47a54a8989bea99efd6a0f044",
+  "issue_summary": "Fixed k-means++ to add several strategies to deal with empty clusters that may appear during iterations JIRA",
+  "code_before": "public KMeansPlusPlusClusterer(final Random random) {\n        this.random = random;\n    }",
+  "code_after": "public KMeansPlusPlusClusterer(final Random random) {\n        this(random, EmptyClusterStrategy.LARGEST_VARIANCE);\n    }",
+  "javadoc_before": "/** Build a clusterer.\n     * @param random random generator to use for choosing initial centers\n     */",
+  "javadoc_after": "/** Build a clusterer.\n     * <p>\n     * The default strategy for handling empty clusters that may appear during\n     * algorithm iterations is to split the cluster with largest distance variance.\n     * </p>\n     * @param random random generator to use for choosing initial centers\n     */"
+}

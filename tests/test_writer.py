@@ -1,7 +1,7 @@
 import csv
 import json
 
-from javadoc_miner.models import OutputSample
+from javadoc_miner.models import ExtractionStats, OutputSample
 from javadoc_miner.writer import SampleWriter
 
 
@@ -11,8 +11,8 @@ def make_sample(name="getFullName"):
         commit_hash="abc123",
         commit_message="LANG-1234 rename method",
         issue_summary="Rename getter",
-        code_before="public String getName() { return name; }",
-        code_after="public String getFullName() { return fullName; }",
+        code_before="public String getName() {\n    return name;\n}",
+        code_after="public String getFullName() {\n    return fullName;\n}",
         javadoc_before="/** Returns name. */",
         javadoc_after="/** Returns full name. */",
         entity_name=name,
@@ -57,3 +57,32 @@ def test_writer_creates_json_and_summary_csv(tmp_path):
     assert "quality" not in rows[0]
     combined = json.loads((tmp_path / "combined_samples.json").read_text(encoding="utf-8"))
     assert combined == [sample_data]
+    assert json.loads((tmp_path / "review_samples.json").read_text(encoding="utf-8")) == []
+
+
+def test_writer_rejects_unfinished_method_and_moves_invalid_class_to_review(tmp_path):
+    method = make_sample("method")
+    method = OutputSample(
+        **{**method.__dict__, "code_after": "throw new UnsupportedOperationException("}
+    )
+    class_sample = make_sample("class")
+    class_sample = OutputSample(
+        **{
+            **class_sample.__dict__,
+            "entity_type": "class",
+            "code_before": "public class Names {",
+            "code_after": "public class Names {\n// ... relevant changed context ...",
+        }
+    )
+
+    stats = ExtractionStats(candidate_samples_found=2)
+    retained = SampleWriter(tmp_path).write_samples([method, class_sample], stats)
+
+    assert retained == []
+    assert json.loads((tmp_path / "combined_samples.json").read_text(encoding="utf-8")) == []
+    review = json.loads((tmp_path / "review_samples.json").read_text(encoding="utf-8"))
+    assert len(review) == 1
+    assert review[0]["review_reason"].startswith("invalid_class_context:")
+    assert stats.discarded_truncated_code_context == 1
+    assert stats.moved_to_review == 1
+    assert stats.samples_retained == 0

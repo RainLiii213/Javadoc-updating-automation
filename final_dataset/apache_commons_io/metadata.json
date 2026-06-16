@@ -1,0 +1,20 @@
+{
+  "project_slug": "apache_commons_io",
+  "repository_name": "apache/commons-io",
+  "repository_url": "https://github.com/apache/commons-io.git",
+  "retained_samples": 39,
+  "source_folder": "dataset_apache_commons_io_39",
+  "final_folder": "final_dataset/apache_commons_io",
+  "mined_at_utc": "2026-06-14T09:52:13Z",
+  "commits_scanned": 1533,
+  "candidate_samples_found": 76,
+  "filtered_samples": 27,
+  "discarded_truncated_code_context": 0,
+  "moved_to_review": 10,
+  "discarded_weak_inheritdoc": 1,
+  "issue_summary_fallbacks": 1,
+  "complete_history": false,
+  "stop_reason": "history_incomplete",
+  "requested_samples": 50,
+  "manually_approved": true
+}

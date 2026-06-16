@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8690f549beb52ab49bf8bf778f2c4da9670346b4",
+  "issue_summary": "Deprecate ChecksumCalculatingInputStream in favor of java.util.zip.CheckedInputStream",
+  "code_before": "public long getValue() {\n        return checksum.getValue();\n    }",
+  "code_after": "@Deprecated\n    public long getValue() {\n        return getChecksum().getValue();\n    }",
+  "javadoc_before": "/**\n     * Returns the calculated checksum.\n     *\n     * @return the calculated checksum.\n     */",
+  "javadoc_after": "/**\n     * Returns the calculated checksum.\n     *\n     * @return the calculated checksum.\n     * @deprecated Use {@link CheckedInputStream#getChecksum()} and {@link Checksum#getValue()}.\n     */"
+}

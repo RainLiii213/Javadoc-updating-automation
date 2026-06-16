@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f17ce4b5f31c548aea0ed92fe8d44721d68acc01",
+  "issue_summary": "Make entry \"constants\" final",
+  "code_before": "public CpioArchiveEntry(final short format) {\n        setFormat(format);\n    }",
+  "code_after": "public CpioArchiveEntry(final short format) {\n        switch (format) {\n        case FORMAT_NEW:\n            this.headerSize = 110;\n            this.alignmentBoundary = 4;\n            break;\n        case FORMAT_NEW_CRC:\n            this.headerSize = 110;\n            this.alignmentBoundary = 4;\n            break;\n        case FORMAT_OLD_ASCII:\n            this.headerSize = 76;\n            this.alignmentBoundary = 0;\n            break;\n        case FORMAT_OLD_BINARY:\n            this.headerSize = 26;\n            this.alignmentBoundary = 2;\n            break;\n        default:\n            throw new IllegalArgumentException(\"Unknown header type\");\n        }\n        this.fileFormat = format;\n    }",
+  "javadoc_before": "/**\n     * Ceates a CPIOArchiveEntry with a specified format.\n     * \n     * @param format\n     *            The cpio format for this entry.\n     */",
+  "javadoc_after": "/**\n     * Ceates a CPIOArchiveEntry with a specified format.\n     * \n     * @param format\n     *            The cpio format for this entry.\n     * <br/>\n     * Possible format values are:\n     * <p>\n     * CpioConstants.FORMAT_NEW<br/>\n     * CpioConstants.FORMAT_NEW_CRC<br/>\n     * CpioConstants.FORMAT_OLD_BINARY<br/>\n     * CpioConstants.FORMAT_OLD_ASCII<br/>\n     * \n     */"
+}

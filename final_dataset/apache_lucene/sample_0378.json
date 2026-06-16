@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e0bde579815ae5ce2525bb659d04e908812f1605",
+  "issue_summary": "don't force sim to score bogus terms (e.g. docfreq=0)",
+  "code_before": "public TermStatistics termStatistics(Term term, TermContext context) throws IOException {\n    return new TermStatistics(term.bytes(), context.docFreq(), context.totalTermFreq());\n  }",
+  "code_after": "public TermStatistics termStatistics(Term term, TermContext context) throws IOException {\n    if (context.docFreq() == 0) {\n      return null;\n    } else {\n      return new TermStatistics(term.bytes(), context.docFreq(), context.totalTermFreq());\n    }\n  }",
+  "javadoc_before": "/**\n   * Returns {@link TermStatistics} for a term.\n   * \n   * This can be overridden for example, to return a term's statistics\n   * across a distributed collection.\n   * @lucene.experimental\n   */",
+  "javadoc_after": "/**\n   * Returns {@link TermStatistics} for a term, or {@code null} if\n   * the term does not exist.\n   * \n   * This can be overridden for example, to return a term's statistics\n   * across a distributed collection.\n   * @lucene.experimental\n   */"
+}

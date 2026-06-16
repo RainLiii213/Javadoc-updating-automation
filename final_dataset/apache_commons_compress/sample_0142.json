@@ -1,0 +1,8 @@
+{
+  "commit_hash": "90b73bf96a9a09ea633cc42eb17cab60c885d8c6",
+  "issue_summary": "Add encoding support to CPIO package - related to git-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@1512804 13f79535-47bb-0310-9956-ffa450edef68",
+  "code_before": "public CpioArchiveOutputStream(final OutputStream out, final short format) {\n        this(out, format, BLOCK_SIZE);\n    }",
+  "code_after": "public CpioArchiveOutputStream(final OutputStream out, final short format) {\n        this(out, format, BLOCK_SIZE, CharsetNames.US_ASCII);\n    }",
+  "javadoc_before": "/**\n     * Construct the cpio output stream with a specified format and a\n     * blocksize of {@link CpioConstants#BLOCK_SIZE BLOCK_SIZE}.\n     * \n     * @param out\n     *            The cpio stream\n     * @param format\n     *            The format of the stream\n     */",
+  "javadoc_after": "/**\n     * Construct the cpio output stream with a specified format, a\n     * blocksize of {@link CpioConstants#BLOCK_SIZE BLOCK_SIZE} and\n     * using ASCII as the file name encoding.\n     * \n     * @param out\n     *            The cpio stream\n     * @param format\n     *            The format of the stream\n     */"
+}

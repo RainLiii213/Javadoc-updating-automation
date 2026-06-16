@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fec51a1551f6657e29aaa0438abc1e68285577a4",
+  "issue_summary": "Add generic methods for creating Archive Entries. This helps with testing, and will make it easier to implement put(File) later",
+  "code_before": "public TarArchiveEntry(File file) {\n        this();\n\n        this.file = file;\n\n        String fileName = normalizeFileName(file.getPath());\n        this.linkName = new StringBuffer(\"\");\n        this.name = new StringBuffer(fileName);\n\n        if (file.isDirectory()) {\n            this.mode = DEFAULT_DIR_MODE;\n            this.linkFlag = LF_DIR;\n\n            int nameLength = name.length();\n            if (nameLength == 0 || name.charAt(nameLength - 1) != '/') {\n                this.name.append(\"/\");\n            }\n            this.size = 0;\n        } else {\n            this.mode = DEFAULT_FILE_MODE;\n            this.linkFlag = LF_NORMAL;\n            this.size = file.length();\n        }\n\n        this.modTime = file.lastModified() / MILLIS_PER_SECOND;\n        this.devMajor = 0;\n        this.devMinor = 0;\n    }",
+  "code_after": "public TarArchiveEntry(File file) {\n        this(file, normalizeFileName(file.getPath()));\n    }",
+  "javadoc_before": "/**\n     * Construct an entry for a file. File is set to file, and the\n     * header is constructed from information from the file.\n     *\n     * @param file The file that the entry represents.\n     */",
+  "javadoc_after": "/**\n     * Construct an entry for a file. File is set to file, and the\n     * header is constructed from information from the file.\n     * The name is set from the normalized file path.\n     *\n     * @param file The file that the entry represents.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "00fe3063203024a1793f0f81c6627890d87fadfd",
+  "issue_summary": "allow a stack of methods when writing 7z files - preparation for and needed by as well",
+  "code_before": "public void setContentCompression(SevenZMethod method) {\n        this.contentCompression = method;\n    }",
+  "code_after": "public void setContentCompression(SevenZMethod method) {\n        setContentMethods(Collections.singletonList(method));\n    }",
+  "javadoc_before": "/**\n     * Sets the compression method to use for entry contents - the\n     * default is LZMA2.\n     *\n     * <p>Currently only {@link SevenZMethod#COPY}, {@link\n     * SevenZMethod#LZMA2}, {@link SevenZMethod#BZIP2} and {@link\n     * SevenZMethod#DEFLATE} are supported.</p>\n     */",
+  "javadoc_after": "/**\n     * Sets the compression method to use for entry contents - the\n     * default is LZMA2.\n     *\n     * <p>Currently only {@link SevenZMethod#COPY}, {@link\n     * SevenZMethod#LZMA2}, {@link SevenZMethod#BZIP2} and {@link\n     * SevenZMethod#DEFLATE} are supported.</p>\n     *\n     * <p>This is a short form for passing a single-element iterable\n     * to {@link #setContentMethods}.</p>\n     */"
+}

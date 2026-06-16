@@ -1,0 +1,8 @@
+{
+  "commit_hash": "003f022df47bfb1370514aca3b2cee1a9116f3d7",
+  "issue_summary": "Added throw declarations for FieldElements.",
+  "code_before": "T subtract(T a);",
+  "code_after": "T subtract(T a) throws NullArgumentException;",
+  "javadoc_before": "/** Compute this - a.\n     * @param a element to subtract\n     * @return a new element representing this - a\n     */",
+  "javadoc_after": "/** Compute this - a.\n     * @param a element to subtract\n     * @return a new element representing this - a\n     * @throws NullArgumentException if {@code a} is {@code null}.\n     */"
+}

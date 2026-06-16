@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bb0827cc81c2cbaa69bcc8f19268a1e473661809",
+  "issue_summary": "populated throws clause of Array2DRowFieldMatrix.",
+  "code_before": "public Array2DRowFieldMatrix(final Field<T> field,\n                                 final int rowDimension,\n                                 final int columnDimension) {\n        super(field, rowDimension, columnDimension);\n        data = buildArray(field, rowDimension, columnDimension);\n    }",
+  "code_after": "public Array2DRowFieldMatrix(final Field<T> field, final int rowDimension,\n                                 final int columnDimension)\n        throws NotStrictlyPositiveException {\n        super(field, rowDimension, columnDimension);\n        data = buildArray(field, rowDimension, columnDimension);\n    }",
+  "javadoc_before": "/**\n     * Create a new {@code FieldMatrix<T>} with the supplied row and column dimensions.\n     *\n     * @param field Field to which the elements belong.\n     * @param rowDimension Number of rows in the new matrix.\n     * @param columnDimension Number of columns in the new matrix.\n     * @throws org.apache.commons.math3.exception.NotStrictlyPositiveException\n     * if row or column dimension is not positive.\n     */",
+  "javadoc_after": "/**\n     * Create a new {@code FieldMatrix<T>} with the supplied row and column dimensions.\n     *\n     * @param field Field to which the elements belong.\n     * @param rowDimension Number of rows in the new matrix.\n     * @param columnDimension Number of columns in the new matrix.\n     * @throws NotStrictlyPositiveException if row or column dimension is not positive.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e92618bbdafe761ba6d6eeb99a6c060c618b3aaa",
+  "issue_summary": "StandardTokenizer performance bug: scanner buffer is unnecessarily copied when maxTokenLength doesn't change. Also stop silently maxing out buffer size (and effectively also max token length) at 1M chars, but instead throw an exception from setMaxTokenLength() when the given length is greater than 1M chars.",
+  "code_before": "public void setMaxTokenLength(int length) {\n    if (length < 1) {\n      throw new IllegalArgumentException(\"maxTokenLength must be greater than zero\");\n    }\n    this.maxTokenLength = length;\n    scanner.setBufferSize(Math.min(length, 1024 * 1024)); // limit buffer size to 1M chars\n  }",
+  "code_after": "public void setMaxTokenLength(int length) {\n    if (length < 1) {\n      throw new IllegalArgumentException(\"maxTokenLength must be greater than zero\");\n    } else if (length > MAX_TOKEN_LENGTH_LIMIT) {\n      throw new IllegalArgumentException(\"maxTokenLength may not exceed \" + MAX_TOKEN_LENGTH_LIMIT);\n    }\n    if (length != maxTokenLength) {\n      maxTokenLength = length;\n      scanner.setBufferSize(length);\n    }\n  }",
+  "javadoc_before": "/** Set the max allowed token length.  Any token longer\n   *  than this is skipped. */",
+  "javadoc_after": "/**\n   * Set the max allowed token length.  No tokens longer than this are emitted.\n   * \n   * @throws IllegalArgumentException if the given length is outside of the\n   *  range [1, {@value #MAX_TOKEN_LENGTH_LIMIT}].\n   */"
+}

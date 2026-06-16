@@ -1,0 +1,8 @@
+{
+  "commit_hash": "650ad0555e3702177c7403544ae8850f4ebbc9b1",
+  "issue_summary": "Use FileTime in SevenZArchiveEntry",
+  "code_before": "public Date getCreationDate() {\n        if (hasCreationDate) {\n            return ntfsTimeToJavaTime(creationDate);\n        }\n        throw new UnsupportedOperationException(\n                \"The entry doesn't have this timestamp\");\n    }",
+  "code_after": "public Date getCreationDate() {\n        return TimeUtils.fileTimeToDate(getCreationTime());\n    }",
+  "javadoc_before": "/**\n     * Gets the creation date.\n     * @throws UnsupportedOperationException if the entry hasn't got a\n     * creation date.\n     * @return the creation date\n     */",
+  "javadoc_after": "/**\n     * Gets the creation date.\n     * This is equivalent to {@link SevenZArchiveEntry#getCreationTime()}, but precision is truncated to milliseconds.\n     *\n     * @throws UnsupportedOperationException if the entry hasn't got a creation date.\n     * @return the new creation date\n     * @see SevenZArchiveEntry#getCreationTime()\n     */"
+}

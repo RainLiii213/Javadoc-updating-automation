@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ffc89e5bafd6c61d43c270714a66c20dce47256a",
+  "issue_summary": "Removed usage of MathRuntimeException in MultivariateSummaryStatistics. JIRA",
+  "code_before": "private void checkEmpty() {\n        if (n > 0) {\n            throw MathRuntimeException.createIllegalStateException(\n                    LocalizedFormats.VALUES_ADDED_BEFORE_CONFIGURING_STATISTIC,\n                    n);\n        }\n    }",
+  "code_after": "private void checkEmpty() {\n        if (n > 0) {\n            throw new MathIllegalStateException(\n                    LocalizedFormats.VALUES_ADDED_BEFORE_CONFIGURING_STATISTIC, n);\n        }\n    }",
+  "javadoc_before": "/**\n     * Throws IllegalStateException if n > 0.\n     */",
+  "javadoc_after": "/**\n     * Throws MathIllegalStateException if the statistic is not empty.\n     * @throws MathIllegalStateException if n > 0.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6d877d9216c9687a4c2065201b3c18e8d43f7e39",
+  "issue_summary": "Rename expectedFalsePositiveProbability to expectedFpp. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=32320997",
+  "code_before": "public double expectedFalsePositiveProbability() {\n    return Math.pow((double) bits.bitCount() / bits.size(), numHashFunctions);\n  }",
+  "code_after": "@Deprecated\n  public double expectedFalsePositiveProbability() {\n    return expectedFpp();\n  }",
+  "javadoc_before": "/**\n   * Returns the probability that {@linkplain #mightContain(Object)} will erroneously return\n   * {@code true} for an object that has not actually been put in the {@code BloomFilter}.\n   *\n   * <p>Ideally, this number should be close to the {@code falsePositiveProbability} parameter\n   * passed in {@linkplain #create(Funnel, int, double)}, or smaller. If it is\n   * significantly higher, it is usually the case that too many elements (more than\n   * expected) have been put in the {@code BloomFilter}, degenerating it.\n   */",
+  "javadoc_after": "/**\n   * @deprecated Use {@link expectedFpp} instead.\n   */"
+}

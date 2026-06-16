@@ -1,0 +1,8 @@
+{
+  "commit_hash": "09a4643e101e9b42537806eea6601eb2f389f4b9",
+  "issue_summary": "Resolved multiple problems leading to inaccuracy and/or failure to compute Normal, ChiSquare and Poisson probabilities, Erf and Gamma functions.",
+  "code_before": "public BrentSolver() {\n        super(100, 1E-6);\n    }",
+  "code_after": "public BrentSolver() {\n        super(DEFAULT_MAXIMUM_ITERATIONS, DEFAULT_ABSOLUTE_ACCURACY);\n    }",
+  "javadoc_before": "/**\n     * Construct a solver.\n     */",
+  "javadoc_after": "/**\n     * Construct a solver with default properties.\n     */"
+}

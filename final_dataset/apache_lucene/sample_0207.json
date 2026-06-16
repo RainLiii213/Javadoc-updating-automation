@@ -1,0 +1,8 @@
+{
+  "commit_hash": "af3e12265fed3a29af30719a5b7c46424f737af4",
+  "issue_summary": "represent HNSW graph neighbors using primitive arrays",
+  "code_before": "public int[] getNeighbors(int node) {\n    Neighbors neighbors = graph.get(node);\n    int[] result = new int[neighbors.size()];\n    int i = 0;\n    for (Neighbor n : neighbors) {\n      result[i++] = n.node();\n    }\n    return result;\n  }",
+  "code_after": "public Neighbors getNeighbors(int node) {\n    return graph.get(node);\n  }",
+  "javadoc_before": "/**\n   * Returns the nodes connected to the given node by its outgoing neighborNodes in an unpredictable order. Each node inserted\n   * by HnswGraphBuilder corresponds to a vector, and the node is the vector's ordinal.\n   * @param node the node whose friends are returned\n   */",
+  "javadoc_after": "/**\n   * Returns the {@link Neighbors} connected to the given node.\n   * @param node the node whose neighbors are returned\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bb76f0a2d98198f78ded182f0eb260d968f5669e",
+  "issue_summary": "Create file open hints on IOContext to replace ReadAdvice",
+  "code_before": "public IOContext withReadAdvice(ReadAdvice advice) {\n    if (context == Context.DEFAULT) {\n      return READADVICE_TO_IOCONTEXT[advice.ordinal()];\n    } else {\n      return this;\n    }\n  }",
+  "code_after": "@Deprecated\n  IOContext withReadAdvice(ReadAdvice advice);",
+  "javadoc_before": "/**\n   * Return an updated {@link IOContext} that has the provided {@link ReadAdvice} if the {@link\n   * Context} is a {@link Context#DEFAULT} context, otherwise return this existing instance. This\n   * helps preserve a {@link ReadAdvice#SEQUENTIAL} advice for merging, which is always the right\n   * choice, while allowing {@link IndexInput}s open for searching to use arbitrary {@link\n   * ReadAdvice}s.\n   */",
+  "javadoc_after": "/**\n   * Return an updated {@link IOContext} that has the provided {@link ReadAdvice}, if the provided\n   * advice is compatible with the current context, otherwise return this existing instance. This\n   * helps preserve a {@link ReadAdvice#SEQUENTIAL} advice for merging, which is always the right\n   * choice, while allowing {@link IndexInput}s open for searching to use arbitrary {@link\n   * ReadAdvice}s.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "567127c109added3dbe04c191a510a3dec1b1672",
+  "issue_summary": "Immutable Optimizer configuration.",
+  "code_before": "protected LevenbergMarquardtOptimizer() {}",
+  "code_after": "public LevenbergMarquardtOptimizer() {\n        this(100, 1e-10, 1e-10, 1e-10, Precision.SAFE_MIN);\n    }",
+  "javadoc_before": "/**\n     * Default constructor.\n     */",
+  "javadoc_after": "/** Default constructor.\n     * <p>\n     * The default values for the algorithm settings are:\n     * <ul>\n     *  <li>Initial step bound factor: 100</li>\n     *  <li>Cost relative tolerance: 1e-10</li>\n     *  <li>Parameters relative tolerance: 1e-10</li>\n     *  <li>Orthogonality tolerance: 1e-10</li>\n     *  <li>QR ranking threshold: {@link Precision#SAFE_MIN}</li>\n     * </ul>\n     **/"
+}

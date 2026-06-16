@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3f353cbde4f98c6a8158d4e597bc211bd050790a",
+  "issue_summary": "Removed occurences of \"FunctionEvaluationException\".",
+  "code_before": "public abstract void iterate(final MultivariateRealFunction evaluationFunction,\n                                 final Comparator<RealPointValuePair> comparator)\n        throws FunctionEvaluationException;",
+  "code_after": "public abstract void iterate(final MultivariateRealFunction evaluationFunction,\n                                 final Comparator<RealPointValuePair> comparator);",
+  "javadoc_before": "/**\n     * Compute the next simplex of the algorithm.\n     *\n     * @param evaluationFunction Evaluation function.\n     * @param comparator Comparator to use to sort simplex vertices from best\n     * to worst.\n     * @throws FunctionEvaluationException if the function cannot be evaluated\n     * at some point.\n     * @throws org.apache.commons.math.exception.TooManyEvaluationsException\n     * if the algorithm fails to converge.\n     */",
+  "javadoc_after": "/**\n     * Compute the next simplex of the algorithm.\n     *\n     * @param evaluationFunction Evaluation function.\n     * @param comparator Comparator to use to sort simplex vertices from best\n     * to worst.\n     * @throws org.apache.commons.math.exception.TooManyEvaluationsException\n     * if the algorithm fails to converge.\n     */"
+}

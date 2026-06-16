@@ -1,0 +1,8 @@
+{
+  "commit_hash": "46ad24db76c6f65480736006c2da8b8e5bf8ee25",
+  "issue_summary": "applied patch from Christian Grobmeier",
+  "code_before": "public int available()\n        throws IOException\n    {\n        return m_entrySize - m_entryOffset;\n    }",
+  "code_after": "public int available() throws IOException {\n        if (entrySize - entryOffset > Integer.MAX_VALUE) {\n            return Integer.MAX_VALUE;\n        }\n        return (int) (entrySize - entryOffset);\n    }",
+  "javadoc_before": "/**\n     * Get the available data that can be read from the current entry in the\n     * archive. This does not indicate how much data is left in the entire\n     * archive, only in the current entry. This value is determined from the\n     * entry's size header field and the amount of data already read from the\n     * current entry.\n     *\n     * @return The number of available bytes for the current entry.\n     * @exception IOException when an IO error causes operation to fail\n     */",
+  "javadoc_after": "/**\n     * Get the available data that can be read from the current\n     * entry in the archive. This does not indicate how much data\n     * is left in the entire archive, only in the current entry.\n     * This value is determined from the entry's size header field\n     * and the amount of data already read from the current entry.\n     * Integer.MAX_VALUE is returen in case more than Integer.MAX_VALUE\n     * bytes are left in the current entry in the archive.\n     *\n     * @return The number of available bytes for the current entry.\n     * @throws IOException for signature\n     */"
+}

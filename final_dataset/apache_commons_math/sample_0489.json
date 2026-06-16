@@ -1,0 +1,8 @@
+{
+  "commit_hash": "634e51b50e2000d38498161afcdc7359bae61ce1",
+  "issue_summary": "Created an unchecked \"FunctionEvaluationException\" in package \"exception\". Removed \"throws\" clause from interface \"UnivariateRealFunction\". \"PolynomialFunctionLagrangeForm\": Added early check on the interpolating array having distinct points; removed redundant test in methods \"evaluate\" and \"computeCoefficients\". \"DividedDifferenceInerpolator\": Removed redundant check. \"Mathutils\": Added method \"sortInPlace\". Removed (most) references to the deprecated \"MathRuntimeException\" class. \"optimization.direct\": Removed deprecated classes. Javadoc clean up.",
+  "code_before": "double value(double x) throws FunctionEvaluationException;",
+  "code_after": "double value(double x);",
+  "javadoc_before": "/**\n     * Compute the value for the function.\n     * @param x the point for which the function value should be computed\n     * @return the value\n     * @throws FunctionEvaluationException if the function evaluation fails\n     */",
+  "javadoc_after": "/**\n     * Compute the value of the function.\n     *\n     * @param x Point at which the function value should be computed.\n     * @return the value.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "215cebe8df5e445db392a6db3c2509634ffb9cb5",
+  "issue_summary": "Removed uses of deprecated \"BinaryFunction\" class.",
+  "code_before": "RealVector mapToSelf(UnivariateRealFunction function) throws MathUserException;",
+  "code_after": "RealVector mapToSelf(UnivariateRealFunction function);",
+  "javadoc_before": "/**\n     * Acts as if it is implemented as:\n     * <pre>\n     *  Entry e = null;\n     *  for(Iterator<Entry> it = iterator(); it.hasNext(); e = it.next()) {\n     *      e.setValue(function.value(e.getValue()));\n     *  }\n     * </pre>\n     *\n     * @param function Function to apply to each entry.\n     * @return this vector.\n     * @throws MathUserException if the function throws it.\n     */",
+  "javadoc_after": "/**\n     * Acts as if it is implemented as:\n     * <pre>\n     *  Entry e = null;\n     *  for(Iterator<Entry> it = iterator(); it.hasNext(); e = it.next()) {\n     *      e.setValue(function.value(e.getValue()));\n     *  }\n     * </pre>\n     *\n     * @param function Function to apply to each entry.\n     * @return this vector.\n     * @throws org.apache.commons.math.exception.MathUserException\n     * if the function throws it.\n     */"
+}

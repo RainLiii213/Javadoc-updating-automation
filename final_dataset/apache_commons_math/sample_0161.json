@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2a32964f25171a5776ade829b1c57d16a5832661",
+  "issue_summary": "Populated throws clause of OpenMapRealMatrix .",
+  "code_before": "@Override\n    public OpenMapRealMatrix createMatrix(int rowDimension, int columnDimension) {\n        return new OpenMapRealMatrix(rowDimension, columnDimension);\n    }",
+  "code_after": "@Override\n    public OpenMapRealMatrix createMatrix(int rowDimension, int columnDimension)\n        throws NotStrictlyPositiveException, NumberIsTooLargeException {\n        return new OpenMapRealMatrix(rowDimension, columnDimension);\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/**\n     * {@inheritDoc}\n     *\n     * @throws NumberIsTooLargeException if the total number of entries of the\n     * matrix is larger than {@code Integer.MAX_VALUE}.\n     */"
+}

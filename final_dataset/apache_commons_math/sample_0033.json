@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c7f7da754a911302dcaa6935be6fded84e1ac348",
+  "issue_summary": "Using composition rather than inheritance.",
+  "code_before": "public JDKRandomGenerator() {\n        super();\n    }",
+  "code_after": "public JDKRandomGenerator() {\n        delegate = new Random();\n    }",
+  "javadoc_before": "/**\n     * Create a new JDKRandomGenerator with a default seed.\n     */",
+  "javadoc_after": "/**\n     * Creates an instance with an arbitrary seed.\n     */"
+}

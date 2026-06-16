@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3a7519fcb190a096f4f00b9da357f79acd517bc7",
+  "issue_summary": "Improved or corrected javadoc; added some tests.",
+  "code_before": "public double calculateRSquared() throws MathIllegalArgumentException {\n        return 1 - calculateResidualSumOfSquares() / calculateTotalSumOfSquares();\n    }",
+  "code_after": "public double calculateRSquared() {\n        return 1 - calculateResidualSumOfSquares() / calculateTotalSumOfSquares();\n    }",
+  "javadoc_before": "/**\n     * Returns the R-Squared statistic, defined by the formula <pre>\n     * R<sup>2</sup> = 1 - SSR / SSTO\n     * </pre>\n     * where SSR is the {@link #calculateResidualSumOfSquares() sum of squared residuals}\n     * and SSTO is the {@link #calculateTotalSumOfSquares() total sum of squares}\n     *\n     * @return R-square statistic\n     * @throws MathIllegalArgumentException if the sample has not been set or does\n     * not contain at least 3 observations\n     * @since 2.2\n     */",
+  "javadoc_after": "/**\n     * Returns the R-Squared statistic, defined by the formula <pre>\n     * R<sup>2</sup> = 1 - SSR / SSTO\n     * </pre>\n     * where SSR is the {@link #calculateResidualSumOfSquares() sum of squared residuals}\n     * and SSTO is the {@link #calculateTotalSumOfSquares() total sum of squares}\n     *\n     * <p>If there is no variance in y, i.e., SSTO = 0, NaN is returned.</p>\n     *\n     * @return R-square statistic\n     * @throws NullPointerException if the sample has not been set\n     * @throws org.apache.commons.math3.linear.SingularMatrixException if the design matrix is singular\n     * @since 2.2\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e58a90f18d9823404f3f4ff59bffedf31d093a0d",
+  "issue_summary": "Clean up SolrInfoBean / SolrMetricProducer API.",
+  "code_before": "default SolrMetricsContext getSolrMetricsContext() {\n    return null;\n  }",
+  "code_after": "SolrMetricsContext getSolrMetricsContext();",
+  "javadoc_before": "/**\n   * Implementations should override this method to return the context used in\n   * {@link #initializeMetrics(SolrMetricsContext, String)} to ensure proper cleanup of metrics\n   * at the end of the life-cycle of this component. This should be the child context if one was created.\n   * <p>The default implementation returns null, which disables unregistration of metrics on {@link #close()}.</p>\n   */",
+  "javadoc_after": "/**\n   * Implementations should return the context used in\n   * {@link #initializeMetrics(SolrMetricsContext, String)} to ensure proper cleanup of metrics\n   * at the end of the life-cycle of this component. This should be the child context if one was created,\n   * or null if the parent context was used.\n   */"
+}

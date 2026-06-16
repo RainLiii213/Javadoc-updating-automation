@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0eb6b1c823d347319cc0894b5fea95f085d4c8d4",
+  "issue_summary": "Ensure SSL connections are re-used",
+  "code_before": "public static HttpClientContext createNewHttpClientRequestContext() {\n    return httpClientRequestContextBuilder.createContext();\n  }",
+  "code_after": "@Deprecated\n  public static HttpClientContext createNewHttpClientRequestContext() {\n    return httpClientRequestContextBuilder.createContext(null);\n  }",
+  "javadoc_before": "/**\n   * \n   */",
+  "javadoc_after": "/**\n   * @deprecated Use {@link #createNewHttpClientRequestContext(Object)}\n   */"
+}

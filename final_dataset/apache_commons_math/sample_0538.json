@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e038fdb1cc191cd1a11ebbf5f7f5370a3d4788b8",
+  "issue_summary": "git-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@962515 13f79535-47bb-0310-9956-ffa450edef68",
+  "code_before": "public long nextLong(long lower, long upper) {\n        if (lower >= upper) {\n            throw MathRuntimeException.createIllegalArgumentException(\n                  LocalizedFormats.LOWER_BOUND_NOT_BELOW_UPPER_BOUND,\n                  upper, lower);\n        }\n        double r = getRan().nextDouble();\n        return (long) ((r * upper) + ((1.0 - r) * lower) + r);\n    }",
+  "code_after": "public long nextLong(long lower, long upper) {\n        if (lower >= upper) {\n            throw new NumberIsTooLargeException(LocalizedFormats.LOWER_BOUND_NOT_BELOW_UPPER_BOUND,\n                                                lower, upper, false);\n        }\n        double r = getRan().nextDouble();\n        return (long) ((r * upper) + ((1.0 - r) * lower) + r);\n    }",
+  "javadoc_before": "/**\n     * Generate a random long value uniformly distributed between\n     * <code>lower</code> and <code>upper</code>, inclusive.\n     *\n     * @param lower\n     *            the lower bound.\n     * @param upper\n     *            the upper bound.\n     * @return the random integer.\n     */",
+  "javadoc_after": "/**\n     * Generate a random long value uniformly distributed between\n     * <code>lower</code> and <code>upper</code>, inclusive.\n     *\n     * @param lower\n     *            the lower bound.\n     * @param upper\n     *            the upper bound.\n     * @return the random integer.\n     * @throws NumberIsTooLargeException if {@code lower >= upper}.\n     */"
+}

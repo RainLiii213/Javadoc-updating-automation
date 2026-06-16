@@ -1,0 +1,8 @@
+{
+  "commit_hash": "26eab98e3a0d403587cc915eaa8f7d4b7b894cef",
+  "issue_summary": "and -- take 4, clean up and allow for overflow via longs.",
+  "code_before": "public class MemoryLimitException extends IOException {\n\n    public MemoryLimitException(String message) {\n        super(message);\n    }\n\n    public MemoryLimitException(String message, Exception e) {\n        super(message, e);\n    }\n}",
+  "code_after": "public class MemoryLimitException extends IOException {\n\n    /**\n     *\n     * @param memoryNeeded estimated memory needed\n     * @param memoryLimit memory limit applied\n     */\n    public MemoryLimitException(long memoryNeeded, int memoryLimit) {\n        super(\"\" + memoryNeeded + \" KiB of memory would be needed; limit was \"\n                + memoryLimit + \" KiB.  If the file is not corrupt, consider \" +\n                \"increasing MemoryLimit.MEMORY_LIMIT_IN_KB.\");\n    }\n}",
+  "javadoc_before": "/**\n * If a stream checks for estimated memory allocation, and the estimate\n * goes above the memory limit, this is thrown.  This can also be thrown\n * if a stream tries to allocate a byte array that is larger than\n * the allowable limit.\n *\n * @since 1.14\n */",
+  "javadoc_after": "/**\n * If a stream checks for estimated memory allocation, and the estimate\n * goes above the memory limit, this is thrown.  This can also be thrown\n * if a stream tries to allocate a byte array that is larger than\n * the allowable limit.\n *\n * <p/>\n * Set the global memory limit via {@link MemoryLimit#setMemoryLimitInKb(int)}.\n *\n * @since 1.14\n */"
+}

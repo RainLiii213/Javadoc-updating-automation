@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e72e09f8516936c000f25118b0dead2adc8e3930",
+  "issue_summary": "Add size-related methods to Byte/CharSource",
+  "code_before": "public boolean isEmpty() throws IOException {\n    Closer closer = Closer.create();\n    try {\n      InputStream in = closer.register(openStream());\n      return in.read() == -1;\n    } catch (Throwable e) {\n      throw closer.rethrow(e);\n    } finally {\n      closer.close();\n    }\n  }",
+  "code_after": "public boolean isEmpty() throws IOException {\n    Optional<Long> sizeIfKnown = sizeIfKnown();\n    if (sizeIfKnown.isPresent() && sizeIfKnown.get() == 0L) {\n      return true;\n    }\n    Closer closer = Closer.create();\n    try {\n      InputStream in = closer.register(openStream());\n      return in.read() == -1;\n    } catch (Throwable e) {\n      throw closer.rethrow(e);\n    } finally {\n      closer.close();\n    }\n  }",
+  "javadoc_before": "/**\n   * Returns whether the source has zero bytes. The default implementation is to open a stream and\n   * check for EOF.\n   *\n   * @throws IOException if an I/O error occurs\n   * @since 15.0\n   */",
+  "javadoc_after": "/**\n   * Returns whether the source has zero bytes. The default implementation returns true if\n   * {@link #sizeIfKnown} returns zero, falling back to opening a stream and checking for\n   * EOF if the size is not known.\n   *\n   * @throws IOException if an I/O error occurs\n   * @since 15.0\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5b19db451f68be2d4707174492ecad58467e6983",
+  "issue_summary": "Copy static factory methods from HashCodes to HashCode. Deprecate the old methods in HashCodes. Update usages in com/google/common/hash to use new methods. Move the tests from HashCodesTest to HashCodeTest. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=50448177",
+  "code_before": "public static HashCode fromLong(long hash) {\n    return new LongHashCode(hash);\n  }",
+  "code_after": "@Deprecated\n  public static HashCode fromLong(long hash) {\n    return HashCode.fromLong(hash);\n  }",
+  "javadoc_before": "/**\n   * Creates a 64-bit {@code HashCode}, of which the bytes will form the passed long, interpreted \n   * in little endian order.\n   */",
+  "javadoc_after": "/**\n   * Creates a 64-bit {@code HashCode}, of which the bytes will form the passed long, interpreted\n   * in little endian order.\n   *\n   * @deprecated Use {@link HashCode#fromLong} instead. This method is scheduled to be removed in\n   *     Guava 16.0.\n   */"
+}

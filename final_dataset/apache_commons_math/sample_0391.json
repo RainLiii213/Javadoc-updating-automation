@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1de3d116a9b212af4b895535842642603875c6a0",
+  "issue_summary": "removed MathUserException from ODE package",
+  "code_before": "public void handleStep(final StepInterpolator interpolator, final boolean isLast)\n    throws MathUserException {\n\n    if (steps.size() == 0) {\n      initialTime = interpolator.getPreviousTime();\n      forward     = interpolator.isForward();\n    }\n\n    steps.add(interpolator.copy());\n\n    if (isLast) {\n      finalTime = interpolator.getCurrentTime();\n      index     = steps.size() - 1;\n    }\n\n  }",
+  "code_after": "public void handleStep(final StepInterpolator interpolator, final boolean isLast) {\n\n    if (steps.size() == 0) {\n      initialTime = interpolator.getPreviousTime();\n      forward     = interpolator.isForward();\n    }\n\n    steps.add(interpolator.copy());\n\n    if (isLast) {\n      finalTime = interpolator.getCurrentTime();\n      index     = steps.size() - 1;\n    }\n\n  }",
+  "javadoc_before": "/** Handle the last accepted step.\n   * A copy of the information provided by the last step is stored in\n   * the instance for later use.\n   * @param interpolator interpolator for the last accepted step.\n   * @param isLast true if the step is the last one\n   * @exception MathUserException if user code called from step interpolator\n   * finalization triggers one\n   */",
+  "javadoc_after": "/** Handle the last accepted step.\n   * A copy of the information provided by the last step is stored in\n   * the instance for later use.\n   * @param interpolator interpolator for the last accepted step.\n   * @param isLast true if the step is the last one\n   */"
+}

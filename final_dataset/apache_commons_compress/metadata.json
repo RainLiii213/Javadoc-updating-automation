@@ -1,0 +1,18 @@
+{
+  "project_slug": "apache_commons_compress",
+  "repository_name": "apache/commons-compress",
+  "repository_url": "https://github.com/apache/commons-compress.git",
+  "retained_samples": 181,
+  "source_folder": "dataset_apache_commons_compress_181",
+  "final_folder": "final_dataset/apache_commons_compress",
+  "mined_at_utc": "2026-06-14T15:52:05+00:00",
+  "commits_scanned": 6777,
+  "candidate_samples_found": 267,
+  "filtered_samples": 85,
+  "discarded_truncated_code_context": 0,
+  "moved_to_review": 1,
+  "discarded_weak_inheritdoc": 0,
+  "issue_summary_fallbacks": 13,
+  "complete_history": true,
+  "stop_reason": "full_history_scanned"
+}

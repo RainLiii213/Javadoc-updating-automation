@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7c1ba1aebeea540b67ae304deee60162baee2e12",
+  "issue_summary": "Correctly handle repeats in ORDERED and UNORDERED intervals",
+  "code_before": "interface IntervalMatchesIterator extends MatchesIterator {\n\n  /**\n   * The number of top-level gaps inside the current match\n   */\n  int gaps();\n\n}",
+  "code_after": "public interface IntervalMatchesIterator extends MatchesIterator {\n\n  /**\n   * The number of top-level gaps inside the current match\n   * @see IntervalIterator#gaps()\n   */\n  int gaps();\n\n  /**\n   * The width of the current match\n   * @see IntervalIterator#width()\n   */\n  int width();\n\n}",
+  "javadoc_before": "/**\n * An extension of MatchesIterator that allows the gaps from a wrapped\n * IntervalIterator to be reported.\n *\n * This is necessary because {@link MatchesIterator#getSubMatches()} returns\n * the submatches of all nested matches as a flat iterator, but\n * {@link IntervalIterator#gaps()} only returns the gaps between its immediate\n * sub-matches, so we can't calculate the latter using the former.\n */",
+  "javadoc_after": "/**\n * An extension of MatchesIterator that allows it to be treated as\n * an IntervalIterator\n *\n * This is necessary to get access to {@link IntervalIterator#gaps()}\n * and {@link IntervalIterator#width()} when constructing matches\n */"
+}

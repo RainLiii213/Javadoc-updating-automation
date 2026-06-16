@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a36f08fe312ec16ad86b9206290929f0686d3b02",
+  "issue_summary": "Deprecate buggy `murmur3_32` and introduce `murmur3_32_fixed`.",
+  "code_before": "public static HashFunction murmur3_32(int seed) {\n    return new Murmur3_32HashFunction(seed);\n  }",
+  "code_after": "@Deprecated\n  public static HashFunction murmur3_32(int seed) {\n    return new Murmur3_32HashFunction(seed, /* supplementaryPlaneFix= */ false);\n  }",
+  "javadoc_before": "/**\n   * Returns a hash function implementing the <a\n   * href=\"https://github.com/aappleby/smhasher/blob/master/src/MurmurHash3.cpp\">32-bit murmur3\n   * algorithm, x86 variant</a> (little-endian variant), using the given seed value.\n   *\n   * <p>The exact C++ equivalent is the MurmurHash3_x86_32 function (Murmur3A).\n   */",
+  "javadoc_after": "/**\n   * Returns a hash function implementing the <a\n   * href=\"https://github.com/aappleby/smhasher/blob/master/src/MurmurHash3.cpp\">32-bit murmur3\n   * algorithm, x86 variant</a> (little-endian variant), using the given seed value, <b>with a known\n   * bug</b> as described in the deprecation text.\n   *\n   * <p>The C++ equivalent is the MurmurHash3_x86_32 function (Murmur3A), which however does not\n   * have the bug.\n   *\n   * @deprecated This implementation produces incorrect hash values from the {@link\n   *     HashFunction#hashString} method if the string contains non-BMP characters. Use {@link\n   *     #murmur3_32_fixed(int)} instead.\n   */"
+}

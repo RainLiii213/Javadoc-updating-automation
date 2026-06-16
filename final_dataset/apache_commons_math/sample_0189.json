@@ -1,0 +1,8 @@
+{
+  "commit_hash": "443f4127282f4b758d4932b8c927aacd14aa2bae",
+  "issue_summary": "in interface FieldVector, replaced throws statements with javadoc comments.",
+  "code_before": "FieldVector<T> mapDivide(T d)\n        throws NullArgumentException, MathArithmeticException;",
+  "code_after": "FieldVector<T> mapDivide(T d);",
+  "javadoc_before": "/**\n     * Map a division operation to each entry.\n     * @param d value to divide all entries by\n     * @return {@code this / d}\n     * @throws NullArgumentException if {@code d} is {@code null}.\n     * @throws MathArithmeticException if {@code d} is zero.\n     */",
+  "javadoc_after": "/**\n     * Map a division operation to each entry. Implementations should throw\n     * <ul>\n     * <li>{@link org.apache.commons.math3.exception.NullArgumentException} if\n     *     {@code d} is {@code null},</li>\n     * <li>{@link org.apache.commons.math3.exception.MathArithmeticException} if\n     *     {@code d} is zero.</li>\n     * </ul>\n     *\n     * @param d value to divide all entries by\n     * @return {@code this / d}\n     */"
+}

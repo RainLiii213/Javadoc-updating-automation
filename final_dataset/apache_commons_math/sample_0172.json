@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dae4cf5da15517eee16a9a337d42b7e9677f060e",
+  "issue_summary": "Added missing throws declarations and fixed javadoc to match what is actually thrown. JIRA: .",
+  "code_before": "public void removeMostRecentValue() {\n        eDA.discardMostRecentElements(1);\n    }",
+  "code_after": "public void removeMostRecentValue() throws MathIllegalStateException {\n        try {\n            eDA.discardMostRecentElements(1);\n        } catch (MathIllegalArgumentException ex) {\n            throw new MathIllegalStateException(LocalizedFormats.NO_DATA);\n        }\n    }",
+  "javadoc_before": "/**\n     * Removes the most recent value from the dataset.\n     */",
+  "javadoc_after": "/**\n     * Removes the most recent value from the dataset.\n     *\n     * @throws MathIllegalStateException if there are no elements stored\n     */"
+}

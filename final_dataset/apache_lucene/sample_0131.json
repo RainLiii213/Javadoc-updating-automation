@@ -1,0 +1,8 @@
+{
+  "commit_hash": "554fabf68293e71620134e00b2ce63726c7d0797",
+  "issue_summary": "Disable sort optimization for SortedSetSortField",
+  "code_before": "@Deprecated // Remove in Lucene 10\n  public boolean getOptimizeSortWithPoints() {\n    return optimizeSortWithPoints;\n  }",
+  "code_after": "@Deprecated // Remove in Lucene 10\n  public boolean getOptimizeSortWithPoints() {\n    return getOptimizeSortWithIndexedData();\n  }",
+  "javadoc_before": "/**\n   * Returns whether sort optimization should be optimized with points index\n   *\n   * @return whether sort optimization should be optimized with points index\n   */",
+  "javadoc_after": "/**\n   * Returns whether sort optimization should be optimized with points index\n   *\n   * @return whether sort optimization should be optimized with points index\n   * @deprecated This is a duplicate method for {@code SortField#getOptimizeSortWithIndexedData}.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c68b04d90c4204d17ad9310aa9c7b8fd432849cb",
+  "issue_summary": "add OneMerge.getMergeInfo",
+  "code_before": "public MergeInfo getMergeInfo() {\n      return new MergeInfo(totalMaxDoc, estimatedMergeBytes, isExternal, maxNumSegments);\n    }",
+  "code_after": "public SegmentCommitInfo getMergeInfo() {\n      return info;\n    }",
+  "javadoc_before": "/** Return {@link MergeInfo} describing this merge. */",
+  "javadoc_after": "/**\n     * Returns the {@link SegmentCommitInfo} for the merged segment,\n     * or null if it hasn't been set yet.\n     */"
+}

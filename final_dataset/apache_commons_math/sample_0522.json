@@ -1,0 +1,8 @@
+{
+  "commit_hash": "495f04bcda902b73118cc6b30afd36465762b259",
+  "issue_summary": "Removed deprecated methods.",
+  "code_before": "public static boolean equals(double x, double y) {\n        return (Double.isNaN(x) && Double.isNaN(y)) || x == y;\n    }",
+  "code_after": "public static boolean equals(double x, double y) {\n        return equals(x, y, 1);\n    }",
+  "javadoc_before": "/**\n     * Returns true iff they are equal as defined by\n     * {@link #equals(double,double,int) this method}.\n     *\n     * @param x first value\n     * @param y second value\n     * @return {@code true} if the values are equal.\n     * @deprecated This method considers that {@code NaN == NaN}. In release\n     * 3.0, the semantics will change in order to comply with IEEE754 where it\n     * is specified that {@code NaN != NaN}.\n     * New methods have been added for those cases wher the old semantics is\n     * useful (see e.g. {@link #equalsIncludingNaN(double,double)\n     * equalsIncludingNaN}.\n     */",
+  "javadoc_after": "/**\n     * Returns true iff they are equal as defined by\n     * {@link #equals(double,double,int) equals(x, y, 1)}.\n     *\n     * @param x first value\n     * @param y second value\n     * @return {@code true} if the values are equal.\n     */"
+}

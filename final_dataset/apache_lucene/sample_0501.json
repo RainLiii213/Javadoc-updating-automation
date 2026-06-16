@@ -1,0 +1,8 @@
+{
+  "commit_hash": "81446cf34531d46f224beaf6c2bc70bdf53ee585",
+  "issue_summary": "Avoid taking the lock in LRUQueryCache when not necessary.",
+  "code_before": "public LRUQueryCache(int maxSize, long maxRamBytesUsed) {\n    this.maxSize = maxSize;\n    this.maxRamBytesUsed = maxRamBytesUsed;\n    uniqueQueries = new LinkedHashMap<>(16, 0.75f, true);\n    mostRecentlyUsedQueries = uniqueQueries.keySet();\n    cache = new IdentityHashMap<>();\n    ramBytesUsed = 0;\n  }",
+  "code_after": "public LRUQueryCache(int maxSize, long maxRamBytesUsed) {\n    this(maxSize, maxRamBytesUsed, new MinSegmentSizePredicate(10000, .03f));\n  }",
+  "javadoc_before": "/**\n   * Create a new instance that will cache at most <code>maxSize</code> queries\n   * with at most <code>maxRamBytesUsed</code> bytes of memory.\n   */",
+  "javadoc_after": "/**\n   * Create a new instance that will cache at most <code>maxSize</code> queries\n   * with at most <code>maxRamBytesUsed</code> bytes of memory. Queries will\n   * only be cached on leaves that have more than 10k documents and have more\n   * than 3% of the total number of documents in the index.\n   * This should guarantee that all leaves from the upper\n   * {@link TieredMergePolicy tier} will be cached while ensuring that at most\n   * <tt>33</tt> leaves can make it to the cache (very likely less than 10 in\n   * practice), which is useful for this implementation since some operations\n   * perform in linear time with the number of cached leaves.\n   */"
+}

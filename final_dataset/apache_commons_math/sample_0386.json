@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6968a4afd6a320853d25ebd12c2181dff6186aef",
+  "issue_summary": "removed MathUserException from analysis package",
+  "code_before": "double value(double x, double y)\n        throws MathUserException;",
+  "code_after": "double value(double x, double y);",
+  "javadoc_before": "/**\n     * Compute the value for the function.\n     *\n     * @param x Abscissa for which the function value should be computed.\n     * @param y Ordinate for which the function value should be computed.\n     * @return the value.\n     * @throws MathUserException if the function evaluation fails.\n     */",
+  "javadoc_after": "/**\n     * Compute the value for the function.\n     *\n     * @param x Abscissa for which the function value should be computed.\n     * @param y Ordinate for which the function value should be computed.\n     * @return the value.\n     */"
+}

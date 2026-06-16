@@ -1,0 +1,8 @@
+{
+  "commit_hash": "15b547abb7015069bb464833a72f433d82b83829",
+  "issue_summary": "Add toJavaUtil instance method, which is handier and also doesn't have to be marked @Nullable.",
+  "code_before": "@Nullable\n  public static <T> java.util.Optional<T> toJavaUtil(@Nullable Optional<T> googleOptional) {\n    return (googleOptional == null)\n        ? null\n        : java.util.Optional.ofNullable(googleOptional.orNull());\n  }",
+  "code_after": "@Nullable\n  public static <T> java.util.Optional<T> toJavaUtil(@Nullable Optional<T> googleOptional) {\n    return googleOptional == null ? null : googleOptional.toJavaUtil();\n  }",
+  "javadoc_before": "/**\n   * Returns the equivalent {@code java.util.Optional} value to the given {@code\n   * com.google.common.base.Optional}, or {@code null} if the argument is null.\n   */",
+  "javadoc_after": "/**\n   * Returns the equivalent {@code java.util.Optional} value to the given {@code\n   * com.google.common.base.Optional}, or {@code null} if the argument is null.\n   *\n   * <p>If {@code googleOptional} is known to be non-null, use {@code googleOptional.toJavaUtil()}\n   * instead.\n   *\n   * <p>Unfortunately, the method reference {@code Optional::toJavaUtil} will not work, because it\n   * could refer to either the static or instance version of this method. Write out the lambda\n   * expression {@code o -> Optional.toJavaUtil(o)} instead.\n   *\n   * @since 21.0\n   */"
+}

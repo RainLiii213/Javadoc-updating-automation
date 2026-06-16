@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5011f8cabdadf7a125e1a9f6dcf05edd2a667cab",
+  "issue_summary": "Fix findbugs warning wrt exposure of internal state.",
+  "code_before": "public Transformer<? super I, ? extends O>[] getTransformers() {\n        return iTransformers;\n    }",
+  "code_after": "public Transformer<? super I, ? extends O>[] getTransformers() {\n        return FunctorUtils.<I, O>copy(iTransformers);\n    }",
+  "javadoc_before": "/**\n     * Gets the transformers, do not modify the array.\n     * \n     * @return the transformers\n     * @since 3.1\n     */",
+  "javadoc_after": "/**\n     * Gets the transformers.\n     * \n     * @return a copy of the transformers\n     * @since 3.1\n     */"
+}

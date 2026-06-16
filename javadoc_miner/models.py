@@ -58,6 +58,7 @@ class OutputSample:
     commit_url: str
     entity_type: str = ""
     file_path: str = ""
+    issue_summary_fallback_applied: bool = False
 
     def to_json_dict(self) -> dict:
         return {
@@ -78,6 +79,11 @@ class ExtractionStats:
     candidate_samples_found: int = 0
     samples_retained: int = 0
     samples_filtered: int = 0
+    discarded_truncated_code_context: int = 0
+    moved_to_review: int = 0
+    discarded_weak_inheritdoc: int = 0
+    issue_summary_fallbacks: int = 0
+    history_complete: bool = False
 
     def to_json_dict(self) -> dict:
         return asdict(self)

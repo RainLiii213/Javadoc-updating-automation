@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1dd611f794913bee56a0e7089b28861f168b0dce",
+  "issue_summary": "Added throw declarations for package util.",
+  "code_before": "public double evaluate(double x, int maxIterations) {\n        return evaluate(x, DEFAULT_EPSILON, maxIterations);\n    }",
+  "code_after": "public double evaluate(double x, int maxIterations)\n        throws ConvergenceException, MaxCountExceededException {\n        return evaluate(x, DEFAULT_EPSILON, maxIterations);\n    }",
+  "javadoc_before": "/**\n     * Evaluates the continued fraction at the value x.\n     * @param x the evaluation point.\n     * @param maxIterations maximum number of convergents\n     * @return the value of the continued fraction evaluated at x.\n     * @throws ConvergenceException if the algorithm fails to converge.\n     */",
+  "javadoc_after": "/**\n     * Evaluates the continued fraction at the value x.\n     * @param x the evaluation point.\n     * @param maxIterations maximum number of convergents\n     * @return the value of the continued fraction evaluated at x.\n     * @throws ConvergenceException if the algorithm fails to converge.\n     * @throws MaxCountExceededException if maximal number of iterations is reached\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a662a22c5a6e2adc4619d8161a3a5155b5697cfc",
+  "issue_summary": "Remove unused exceptions",
+  "code_before": "public static ZipExtraField createExtraField(final ZipShort headerId) throws InstantiationException, IllegalAccessException {\n        final ZipExtraField field = createExtraFieldNoDefault(headerId);\n        if (field != null) {\n            return field;\n        }\n        final UnrecognizedExtraField u = new UnrecognizedExtraField();\n        u.setHeaderId(headerId);\n        return u;\n    }",
+  "code_after": "public static ZipExtraField createExtraField(final ZipShort headerId) {\n        final ZipExtraField field = createExtraFieldNoDefault(headerId);\n        if (field != null) {\n            return field;\n        }\n        final UnrecognizedExtraField u = new UnrecognizedExtraField();\n        u.setHeaderId(headerId);\n        return u;\n    }",
+  "javadoc_before": "/**\n     * Creates an instance of the appropriate ExtraField, falls back to {@link UnrecognizedExtraField UnrecognizedExtraField}.\n     *\n     * @param headerId the header identifier\n     * @return an instance of the appropriate ExtraField\n     * @throws InstantiationException if unable to instantiate the class\n     * @throws IllegalAccessException if not allowed to instantiate the class\n     */",
+  "javadoc_after": "/**\n     * Creates an instance of the appropriate ExtraField, falls back to {@link UnrecognizedExtraField UnrecognizedExtraField}.\n     *\n     * @param headerId the header identifier\n     * @return an instance of the appropriate ExtraField\n     */"
+}

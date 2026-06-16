@@ -1,0 +1,8 @@
+{
+  "commit_hash": "18bd3d041312579486ad12d3f3a803b485d9f5f0",
+  "issue_summary": "Add builder to Base16 streams and deprecate some old constructors",
+  "code_before": "public Base16(final boolean lowerCase, final CodecPolicy decodingPolicy) {\n        this(lowerCase ? LOWER_CASE_ENCODE_TABLE : UPPER_CASE_ENCODE_TABLE, decodingPolicy);\n    }",
+  "code_after": "@Deprecated\n    public Base16(final boolean lowerCase, final CodecPolicy decodingPolicy) {\n        this(builder().setEncodeTable(lowerCase ? LOWER_CASE_ENCODE_TABLE : UPPER_CASE_ENCODE_TABLE).setDecodingPolicy(decodingPolicy));\n    }",
+  "javadoc_before": "/**\n     * Constructs a Base16 codec used for decoding and encoding.\n     *\n     * @param lowerCase      if {@code true} then use a lower-case Base16 alphabet.\n     * @param decodingPolicy Decoding policy.\n     */",
+  "javadoc_after": "/**\n     * Constructs a Base16 codec used for decoding and encoding.\n     *\n     * @param lowerCase      {@code true} to use the lower-case Base16 alphabet.\n     * @param decodingPolicy Decoding policy.\n     * @deprecated Use {@link #builder()} and {@link Builder}.\n     */"
+}

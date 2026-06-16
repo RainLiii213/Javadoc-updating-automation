@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ffd2a02d8559428e6f80a54a77b3b8d76b7762fb",
+  "issue_summary": "SetUniqueList.createSetBasedOnList doesn't add list elements to return value",
+  "code_before": "public static <E> ListIterator<E> umodifiableListIterator(final ListIterator<? extends E> iterator) {\n        Objects.requireNonNull(iterator, \"iterator\");\n        if (iterator instanceof Unmodifiable) {\n            @SuppressWarnings(\"unchecked\") // safe to upcast\n            final ListIterator<E> tmpIterator = (ListIterator<E>) iterator;\n            return tmpIterator;\n        }\n        return new UnmodifiableListIterator<>(iterator);\n    }",
+  "code_after": "@Deprecated\n    public static <E> ListIterator<E> umodifiableListIterator(final ListIterator<? extends E> iterator) {\n        return unmodifiableListIterator(iterator);\n    }",
+  "javadoc_before": "/**\n     * Decorates the specified iterator such that it cannot be modified.\n     *\n     * @param <E>  the element type\n     * @param iterator  the iterator to decorate\n     * @return a new unmodifiable list iterator\n     * @throws NullPointerException if the iterator is null\n     */",
+  "javadoc_after": "/**\n     * @deprecated method name has typo in it. Use {@link org.apache.commons.collections4.iterators.UnmodifiableListIterator#unmodifiableListIterator(ListIterator)} instead.\n     */"
+}

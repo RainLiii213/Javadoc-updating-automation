@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8af305892d726c180f03316c73aebf8183c2e481",
+  "issue_summary": "Optimize HNSW diversity calculation",
+  "code_before": "public void insertSorted(int newNode, float newScore) {\n    if (size == node.length) {\n      node = ArrayUtil.grow(node);\n      score = ArrayUtil.growExact(score, node.length);\n    }\n    int insertionPoint =\n        scoresDescOrder\n            ? descSortFindRightMostInsertionPoint(newScore)\n            : ascSortFindRightMostInsertionPoint(newScore);\n    System.arraycopy(node, insertionPoint, node, insertionPoint + 1, size - insertionPoint);\n    System.arraycopy(score, insertionPoint, score, insertionPoint + 1, size - insertionPoint);\n    node[insertionPoint] = newNode;\n    score[insertionPoint] = newScore;\n    ++size;\n  }",
+  "code_after": "void insertSorted(int newNode, float newScore) {\n    addOutOfOrder(newNode, newScore);\n    insertSortedInternal();\n  }",
+  "javadoc_before": "/** Add a new node to the NeighborArray into a correct sort position according to its score. */",
+  "javadoc_after": "/** This method is for test only. */"
+}

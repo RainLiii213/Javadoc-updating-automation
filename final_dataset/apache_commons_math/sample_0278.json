@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cb3f2873750917ba6afa47c0b784def725a64a25",
+  "issue_summary": "BigReal.divide(BigReal) now throws MathArithmeticException (see ).",
+  "code_before": "public BigReal divide(BigReal a) throws ArithmeticException {\n        return new BigReal(d.divide(a.d, scale, roundingMode));\n    }",
+  "code_after": "public BigReal divide(BigReal a) {\n        try {\n            return new BigReal(d.divide(a.d, scale, roundingMode));\n        } catch (ArithmeticException e) {\n            // Division by zero has occured\n            throw new MathArithmeticException(LocalizedFormats.ZERO_NOT_ALLOWED);\n        }\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/**\n     * {@inheritDoc}\n     *\n     * @throws MathArithmeticException if {@code a} is zero\n     */"
+}

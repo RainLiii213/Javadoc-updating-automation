@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2eb1586bf77efcacf701df14ad98d1d6a704a35e",
+  "issue_summary": "Added support to specify the initial size of a LRUMap. Thanks to Philippe Mouawad.",
+  "code_before": "public LRUMap(final int maxSize, final float loadFactor, final boolean scanUntilRemovable) {\n        super(maxSize < 1 ? DEFAULT_CAPACITY : maxSize, loadFactor);\n        if (maxSize < 1) {\n            throw new IllegalArgumentException(\"LRUMap max size must be greater than 0\");\n        }\n        this.maxSize = maxSize;\n        this.scanUntilRemovable = scanUntilRemovable;\n    }",
+  "code_after": "public LRUMap(final int maxSize, final float loadFactor, final boolean scanUntilRemovable) {\n        this(maxSize, maxSize, loadFactor, scanUntilRemovable);\n    }",
+  "javadoc_before": "/**\n     * Constructs a new, empty map with the specified initial capacity and\n     * load factor.\n     *\n     * @param maxSize  the maximum size of the map\n     * @param loadFactor  the load factor\n     * @param scanUntilRemovable  scan until a removeable entry is found, default false\n     * @throws IllegalArgumentException if the maximum size is less than one\n     * @throws IllegalArgumentException if the load factor is less than zero\n     * @since 3.1\n     */",
+  "javadoc_after": "/**\n     * Constructs a new, empty map with the specified max capacity and load factor.\n     *\n     * @param maxSize  the maximum size of the map\n     * @param loadFactor  the load factor\n     * @param scanUntilRemovable  scan until a removeable entry is found, default false\n     * @throws IllegalArgumentException if the maximum size is less than one\n     * @throws IllegalArgumentException if the load factor is less than zero\n     * @since 3.1\n     */"
+}

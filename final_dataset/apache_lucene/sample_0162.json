@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a7b50f723d6c6249faa688a1a4423cc4006d37dd",
+  "issue_summary": "Reverting back to b48cac02.",
+  "code_before": "public UkrainianMorfologikAnalyzer() {\n    this(getDefaultResources().stopSet);\n  }",
+  "code_after": "public UkrainianMorfologikAnalyzer() {\n    this(DefaultSetHolder.DEFAULT_STOP_SET);\n  }",
+  "javadoc_before": "/** Builds an analyzer with the default stop words. */",
+  "javadoc_after": "/** Builds an analyzer with the default stop words: {@link #DEFAULT_STOPWORD_FILE}. */"
+}

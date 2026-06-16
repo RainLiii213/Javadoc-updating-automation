@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9de4225e9a54ba987c2c7c9d4510bea3e4f9de97",
+  "issue_summary": "Consistence problem when in-sync replicas are DOWN",
+  "code_before": "boolean canBecomeLeader(String coreNodeName) {\n      if (values.isEmpty()) return true;\n      long maxTerm = Collections.max(values.values());\n      return values.getOrDefault(coreNodeName, 0L) == maxTerm;\n    }",
+  "code_after": "boolean canBecomeLeader(String coreNodeName) {\n      return haveHighestTermValue(coreNodeName) && !values.containsKey(coreNodeName + \"_recovering\");\n    }",
+  "javadoc_before": "/**\n     * Can this replica become leader or is this replica's term equals to leader's term?\n     * @param coreNodeName of the replica\n     * @return true if this replica can become leader, false if otherwise\n     */",
+  "javadoc_after": "/**\n     * Can {@code coreNodeName} become leader?\n     * @param coreNodeName of the replica\n     * @return true if {@code coreNodeName} can become leader, false if otherwise\n     */"
+}

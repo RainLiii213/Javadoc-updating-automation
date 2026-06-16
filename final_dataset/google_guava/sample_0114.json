@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6336404e539bb948caac14b4a00152409c3e7120",
+  "issue_summary": "Automated g4 rollback of changelist 113583321.",
+  "code_before": "@Override\n  public Set<E> edgesConnecting(Object node1, Object node2) {\n    Set<E> sourceOutEdges = outEdges(node1); // Verifies that node1 is in graph\n    if (!config.isSelfLoopsAllowed() && node1.equals(node2)) {\n      return ImmutableSet.of();\n    }\n    Set<E> targetInEdges = inEdges(node2);\n    return (sourceOutEdges.size() <= targetInEdges.size())\n        ? Sets.intersection(sourceOutEdges, targetInEdges).immutableCopy()\n        : Sets.intersection(targetInEdges, sourceOutEdges).immutableCopy();\n  }",
+  "code_after": "@Override\n  public Set<E> edgesConnecting(Object node1, Object node2) {\n    checkNotNull(node1, \"node1\");\n    checkNotNull(node2, \"node2\");\n    Set<E> sourceOutEdges = outEdges(node1);\n    Set<E> targetInEdges = inEdges(node2);\n    return sourceOutEdges.size() <= targetInEdges.size()\n        ? Sets.intersection(sourceOutEdges, targetInEdges).immutableCopy()\n        : Sets.intersection(targetInEdges, sourceOutEdges).immutableCopy();\n  }",
+  "javadoc_before": "/**\n   * Returns the intersection of these two sets, using {@link Sets#intersection}:\n   * <ol>\n   * <li>Outgoing edges of {@code node1}.\n   * <li>Incoming edges of {@code node2}.\n   * </ol>\n   */",
+  "javadoc_after": "/**\n   * Returns the intersection of these two sets, using {@code Sets.intersection}:\n   * <ol>\n   * <li>Outgoing edges of {@code node1}.\n   * <li>Incoming edges of {@code node2}.\n   * </ol>\n   * The first argument passed to {@code Sets.intersection} is the smaller of the two sets.\n   *\n   * @see Sets#intersection\n   */"
+}

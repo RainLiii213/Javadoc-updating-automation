@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5a50887a4b92f18d8f33e6472cbb9bbdc9631499",
+  "issue_summary": "Remove code that potentially rethrows checked exceptions from methods that don't declare them (\"sneaky throw\" hack).",
+  "code_before": "public abstract AttributeImpl createAttributeInstance(Class<? extends Attribute> attClass);",
+  "code_after": "public abstract AttributeImpl createAttributeInstance(Class<? extends Attribute> attClass)\n      throws UndeclaredThrowableException;",
+  "javadoc_before": "/**\n   * Returns an {@link AttributeImpl} for the supplied {@link Attribute} interface class.\n   */",
+  "javadoc_after": "/**\n   * Returns an {@link AttributeImpl} for the supplied {@link Attribute} interface class.\n   * \n   * @throws UndeclaredThrowableException A wrapper runtime exception thrown if the \n   *         constructor of the attribute class throws a checked exception. \n   *         Note that attributes should not throw or declare \n   *         checked exceptions; this may be verified and fail early in the future. \n   */"
+}

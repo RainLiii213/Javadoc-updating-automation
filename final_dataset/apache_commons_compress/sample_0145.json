@@ -1,0 +1,8 @@
+{
+  "commit_hash": "93e861d21f55b8e6d066416143a252ee17302865",
+  "issue_summary": "document 'EOF behaviour' of Dump/Ar/Cpio InputStreams",
+  "code_before": "public CpioArchiveInputStream(final InputStream in) {\n        this.in = in;\n    }",
+  "code_after": "public CpioArchiveInputStream(final InputStream in) {\n        this(in, BLOCK_SIZE);\n    }",
+  "javadoc_before": "/**\n     * Construct the cpio input stream\n     * \n     * @param in\n     *            The cpio stream\n     */",
+  "javadoc_after": "/**\n     * Construct the cpio input stream with a blocksize of {@link\n     * CpioConstants#BLOCK_SIZE BLOCK_SIZE}.\n     * \n     * @param in\n     *            The cpio stream\n     */"
+}

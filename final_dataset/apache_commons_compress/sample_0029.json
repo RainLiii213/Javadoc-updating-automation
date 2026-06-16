@@ -1,0 +1,8 @@
+{
+  "commit_hash": "83faff73459d9af4696aec3842e51737f4b61e57",
+  "issue_summary": "Fix Javadoc",
+  "code_before": "public void setModificationTime(final long modificationTime) {\n        this.modificationTime = modificationTime;\n    }",
+  "code_after": "public void setModificationTime(final long modificationTime) {\n        this.modificationTime = Instant.ofEpochSecond(modificationTime);\n    }",
+  "javadoc_before": "/**\n     * Sets the modification time (MTIME) of the compressed file.\n     * <p>\n     * The time is in Unix format, for example, seconds since 00:00:00 GMT, Jan. 1, 1970. (Note that this may cause problems for MS-DOS and other systems that\n     * use local rather than Universal time.) If the compressed data did not come from a file, MTIME is set to the time at which compression started. MTIME = 0\n     * means no time stamp is available.\n     * </p>\n     *\n     * @param modificationTime the modification time, in milliseconds\n     */",
+  "javadoc_after": "/**\n     * Sets the modification time (MTIME) of the compressed file, in seconds since 00:00:00 GMT, Jan. 1, 1970.\n     * <p>\n     * The time is in Unix format, for example, seconds since 00:00:00 GMT, Jan. 1, 1970. (Note that this may cause problems for MS-DOS and other systems that\n     * use local rather than Universal time.) If the compressed data did not come from a file, MTIME is set to the time at which compression started. MTIME = 0\n     * means no time stamp is available.\n     * </p>\n     *\n     * @param modificationTime the modification time, in seconds.\n     */"
+}

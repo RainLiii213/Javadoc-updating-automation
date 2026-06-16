@@ -1,0 +1,8 @@
+{
+  "commit_hash": "02f862670eee5a117824d61168a1f61cf145bc5f",
+  "issue_summary": "Allow WhitespaceAnalyzer to set a custom maxTokenLen",
+  "code_before": "public WhitespaceAnalyzer() {\n  }",
+  "code_after": "public WhitespaceAnalyzer() {\n    this(WhitespaceTokenizer.DEFAULT_MAX_WORD_LEN);\n  }",
+  "javadoc_before": "/**\n   * Creates a new {@link WhitespaceAnalyzer}\n   */",
+  "javadoc_after": "/**\n   * Creates a new {@link WhitespaceAnalyzer} with a maximum token length of 255 chars\n   */"
+}

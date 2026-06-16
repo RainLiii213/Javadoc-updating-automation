@@ -1,0 +1,8 @@
+{
+  "commit_hash": "78b50843d700cad94ca41210b09be20d6941bae4",
+  "issue_summary": "Deprecate Builder in favor of Supplier",
+  "code_before": "@Override\n        public RandomStringGenerator build() {\n            return new RandomStringGenerator(minimumCodePoint, maximumCodePoint, inclusivePredicates,\n                    random, characterList);\n        }",
+  "code_after": "@Deprecated\n        @Override\n        public RandomStringGenerator build() {\n            return get();\n        }",
+  "javadoc_before": "/**\n         * Builds the {@code RandomStringGenerator} using the properties specified.\n         *\n         * @return The configured {@code RandomStringGenerator}\n         */",
+  "javadoc_after": "/**\n         * Builds a new {@code RandomStringGenerator}.\n         *\n         * @return A new {@code RandomStringGenerator}\n         * @deprecated Use {@link #get()}.\n         */"
+}

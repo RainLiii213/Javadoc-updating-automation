@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3ae07f34ab51300614bfb0202443bbb4d2c5acd8",
+  "issue_summary": "Fixed about 90 checkstyle errors.",
+  "code_before": "@Override\n    public int getN() {\n        throw new MathUnsupportedOperationException();\n    }",
+  "code_after": "@Override\n    public int getN()\n        throws MathUnsupportedOperationException {\n        throw new MathUnsupportedOperationException();\n    }",
+  "javadoc_before": "/**\n     * This {@link Covariance} method is not supported by StorelessCovariance, since\n     * the number of bivariate observations does not have to be the same for different\n     * pairs of covariates - i.e., N as defined in {@link Covariance#getN()} is undefined.\n     */",
+  "javadoc_after": "/**\n     * This {@link Covariance} method is not supported by StorelessCovariance, since\n     * the number of bivariate observations does not have to be the same for different\n     * pairs of covariates - i.e., N as defined in {@link Covariance#getN()} is undefined.\n     * @return nothing as this implementation always throws a {@link MathUnsupportedOperationException}\n     * @throws MathUnsupportedOperationException in all cases\n     */"
+}

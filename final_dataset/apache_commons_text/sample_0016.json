@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ea61a39ddc6e77396ab96d03e08885c4c162cb54",
+  "issue_summary": "Rework some org.apache.commons.text.similarity internals to use JRE's Function",
+  "code_before": "interface Tokenizer<T> {\n\n    /**\n     * Returns an array of tokens.\n     *\n     * @param text input text\n     * @return array of tokens\n     */\n    T[] tokenize(CharSequence text);\n\n}",
+  "code_after": "interface Tokenizer<T, R> extends Function<T, R[]> {\n    // empty\n}",
+  "javadoc_before": "/**\n * A tokenizer. Can produce arrays of tokens from a given type.\n *\n * @param <T> given type\n * @since 1.0\n */",
+  "javadoc_after": "/**\n * A tokenizer. Can produce arrays of tokens from a given type.\n *\n * @param <T> The type to tokenize.\n * @param <R> The return array element type.\n * @since 1.0\n */"
+}

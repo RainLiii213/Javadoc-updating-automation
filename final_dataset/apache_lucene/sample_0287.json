@@ -1,0 +1,8 @@
+{
+  "commit_hash": "889f73105fc2a210b2fc041b40abaf00e34048b2",
+  "issue_summary": "The completion suggester's postings format now have an option to load its internal FST off-heap.",
+  "code_before": "public Completion50PostingsFormat() {\n    super();\n  }",
+  "code_after": "public Completion50PostingsFormat() {\n    this(FSTLoadMode.ON_HEAP);\n  }",
+  "javadoc_before": "/**\n   * Sole Constructor\n   */",
+  "javadoc_after": "/**\n   * Creates a {@link Completion50PostingsFormat} that will load\n   * the completion FST on-heap.\n   */"
+}

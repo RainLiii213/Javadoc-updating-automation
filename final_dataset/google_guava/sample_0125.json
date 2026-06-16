@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a904e91af4eea83b91f7bf3acff90b14927eced7",
+  "issue_summary": "Fix ClassPath by exposing Scanner for internal clients to customize.",
+  "code_before": "public final URL url() {\n      return urls.get(0);\n    }",
+  "code_after": "public final URL url() throws NoSuchElementException {\n      URL url = loader.getResource(resourceName);\n      if (url == null) {\n        throw new NoSuchElementException(resourceName);\n      }\n      return url;\n    }",
+  "javadoc_before": "/**\n     * Returns the url identifying the resource.\n     *\n     * <p>See {@link ClassLoader#getResource}\n     */",
+  "javadoc_after": "/**\n     * Returns the url identifying the resource.\n     *\n     * <p>See {@link ClassLoader#getResource}\n     * @throws NoSuchElementException if the resource cannot be loaded through the class loader,\n     *         despite physically existing in the class path.\n     */"
+}

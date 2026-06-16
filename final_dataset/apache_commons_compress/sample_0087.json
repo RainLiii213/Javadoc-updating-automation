@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b8a0b54c59191cb8338585eab055897737730a9e",
+  "issue_summary": "throws IOException if non-number exists in pax header",
+  "code_before": "private void processPaxHeader(String key, String val) {\n        processPaxHeader(key,val,extraPaxHeaders);\n    }",
+  "code_after": "private void processPaxHeader(String key, String val) throws IOException {\n        processPaxHeader(key,val,extraPaxHeaders);\n    }",
+  "javadoc_before": "/**\n     * process one pax header, using the entries extraPaxHeaders map as source for extra headers\n     * used when handling entries for sparse files.\n     * @param key\n     * @param val\n     * @since 1.15\n     */",
+  "javadoc_after": "/**\n     * process one pax header, using the entries extraPaxHeaders map as source for extra headers\n     * used when handling entries for sparse files.\n     *\n     * @param key\n     * @param val\n     * @throws IOException if error occurs when parsing pax header\n     * @since 1.15\n     */"
+}

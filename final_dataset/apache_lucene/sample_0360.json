@@ -1,0 +1,8 @@
+{
+  "commit_hash": "352ec01a6ef68bc81fdb84a7f72e81a6698f594c",
+  "issue_summary": "UH switch to SpanCollector API. Better accuracy. * Use the filtered freq in position sensitive terms (better scores) * Refactored UH's OffsetsEnum * Improved test randomization in TestUnifiedHighlighter & MTQ",
+  "code_before": "public BytesRef getTerm() throws IOException {\n    // TODO TokenStreamOffsetStrategy could override OffsetsEnum; then remove this hack here\n    return term != null ? term : postingsEnum.getPayload(); // abusing payload like this is a total hack!\n  }",
+  "code_after": "public abstract BytesRef getTerm() throws IOException;",
+  "javadoc_before": "/** The term at this position; usually always the same. This term is a reference that is safe to continue to refer to,\n   * even after we move to next position. */",
+  "javadoc_after": "/**\n   * The term at this position; usually always the same.\n   * This BytesRef is safe to continue to refer to, even after we move to the next position.\n   */"
+}

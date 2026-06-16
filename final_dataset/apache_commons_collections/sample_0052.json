@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0721f49bf0d8b954c8a4b8d75e5375de43af981e",
+  "issue_summary": "Further additions.",
+  "code_before": "public Collection<V> remove(Object key) {\n        Collection<V> coll = getMap().remove(key);\n        return coll == null ? Collections.<V>emptyList() : coll;\n    }",
+  "code_after": "public Collection<V> remove(Object key) {\n        return CollectionUtils.emptyIfNull(getMap().remove(key));\n    }",
+  "javadoc_before": "/**\n     * Removes all values associated with the specified key.\n     * <p>\n     * A subsequent <code>get(Object)</code> would return null collection.\n     *\n     * @param key the key to remove values from\n     * @return the <code>Collection</code> of values removed, will return\n     *         <code>null</code> for no mapping found.\n     * @throws ClassCastException if the key is of an invalid type\n     */",
+  "javadoc_after": "/**\n     * Removes all values associated with the specified key.\n     * <p>\n     * A subsequent <code>get(Object)</code> would return an empty collection.\n     *\n     * @param key the key to remove values from\n     * @return the <code>Collection</code> of values removed, will return an\n     *         empty, unmodifiable collection for no mapping found.\n     * @throws ClassCastException if the key is of an invalid type\n     */"
+}

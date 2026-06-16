@@ -1,0 +1,8 @@
+{
+  "commit_hash": "838b23ebed1a847f489c85226b9f88367cdc5d79",
+  "issue_summary": "Make Weight#scorerSupplier abstract, Weight#scorer final",
+  "code_before": "public ScorerSupplier scorerSupplier(LeafReaderContext context) throws IOException {\n    final Scorer scorer = scorer(context);\n    if (scorer == null) {\n      return null;\n    }\n    return new ScorerSupplier() {\n      @Override\n      public Scorer get(long leadCost) {\n        return scorer;\n      }\n\n      @Override\n      public long cost() {\n        return scorer.iterator().cost();\n      }\n    };\n  }",
+  "code_after": "public abstract ScorerSupplier scorerSupplier(LeafReaderContext context) throws IOException;",
+  "javadoc_before": "/**\n   * Optional method. Get a {@link ScorerSupplier}, which allows to know the cost of the {@link\n   * Scorer} before building it. The default implementation calls {@link #scorer} and builds a\n   * {@link ScorerSupplier} wrapper around it.\n   *\n   * @see #scorer\n   */",
+  "javadoc_after": "/**\n   * Get a {@link ScorerSupplier}, which allows knowing the cost of the {@link Scorer} before\n   * building it.\n   *\n   * <p><strong>Note:</strong> It must return null if the scorer is null.\n   *\n   * @param context the leaf reader context\n   * @return a {@link ScorerSupplier} providing the scorer, or null if scorer is null\n   * @throws IOException if an IOException occurs\n   * @see Scorer\n   * @see DefaultScorerSupplier\n   */"
+}

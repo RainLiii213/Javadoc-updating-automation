@@ -1,0 +1,8 @@
+{
+  "commit_hash": "87a82127044cfd379c81b769fc588984328d6731",
+  "issue_summary": "fixed checkstyle warnings (no functional changes)",
+  "code_before": "private double[] calculateDifferences(final double[] x, final double[] y)\n            throws IllegalArgumentException {\n\n        final double[] z = new double[x.length];\n\n        for (int i = 0; i < x.length; ++i) {\n            z[i] = y[i] - x[i];\n        }\n\n        return z;\n    }",
+  "code_after": "private double[] calculateDifferences(final double[] x, final double[] y) {\n\n        final double[] z = new double[x.length];\n\n        for (int i = 0; i < x.length; ++i) {\n            z[i] = y[i] - x[i];\n        }\n\n        return z;\n    }",
+  "javadoc_before": "/**\n     * Calculates y[i] - x[i] for all i\n     *\n     * @param x\n     * @param y\n     * @throws IllegalArgumentException\n     *             if assumptions are not met\n     */",
+  "javadoc_after": "/**\n     * Calculates y[i] - x[i] for all i\n     *\n     * @param x first sample\n     * @param y second sample\n     * @return z = y - x\n     */"
+}

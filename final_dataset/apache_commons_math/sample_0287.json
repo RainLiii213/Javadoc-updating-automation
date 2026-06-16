@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ef6887f87037cce8f72c6beb233cca8b9b959ff8",
+  "issue_summary": "Changed StorelessCovariance according to suggestions from psteitz. JIRA",
+  "code_before": "public StorelessBivariateCovariance getCovariance(final int xIndex,\n                                                      final int yIndex) {\n        return covMatrix[xIndex][yIndex];\n    }",
+  "code_after": "public double getCovariance(final int xIndex,\n                                final int yIndex)\n        throws NumberIsTooSmallException {\n\n        return getElement(xIndex, yIndex).getResult();\n\n    }",
+  "javadoc_before": "/**\n     * Get the covariance for an individual element of the covariance matrix.\n     *\n     * @param xIndex row index in the covariance matrix\n     * @param yIndex column index in the covariance matrix\n     * @return the covariance of the given element\n     */",
+  "javadoc_after": "/**\n     * Get the covariance for an individual element of the covariance matrix.\n     *\n     * @param xIndex row index in the covariance matrix\n     * @param yIndex column index in the covariance matrix\n     * @return the covariance of the given element\n     * @throws NumberIsTooSmallException if the number of observations\n     * in the cell is &lt; 2\n     */"
+}

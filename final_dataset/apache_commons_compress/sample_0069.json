@@ -1,0 +1,8 @@
+{
+  "commit_hash": "39abfb17b02acd7d07b0c3ff5bac666a7bd35ea7",
+  "issue_summary": "Remove unused exceptions.",
+  "code_before": "public void create(final ArchiveOutputStream target, final File directory) throws IOException, ArchiveException {\n        create(target, directory.toPath(), EMPTY_FileVisitOption);\n    }",
+  "code_after": "public void create(final ArchiveOutputStream target, final File directory) throws IOException {\n        create(target, directory.toPath(), EMPTY_FileVisitOption);\n    }",
+  "javadoc_before": "/**\n     * Creates an archive {@code target} by recursively including all files and directories in {@code directory}.\n     *\n     * @param target the stream to write the new archive to.\n     * @param directory the directory that contains the files to archive.\n     * @throws IOException if an I/O error occurs\n     * @throws ArchiveException if the archive cannot be created for other reasons\n     */",
+  "javadoc_after": "/**\n     * Creates an archive {@code target} by recursively including all files and directories in {@code directory}.\n     *\n     * @param target the stream to write the new archive to.\n     * @param directory the directory that contains the files to archive.\n     * @throws IOException if an I/O error occurs\n     */"
+}

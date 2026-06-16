@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d08905e9fc562c1f4d1ae0acfe6f9fb98d10f4f8",
+  "issue_summary": "Deprecate name() and make toString() return name of domain. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=41514739",
+  "code_before": "public String name() {\n    return name;\n  }",
+  "code_after": "@Deprecated\n  public String name() {\n    return toString();\n  }",
+  "javadoc_before": "/**\n   * Returns the domain name, normalized to all lower case.\n   */",
+  "javadoc_after": "/**\n   * A deprecated synonym for {@link #toString()}.\n   *\n   * @since 15.0\n   * @deprecated Use {@link #toString()}\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cf68aae727161b55ff0239730899411ba3f5eef2",
+  "issue_summary": "Deprecate ZipUtil.signedByteToUnsignedInt(byte) in favor of Byte.toUnsignedInt(byte)",
+  "code_before": "public static int signedByteToUnsignedInt(final byte b) {\n        if (b >= 0) {\n            return b;\n        }\n        return 256 + b;\n    }",
+  "code_after": "@Deprecated\n    public static int signedByteToUnsignedInt(final byte b) {\n        return Byte.toUnsignedInt(b);\n    }",
+  "javadoc_before": "/**\n     * Converts a signed byte into an unsigned integer representation (e.g., -1 becomes 255).\n     *\n     * @param b byte to convert to int\n     * @return int representation of the provided byte\n     * @since 1.5\n     */",
+  "javadoc_after": "/**\n     * Converts a signed byte into an unsigned integer representation (e.g., -1 becomes 255).\n     *\n     * @param b byte to convert to int\n     * @return int representation of the provided byte\n     * @since 1.5\n     * @deprecated Use {@link Byte#toUnsignedInt(byte)}.\n     */"
+}

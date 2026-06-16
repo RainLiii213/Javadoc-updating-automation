@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7356947cb2caf73d6155255bdcc2906e45e973d6",
+  "issue_summary": "Deprecate several redundant methods in Files, cross-reference functionality added to JDK's Files class (hence not in Guava's MoreFiles).",
+  "code_before": "public static void append(CharSequence from, File to, Charset charset) throws IOException {\n    asCharSink(to, charset, new FileWriteMode[]{ FileWriteMode.APPEND }).write(from);\n  }",
+  "code_after": "@Deprecated\n  public static void append(CharSequence from, File to, Charset charset) throws IOException {\n    asCharSink(to, charset, FileWriteMode.APPEND).write(from);\n  }",
+  "javadoc_before": "/**\n   * Appends a character sequence (such as a string) to a file using the given character set.\n   *\n   * @param from the character sequence to append\n   * @param to the destination file\n   * @param charset the charset used to encode the output stream; see {@link StandardCharsets} for\n   *     helpful predefined constants\n   * @throws IOException if an I/O error occurs\n   */",
+  "javadoc_after": "/**\n   * Appends a character sequence (such as a string) to a file using the given character set.\n   *\n   * @param from the character sequence to append\n   * @param to the destination file\n   * @param charset the charset used to encode the output stream; see {@link StandardCharsets} for\n   *     helpful predefined constants\n   * @throws IOException if an I/O error occurs\n   * @deprecated Prefer {@code asCharSink(to, charset, FileWriteMode.APPEND).write(from)}. This\n   *     method is scheduled to be removed in January 2019.\n   */"
+}

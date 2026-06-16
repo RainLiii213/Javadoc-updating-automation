@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4c2093e274e5b47213bfa77e41c97cc75989d8d1",
+  "issue_summary": "Remove exception from internal method signature",
+  "code_before": "@Override\n    public int read() throws IOException {\n        return 0;\n    }",
+  "code_after": "@Override\n    public int read() {\n        return 0;\n    }",
+  "javadoc_before": "/**\n     * Returns 0.\n     *\n     * @return 0\n     * @throws IOException\n     */",
+  "javadoc_after": "/**\n     * Returns 0.\n     *\n     * @return 0.\n     */"
+}

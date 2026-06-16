@@ -1,0 +1,8 @@
+{
+  "commit_hash": "53f56fb7ad44afab9c78fab2e89737438093247f",
+  "issue_summary": "Move max clause checks to IndexSearcher",
+  "code_before": "public static class TooManyClauses extends RuntimeException {\n    public TooManyClauses() {\n      super(\"maxClauseCount is set to \" + maxClauseCount);\n    }\n  }",
+  "code_after": "@Deprecated\n  public static class TooManyClauses extends IndexSearcher.TooManyClauses { }",
+  "javadoc_before": "/** Thrown when an attempt is made to add more than {@link\n   * #getMaxClauseCount()} clauses. This typically happens if\n   * a PrefixQuery, FuzzyQuery, WildcardQuery, or TermRangeQuery \n   * is expanded to many terms during search. \n   */",
+  "javadoc_after": "/** Thrown when an attempt is made to add more than {@link\n   * #getMaxClauseCount()} clauses. This typically happens if\n   * a PrefixQuery, FuzzyQuery, WildcardQuery, or TermRangeQuery \n   * is expanded to many terms during search.\n   * @deprecated use {@link IndexSearcher.TooManyClauses}\n   */"
+}

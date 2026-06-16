@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fec9f1c10efa7bd0e5b113b8e545121f10ae257c",
+  "issue_summary": "Upgrade commons-io from 2.15.1 to 2.16.1 https://github.com/apache/commons-compress/pull/513/files",
+  "code_before": "public static FileTime unixTimeToFileTime(final long time) {\n        // TODO Apache Commons IO 2.16.0 FileTimes.fromUnixTime(long)\n        return FileTime.from(time, TimeUnit.SECONDS);\n    }",
+  "code_after": "@Deprecated\n    public static FileTime unixTimeToFileTime(final long time) {\n        return FileTimes.fromUnixTime(time);\n    }",
+  "javadoc_before": "/**\n     * Converts standard UNIX time (in seconds, UTC/GMT) to {@link FileTime}.\n     *\n     * @param time UNIX timestamp (in seconds, UTC/GMT).\n     * @return the corresponding FileTime.\n     */",
+  "javadoc_after": "/**\n     * Converts standard UNIX time (in seconds, UTC/GMT) to {@link FileTime}.\n     *\n     * @param time UNIX timestamp (in seconds, UTC/GMT).\n     * @return the corresponding FileTime.\n     * @deprecated Use {@link FileTimes#fromUnixTime(long)}\n     */"
+}

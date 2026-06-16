@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2c1ab31b4e5595595cf0f1549eb61b33c8555000",
+  "issue_summary": "Add preserveOriginal option to the NGram and EdgeNGram filters",
+  "code_before": "public EdgeNGramTokenFilter(TokenStream input, int minGram, int maxGram) {\n    super(input);\n\n    if (minGram < 1) {\n      throw new IllegalArgumentException(\"minGram must be greater than zero\");\n    }\n\n    if (minGram > maxGram) {\n      throw new IllegalArgumentException(\"minGram must not be greater than maxGram\");\n    }\n\n    this.minGram = minGram;\n    this.maxGram = maxGram;\n  }",
+  "code_after": "@Deprecated\n  public EdgeNGramTokenFilter(TokenStream input, int minGram, int maxGram) {\n    this(input, minGram, maxGram, DEFAULT_PRESERVE_ORIGINAL);\n  }",
+  "javadoc_before": "/**\n   * Creates EdgeNGramTokenFilter that can generate n-grams in the sizes of the given range\n   *\n   * @param input {@link TokenStream} holding the input to be tokenized\n   * @param minGram the smallest n-gram to generate\n   * @param maxGram the largest n-gram to generate\n   */",
+  "javadoc_after": "/**\n   * Creates an EdgeNGramTokenFilter that, for a given input term, produces all\n   * edge n-grams with lengths &gt;= minGram and &lt;= maxGram.\n   * \n   * <p>\n   * Behaves the same as\n   * {@link #EdgeNGramTokenFilter(TokenStream, int, int, boolean)\n   * NGramTokenFilter(input, minGram, maxGram, false)}\n   *\n   * @param input {@link TokenStream} holding the input to be tokenized\n   * @param minGram the minimum length of the generated n-grams\n   * @param maxGram the maximum length of the generated n-grams\n   *\n   * @deprecated since 7.4. Use\n   * {@link #EdgeNGramTokenFilter(TokenStream, int, int, boolean)} instead.\n   */"
+}

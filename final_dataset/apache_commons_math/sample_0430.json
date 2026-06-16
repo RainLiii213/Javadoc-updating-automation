@@ -1,0 +1,8 @@
+{
+  "commit_hash": "26a610776cefacb898994e8e4ea493b6b1263022",
+  "issue_summary": "Workaround exception generated when the optimizer tries invalid values for the \"sigma\" parameter. Added a method to allow the user to pass his own initial guess.",
+  "code_before": "public double[] fit() {\n        return fit(new Gaussian.Parametric(),\n                   (new ParameterGuesser(getObservations())).guess());\n    }",
+  "code_after": "public double[] fit() {\n        final double[] guess = (new ParameterGuesser(getObservations())).guess();\n        return fit(guess);\n    }",
+  "javadoc_before": "/**\n     * Fits Gaussian function to the observed points.\n     * It will call the base class\n     * {@link CurveFitter#fit(\n     * org.apache.commons.math.analysis.ParametricUnivariateRealFunction,\n     * double[]) fit} method.\n     *\n     * @return the Gaussian function that best fits the observed points.\n     */",
+  "javadoc_after": "/**\n     * Fits a Gaussian function to the observed points.\n     *\n     * @return the parameters of the Gaussian function that best fits the\n     * observed points (in the same order as above).\n     */"
+}

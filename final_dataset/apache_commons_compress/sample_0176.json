@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0448caf45f46f8561c2cb05f524ffc437a7341df",
+  "issue_summary": "make ZipArchiveOutputStream and ZipFile use by default",
+  "code_before": "public ZipFile(String name) throws IOException {\n        this(new File(name), null);\n    }",
+  "code_after": "public ZipFile(String name) throws IOException {\n        this(new File(name), ZipArchiveOutputStream.DEFAULT_ENCODING);\n    }",
+  "javadoc_before": "/**\n     * Opens the given file for reading, assuming the platform's\n     * native encoding for file names.\n     *\n     * @param name name of the archive.\n     *\n     * @throws IOException if an error occurs while reading the file.\n     */",
+  "javadoc_after": "/**\n     * Opens the given file for reading, assuming \"UTF8\".\n     *\n     * @param name name of the archive.\n     *\n     * @throws IOException if an error occurs while reading the file.\n     */"
+}

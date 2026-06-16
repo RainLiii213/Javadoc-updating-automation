@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4fb9620098f81ed68167b298cb1f5f1cd31d0563",
+  "issue_summary": "Add SevenZOutputFile.putArchiveEntry(SevenZArchiveEntry) and deprecate putArchiveEntry(ArchiveEntry)",
+  "code_before": "public void putArchiveEntry(final ArchiveEntry archiveEntry) {\n        files.add((SevenZArchiveEntry) archiveEntry);\n    }",
+  "code_after": "@Deprecated\n    public void putArchiveEntry(final ArchiveEntry archiveEntry) {\n        putArchiveEntry((SevenZArchiveEntry) archiveEntry);\n    }",
+  "javadoc_before": "/**\n     * Records an archive entry to add.\n     *\n     * The caller must then write the content to the archive and call\n     * {@link #closeArchiveEntry()} to complete the process.\n     *\n     * @param archiveEntry describes the entry\n     */",
+  "javadoc_after": "/**\n     * Records an archive entry to add.\n     *\n     * The caller must then write the content to the archive and call\n     * {@link #closeArchiveEntry()} to complete the process.\n     *\n     * @param archiveEntry describes the entry\n     * @deprecated Use {@link #putArchiveEntry(SevenZArchiveEntry)}.\n     */"
+}

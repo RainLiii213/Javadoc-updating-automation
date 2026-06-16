@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7da175b0b6b4185ee6b5df852e59b93d9a9a1c86",
+  "issue_summary": "rename/deprecate numeric classes in favor of dimensional values",
+  "code_before": "private static NumericType getHashableNumericType(SchemaField field) {\n    if (null == field) {\n      return NumericType.FLOAT;\n    }\n    final NumericType result = field.getType().getNumericType();\n    return null == result ? NumericType.LONG : result;\n  }",
+  "code_after": "private static LegacyNumericType getHashableNumericType(SchemaField field) {\n    if (null == field) {\n      return LegacyNumericType.FLOAT;\n    }\n    final LegacyNumericType result = field.getType().getNumericType();\n    return null == result ? FieldType.LegacyNumericType.LONG : result;\n  }",
+  "javadoc_before": "/**\n   * Returns the effective {@link NumericType} for the field for the purposes of hash values.  \n   * ie: If the field has an explict NumericType that is returned; If the field has no explicit \n   * NumericType then {@link NumericType#LONG} is returned;  If field is null, then \n   * {@link NumericType#FLOAT} is assumed for ValueSource.\n   */",
+  "javadoc_after": "/**\n   * Returns the effective {@link org.apache.lucene.document.FieldType.LegacyNumericType} for the field for the purposes of hash values.\n   * ie: If the field has an explict LegacyNumericType that is returned; If the field has no explicit\n   * LegacyNumericType then {@link org.apache.lucene.document.FieldType.LegacyNumericType#LONG} is returned;  If field is null, then\n   * {@link org.apache.lucene.document.FieldType.LegacyNumericType#FLOAT} is assumed for ValueSource.\n   */"
+}

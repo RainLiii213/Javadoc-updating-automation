@@ -1,0 +1,8 @@
+{
+  "commit_hash": "68500b2c09fa6985eab2e41577e2992685b57f2b",
+  "issue_summary": "Introduce `ImmutableMap.Builder.buildKeepingLast`.",
+  "code_before": "@CanIgnoreReturnValue\n  private static int checkNoConflictInValueBucket(\n      Object value, Entry<?, ?> entry, @CheckForNull ImmutableMapEntry<?, ?> valueBucketHead) {\n    int bucketSize = 0;\n    for (; valueBucketHead != null; valueBucketHead = valueBucketHead.getNextInValueBucket()) {\n      checkNoConflict(!value.equals(valueBucketHead.getValue()), \"value\", entry, valueBucketHead);\n      bucketSize++;\n    }\n    return bucketSize;\n  }",
+  "code_after": "private static void checkNoConflictInValueBucket(\n      Object value, Entry<?, ?> entry, @CheckForNull ImmutableMapEntry<?, ?> valueBucketHead)\n      throws BucketOverflowException {\n    int bucketSize = 0;\n    for (; valueBucketHead != null; valueBucketHead = valueBucketHead.getNextInValueBucket()) {\n      checkNoConflict(!value.equals(valueBucketHead.getValue()), \"value\", entry, valueBucketHead);\n      if (++bucketSize > MAX_HASH_BUCKET_LENGTH) {\n        throw new BucketOverflowException();\n      }\n    }\n  }",
+  "javadoc_before": "/**\n   * @return number of entries in this bucket\n   * @throws IllegalArgumentException if another entry in the bucket has the same key\n   */",
+  "javadoc_after": "/**\n   * @throws IllegalArgumentException if another entry in the bucket has the same key\n   * @throws BucketOverflowException if this bucket has too many entries, which may indicate a hash\n   *     flooding attack\n   */"
+}

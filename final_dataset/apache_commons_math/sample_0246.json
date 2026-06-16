@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e8e94f59360f776d638bc31abed86cc06a1d17a2",
+  "issue_summary": "populate throws declaration for ODE package",
+  "code_before": "public void computeDerivatives(final double t, final double[] y, final double[] yDot)\n        throws MaxCountExceededException {\n        evaluations.incrementCount();\n        expandable.computeDerivatives(t, y, yDot);\n    }",
+  "code_after": "public void computeDerivatives(final double t, final double[] y, final double[] yDot)\n        throws MaxCountExceededException, DimensionMismatchException {\n        evaluations.incrementCount();\n        expandable.computeDerivatives(t, y, yDot);\n    }",
+  "javadoc_before": "/** Compute the derivatives and check the number of evaluations.\n     * @param t current value of the independent <I>time</I> variable\n     * @param y array containing the current value of the state vector\n     * @param yDot placeholder array where to put the time derivative of the state vector\n     * @exception MaxCountExceededException if the number of functions evaluations is exceeded\n     */",
+  "javadoc_after": "/** Compute the derivatives and check the number of evaluations.\n     * @param t current value of the independent <I>time</I> variable\n     * @param y array containing the current value of the state vector\n     * @param yDot placeholder array where to put the time derivative of the state vector\n     * @exception MaxCountExceededException if the number of functions evaluations is exceeded\n     * @exception DimensionMismatchException if arrays dimensions do not match equations settings\n     */"
+}

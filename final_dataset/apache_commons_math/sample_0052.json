@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6525cc4035fe8df3308c03f0ca9f450728e122ac",
+  "issue_summary": "Added splitters in Boundary attributes.",
+  "code_before": "public BoundaryAttribute(final SubHyperplane<S> plusOutside,\n                             final SubHyperplane<S> plusInside) {\n        this.plusOutside = plusOutside;\n        this.plusInside  = plusInside;\n    }",
+  "code_after": "@Deprecated\n    public BoundaryAttribute(final SubHyperplane<S> plusOutside,\n                             final SubHyperplane<S> plusInside) {\n        this(plusOutside, plusInside, null);\n    }",
+  "javadoc_before": "/** Simple constructor.\n     * @param plusOutside part of the node cut sub-hyperplane that\n     * belongs to the boundary and has the outside of the region on\n     * the plus side of its underlying hyperplane (may be null)\n     * @param plusInside part of the node cut sub-hyperplane that\n     * belongs to the boundary and has the inside of the region on the\n     * plus side of its underlying hyperplane (may be null)\n     */",
+  "javadoc_after": "/** Simple constructor.\n     * @param plusOutside part of the node cut sub-hyperplane that\n     * belongs to the boundary and has the outside of the region on\n     * the plus side of its underlying hyperplane (may be null)\n     * @param plusInside part of the node cut sub-hyperplane that\n     * belongs to the boundary and has the inside of the region on the\n     * plus side of its underlying hyperplane (may be null)\n     * @deprecated as of 3.4, the constructor has been replaced by a new one\n     * which is not public anymore, as it is intended to be used only by\n     * {@link BoundaryBuilder}\n     */"
+}

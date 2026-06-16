@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e3bc0703d0a123ab5d3d2edf4124a14c8b3ba235",
+  "issue_summary": "Forward get call on chained future to underlying input future.",
+  "code_before": "@Beta protected int standardHashCode() {\n    return Multisets.hashCodeImpl(this);\n  }",
+  "code_after": "@Beta protected int standardHashCode() {\n    return entrySet().hashCode();\n  }",
+  "javadoc_before": "/**\n   * A sensible definition of {@link #hashCode} in terms of {@link #entrySet}.\n   * If you override {@link #entrySet}, you may wish to override {@link\n   * #hashCode} to forward to this implementation.\n   *\n   * @since 7\n   */",
+  "javadoc_after": "/**\n   * A sensible definition of {@link #hashCode} as {@code entrySet().hashCode()}\n   * . If you override {@link #entrySet}, you may wish to override {@link\n   * #hashCode} to forward to this implementation.\n   *\n   * @since 7\n   */"
+}

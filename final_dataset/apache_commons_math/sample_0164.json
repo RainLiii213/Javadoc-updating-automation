@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b2cea08e85b368ba6d6883a0512ae3dfed3ece9e",
+  "issue_summary": "filled the \"throws\" clause of Array2DRowRealMatrix corrected some method signatures in RealMatrix and AbstractRealMatrix accordingly in AbstractRealMatrix, removed \"abstract implementations\" of some methods specified in interface RealMatrix, as they serve no purpose.",
+  "code_before": "public Array2DRowRealMatrix(final int rowDimension, final int columnDimension) {\n        super(rowDimension, columnDimension);\n        data = new double[rowDimension][columnDimension];\n    }",
+  "code_after": "public Array2DRowRealMatrix(final int rowDimension,\n                                final int columnDimension)\n        throws NotStrictlyPositiveException {\n        super(rowDimension, columnDimension);\n        data = new double[rowDimension][columnDimension];\n    }",
+  "javadoc_before": "/**\n     * Create a new RealMatrix with the supplied row and column dimensions.\n     *\n     * @param rowDimension Number of rows in the new matrix.\n     * @param columnDimension Number of columns in the new matrix.\n     * @throws org.apache.commons.math3.exception.NotStrictlyPositiveException\n     * if the row or column dimension is not positive.\n     */",
+  "javadoc_after": "/**\n     * Create a new RealMatrix with the supplied row and column dimensions.\n     *\n     * @param rowDimension Number of rows in the new matrix.\n     * @param columnDimension Number of columns in the new matrix.\n     * @throws NotStrictlyPositiveException if the row or column dimension is\n     * not positive.\n     */"
+}

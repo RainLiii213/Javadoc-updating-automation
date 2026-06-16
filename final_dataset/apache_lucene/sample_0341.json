@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1409ab8f84ab0949b1da095f03dc94d3b74db5cf",
+  "issue_summary": "Deprecated some SolrParams methods. * toSolrParams(nl) moved to a NamedList method, which is more natural.",
+  "code_before": "public static SolrParams toSolrParams(NamedList params) {\n    // always use MultiMap for easier processing further down the chain\n    return new MultiMapSolrParams(toMultiMap(params));\n  }",
+  "code_after": "@Deprecated //move to NamedList to allow easier flow\n  public static SolrParams toSolrParams(NamedList params) {\n    return params.toSolrParams();\n  }",
+  "javadoc_before": "/** Create SolrParams from NamedList. */",
+  "javadoc_after": "/**\n   * Create SolrParams from NamedList.\n   * @deprecated Use {@link NamedList#toSolrParams()}.\n   */"
+}

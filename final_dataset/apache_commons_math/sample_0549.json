@@ -1,0 +1,8 @@
+{
+  "commit_hash": "439cb994d17bf227e47db9ae076c0f3ea9f3d61c",
+  "issue_summary": "* Added density functions to remaining continuous distributions (F, T, Weibull, Cauchy). * Deprecated HasDensity interface. * Added density tests. * Made Brent Solver (inverse cum) absolute accuracy configurable for all continuous distributions.",
+  "code_before": "public double density(Double x) throws MathException {\n        recomputeZ();\n        if (x < 0 || x > 1) {\n            return 0;\n        } else if (x == 0) {\n            if (alpha < 1) {\n                throw new MathException(\"Cannot compute beta density at 0 when alpha = {0,number}\", alpha);\n            }\n            return 0;\n        } else if (x == 1) {\n            if (beta < 1) {\n                throw new MathException(\"Cannot compute beta density at 1 when beta = %.3g\", beta);\n            }\n            return 0;\n        } else {\n            double logX = Math.log(x);\n            double log1mX = Math.log1p(-x);\n            return Math.exp((alpha - 1) * logX + (beta - 1) * log1mX - z);\n        }\n    }",
+  "code_after": "public double density(Double x) {\n        return density(x.doubleValue());\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/**\n     * Return the probability density for a particular point.\n     *\n     * @param x The point at which the density should be computed.\n     * @return The pdf at point x.\n     * @deprecated\n     */"
+}

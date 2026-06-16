@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b883dcbc08044687bc037ed2170f18416893f7d0",
+  "issue_summary": "Updated throws declaration for random package (and part of distribution).",
+  "code_before": "public GammaDistribution(double shape, double scale) {\n        this(shape, scale, DEFAULT_INVERSE_ABSOLUTE_ACCURACY);\n    }",
+  "code_after": "public GammaDistribution(double shape, double scale) throws NotStrictlyPositiveException {\n        this(shape, scale, DEFAULT_INVERSE_ABSOLUTE_ACCURACY);\n    }",
+  "javadoc_before": "/**\n     * Creates a new gamma distribution with specified values of the shape and\n     * scale parameters.\n     *\n     * @param shape the shape parameter\n     * @param scale the scale parameter\n     */",
+  "javadoc_after": "/**\n     * Creates a new gamma distribution with specified values of the shape and\n     * scale parameters.\n     *\n     * @param shape the shape parameter\n     * @param scale the scale parameter\n     * @throws NotStrictlyPositiveException if {@code shape <= 0} or\n     * {@code scale <= 0}.\n     */"
+}

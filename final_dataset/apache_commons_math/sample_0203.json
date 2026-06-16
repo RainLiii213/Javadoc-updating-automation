@@ -1,0 +1,8 @@
+{
+  "commit_hash": "22bcab04fe9c6494306c98c683f470a4960aa781",
+  "issue_summary": "Updated throws declarations for transform package.",
+  "code_before": "double[] transform(double[] f, TransformType type);",
+  "code_after": "double[] transform(double[] f, TransformType type) throws MathIllegalArgumentException;",
+  "javadoc_before": "/**\n     * Returns the (forward, inverse) transform of the specified real data set.\n     *\n     * @param f the real data array to be transformed (signal)\n     * @param type the type of transform (forward, inverse) to be performed\n     * @return the real transformed array (spectrum)\n     */",
+  "javadoc_after": "/**\n     * Returns the (forward, inverse) transform of the specified real data set.\n     *\n     * @param f the real data array to be transformed (signal)\n     * @param type the type of transform (forward, inverse) to be performed\n     * @return the real transformed array (spectrum)\n     * @throws MathIllegalArgumentException if the array cannot be transformed\n     * with the given type (this may be for example due to array size, which is\n     * constrained in some transforms)\n     */"
+}

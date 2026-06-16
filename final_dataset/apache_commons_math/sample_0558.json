@@ -1,0 +1,8 @@
+{
+  "commit_hash": "80f408413930fc8e976fec53ff240a96270ae904",
+  "issue_summary": "Added generationsEvolved property to GeneticAlgorithm to track the number of generations evolved by the evolve() method before reaching the StoppingCondition. JIRA Reported and patched by Mikkel Meyer Andersen",
+  "code_before": "public Population evolve(Population initial, StoppingCondition condition) {\n        Population current = initial;\n        while (!condition.isSatisfied(current)) {\n            current = nextGeneration(current);\n        }\n        return current;\n    }",
+  "code_after": "public Population evolve(Population initial, StoppingCondition condition) {\n        Population current = initial;\n        generationsEvolved = 0;\n        while (!condition.isSatisfied(current)) {\n            current = nextGeneration(current);\n            generationsEvolved++;\n        }\n        return current;\n    }",
+  "javadoc_before": "/**\n     * Evolve the given population. Evolution stops when the stopping condition\n     * is satisfied.\n     *\n     * @param initial the initial, seed population.\n     * @param condition the stopping condition used to stop evolution.\n     * @return the population that satisfies the stopping condition.\n     */",
+  "javadoc_after": "/**\n     * Evolve the given population. Evolution stops when the stopping condition\n     * is satisfied. Updates the {@link #getGenerationsEvolved() generationsEvolved}\n     * property with the number of generations evolved before the StoppingCondition\n     * is satisfied.\n     *\n     * @param initial the initial, seed population.\n     * @param condition the stopping condition used to stop evolution.\n     * @return the population that satisfies the stopping condition.\n     */"
+}

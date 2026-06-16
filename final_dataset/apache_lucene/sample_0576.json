@@ -1,0 +1,8 @@
+{
+  "commit_hash": "99a31e17d04d3dc33c02e2efb5986abc78f30e91",
+  "issue_summary": "Watch /collections zk node on all nodes",
+  "code_before": "public Set<String> getCollections() {\n    return collectionStates.keySet();\n  }",
+  "code_after": "public Set<String> getCollections() {\n    Set<String> result = new HashSet<>();\n    for (Entry<String, CollectionRef> entry : collectionStates.entrySet()) {\n      if (entry.getValue().get() != null) {\n        result.add(entry.getKey());\n      }\n    }\n    return result;\n  }",
+  "javadoc_before": "/**\n   * Get collection names.\n   */",
+  "javadoc_after": "/**\n   * Get collection names.\n   *\n   * Implementation note: This method resolves the collection reference by calling\n   * {@link CollectionRef#get()} which can make a call to ZooKeeper. This is necessary\n   * because the semantics of how collection list is loaded have changed in SOLR-6629.\n   * Please javadocs in {@link ZkStateReader#refreshCollectionList(Watcher)}\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "23f4d6f35f6408eec2cc33badb0a7b213d5c3096",
+  "issue_summary": "Separate i18n support from InternetDomainName.",
+  "code_before": "public static boolean isValidLenient(String name) {\n    try {\n      fromLenient(name);\n      return true;\n    } catch (IllegalArgumentException e) {\n      return false;\n    }\n  }",
+  "code_after": "@Deprecated\n  public static boolean isValidLenient(String name) {\n    return isValid(name);\n  }",
+  "javadoc_before": "/**\n   * Indicates whether the argument is a syntactically valid domain name using\n   * lenient validation. Specifically, validation against <a\n   * href=\"http://www.ietf.org/rfc/rfc3490.txt\">RFC 3490</a>\n   * (\"Internationalizing Domain Names in Applications\") is skipped.\n   *\n   * <p>The following two code snippets are equivalent:\n   *\n   * <pre>   {@code\n   *\n   *   if (InternetDomainName.isValidLenient(name)) {\n   *     domainName = InternetDomainName.fromLenient(name);\n   *   } else {\n   *     domainName = DEFAULT_DOMAIN;\n   *   }}</pre>\n   *\n   * <pre>   {@code\n   *\n   *   try {\n   *     domainName = InternetDomainName.fromLenient(name);\n   *   } catch (IllegalArgumentException e) {\n   *     domainName = DEFAULT_DOMAIN;\n   *   }}</pre>\n   *\n   * The latter form is preferred as it avoids doing validation twice.\n   *\n   * @since Guava release 08 (previously named {@code isValid})\n   */",
+  "javadoc_after": "/**\n   * A deprecated synonym for {@link #isValid(String)}.\n   *\n   * @since Guava release 08 (previously named {@code isValid})\n   * @deprecated Use {@link #isValid(String)} instead\n   */"
+}

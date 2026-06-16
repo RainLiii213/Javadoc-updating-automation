@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ef205a5d1a6e43413ba9efe86f13364c7b1a92be",
+  "issue_summary": "Created new method \"probability(double,double)\" in implementations were it it overridden, and deprecated \"cumulativeProbability(double,double)\".",
+  "code_before": "@Override\n    public double cumulativeProbability(double x0, double x1)\n        throws NumberIsTooLargeException {\n        if (x0 > x1) {\n            throw new NumberIsTooLargeException(LocalizedFormats.LOWER_ENDPOINT_ABOVE_UPPER_ENDPOINT,\n                                                x0, x1, true);\n        }\n        if (x0 <= 0 || x1 <= 0) {\n            return super.cumulativeProbability(x0, x1);\n        }\n        final double denom = shape * SQRT2;\n        final double v0 = (FastMath.log(x0) - scale) / denom;\n        final double v1 = (FastMath.log(x1) - scale) / denom;\n        return 0.5 * Erf.erf(v0, v1);\n    }",
+  "code_after": "@Override@Deprecated\n    public double cumulativeProbability(double x0, double x1)\n        throws NumberIsTooLargeException {\n        return probability(x0, x1);\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/**\n     * {@inheritDoc}\n     *\n     * @deprecated See {@link RealDistribution#cumulativeProbability(double,double)}\n     */"
+}

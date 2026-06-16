@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ad35857d0fab949b00dafc22b20b8e93bcb603d2",
+  "issue_summary": "Added CombinatoricsUtils to the util package, moving binomial coefficients, factorials and Stirling numbers there and adding a combinations iterator. JIRA",
+  "code_before": "public static double factorialLog(final int n) throws NotPositiveException {\n        if (n < 0) {\n            throw new NotPositiveException(LocalizedFormats.FACTORIAL_NEGATIVE_PARAMETER,\n                                           n);\n        }\n        if (n < 21) {\n            return FastMath.log(FACTORIALS[n]);\n        }\n        double logSum = 0;\n        for (int i = 2; i <= n; i++) {\n            logSum += FastMath.log(i);\n        }\n        return logSum;\n    }",
+  "code_after": "public static double factorialLog(final int n) throws NotPositiveException {\n        return CombinatoricsUtils.factorialLog(n);\n    }",
+  "javadoc_before": "/**\n     * Compute the natural logarithm of the factorial of {@code n}.\n     *\n     * @param n Argument.\n     * @return {@code n!}\n     * @throws NotPositiveException if {@code n < 0}.\n     */",
+  "javadoc_after": "/**\n     * Compute the natural logarithm of the factorial of {@code n}.\n     *\n     * @param n Argument.\n     * @return {@code n!}\n     * @throws NotPositiveException if {@code n < 0}.\n     * @deprecated use {@link CombinatoricsUtils#factorialLog(int)}\n     */"
+}

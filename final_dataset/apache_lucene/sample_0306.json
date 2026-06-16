@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6e745bd25007511266741b516cffdba757fa22a3",
+  "issue_summary": "Implement staggered SPLITSHARD requests in IndexSizeTrigger.",
+  "code_before": "public List<Range> partitionRange(int partitions, Range range) {\n    int min = range.min;\n    int max = range.max;\n\n    assert max >= min;\n    if (partitions == 0) return Collections.EMPTY_LIST;\n    long rangeSize = (long)max - (long)min;\n    long rangeStep = Math.max(1, rangeSize / partitions);\n\n    List<Range> ranges = new ArrayList<>(partitions);\n\n    long start = min;\n    long end = start;\n\n    while (end < max) {\n      end = start + rangeStep;\n      // make last range always end exactly on MAX_VALUE\n      if (ranges.size() == partitions - 1) {\n        end = max;\n      }\n      ranges.add(new Range((int)start, (int)end));\n      start = end + 1L;\n    }\n\n    return ranges;\n  }",
+  "code_after": "public List<Range> partitionRange(int partitions, Range range) {\n    return partitionRange(partitions, range, 0.0f);\n  }",
+  "javadoc_before": "/**\n   * Returns the range for each partition\n   */",
+  "javadoc_after": "/**\n   * Split the range into partitions.\n   * @param partitions number of partitions\n   * @param range range to split\n   */"
+}

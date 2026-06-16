@@ -1,0 +1,8 @@
+{
+  "commit_hash": "212e7a280c925ca6d53dd43120f75ff2195a552b",
+  "issue_summary": "org.apache.commons.compress.archivers.zip.ZipFile.createBoundedInputStream(long long) now throws an ArchiveException instead of IllegalArgumentException",
+  "code_before": "public InputStream getContentBeforeFirstLocalFileHeader() {\n        return firstLocalFileHeaderOffset == 0 ? null : createBoundedInputStream(0, firstLocalFileHeaderOffset);\n    }",
+  "code_after": "public InputStream getContentBeforeFirstLocalFileHeader() throws ArchiveException {\n        return firstLocalFileHeaderOffset == 0 ? null : createBoundedInputStream(0, firstLocalFileHeaderOffset);\n    }",
+  "javadoc_before": "/**\n     * Gets an InputStream for reading the content before the first local file header.\n     *\n     * @return null if there is no content before the first local file header. Otherwise, returns a stream to read the content before the first local file\n     *         header.\n     * @since 1.23\n     */",
+  "javadoc_after": "/**\n     * Gets an InputStream for reading the content before the first local file header.\n     *\n     * @return null if there is no content before the first local file header. Otherwise, returns a stream to read the content before the first local file\n     *         header.\n     * @throws ArchiveException Thrown when the input hints at a corrupted archive.\n     * @since 1.23\n     */"
+}

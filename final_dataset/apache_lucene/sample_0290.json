@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b09d462ee4fa26642546a90f55f0b14d5c8b0124",
+  "issue_summary": "Stop the leader from trying to rejoin the election on session expiration and harden our zk reconnect code path.",
+  "code_before": "public ZkCoreNodeProps getLeaderProps(final String collection,\n                                        final String slice, int timeoutms) throws InterruptedException {\n    return getLeaderProps(collection, slice, timeoutms, false);\n  }",
+  "code_after": "public ZkCoreNodeProps getLeaderProps(final String collection,\n                                        final String slice, int timeoutms) throws InterruptedException, SessionExpiredException {\n    return getLeaderProps(collection, slice, timeoutms, true);\n  }",
+  "javadoc_before": "/**\n   * Get leader props directly from zk nodes.\n   */",
+  "javadoc_after": "/**\n   * Get leader props directly from zk nodes.\n   * @throws SessionExpiredException on zk session expiration.\n   */"
+}

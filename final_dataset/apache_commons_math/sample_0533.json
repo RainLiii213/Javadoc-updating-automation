@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7572385a7e595c72856124485f1ec088df929975",
+  "issue_summary": ". Modified \"AbstractUnivariateRealOptimizer\" so that its usage is more similar to what is done in package \"optimization.general\". Deprecated many methods as a consequence of the new layout. New utility methods in \"ConvergingAlgorithmImpl\". Temporary workaround in \"BrentOptimizer\" (requirement from base class) to avoid committing two issues at the same time...",
+  "code_before": "protected void checkResultComputed() throws IllegalStateException {\n        if (!resultComputed) {\n            throw MathRuntimeException.createIllegalStateException(LocalizedFormats.NO_RESULT_AVAILABLE);\n        }\n    }",
+  "code_after": "protected void checkResultComputed() {\n        if (!resultComputed) {\n            throw new NoDataException();\n        }\n    }",
+  "javadoc_before": "/** Check if a result has been computed.\n     * @exception IllegalStateException if no result has been computed\n     */",
+  "javadoc_after": "/**\n     * Check whether a result has been computed.\n     * @throws NoDataException if no result has been computed\n     * @deprecated in 2.2 (no alternative).\n     */"
+}

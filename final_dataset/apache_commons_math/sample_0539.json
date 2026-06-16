@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b5a23d01b65fcd23d03769e0db3918b6b308bf91",
+  "issue_summary": "git-svn-id: https://svn.apache.org/repos/asf/commons/proper/math/trunk@962306 13f79535-47bb-0310-9956-ffa450edef68",
+  "code_before": "public NumberIsTooSmallException(Number wrong,\n                                     Number min,\n                                     boolean boundIsAllowed) {\n        super((boundIsAllowed ?\n               LocalizedFormats.NUMBER_TOO_SMALL :\n               LocalizedFormats.NUMBER_TOO_SMALL_BOUND_EXCLUDED),\n              wrong, min);\n\n        this.min = min;\n        this.boundIsAllowed = boundIsAllowed;\n    }",
+  "code_after": "public NumberIsTooSmallException(Number wrong,\n                                     Number min,\n                                     boolean boundIsAllowed) {\n        this(null, wrong, min, boundIsAllowed);\n    }",
+  "javadoc_before": "/**\n     * Construct the exception.\n     *\n     * @param wrong Value that is smaller than the minimum.\n     * @param min minimum.\n     */",
+  "javadoc_after": "/**\n     * Construct the exception.\n     *\n     * @param wrong Value that is smaller than the minimum.\n     * @param min minimum.\n     * @param boundIsAllowed Whether {@code min} is included in the allowed range.\n     */"
+}

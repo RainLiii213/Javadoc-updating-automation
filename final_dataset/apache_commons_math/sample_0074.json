@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ed73c356c7a7987c78b8f6ee6dd7ec1e5f9b3e67",
+  "issue_summary": "Fixed some Clirr errors.",
+  "code_before": "public double distance(Vector<Euclidean1D> p) {\n        Vector1D p3 = (Vector1D) p;\n        final double dx = p3.x - x;\n        return FastMath.abs(dx);\n    }",
+  "code_after": "@Deprecated\n    public double distance(Vector<Euclidean1D> p) {\n        return distance((Point<Euclidean1D>) p);\n    }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/** {@inheritDoc}\n     * @deprecated as of 3.3, replaced with {@link #distance(Point)}\n     */"
+}

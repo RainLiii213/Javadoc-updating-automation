@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f9ea0c63a020a33e255d69f9ba470c542e58e7dd",
+  "issue_summary": "Refactored integration API for consistency with solvers API. Now the main convergence parameters are set in the constructor and remain fixed.",
+  "code_before": "int getEvaluations() throws IllegalStateException;",
+  "code_after": "int getEvaluations();",
+  "javadoc_before": "/**\n     * Get the number of function evaluations of the last run of the integrator.\n     * @return number of function evaluations\n     * @throws IllegalStateException if there is no result available, either\n     * because no result was yet computed or the last attempt failed\n     */",
+  "javadoc_after": "/**\n     * Get the number of function evaluations of the last run of the integrator.\n     * @return number of function evaluations\n     */"
+}

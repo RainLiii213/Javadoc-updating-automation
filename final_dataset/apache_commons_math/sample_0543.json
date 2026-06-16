@@ -1,0 +1,8 @@
+{
+  "commit_hash": "92a9c20dc56dddc8710226d40c079fc13ab5331d",
+  "issue_summary": "changed the localization mechanism for error messages. The new system is based on an enum rather than on duplicated string literals. JIRA",
+  "code_before": "public ConvergenceException(String pattern, Object ... arguments) {\n        super(pattern, arguments);\n    }",
+  "code_after": "@Deprecated\n    public ConvergenceException(String pattern, Object ... arguments) {\n        this(new DummyLocalizable(pattern), arguments);\n    }",
+  "javadoc_before": "/**\n     * Constructs an exception with specified formatted detail message.\n     * Message formatting is delegated to {@link java.text.MessageFormat}.\n     * @param pattern format specifier\n     * @param arguments format arguments\n     * @since 1.2\n     */",
+  "javadoc_after": "/**\n     * Constructs an exception with specified formatted detail message.\n     * Message formatting is delegated to {@link java.text.MessageFormat}.\n     * @param pattern format specifier\n     * @param arguments format arguments\n     * @since 1.2\n     * @deprecated as of 2.2 replaced by {@link #ConvergenceException(Localizable, Object...)}\n     */"
+}

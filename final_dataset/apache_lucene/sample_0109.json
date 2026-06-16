@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5acca826330b2afc15b6a2d5e2134d7d1a64e4a9",
+  "issue_summary": "Reduce bloom filter size by using the optimal count for hash functions.",
+  "code_before": "public ContainsResult contains(BytesRef value) {\n    int hash = hashFunction.hash(value);\n    if (hash < 0) {\n      hash = hash * -1;\n    }\n    return mayContainValue(hash);\n  }",
+  "code_after": "public ContainsResult contains(BytesRef value) {\n    long hash = hashFunction.hash(value);\n    int msb = (int) (hash >>> Integer.SIZE);\n    int lsb = (int) hash;\n    for (int i = 0; i < hashCount; i++) {\n      int bloomPos = (lsb + i * msb);\n      if (!mayContainValue(bloomPos)) {\n        return ContainsResult.NO;\n      }\n    }\n    return ContainsResult.MAYBE;\n  }",
+  "javadoc_before": "/**\n   * The main method required for a Bloom filter which, given a value determines set membership.\n   * Unlike a conventional set, the fuzzy set returns NO or MAYBE rather than true or false.\n   *\n   * @return NO or MAYBE\n   */",
+  "javadoc_after": "/**\n   * The main method required for a Bloom filter which, given a value determines set membership.\n   * Unlike a conventional set, the fuzzy set returns NO or MAYBE rather than true or false. Hash\n   * generation follows the same principles as {@link #addValue(BytesRef)}\n   *\n   * @return NO or MAYBE\n   */"
+}

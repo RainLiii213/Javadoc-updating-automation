@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7eefee3cd54fa686e617f1446e1b329c5a23cf24",
+  "issue_summary": "Add getClasses(package) to ClassPath. IO now happens at the time ClassPath.from(ClassLoader) is called, rather than getClasses(). Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=33383562",
+  "code_before": "public static ClassPath from(ClassLoader classloader) {\n    return new ClassPath(classloader);\n  }",
+  "code_after": "public static ClassPath from(ClassLoader classloader) throws IOException {\n    ImmutableSet.Builder<ClassInfo> builder = ImmutableSet.builder();\n    for (Map.Entry<URI, ClassLoader> entry : getClassPathEntries(classloader).entrySet()) {\n      builder.addAll(readClassesFrom(entry.getKey(), entry.getValue()));\n    }\n    return new ClassPath(builder.build());\n  }",
+  "javadoc_before": "/**\n   * Returns a {@code ClassPath} representing all classes loadable from {@code classloader} and its\n   * parent class loaders.\n   *\n   * <p>Currently only {@link URLClassLoader} and only {@code file://} urls are supported.\n   */",
+  "javadoc_after": "/**\n   * Returns a {@code ClassPath} representing all classes loadable from {@code classloader} and its\n   * parent class loaders.\n   *\n   * <p>Currently only {@link URLClassLoader} and only {@code file://} urls are supported.\n   *\n   * @throws IOException if the attempt to read class path resources (jar files or directories)\n   *         failed.\n   */"
+}

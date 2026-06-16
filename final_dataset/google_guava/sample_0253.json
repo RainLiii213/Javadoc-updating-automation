@@ -1,0 +1,8 @@
+{
+  "commit_hash": "65b86a4b57abbc844279a307339a4a615d57bb42",
+  "issue_summary": "test null computations move ComputingMapAdapter into ComputingConcurrentHashMap restore the while() loop around wait()",
+  "code_before": "V waitForValue() throws InterruptedException;",
+  "code_after": "V waitForValue();",
+  "javadoc_before": "/**\n     * Waits for a value that may still be computing. Unlike get(), this method can block (in the\n     * case of FutureValueReference) or throw an exception.\n     */",
+  "javadoc_after": "/**\n     * Waits for a value that may still be computing. Unlike get(), this method can block (in the\n     * case of FutureValueReference).\n     *\n     * @throws AsynchronousComputationException if the computing thread throws an exception\n     */"
+}

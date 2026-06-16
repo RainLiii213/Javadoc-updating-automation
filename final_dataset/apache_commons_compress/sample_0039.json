@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a662a22c5a6e2adc4619d8161a3a5155b5697cfc",
+  "issue_summary": "Remove unused exceptions",
+  "code_before": "public static ZipExtraField createExtraFieldNoDefault(final ZipShort headerId) throws InstantiationException, IllegalAccessException {\n        final Supplier<ZipExtraField> provider = IMPLEMENTATIONS.get(headerId);\n        return provider != null ? provider.get() : null;\n    }",
+  "code_after": "public static ZipExtraField createExtraFieldNoDefault(final ZipShort headerId) {\n        final Supplier<ZipExtraField> provider = IMPLEMENTATIONS.get(headerId);\n        return provider != null ? provider.get() : null;\n    }",
+  "javadoc_before": "/**\n     * Creates an instance of the appropriate ExtraField.\n     *\n     * @param headerId the header identifier\n     * @return an instance of the appropriate ExtraField or null if the id is not supported\n     * @throws InstantiationException if unable to instantiate the class\n     * @throws IllegalAccessException if not allowed to instantiate the class\n     * @since 1.19\n     */",
+  "javadoc_after": "/**\n     * Creates an instance of the appropriate {@link ZipExtraField}.\n     *\n     * @param headerId the header identifier\n     * @return an instance of the appropriate {@link ZipExtraField} or null if the id is not supported\n     * @since 1.19\n     */"
+}

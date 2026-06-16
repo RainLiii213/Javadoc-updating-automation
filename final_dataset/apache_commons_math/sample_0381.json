@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8929c055214be729a1a15b3eb6a72cddf1b2393a",
+  "issue_summary": "New constructor that enables one to customize the behaviour at counter exhaustion (namely, select which exception to throw).",
+  "code_before": "public void incrementCount() {\n        if (++count > maximalCount) {\n            throw new MaxCountExceededException(maximalCount);\n        }\n    }",
+  "code_after": "public void incrementCount() {\n        if (++count > maximalCount) {\n            maxCountCallback.trigger(maximalCount);\n        }\n    }",
+  "javadoc_before": "/**\n     * Add one to the current iteration count.\n     *\n     * @throws MaxCountExceededException at counter exhaustion.\n     */",
+  "javadoc_after": "/**\n     * Adds one to the current iteration count.\n     * At counter exhaustion, this method will call the\n     * {@link MaxCountExceededCallback#trigger(int) trigger} method of the\n     * callback object passed to the\n     * {@link #Incrementor(int,MaxCountExceededCallback) constructor}.\n     * If not explictly set, a default callback is used that will throw\n     * a {@code MaxCountExceededException}.\n     *\n     * @throws MaxCountExceededException at counter exhaustion, unless a\n     * custom {@link MaxCountExceededCallback callback} has been set at\n     * construction.\n     */"
+}

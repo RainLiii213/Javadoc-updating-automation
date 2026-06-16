@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d402f6b5e1016bfbd4a36b46a06b3caa73c67880",
+  "issue_summary": "\"PowellOptimizer\": Added a constructor for setting of the absolute tolerance removed one redundant function evaluation. Line search relative tolerance explicitly set in the optimizer instance created in \"PowellOptimizerTest\".",
+  "code_before": "public PowellOptimizer() {\n        this(DEFAULT_LINE_SEARCH_TOLERANCE);\n    }",
+  "code_after": "public PowellOptimizer() {\n        this(DEFAULT_LS_RELATIVE_TOLERANCE,\n             DEFAULT_LS_ABSOLUTE_TOLERANCE);\n    }",
+  "javadoc_before": "/**\n     * Constructor using the default line search tolerance (see the\n     * {@link #PowellOptimizer(double) other constructor}).\n     */",
+  "javadoc_after": "/**\n     * Constructor with default line search tolerances (see the\n     * {@link #PowellOptimizer(double,double) other constructor}).\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fec9f1c10efa7bd0e5b113b8e545121f10ae257c",
+  "issue_summary": "Upgrade commons-io from 2.15.1 to 2.16.1 https://github.com/apache/commons-compress/pull/513/files",
+  "code_before": "public static long toNtfsTime(final long javaTime) {\n        // TODO Apache Commons IO 2.16.0\n        final long javaHundredNanos = javaTime * HUNDRED_NANOS_PER_MILLISECOND;\n        return Math.subtractExact(javaHundredNanos, WINDOWS_EPOCH_OFFSET);\n    }",
+  "code_after": "@Deprecated\n    public static long toNtfsTime(final long javaTime) {\n        return FileTimes.toNtfsTime(javaTime);\n    }",
+  "javadoc_before": "/**\n     * Converts Java time (milliseconds since Epoch) to NTFS time.\n     *\n     * @param javaTime the Java time.\n     * @return the NTFS time.\n     */",
+  "javadoc_after": "/**\n     * Converts Java time (milliseconds since Epoch) to NTFS time.\n     *\n     * @param javaTime the Java time.\n     * @return the NTFS time.\n     * @deprecated Use {@link FileTimes#toNtfsTime(long)}\n     */"
+}

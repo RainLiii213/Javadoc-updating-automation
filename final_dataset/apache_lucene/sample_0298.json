@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e99934b240cbb197331edc5e1889203e60b3d5d9",
+  "issue_summary": "Adding Http2 equivalent classes of CloudSolrClient and HttpClusterStateProvider",
+  "code_before": "public static class RemoteExecutionException extends RemoteSolrException {\n    private NamedList meta;\n\n    public RemoteExecutionException(String remoteHost, int code, String msg, NamedList meta) {\n      super(remoteHost, code, msg, null);\n      this.meta = meta;\n    }\n\n\n    public static RemoteExecutionException create(String host, NamedList errResponse) {\n      Object errObj = errResponse.get(\"error\");\n      if (errObj != null) {\n        Number code = (Number) getObjectByPath(errObj, true, Collections.singletonList(\"code\"));\n        String msg = (String) getObjectByPath(errObj, true, Collections.singletonList(\"msg\"));\n        return new RemoteExecutionException(host, code == null ? ErrorCode.UNKNOWN.code : code.intValue(),\n            msg == null ? \"Unknown Error\" : msg, errResponse);\n\n      } else {\n        throw new RuntimeException(\"No error\");\n      }\n\n    }\n\n    public NamedList getMetaData() {\n\n      return meta;\n    }\n  }",
+  "code_after": "@Deprecated\n  public static class RemoteExecutionException extends BaseHttpSolrClient.RemoteExecutionException {\n\n    public RemoteExecutionException(String remoteHost, int code, String msg, NamedList meta) {\n      super(remoteHost, code, msg, meta);\n    }\n  }",
+  "javadoc_before": "/**\n   * This should be thrown when a server has an error in executing the request and\n   * it sends a proper payload back to the client\n   */",
+  "javadoc_after": "/**\n   * @deprecated since 8.0, catch {@link BaseHttpSolrClient.RemoteExecutionException} instead\n   */"
+}

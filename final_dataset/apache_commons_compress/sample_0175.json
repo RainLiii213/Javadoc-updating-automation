@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4ba374a86f76f4be48acb2491abc55952b0c1285",
+  "issue_summary": "use and detect the EFS flag. Based on submissions made by Wolfgang Glas to commons-compress and TAMURA Kent to Ant.",
+  "code_before": "protected byte[] getBytes(String name) throws ZipException {\n        if (encoding == null) {\n            return name.getBytes();\n        } else {\n            try {\n                return name.getBytes(encoding);\n            } catch (UnsupportedEncodingException uee) {\n                throw new ZipException(uee.getMessage());\n            }\n        }\n    }",
+  "code_after": "protected byte[] getBytes(String name) {\n        if (encoding == null) {\n            return name.getBytes();\n        } else {\n            return ZipEncodingHelper.encodeName(name, encoding);\n        }\n    }",
+  "javadoc_before": "/**\n     * Retrieve the bytes for the given String in the encoding set for\n     * this Stream.\n     * @param name the string to get bytes from\n     * @return the bytes as a byte array\n     * @throws ZipException on error\n     *\n     * @since 1.3\n     */",
+  "javadoc_after": "/**\n     * Retrieve the bytes for the given String in the encoding set for\n     * this Stream.\n     * @param name the string to get bytes from\n     * @return the bytes as a byte array\n     *\n     * @since 1.3\n     */"
+}

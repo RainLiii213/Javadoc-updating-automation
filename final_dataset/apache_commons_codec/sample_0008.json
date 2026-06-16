@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dc4af3f0f5a53d2bb26369e950e68bf8f9098b55",
+  "issue_summary": "BaseNCodecOutputStream.eof() should not throw IOException",
+  "code_before": "public void eof() throws IOException {\n        // Notify encoder of EOF (-1).\n        if (doEncode) {\n            baseNCodec.encode(singleByte, 0, EOF, context);\n        } else {\n            baseNCodec.decode(singleByte, 0, EOF, context);\n        }\n    }",
+  "code_after": "public void eof() {\n        // Notify encoder of EOF (-1).\n        if (doEncode) {\n            baseNCodec.encode(singleByte, 0, EOF, context);\n        } else {\n            baseNCodec.decode(singleByte, 0, EOF, context);\n        }\n    }",
+  "javadoc_before": "/**\n     * Writes EOF.\n     *\n     * @throws IOException\n     *             if an I/O error occurs.\n     * @since 1.11\n     */",
+  "javadoc_after": "/**\n     * Writes EOF.\n     *\n     * @since 1.11\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b58f412c748568b12f07f58edc0773c279408490",
+  "issue_summary": "Store period and duration using ISO8601 string",
+  "code_before": "public class PersistentPeriod extends AbstractStringBasedJodaType {\n\n    public Class returnedClass() {\n        return Period.class;\n    }\n\n    protected Object fromNonNullString(String s) {\n        return PeriodFormat.getDefault().parsePeriod(s);\n    }\n\n    protected String toNonNullString(Object value) {\n        return PeriodFormat.getDefault().print((Period) value);\n    }\n\n}",
+  "code_after": "public class PersistentPeriod extends AbstractStringBasedJodaType {\n\n    public Class returnedClass() {\n        return Period.class;\n    }\n\n    protected Object fromNonNullString(String s) {\n        return new Period(s);\n    }\n\n    protected String toNonNullString(Object value) {\n        return value.toString();\n    }\n\n}",
+  "javadoc_before": "/**\n * Converts a org.joda.time.Period to and from Sql for Hibernate.\n * It simply stores and retrieves the value as a varchar, using\n * PeriodFormat.\n *\n * TODO : are we persisting Chronologies ? is it any relevant ?\n * TODO : how are we handling conversions that might end up too long for the column ? \n *\n * @author gjoseph\n * @author $Author: $ (last edit)\n * @version $Revision: $\n */",
+  "javadoc_after": "/**\n * Converts a org.joda.time.Period to and from Sql for Hibernate.\n * It simply stores and retrieves the value as a varchar using Period.toString.\n *\n * @author gjoseph\n * @author $Author: $ (last edit)\n * @version $Revision: $\n */"
+}

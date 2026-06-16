@@ -1,0 +1,8 @@
+{
+  "commit_hash": "11349c5f52e0355a11ced6234ae424da73c9503b",
+  "issue_summary": "Extract generic octal formatting method to simplify code and eliminate array copies Change leading padding to zeroes as that is more compatible (and required for Posix)",
+  "code_before": "public static int getCheckSumOctalBytes(long value, byte[] buf, int offset, int length) {\n        getOctalBytes(value, buf, offset, length);\n\n        buf[offset + length - 1] = (byte) ' ';\n        buf[offset + length - 2] = 0;\n\n        return offset + length;\n    }",
+  "code_after": "public static int getCheckSumOctalBytes(long value, byte[] buf, int offset, int length) {\n\n        int idx=length-2; // for NUL and space\n        formatUnsignedOctalString(value, buf, offset, idx);\n\n        buf[offset + idx++]   = 0; // Trailing null\n        buf[offset + idx]     = (byte) ' '; // Trailing space\n\n        return offset + length;\n    }",
+  "javadoc_before": "/**\n     * Writes an octal value into a buffer.\n     *\n     * TODO document fully. How does it differ from getOctalBytes?\n     *\n     * @param value The value to convert\n     * @param buf The destination buffer\n     * @param offset The starting offset into the buffer.\n     * @param length The size of the buffer.\n     * @return The updated value of offset, i.e. offset+length\n     */",
+  "javadoc_after": "/**\n     * Writes an octal value into a buffer.\n     *\n     * Checksum is followed by NUL and then space.\n     *\n     * @param value The value to convert\n     * @param buf The destination buffer\n     * @param offset The starting offset into the buffer.\n     * @param length The size of the buffer.\n     * @return The updated value of offset, i.e. offset+length\n     */"
+}

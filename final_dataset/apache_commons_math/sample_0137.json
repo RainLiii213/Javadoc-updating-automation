@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c61b08e546703881350346490ecd887266220ba4",
+  "issue_summary": "Fixed naming inconsistencies between Interval and IntervalsSet classes.",
+  "code_before": "public double getLength() {\n        return upper - lower;\n    }",
+  "code_after": "@Deprecated\n    public double getLength() {\n        return getSize();\n    }",
+  "javadoc_before": "/** Get the length of the interval.\n     * @return length of the interval\n     */",
+  "javadoc_after": "/** Get the length of the interval.\n     * @return length of the interval\n     * @deprecated as of 3.1, replaced by {@link #getSize()}\n     */"
+}

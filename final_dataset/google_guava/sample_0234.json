@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b21e63569b69aa02124b2df97b7571f7449d3eb0",
+  "issue_summary": "Make AbstractFuture.cancel/done and ListenableFutureTask constructors visible and @Deprecated.",
+  "code_before": "boolean cancel() {\n      return complete(null, null, CANCELLED);\n    }",
+  "code_after": "@Beta @Deprecated\n  protected final boolean cancel() {\n    boolean result = sync.cancel();\n    if (result) {\n      done();\n    }\n    return result;\n  }",
+  "javadoc_before": "/**\n     * Transition to the CANCELLED state.\n     */",
+  "javadoc_after": "/**\n   * <p>Subclasses can invoke this method to mark the future as cancelled.\n   * This will set the state of the future to {@link\n   * AbstractFuture.Sync#CANCELLED} and call {@link #done()} if the state was\n   * successfully changed.\n   *\n   * @return true if the state was successfully changed.\n   * @deprecated Most implementations will be satisfied with the default\n   * implementation of {@link #cancel(boolean)} and not need to call this method\n   * at all. Those that are not can delegate to {@code\n   * super.cancel(mayInterruptIfRunning)} or, to get behavior exactly equivalent\n   * to this method, {@code super.cancel(false)}. This method will be removed in\n   * Guava release 11.\n   */"
+}

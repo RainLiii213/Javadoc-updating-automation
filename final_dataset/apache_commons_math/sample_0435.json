@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2c88aa94c18df24c4b37bbc976081b50aa936a38",
+  "issue_summary": "FastMath is not an exact replacement for StrictMath Add missing methods - TODO implement our own versions Document which methods are additional to StrictMath",
+  "code_before": "public class FastMath {\n}",
+  "code_after": "public class FastMath {\npublic static double hypot(double x, double y) {\n        return StrictMath.hypot(x, y);\n    }\n\npublic static double IEEEremainder(double dividend, double divisor) {\n        return StrictMath.IEEEremainder(dividend, divisor);\n    }\n}",
+  "javadoc_before": "/**\n * Faster, more accurate, portable alternative to StrictMath.\n * @version $Revision$ $Date$\n * @since 2.2\n */",
+  "javadoc_after": "/**\n * Faster, more accurate, portable alternative to StrictMath.\n * <p>\n * Additionally implements the following methods:\n * <ul>\n * <li>{@link #asinh(double)}</li>\n * <li>{@link #acosh(double)}</li>\n * <li>{@link #atanh(double)}</li>\n * <li>{@link #nextAfter(float,float)}</li>\n * <li>{@link #nextAfter(double,double)}</li>\n * <li>{@link #nextUp(double)}</li>\n * <li>{@link #nextUp(float)}</li>\n * </ul>\n * @version $Revision$ $Date$\n * @since 2.2\n */"
+}

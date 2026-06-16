@@ -1,0 +1,8 @@
+{
+  "commit_hash": "845944c44652e6f4c8fb705a87006bd3b35cf5fa",
+  "issue_summary": "Use BitsProducer instead of Filter in lucene/suggest.",
+  "code_before": "public Filter getFilter() {\n    return filter;\n  }",
+  "code_after": "public BitsProducer getFilter() {\n    return filter;\n  }",
+  "javadoc_before": "/**\n   * Returns the filter for the query, used to\n   * suggest completions on a subset of indexed documents\n   */",
+  "javadoc_after": "/**\n   * Returns a {@link BitsProducer}. Only suggestions matching the returned\n   * bits will be returned.\n   */"
+}

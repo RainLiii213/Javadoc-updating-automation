@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b8101b95c1d647b59697fed229bbbd8b5493b17c",
+  "issue_summary": "allow callback to throw IOException",
+  "code_before": "public void finish() {\n        if (blockStart != currentPosition || lookahead > 0) {\n            currentPosition += lookahead;\n            flushLiteralBlock();\n        }\n        callback.accept(THE_EOD);\n    }",
+  "code_after": "public void finish() throws IOException {\n        if (blockStart != currentPosition || lookahead > 0) {\n            currentPosition += lookahead;\n            flushLiteralBlock();\n        }\n        callback.accept(THE_EOD);\n    }",
+  "javadoc_before": "/**\n     * Tells the compressor to process all remaining data and signal\n     * end of data to the callback.\n     *\n     * <p>The compressor will in turn emit at least one block ({@link\n     * EOD}) but potentially multiple blocks to the callback during\n     * the execution of this method.</p>\n     */",
+  "javadoc_after": "/**\n     * Tells the compressor to process all remaining data and signal\n     * end of data to the callback.\n     *\n     * <p>The compressor will in turn emit at least one block ({@link\n     * EOD}) but potentially multiple blocks to the callback during\n     * the execution of this method.</p>\n     * @throws IOException if the callback throws an exception\n     */"
+}

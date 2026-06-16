@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dbb142bc5a4019bdff411a007b75decd753016eb",
+  "issue_summary": "Fixed Javadoc.",
+  "code_before": "FieldMatrix<T> outerProduct(FieldVector<T> v)\n        throws IllegalArgumentException;",
+  "code_after": "FieldMatrix<T> outerProduct(FieldVector<T> v);",
+  "javadoc_before": "/**\n     * Compute the outer product.\n     * @param v vector with which outer product should be computed\n     * @return the square matrix outer product between instance and v\n     * @exception IllegalArgumentException if v is not the same size as this\n     */",
+  "javadoc_after": "/**\n     * Compute the outer product.\n     * @param v vector with which outer product should be computed\n     * @return the matrix outer product between instance and v\n     */"
+}

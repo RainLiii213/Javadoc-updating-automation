@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bf7b438f12d65904b461e595594fc9a64cfcc899",
+  "issue_summary": "Trigger leader election on index writer tragedy",
+  "code_before": "public void ensureTermsIsHigher(String leader, Set<String> replicasNeedingRecovery) {\n    if (replicasNeedingRecovery.isEmpty()) return;\n\n    ShardTerms newTerms;\n    while( (newTerms = terms.get().increaseTerms(leader, replicasNeedingRecovery)) != null) {\n      if (forceSaveTerms(newTerms)) return;\n    }\n  }",
+  "code_after": "public void ensureTermsIsHigher(String leader, Set<String> replicasNeedingRecovery) {\n    if (replicasNeedingRecovery.isEmpty()) return;\n    mutate(terms -> terms.increaseTerms(leader, replicasNeedingRecovery));\n  }",
+  "javadoc_before": "/**\n   * Ensure that leader's term is higher than some replica's terms\n   * @param leader coreNodeName of leader\n   * @param replicasNeedingRecovery set of replicas in which their terms should be lower than leader's term\n   */",
+  "javadoc_after": "/**\n   * Ensure that terms are higher than some replica's terms. If the current leader is attempting to give up\n   * leadership and included in replicasNeedingRecovery, then other replicas that are in sync will have higher\n   * terms, while the leader will stay where it is.\n   * @param leader coreNodeName of leader\n   * @param replicasNeedingRecovery set of replicas in which their terms should be lower than leader's term\n   */"
+}

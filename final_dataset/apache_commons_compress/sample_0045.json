@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cf88875456e9f0230bb0dedb40a801cf8474d51b",
+  "issue_summary": "Reuse commons-io, don't duplicate class FileTimes (deprecated TimeUtils methods)",
+  "code_before": "public static FileTime ntfsTimeToFileTime(final long ntfsTime) {\n        final long javaHundredsNanos = Math.addExact(ntfsTime, WINDOWS_EPOCH_OFFSET);\n        final long javaSeconds = Math.floorDiv(javaHundredsNanos, HUNDRED_NANOS_PER_SECOND);\n        final long javaNanos = Math.floorMod(javaHundredsNanos, HUNDRED_NANOS_PER_SECOND) * 100;\n        return FileTime.from(Instant.ofEpochSecond(javaSeconds, javaNanos));\n    }",
+  "code_after": "@Deprecated\n    public static FileTime ntfsTimeToFileTime(final long ntfsTime) {\n        return FileTimes.ntfsTimeToFileTime(ntfsTime);\n    }",
+  "javadoc_before": "/**\n     * Converts NTFS time (100-nanosecond units since 1 January 1601) to a FileTime.\n     *\n     * @param ntfsTime the NTFS time in 100-nanosecond units\n     * @return the FileTime\n     *\n     * @see TimeUtils#WINDOWS_EPOCH_OFFSET\n     * @see TimeUtils#toNtfsTime(FileTime)\n     */",
+  "javadoc_after": "/**\n     * Converts NTFS time (100-nanosecond units since 1 January 1601) to a FileTime.\n     *\n     * @param ntfsTime the NTFS time in 100-nanosecond units.\n     * @return the FileTime.\n     * @see TimeUtils#WINDOWS_EPOCH_OFFSET\n     * @see TimeUtils#toNtfsTime(FileTime)\n     * @deprecated Use {@link FileTimes#ntfsTimeToFileTime(long)}.\n     */"
+}

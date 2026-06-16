@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b617489638db4ddca63e5fbc45a58c5695a021d3",
+  "issue_summary": "Add auto hard commit setting based on tlog size (this closes )",
+  "code_before": "public void addedDocument(int commitWithin) {\n    // maxDocs-triggered autoCommit.  Use == instead of > so we only trigger once on the way up\n    if (docsUpperBound > 0) {\n      long docs = docsSinceCommit.incrementAndGet();\n      if (docs == docsUpperBound + 1) {\n        // reset the count here instead of run() so we don't miss other documents being added\n        docsSinceCommit.set(0);\n        _scheduleCommitWithin(DOC_COMMIT_DELAY_MS);\n      }\n    }\n\n    // maxTime-triggered autoCommit\n    _scheduleCommitWithinIfNeeded(commitWithin);\n  }",
+  "code_after": "public void addedDocument(int commitWithin) {\n    addedDocument(commitWithin, -1);\n  }",
+  "javadoc_before": "/**\n   * Indicate that documents have been added\n   */",
+  "javadoc_after": "/**\n   * Indicate that documents have been added\n   * @param commitWithin amount of time (in ms) within which a commit should be scheduled\n   */"
+}

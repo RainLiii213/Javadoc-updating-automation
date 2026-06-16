@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0b3c388aebe23cde0c7d3afbcd1171c4a8a3f5c5",
+  "issue_summary": "Removed redundant exception \"throws\" clauses. Javadoc cleanup. Throwing \"NoDataException\" instead of \"ZeroException\" when row or column data is missing.",
+  "code_before": "public Array2DRowFieldMatrix(final Field<T> field,\n                           final int rowDimension, final int columnDimension)\n        throws IllegalArgumentException {\n        super(field, rowDimension, columnDimension);\n        data = buildArray(field, rowDimension, columnDimension);\n    }",
+  "code_after": "public Array2DRowFieldMatrix(final Field<T> field,\n                                 final int rowDimension,\n                                 final int columnDimension) {\n        super(field, rowDimension, columnDimension);\n        data = buildArray(field, rowDimension, columnDimension);\n    }",
+  "javadoc_before": "/**\n     * Create a new FieldMatrix<T> with the supplied row and column dimensions.\n     *\n     * @param field field to which the elements belong\n     * @param rowDimension  the number of rows in the new matrix\n     * @param columnDimension  the number of columns in the new matrix\n     * @throws IllegalArgumentException if row or column dimension is not\n     *  positive\n     */",
+  "javadoc_after": "/**\n     * Create a new {@code FieldMatrix<T>} with the supplied row and column dimensions.\n     *\n     * @param field Field to which the elements belong.\n     * @param rowDimension Number of rows in the new matrix.\n     * @param columnDimension Number of columns in the new matrix.\n     * @throws org.apache.commons.math.exception.NotStrictlyPositiveException\n     * if row or column dimension is not positive.\n     */"
+}

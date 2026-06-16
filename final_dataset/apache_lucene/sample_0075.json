@@ -1,0 +1,8 @@
+{
+  "commit_hash": "32d692049fc4ea3a34ad25ef116c8148f7c055ac",
+  "issue_summary": "Replace (IO)Context#READ with (IO)Context.DEFAULT.",
+  "code_before": "public IOContext withReadAdvice(ReadAdvice advice) {\n    if (context == Context.READ) {\n      return new IOContext(advice);\n    } else {\n      return this;\n    }\n  }",
+  "code_after": "public IOContext withReadAdvice(ReadAdvice advice) {\n    if (context == Context.DEFAULT) {\n      return new IOContext(advice);\n    } else {\n      return this;\n    }\n  }",
+  "javadoc_before": "/**\n   * Return an updated {@link IOContext} that has the provided {@link ReadAdvice} if the {@link\n   * Context} is a {@link Context#READ} context, otherwise return this existing instance. This helps\n   * preserve a {@link ReadAdvice#SEQUENTIAL} advice for merging, which is always the right choice,\n   * while allowing {@link IndexInput}s open for searching to use arbitrary {@link ReadAdvice}s.\n   */",
+  "javadoc_after": "/**\n   * Return an updated {@link IOContext} that has the provided {@link ReadAdvice} if the {@link\n   * Context} is a {@link Context#DEFAULT} context, otherwise return this existing instance. This\n   * helps preserve a {@link ReadAdvice#SEQUENTIAL} advice for merging, which is always the right\n   * choice, while allowing {@link IndexInput}s open for searching to use arbitrary {@link\n   * ReadAdvice}s.\n   */"
+}

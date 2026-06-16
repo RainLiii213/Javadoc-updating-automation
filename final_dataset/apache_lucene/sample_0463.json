@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3be6701f17d9a507e07e4a3f01bcfd702bdfc806",
+  "issue_summary": "Undeprecate o.o.l.util.LongValues.",
+  "code_before": "@Deprecated\n// TODO: cutover to iterator once codecs have all cutover?\npublic abstract class LongValues extends LegacyNumericDocValues {\n\n  /** An instance that returns the provided value. */\n  public static final LongValues IDENTITY = new LongValues() {\n\n    @Override\n    public long get(long index) {\n      return index;\n    }\n\n  };\n\n  /** Get value at <code>index</code>. */\n  public abstract long get(long index);\n\n  @Override\n  public long get(int idx) {\n    return get((long) idx);\n  }\n\n}",
+  "code_after": "public abstract class LongValues  {\n\n  /** An instance that returns the provided value. */\n  public static final LongValues IDENTITY = new LongValues() {\n\n    @Override\n    public long get(long index) {\n      return index;\n    }\n\n  };\n\n  /** Get value at <code>index</code>. */\n  public abstract long get(long index);\n\n}",
+  "javadoc_before": "/** Abstraction over an array of longs.\n *  This class extends NumericDocValues so that we don't need to add another\n *  level of abstraction every time we want eg. to use the {@link PackedInts}\n *  utility classes to represent a {@link LegacyNumericDocValues} instance.\n *  @lucene.internal\n *\n *  @deprecated Switch to {@link NumericDocValues} instead. */",
+  "javadoc_after": "/** Abstraction over an array of longs.\n *  @lucene.internal */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "76d6a4b8e4403a99bb670fdba799f3e03240cdba",
+  "issue_summary": "Fix findbugs warning wrt exposed internal representation.",
+  "code_before": "public Closure<? super E>[] getClosures() {\n        return iClosures;\n    }",
+  "code_after": "public Closure<? super E>[] getClosures() {\n        return FunctorUtils.copy(iClosures);\n    }",
+  "javadoc_before": "/**\n     * Gets the closures, do not modify the array.\n     * @return the closures\n     * @since 3.1\n     */",
+  "javadoc_after": "/**\n     * Gets the closures.\n     *\n     * @return a copy of the closures\n     * @since 3.1\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "56a22909a1ef737952329dce5149a5b21fc4c2d7",
+  "issue_summary": "populate the throws clause in package o.a.c.m.linear.",
+  "code_before": "public ConjugateGradient(final IterationManager manager,\n                             final double delta, final boolean check) {\n        super(manager);\n        this.delta = delta;\n        this.check = check;\n    }",
+  "code_after": "public ConjugateGradient(final IterationManager manager,\n                             final double delta, final boolean check)\n        throws NullArgumentException {\n        super(manager);\n        this.delta = delta;\n        this.check = check;\n    }",
+  "javadoc_before": "/**\n     * Creates a new instance of this class, with <a href=\"#stopcrit\">default\n     * stopping criterion</a> and custom iteration manager.\n     *\n     * @param manager the custom iteration manager\n     * @param delta the &delta; parameter for the default stopping criterion\n     * @param check {@code true} if positive definiteness of both matrix and\n     * preconditioner should be checked\n     */",
+  "javadoc_after": "/**\n     * Creates a new instance of this class, with <a href=\"#stopcrit\">default\n     * stopping criterion</a> and custom iteration manager.\n     *\n     * @param manager the custom iteration manager\n     * @param delta the &delta; parameter for the default stopping criterion\n     * @param check {@code true} if positive definiteness of both matrix and\n     * preconditioner should be checked\n     * @throws NullArgumentException if {@code manager} is {@code null}\n     */"
+}

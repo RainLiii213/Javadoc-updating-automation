@@ -1,0 +1,8 @@
+{
+  "commit_hash": "85d2e6894a747bbcc39ac5feaecec89226446499",
+  "issue_summary": "Migrate IRangeMap into RangeMap's position.",
+  "code_before": "@Nullable\n  public V get(K key) {\n    Entry<Cut<K>, RangeValue<K, V>> lowerEntry = map.lowerEntry(Cut.aboveValue(key));\n    if (lowerEntry != null && lowerEntry.getValue().getKey().contains(key)) {\n      return lowerEntry.getValue().getValue();\n    }\n    return null;\n  }",
+  "code_after": "@Nullable\n  V get(K key);",
+  "javadoc_before": "/**\n   * Returns the value associated with {@code key}, or {@code null} if there is no such value.\n   */",
+  "javadoc_after": "/**\n   * Returns the value associated with the specified key, or {@code null} if there is no\n   * such value.\n   *\n   * <p>Specifically, if any range in this range map contains the specified key, the value\n   * associated with that range is returned.\n   */"
+}

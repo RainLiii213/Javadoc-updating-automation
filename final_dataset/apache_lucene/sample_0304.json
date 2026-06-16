@@ -1,0 +1,8 @@
+{
+  "commit_hash": "df119573dbc5781b2eed357821856b44bd7af5fd",
+  "issue_summary": "Run URP now auto-registers NestedUpdateProcessor before it.",
+  "code_before": "@Override\n  public UpdateRequestProcessor getInstance(SolrQueryRequest req,\n                                            SolrQueryResponse rsp,\n                                            UpdateRequestProcessor next ) {\n    return null;\n  }",
+  "code_after": "@Override\n  public UpdateRequestProcessor getInstance(SolrQueryRequest req,\n                                            SolrQueryResponse rsp,\n                                            UpdateRequestProcessor next ) {\n    return next;\n  }",
+  "javadoc_before": "/** Returns null \n   */",
+  "javadoc_after": "/** Returns the next\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4cdf3278c56489ff77e4c37bf919bc59df7902e2",
+  "issue_summary": "only expireEntries on reads when an expired entry is encountered",
+  "code_before": "V getLiveValue(ReferenceEntry<K, V> entry) {\n    if (entry.getKey() == null) {\n      return null;\n    }\n    V value = entry.getValueReference().get();\n    return (expires() && isExpired(entry)) ? null : value;\n  }",
+  "code_after": "V getLiveValue(ReferenceEntry<K, V> entry) {\n      if (entry.getKey() == null) {\n        return null;\n      }\n      V value = entry.getValueReference().get();\n      if (value == null) {\n        return null;\n      }\n      if (expires() && isExpired(entry)) {\n        // cleanup expired entries when the lock is available\n        if (tryLock()) {\n          try {\n            expireEntries();\n          } finally {\n            unlock();\n          }\n        }\n        return null;\n      }\n      return value;\n    }",
+  "javadoc_before": "/**\n   * Gets the value from an entry. Returns null if the entry is invalid,\n   * partially-collected, computing, or expired. This method is unnecessary in\n   * blocks that call preWriteCleanup() directly, which can simply assume that\n   * remaining entries are not expired, and only need compare the value to\n   * null.\n   */",
+  "javadoc_after": "/**\n     * Gets the value from an entry. Returns null if the entry is invalid,\n     * partially-collected, computing, or expired.\n     */"
+}

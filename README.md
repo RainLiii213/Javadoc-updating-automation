@@ -1,111 +1,20 @@
 # High-Quality Javadoc Evolution Dataset Mining Pipeline
 
-This pipeline builds a high-precision dataset for **Patch-Aware Javadoc Updating**.
-Precision is more important than recall: borderline samples are discarded.
-
-The target task is:
+This project builds a high-precision dataset for **Patch-Aware Javadoc
+Updating**.
 
 ```text
 Input:  issue_summary, code_before, code_after, javadoc_before
 Output: javadoc_after
 ```
 
-Every retained sample must let a reviewer clearly explain why the code change
-required the Javadoc update.
+Precision is more important than recall. A sample is retained only when a
+reviewer can clearly explain why meaningful code evolution required the
+Javadoc update.
 
-## Strict Retention Rules
+## Final Sample Schema
 
-A sample is retained only when all of these conditions hold:
-
-1. The same existing method or class is present before and after the commit.
-2. Existing Javadoc is modified; Javadoc creation and deletion are excluded.
-3. Code changes are substantial, such as behavior, parameter handling,
-   nullability, exceptions, return behavior, API contracts, or edge cases.
-4. Javadoc changes are semantically meaningful.
-5. Changed code terms and changed Javadoc terms have a clear direct or
-   contract-level relationship.
-
-The miner aggressively rejects:
-
-- method/class additions and deletions;
-- empty `code_after`, `javadoc_before`, or `javadoc_after`;
-- field-level samples;
-- formatting, whitespace, imports, reordering, and identifier-only renames;
-- punctuation, HTML formatting, typo, capitalization, and tag-order edits;
-- versions, issue IDs, dates, URLs, and only `@see/@since/@version/@author`;
-- substantial code and documentation changes whose relationship is unclear.
-
-Very high Javadoc similarity is treated as suspicious. Such a sample is kept
-only when the changed terms expose a strong contract link, for example
-`milliseconds`, `null`, an exception, or a changed parameter contract.
-
-## Code Context
-
-Method samples contain only the modified method. Class samples contain bounded
-class declaration/change context. Large entities are cropped to at most about
-100 lines around the relevant change rather than storing an entire source file.
-
-## Installation
-
-Requires Python 3.10+ and Git:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
-```
-
-## Generate Commons Lang Samples
-
-```powershell
-.\.venv\Scripts\python.exe -m javadoc_miner mine `
-  --repo-url https://github.com/apache/commons-lang `
-  --full-history `
-  --max-samples 50 `
-  --output-dir dataset_commons_lang_50 `
-  --force-refresh
-```
-
-For development, use `--max-commits 3000` or `--max-commits 5000`.
-
-The output directory is automatically deleted and recreated on every run, so
-old dataset files cannot leak into a new result.
-
-To avoid review clutter, repeated overloads are deduplicated: for one commit,
-only one sample is retained for the same entity type and entity name, and each
-commit contributes at most three samples. Mining stops after enough unique
-high-confidence samples are found.
-
-## Dataset Organization
-
-Temporary mining outputs must identify their source and retained sample count:
-
-```text
-dataset_<source>_<count>/
-```
-
-For example, the current Apache Commons Lang result is stored as
-`dataset_apache_commons_lang_37`.
-
-Only manually reviewed, accepted samples belong in `final_dataset/`. Each
-source has its own subdirectory, while `final_dataset/combined_samples.json`
-aggregates all accepted samples for final delivery. This keeps future results
-from other Java projects separate during review while supporting the long-term
-goal of a 1,000+ sample final dataset.
-
-## Output
-
-```text
-dataset_commons_lang_50/
-  sample_0001.json
-  sample_0002.json
-  ...
-  combined_samples.json
-  summary.csv
-  stats.json
-```
-
-Each `sample_*.json` and each item in `combined_samples.json` uses the final
-review schema:
+Every final sample contains exactly six fields:
 
 ```json
 {
@@ -118,35 +27,174 @@ review schema:
 }
 ```
 
-`combined_samples.json` puts all retained samples in one file for GPT or human
-review. `summary.csv` and `stats.json` retain additional mining metadata for
-local auditing. Statistics report commits scanned, candidate samples found,
-samples retained, and samples filtered; the pipeline does not assign A/B/C
-quality grades.
+Repository identity, source URLs, mining statistics, and completion state live
+in directory-level metadata rather than sample objects.
 
-`issue_summary` always comes from the current commit message. Issue references
-are not extracted from arbitrary patch text, preventing unrelated issue
-summaries from being attached.
+## Retention Policy
 
-All output samples have passed the same strict high-confidence filters. The
-miner may produce fewer than the requested `--max-samples`; this is intentional
-when not enough suitable samples exist.
+The pipeline retains only updates to existing method/class Javadocs that are
+logically connected to meaningful code evolution, such as behavior, exception,
+nullability, return value, parameter handling, edge-case, or API contract
+changes.
 
-## Tests
+It rejects:
+
+- Javadoc creation or deletion and code deletion.
+- Field-level changes.
+- Formatting, whitespace, wrapping, HTML-only, spelling-only, and
+  punctuation-only edits.
+- Version, date, author, link-only, and weak `inheritDoc`-only edits.
+- Variable-only renames, code reordering, import-only changes, and other code
+  changes without meaningful behavior or contract impact.
+- Unclosed comments/Javadocs/strings, unbalanced braces, placeholders,
+  incomplete statements, arbitrary truncation, and unrelated whole-file
+  context.
+
+The project does not use legacy A/B/C quality grading. Samples either pass the
+strict retention gate or are filtered out.
+
+## Code Context Policy
+
+Method-level `code_before` and `code_after` contain complete methods or
+constructors. Class-level samples contain a structurally complete class context
+or complete relevant member region.
+
+The pipeline does not convert samples to minimal diff hunks and does not
+truncate by a fixed number of characters or lines. Long but structurally valid
+and relevant contexts may enter the final dataset. Unsafe contexts are
+discarded or kept in source-specific review output, never promoted to
+`final_dataset`.
+
+## Issue Summary Policy
+
+Issue extraction is tied to the current commit. If the extracted summary is
+empty, truncated, or ends with a dangling word such as `by`, `to`, `for`,
+`with`, `of`, `in`, `on`, `and`, `or`, `from`, or `into`, the commit-message
+subject is used as the fallback.
+
+## Current Dataset
+
+The validated final dataset currently contains **2,000 samples**:
+
+| Project | Samples | History state |
+| --- | ---: | --- |
+| Apache Commons Lang | 37 | complete |
+| Apache Commons IO | 39 | retained reviewed baseline |
+| Apache Commons Collections | 72 | complete |
+| Apache Commons Text | 35 | complete |
+| Apache Commons Compress | 181 | complete |
+| Apache Commons Codec | 41 | complete |
+| Apache Commons Math | 561 | complete |
+| Google Guava | 291 | complete |
+| Joda-Time | 125 | complete |
+| Apache Lucene | 618 | stopped when cumulative target reached |
+
+Lucene metadata has `complete_history: false` because mining stopped once the
+cumulative dataset reached 2,000 samples. Jackson Databind, Spring Data
+Commons, and JUnit 5 were not scanned in this continuation because the target
+had already been reached.
+
+## Run Single-Repository Mining
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest -v
+python -m javadoc_miner mine `
+  --repo-url https://github.com/apache/commons-lang.git `
+  --full-history `
+  --max-samples 50 `
+  --output-dir dataset_apache_commons_lang_50
 ```
 
-Tests cover creation/deletion rejection, rename/reordering rejection,
-substantive code changes, meaningful Javadoc changes, logical connection,
-bounded context, output replacement, and combined review output.
+The output directory is replaced on every run.
+
+## Run Multi-Repository Mining
+
+Always validate the workflow with a bounded run first:
+
+```powershell
+python -m javadoc_miner mine-multiple `
+  --max-commits-per-repo 50 `
+  --max-repos 1
+```
+
+Preview the plan without mining:
+
+```powershell
+python -m javadoc_miner mine-multiple --dry-run --max-commits-per-repo 50
+```
+
+Continue from existing outputs toward a cumulative target:
+
+```powershell
+python -m javadoc_miner mine-multiple --resume --target-total 2000
+```
+
+Useful options:
+
+- `--start-from apache/lucene`: start at a named repository.
+- `--max-commits-per-repo N`: bounded development run; never promoted to the
+  final dataset.
+- `--max-repos N`: limit how many repositories are attempted.
+- `--resume`: skip repositories whose full history is already complete.
+- `--dry-run`: show the plan without writing or cloning.
+- `--force-refresh`: refresh repository caches.
+
+## Repository Priority
+
+1. `apache/commons-collections`
+2. `apache/commons-text`
+3. `apache/commons-compress`
+4. `apache/commons-codec`
+5. `apache/commons-math`
+6. `google/guava`
+7. `JodaOrg/joda-time`
+8. `apache/lucene`
+9. `FasterXML/jackson-databind`
+10. `spring-projects/spring-data-commons`
+11. `junit-team/junit5`
+
+## Output Structure
+
+```text
+dataset_<project_slug>_<count>/       # source-specific temporary output, Git-ignored
+  sample_*.json
+  combined_samples.json
+  summary.csv
+  stats.json
+  metadata.json
+  review_samples.json
+
+final_dataset/                        # validated delivery dataset
+  <project_slug>/
+    sample_*.json
+    combined_samples.json
+    summary.csv
+    stats.json
+    metadata.json
+  combined_samples.json               # all retained samples
+  summary.csv                         # project-level mining statistics
+  validation_report.json
+  README.md
+```
+
+`review_samples.json` remains only in source-specific temporary folders. It is
+never copied into `final_dataset`.
+
+## Verification
+
+```powershell
+python -m compileall javadoc_miner
+python -m pytest -v
+```
+
+Final validation checks the exact six-field schema, repository-aware duplicate
+keys, dangling issue summaries, unclosed Javadocs/comments/strings, balanced
+braces, and the absence of review files in `final_dataset`.
 
 ## Current Limitations
 
 - Only Java/Javadoc is supported.
-- Java parsing and semantic linkage are conservative heuristics, not a full AST
-  or language-model analysis.
-- Some valid samples are intentionally discarded when the relationship is not
-  immediately clear.
-- Python, C++, and larger 1k+ datasets are future work.
+- Parsing and semantic linkage use conservative heuristics rather than a
+  complete Java compiler or language model.
+- High precision intentionally discards some valid but ambiguous samples.
+- Repository histories are expensive to scan; target-limited repositories can
+  be resumed later when a larger cumulative target is selected.

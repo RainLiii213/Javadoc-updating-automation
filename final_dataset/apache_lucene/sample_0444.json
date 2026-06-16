@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5bdc492c9ca8f866d9827d83a05fbab4b95f5ce9",
+  "issue_summary": "Scorer.getChildren() returns only matching Scorers",
+  "code_before": "public Collection<ChildScorer> getChildren() {\n    return Collections.emptyList();\n  }",
+  "code_after": "public Collection<ChildScorer> getChildren() throws IOException {\n    return Collections.emptyList();\n  }",
+  "javadoc_before": "/** Returns child sub-scorers\n   * @lucene.experimental */",
+  "javadoc_after": "/**\n   * Returns child sub-scorers positioned on the current document\n   *\n   * Note that this method should not be called on Scorers passed to {@link LeafCollector#setScorer(Scorer)},\n   * as these may be synthetic Scorers produced by {@link BulkScorer} which will throw an Exception.\n   *\n   * This method should only be called when the Scorer is positioned\n   *\n   * @lucene.experimental\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+  "issue_summary": "applied patch by Christian Grobmeier",
+  "code_before": "public ZipExtraField[] getExtraFields()\n    {\n        final ZipExtraField[] result = new ZipExtraField[ m_extraFields.size() ];\n        return (ZipExtraField[])m_extraFields.toArray( result );\n    }",
+  "code_after": "public ZipExtraField[] getExtraFields() {\n        if (extraFields == null) {\n            return new ZipExtraField[0];\n        }\n        ZipExtraField[] result = new ZipExtraField[extraFields.size()];\n        extraFields.copyInto(result);\n        return result;\n    }",
+  "javadoc_before": "/**\n     * Retrieves extra fields.\n     *\n     * @return The ExtraFields value\n     * @since 1.1\n     */",
+  "javadoc_after": "/**\n     * Retrieves extra fields.\n     * @return an array of the extra fields\n     * @since 1.1\n     */"
+}

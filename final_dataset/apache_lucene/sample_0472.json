@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f7aa200d406dbd05a35d6116198302d90b92cb29",
+  "issue_summary": "switch doc values usage to an iterator API, based on DocIdSetIterator, instead of random acces, freeing codecs for future improvements",
+  "code_before": "public static final RandomAccessOrds emptySortedSet() {\n    return singleton(emptySorted());\n  }",
+  "code_after": "public static final SortedSetDocValues emptySortedSet() {\n    final BytesRef empty = new BytesRef();\n    return new SortedSetDocValues() {\n\n      private boolean exhausted = false;\n\n      @Override\n      public int advance(int target) {\n        assert exhausted == false;\n        assert target >= 0;\n        exhausted = true;\n        return NO_MORE_DOCS;\n      }\n\n      @Override\n      public int docID() {\n        return exhausted ? NO_MORE_DOCS : -1;\n      }\n\n      @Override\n      public int nextDoc() {\n        assert exhausted == false;\n        exhausted = true;\n        return NO_MORE_DOCS;\n      }\n\n      @Override\n      public long cost() {\n        return 0;\n      }\n\n      @Override\n      public long nextOrd() {\n        assert false;\n        return NO_MORE_ORDS;\n      }\n\n      @Override\n      public BytesRef lookupOrd(long ord) {\n        return empty;\n      }\n\n      @Override\n      public long getValueCount() {\n        return 0;\n      }\n    };\n  }",
+  "javadoc_before": "/** \n   * An empty SortedDocValues which returns {@link SortedSetDocValues#NO_MORE_ORDS} for every document \n   */",
+  "javadoc_after": "/** \n   * An empty SortedDocValues which returns {@link BytesRef#EMPTY_BYTES} for every document\n   */"
+}

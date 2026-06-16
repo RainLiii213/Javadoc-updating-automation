@@ -1,0 +1,8 @@
+{
+  "commit_hash": "650cad19a2ccf780a8ce30a6a8dfcf0d9d85022e",
+  "issue_summary": "Automatically detect multi- vs. single-valued cases in LongValueFacetCounts",
+  "code_before": "public LongValueFacetCounts(String field, LongValuesSource valueSource, FacetsCollector hits)\n      throws IOException {\n    this(field, valueSource, hits, false);\n  }",
+  "code_after": "public LongValueFacetCounts(String field, LongValuesSource valueSource, FacetsCollector hits)\n      throws IOException {\n    this.field = field;\n    if (valueSource != null) {\n      count(valueSource, hits.getMatchingDocs());\n    } else {\n      count(field, hits.getMatchingDocs());\n    }\n  }",
+  "javadoc_before": "/**\n   * Create {@code LongValueFacetCounts}, using the provided {@link LongValuesSource}. If hits is\n   * null then all facets are counted.\n   */",
+  "javadoc_after": "/**\n   * Create {@code LongValueFacetCounts}, using the provided {@link LongValuesSource} if non-null.\n   * If {@code valueSource} is null, doc values from the provided {@code field} will be used.\n   */"
+}

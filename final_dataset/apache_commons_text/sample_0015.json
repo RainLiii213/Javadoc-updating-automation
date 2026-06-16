@@ -1,0 +1,8 @@
+{
+  "commit_hash": "92cd8ae9f3ad2a586c23b599d339907af20caa5b",
+  "issue_summary": "Fix TextStringBuilder to over-allocate when ensuring capacity",
+  "code_before": "public TextStringBuilder ensureCapacity(final int capacity) {\n        // checks for overflow\n        if (capacity > 0 && capacity - buffer.length > 0) {\n            reallocate(capacity);\n        }\n        return this;\n    }",
+  "code_after": "public TextStringBuilder ensureCapacity(final int capacity) {\n        if (capacity > 0) {\n            ensureCapacityInternal(capacity);\n        }\n        return this;\n    }",
+  "javadoc_before": "/**\n     * Tests the capacity and ensures that it is at least the size specified.\n     *\n     * @param capacity the capacity to ensure\n     * @return this, to enable chaining\n     */",
+  "javadoc_after": "/**\n     * Tests the capacity and ensures that it is at least the size specified.\n     *\n     * <p>Note: This method can be used to minimise memory reallocations during\n     * repeated addition of values by pre-allocating the character buffer.\n     * The method ignores a negative {@code capacity} argument.\n     *\n     * @param capacity the capacity to ensure\n     * @return this, to enable chaining\n     * @throws OutOfMemoryError if the capacity cannot be allocated\n     */"
+}

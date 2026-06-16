@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ca01ec476d1b2bd659ec7400fd55635d62b64b52",
+  "issue_summary": "NIO doesn't recognize all encoding names that String.getBytes does, strange. At least it fails for 'UnicodeBig' on my Java 1.4 installation",
+  "code_before": "protected byte[] getBytes(String name) {\n        if (encoding == null) {\n            return name.getBytes();\n        } else {\n            return ZipEncodingHelper.encodeName(name, encoding);\n        }\n    }",
+  "code_after": "protected byte[] getBytes(String name) throws ZipException {\n        if (encoding == null) {\n            return name.getBytes();\n        } else {\n            try {\n                return ZipEncodingHelper.encodeName(name, encoding);\n            } catch (java.nio.charset.UnsupportedCharsetException ex) {\n                // Java 1.4's NIO doesn't recognize a few names that\n                // String.getBytes does\n                try {\n                    return name.getBytes(encoding);\n                } catch (UnsupportedEncodingException uee) {\n                    throw new ZipException(uee.getMessage());\n                }\n            }\n        }\n    }",
+  "javadoc_before": "/**\n     * Retrieve the bytes for the given String in the encoding set for\n     * this Stream.\n     * @param name the string to get bytes from\n     * @return the bytes as a byte array\n     *\n     * @since 1.3\n     */",
+  "javadoc_after": "/**\n     * Retrieve the bytes for the given String in the encoding set for\n     * this Stream.\n     * @param name the string to get bytes from\n     * @return the bytes as a byte array\n     * @throws ZipException on error\n     *\n     * @since 1.3\n     */"
+}

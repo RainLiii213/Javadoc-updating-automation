@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ffe65f8eaca4ab6705816cc378c241c2ab078bb1",
+  "issue_summary": "fill the \"throws\" clause of RealVector.",
+  "code_before": "public void remove() {\n                throw new MathUnsupportedOperationException();\n            }",
+  "code_after": "public void remove() throws MathUnsupportedOperationException {\n                throw new MathUnsupportedOperationException();\n            }",
+  "javadoc_before": "/** {@inheritDoc} */",
+  "javadoc_after": "/**\n             * {@inheritDoc}\n             *\n             * @throws MathUnsupportedOperationException in all circumstances.\n             */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ceee77fafdc9bdc5e2e6df85e231879c4ab6d755",
+  "issue_summary": "Rename \"Graph\" to \"BasicGraph\". Flip the inheritance hierarchy. Now, BasicGraph<N> extends ValueGraph<N, Presence>.",
+  "code_before": "Graph<N> asGraph();",
+  "code_after": "ValueGraph<N, Set<E>> asGraph();",
+  "javadoc_before": "/**\n   * Returns a live view of this graph as a {@link Graph}. The resulting {@link Graph} will have an\n   * edge connecting node A to node B iff this {@link Network} has an edge connecting A to B.\n   */",
+  "javadoc_after": "/**\n   * Returns a live view of this graph as a {@link ValueGraph}. The resulting {@link ValueGraph}\n   * will have an edge connecting node A to node B iff this {@link Network} has an edge connecting\n   * A to B.\n   *\n   * <p>{@link ValueGraph#edgeValue(Object, Object)} will return the set of edges connecting node A\n   * to node B. It will return the empty set if there are no edges connecting A to B.\n   */"
+}

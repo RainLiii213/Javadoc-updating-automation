@@ -1,0 +1,8 @@
+{
+  "commit_hash": "00f8f3a13acd3c4da491e7169afdfbdc0f38e26d",
+  "issue_summary": "langid.map.individual now works together with langid.map.keepOrig",
+  "code_before": "protected String concatFields(SolrInputDocument doc) {\n    StringBuilder sb = new StringBuilder(getExpectedSize(doc, inputFields));\n    for (String fieldName : inputFields) {\n      log.debug(\"Appending field \" + fieldName);\n      if (doc.containsKey(fieldName)) {\n        Collection<Object> fieldValues = doc.getFieldValues(fieldName);\n        if (fieldValues != null) {\n          for (Object content : fieldValues) {\n            if (content instanceof String) {\n              String stringContent = (String) content;\n              if (stringContent.length() > maxFieldValueChars) {\n                sb.append(stringContent.substring(0, maxFieldValueChars));\n              } else {\n                sb.append(stringContent);\n              }\n              sb.append(\" \");\n              if (sb.length() > maxTotalChars) {\n                sb.setLength(maxTotalChars);\n                break;\n              }\n            } else {\n              log.warn(\"Field \" + fieldName + \" not a String value, not including in detection\");\n            }\n          }\n        }\n      }\n    }\n    return sb.toString();\n  }",
+  "code_after": "protected String concatFields(SolrInputDocument doc) {\n    return SolrInputDocumentReader.asString(solrDocReader(doc, inputFields));\n  }",
+  "javadoc_before": "/**\n   * Concatenates content from multiple fields\n   */",
+  "javadoc_after": "/**\n   * Concatenates content from input fields defined in langid.fl.\n   * For test purposes only\n   */"
+}

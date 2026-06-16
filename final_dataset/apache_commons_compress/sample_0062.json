@@ -1,0 +1,8 @@
+{
+  "commit_hash": "650ad0555e3702177c7403544ae8850f4ebbc9b1",
+  "issue_summary": "Use FileTime in SevenZArchiveEntry",
+  "code_before": "@Override\n    public Date getLastModifiedDate() {\n        if (hasLastModifiedDate) {\n            return ntfsTimeToJavaTime(lastModifiedDate);\n        }\n        throw new UnsupportedOperationException(\n                \"The entry doesn't have this timestamp\");\n    }",
+  "code_after": "@Override\n    public Date getLastModifiedDate() {\n        return TimeUtils.fileTimeToDate(getLastModifiedTime());\n    }",
+  "javadoc_before": "/**\n     * Gets the last modified date.\n     * @throws UnsupportedOperationException if the entry hasn't got a\n     * last modified date.\n     * @return the last modified date\n     */",
+  "javadoc_after": "/**\n     * Gets the last modified date.\n     * This is equivalent to {@link SevenZArchiveEntry#getLastModifiedTime()}, but precision is truncated to milliseconds.\n     *\n     * @throws UnsupportedOperationException if the entry hasn't got a last modified date.\n     * @return the last modified date\n     * @see SevenZArchiveEntry#getLastModifiedTime()\n     */"
+}

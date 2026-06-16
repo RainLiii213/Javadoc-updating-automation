@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b883dcbc08044687bc037ed2170f18416893f7d0",
+  "issue_summary": "Updated throws declaration for random package (and part of distribution).",
+  "code_before": "String nextHexString(int len);",
+  "code_after": "String nextHexString(int len) throws NotStrictlyPositiveException;",
+  "javadoc_before": "/**\n     * Generates a random string of hex characters of length {@code len}.\n     * <p>\n     * The generated string will be random, but not cryptographically\n     * secure. To generate cryptographically secure strings, use\n     * {@link #nextSecureHexString(int)}.\n     * </p>\n     *\n     * @param len the length of the string to be generated\n     * @return a random string of hex characters of length {@code len}\n     * @throws org.apache.commons.math3.exception.NotStrictlyPositiveException\n     * if {@code len <= 0}\n     */",
+  "javadoc_after": "/**\n     * Generates a random string of hex characters of length {@code len}.\n     * <p>\n     * The generated string will be random, but not cryptographically\n     * secure. To generate cryptographically secure strings, use\n     * {@link #nextSecureHexString(int)}.\n     * </p>\n     *\n     * @param len the length of the string to be generated\n     * @return a random string of hex characters of length {@code len}\n     * @throws NotStrictlyPositiveException\n     * if {@code len <= 0}\n     */"
+}

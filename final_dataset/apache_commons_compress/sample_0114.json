@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b6ae1d09c384b57115bb34ed94c90e256e4b66b9",
+  "issue_summary": "Validate Block and Record Sizes",
+  "code_before": "public int getRecordSize() {\n        return this.recordSize;\n    }",
+  "code_after": "@Deprecated\n    public int getRecordSize() {\n        return RECORD_SIZE;\n    }",
+  "javadoc_before": "/**\n     * Get the record size being used by this stream's TarBuffer.\n     *\n     * @return The TarBuffer record size.\n     */",
+  "javadoc_after": "/**\n     * Get the record size being used by this stream's TarBuffer.\n     *\n     * @return The TarBuffer record size.\n     * @deprecated\n     */"
+}

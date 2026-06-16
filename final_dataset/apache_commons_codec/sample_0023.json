@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ff57a627511793d7c95c5354b3cf4247859c0b52",
+  "issue_summary": "Use ThreadLocalRandom instead of Random and pull out its instantiation from the loop. Preallocate StringBuilder as well.",
+  "code_before": "static String getRandomSalt(final int num) {\n        final StringBuilder saltString = new StringBuilder();\n        for (int i = 1; i <= num; i++) {\n            saltString.append(B64T.charAt(new Random().nextInt(B64T.length())));\n        }\n        return saltString.toString();\n    }",
+  "code_after": "static String getRandomSalt(final int num) {\n        final StringBuilder saltString = new StringBuilder(num);\n        final ThreadLocalRandom current = ThreadLocalRandom.current();\n        for (int i = 1; i <= num; i++) {\n            saltString.append(B64T.charAt(current.nextInt(B64T.length())));\n        }\n        return saltString.toString();\n    }",
+  "javadoc_before": "/**\n     * Generates a string of random chars from the B64T set.\n     *\n     * @param num\n     *            Number of chars to generate.\n     */",
+  "javadoc_after": "/**\n     * Generates a string of random chars from the B64T set.\n     * <p>\n     * The salt is generated with {@link ThreadLocalRandom}.\n     * </p>\n     *\n     * @param num\n     *            Number of chars to generate.\n     */"
+}

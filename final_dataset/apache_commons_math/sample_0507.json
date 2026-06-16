@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4b9b7585dcfb93bc027f6e08931100edee6a00b8",
+  "issue_summary": "Removed deprecated code.",
+  "code_before": "public NormalDistributionImpl(double mean, double sd, double inverseCumAccuracy) {\n        super();\n        setMeanInternal(mean);\n        setStandardDeviationInternal(sd);\n        solverAbsoluteAccuracy = inverseCumAccuracy;\n    }",
+  "code_after": "public NormalDistributionImpl(double mean, double sd, double inverseCumAccuracy) {\n        if (sd <= 0) {\n            throw new NotStrictlyPositiveException(LocalizedFormats.STANDARD_DEVIATION, sd);\n        }\n\n        this.mean = mean;\n        standardDeviation = sd;\n        solverAbsoluteAccuracy = inverseCumAccuracy;\n    }",
+  "javadoc_before": "/**\n     * Create a normal distribution using the given mean, standard deviation and\n     * inverse cumulative distribution accuracy.\n     *\n     * @param mean mean for this distribution\n     * @param sd standard deviation for this distribution\n     * @param inverseCumAccuracy inverse cumulative probability accuracy\n     * @since 2.1\n     */",
+  "javadoc_after": "/**\n     * Create a normal distribution using the given mean, standard deviation and\n     * inverse cumulative distribution accuracy.\n     *\n     * @param mean Mean for this distribution.\n     * @param sd Standard deviation for this distribution.\n     * @param inverseCumAccuracy inverse cumulative probability accuracy.\n     * @throws NotStrictlyPositiveException if {@code sd <= 0}.\n     * @since 2.1\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f0921e844d248366acca73b14097412d6f91e205",
+  "issue_summary": "fill the \"throws\" clause of FieldVector, ArrayFieldVector.",
+  "code_before": "public ArrayFieldVector<T> projection(ArrayFieldVector<T> v)\n        throws DimensionMismatchException {\n        return (ArrayFieldVector<T>) v.mapMultiply(dotProduct(v).divide(v.dotProduct(v)));\n    }",
+  "code_after": "public ArrayFieldVector<T> projection(ArrayFieldVector<T> v)\n        throws DimensionMismatchException, MathArithmeticException {\n        return (ArrayFieldVector<T>) v.mapMultiply(dotProduct(v).divide(v.dotProduct(v)));\n    }",
+  "javadoc_before": "/** Find the orthogonal projection of this vector onto another vector.\n     * @param v vector onto which {@code this} must be projected\n     * @return projection of {@code this} onto {@code v}\n     * @throws DimensionMismatchException if {@code v} is not the same size as\n     * {@code this}\n     */",
+  "javadoc_after": "/** Find the orthogonal projection of this vector onto another vector.\n     * @param v vector onto which {@code this} must be projected\n     * @return projection of {@code this} onto {@code v}\n     * @throws DimensionMismatchException if {@code v} is not the same size as\n     * {@code this}\n     * @throws MathArithmeticException if {@code v} is the null vector.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "58364058bd2903ebd1568f6df22161e142a0dc86",
+  "issue_summary": "throw IOException for certain malformed archives",
+  "code_before": "public AbstractLZ77CompressorInputStream(final InputStream is, int windowSize) throws IOException {\n        this.in = new CountingInputStream(is);\n        this.windowSize = windowSize;\n        buf = new byte[3 * windowSize];\n        writeIndex = readIndex = 0;\n        bytesRemaining = 0;\n    }",
+  "code_after": "public AbstractLZ77CompressorInputStream(final InputStream is, int windowSize) throws IOException {\n        this.in = new CountingInputStream(is);\n        if (windowSize <= 0) {\n            throw new IllegalArgumentException(\"windowSize must be bigger than 0\");\n        }\n        this.windowSize = windowSize;\n        buf = new byte[3 * windowSize];\n        writeIndex = readIndex = 0;\n        bytesRemaining = 0;\n    }",
+  "javadoc_before": "/**\n     * Creates a new LZ77 input stream.\n     *\n     * @param is\n     *            An InputStream to read compressed data from\n     * @param windowSize\n     *            Size of the window kept for back-references, must be bigger than the biggest offset expected.\n     *\n     * @throws IOException if reading fails\n     */",
+  "javadoc_after": "/**\n     * Creates a new LZ77 input stream.\n     *\n     * @param is\n     *            An InputStream to read compressed data from\n     * @param windowSize\n     *            Size of the window kept for back-references, must be bigger than the biggest offset expected.\n     *\n     * @throws IOException if reading fails\n     * @throws IllegalArgumentException if windowSize is not bigger than 0\n     */"
+}

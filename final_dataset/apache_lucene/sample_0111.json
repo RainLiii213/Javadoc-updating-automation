@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5acca826330b2afc15b6a2d5e2134d7d1a64e4a9",
+  "issue_summary": "Reduce bloom filter size by using the optimal count for hash functions.",
+  "code_before": "public void addValue(BytesRef value) throws IOException {\n    int hash = hashFunction.hash(value);\n    if (hash < 0) {\n      hash = hash * -1;\n    }\n    // Bitmasking using bloomSize is effectively a modulo operation.\n    int bloomPos = hash & bloomSize;\n    filter.set(bloomPos);\n  }",
+  "code_after": "public void addValue(BytesRef value) throws IOException {\n    long hash = hashFunction.hash(value);\n    int msb = (int) (hash >>> Integer.SIZE);\n    int lsb = (int) hash;\n    for (int i = 0; i < hashCount; i++) {\n      // Bitmasking using bloomSize is effectively a modulo operation.\n      int bloomPos = (lsb + i * msb) & bloomSize;\n      filter.set(bloomPos);\n    }\n  }",
+  "javadoc_before": "/**\n   * Records a value in the set. The referenced bytes are hashed and then modulo n'd where n is the\n   * chosen size of the internal bitset.\n   *\n   * @param value the key value to be hashed\n   * @throws IOException If there is a low-level I/O error\n   */",
+  "javadoc_after": "/**\n   * Records a value in the set. The referenced bytes are hashed. From the 64-bit generated hash,\n   * two 32-bit hashes are derived from the msb and lsb which can be used to derive more hashes (see\n   * https://www.eecs.harvard.edu/~michaelm/postscripts/rsa2008.pdf). Finally, each generated hash\n   * is modulo n'd where n is the chosen size of the internal bitset.\n   *\n   * @param value the key value to be hashed\n   * @throws IOException If there is a low-level I/O error\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c7cdf2832bbfbc46d9bfa3cb5041a821fbb7be1d",
+  "issue_summary": "PointValues aggregated stats fail if the provided field does not have points on one of the leaves.",
+  "code_before": "public static int getDocCount(IndexReader reader, String field) throws IOException {\n    int count = 0;\n    for (LeafReaderContext ctx : reader.leaves()) {\n      PointValues values = ctx.reader().getPointValues();\n      if (values != null) {\n        count += values.getDocCount(field);\n      }\n    }\n    return count;\n  }",
+  "code_after": "public static int getDocCount(IndexReader reader, String field) throws IOException {\n    int count = 0;\n    for (LeafReaderContext ctx : reader.leaves()) {\n      FieldInfo info = ctx.reader().getFieldInfos().fieldInfo(field);\n      if (info == null || info.getPointDimensionCount() == 0) {\n        continue;\n      }\n      PointValues values = ctx.reader().getPointValues();\n      count += values.getDocCount(field);\n    }\n    return count;\n  }",
+  "javadoc_before": "/** Return the cumulated number of docs that have points across all leaves\n   * of the given {@link IndexReader}.\n   *  @see PointValues#getDocCount(String) */",
+  "javadoc_after": "/** Return the cumulated number of docs that have points across all leaves\n   * of the given {@link IndexReader}. Leaves that do not have points for the\n   * given field are ignored.\n   *  @see PointValues#getDocCount(String) */"
+}

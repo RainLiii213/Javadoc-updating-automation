@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bb0827cc81c2cbaa69bcc8f19268a1e473661809",
+  "issue_summary": "populated throws clause of Array2DRowFieldMatrix.",
+  "code_before": "private void copyIn(final T[][] in) {\n        setSubMatrix(in, 0, 0);\n    }",
+  "code_after": "private void copyIn(final T[][] in)\n        throws NullArgumentException, NoDataException,\n        DimensionMismatchException {\n        setSubMatrix(in, 0, 0);\n    }",
+  "javadoc_before": "/**\n     * Replace data with a fresh copy of the input array.\n     *\n     * @param in Data to copy.\n     * @throws NoDataException if the input array is empty.\n     * @throws DimensionMismatchException if the input array is not rectangular.\n     * @throws org.apache.commons.math3.exception.NullArgumentException if\n     * the input array is {@code null}.\n     */",
+  "javadoc_after": "/**\n     * Replace data with a fresh copy of the input array.\n     *\n     * @param in Data to copy.\n     * @throws NoDataException if the input array is empty.\n     * @throws DimensionMismatchException if the input array is not rectangular.\n     * @throws NullArgumentException if the input array is {@code null}.\n     */"
+}

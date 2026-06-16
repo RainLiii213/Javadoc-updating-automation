@@ -1,0 +1,18 @@
+{
+  "project_slug": "google_guava",
+  "repository_name": "google/guava",
+  "repository_url": "https://github.com/google/guava.git",
+  "retained_samples": 291,
+  "source_folder": "dataset_google_guava_291",
+  "final_folder": "final_dataset/google_guava",
+  "mined_at_utc": "2026-06-15T04:50:29+00:00",
+  "commits_scanned": 7373,
+  "candidate_samples_found": 383,
+  "filtered_samples": 86,
+  "discarded_truncated_code_context": 10,
+  "moved_to_review": 6,
+  "discarded_weak_inheritdoc": 0,
+  "issue_summary_fallbacks": 2,
+  "complete_history": true,
+  "stop_reason": "full_history_scanned"
+}

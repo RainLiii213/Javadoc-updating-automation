@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3f998812269ab9387d8c18bf003f4b66d5d71c16",
+  "issue_summary": "Stop returning null in SearchGroup#merge",
+  "code_before": "public static <T> Collection<SearchGroup<T>> merge(\n      List<Collection<SearchGroup<T>>> topGroups, int offset, int topN, Sort groupSort) {\n    if (topGroups.isEmpty()) {\n      return null;\n    } else {\n      return new GroupMerger<T>(groupSort).merge(topGroups, offset, topN);\n    }\n  }",
+  "code_after": "public static <T> Collection<SearchGroup<T>> merge(\n      List<Collection<SearchGroup<T>>> topGroups, int offset, int topN, Sort groupSort) {\n    return new GroupMerger<T>(groupSort).merge(topGroups, offset, topN);\n  }",
+  "javadoc_before": "/**\n   * Merges multiple collections of top groups, for example obtained from separate index shards. The\n   * provided groupSort must match how the groups were sorted, and the provided SearchGroups must\n   * have been computed with fillFields=true passed to {@link\n   * FirstPassGroupingCollector#getTopGroups}.\n   *\n   * <p>NOTE: this returns null if the topGroups is empty.\n   */",
+  "javadoc_after": "/**\n   * Merges multiple collections of top groups, for example obtained from separate index shards. The\n   * provided groupSort must match how the groups were sorted, and the provided SearchGroups must\n   * have been computed with fillFields=true passed to {@link\n   * FirstPassGroupingCollector#getTopGroups}.\n   */"
+}

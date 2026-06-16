@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f0054a30d12394a4560db39e914908a8912ce80f",
+  "issue_summary": "Persist intermediate trigger state in ZK.",
+  "code_before": "public synchronized void remove(String triggerName) {\n    if (isClosed) {\n      throw new AlreadyClosedException(\"ScheduledTriggers has been closed and cannot be used any more\");\n    }\n    ScheduledTrigger removed = scheduledTriggers.remove(triggerName);\n    IOUtils.closeQuietly(removed);\n  }",
+  "code_after": "public synchronized void remove(String triggerName) {\n    ScheduledTrigger removed = scheduledTriggers.remove(triggerName);\n    IOUtils.closeQuietly(removed);\n    removeTriggerZKData(triggerName);\n  }",
+  "javadoc_before": "/**\n   * Removes and stops the trigger with the given name\n   *\n   * @param triggerName the name of the trigger to be removed\n   * @throws AlreadyClosedException if this class has already been closed\n   */",
+  "javadoc_after": "/**\n   * Removes and stops the trigger with the given name. Also cleans up any leftover\n   * state / events in ZK.\n   *\n   * @param triggerName the name of the trigger to be removed\n   */"
+}

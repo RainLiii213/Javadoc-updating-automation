@@ -81,6 +81,8 @@ public class Person {
     assert samples[0].method_change_type == "METHOD_MODIFICATION"
     assert samples[0].file_path == "src/main/java/org/example/Person.java"
     assert samples[0].issue_summary == "handle null values"
+    stats = __import__("json").loads((config.output_dir / "stats.json").read_text())
+    assert stats["history_complete"] is False
 
 
 def test_entity_alignment_does_not_cross_match_overloads():

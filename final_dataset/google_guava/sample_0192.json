@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cce57e79b54651567f0fede33f2ad4348a30ff60",
+  "issue_summary": "Reconcile the cancellation semantics for Futures.combine, successfulAsList, allAsList, and withFallback to be consistent with Futures.transform. Now, all cancellations are back-propagated to the input futures. We also expose the interruption state in AbstractFuture with a protected method. To ensure the interruption state is correct and threadsafe, we add an additional state to AbstractFuture's inner Sync class to atomically distinguish between cancelled and interrupted. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=33468640",
+  "code_before": "boolean isCancelled() {\n      return getState() == CANCELLED;\n    }",
+  "code_after": "boolean isCancelled() {\n      return (getState() & (CANCELLED | INTERRUPTED)) != 0;\n    }",
+  "javadoc_before": "/**\n     * Checks if the state is {@link #CANCELLED}.\n     */",
+  "javadoc_after": "/**\n     * Checks if the state is {@link #CANCELLED} or {@link #INTERRUPTED}.\n     */"
+}

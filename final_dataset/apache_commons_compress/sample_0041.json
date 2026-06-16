@@ -1,0 +1,8 @@
+{
+  "commit_hash": "499b22b9e553e58d445e68a4787202e61d81ad3e",
+  "issue_summary": "Deprecate unused method FileNameUtils.getBaseName(String)",
+  "code_before": "public static String getBaseName(final String fileName) {\n        if (fileName == null) {\n            return null;\n        }\n        return fileNameToBaseName(new File(fileName).getName());\n    }",
+  "code_after": "@Deprecated\n    public static String getBaseName(final String fileName) {\n        if (fileName == null) {\n            return null;\n        }\n        return FilenameUtils.removeExtension(new File(fileName).getName());\n    }",
+  "javadoc_before": "/**\n     * Gets the base name (i.e. the part up to and not including the last \".\") of the last path segment of a file name.\n     *\n     * <p>\n     * Will return the file name itself if it doesn't contain any dots. All leading directories of the {@code file name} parameter are skipped.\n     * </p>\n     *\n     * @return the base name of file name\n     * @param fileName the name of the file to obtain the base name of.\n     */",
+  "javadoc_after": "/**\n     * Gets the base name (i.e. the part up to and not including the last \".\") of the last path segment of a file name.\n     * <p>\n     * Will return the file name itself if it doesn't contain any dots. All leading directories of the {@code file name} parameter are skipped.\n     * </p>\n     *\n     * @return the base name of file name\n     * @param fileName the name of the file to obtain the base name of.\n     * @deprecated No longer used, no replacement.\n     */"
+}

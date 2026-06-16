@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4e7d797b1c33397378de21f83a132ecbf1305b10",
+  "issue_summary": "fill the throws clause of all methods.",
+  "code_before": "public abstract void setEntry(int index, double value);",
+  "code_after": "public abstract void setEntry(int index, double value)\n        throws OutOfRangeException;",
+  "javadoc_before": "/**\n     * Set a single element.\n     *\n     * @param index element index.\n     * @param value new value for the element.\n     * @throws org.apache.commons.math3.exception.OutOfRangeException\n     * if the index is not valid.\n     * @see #getEntry(int)\n     */",
+  "javadoc_after": "/**\n     * Set a single element.\n     *\n     * @param index element index.\n     * @param value new value for the element.\n     * @throws OutOfRangeException if the index is not valid.\n     * @see #getEntry(int)\n     */"
+}

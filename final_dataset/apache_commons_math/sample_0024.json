@@ -1,0 +1,8 @@
+{
+  "commit_hash": "49747dc1d34a48e966ceb424f40f0b7994d1cea7",
+  "issue_summary": "Fixed additional equations mapping.",
+  "code_before": "public int getSecondaryStateDimension(final int index) {\n        return secondaryState[index].length;\n    }",
+  "code_after": "public int getSecondaryStateDimension(final int index) {\n        return index == 0 ? state.length : secondaryState[index - 1].length;\n    }",
+  "javadoc_before": "/** Get secondary state dimension.\n     * @param index index of the secondary set as returned\n     * by {@link FieldExpandableODE#addSecondaryEquations(FieldSecondaryEquations)}\n     * @return secondary state dimension\n     */",
+  "javadoc_after": "/** Get secondary state dimension.\n     * @param index index of the secondary set as returned\n     * by {@link FieldExpandableODE#addSecondaryEquations(FieldSecondaryEquations)}\n     * (beware index 0 corresponds to main state, additional states start at 1)\n     * @return secondary state dimension\n     */"
+}

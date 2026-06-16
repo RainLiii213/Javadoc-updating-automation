@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d98e430b04e9ff44764651318ec41dc9f07d8149",
+  "issue_summary": "fixed wrong results in Loess interpolator also added a way to set weights for smoothing JIRA",
+  "code_before": "public LoessInterpolator() {\n        this.bandwidth = DEFAULT_BANDWIDTH;\n        this.robustnessIters = DEFAULT_ROBUSTNESS_ITERS;\n    }",
+  "code_after": "public LoessInterpolator() {\n        this.bandwidth = DEFAULT_BANDWIDTH;\n        this.robustnessIters = DEFAULT_ROBUSTNESS_ITERS;\n        this.accuracy = DEFAULT_ACCURACY;\n    }",
+  "javadoc_before": "/**\n     * Constructs a new {@link LoessInterpolator}\n     * with a bandwidth of {@link #DEFAULT_BANDWIDTH} and\n     * {@link #DEFAULT_ROBUSTNESS_ITERS} robustness iterations.\n     * See {@link #LoessInterpolator(double, int)} for an explanation of\n     * the parameters.\n     */",
+  "javadoc_after": "/**\n     * Constructs a new {@link LoessInterpolator}\n     * with a bandwidth of {@link #DEFAULT_BANDWIDTH},\n     * {@link #DEFAULT_ROBUSTNESS_ITERS} robustness iterations\n     * and an accuracy of {#link #DEFAULT_ACCURACY}.\n     * See {@link #LoessInterpolator(double, int, double)} for an explanation of\n     * the parameters.\n     */"
+}

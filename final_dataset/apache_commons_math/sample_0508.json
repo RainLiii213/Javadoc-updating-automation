@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f210f2fbce724d83a1a1b77f25c42e2c9a01a55e",
+  "issue_summary": "Removed deprecated code.",
+  "code_before": "public GammaDistributionImpl(double alpha, double beta, double inverseCumAccuracy) {\n        super();\n        setAlphaInternal(alpha);\n        setBetaInternal(beta);\n        solverAbsoluteAccuracy = inverseCumAccuracy;\n    }",
+  "code_after": "public GammaDistributionImpl(double alpha, double beta, double inverseCumAccuracy) {\n        if (alpha <= 0) {\n            throw new NotStrictlyPositiveException(LocalizedFormats.ALPHA, alpha);\n        }\n        if (beta <= 0) {\n            throw new NotStrictlyPositiveException(LocalizedFormats.BETA, beta);\n        }\n\n        this.alpha = alpha;\n        this.beta = beta;\n        solverAbsoluteAccuracy = inverseCumAccuracy;\n    }",
+  "javadoc_before": "/**\n     * Create a new gamma distribution with the given alpha and beta values.\n     * @param alpha the shape parameter.\n     * @param beta the scale parameter.\n     * @param inverseCumAccuracy the maximum absolute error in inverse cumulative probability estimates\n     * (defaults to {@link #DEFAULT_INVERSE_ABSOLUTE_ACCURACY})\n     * @since 2.1\n     */",
+  "javadoc_after": "/**\n     * Create a new gamma distribution with the given alpha and beta values.\n     * @param alpha the shape parameter.\n     * @param beta the scale parameter.\n     * @param inverseCumAccuracy the maximum absolute error in inverse\n     * cumulative probability estimates (defaults to\n     * {@link #DEFAULT_INVERSE_ABSOLUTE_ACCURACY}).\n     * @throws NotStrictlyPositiveException if {@code alpha <= 0} or\n     * {@code beta <= 0}.\n     * @since 2.1\n     */"
+}

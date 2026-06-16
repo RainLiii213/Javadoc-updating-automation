@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b17052e8520bb57bcfe126aa2f8e6bd0b9aa76c5",
+  "issue_summary": "Implement a periodic house-keeping task.",
+  "code_before": "public static final class CurrentTimeSource extends TimeSource {\n\n    @Override\n    @SuppressForbidden(reason = \"Needed to provide timestamps based on currentTimeMillis.\")\n    public long getTime() {\n      return TimeUnit.NANOSECONDS.convert(System.currentTimeMillis(), TimeUnit.MILLISECONDS);\n    }\n\n    @Override\n    public void sleep(long ms) throws InterruptedException {\n      Thread.sleep(ms);\n    }\n\n    @Override\n    public long convertDelay(TimeUnit fromUnit, long value, TimeUnit toUnit) {\n      return toUnit.convert(value, fromUnit);\n    }\n  }",
+  "code_after": "public static final class CurrentTimeSource extends TimeSource {\n\n    @Override\n    @SuppressForbidden(reason = \"Needed to provide timestamps based on currentTimeMillis.\")\n    public long getTime() {\n      return TimeUnit.NANOSECONDS.convert(System.currentTimeMillis(), TimeUnit.MILLISECONDS);\n    }\n\n    @Override\n    public long getEpochTime() {\n      return getTime();\n    }\n\n    @Override\n    public void sleep(long ms) throws InterruptedException {\n      Thread.sleep(ms);\n    }\n\n    @Override\n    public long convertDelay(TimeUnit fromUnit, long value, TimeUnit toUnit) {\n      return toUnit.convert(value, fromUnit);\n    }\n  }",
+  "javadoc_before": "/** Implementation that uses {@link System#currentTimeMillis()}. */",
+  "javadoc_after": "/**\n   * Implementation that uses {@link System#currentTimeMillis()}.\n   * This implementation's {@link #getTime()} returns the same values as\n   * {@link #getEpochTime()}.\n   */"
+}

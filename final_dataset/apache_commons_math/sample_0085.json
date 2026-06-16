@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2d1614a2077eab0b981d4a0c4c6e10a7ecda71cf",
+  "issue_summary": "Finish FuzzyKMeans clustering algorithm.",
+  "code_before": "public RealMatrix getMembershipMatrix() {\n        return MatrixUtils.createRealMatrix(membershipMatrix);\n    }",
+  "code_after": "public RealMatrix getMembershipMatrix() {\n        if (membershipMatrix == null) {\n            throw new MathIllegalStateException();\n        }\n        return MatrixUtils.createRealMatrix(membershipMatrix);\n    }",
+  "javadoc_before": "/**\n     * Returns the {@code nxk} membership matrix, where {@code n} is the number\n     * of data points and {@code k} the number of clusters.\n     * <p>\n     * The element U<sub>i,j</sub> represents the membership value for data point {@code i}\n     * to cluster {@code j}.\n     *\n     * @return the membership matrix\n     */",
+  "javadoc_after": "/**\n     * Returns the {@code nxk} membership matrix, where {@code n} is the number\n     * of data points and {@code k} the number of clusters.\n     * <p>\n     * The element U<sub>i,j</sub> represents the membership value for data point {@code i}\n     * to cluster {@code j}.\n     *\n     * @return the membership matrix\n     * @throws MathIllegalStateException if {@link #cluster(Collection)} has not been called before\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1ab9b811c65abb3d1a827c87b4f1135116ff90eb",
+  "issue_summary": "remove /clusterstate.json",
+  "code_before": "private boolean isPublishAsDownOnStartup(CloudDescriptor cloudDesc) {\n    if (!Overseer.isLegacy(zkStateReader)) {\n      Replica replica = zkStateReader.getClusterState().getCollection(cloudDesc.getCollectionName())\n          .getSlice(cloudDesc.getShardId())\n          .getReplica(cloudDesc.getCoreNodeName());\n      if (replica.getNodeName().equals(getNodeName())) {\n        return false;\n      }\n    }\n    return true;\n  }",
+  "code_after": "private boolean isPublishAsDownOnStartup(CloudDescriptor cloudDesc) {\n      Replica replica = zkStateReader.getClusterState().getCollection(cloudDesc.getCollectionName())\n          .getSlice(cloudDesc.getShardId())\n          .getReplica(cloudDesc.getCoreNodeName());\n      return !replica.getNodeName().equals(getNodeName());\n  }",
+  "javadoc_before": "/**\n   * On startup, the node already published all of its replicas as DOWN,\n   * so in case of legacyCloud=false ( the replica must already present on Zk )\n   * we can skip publish the replica as down\n   * @return Should publish the replica as down on startup\n   */",
+  "javadoc_after": "/**\n   * On startup, the node already published all of its replicas as DOWN,\n   * we can skip publish the replica as down\n   * @return Should publish the replica as down on startup\n   */"
+}

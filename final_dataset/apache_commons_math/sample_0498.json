@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1b27e0019e7369fbe4c620af538702682fac2a4a",
+  "issue_summary": "Replaced \"MatrixIndexException\" with \"OutOfRangeException\" or \"DimensionMismatchException\". Removed try/catch blocks misused as preconditions check.",
+  "code_before": "protected void checkColumnIndex(final int column)\n        throws MatrixIndexException {\n        if (column < 0 || column >= getColumnDimension()) {\n            throw new MatrixIndexException(LocalizedFormats.COLUMN_INDEX_OUT_OF_RANGE,\n                                           column, 0, getColumnDimension() - 1);\n        }\n    }",
+  "code_after": "protected void checkColumnIndex(final int column) {\n        if (column < 0 || column >= getColumnDimension()) {\n            throw new OutOfRangeException(LocalizedFormats.COLUMN_INDEX,\n                                          column, 0, getColumnDimension() - 1);\n        }\n    }",
+  "javadoc_before": "/**\n     * Check if a column index is valid.\n     * @param column column index to check\n     * @exception MatrixIndexException if index is not valid\n     */",
+  "javadoc_after": "/**\n     * Check if a column index is valid.\n     *\n     * @param column Column index to check.\n     * @throws OutOfRangeException if {@code index} is not valid.\n     */"
+}

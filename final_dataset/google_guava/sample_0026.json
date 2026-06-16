@@ -1,0 +1,8 @@
+{
+  "commit_hash": "12af215974de4b1db65e226270f7bd82be58d3ac",
+  "issue_summary": "`Invokable` no longer inherits from `java.lang.reflect.AccessibleObject`.",
+  "code_before": "@Override\n    public final TypeVariable<?>[] getTypeParameters() {\n      TypeVariable<?>[] declaredByClass = getDeclaringClass().getTypeParameters();\n      TypeVariable<?>[] declaredByConstructor = constructor.getTypeParameters();\n      TypeVariable<?>[] result =\n          new TypeVariable<?>[declaredByClass.length + declaredByConstructor.length];\n      System.arraycopy(declaredByClass, 0, result, 0, declaredByClass.length);\n      System.arraycopy(\n          declaredByConstructor, 0, result, declaredByClass.length, declaredByConstructor.length);\n      return result;\n    }",
+  "code_after": "public abstract TypeVariable<?>[] getTypeParameters();",
+  "javadoc_before": "/**\n     * {@inheritDoc}\n     *\n     * <p>{@code [<E>]} will be returned for ArrayList's constructor. When both the class and the\n     * constructor have type parameters, the class parameters are prepended before those of the\n     * constructor's. This is an arbitrary rule since no existing language spec mandates one way or\n     * the other. From the declaration syntax, the class type parameter appears first, but the call\n     * syntax may show up in opposite order such as {@code new <A>Foo<B>()}.\n     */",
+  "javadoc_after": "/** See {@link java.lang.reflect.GenericDeclaration#getTypeParameters()}. */"
+}

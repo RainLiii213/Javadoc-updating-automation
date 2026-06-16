@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b30738c974b7c960e463e60afe698c0b1f235a29",
+  "issue_summary": "Expander example now has NIO Path versions of IO File APIs.",
+  "code_before": "public void expand(final ArchiveInputStream archive, final File targetDirectory)\n        throws IOException {\n        expand(() -> {\n            ArchiveEntry next = archive.getNextEntry();\n            while (next != null && !archive.canReadEntryData(next)) {\n                next = archive.getNextEntry();\n            }\n            return next;\n        }, (entry, out) -> IOUtils.copy(archive, out), targetDirectory);\n    }",
+  "code_after": "public void expand(final ArchiveInputStream archive, final File targetDirectory) throws IOException {\n        expand(archive, toPath(targetDirectory));\n    }",
+  "javadoc_before": "/**\n     * Expands {@code archive} into {@code targetDirectory}.\n     *\n     * @param archive the file to expand\n     * @param targetDirectory the directory to write to\n     * @throws IOException if an I/O error occurs\n     */",
+  "javadoc_after": "/**\n     * Expands {@code archive} into {@code targetDirectory}.\n     *\n     * @param archive the file to expand\n     * @param targetDirectory the target directory, may be null to simulate output to dev/null on Linux and NUL on Windows.\n     * @throws IOException if an I/O error occurs\n     */"
+}

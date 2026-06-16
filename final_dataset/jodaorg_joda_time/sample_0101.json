@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9f2059f03ebbcc03927f9ae9043aaa5b1527839b",
+  "issue_summary": "Test MutableDateTime",
+  "code_before": "public void add(final Object duration) {\n        if (duration instanceof ReadableDuration) {\n            add((ReadableDuration) duration, 1);\n        } else {\n            DurationConverter converter = ConverterManager.getInstance().getDurationConverter(duration);\n            add(converter.getDurationMillis(duration));\n        }\n    }",
+  "code_after": "public void add(final Object duration) {\n        add(duration, 1);\n    }",
+  "javadoc_before": "/**\n     * Add an amount of time to the datetime.\n     * <p>\n     * The recognised object types are defined in {@link ConverterManager} and\n     * include ReadableDuration, and Long.\n     * \n     * @param duration  an object representing a duration\n     */",
+  "javadoc_after": "/**\n     * Adds an amount of time to this instant.\n     * <p>\n     * If the resulting value is too large for the implementation,\n     * an exception is thrown.\n     * <p>\n     * The recognised object types are defined in {@link ConverterManager} and\n     * include ReadableDuration, String and Long.\n     *\n     * @param duration  an object representing a duration\n     * @throws IllegalArgumentException if the duration is invalid\n     * @throws ArithmeticException if the result exceeds the capacity of the instant\n     */"
+}

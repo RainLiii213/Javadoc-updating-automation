@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0c4f64c2bebd85a96be8a07b1ad700c7688cbe02",
+  "issue_summary": "introduce a parameter class for zip readers",
+  "code_before": "public ZipFile(final File f) throws IOException {\n        this(f, ZipEncodingHelper.UTF8);\n    }",
+  "code_after": "public ZipFile(final File f) throws IOException {\n        this(f, ZipReadingOptions.DEFAULT);\n    }",
+  "javadoc_before": "/**\n     * Opens the given file for reading, assuming \"UTF8\" for file names.\n     *\n     * @param f the archive.\n     *\n     * @throws IOException if an error occurs while reading the file.\n     */",
+  "javadoc_after": "/**\n     * Opens the given file for reading using {@link\n     * ZipReadingOptions#DEFAULT default reading options}.\n     *\n     * @param f the archive.\n     *\n     * @throws IOException if an error occurs while reading the file.\n     */"
+}

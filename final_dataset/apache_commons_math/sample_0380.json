@@ -1,0 +1,8 @@
+{
+  "commit_hash": "88ced96cd013d3070bc0295edba5502814f20947",
+  "issue_summary": "SimpleRegression needs the ability to suppress the intercept",
+  "code_before": "public double getInterceptStdErr() {\n        return FastMath.sqrt(\n            getMeanSquareError() * ((1d / (double) n) + (xbar * xbar) / sumXX));\n    }",
+  "code_after": "public double getInterceptStdErr() {\n        if( !hasIntercept ){\n            return Double.NaN;\n        }\n        return FastMath.sqrt(\n            getMeanSquareError() * ((1d / (double) n) + (xbar * xbar) / sumXX));\n    }",
+  "javadoc_before": "/**\n     * Returns the <a href=\"http://www.xycoon.com/standarderrorb0.htm\">\n     * standard error of the intercept estimate</a>,\n     * usually denoted s(b0).\n     * <p>\n     * If there are fewer that <strong>three</strong> observations in the\n     * model, or if there is no variation in x, this returns\n     * <code>Double.NaN</code>.</p>\n     *\n     * @return standard error associated with intercept estimate\n     */",
+  "javadoc_after": "/**\n     * Returns the <a href=\"http://www.xycoon.com/standarderrorb0.htm\">\n     * standard error of the intercept estimate</a>,\n     * usually denoted s(b0).\n     * <p>\n     * If there are fewer that <strong>three</strong> observations in the\n     * model, or if there is no variation in x, this returns\n     * <code>Double.NaN</code>.</p> Additionally, a <code>Double.NaN</code> is\n     * returned when the intercept is constrained to be zero\n     *\n     * @return standard error associated with intercept estimate\n     */"
+}

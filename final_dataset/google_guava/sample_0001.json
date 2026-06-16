@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6fff6ef7063529a9d3f23b01ef50b173ae658cbd",
+  "issue_summary": "Make the \"direct\" fallback in `FinalizableReferenceQueue` avoid reflection entirely.",
+  "code_before": "private static Class<?> loadFinalizer(FinalizerLoader... loaders) {\n    for (FinalizerLoader loader : loaders) {\n      Class<?> finalizer = loader.loadFinalizer();\n      if (finalizer != null) {\n        return finalizer;\n      }\n    }\n\n    throw new AssertionError();\n  }",
+  "code_after": "private static @Nullable Class<?> loadFinalizer(FinalizerLoader... loaders) {\n    for (FinalizerLoader loader : loaders) {\n      Class<?> finalizer = loader.loadFinalizer();\n      if (finalizer != null) {\n        return finalizer;\n      }\n    }\n\n    return null;\n  }",
+  "javadoc_before": "/**\n   * Iterates through the given loaders until it finds one that can load Finalizer.\n   *\n   * @return Finalizer.class\n   */",
+  "javadoc_after": "/**\n   * Iterates through the given loaders until it finds one that will load Finalizer.\n   *\n   * @return a {@link Class} for {@link Finalizer} or {@code null} if none of the loaders load it\n   */"
+}

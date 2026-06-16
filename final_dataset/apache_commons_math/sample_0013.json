@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3066a8085f86b743da14a161427c403a7038e8b0",
+  "issue_summary": "New sampling API for multivariate distributions (similar to changes performed for ). issue MATH-1351",
+  "code_before": "public MixtureMultivariateNormalDistribution(List<Pair<Double, MultivariateNormalDistribution>> components) {\n        super(components);\n    }",
+  "code_after": "public MixtureMultivariateNormalDistribution(List<Pair<Double, MultivariateNormalDistribution>> components)\n        throws NotPositiveException,\n               DimensionMismatchException {\n        super(components);\n    }",
+  "javadoc_before": "/**\n     * Creates a mixture model from a list of distributions and their\n     * associated weights.\n     * <p>\n     * <b>Note:</b> this constructor will implicitly create an instance of\n     * {@link org.apache.commons.math4.random.Well19937c Well19937c} as random\n     * generator to be used for sampling only (see {@link #sample()} and\n     * {@link #sample(int)}). In case no sampling is needed for the created\n     * distribution, it is advised to pass {@code null} as random generator via\n     * the appropriate constructors to avoid the additional initialisation\n     * overhead.\n     *\n     * @param components List of (weight, distribution) pairs from which to sample.\n     */",
+  "javadoc_after": "/**\n     * Creates a mixture model from a list of distributions and their\n     * associated weights.\n     *\n     * @param components Distributions from which to sample.\n     * @throws NotPositiveException if any of the weights is negative.\n     * @throws DimensionMismatchException if not all components have the same\n     * number of variables.\n     */"
+}

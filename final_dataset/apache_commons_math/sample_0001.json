@@ -1,0 +1,8 @@
+{
+  "commit_hash": "802058f4eef00c02209375210439f52b3268e5ce",
+  "issue_summary": "Remove spurious \"throws\" clauses, and other nits.",
+  "code_before": "public Percentile(final Percentile original) throws NullArgumentException {\n\n        MathUtils.checkNotNull(original);\n        estimationType   = original.getEstimationType();\n        nanStrategy      = original.getNaNStrategy();\n        kthSelector      = original.getKthSelector();\n\n        setData(original.getDataRef());\n        if (original.cachedPivots != null) {\n            System.arraycopy(original.cachedPivots, 0, cachedPivots, 0, original.cachedPivots.length);\n        }\n        setQuantile(original.quantile);\n\n    }",
+  "code_after": "public Percentile(final Percentile original) {\n        MathUtils.checkNotNull(original);\n        estimationType   = original.getEstimationType();\n        nanStrategy      = original.getNaNStrategy();\n        kthSelector      = original.getKthSelector();\n\n        setData(original.getDataRef());\n        if (original.cachedPivots != null) {\n            System.arraycopy(original.cachedPivots, 0, cachedPivots, 0, original.cachedPivots.length);\n        }\n        setQuantile(original.quantile);\n\n    }",
+  "javadoc_before": "/**\n     * Copy constructor, creates a new {@code Percentile} identical\n     * to the {@code original}\n     *\n     * @param original the {@code Percentile} instance to copy\n     * @throws NullArgumentException if original is null\n     */",
+  "javadoc_after": "/**\n     * Copy constructor, creates a new {@code Percentile} identical\n     * to the {@code original}\n     *\n     * @param original the {@code Percentile} instance to copy.\n     * Cannot be {@code null}.\n     */"
+}

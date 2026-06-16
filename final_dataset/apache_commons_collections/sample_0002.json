@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5479a7d765a3c5431eef56d90d9767666f39e89c",
+  "issue_summary": "Fix generic typing for BloomFilter.copy()",
+  "code_before": "<T extends BloomFilter> T copy();",
+  "code_after": "T copy();",
+  "javadoc_before": "/**\n     * Creates a new instance of the BloomFilter with the same properties as the current one.\n     *\n     * @param <T> Type of BloomFilter.\n     * @return a copy of this BloomFilter\n     */",
+  "javadoc_after": "/**\n     * Creates a new instance of this {@link BloomFilter} with the same properties as the current one.\n     *\n     * @return a copy of this {@link BloomFilter}.\n     */"
+}

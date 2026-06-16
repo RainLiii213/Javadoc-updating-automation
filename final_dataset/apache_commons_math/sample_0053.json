@@ -1,0 +1,8 @@
+{
+  "commit_hash": "31fae6431438e26d6b47b988164847048ceab314",
+  "issue_summary": "#comment BicubicSplineInterpolator Maintenance",
+  "code_before": "public BicubicSplineInterpolator()\n    {\n\n    }",
+  "code_after": "public BicubicSplineInterpolator() {\n        this(false);\n    }",
+  "javadoc_before": "/**\n     * Default constructor.\n     */",
+  "javadoc_after": "/**\n     * Default constructor.\n     * The argument {@link #BicubicSplineInterpolator(boolean) initializeDerivatives}\n     * is set to {@code false}.\n     */"
+}

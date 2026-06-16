@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+  "issue_summary": "Overhaul of the \"optimization\" package. Removed lots of duplicate code. Removed methods referring to the concept of \"iteration\". Removed interface methods to access the number of evaluations of the gradient and Jacobian. Removed all references to \"OptimizationException\" (replaced by \"ConvergenceException\"). Javadoc comments updated.",
+  "code_before": "protected abstract void iterateSimplex(final Comparator<RealPointValuePair> comparator)\n        throws FunctionEvaluationException, OptimizationException, IllegalArgumentException;",
+  "code_after": "protected abstract void iterateSimplex(final Comparator<RealPointValuePair> comparator)\n        throws FunctionEvaluationException;",
+  "javadoc_before": "/** Compute the next simplex of the algorithm.\n     * @param comparator comparator to use to sort simplex vertices from best to worst\n     * @exception FunctionEvaluationException if the function cannot be evaluated at\n     * some point\n     * @exception OptimizationException if the algorithm fails to converge\n     * @exception IllegalArgumentException if the start point dimension is wrong\n     */",
+  "javadoc_after": "/**\n     * Compute the next simplex of the algorithm.\n     *\n     * @param comparator Comparator to use to sort simplex vertices from best to worst.\n     * @throws FunctionEvaluationException if the function cannot be evaluated at\n     * some point.\n     * @throws TooManyEvaluationsException if the algorithm fails to converge.\n     * @throws DimensionMismatchException if the start point dimension is wrong.\n     */"
+}

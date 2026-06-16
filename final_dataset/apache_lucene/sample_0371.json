@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fd1820a430c321e6a2b2910004d7d2be60d3db4a",
+  "issue_summary": "Collection Aliases may now have metadata",
+  "code_before": "public Aliases getAliases() {\n    assert aliases != null;\n    return aliases;\n  }",
+  "code_after": "public Aliases getAliases() {\n    return aliasesHolder.getAliases();\n  }",
+  "javadoc_before": "/** Never null. */",
+  "javadoc_after": "/**\n   * Get an immutable copy of the present state of the aliases. References to this object should not be retained\n   * in any context where it will be important to know if aliases have changed.\n   *\n   * @return The current aliases, Aliases.EMPTY if not solr cloud, or no aliases have existed yet. Never returns null.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b2e866b70366c5623e4208898dfa22afdace8d99",
+  "issue_summary": "don't determinize in CompiledAutomaton/RunAutomaton",
+  "code_before": "public CharacterRunAutomaton(Automaton a) {\n    this(a, Operations.DEFAULT_DETERMINIZE_WORK_LIMIT);\n  }",
+  "code_after": "public CharacterRunAutomaton(Automaton a) {\n    super(a, Character.MAX_CODE_POINT + 1);\n  }",
+  "javadoc_before": "/** Construct with a default number of determinizeWorkLimit. */",
+  "javadoc_after": "/**\n   * Construct from a DFA\n   *\n   * @throws IllegalArgumentException if the automaton is not deterministic\n   */"
+}

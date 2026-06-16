@@ -1,0 +1,8 @@
+{
+  "commit_hash": "853176f58997feb2fa6af5bd4ff442ab08d17ef8",
+  "issue_summary": "Improved encoding support for ZIPs, now with Cp437 for JDK 1.4. Submitted by Wolfgang Glas.",
+  "code_before": "protected AbstractUnicodeExtraField(String text, byte[] bytes) {\n        CRC32 crc32 = new CRC32();\n        crc32.update(bytes);\n        nameCRC32 = crc32.getValue();\n\n        try {\n            unicodeName = text.getBytes(\"UTF-8\");\n        } catch (UnsupportedEncodingException e) {\n            throw new RuntimeException(\"FATAL: UTF-8 encoding not supported.\",\n                                       e);\n        }\n    }",
+  "code_after": "protected AbstractUnicodeExtraField(String text, byte[] bytes) {\n\n        this(text, bytes, 0, bytes.length);\n    }",
+  "javadoc_before": "/**\n     * Assemble as unicode extension from the name/comment and\n     * encoding of the orginal zip entry.\n     * \n     * @param text The file name or comment.\n     * @param zipEncoding The encoding of the filenames in the zip\n     * file, usually <code>\"CP437\"</code>.\n     */",
+  "javadoc_after": "/**\n     * Assemble as unicode extension from the name/comment and\n     * encoding of the orginal zip entry.\n     * \n     * @param text The file name or comment.\n     * @param bytes The encoded of the filename or comment in the zip\n     * file.\n     */"
+}

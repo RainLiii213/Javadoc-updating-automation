@@ -1,0 +1,8 @@
+{
+  "commit_hash": "caa771abcd5e0e6b4278c8c606747866a1c76b05",
+  "issue_summary": "BloomFilterExtractor.flatten() should throw an exception instead of returning null",
+  "code_before": "default BloomFilter flatten() {\n        final BloomFilter[] bf = { null };\n        processBloomFilters(x -> {\n            if (bf[0] == null) {\n                bf[0] = new SimpleBloomFilter(x.getShape());\n            }\n            return bf[0].merge(x);\n        });\n        return bf[0];\n    }",
+  "code_after": "default BloomFilter flatten() {\n        final AtomicReference<BloomFilter> ref = new AtomicReference<>();\n        processBloomFilters(x -> {\n            if (ref.get() == null) {\n                ref.set(new SimpleBloomFilter(x.getShape()));\n            }\n            return ref.get().merge(x);\n        });\n        return Objects.requireNonNull(ref.get(), \"No filters.\");\n    }",
+  "javadoc_before": "/**\n     * Create a standard (non-layered) Bloom filter by merging all of the layers. If\n     * the filter is empty this method will return an empty Bloom filter.\n     *\n     * @return the merged bloom filter.\n     */",
+  "javadoc_after": "/**\n     * Create a standard (non-layered) Bloom filter by merging all of the layers. If\n     * the filter is empty this method will return an empty Bloom filter.\n     *\n     * @return the merged bloom filter, never null.\n     * @throws NullPointerException if this call did not process any filters.\n     */"
+}

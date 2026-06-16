@@ -1,0 +1,8 @@
+{
+  "commit_hash": "15f3743f02c2b22487389aa582672a2752d37dfc",
+  "issue_summary": "Remove Operations.isFinite",
+  "code_before": "public CompiledAutomaton(Automaton automaton) {\n    this(automaton, null, true);\n  }",
+  "code_after": "public CompiledAutomaton(Automaton automaton) {\n    this(automaton, false, true);\n  }",
+  "javadoc_before": "/**\n   * Create this, passing simplify=true and finite=null, so that we try to simplify the automaton\n   * and determine if it is finite.\n   */",
+  "javadoc_after": "/** Create this, passing simplify=true, so that we try to simplify the automaton. */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "374abec6b138520cbb99935ae20732b95a6adf22",
+  "issue_summary": "Removed deprecated class \"InvalidMatrixException\".",
+  "code_before": "double[] solve(final double[] b)\n        throws IllegalArgumentException, InvalidMatrixException;",
+  "code_after": "double[] solve(final double[] b);",
+  "javadoc_before": "/** Solve the linear equation A &times; X = B for matrices A.\n     * <p>The A matrix is implicit, it is provided by the underlying\n     * decomposition algorithm.</p>\n     * @param b right-hand side of the equation A &times; X = B\n     * @return a vector X that minimizes the two norm of A &times; X - B\n     * @exception IllegalArgumentException if matrices dimensions don't match\n     * @exception InvalidMatrixException if decomposed matrix is singular\n     */",
+  "javadoc_after": "/** Solve the linear equation A &times; X = B for matrices A.\n     * <p>The A matrix is implicit, it is provided by the underlying\n     * decomposition algorithm.</p>\n     * @param b right-hand side of the equation A &times; X = B\n     * @return a vector X that minimizes the two norm of A &times; X - B\n     * @throws org.apache.commons.math.exception.DimensionMismatchException\n     * if the matrices dimensions do not match.\n     * @throws org.apache.commons.math.exception.SingularMatrixException\n     * if the decomposed matrix is singular.\n     */"
+}

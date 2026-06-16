@@ -73,7 +73,7 @@ def test_commit_has_javadoc_and_code_changes_rejects_docs_only():
     assert not commit_has_javadoc_and_code_changes(patch)
 
 
-def test_bounded_entity_code_pair_limits_large_class_context():
+def test_bounded_entity_code_pair_keeps_complete_large_class_context():
     old = "/** Class docs. */\npublic class Large {\n" + "\n".join(f"int value{i};" for i in range(150)) + "\n}"
     new = old.replace("int value120;", "String value120;")
     old_entity = parse_entities(old)[0]
@@ -81,7 +81,10 @@ def test_bounded_entity_code_pair_limits_large_class_context():
 
     before, after = bounded_entity_code_pair(FileChange("src/main/java/Large.java", old, new), old_entity, new_entity)
 
-    assert len(before.splitlines()) <= 100
-    assert len(after.splitlines()) <= 100
-    assert "value120" in before
-    assert "value120" in after
+    assert len(before.splitlines()) > 100
+    assert len(after.splitlines()) > 100
+    assert before.startswith("public class Large {")
+    assert before.endswith("}")
+    assert "int value120;" in before
+    assert "String value120;" in after
+    assert "// ... relevant changed context ..." not in before

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6cbcb9ebc66d4036d486bf002a2371291b2ab5fa",
+  "issue_summary": "Improved IndexedCollection, refactored test to comply with standard test framework.",
+  "code_before": "public IndexedCollection(Collection<C> coll, Transformer<C, K> keyTransformer, HashMap<K, C> map) {\n        super(coll);\n        this.keyTransformer = keyTransformer;\n        this.index = map;\n        reindex();\n    }",
+  "code_after": "public IndexedCollection(Collection<C> coll, Transformer<C, K> keyTransformer, HashMap<K, C> map) {\n        super(coll);\n        this.keyTransformer = keyTransformer;\n        this.index = new HashMap<K, C>();\n        reindex();\n    }",
+  "javadoc_before": "/**\n     * Create a {@link IndexedCollection} for a unique index.\n     *\n     * @param coll the decorated {@link Collection}.\n     * @param keyTransformer the {@link Transformer} for generating index keys.\n     */",
+  "javadoc_after": "/**\n     * Create a {@link IndexedCollection} for a unique index.\n     *\n     * @param coll  decorated {@link Collection}\n     * @param keyTransformer  {@link Transformer} for generating index keys\n     * @param map  map to use as index\n     */"
+}

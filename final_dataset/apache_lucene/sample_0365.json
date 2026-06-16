@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6771886cf3303a9a2c3cb86c8d0329e55ee0feaa",
+  "issue_summary": "Improve similarity explanations",
+  "code_before": "public Explanation explain(BasicStats stats, double tfn, double aeTimes1pTfn) {\n    return Explanation.match(\n        (float) (score(stats, tfn, aeTimes1pTfn) * (1 + tfn) / aeTimes1pTfn),\n        getClass().getSimpleName() + \", computed from: \",\n        Explanation.match(stats.getNumberOfDocuments(), \"numberOfDocuments\"),\n        Explanation.match(stats.getTotalTermFreq(), \"totalTermFreq\"));\n  }",
+  "code_after": "public abstract Explanation explain (BasicStats stats, double tfn, double aeTimes1pTfn);",
+  "javadoc_before": "/**\n   * Returns an explanation for the score.\n   * <p>Most basic models use the number of documents and the total term\n   * frequency to compute Inf<sub>1</sub>. This method provides a generic\n   * explanation for such models. Subclasses that use other statistics must\n   * override this method.</p>\n   */",
+  "javadoc_after": "/**\n   * Returns an explanation for the score.\n   * Subclasses must override this method.\n   */"
+}

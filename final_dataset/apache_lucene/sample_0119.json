@@ -1,0 +1,8 @@
+{
+  "commit_hash": "945d7fe0273bb734a72eaa9087dcfed80035a760",
+  "issue_summary": "Upgrade ANTLR to version 4.11.1",
+  "code_before": "public static Expression compile(String sourceText) throws ParseException {\n    return new JavascriptCompiler(sourceText)\n        .compileExpression(JavascriptCompiler.class.getClassLoader());\n  }",
+  "code_after": "public static Expression compile(String sourceText) throws ParseException {\n    return compile(sourceText, DEFAULT_FUNCTIONS, JavascriptCompiler.class.getClassLoader());\n  }",
+  "javadoc_before": "/**\n   * Compiles the given expression.\n   *\n   * @param sourceText The expression to compile\n   * @return A new compiled expression\n   * @throws ParseException on failure to compile\n   */",
+  "javadoc_after": "/**\n   * Compiles the given expression using default compiler settings.\n   *\n   * @param sourceText The expression to compile\n   * @return A new compiled expression\n   * @throws ParseException on failure to compile\n   */"
+}

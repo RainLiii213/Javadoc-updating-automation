@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fec9f1c10efa7bd0e5b113b8e545121f10ae257c",
+  "issue_summary": "Upgrade commons-io from 2.15.1 to 2.16.1 https://github.com/apache/commons-compress/pull/513/files",
+  "code_before": "public static boolean isUnixTime(final FileTime time) {\n        // TODO Apache Commons IO 2.16.0\n        return isUnixTime(toUnixTime(time));\n    }",
+  "code_after": "@Deprecated\n    public static boolean isUnixTime(final FileTime time) {\n        return FileTimes.isUnixTime(time);\n    }",
+  "javadoc_before": "/**\n     * Tests whether a FileTime can be safely represented in the standard UNIX time.\n     *\n     * <p>\n     * TODO ? If the FileTime is null, this method always returns true.\n     * </p>\n     *\n     * @param time the FileTime to evaluate, can be null.\n     * @return true if the time exceeds the minimum or maximum UNIX time, false otherwise.\n     */",
+  "javadoc_after": "/**\n     * Tests whether a FileTime can be safely represented in the standard UNIX time.\n     *\n     * <p>\n     * TODO ? If the FileTime is null, this method always returns true.\n     * </p>\n     *\n     * @param time the FileTime to evaluate, can be null.\n     * @return true if the time exceeds the minimum or maximum UNIX time, false otherwise.\n     * @deprecated use {@link FileTimes#isUnixTime(FileTime)}\n     */"
+}

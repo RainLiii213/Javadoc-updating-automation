@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e52d8609949369aebae0297c855936138141c557",
+  "issue_summary": "Make IOUtils.reThrow idiom declare Error return type so callers may use it in a way that compiler knows subsequent code is unreachable. reThrow is now deprecated in favor of IOUtils.rethrowAlways.",
+  "code_before": "public static void reThrow(Throwable th) throws IOException {\n    if (th != null) {\n      if (th instanceof IOException) {\n        throw (IOException) th;\n      }\n      reThrowUnchecked(th);\n    }\n  }",
+  "code_after": "@Deprecated\n  public static void reThrow(Throwable th) throws IOException {\n    if (th != null) {\n      throw rethrowAlways(th);\n    }\n  }",
+  "javadoc_before": "/**\n   * Simple utility method that takes a previously caught\n   * {@code Throwable} and rethrows either {@code\n   * IOException} or an unchecked exception.  If the\n   * argument is null then this method does nothing.\n   */",
+  "javadoc_after": "/**\n   * Rethrows the argument as {@code IOException} or {@code RuntimeException} \n   * if it's not null.\n   * \n   * @deprecated This method is deprecated in favor of {@link #rethrowAlways}. Code should\n   * be updated to {@link #rethrowAlways} and guarded with an additional null-argument check\n   * (because {@link #rethrowAlways} is not accepting null arguments). \n   */"
+}

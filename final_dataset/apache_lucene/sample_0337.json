@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7873cf845e1d513026b6836769b7cbd4d237c2aa",
+  "issue_summary": "PendingDeletes may no longer write to live docs after they are shared.",
+  "code_before": "Bits getLiveDocs() {\n    return liveDocs;\n  }",
+  "code_after": "Bits getLiveDocs() {\n    // Prevent modifications to the returned live docs\n    writeableLiveDocs = null;\n    return liveDocs;\n  }",
+  "javadoc_before": "/**\n   * Returns the current live docs or null if all docs are live. The returned instance might be mutable or is mutated behind the scenes.\n   * If the returned live docs are shared outside of the ReadersAndUpdates {@link #liveDocsShared()} should be called\n   * first.\n   */",
+  "javadoc_after": "/**\n   * Returns a snapshot of the current live docs.\n   */"
+}

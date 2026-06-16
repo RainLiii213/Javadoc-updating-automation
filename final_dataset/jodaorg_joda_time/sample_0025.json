@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5dd55066f00e02606e562f257469bc646cdcaba9",
+  "issue_summary": "Add PeriodFormatBuilder.append(PeriodPrinter,PeriodParser)",
+  "code_before": "public PeriodPrinter toPrinter() {\n        return toFormatter().getPrinter();\n    }",
+  "code_after": "public PeriodPrinter toPrinter() {\n        if (iNotPrinter) {\n            return null;\n        }\n        return toFormatter().getPrinter();\n    }",
+  "javadoc_before": "/**\n     * Internal method to create a PeriodPrinter instance using all the\n     * appended elements.\n     * <p>\n     * Most applications will not use this method.\n     * If you want a printer in an application, call {@link #toFormatter()}\n     * and just use the printing API.\n     * <p>\n     * Subsequent changes to this builder do not affect the returned printer.\n     * \n     * @return the newly created printer\n     */",
+  "javadoc_after": "/**\n     * Internal method to create a PeriodPrinter instance using all the\n     * appended elements.\n     * <p>\n     * Most applications will not use this method.\n     * If you want a printer in an application, call {@link #toFormatter()}\n     * and just use the printing API.\n     * <p>\n     * Subsequent changes to this builder do not affect the returned printer.\n     * \n     * @return the newly created printer, null if builder cannot create a printer\n     */"
+}

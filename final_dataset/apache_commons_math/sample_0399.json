@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1ef23c7fb55f7eafcf2593070a82887d0bce586e",
+  "issue_summary": "Removed setters; convergence checker, line search solver and preconditioner set in contructor.",
+  "code_before": "public NonLinearConjugateGradientOptimizer(final ConjugateGradientFormula updateFormula) {\n        this.updateFormula = updateFormula;\n        preconditioner     = null;\n        solver             = null;\n        initialStep        = 1.0;\n    }",
+  "code_after": "public NonLinearConjugateGradientOptimizer(final ConjugateGradientFormula updateFormula) {\n        this(updateFormula,\n             new SimpleScalarValueChecker());\n    }",
+  "javadoc_before": "/**\n     * Simple constructor with default settings.\n     * The convergence check is set to a {@link\n     * org.apache.commons.math.optimization.SimpleVectorialValueChecker}.\n     *\n     * @param updateFormula formula to use for updating the &beta; parameter,\n     * must be one of {@link ConjugateGradientFormula#FLETCHER_REEVES} or {@link\n     * ConjugateGradientFormula#POLAK_RIBIERE}\n     */",
+  "javadoc_after": "/**\n     * Constructor with default {@link SimpleScalarValueChecker checker},\n     * {@link BrentSolver line search solver} and\n     * {@link IdentityPreconditioner preconditioner}.\n     *\n     * @param updateFormula formula to use for updating the &beta; parameter,\n     * must be one of {@link ConjugateGradientFormula#FLETCHER_REEVES} or {@link\n     * ConjugateGradientFormula#POLAK_RIBIERE}.\n     */"
+}

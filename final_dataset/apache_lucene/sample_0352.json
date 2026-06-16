@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b212f2e9b7b5d20ab8d6168b5ddcb164f536d1af",
+  "issue_summary": "Cluster state caching for nodes not hosting the collection",
+  "code_before": "public DocCollection getCollectionOrNull(String collectionName) {\n    CollectionRef ref = collectionStates.get(collectionName);\n    return ref == null ? null : ref.get();\n  }",
+  "code_after": "public DocCollection getCollectionOrNull(String collectionName) {\n    return getCollectionOrNull(collectionName, false);\n  }",
+  "javadoc_before": "/**\n   * Returns the corresponding {@link DocCollection} object for the given collection name\n   * if such a collection exists. Returns null otherwise.\n   *\n   * Implementation note: This method resolves the collection reference by calling\n   * {@link CollectionRef#get()} which may make a call to ZooKeeper. This is necessary\n   * because the semantics of how collection list is loaded have changed in SOLR-6629.\n   * Please see javadocs in {@link ZkStateReader#refreshCollectionList(Watcher)}\n   */",
+  "javadoc_after": "/**\n   * Returns the corresponding {@link DocCollection} object for the given collection name\n   * if such a collection exists. Returns null otherwise.  Equivalent to getCollectionOrNull(collectionName, false)\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "86119d3c33770a2b8381c5dddb752ca5f29a7568",
+  "issue_summary": "fix: respect read limit in BoundedInputStream.available()",
+  "code_before": "public long getRemaining() {\n        return Math.max(0, getMaxCount() - getCount());\n    }",
+  "code_after": "public long getRemaining() {\n        final long maxCount = getMaxCount();\n        return maxCount == EOF ? Long.MAX_VALUE : Math.max(0, maxCount - getCount());\n    }",
+  "javadoc_before": "/**\n     * Gets how many bytes remain to read.\n     *\n     * @return bytes how many bytes remain to read.\n     * @since 2.16.0\n     */",
+  "javadoc_after": "/**\n     * Gets the number of bytes remaining to read before the maximum is reached.\n     *\n     * <p>\n     * This method does <strong>not</strong> report the bytes available in the\n     * underlying stream; it only reflects the remaining allowance imposed by this\n     * {@code BoundedInputStream}.\n     * </p>\n     *\n     * @return The number of bytes remaining to read before the maximum is reached,\n     *         or {@link Long#MAX_VALUE} if no bound is set.\n     * @since 2.16.0\n     */"
+}

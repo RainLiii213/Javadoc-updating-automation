@@ -1,0 +1,8 @@
+{
+  "commit_hash": "33a4099b9850b4f5ee8f6fe237d07060a4272704",
+  "issue_summary": "Add checks in Streams for incoming stream order",
+  "code_before": "public class StreamEqualitor implements Equalitor<Tuple>, Expressible, Serializable {\n\n  private static final long serialVersionUID = 1;\n\n  private String leftFieldName;\n  private String rightFieldName;\n  private StreamComparator comparator;\n\n  public StreamEqualitor(String fieldName) {\n    init(fieldName, fieldName);\n  }\n  public StreamEqualitor(String leftFieldName, String rightFieldName){\n    init(leftFieldName, rightFieldName);\n  }\n\n  private void init(String leftFieldName, String rightFieldName){\n    this.leftFieldName = leftFieldName;\n    this.rightFieldName = rightFieldName;\n    this.comparator = new StreamComparator(leftFieldName, rightFieldName, ComparatorOrder.ASCENDING);\n  }\n\n  public StreamExpressionParameter toExpression(StreamFactory factory){\n    StringBuilder sb = new StringBuilder();\n\n    sb.append(leftFieldName);\n\n    if(!leftFieldName.equals(rightFieldName)){\n      sb.append(\"=\");\n      sb.append(rightFieldName);\n    }\n\n    return new StreamExpressionValue(sb.toString());\n  }\n\n  public boolean test(Tuple leftTuple, Tuple rightTuple) {\n    return 0 == comparator.compare(leftTuple, rightTuple);\n  }\n}",
+  "code_after": "public interface StreamEqualitor extends Equalitor<Tuple>, Expressible, Serializable {\n  public boolean isDerivedFrom(StreamEqualitor base);\n  public boolean isDerivedFrom(StreamComparator base);\n}",
+  "javadoc_before": "/**\n *  An equality field Equalitor which compares a field of two Tuples and determines if they are equal.\n **/",
+  "javadoc_after": "/** Defines a comparator we can use with TupleStreams */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "62f86d9580e1937583a142bb9f1febc472a39a2e",
+  "issue_summary": "ArrayFieldVector can now be constructed from any FieldVector.",
+  "code_before": "public ArrayFieldVector(ArrayFieldVector<T> v1, ArrayFieldVector<T> v2)\n            throws NullArgumentException {\n        MathUtils.checkNotNull(v1);\n        MathUtils.checkNotNull(v2);\n        field = v1.getField();\n        data = MathArrays.buildArray(field, v1.data.length + v2.data.length);\n        System.arraycopy(v1.data, 0, data, 0, v1.data.length);\n        System.arraycopy(v2.data, 0, data, v1.data.length, v2.data.length);\n    }",
+  "code_after": "@Deprecated\n    public ArrayFieldVector(ArrayFieldVector<T> v1, ArrayFieldVector<T> v2)\n            throws NullArgumentException {\n        this((FieldVector<T>) v1, (FieldVector<T>) v2);\n    }",
+  "javadoc_before": "/**\n     * Construct a vector by appending one vector to another vector.\n     *\n     * @param v1 First vector (will be put in front of the new vector).\n     * @param v2 Second vector (will be put at back of the new vector).\n     * @throws NullArgumentException if {@code v1} or {@code v2} is\n     * {@code null}.\n     */",
+  "javadoc_after": "/**\n     * Construct a vector by appending one vector to another vector.\n     *\n     * @param v1 First vector (will be put in front of the new vector).\n     * @param v2 Second vector (will be put at back of the new vector).\n     * @throws NullArgumentException if {@code v1} or {@code v2} is\n     * {@code null}.\n     * @deprecated as of 3.2, replaced by {@link #ArrayFieldVector(FieldVector, FieldVector)}\n     */"
+}

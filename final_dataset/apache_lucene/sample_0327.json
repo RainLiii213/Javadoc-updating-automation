@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5ae716c412d705570b2dafd423755eb58142212e",
+  "issue_summary": "StandardAnalyzer not longer uses english stopwords by default",
+  "code_before": "public StandardAnalyzer() {\n    this(STOP_WORDS_SET);\n  }",
+  "code_after": "public StandardAnalyzer() {\n    this(CharArraySet.EMPTY_SET);\n  }",
+  "javadoc_before": "/** Builds an analyzer with the default stop words ({@link #STOP_WORDS_SET}).\n   */",
+  "javadoc_after": "/** Builds an analyzer with no stop words.\n   */"
+}

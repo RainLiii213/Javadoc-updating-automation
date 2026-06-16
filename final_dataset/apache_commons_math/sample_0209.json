@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9e69a3400847abbff912f1848e29d7eee6643f5d",
+  "issue_summary": "Added missing throws declarations. JIRA: .",
+  "code_before": "public Max(Max original) {\n        copy(original, this);\n    }",
+  "code_after": "public Max(Max original) throws NullArgumentException {\n        copy(original, this);\n    }",
+  "javadoc_before": "/**\n     * Copy constructor, creates a new {@code Max} identical\n     * to the {@code original}\n     *\n     * @param original the {@code Max} instance to copy\n     */",
+  "javadoc_after": "/**\n     * Copy constructor, creates a new {@code Max} identical\n     * to the {@code original}\n     *\n     * @param original the {@code Max} instance to copy\n     * @throws NullArgumentException if original is null\n     */"
+}

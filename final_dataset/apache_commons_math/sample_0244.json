@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9e933debcb82fa645c66d561d2dc4c179390b4e6",
+  "issue_summary": "Populate throws declarations for geometry package.",
+  "code_before": "public SubLine(final Vector3D start, final Vector3D end) {\n        this(new Line(start, end), buildIntervalSet(start, end));\n    }",
+  "code_after": "public SubLine(final Vector3D start, final Vector3D end)\n        throws MathIllegalArgumentException {\n        this(new Line(start, end), buildIntervalSet(start, end));\n    }",
+  "javadoc_before": "/** Create a sub-line from two endpoints.\n     * @param start start point\n     * @param end end point\n     */",
+  "javadoc_after": "/** Create a sub-line from two endpoints.\n     * @param start start point\n     * @param end end point\n     * @exception MathIllegalArgumentException if the points are equal\n     */"
+}

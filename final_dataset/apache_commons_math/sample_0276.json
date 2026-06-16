@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f81d4ff3a0a38839b415f6ba6699e729fce98245",
+  "issue_summary": "Cleanup ListPopulation class after suggestion from Reid Hochstedler added more sanity checks/exceptions in ctor and setters, unit tests, hide and protect internal representation.",
+  "code_before": "public void addChromosome(final Chromosome chromosome) {\n        this.chromosomes.add(chromosome);\n    }",
+  "code_after": "public void addChromosome(final Chromosome chromosome) {\n        if (chromosomes.size() >= populationLimit) {\n            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,\n                                                chromosomes.size(), populationLimit, false);\n        }\n        this.chromosomes.add(chromosome);\n    }",
+  "javadoc_before": "/**\n     * Add the given chromosome to the population.\n     * @param chromosome the chromosome to add.\n     */",
+  "javadoc_after": "/**\n     * Add the given chromosome to the population.\n     * @param chromosome the chromosome to add.\n     * @throws NumberIsTooLargeException if the population would exceed the {@code populationLimit} after\n     * adding this chromosome\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6f9b67a4e3817169516d24939a2aa5242ce65d49",
+  "issue_summary": "Return DateTime not Instant from add as period is date based",
+  "code_before": "Instant addTo(ReadableInstant instant, int scalar);",
+  "code_after": "DateTime addTo(ReadableInstant instant, int scalar);",
+  "javadoc_before": "/**\n     * Adds this period to the given instant, returning a new Instant.\n     * <p>\n     * To add just once, pass in a scalar of one. To subtract once, pass\n     * in a scalar of minus one.\n     *\n     * @param instant  the instant to add the period to\n     * @param scalar  the number of times to add the period, negative to subtract\n     * @return instant with the original value plus this period times scalar\n     * @throws IllegalArgumentException if the instant is null\n     * @throws ArithmeticException if the result of the calculation is too large\n     */",
+  "javadoc_after": "/**\n     * Adds this period to the given instant, returning a new DateTime.\n     * <p>\n     * To add just once, pass in a scalar of one. To subtract once, pass\n     * in a scalar of minus one.\n     *\n     * @param instant  the instant to add the period to\n     * @param scalar  the number of times to add the period, negative to subtract\n     * @return datetime with the original value plus this period times scalar\n     * @throws IllegalArgumentException if the instant is null\n     * @throws ArithmeticException if the result of the calculation is too large\n     */"
+}

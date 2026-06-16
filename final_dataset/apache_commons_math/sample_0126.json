@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4870a5d99dd5bc2662e59c84cfe91d766d09cf6b",
+  "issue_summary": "Removed \"initialCapacity\" field.",
+  "code_before": "protected void setInitialCapacity(int initialCapacity)\n        throws MathIllegalArgumentException {\n        if (initialCapacity > 0) {\n            synchronized(this) {\n                this.initialCapacity = initialCapacity;\n            }\n        } else {\n            throw new MathIllegalArgumentException(LocalizedFormats.INITIAL_CAPACITY_NOT_POSITIVE,\n                                                   initialCapacity);\n        }\n    }",
+  "code_after": "@Deprecated\n    protected void setInitialCapacity(int initialCapacity)\n        throws MathIllegalArgumentException {\n        // Body removed in 3.1.\n    }",
+  "javadoc_before": "/**\n     * Sets the initial capacity.  Should only be invoked by constructors.\n     *\n     * @param initialCapacity of the array\n     * @throws MathIllegalArgumentException if <code>initialCapacity</code> is not\n     * positive.\n     */",
+  "javadoc_after": "/**\n     * Sets the initial capacity.  Should only be invoked by constructors.\n     *\n     * @param initialCapacity of the array\n     * @throws MathIllegalArgumentException if <code>initialCapacity</code> is not\n     * positive.\n     * @deprecated As of 3.1, this is a no-op.\n     */"
+}

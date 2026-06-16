@@ -1,0 +1,8 @@
+{
+  "commit_hash": "29cd56b6f41313f758e4b559d1140c68afdd55b3",
+  "issue_summary": "Removed unchecked exceptions from method signatures. See Commons-Dev mailing list http://mail-archives.apache.org/mod_mbox/commons-dev/201201.mbox/%3C20120113105913.GM6537%40dusk.harfang.homelinux.org%3E \"Effective Java, second edition\", item 62.",
+  "code_before": "String nextHexString(int len) throws NotStrictlyPositiveException;",
+  "code_after": "String nextHexString(int len);",
+  "javadoc_before": "/**\n     * Generates a random string of hex characters of length {@code len}.\n     * <p>\n     * The generated string will be random, but not cryptographically\n     * secure. To generate cryptographically secure strings, use\n     * {@link #nextSecureHexString(int)}.\n     * </p>\n     *\n     * @param len the length of the string to be generated\n     * @return a random string of hex characters of length {@code len}\n     * @throws NotStrictlyPositiveException if {@code len <= 0}\n     */",
+  "javadoc_after": "/**\n     * Generates a random string of hex characters of length {@code len}.\n     * <p>\n     * The generated string will be random, but not cryptographically\n     * secure. To generate cryptographically secure strings, use\n     * {@link #nextSecureHexString(int)}.\n     * </p>\n     *\n     * @param len the length of the string to be generated\n     * @return a random string of hex characters of length {@code len}\n     * @throws org.apache.commons.math.exception.NotStrictlyPositiveException\n     * if {@code len <= 0}\n     */"
+}

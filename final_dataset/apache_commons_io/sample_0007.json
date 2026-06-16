@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3a47f39276bb2d0900fdb47c76c80ec32aae17e7",
+  "issue_summary": "BOMInputStream fail-fast and tracks its ByteOrderMark as a final",
+  "code_before": "@Deprecated\n    public BOMInputStream(final InputStream delegate) {\n        this(delegate, false, Builder.DEFAULT);\n    }",
+  "code_after": "@Deprecated\n    public BOMInputStream(final InputStream delegate) throws IOException {\n        this(delegate, false, Builder.DEFAULT);\n    }",
+  "javadoc_before": "/**\n     * Constructs a new BOM InputStream that excludes a {@link ByteOrderMark#UTF_8} BOM.\n     *\n     * @param delegate\n     *            the InputStream to delegate to.\n     * @deprecated Use {@link #builder()}, {@link Builder}, and {@link Builder#get()}\n     */",
+  "javadoc_after": "/**\n     * Constructs a new BOM InputStream that excludes a {@link ByteOrderMark#UTF_8} BOM.\n     *\n     * @param delegate the InputStream to delegate to.\n     * @throws IOException if an error reading the first bytes of the stream occurs.\n     * @deprecated Use {@link #builder()}, {@link Builder}, and {@link Builder#get()}.\n     */"
+}

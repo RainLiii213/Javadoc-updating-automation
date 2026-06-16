@@ -1,0 +1,8 @@
+{
+  "commit_hash": "06880f1138498473cebcb273d034d0e9d4d4aed6",
+  "issue_summary": "Populated throws clause of RealMatrix ; javadoc + formatting.",
+  "code_before": "RealMatrix subtract(RealMatrix m);",
+  "code_after": "RealMatrix subtract(RealMatrix m)\n        throws MatrixDimensionMismatchException;",
+  "javadoc_before": "/**\n     * Compute this minus m.\n     *\n     * @param m    matrix to be subtracted\n     * @return     this - m\n     * @throws  IllegalArgumentException if m is not the same size as this\n     */",
+  "javadoc_after": "/**\n     * Computes {@code this} minus {@code m}.\n     *\n     * @param m matrix to be subtracted\n     * @return {@code this - m}\n     * @throws MatrixDimensionMismatchException if {@code m} is not the same\n     * size as {@code this}.\n     */"
+}

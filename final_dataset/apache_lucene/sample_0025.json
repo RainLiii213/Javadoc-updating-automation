@@ -1,0 +1,8 @@
+{
+  "commit_hash": "75108f430664fc3c428fdc38b8995bef246ccb87",
+  "issue_summary": "Deprecate SortField.setMissingValue()",
+  "code_before": "public SortField(String field, Type type, boolean reverse) {\n    this.field = field;\n    this.type = type;\n    this.reverse = reverse;\n    validateField(field, type);\n  }",
+  "code_after": "public SortField(String field, Type type, boolean reverse) {\n    this(field, type, reverse, null);\n  }",
+  "javadoc_before": "/**\n   * Creates a sort, possibly in reverse, by terms in the given field with the type of term values\n   * explicitly given.\n   *\n   * @param field Name of field to sort by. Can be <code>null</code> if <code>type</code> is SCORE\n   *     or DOC.\n   * @param type Type of values in the terms.\n   * @param reverse True if natural order should be reversed.\n   */",
+  "javadoc_after": "/**\n   * Creates a sort by terms in the given field with the type of term values explicitly given.\n   *\n   * @param field Name of field to sort by. Can be <code>null</code> if <code>type</code> is SCORE\n   *     or DOC.\n   * @param type Type of values in the terms.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8d969d60536b8878f73fd494c517de5d18be9d89",
+  "issue_summary": "Revert \" : throws IOException if non-number exists in pax header\"",
+  "code_before": "public void addPaxHeader(String name, String value) throws IOException {\n        processPaxHeader(name, value);\n    }",
+  "code_after": "public void addPaxHeader(String name,String value) {\n         processPaxHeader(name,value);\n    }",
+  "javadoc_before": "/**\n     * add a PAX header to this entry. If the header corresponds to an existing field in the entry,\n     * that field will be set; otherwise the header will be added to the extraPaxHeaders Map\n     *\n     * @param name  The full name of the header to set.\n     * @param value value of header.\n     * @throws IOException if error occurs when parsing pax header\n     * @since 1.15\n     */",
+  "javadoc_after": "/**\n     * add a PAX header to this entry. If the header corresponds to an existing field in the entry,\n     * that field will be set; otherwise the header will be added to the extraPaxHeaders Map\n     * @param name  The full name of the header to set.\n     * @param value value of header.\n     * @since 1.15\n     */"
+}

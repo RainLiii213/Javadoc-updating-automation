@@ -7,6 +7,9 @@ from pathlib import PurePosixPath
 
 JAVADOC_TAGS = ("@param", "@return", "@throws", "@exception", "@see", "@since")
 TEST_NAME_PATTERN = re.compile(r"(^Test.*|.*Tests?|.*TestCase)\.java$")
+NON_PRODUCTION_PATH_PATTERN = re.compile(
+    r"(^|[-_])(?:test|tests|testlib|testdata|benchmark|benchmarks|generated)([-_]|$)"
+)
 IGNORED_JAVADOC_TAGS = {"@see", "@since", "@version", "@author"}
 UNINFORMATIVE_WORDS = {
     "a",
@@ -73,9 +76,18 @@ def is_target_java_path(path: str) -> bool:
     normalized = path.replace("\\", "/")
     pure_path = PurePosixPath(normalized)
     name = pure_path.name
-    if not normalized.startswith("src/main/java/"):
-        return False
     if not normalized.endswith(".java"):
+        return False
+    parts = [part.lower() for part in pure_path.parts]
+    if "src" not in parts:
+        return False
+    if parts and parts[0] == "android":
+        return False
+    if any(
+        part in {"test", "tests", "testdata", "generated", "target", "build"}
+        or NON_PRODUCTION_PATH_PATTERN.search(part)
+        for part in parts[:-1]
+    ):
         return False
     return not TEST_NAME_PATTERN.match(name)
 

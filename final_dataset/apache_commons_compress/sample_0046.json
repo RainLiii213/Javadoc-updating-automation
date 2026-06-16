@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cf88875456e9f0230bb0dedb40a801cf8474d51b",
+  "issue_summary": "Reuse commons-io, don't duplicate class FileTimes (deprecated TimeUtils methods)",
+  "code_before": "public static Date toDate(final FileTime fileTime) {\n        return fileTime != null ? new Date(fileTime.toMillis()) : null;\n    }",
+  "code_after": "@Deprecated\n    public static Date toDate(final FileTime fileTime) {\n        return FileTimes.toDate(fileTime);\n    }",
+  "javadoc_before": "/**\n     * Converts {@link FileTime} to a {@link Date}. If the provided FileTime is {@code null}, the returned Date is also {@code null}.\n     *\n     * @param fileTime the file time to be converted.\n     * @return a {@link Date} which corresponds to the supplied time, or {@code null} if the time is {@code null}.\n     * @see TimeUtils#toFileTime(Date)\n     */",
+  "javadoc_after": "/**\n     * Converts {@link FileTime} to a {@link Date}. If the provided FileTime is {@code null}, the returned Date is also {@code null}.\n     *\n     * @param fileTime the file time to be converted.\n     * @return a {@link Date} which corresponds to the supplied time, or {@code null} if the time is {@code null}.\n     * @see TimeUtils#toFileTime(Date)\n     * @deprecated Use {@link FileTimes#toDate(FileTime)}.\n     */"
+}

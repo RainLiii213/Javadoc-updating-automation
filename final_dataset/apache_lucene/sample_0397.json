@@ -1,0 +1,8 @@
+{
+  "commit_hash": "abc393dbfdb805361747ef651393332968851f3d",
+  "issue_summary": "Remove LeafReader.fields in lieu of LeafReader.terms. Optimized MultiFields.getTerms.",
+  "code_before": "public final Terms terms(String field) throws IOException {\n    return fields().terms(field);\n  }",
+  "code_after": "public abstract Terms terms(String field) throws IOException;",
+  "javadoc_before": "/** This may return null if the field does not exist.*/",
+  "javadoc_after": "/** Returns the {@link Terms} index for this field, or null if it has none. */"
+}

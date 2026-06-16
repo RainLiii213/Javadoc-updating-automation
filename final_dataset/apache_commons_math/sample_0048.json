@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4e08e17ec536038c9c0dd888f77b912cae82816c",
+  "issue_summary": "Remove support for NaNStrategy#REMOVED in SpearmansCorrelation.",
+  "code_before": "public SpearmansCorrelation(final RankingAlgorithm rankingAlgorithm) {\n        data = null;\n        this.rankingAlgorithm = rankingAlgorithm;\n        rankCorrelation = null;\n    }",
+  "code_after": "public SpearmansCorrelation(final RankingAlgorithm rankingAlgorithm)\n        throws MathIllegalArgumentException {\n\n        if (rankingAlgorithm instanceof NaturalRanking &&\n            NaNStrategy.REMOVED == ((NaturalRanking) rankingAlgorithm).getNanStrategy()) {\n            throw new MathIllegalArgumentException(LocalizedFormats.NOT_SUPPORTED_NAN_STRATEGY,\n                                                   NaNStrategy.REMOVED);\n        }\n\n        data = null;\n        this.rankingAlgorithm = rankingAlgorithm;\n        rankCorrelation = null;\n    }",
+  "javadoc_before": "/**\n     * Create a SpearmansCorrelation with the given ranking algorithm.\n     * <p>\n     * From version 4.0 onwards this constructor will throw an exception\n     * if the provided {@link NaturalRanking} uses a {@link NaNStrategy#REMOVED} strategy.\n     *\n     * @param rankingAlgorithm ranking algorithm\n     * @since 3.1\n     */",
+  "javadoc_after": "/**\n     * Create a SpearmansCorrelation with the given ranking algorithm.\n     *\n     * @param rankingAlgorithm ranking algorithm\n     * @throws MathIllegalArgumentException if the provided {@link RankingAlgorithm} is of\n     * type {@link NaturalRanking} and uses a {@link NaNStrategy#REMOVED} strategy\n     * @since 3.1\n     */"
+}

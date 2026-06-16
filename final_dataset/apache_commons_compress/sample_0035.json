@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1a6e7cdb6408d823c7352f6a2455df9262955c87",
+  "issue_summary": "ArchiveInputStream markSupported should always return false",
+  "code_before": "@Override\n    public synchronized void reset() {\n        // noop\n    }",
+  "code_after": "@Override\n    public synchronized void reset() throws IOException {\n        // noop\n    }",
+  "javadoc_before": "/**\n     * Does nothing.\n     *\n     * TODO [COMPRESS-670] Support mark() and reset() in ArchiveInputStream.\n     */",
+  "javadoc_after": "/**\n     * Does nothing.\n     *\n     * TODO [COMPRESS-670] Support mark() and reset() in ArchiveInputStream.\n     *\n     * @throws IOException not thrown here but may be thrown from a subclass.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c95fc106ff08d0652b5d661cab9a73f38697eccc",
+  "issue_summary": "Throwables#lazyStackTrace unsupported on IBM JDK 6",
+  "code_before": "@GwtIncompatible // java.lang.reflect\n  @Nullable\n  private static Method getSizeMethod() {\n    return getJlaMethod(\"getStackTraceDepth\", Throwable.class);\n  }",
+  "code_after": "@GwtIncompatible // java.lang.reflect\n  @Nullable\n  private static Method getSizeMethod() {\n    try {\n      Method getStackTraceDepth = getJlaMethod(\"getStackTraceDepth\", Throwable.class);\n      if (getStackTraceDepth == null) {\n        return null;\n      }\n      getStackTraceDepth.invoke(getJLA(), new Throwable());\n      return getStackTraceDepth;\n    } catch (UnsupportedOperationException | IllegalAccessException | InvocationTargetException e) {\n      return null;\n    }\n  }",
+  "javadoc_before": "/**\n   * Returns the Method that can be used to return the size of a stack, or null if that method\n   * cannot be found (it is only to be found in fairly recent JDKs).\n   */",
+  "javadoc_after": "/**\n   * Returns the Method that can be used to return the size of a stack, or null if that method\n   * cannot be found (it is only to be found in fairly recent JDKs). Tries to test method {@link\n   * sun.misc.JavaLangAccess#getStackTraceDepth(Throwable)} getStackTraceDepth} prior to return it\n   * (might fail some JDKs).\n   *\n   * <p>See <a href=\"https://github.com/google/guava/issues/2887\">Throwables#lazyStackTrace throws\n   * UnsupportedOperationException</a>.\n   */"
+}

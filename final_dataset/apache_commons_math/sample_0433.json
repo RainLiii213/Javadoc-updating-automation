@@ -1,0 +1,8 @@
+{
+  "commit_hash": "26c1c29575499d622fc026fcbf40fde3c210d6d9",
+  "issue_summary": "fixed checkstyle and findbugs warnings",
+  "code_before": "public double getEventTime() {\n        return pendingEventTime;\n    }",
+  "code_after": "public double getEventTime() {\n        return pendingEvent ? pendingEventTime : Double.POSITIVE_INFINITY;\n    }",
+  "javadoc_before": "/** Get the occurrence time of the event triggered in the current\n     * step.\n     * @return occurrence time of the event triggered in the current\n     * step.\n     */",
+  "javadoc_after": "/** Get the occurrence time of the event triggered in the current step.\n     * @return occurrence time of the event triggered in the current\n     * step or positive infinity if no events are triggered\n     */"
+}

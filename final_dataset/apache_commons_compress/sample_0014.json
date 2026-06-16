@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e2340561e499d8f1eb606fd3d20c2900437eee2a",
+  "issue_summary": "NullPointerException in ZipArchiveInputStream.getCompressedCount()",
+  "code_before": "long getCompressedCount();",
+  "code_after": "long getCompressedCount() throws IOException;",
+  "javadoc_before": "/**\n     * Gets the amount of raw or compressed bytes read by the stream.\n     *\n     * @return the amount of raw or compressed bytes read by the stream.\n     */",
+  "javadoc_after": "/**\n     * Gets the amount of raw or compressed bytes read by the stream.\n     *\n     * @return the amount of raw or compressed bytes read by the stream.\n     * @throws IOException if a formatting error occurs.\n     */"
+}

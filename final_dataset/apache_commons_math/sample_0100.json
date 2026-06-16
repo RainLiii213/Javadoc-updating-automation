@@ -1,0 +1,8 @@
+{
+  "commit_hash": "49444ee6a56caee4eddc32c24dd960dd3195f7fa",
+  "issue_summary": "Allow covariance to be computed for one-dimensional variables.",
+  "code_before": "protected RealMatrix computeCovarianceMatrix(double[][] data, boolean biasCorrected)\n    throws MathIllegalArgumentException {\n        return computeCovarianceMatrix(new BlockRealMatrix(data), biasCorrected);\n    }",
+  "code_after": "protected RealMatrix computeCovarianceMatrix(double[][] data, boolean biasCorrected)\n    throws MathIllegalArgumentException, NotStrictlyPositiveException {\n        return computeCovarianceMatrix(new BlockRealMatrix(data), biasCorrected);\n    }",
+  "javadoc_before": "/**\n     * Compute a covariance matrix from a rectangular array whose columns represent\n     * covariates.\n     * @param data input array (must have at least two columns and two rows)\n     * @param biasCorrected determines whether or not covariance estimates are bias-corrected\n     * @return covariance matrix\n     * @throws MathIllegalArgumentException if the data array does not contain sufficient\n     * data\n     */",
+  "javadoc_after": "/**\n     * Compute a covariance matrix from a rectangular array whose columns represent\n     * covariates.\n     * @param data input array (must have at least one column and two rows)\n     * @param biasCorrected determines whether or not covariance estimates are bias-corrected\n     * @return covariance matrix\n     * @throws MathIllegalArgumentException if the data array does not contain sufficient\n     * data\n     * @throws NotStrictlyPositiveException if the input data array is not\n     * rectangular with at least one row and one column.\n     */"
+}

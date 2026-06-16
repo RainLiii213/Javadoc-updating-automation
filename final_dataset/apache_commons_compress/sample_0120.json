@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b8101b95c1d647b59697fed229bbbd8b5493b17c",
+  "issue_summary": "allow callback to throw IOException",
+  "code_before": "public void compress(byte[] data) {\n        compress(data, 0, data.length);\n    }",
+  "code_after": "public void compress(byte[] data) throws IOException {\n        compress(data, 0, data.length);\n    }",
+  "javadoc_before": "/**\n     * Feeds bytes into the compressor which in turn may emit zero or\n     * more blocks to the callback during the execution of this\n     * method.\n     * @param data the data to compress - must not be null\n     */",
+  "javadoc_after": "/**\n     * Feeds bytes into the compressor which in turn may emit zero or\n     * more blocks to the callback during the execution of this\n     * method.\n     * @param data the data to compress - must not be null\n     * @throws IOException if the callback throws an exception\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "90b6dbd70736b4426170f8fbab2e4a3c0a5b5a10",
+  "issue_summary": "Add FileBackedOutputStream.asByteSource(), a ByteSource-returning method to replace getSupplier(). Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=47293826",
+  "code_before": "public InputSupplier<InputStream> getSupplier() {\n    return supplier;\n  }",
+  "code_after": "@Deprecated\n  public InputSupplier<InputStream> getSupplier() {\n    return asByteSource();\n  }",
+  "javadoc_before": "/**\n   * Returns a supplier that may be used to retrieve the data buffered\n   * by this stream.\n   */",
+  "javadoc_after": "/**\n   * Returns a supplier that may be used to retrieve the data buffered\n   * by this stream. This method returns the same object as\n   * {@link #asByteSource()}.\n   *\n   * @deprecated Use {@link #asByteSource()} instead. This method is scheduled\n   *     to be removed in Guava 16.0.\n   */"
+}

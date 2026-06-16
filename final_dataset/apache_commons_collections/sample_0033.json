@@ -1,0 +1,8 @@
+{
+  "commit_hash": "68bbd2cf4a5c0eff498d46dddd527cb06274f852",
+  "issue_summary": "Consistently use a NullPointerException if a required input is null.",
+  "code_before": "public static <E> E extractSingleton(final Collection<E> collection) {\n        if (collection == null || collection.size() != 1) {\n            throw new IllegalArgumentException(\"Can extract singleton only when collection size == 1\");\n        }\n        return collection.iterator().next();\n    }",
+  "code_after": "public static <E> E extractSingleton(final Collection<E> collection) {\n        if (collection == null) {\n            throw new NullPointerException(\"Collection must not be null.\");\n        }\n        if (collection.size() != 1) {\n            throw new IllegalArgumentException(\"Can extract singleton only when collection size == 1\");\n        }\n        return collection.iterator().next();\n    }",
+  "javadoc_before": "/**\n     * Extract the lone element of the specified Collection.\n     * @param <E> collection type\n     * @param collection to read\n     * @return sole member of collection\n     * @throws IllegalArgumentException if collection is null/empty or contains more than one element\n     * @since 4.0\n     */",
+  "javadoc_after": "/**\n     * Extract the lone element of the specified Collection.\n     * @param <E> collection type\n     * @param collection to read\n     * @return sole member of collection\n     * @throws NullPointerException if collection is null\n     * @throws IllegalArgumentException if collection is empty or contains more than one element\n     * @since 4.0\n     */"
+}

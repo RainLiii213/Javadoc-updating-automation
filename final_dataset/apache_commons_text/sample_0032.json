@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4b67dd516dbb23b31d4b35d3f737f31de86a1cda",
+  "issue_summary": "Add a replacement for StrSubstitutor based on interfaces StringSubstitutor.",
+  "code_before": "@Deprecated\n    public StrLookup<?> getVariableResolver() {\n        return (StrLookup<?>) this.variableResolver;\n    }",
+  "code_after": "public StrLookup<?> getVariableResolver() {\n        return this.variableResolver;\n    }",
+  "javadoc_before": "/**\n     * Gets the VariableResolver that is used to lookup variables.\n     *\n     * @return the VariableResolver\n     * @deprecated Use {@link #getStringLookup()}.\n     */",
+  "javadoc_after": "/**\n     * Gets the VariableResolver that is used to lookup variables.\n     *\n     * @return the VariableResolver\n     */"
+}

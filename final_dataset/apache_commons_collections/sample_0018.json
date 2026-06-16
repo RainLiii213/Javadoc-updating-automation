@@ -1,0 +1,8 @@
+{
+  "commit_hash": "87647d0812f3ec8f10ead3d2059e60801f7538b7",
+  "issue_summary": "Simplify bloom filters",
+  "code_before": "boolean merge(BloomFilter other);",
+  "code_after": "default BloomFilter merge(BloomFilter other) {\n        Objects.requireNonNull(other, \"other\");\n        BloomFilter result = copy();\n        result.mergeInPlace(other);\n        return result;\n    }",
+  "javadoc_before": "/**\n     * Merges the specified Bloom filter into this Bloom filter. Specifically all bit indexes\n     * that are enabled in the {@code other} filter will be enabled in this filter.\n     *\n     * <p>Note: This method should return {@code true} even if no additional bit indexes were\n     * enabled. A {@code false} result indicates that this filter is not ensured to contain\n     * the {@code other} Bloom filter.\n     *\n     * @param other the other Bloom filter\n     * @return true if the merge was successful\n     * @throws IllegalArgumentException if the shape of the other filter does not match\n     * the shape of this filter\n     */",
+  "javadoc_after": "/**\n     * Merges the specified Bloom filter with this Bloom filter creating a new Bloom filter.\n     *\n     * <p>Specifically all bit indexes that are enabled in the {@code other} and in @code this} filter will be\n     * enabled in the resulting filter.</p>\n     *\n     * @param other the other Bloom filter\n     * @return The new Bloom filter.\n     */"
+}

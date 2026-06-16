@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2b5ec00f0ff2d800290f9ec0d3cfa00898491675",
+  "issue_summary": "In transform.FastSineTransformer, replaced the pair transform2() / inverseTransform2() with two factory methods: create() and createOrthogonal() .",
+  "code_before": "public double[] transform(double[] f)\n        throws IllegalArgumentException {\n        return fst(f);\n    }",
+  "code_after": "public double[] transform(double[] f) throws IllegalArgumentException {\n        if (orthogonal){\n            final double s = FastMath.sqrt(2.0 / f.length);\n            return FastFourierTransformer.scaleArray(fst(f), s);\n        }\n        return fst(f);\n    }",
+  "javadoc_before": "/**\n     * Transform the given real data set.\n     * <p>\n     * The formula is F<sub>n</sub> = &sum;<sub>k=0</sub><sup>N-1</sup> f<sub>k</sub> sin(&pi; nk/N)\n     * </p>\n     *\n     * @param f the real data array to be transformed\n     * @return the real transformed array\n     * @throws IllegalArgumentException if any parameters are invalid\n     */",
+  "javadoc_after": "/**\n     * {@inheritDoc}\n     *\n     * The first element of the specified data set is required to be {@code 0}.\n     */"
+}

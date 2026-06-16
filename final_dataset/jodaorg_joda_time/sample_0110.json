@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dc281ce23550136680863097623d8e5aa3bb576b",
+  "issue_summary": "PartialInstant set method",
+  "code_before": "int getValue(int index) {\n        return iValues[index];\n    }",
+  "code_after": "public int getValue(int index) {\n        if (index < 0 || index > 4) {\n            throw new IllegalArgumentException(Integer.toString(index));\n        }\n        return iValues[index];\n    }",
+  "javadoc_before": "/**\n     * Gets the value of the field at the specifed index.\n     * \n     * @param index  the index\n     * @return the value\n     */",
+  "javadoc_after": "/**\n     * Gets the value of the field at the specifed index.\n     * \n     * @param index  the index\n     * @return the value\n     * @throws IndexOutOfBoundsException if the index is invalid\n     */"
+}

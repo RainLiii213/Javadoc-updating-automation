@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dfd0f7dedc650c7c519102e9bc45c497f480eaf5",
+  "issue_summary": "ComparisonChain.compare(boolean, boolean) is too confusing, especially when users have to negate or reverse the parameters so as to get true to come first. Adding compareTrueFirst and compareFalseFirst, and deprecating compare(boolean boolean). Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=28707952",
+  "code_before": "public abstract ComparisonChain compare(boolean left, boolean right);",
+  "code_after": "@Deprecated\n  public final ComparisonChain compare(boolean left, boolean right) {\n    return compareFalseFirst(left, right);\n  }",
+  "javadoc_before": "/**\n   * Compares two {@code boolean} values as specified by {@link\n   * Booleans#compare}, <i>if</i> the result of this comparison chain has not\n   * already been determined.\n   */",
+  "javadoc_after": "/**\n   * Old name of {@link #compareFalseFirst}.\n   *\n   * @deprecated Use {@link #compareFalseFirst}; or, if the parameters passed\n   *     are being either negated or reversed, undo the negation or reversal and\n   *     use {@link #compareTrueFirst}. <b>This method is scheduled for deletion\n   *     in September 2013.</b>\n   */"
+}

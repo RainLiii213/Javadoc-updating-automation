@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0e07ac6b2cff63550d7df336355ca63cc05aa40b",
+  "issue_summary": "Move from Joda CVS",
+  "code_before": "public String toString(String pattern) throws IllegalArgumentException {\n        Chronology chrono = getChronology();\n        if (chrono == null) {\n            chrono = ISOChronology.getInstanceUTC();\n        }\n        return DateTimeFormat.getInstance(chrono).forPattern(pattern).print(this);\n    }",
+  "code_after": "public String toString(String pattern) throws IllegalArgumentException {\n        return DateTimeFormat.getInstance(getChronology()).forPattern(pattern).print(this);\n    }",
+  "javadoc_before": "/**\n     * Output the instant using the specified format pattern.\n     *\n     * @param pattern  the pattern specification\n     * @see org.joda.time.format.DateTimeFormatterBuilder#appendPattern(java.lang.String)\n     */",
+  "javadoc_after": "/**\n     * Output the instant using the specified format pattern.\n     *\n     * @param pattern  the pattern specification\n     * @throws IllegalArgumentException  if pattern is invalid\n     * @see  org.joda.time.format.DateTimeFormat\n     */"
+}

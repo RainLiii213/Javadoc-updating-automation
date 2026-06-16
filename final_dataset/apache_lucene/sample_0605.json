@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fe6c3dc9397b0397aebf84fedb57875beb163d1d",
+  "issue_summary": "Simplify directory/lock API",
+  "code_before": "public static boolean isLocked(Directory directory) throws IOException {\n    return directory.makeLock(WRITE_LOCK_NAME).isLocked();\n  }",
+  "code_after": "@Deprecated\n  public static boolean isLocked(Directory directory) throws IOException {\n    try {\n      directory.obtainLock(WRITE_LOCK_NAME).close();\n      return false;\n    } catch (LockObtainFailedException failed) {\n      return true;\n    }\n  }",
+  "javadoc_before": "/**\n   * Returns <code>true</code> iff the index in the named directory is\n   * currently locked.\n   * @param directory the directory to check for a lock\n   * @throws IOException if there is a low-level IO error\n   */",
+  "javadoc_after": "/**\n   * Returns <code>true</code> iff the index in the named directory is\n   * currently locked.\n   * @param directory the directory to check for a lock\n   * @throws IOException if there is a low-level IO error\n   * @deprecated Use of this method can only lead to race conditions. Try\n   *             to actually obtain a lock instead.\n   */"
+}

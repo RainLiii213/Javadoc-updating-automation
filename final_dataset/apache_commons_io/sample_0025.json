@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7245fbd82735eed3fc5510f8b468b77f1e984fb2",
+  "issue_summary": "Add ValidatingObjectInputStream.ObjectStreamClassPredicate to allow configuration reuse",
+  "code_before": "public ValidatingObjectInputStream reject(final ClassNameMatcher matcher) {\n        rejectMatchers.add(matcher);\n        return this;\n    }",
+  "code_after": "public Builder reject(final ClassNameMatcher matcher) {\n            predicate.reject(matcher);\n            return this;\n        }",
+  "javadoc_before": "/**\n     * Rejects class names where the supplied ClassNameMatcher matches for deserialization, even if they are otherwise accepted.\n     *\n     * @param matcher a class name matcher to <em>reject</em> objects.\n     * @return this instance.\n     */",
+  "javadoc_after": "/**\n         * Rejects class names where the supplied ClassNameMatcher matches for deserialization, even if they are otherwise accepted.\n         *\n         * @param matcher the matcher to use\n         * @return this instance.\n         * @since 2.18.0\n         */"
+}

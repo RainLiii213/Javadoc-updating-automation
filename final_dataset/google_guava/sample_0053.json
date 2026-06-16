@@ -1,0 +1,8 @@
+{
+  "commit_hash": "557649df91e5f8bab4d5f39d56c81bd47e134b06",
+  "issue_summary": "Partial rollback of changelist 150805495.",
+  "code_before": "static <E> ImmutableList<E> asImmutableList(Object[] elements, int length) {\n    if (length == 0) {\n      return of();\n    }\n    return new RegularImmutableList<E>(elements, length);\n  }",
+  "code_after": "static <E> ImmutableList<E> asImmutableList(Object[] elements, int length) {\n    if (length == 0) {\n      return of();\n    }\n    if (length < elements.length) {\n      elements = Arrays.copyOf(elements, length);\n    }\n    return new RegularImmutableList<E>(elements);\n  }",
+  "javadoc_before": "/** Views the array as an immutable list. Does not check for nulls. */",
+  "javadoc_after": "/**\n   * Views the array as an immutable list. Copies if the specified range does not cover the complete\n   * array. Does not check for nulls.\n   */"
+}

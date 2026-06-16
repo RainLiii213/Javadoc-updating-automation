@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1de3d116a9b212af4b895535842642603875c6a0",
+  "issue_summary": "removed MathUserException from ODE package",
+  "code_before": "public double[] getInterpolatedState() throws MathUserException {\n    return steps.get(index).getInterpolatedState();\n  }",
+  "code_after": "public double[] getInterpolatedState() {\n    return steps.get(index).getInterpolatedState();\n  }",
+  "javadoc_before": "/**\n   * Get the state vector of the interpolated point.\n   * @return state vector at time {@link #getInterpolatedTime}\n   * @exception MathUserException if user code called from step interpolator\n   * finalization triggers one\n   */",
+  "javadoc_after": "/**\n   * Get the state vector of the interpolated point.\n   * @return state vector at time {@link #getInterpolatedTime}\n   */"
+}

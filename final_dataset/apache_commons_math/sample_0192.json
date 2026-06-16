@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f0921e844d248366acca73b14097412d6f91e205",
+  "issue_summary": "fill the \"throws\" clause of FieldVector, ArrayFieldVector.",
+  "code_before": "FieldVector<T> mapDivide(T d);",
+  "code_after": "FieldVector<T> mapDivide(T d)\n        throws NullArgumentException, MathArithmeticException;",
+  "javadoc_before": "/**\n     * Map a division operation to each entry.\n     * @param d value to divide all entries by\n     * @return {@code this / d}\n     */",
+  "javadoc_after": "/**\n     * Map a division operation to each entry.\n     * @param d value to divide all entries by\n     * @return {@code this / d}\n     * @throws NullArgumentException if {@code d} is {@code null}.\n     * @throws MathArithmeticException if {@code d} is zero.\n     */"
+}

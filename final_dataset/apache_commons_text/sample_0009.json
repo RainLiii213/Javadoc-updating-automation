@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bd1eeece7b86c08584c04d0323630c6ec0eb84d9",
+  "issue_summary": "Add DoubleFormat.Builder.get() as Builder now implements Supplier",
+  "code_before": "public DoubleFunction<String> build() {\n            return factory.apply(this);\n        }",
+  "code_after": "@Deprecated\n        public DoubleFunction<String> build() {\n            return get();\n        }",
+  "javadoc_before": "/**\n         * Builds a new double format function.\n         *\n         * @return format function\n         */",
+  "javadoc_after": "/**\n         * Builds a new double format function.\n         *\n         * @return format function\n         * @deprecated Use {@link #get()}.\n         */"
+}

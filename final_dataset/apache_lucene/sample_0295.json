@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fbd05167f455e3ce2b2ead50336e2b9c2521cd6c",
+  "issue_summary": "QueryVisitor",
+  "code_before": "protected static Set<Term> extractTerms(Query query) throws IOException {\n    Set<Term> queryTerms = new HashSet<>();\n    EMPTY_INDEXSEARCHER.createWeight(EMPTY_INDEXSEARCHER.rewrite(query), ScoreMode.COMPLETE_NO_SCORES, 1).extractTerms(queryTerms);\n    return queryTerms;\n  }",
+  "code_after": "protected static Set<Term> extractTerms(Query query) throws IOException {\n    Set<Term> queryTerms = new HashSet<>();\n    EMPTY_INDEXSEARCHER.rewrite(query).visit(QueryVisitor.termCollector(queryTerms));\n    return queryTerms;\n  }",
+  "javadoc_before": "/**\n   * Calls {@link Weight#extractTerms(Set)} on an empty index for the query.\n   */",
+  "javadoc_after": "/**\n   * Extracts matching terms after rewriting against an empty index\n   */"
+}

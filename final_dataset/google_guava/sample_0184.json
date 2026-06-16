@@ -1,0 +1,8 @@
+{
+  "commit_hash": "85d2e6894a747bbcc39ac5feaecec89226446499",
+  "issue_summary": "Migrate IRangeMap into RangeMap's position.",
+  "code_before": "public void putAll(RangeMap<K, V> rangeMap) {\n    checkNotNull(rangeMap);\n    for (RangeValue<K, V> rangeValue : rangeMap.map.values()) {\n      put(rangeValue.getKey(), rangeValue.getValue());\n    }\n  }",
+  "code_after": "void putAll(RangeMap<K, V> rangeMap);",
+  "javadoc_before": "/**\n   * Puts all the associations from the specified {@code RangeMap} into this {@code RangeMap}.\n   */",
+  "javadoc_after": "/**\n   * Puts all the associations from {@code rangeMap} into this range map (optional operation).\n   */"
+}

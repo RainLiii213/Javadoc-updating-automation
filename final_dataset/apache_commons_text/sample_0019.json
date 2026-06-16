@@ -1,0 +1,8 @@
+{
+  "commit_hash": "18263a8f30382e38e559687ceffd3d17db5df27c",
+  "issue_summary": "Remove unused exception from TextStringBuilder.readFrom(CharBuffer). This preserves binary compatibility but not source compatibility.",
+  "code_before": "public int readFrom(final CharBuffer charBuffer) throws IOException {\n        final int oldSize = size;\n        final int remaining = charBuffer.remaining();\n        ensureCapacity(size + remaining);\n        charBuffer.get(buffer, size, remaining);\n        size += remaining;\n        return size - oldSize;\n    }",
+  "code_after": "public int readFrom(final CharBuffer charBuffer) {\n        final int oldSize = size;\n        final int remaining = charBuffer.remaining();\n        ensureCapacity(size + remaining);\n        charBuffer.get(buffer, size, remaining);\n        size += remaining;\n        return size - oldSize;\n    }",
+  "javadoc_before": "/**\n     * If possible, reads chars from the provided {@link CharBuffer} directly into underlying character buffer without\n     * making extra copies.\n     *\n     * @param charBuffer CharBuffer to read.\n     * @return The number of characters read.\n     * @throws IOException if an I/O error occurs.\n     *\n     * @see #appendTo(Appendable)\n     * @since 1.9\n     */",
+  "javadoc_after": "/**\n     * If possible, reads chars from the provided {@link CharBuffer} directly into underlying character buffer without\n     * making extra copies.\n     *\n     * @param charBuffer CharBuffer to read.\n     * @return The number of characters read.\n     *\n     * @see #appendTo(Appendable)\n     * @since 1.9\n     */"
+}

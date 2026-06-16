@@ -1,0 +1,8 @@
+{
+  "commit_hash": "54d00b13c6351a1e7e676db7c4bf05409ff9f63f",
+  "issue_summary": "Added throw declarations for package complex.",
+  "code_before": "public static ComplexFormat getInstance(String imaginaryCharacter,\n                                            Locale locale) {\n        NumberFormat f = CompositeFormat.getDefaultNumberFormat(locale);\n        return new ComplexFormat(imaginaryCharacter, f);\n    }",
+  "code_after": "public static ComplexFormat getInstance(String imaginaryCharacter, Locale locale)\n        throws NullArgumentException, NoDataException {\n        NumberFormat f = CompositeFormat.getDefaultNumberFormat(locale);\n        return new ComplexFormat(imaginaryCharacter, f);\n    }",
+  "javadoc_before": "/**\n     * Returns the default complex format for the given locale.\n     * @param locale the specific locale used by the format.\n     * @param imaginaryCharacter Imaginary character.\n     * @return the complex format specific to the given locale.\n     */",
+  "javadoc_after": "/**\n     * Returns the default complex format for the given locale.\n     * @param locale the specific locale used by the format.\n     * @param imaginaryCharacter Imaginary character.\n     * @return the complex format specific to the given locale.\n     * @throws NullArgumentException if {@code imaginaryCharacter} is\n     * {@code null}.\n     * @throws NoDataException if {@code imaginaryCharacter} is an\n     * empty string.\n     */"
+}

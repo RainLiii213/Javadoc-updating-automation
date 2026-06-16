@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b1b1a890d0890e7e35bb401cc8d851a45cc155f1",
+  "issue_summary": "UnifiedHighlighter now has a Builder",
+  "code_before": "protected Set<HighlightFlag> getFlags(String field) {\n    Set<HighlightFlag> highlightFlags = EnumSet.noneOf(HighlightFlag.class);\n    if (shouldHandleMultiTermQuery(field)) {\n      highlightFlags.add(HighlightFlag.MULTI_TERM_QUERY);\n    }\n    if (shouldHighlightPhrasesStrictly(field)) {\n      highlightFlags.add(HighlightFlag.PHRASES);\n    }\n    if (shouldPreferPassageRelevancyOverSpeed(field)) {\n      highlightFlags.add(HighlightFlag.PASSAGE_RELEVANCY_OVER_SPEED);\n    }\n    if (highlightFlags.contains(HighlightFlag.MULTI_TERM_QUERY)\n        && highlightFlags.contains(HighlightFlag.PHRASES)\n        && highlightFlags.contains(HighlightFlag.PASSAGE_RELEVANCY_OVER_SPEED)) {\n      highlightFlags.add(HighlightFlag.WEIGHT_MATCHES);\n    }\n    return highlightFlags;\n  }",
+  "code_after": "protected Set<HighlightFlag> getFlags(String field) {\n    // If a builder is used for initializing a UH object, then flags will never be null.\n    // Once the setters are removed, this method can just return the flags.\n    if (flags != null) {\n      return flags;\n    }\n    // When not using builder, you have to reevaluate the flags.\n    return evaluateFlags(this);\n  }",
+  "javadoc_before": "/** Customize the highlighting flags to use by field. */",
+  "javadoc_after": "/** Returns the {@link HighlightFlag}s applicable for the current UH instance. */"
+}

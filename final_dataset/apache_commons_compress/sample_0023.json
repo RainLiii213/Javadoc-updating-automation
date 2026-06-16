@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5ff5ab49fac76ec196449743bead015c32915d36",
+  "issue_summary": "Reuse PathUtils#getExtension(Path)",
+  "code_before": "public static String getExtension(final Path path) {\n        // TODO Use Commons IO 2.17.0\n        if (path == null) {\n            return null;\n        }\n        final Path fileName = path.getFileName();\n        return fileName != null ? FilenameUtils.getExtension(fileName.toString()) : null;\n    }",
+  "code_after": "@Deprecated\n    public static String getExtension(final Path path) {\n        return PathUtils.getExtension(path);\n    }",
+  "javadoc_before": "/**\n     * Gets the extension (i.e. the part after the last \".\") of a file.\n     * <p>\n     * Will return an empty string if the file name doesn't contain any dots. Only the last segment of a the file name is consulted - i.e. all leading\n     * directories of the {@code file name} parameter are skipped.\n     * </p>\n     *\n     * @return the extension of file name\n     * @param path the path of the file to obtain the extension of.\n     * @since 1.22\n     */",
+  "javadoc_after": "/**\n     * Gets the extension (i.e. the part after the last \".\") of a file.\n     * <p>\n     * Will return an empty string if the file name doesn't contain any dots. Only the last segment of a the file name is consulted - i.e. all leading\n     * directories of the {@code file name} parameter are skipped.\n     * </p>\n     *\n     * @return the extension of file name\n     * @param path the path of the file to obtain the extension of.\n     * @since 1.22\n     * @deprecated Use {@link PathUtils#getExtension(Path)}.\n     */"
+}

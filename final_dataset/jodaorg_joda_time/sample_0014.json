@@ -1,0 +1,8 @@
+{
+  "commit_hash": "843d7b8f07f4899ad153ffabc25e09a6c0e897c7",
+  "issue_summary": "Parse month-day in year 2000 instead of 1970 to parse Feb 29",
+  "code_before": "public DateTimeParserBucket(long instantLocal, Chronology chrono, Locale locale, Integer pivotYear) {\n        super();\n        chrono = DateTimeUtils.getChronology(chrono);\n        iMillis = instantLocal;\n        iChrono = chrono.withUTC();\n        iLocale = (locale == null ? Locale.getDefault() : locale);\n        setZone(chrono.getZone());\n        iPivotYear = pivotYear;\n    }",
+  "code_after": "@Deprecated\n    public DateTimeParserBucket(long instantLocal, Chronology chrono, Locale locale, Integer pivotYear) {\n        this(instantLocal, chrono, locale, pivotYear, 2000);\n    }",
+  "javadoc_before": "/**\n     * Constucts a bucket, with the option of specifying the pivot year for\n     * two-digit year parsing.\n     *\n     * @param instantLocal  the initial millis from 1970-01-01T00:00:00, local time\n     * @param chrono  the chronology to use\n     * @param locale  the locale to use\n     * @param pivotYear  the pivot year to use when parsing two-digit years\n     * @since 1.1\n     */",
+  "javadoc_after": "/**\n     * Constructs a bucket, with the option of specifying the pivot year for\n     * two-digit year parsing.\n     *\n     * @param instantLocal  the initial millis from 1970-01-01T00:00:00, local time\n     * @param chrono  the chronology to use\n     * @param locale  the locale to use\n     * @param pivotYear  the pivot year to use when parsing two-digit years\n     * @since 1.1\n     * @deprecated Use longer constructor\n     */"
+}

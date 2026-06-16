@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d5f61b4398e6572d974ee13d01f47f82744fb495",
+  "issue_summary": "reading from the cache doesn't need to throw an exception",
+  "code_before": "public void alignWithByteBoundary() throws IOException {\n        int toSkip = bitsCachedSize % 8;\n        if (toSkip > 0) {\n            readBits(toSkip);\n        }\n    }",
+  "code_after": "public void alignWithByteBoundary() {\n        int toSkip = bitsCachedSize % 8;\n        if (toSkip > 0) {\n            readCachedBits(toSkip);\n        }\n    }",
+  "javadoc_before": "/**\n     * Drops bits until the next bits will be read from a byte boundary.\n     * @throws IOException if reading the remaining bits to the next byte boundary fails\n     * @since 1.16\n     */",
+  "javadoc_after": "/**\n     * Drops bits until the next bits will be read from a byte boundary.\n     * @since 1.16\n     */"
+}

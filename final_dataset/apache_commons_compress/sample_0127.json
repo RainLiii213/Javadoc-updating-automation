@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0b33b14271675a78b8bc2e538089af2ecde7d2a0",
+  "issue_summary": "Restore immutability/thread-safety to ArchiveStreamFactory.",
+  "code_before": "public void setEntryEncoding(String entryEncoding) {\n        this.entryEncoding = entryEncoding;\n    }",
+  "code_after": "@Deprecated\n    public void setEntryEncoding(String entryEncoding) {\n        // Note: this does not detect new ArchiveStreamFactory(null) but that does not set the encoding anyway\n        if (encoding != null) {\n            throw new IllegalStateException(\"Cannot overide encoding set by the constructor\");\n        }\n        this.entryEncoding = entryEncoding;\n    }",
+  "javadoc_before": "/**\n     * Sets the encoding to use for arj, zip, dump, cpio and tar files. Use null for the default.\n     * \n     * @param entryEncoding the entry encoding, null uses the default.\n     * @since 1.5\n     */",
+  "javadoc_after": "/**\n     * Sets the encoding to use for arj, zip, dump, cpio and tar files. Use null for the default.\n     * \n     * @param entryEncoding the entry encoding, null uses the default.\n     * @since 1.5\n     * @deprecated 1.10 use {@link #ArchiveStreamFactory(String)} to specify the encoding\n     * @throws IllegalStateException if the constructor {@link #ArchiveStreamFactory(String)} \n     * was used to specify the factory encoding.\n     */"
+}

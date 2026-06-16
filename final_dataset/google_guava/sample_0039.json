@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1f40cf6380357340b2fd786ff79debf42555676a",
+  "issue_summary": "Support for empty ArrayTable.",
+  "code_before": "@Override\n  public boolean isEmpty() {\n    return false;\n  }",
+  "code_after": "@Override\n  public boolean isEmpty() {\n    return rowList.isEmpty() || columnList.isEmpty();\n  }",
+  "javadoc_before": "/**\n   * Always returns {@code false}.\n   */",
+  "javadoc_after": "/**\n   * Returns {@code true} if {@code rowKeyList().size == 0} or {@code\n   * columnKeyList().size() == 0}.\n   */"
+}

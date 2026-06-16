@@ -1,0 +1,8 @@
+{
+  "commit_hash": "688c67f8ff22b72b9df4ed2f92d26b909563b2b1",
+  "issue_summary": "Geo3D: compute the distance from a point to a shape.",
+  "code_before": "public Vector(final Vector A, final Vector B) {\n    // x = u2v3 - u3v2\n    // y = u3v1 - u1v3\n    // z = u1v2 - u2v1\n\n    this(A.y * B.z - A.z * B.y,\n        A.z * B.x - A.x * B.z,\n        A.x * B.y - A.y * B.x);\n  }",
+  "code_after": "public Vector(final Vector A, final Vector B) {\n    // x = u2v3 - u3v2\n    // y = u3v1 - u1v3\n    // z = u1v2 - u2v1\n    final double thisX = A.y * B.z - A.z * B.y;\n    final double thisY = A.z * B.x - A.x * B.z;\n    final double thisZ = A.x * B.y - A.y * B.x;\n    final double magnitude = magnitude(thisX, thisY, thisZ);\n    if (Math.abs(magnitude) < MINIMUM_RESOLUTION) {\n      throw new IllegalArgumentException(\"Degenerate/parallel vector constructed\");\n    }\n    final double inverseMagnitude = 1.0 / magnitude;\n    this.x = thisX * inverseMagnitude;\n    this.y = thisY * inverseMagnitude;\n    this.z = thisZ * inverseMagnitude;\n  }",
+  "javadoc_before": "/**\n   * Construct a vector that is perpendicular to\n   * two other (non-zero) vectors.  If the vectors are parallel,\n   * the result vector will have magnitude 0.\n   *\n   * @param A is the first vector\n   * @param B is the second\n   */",
+  "javadoc_after": "/**\n   * Construct a vector that is perpendicular to\n   * two other (non-zero) vectors.  If the vectors are parallel,\n   * IllegalArgumentException will be thrown.\n   * Produces a normalized final vector.\n   *\n   * @param A is the first vector\n   * @param B is the second\n   */"
+}

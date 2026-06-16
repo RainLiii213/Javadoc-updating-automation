@@ -1,0 +1,8 @@
+{
+  "commit_hash": "64f321bdcd7c3294247cba29143658162cdf3024",
+  "issue_summary": "Let subclasses of CountingInputStream.afterRead(int) throw IOException",
+  "code_before": "@Override\n    protected synchronized void afterRead(final int n) {\n        if (n != EOF) {\n            count += n;\n        }\n    }",
+  "code_after": "@Override\n    protected synchronized void afterRead(final int n) throws IOException {\n        if (n != EOF) {\n            count += n;\n        }\n    }",
+  "javadoc_before": "/**\n     * Adds the number of read bytes to the count.\n     *\n     * @param n number of bytes read, or -1 if no more bytes are available\n     * @since 2.0\n     */",
+  "javadoc_after": "/**\n     * Adds the number of read bytes to the count.\n     *\n     * @param n number of bytes read, or -1 if no more bytes are available\n     * @throws IOException Not thrown here but subclasses may throw.\n     * @since 2.0\n     */"
+}

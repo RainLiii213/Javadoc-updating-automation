@@ -1,0 +1,18 @@
+{
+  "project_slug": "apache_commons_codec",
+  "repository_name": "apache/commons-codec",
+  "repository_url": "https://github.com/apache/commons-codec.git",
+  "retained_samples": 41,
+  "source_folder": "dataset_apache_commons_codec_41",
+  "final_folder": "final_dataset/apache_commons_codec",
+  "mined_at_utc": "2026-06-15T01:59:06+00:00",
+  "commits_scanned": 3467,
+  "candidate_samples_found": 64,
+  "filtered_samples": 23,
+  "discarded_truncated_code_context": 3,
+  "moved_to_review": 0,
+  "discarded_weak_inheritdoc": 0,
+  "issue_summary_fallbacks": 2,
+  "complete_history": true,
+  "stop_reason": "full_history_scanned"
+}

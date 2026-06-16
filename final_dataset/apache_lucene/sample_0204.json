@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e1cd426bce39abc4345b748d9cff5ff7fe10315f",
+  "issue_summary": "diversity heuristic for HNSW graph neighbor selection",
+  "code_before": "public final long push(long element) {\n    size++;\n    if (maxSize == UNBOUNDED && size == heap.length) {\n      heap = ArrayUtil.grow(heap, (size * 3 + 1) / 2);\n    }\n    heap[size] = element;\n    upHeap(size);\n    return heap[1];\n  }",
+  "code_after": "public final long push(long element) {\n    size++;\n    if (size == heap.length) {\n      heap = ArrayUtil.grow(heap, (size * 3 + 1) / 2);\n    }\n    heap[size] = element;\n    upHeap(size);\n    return heap[1];\n  }",
+  "javadoc_before": "/**\n   * Adds a value in log(size) time. If one tries to add more values than maxSize from initialize an\n   * {@link ArrayIndexOutOfBoundsException} is thrown, unless maxSize is {@link #UNBOUNDED}.\n   *\n   * @return the new 'top' element in the queue.\n   */",
+  "javadoc_after": "/**\n   * Adds a value in log(size) time. Grows unbounded as needed to accommodate new values.\n   *\n   * @return the new 'top' element in the queue.\n   */"
+}

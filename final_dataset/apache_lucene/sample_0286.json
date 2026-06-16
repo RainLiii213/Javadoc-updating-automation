@@ -1,0 +1,8 @@
+{
+  "commit_hash": "53f56fb7ad44afab9c78fab2e89737438093247f",
+  "issue_summary": "Move max clause checks to IndexSearcher",
+  "code_before": "public static void setMaxClauseCount(int maxClauseCount) {\n    if (maxClauseCount < 1) {\n      throw new IllegalArgumentException(\"maxClauseCount must be >= 1\");\n    }\n    BooleanQuery.maxClauseCount = maxClauseCount;\n  }",
+  "code_after": "@Deprecated\n  public static void setMaxClauseCount(int maxClauseCount) {\n    IndexSearcher.setMaxClauseCount(maxClauseCount);\n  }",
+  "javadoc_before": "/** \n   * Set the maximum number of clauses permitted per BooleanQuery.\n   * Default value is 1024.\n   */",
+  "javadoc_after": "/** \n   * Set the maximum number of clauses permitted per BooleanQuery.\n   * Default value is 1024.\n   * @deprecated use {@link IndexSearcher#setMaxClauseCount(int)}\n   */"
+}

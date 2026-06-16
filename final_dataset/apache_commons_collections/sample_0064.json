@@ -1,0 +1,8 @@
+{
+  "commit_hash": "76d6a4b8e4403a99bb670fdba799f3e03240cdba",
+  "issue_summary": "Fix findbugs warning wrt exposed internal representation.",
+  "code_before": "public Predicate<? super E>[] getPredicates() {\n        return iPredicates;\n    }",
+  "code_after": "public Predicate<? super E>[] getPredicates() {\n        return FunctorUtils.copy(iPredicates);\n    }",
+  "javadoc_before": "/**\n     * Gets the predicates, do not modify the array.\n     *\n     * @return the predicates\n     * @since 3.1\n     */",
+  "javadoc_after": "/**\n     * Gets the predicates.\n     *\n     * @return a copy of the predicates\n     * @since 3.1\n     */"
+}

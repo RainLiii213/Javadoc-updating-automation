@@ -1,0 +1,8 @@
+{
+  "commit_hash": "58364058bd2903ebd1568f6df22161e142a0dc86",
+  "issue_summary": "throw IOException for certain malformed archives",
+  "code_before": "protected final void startLiteral(long length) {\n        bytesRemaining = length;\n    }",
+  "code_after": "protected final void startLiteral(long length) {\n        if (length < 0) {\n            throw new IllegalArgumentException(\"length must not be negative\");\n        }\n        bytesRemaining = length;\n    }",
+  "javadoc_before": "/**\n     * Used by subclasses to signal the next block contains the given\n     * amount of literal data.\n     * @param length the length of the block\n     */",
+  "javadoc_after": "/**\n     * Used by subclasses to signal the next block contains the given\n     * amount of literal data.\n     * @param length the length of the block\n     * @throws IllegalArgumentException if length is negative\n     */"
+}

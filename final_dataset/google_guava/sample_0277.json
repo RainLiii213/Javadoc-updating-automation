@@ -1,0 +1,8 @@
+{
+  "commit_hash": "97963a74d9102aefc1613738cc7c218fee2e03f8",
+  "issue_summary": "Latest code dump.",
+  "code_before": "public static <T> Supplier<T> memoize(Supplier<T> delegate) {\n    return new MemoizingSupplier<T>(Preconditions.checkNotNull(delegate));\n  }",
+  "code_after": "public static <T> Supplier<T> memoize(Supplier<T> delegate) {\n    return (delegate instanceof MemoizingSupplier)\n        ? delegate\n        : new MemoizingSupplier<T>(Preconditions.checkNotNull(delegate));\n  }",
+  "javadoc_before": "/**\n   * Returns a supplier which caches the instance retrieved during the first\n   * call to {@code get()} and returns that value on subsequent calls to\n   * {@code get()}. See:\n   * <a href=\"http://en.wikipedia.org/wiki/Memoization\">memoization</a>\n   *\n   * <p>The returned supplier is thread-safe. The supplier's serialized form\n   * does not contain the cached value, which will be recalculated when {@code\n   * get()} is called on the reserialized instance.\n   */",
+  "javadoc_after": "/**\n   * Returns a supplier which caches the instance retrieved during the first\n   * call to {@code get()} and returns that value on subsequent calls to\n   * {@code get()}. See:\n   * <a href=\"http://en.wikipedia.org/wiki/Memoization\">memoization</a>\n   *\n   * <p>The returned supplier is thread-safe. The supplier's serialized form\n   * does not contain the cached value, which will be recalculated when {@code\n   * get()} is called on the reserialized instance.\n   *\n   * <p>If {@code delegate} is an instance created by an earlier call to {@code\n   * memoize}, it is returned directly.\n   */"
+}

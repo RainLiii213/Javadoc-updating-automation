@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2544df8f6d9a23e285d899c6a754611dd830f68f",
+  "issue_summary": "SolrJ collectionStatus(col) should only fetch one status",
+  "code_before": "public static ColStatus collectionStatus(String collection) {\n    return new ColStatus(collection);\n  }",
+  "code_after": "public static ColStatus collectionStatus(String collection) {\n    checkNotNull(CoreAdminParams.COLLECTION, collection);\n    return new ColStatus(collection);\n  }",
+  "javadoc_before": "/**\n   * Return a SolrRequest for low-level detailed status of the collection.\n   */",
+  "javadoc_after": "/**\n   * Return a SolrRequest for low-level detailed status of the specified collection. \n   * @param collection the collection to get the status of.\n   */"
+}

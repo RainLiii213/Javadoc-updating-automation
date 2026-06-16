@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9e933debcb82fa645c66d561d2dc4c179390b4e6",
+  "issue_summary": "Populate throws declarations for geometry package.",
+  "code_before": "public void reset(final Vector3D p, final Vector3D normal) {\n        setNormal(normal);\n        originOffset = -p.dotProduct(w);\n        setFrame();\n    }",
+  "code_after": "public void reset(final Vector3D p, final Vector3D normal) throws MathArithmeticException {\n        setNormal(normal);\n        originOffset = -p.dotProduct(w);\n        setFrame();\n    }",
+  "javadoc_before": "/** Reset the instance as if built from a point and a normal.\n     * @param p point belonging to the plane\n     * @param normal normal direction to the plane\n     */",
+  "javadoc_after": "/** Reset the instance as if built from a point and a normal.\n     * @param p point belonging to the plane\n     * @param normal normal direction to the plane\n     * @exception MathArithmeticException if the normal norm is too small\n     */"
+}

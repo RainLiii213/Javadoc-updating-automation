@@ -1,0 +1,18 @@
+{
+  "project_slug": "apache_commons_math",
+  "repository_name": "apache/commons-math",
+  "repository_url": "https://github.com/apache/commons-math.git",
+  "retained_samples": 561,
+  "source_folder": "dataset_apache_commons_math_561",
+  "final_folder": "final_dataset/apache_commons_math",
+  "mined_at_utc": "2026-06-15T03:00:33+00:00",
+  "commits_scanned": 7426,
+  "candidate_samples_found": 1485,
+  "filtered_samples": 920,
+  "discarded_truncated_code_context": 1,
+  "moved_to_review": 4,
+  "discarded_weak_inheritdoc": 13,
+  "issue_summary_fallbacks": 3,
+  "complete_history": true,
+  "stop_reason": "full_history_scanned"
+}

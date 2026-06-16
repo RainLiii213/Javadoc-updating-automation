@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f63bfec50c1926be86a8cf82e255d0e103a0e2f1",
+  "issue_summary": "reverted vetoed code change about cloning literal arrays",
+  "code_before": "static double[] loadExpIntA() {\n        return EXP_INT_A;\n    }",
+  "code_after": "static double[] loadExpIntA() {\n        return EXP_INT_A.clone();\n    }",
+  "javadoc_before": "/**\n     * Load \"EXP_INT_A\".\n     *\n     * @return the data array.\n     */",
+  "javadoc_after": "/**\n     * Load \"EXP_INT_A\".\n     *\n     * @return a clone of the data array.\n     */"
+}

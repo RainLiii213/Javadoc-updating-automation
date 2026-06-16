@@ -1,0 +1,8 @@
+{
+  "commit_hash": "87ef9556055b6b4f970f89deac4e0592eb569de1",
+  "issue_summary": "Avoid NullPointerException in file filters",
+  "code_before": "public boolean checkEquals(final String str1, final String str2) {\n        Objects.requireNonNull(str1, \"str1\");\n        Objects.requireNonNull(str2, \"str2\");\n        return sensitive ? str1.equals(str2) : str1.equalsIgnoreCase(str2);\n    }",
+  "code_after": "public boolean checkEquals(final String str1, final String str2) {\n        return str1 == str2 || str1 != null && (sensitive ? str1.equals(str2) : str1.equalsIgnoreCase(str2));\n    }",
+  "javadoc_before": "/**\n     * Compares two strings using the case-sensitivity rule.\n     * <p>\n     * This method mimics {@link String#equals} but takes case-sensitivity\n     * into account.\n     * </p>\n     *\n     * @param str1  the first string to compare, not null\n     * @param str2  the second string to compare, not null\n     * @return true if equal using the case rules\n     * @throws NullPointerException if either string is null\n     */",
+  "javadoc_after": "/**\n     * Compares two strings using the case-sensitivity rule.\n     * <p>\n     * This method mimics {@link String#equals} but takes case-sensitivity\n     * into account.\n     * </p>\n     *\n     * @param str1  the first string to compare, not null\n     * @param str2  the second string to compare, not null\n     * @return true if equal using the case rules\n     */"
+}

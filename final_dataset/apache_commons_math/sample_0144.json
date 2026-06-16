@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2b40d7c36b31e519f351e61ad054dc4ebf6f0f66",
+  "issue_summary": "New API allows to pass the simplex as an argument to \"optimize\".",
+  "code_before": "public void setSimplex(AbstractSimplex simplex) {\n        this.simplex = simplex;\n    }",
+  "code_after": "@Deprecated\n    public void setSimplex(AbstractSimplex simplex) {\n        parseOptimizationData(simplex);\n    }",
+  "javadoc_before": "/**\n     * Set the simplex algorithm.\n     *\n     * @param simplex Simplex.\n     */",
+  "javadoc_after": "/**\n     * Set the simplex algorithm.\n     *\n     * @param simplex Simplex.\n     * @deprecated As of 3.1. The initial simplex can now be passed as an\n     * argument of the {@link #optimize(int,MultivariateFunction,GoalType,OptimizationData[])}\n     * method.\n     */"
+}

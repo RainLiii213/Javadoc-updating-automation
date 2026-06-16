@@ -1,0 +1,8 @@
+{
+  "commit_hash": "53f56fb7ad44afab9c78fab2e89737438093247f",
+  "issue_summary": "Move max clause checks to IndexSearcher",
+  "code_before": "public static int getMaxClauseCount() { return maxClauseCount; }",
+  "code_after": "@Deprecated\n  public static int getMaxClauseCount() { return IndexSearcher.getMaxClauseCount(); }",
+  "javadoc_before": "/** Return the maximum number of clauses permitted, 1024 by default.\n   * Attempts to add more than the permitted number of clauses cause {@link\n   * TooManyClauses} to be thrown.\n   * @see #setMaxClauseCount(int)\n   */",
+  "javadoc_after": "/** Return the maximum number of clauses permitted, 1024 by default.\n   * Attempts to add more than the permitted number of clauses cause {@link\n   * TooManyClauses} to be thrown.\n   * @see IndexSearcher#setMaxClauseCount(int)\n   * @deprecated use {@link IndexSearcher#getMaxClauseCount()}\n   */"
+}

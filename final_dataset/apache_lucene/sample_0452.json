@@ -1,0 +1,8 @@
+{
+  "commit_hash": "713b65d1dcc80c1fe147a5bf999e1a88b63b9dce",
+  "issue_summary": "Deprecate ValueSource methods in facets module",
+  "code_before": "public DoubleRangeFacetCounts(String field, FacetsCollector hits, DoubleRange... ranges) throws IOException {\n    this(field, new DoubleFieldSource(field), hits, ranges);\n  }",
+  "code_after": "public DoubleRangeFacetCounts(String field, FacetsCollector hits, DoubleRange... ranges) throws IOException {\n    this(field, DoubleValuesSource.fromDoubleField(field), hits, ranges);\n  }",
+  "javadoc_before": "/** Create {@code RangeFacetCounts}, using {@link\n   *  DoubleFieldSource} from the specified field. */",
+  "javadoc_after": "/**\n   * Create {@code RangeFacetCounts}, using {@link DoubleValues} from the specified field.\n   *\n   * N.B This assumes that the field was indexed with {@link org.apache.lucene.document.DoubleDocValuesField}.\n   * For float-valued fields, use {@link #DoubleRangeFacetCounts(String, DoubleValuesSource, FacetsCollector, DoubleRange...)}\n   */"
+}

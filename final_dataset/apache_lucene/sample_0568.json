@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9534904c25017133812ef7992a4bc7118dcbc1b0",
+  "issue_summary": "TermQuery's constructors should clone the incoming term",
+  "code_before": "public Term(String fld, BytesRef bytes) {\n    field = fld;\n    this.bytes = bytes;\n  }",
+  "code_after": "public Term(String fld, BytesRef bytes) {\n    field = fld;\n    this.bytes = bytes == null ? null : BytesRef.deepCopyOf(bytes);\n  }",
+  "javadoc_before": "/** Constructs a Term with the given field and bytes.\n   * <p>Note that a null field or null bytes value results in undefined\n   * behavior for most Lucene APIs that accept a Term parameter. \n   *\n   * <p>WARNING: the provided BytesRef is not copied, but used directly.\n   * Therefore the bytes should not be modified after construction, for\n   * example, you should clone a copy by {@link BytesRef#deepCopyOf}\n   * rather than pass reused bytes from a TermsEnum.\n   */",
+  "javadoc_after": "/** Constructs a Term with the given field and bytes.\n   * <p>Note that a null field or null bytes value results in undefined\n   * behavior for most Lucene APIs that accept a Term parameter.\n   *\n   * <p>The provided BytesRef is copied when it is non null.\n   */"
+}

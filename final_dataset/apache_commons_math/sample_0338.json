@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fe1b30b58958ff95d01bc56e64c0f81294c36ac8",
+  "issue_summary": "Made RandomDataImpl consistently use a Well generator as the default random generator. This completes the fix for JIRA: . The inconsistency was reported by Dennis Hendriks in JIRA: .",
+  "code_before": "public void reSeed() {\n        if (rand == null) {\n            rand = new JDKRandomGenerator();\n        }\n        rand.setSeed(System.currentTimeMillis());\n    }",
+  "code_after": "public void reSeed() {\n        if (rand == null) {\n            initRan();\n        }\n        rand.setSeed(System.currentTimeMillis() + System.identityHashCode(this));\n    }",
+  "javadoc_before": "/**\n     * Reseeds the random number generator with the current time in\n     * milliseconds.\n     */",
+  "javadoc_after": "/**\n     * Reseeds the random number generator with\n     * {@code System.currentTimeMillis() + System.identityHashCode(this))}.\n     */"
+}

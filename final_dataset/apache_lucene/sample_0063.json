@@ -1,0 +1,8 @@
+{
+  "commit_hash": "942065cc3e7e3941167ab1ffacbada225d612d79",
+  "issue_summary": "Convert more classes to record classes",
+  "code_before": "public class TermStats {\n  /** How many documents have at least one occurrence of this term. */\n  public final int docFreq;\n\n  /** Total number of times this term occurs across all documents in the field. */\n  public final long totalTermFreq;\n\n  /** Sole constructor. */\n  public TermStats(int docFreq, long totalTermFreq) {\n    this.docFreq = docFreq;\n    this.totalTermFreq = totalTermFreq;\n  }\n}",
+  "code_after": "public record TermStats(int docFreq, long totalTermFreq) {}",
+  "javadoc_before": "/**\n * Holder for per-term statistics.\n *\n * @see TermsEnum#docFreq\n * @see TermsEnum#totalTermFreq\n */",
+  "javadoc_after": "/**\n * Holder for per-term statistics.\n *\n * @param docFreq How many documents have at least one occurrence of this term.\n * @param totalTermFreq Total number of times this term occurs across all documents in the field.\n */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f1782d0dd1195c823c79aab87529ebd7e8217b95",
+  "issue_summary": "Automatically rewrite disjunctions when internal gaps matter",
+  "code_before": "public static IntervalsSource or(IntervalsSource... subSources) {\n    if (subSources.length == 1)\n      return subSources[0];\n    return new DisjunctionIntervalsSource(Arrays.asList(subSources));\n  }",
+  "code_after": "public static IntervalsSource or(IntervalsSource... subSources) {\n    return or(true, Arrays.asList(subSources));\n  }",
+  "javadoc_before": "/**\n   * Return an {@link IntervalsSource} over the disjunction of a set of sub-sources\n   */",
+  "javadoc_after": "/**\n   * Return an {@link IntervalsSource} over the disjunction of a set of sub-sources\n   *\n   * Automatically rewrites if wrapped by an interval source that is sensitive to\n   * internal gaps\n   */"
+}

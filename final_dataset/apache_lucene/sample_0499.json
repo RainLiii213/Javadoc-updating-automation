@@ -1,0 +1,8 @@
+{
+  "commit_hash": "922265b478296992189434040517368cf93d1b09",
+  "issue_summary": "Deprecate and reduce usage of ClusterState methods which may make calls to ZK via the lazy collection reference",
+  "code_before": "public Replica getReplica(final String collection, final String coreNodeName) {\n    return getReplica(getCollectionOrNull(collection), coreNodeName);\n  }",
+  "code_after": "@Deprecated\n  public Replica getReplica(final String collection, final String coreNodeName) {\n    DocCollection coll = getCollectionOrNull(collection);\n    if (coll == null) return null;\n    for (Slice slice : coll.getSlices()) {\n      Replica replica = slice.getReplica(coreNodeName);\n      if (replica != null) return replica;\n    }\n    return null;\n  }",
+  "javadoc_before": "/**\n   * Gets the replica by the core name (assuming the slice is unknown) or null if replica is not found.\n   * If the slice is known, do not use this method.\n   * coreNodeName is the same as replicaName\n   */",
+  "javadoc_after": "/**\n   * Gets the replica by the core node name (assuming the slice is unknown) or null if replica is not found.\n   * If the slice is known, do not use this method.\n   * coreNodeName is the same as replicaName\n   *\n   * @deprecated use {@link DocCollection#getReplica(String)} instead\n   */"
+}

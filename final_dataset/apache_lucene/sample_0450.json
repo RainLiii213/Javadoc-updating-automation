@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1a95c5acd0f69efb1a24b2c980a289289e703758",
+  "issue_summary": "Suggester uses LongValuesSource in place of ValueSource",
+  "code_before": "public DocumentValueSourceDictionary(IndexReader reader, String field,\n                                       ValueSource weightsValueSource, String payload, String contexts) {\n    super(reader, field, null, payload, contexts);\n    this.weightsValueSource = weightsValueSource;\n  }",
+  "code_after": "@Deprecated\n  public DocumentValueSourceDictionary(IndexReader reader, String field,\n                                       ValueSource weightsValueSource, String payload, String contexts) {\n    super(reader, field, null, payload, contexts);\n    this.weightsValueSource = weightsValueSource.asLongValuesSource();\n  }",
+  "javadoc_before": "/**\n   * Creates a new dictionary with the contents of the fields named <code>field</code>\n   * for the terms, <code>payload</code> for the corresponding payloads, <code>contexts</code>\n   * for the associated contexts and uses the <code>weightsValueSource</code> supplied \n   * to determine the score.\n   */",
+  "javadoc_after": "/**\n   * Creates a new dictionary with the contents of the fields named <code>field</code>\n   * for the terms, <code>payload</code> for the corresponding payloads, <code>contexts</code>\n   * for the associated contexts and uses the <code>weightsValueSource</code> supplied \n   * to determine the score.\n   *\n   * @deprecated Use {@link #DocumentValueSourceDictionary(IndexReader, String, LongValuesSource, String, String)}\n   */"
+}

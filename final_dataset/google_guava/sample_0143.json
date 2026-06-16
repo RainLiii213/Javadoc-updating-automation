@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ac25c5019e61dae7a993562235b8de4fdada0394",
+  "issue_summary": "Integration of Justin Sampson's fixes to Monitor and addition of extensive tests.",
+  "code_before": "public boolean waitFor(Guard guard, long time, TimeUnit unit) throws InterruptedException {\n    long timeoutNanos = unit.toNanos(time);\n    if (!((guard.monitor == this) & lock.isHeldByCurrentThread())) {\n      throw new IllegalMonitorStateException();\n    }\n    return guard.isSatisfied() || awaitNanos(guard, timeoutNanos, true);\n  }",
+  "code_after": "public boolean waitFor(Guard guard, long time, TimeUnit unit) throws InterruptedException {\n    final long timeoutNanos = toSafeNanos(time, unit);\n    if (!((guard.monitor == this) & lock.isHeldByCurrentThread())) {\n      throw new IllegalMonitorStateException();\n    }\n    if (guard.isSatisfied()) {\n      return true;\n    }\n    if (Thread.interrupted()) {\n      throw new InterruptedException();\n    }\n    return awaitNanos(guard, timeoutNanos, true);\n  }",
+  "javadoc_before": "/**\n   * Waits for the guard to be satisfied. Waits at most the given time, and may be interrupted.\n   * May be called only by a thread currently occupying this monitor.\n   *\n   * @return whether the guard is now satisfied\n   */",
+  "javadoc_after": "/**\n   * Waits for the guard to be satisfied. Waits at most the given time, and may be interrupted.\n   * May be called only by a thread currently occupying this monitor.\n   *\n   * @return whether the guard is now satisfied\n   * @throws InterruptedException if interrupted while waiting\n   */"
+}

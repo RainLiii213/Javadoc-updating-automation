@@ -1,0 +1,8 @@
+{
+  "commit_hash": "56f9a22e1c54ed9316718a367b0f9de017857332",
+  "issue_summary": "Add noMillis methods, javadoc and fix bugs",
+  "code_before": "public DateTimeFormatter basicTime() {\n        if (bt == null) {\n            bt = new DateTimeFormatterBuilder(iChrono)\n                .appendHourOfDay(2)\n                .appendMinuteOfHour(2)\n                .appendSecondOfMinute(2)\n                .appendTimeZoneOffset(\"\", false, 1, 2)\n                .toFormatter();\n        }\n        return bt;\n    }",
+  "code_after": "public DateTimeFormatter basicTime() {\n        if (bt == null) {\n            bt = new DateTimeFormatterBuilder(iChrono)\n                .appendHourOfDay(2)\n                .appendMinuteOfHour(2)\n                .appendSecondOfMinute(2)\n                .appendLiteral('.')\n                .appendMillisOfSecond(3)\n                .appendTimeZoneOffset(\"Z\", false, 2, 2)\n                .toFormatter();\n        }\n        return bt;\n    }",
+  "javadoc_before": "/**\n     * Returns a basic formatter for a two digit hour of day, two digit minute\n     * of hour, two digit second of minute, and time zone offset. (HHmmssZ) The time zone\n     * offset is blank for zero, and of the form '\\u00b1HHmm' for non-zero.\n     */",
+  "javadoc_after": "/**\n     * Returns a basic formatter for a two digit hour of day, two digit minute\n     * of hour, two digit second of minute, three digit millis, and time zone\n     * offset (HHmmss.SSSZ).\n     * The time zone offset is 'Z' for zero, and of the form '\\u00b1HH:mm' for non-zero.\n     * \n     * @return a formatter for HHmmss.SSSZ\n     */"
+}

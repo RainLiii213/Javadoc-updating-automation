@@ -1,0 +1,8 @@
+{
+  "commit_hash": "894d0bbb59392c4e04f3bc6646a5b098e3944985",
+  "issue_summary": "cleaned up temp. folder management in hunspell.",
+  "code_before": "static synchronized Path getDefaultTempDir() throws IOException {\n    if (DEFAULT_TEMP_DIR == null) {\n      // Lazy init\n      String tempDirPath = System.getProperty(\"java.io.tmpdir\");\n      if (tempDirPath == null) {\n        throw new IOException(\"Java has no temporary folder property (java.io.tmpdir)?\");\n      }\n      Path tempDirectory = Paths.get(tempDirPath);\n      if (!Files.isWritable(tempDirectory)) {\n        throw new IOException(\n            \"Java's temporary folder not present or writeable?: \" + tempDirectory.toAbsolutePath());\n      }\n      DEFAULT_TEMP_DIR = tempDirectory;\n    }\n\n    return DEFAULT_TEMP_DIR;\n  }",
+  "code_after": "static Path getDefaultTempDir() throws IOException {\n    String tmpDir = System.getProperty(\"java.io.tmpdir\");\n    if (tmpDir == null) {\n      throw new IOException(\"No temporary path (java.io.tmpdir)?\");\n    }\n    Path tmpPath = Paths.get(tmpDir);\n    if (!Files.isWritable(tmpPath)) {\n      throw new IOException(\n          \"Temporary path not present or writeable?: \" + tmpPath.toAbsolutePath());\n    }\n    return tmpPath;\n  }",
+  "javadoc_before": "/**\n   * Returns the default temporary directory. By default, java.io.tmpdir. If not accessible or not\n   * available, an IOException is thrown\n   */",
+  "javadoc_after": "/**\n   * Returns the default temporary directory pointed to by {@code java.io.tmpdir}. If not accessible\n   * or not available, an IOException is thrown.\n   */"
+}

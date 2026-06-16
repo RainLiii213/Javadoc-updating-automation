@@ -12,8 +12,15 @@ from javadoc_miner.text_utils import (
 
 def test_target_java_path_accepts_main_java_only():
     assert is_target_java_path("src/main/java/org/example/Foo.java")
+    assert is_target_java_path("module/src/main/java/org/example/Foo.java")
+    assert is_target_java_path("guava/src/com/google/common/Foo.java")
+    assert is_target_java_path("lucene/core/src/java/org/example/Foo.java")
     assert not is_target_java_path("src/test/java/org/example/FooTest.java")
     assert not is_target_java_path("src/main/java/org/example/FooTest.java")
+    assert not is_target_java_path("guava-tests/test/com/google/common/Foo.java")
+    assert not is_target_java_path("guava-testlib/src/com/google/common/Foo.java")
+    assert not is_target_java_path("android/guava/src/com/google/common/Foo.java")
+    assert not is_target_java_path("module/generated/src/main/java/org/example/Foo.java")
     assert not is_target_java_path("pom.xml")
 
 

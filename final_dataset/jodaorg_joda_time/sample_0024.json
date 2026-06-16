@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7755b343d88276ba1a058e14645039daf4642ab2",
+  "issue_summary": "Fix and test LenientChronology to ensure it works with time zones bug 1755161",
+  "code_before": "public long set(long instant, int value) {\n        int min = getMinimumValue(instant);\n        if (value >= min && value <= getMaximumValue(instant)) {\n            return super.set(instant, value);\n        }\n        return add(super.set(instant, min), value - min);\n    }",
+  "code_after": "public long set(long instant, int value) {\n        long difference = FieldUtils.safeSubtract(value, get(instant));\n        return add(instant, difference);\n    }",
+  "javadoc_before": "/**\n     * Set values which may be out of bounds. If the value is out of bounds,\n     * the instant is first set to the minimum allowed value, and then the\n     * difference is added.\n     */",
+  "javadoc_after": "/**\n     * Set values which may be out of bounds by adding the difference between\n     * the new value and the current value.\n     */"
+}

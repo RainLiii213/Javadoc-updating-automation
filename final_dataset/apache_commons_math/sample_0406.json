@@ -1,0 +1,8 @@
+{
+  "commit_hash": "21d9fa79fb674b93eeb3356ade5bfb6180934672",
+  "issue_summary": "document some exceptions that may be thrown by derived classes",
+  "code_before": "protected abstract double doSolve();",
+  "code_after": "protected abstract double doSolve()\n        throws TooManyEvaluationsException, NoBracketingException;",
+  "javadoc_before": "/**\n     * Method for implementing actual optimization algorithms in derived\n     * classes.\n     *\n     * @return the root.\n     * @throws TooManyEvaluationsException if the maximal number of evaluations\n     * is exceeded.\n     */",
+  "javadoc_after": "/**\n     * Method for implementing actual optimization algorithms in derived\n     * classes.\n     *\n     * @return the root.\n     * @throws TooManyEvaluationsException if the maximal number of evaluations\n     * is exceeded.\n     * @throws NoBracketingException if the initial search interval does not bracket\n     * a root and the solver requires it.\n     */"
+}

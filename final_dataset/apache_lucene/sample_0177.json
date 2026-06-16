@@ -1,0 +1,8 @@
+{
+  "commit_hash": "acf45d8a315f94c4bf685458faa1aae24c1e8599",
+  "issue_summary": "Remove VectorValues#getSimilarityFunction.",
+  "code_before": "VectorValues.SimilarityFunction vectorSimilarityFunction();",
+  "code_after": "VectorSimilarityFunction vectorSimilarityFunction();",
+  "javadoc_before": "/** The {@link VectorValues.SimilarityFunction} of the field's vector value */",
+  "javadoc_after": "/** The {@link VectorSimilarityFunction} of the field's vector value */"
+}

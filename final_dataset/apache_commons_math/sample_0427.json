@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d708c9d1019c9db667ca828e1c8ca8e12b035bbe",
+  "issue_summary": "Removed checked exceptions. Some Javadoc cleanup. Tests upgraded to Junit 4 .",
+  "code_before": "public static double regularizedBeta(double x, double a, double b)\n        throws MathException\n    {\n        return regularizedBeta(x, a, b, DEFAULT_EPSILON, Integer.MAX_VALUE);\n    }",
+  "code_after": "public static double regularizedBeta(double x, double a, double b) {\n        return regularizedBeta(x, a, b, DEFAULT_EPSILON, Integer.MAX_VALUE);\n    }",
+  "javadoc_before": "/**\n     * Returns the\n     * <a href=\"http://mathworld.wolfram.com/RegularizedBetaFunction.html\">\n     * regularized beta function</a> I(x, a, b).\n     *\n     * @param x the value.\n     * @param a the a parameter.\n     * @param b the b parameter.\n     * @return the regularized beta function I(x, a, b)\n     * @throws MathException if the algorithm fails to converge.\n     */",
+  "javadoc_after": "/**\n     * Returns the\n     * <a href=\"http://mathworld.wolfram.com/RegularizedBetaFunction.html\">\n     * regularized beta function</a> I(x, a, b).\n     *\n     * @param x Value.\n     * @param a Parameter {@code a}.\n     * @param b Parameter {@code b}.\n     * @return the regularized beta function I(x, a, b).\n     * @throws org.apache.commons.math.exception.MaxCountExceededException\n     * if the algorithm fails to converge.\n     * @throws MathException if the algorithm fails to converge.\n     */"
+}

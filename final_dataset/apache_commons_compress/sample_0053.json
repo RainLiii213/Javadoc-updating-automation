@@ -1,0 +1,8 @@
+{
+  "commit_hash": "adda4c1829aaae45939e370f47b478ef7f3e7e33",
+  "issue_summary": "Fixes for CPIO bugs",
+  "code_before": "public static int add(final int x, final long y) {\n        return Math.addExact(x, Math.toIntExact(y));\n    }",
+  "code_after": "public static int add(final int x, final long y) {\n        try {\n            return Math.addExact(x, Math.toIntExact(y));\n        } catch (final ArithmeticException exp) {\n            throw new IllegalArgumentException(\"Argument too large or result overflows\", exp);\n        }\n    }",
+  "javadoc_before": "/**\n     * Returns the int result of adding an int and a long, and throws an exception if the result overflows an int.\n     *\n     * @param x the first value, an int.\n     * @param y the second value, a long,\n     * @return the addition of both values.\n     * @throws ArithmeticException when y overflow an int.\n     * @throws ArithmeticException if the result overflows an int.\n     */",
+  "javadoc_after": "/**\n     * Returns the int result of adding an int and a long, and throws an exception if the result overflows an int.\n     *\n     * @param x the first value, an int.\n     * @param y the second value, a long,\n     * @return the addition of both values.\n     * @throws IllegalArgumentException when y or the result overflows an int\n     */"
+}

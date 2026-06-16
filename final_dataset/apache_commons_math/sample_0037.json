@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a7294ccd794d2d3f55b67b75b9798de151451fb8",
+  "issue_summary": "Added a RotationConvention enumerate.",
+  "code_before": "public FieldVector3D<T> getAxis() {\n        final T squaredSine = q1.multiply(q1).add(q2.multiply(q2)).add(q3.multiply(q3));\n        if (squaredSine.getReal() == 0) {\n            final Field<T> field = squaredSine.getField();\n            return new FieldVector3D<T>(field.getOne(), field.getZero(), field.getZero());\n        } else if (q0.getReal() < 0) {\n            T inverse = squaredSine.sqrt().reciprocal();\n            return new FieldVector3D<T>(q1.multiply(inverse), q2.multiply(inverse), q3.multiply(inverse));\n        }\n        final T inverse = squaredSine.sqrt().reciprocal().negate();\n        return new FieldVector3D<T>(q1.multiply(inverse), q2.multiply(inverse), q3.multiply(inverse));\n    }",
+  "code_after": "@Deprecated\n    public FieldVector3D<T> getAxis() {\n        return getAxis(RotationConvention.VECTOR_OPERATOR);\n    }",
+  "javadoc_before": "/** Get the normalized axis of the rotation.\n     * @return normalized axis of the rotation\n     * @see #FieldRotation(FieldVector3D, RealFieldElement)\n     */",
+  "javadoc_after": "/** Get the normalized axis of the rotation.\n     * @return normalized axis of the rotation\n     * @see #FieldRotation(FieldVector3D, RealFieldElement)\n     * @deprecated as of 3.6, replaced with {@link #getAxis(RotationConvention)}\n     */"
+}

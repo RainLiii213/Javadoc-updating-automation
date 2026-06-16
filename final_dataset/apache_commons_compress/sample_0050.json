@@ -1,0 +1,8 @@
+{
+  "commit_hash": "856a540d3eeb463527c509853f4d205f4adc272f",
+  "issue_summary": "Resue commons-io",
+  "code_before": "public static void copy(final File sourceFile, final OutputStream outputStream) throws IOException {\n        Files.copy(sourceFile.toPath(), outputStream);\n    }",
+  "code_after": "@Deprecated\n    public static void copy(final File sourceFile, final OutputStream outputStream) throws IOException {\n        FileUtils.copyFile(sourceFile, outputStream);\n    }",
+  "javadoc_before": "/**\n     * Copies the source file to the given output stream.\n     *\n     * @param sourceFile   The file to read.\n     * @param outputStream The output stream to write.\n     * @throws IOException if an I/O error occurs when reading or writing.\n     * @since 1.21\n     */",
+  "javadoc_after": "/**\n     * Copies the source file to the given output stream.\n     *\n     * @param sourceFile   The file to read.\n     * @param outputStream The output stream to write.\n     * @throws IOException if an I/O error occurs when reading or writing.\n     * @since 1.21\n     * @deprecated Use {@link FileUtils#copyFile(File, OutputStream)}.\n     */"
+}

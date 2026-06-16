@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8c2ef3bc7fbebe8105c2646c81489aa9393ad402",
+  "issue_summary": "FieldComparatorSource.newComparator() doesn't need to throw IOException",
+  "code_before": "public abstract FieldComparator<?> newComparator(String fieldname, int numHits, int sortPos, boolean reversed)\n      throws IOException;",
+  "code_after": "public abstract FieldComparator<?> newComparator(String fieldname, int numHits, int sortPos, boolean reversed);",
+  "javadoc_before": "/**\n   * Creates a comparator for the field in the given index.\n   * \n   * @param fieldname\n   *          Name of the field to create comparator for.\n   * @return FieldComparator.\n   * @throws IOException\n   *           If an error occurs reading the index.\n   */",
+  "javadoc_after": "/**\n   * Creates a comparator for the field in the given index.\n   * \n   * @param fieldname\n   *          Name of the field to create comparator for.\n   * @return FieldComparator.\n   */"
+}

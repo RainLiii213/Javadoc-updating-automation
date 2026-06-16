@@ -1,0 +1,8 @@
+{
+  "commit_hash": "de8eeba94bd6a12a83a05786cf2ddd00d8547b48",
+  "issue_summary": "Expose c.g.common.hash.HashCodes and its static factory methods. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=27671928",
+  "code_before": "static HashCode fromBytes(byte[] bytes) {\n    return new BytesHashCode(bytes);\n  }",
+  "code_after": "public static HashCode fromBytes(byte[] bytes) {\n    checkArgument(bytes.length >= 4, \"A HashCode must contain at least 4 bytes.\");\n    return fromBytesNoCopy(bytes.clone());\n  }",
+  "javadoc_before": "/**\n   * Creates a {@code HashCode} from a byte array. The array is <i>not</i> copied defensively, \n   * so it must be handed-off so as to preserve the immutability contract of {@code HashCode}.\n   * The array must be at least of length 4 (not checked). \n   */",
+  "javadoc_after": "/**\n   * Creates a {@code HashCode} from a byte array. The array is defensively copied to preserve\n   * the immutability contract of {@code HashCode}. The array must be at least of length 4.\n   */"
+}

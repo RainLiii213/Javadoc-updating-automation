@@ -1,0 +1,8 @@
+{
+  "commit_hash": "331ccf391067b7775db371bec1ec8e8c9004e904",
+  "issue_summary": "Remove TopDocs.maxScore.",
+  "code_before": "TopDocs(long totalHits, ScoreDoc[] scoreDocs) {\n    this(totalHits, scoreDocs, Float.NaN);\n  }",
+  "code_after": "public TopDocs(long totalHits, ScoreDoc[] scoreDocs) {\n    this.totalHits = totalHits;\n    this.scoreDocs = scoreDocs;\n  }",
+  "javadoc_before": "/** Constructs a TopDocs with a default maxScore=Float.NaN. */",
+  "javadoc_after": "/** Constructs a TopDocs. */"
+}

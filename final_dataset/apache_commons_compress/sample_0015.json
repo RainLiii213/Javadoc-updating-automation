@@ -1,0 +1,8 @@
+{
+  "commit_hash": "08856525bec4bba25f45db450c7ab363dc25c91e",
+  "issue_summary": "org.apache.commons.compress.archivers.cpio.CpioArchiveEntry now throws ArchiveException instead of Arithmetic exception",
+  "code_before": "@Deprecated\n    public int getHeaderPadCount() {\n        return getHeaderPadCount(null);\n    }",
+  "code_after": "@Deprecated\n    public int getHeaderPadCount() throws ArchiveException {\n        return getHeaderPadCount(null);\n    }",
+  "javadoc_before": "/**\n     * Gets the number of bytes needed to pad the header to the alignment boundary.\n     *\n     * @deprecated This method doesn't properly work for multi-byte encodings. And creates corrupt archives. Use {@link #getHeaderPadCount(Charset)} or\n     *             {@link #getHeaderPadCount(long)} in any case.\n     * @return the number of bytes needed to pad the header (0,1,2,3)\n     */",
+  "javadoc_after": "/**\n     * Gets the number of bytes needed to pad the header to the alignment boundary.\n     *\n     * @deprecated This method doesn't properly work for multi-byte encodings. And creates corrupt archives. Use {@link #getHeaderPadCount(Charset)} or\n     *             {@link #getHeaderPadCount(long)} in any case.\n     * @return the number of bytes needed to pad the header (0,1,2,3)\n     * @throws ArchiveException if a computation overflows an {@code int}.\n     */"
+}

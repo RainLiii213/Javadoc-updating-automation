@@ -1,0 +1,8 @@
+{
+  "commit_hash": "928a3fadb7be6ab3046798ef870759ded8bc4dc3",
+  "issue_summary": "Unit test Maps.newHashMapWithExpectedSize. Make the method return the minimal values that pass the test.",
+  "code_before": "static int capacity(int expectedSize) {\n    checkArgument(expectedSize >= 0);\n    // Avoid the int overflow if expectedSize > (Integer.MAX_VALUE / 2)\n    return Ints.saturatedCast(Math.max(expectedSize * 2L, 16L));\n  }",
+  "code_after": "static int capacity(int expectedSize) {\n    if (expectedSize < 3) {\n      checkArgument(expectedSize >= 0);\n      return expectedSize + 1;\n    }\n    if (expectedSize < Ints.MAX_POWER_OF_TWO) {\n      return expectedSize + expectedSize / 3;\n    }\n    return Integer.MAX_VALUE; // any large value\n  }",
+  "javadoc_before": "/**\n   * Returns an appropriate value for the \"capacity\" (in reality, \"minimum table\n   * size\") parameter of a {@link HashMap} constructor, such that the resulting\n   * table will be between 25% and 50% full when it contains {@code\n   * expectedSize} entries, unless {@code expectedSize} is greater than\n   * {@link Integer#MAX_VALUE} / 2.\n   *\n   * @throws IllegalArgumentException if {@code expectedSize} is negative\n   */",
+  "javadoc_after": "/**\n   * Returns a capacity that is sufficient to keep the map from being resized as\n   * long as it grows no larger than expectedSize and the load factor is >= its\n   * default (0.75).\n   */"
+}

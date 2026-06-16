@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a30eeae7956c8c59037ca1c08e7f69474da10e7a",
+  "issue_summary": "Better argument validation in StoredField",
+  "code_before": "public Field(String name, byte[] value, int offset, int length, IndexableFieldType type) {\n    this(name, new BytesRef(value, offset, length), type);\n  }",
+  "code_after": "public Field(String name, byte[] value, int offset, int length, IndexableFieldType type) {\n    this(name, value != null ? new BytesRef(value, offset, length) : null, type);\n  }",
+  "javadoc_before": "/**\n   * Create field with binary value.\n   * \n   * <p>NOTE: the provided byte[] is not copied so be sure\n   * not to change it until you're done with this field.\n   * @param name field name\n   * @param value byte array pointing to binary content (not copied)\n   * @param offset starting position of the byte array\n   * @param length valid length of the byte array\n   * @param type field type\n   * @throws IllegalArgumentException if the field name is null,\n   *         or the field's type is indexed()\n   * @throws NullPointerException if the type is null\n   */",
+  "javadoc_after": "/**\n   * Create field with binary value.\n   * \n   * <p>NOTE: the provided byte[] is not copied so be sure\n   * not to change it until you're done with this field.\n   * @param name field name\n   * @param value byte array pointing to binary content (not copied)\n   * @param offset starting position of the byte array\n   * @param length valid length of the byte array\n   * @param type field type\n   * @throws IllegalArgumentException if the field name, value or type\n   *         is null, or the field's type is indexed().\n   */"
+}

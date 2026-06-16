@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b3dc9153bb5d11afb82025eb4e7ebbe1af778d3d",
+  "issue_summary": "Allow users to retrieve counts from taxo association facets",
+  "code_before": "public LabelAndValue(String label, Number value) {\n    this.label = label;\n    this.value = value;\n  }",
+  "code_after": "public LabelAndValue(String label, Number value) {\n    this.label = label;\n    this.value = value;\n    this.count = value.intValue();\n  }",
+  "javadoc_before": "/** Sole constructor. */",
+  "javadoc_after": "/** Constructor with unspecified count, we assume the value is a count. */"
+}

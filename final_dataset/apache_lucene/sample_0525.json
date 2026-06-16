@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e590ed67cfd1b8f160066f4970f12e9804e7e06b",
+  "issue_summary": "make PointInSetQuery abstract",
+  "code_before": "public class PointInSetQuery extends Query {\nprotected String toString(byte[] value) {\n    assert value != null;\n    StringBuilder sb = new StringBuilder();\n    sb.append(\"binary(\");\n    for (int i = 0; i < value.length; i++) {\n      if (i > 0) {\n        sb.append(' ');\n      }\n      sb.append(Integer.toHexString(value[i] & 0xFF));\n    }\n    sb.append(')');\n    return sb.toString();\n  }\n}",
+  "code_after": "public abstract class PointInSetQuery extends Query {\nprotected abstract String toString(byte[] value);\n}",
+  "javadoc_before": "/** Finds all documents whose point value, previously indexed with e.g. {@link org.apache.lucene.document.LongPoint}, is contained in the\n *  specified set.\n *\n * @lucene.experimental */",
+  "javadoc_after": "/**\n * Abstract query class to find all documents whose single or multi-dimensional point values, previously indexed with e.g. {@link IntPoint},\n * is contained in the specified set.\n *\n * <p>\n * This is for subclasses and works on the underlying binary encoding: to\n * create range queries for lucene's standard {@code Point} types, refer to factory\n * methods on those classes, e.g. {@link IntPoint#newSetQuery IntPoint.newSetQuery()} for \n * fields indexed with {@link IntPoint}.\n\n * @see IntPoint\n * @see LongPoint\n * @see FloatPoint\n * @see DoublePoint\n * @see BinaryPoint \n *\n * @lucene.experimental */"
+}

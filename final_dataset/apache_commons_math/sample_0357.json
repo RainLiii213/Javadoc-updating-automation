@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3fe903b7e2375b05038c5faf9a1c9ea1e5562011",
+  "issue_summary": "Changed default seeding for MersenneTwister, WELL generators to add system identity hash code. JIRA: .",
+  "code_before": "public MersenneTwister() {\n        mt = new int[N];\n        setSeed(System.currentTimeMillis());\n    }",
+  "code_after": "public MersenneTwister() {\n        mt = new int[N];\n        setSeed(System.currentTimeMillis() + System.identityHashCode(this));\n    }",
+  "javadoc_before": "/** Creates a new random number generator.\n     * <p>The instance is initialized using the current time as the\n     * seed.</p>\n     */",
+  "javadoc_after": "/** Creates a new random number generator.\n     * <p>The instance is initialized using the current time plus the\n     * system identity hash code of this instance as the seed.</p>\n     */"
+}

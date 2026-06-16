@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c06cc933b6814a76ecf2c6aef459b61d0bc25fb2",
+  "issue_summary": "changed SVD to compute either compact SVD (using only positive singular values) or truncated SVD (using only singular values up to a user-specified max number) started fix of SVD solver that did not compute a least square solution the fix is not complete yet as it seems the solution does not really gives the smallest possible residuals. See for example the commented out parts of testMath320A in SingularValueSolverTest. JIRA",
+  "code_before": "public RealMatrix getInverse()\n            throws InvalidMatrixException {\n\n            if (!isNonSingular()) {\n                throw new SingularMatrixException();\n            }\n\n            return solve(MatrixUtils.createRealIdentityMatrix(singularValues.length));\n\n        }",
+  "code_after": "public RealMatrix getInverse() {\n            return pseudoInverse;\n        }",
+  "javadoc_before": "/** Get the pseudo-inverse of the decomposed matrix.\n         * @return inverse matrix\n         * @throws InvalidMatrixException if decomposed matrix is singular\n         */",
+  "javadoc_after": "/** Get the pseudo-inverse of the decomposed matrix.\n         * @return inverse matrix\n         */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3c13a07575642aa8ddbb6ab5c75b8da7b2f8e56b",
+  "issue_summary": "Avoid NullPointerException in IOCase.checkRegionMatches(String, int String) on null input",
+  "code_before": "public boolean checkRegionMatches(final String str, final int strStartIndex, final String search) {\n        return str.regionMatches(!sensitive, strStartIndex, search, 0, search.length());\n    }",
+  "code_after": "public boolean checkRegionMatches(final String str, final int strStartIndex, final String search) {\n        return str != null && search != null && str.regionMatches(!sensitive, strStartIndex, search, 0, search.length());\n    }",
+  "javadoc_before": "/**\n     * Checks if one string contains another at a specific index using the case-sensitivity rule.\n     * <p>\n     * This method mimics parts of {@link String#regionMatches(boolean, int, String, int, int)}\n     * but takes case-sensitivity into account.\n     * </p>\n     *\n     * @param str  the string to check, not null.\n     * @param strStartIndex  the index to start at in str.\n     * @param search  the start to search for, not null.\n     * @return true if equal using the case rules.\n     * @throws NullPointerException if either string is null.\n     */",
+  "javadoc_after": "/**\n     * Checks if one string contains another at a specific index using the case-sensitivity rule.\n     * <p>\n     * This method mimics parts of {@link String#regionMatches(boolean, int, String, int, int)}\n     * but takes case-sensitivity into account.\n     * </p>\n     *\n     * @param str  the string to check.\n     * @param strStartIndex  the index to start at in str.\n     * @param search  the start to search for,.\n     * @return true if equal using the case rules.\n     */"
+}

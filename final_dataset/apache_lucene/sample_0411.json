@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2fc41d565a4a0408a09856a37d3be7d87414ba3f",
+  "issue_summary": "Add support for replica types",
+  "code_before": "public static AddReplica addReplicaToShard(String collection, String shard) {\n    return new AddReplica(collection, shard, null);\n  }",
+  "code_after": "public static AddReplica addReplicaToShard(String collection, String shard) {\n    return addReplicaToShard(collection, shard, Replica.Type.NRT);\n  }",
+  "javadoc_before": "/**\n   * Returns a SolrRequest to add a replica to a shard in a collection\n   */",
+  "javadoc_after": "/**\n   * Returns a SolrRequest to add a replica of type {@link org.apache.solr.common.cloud.Replica.Type#NRT} to a shard in a collection\n   */"
+}

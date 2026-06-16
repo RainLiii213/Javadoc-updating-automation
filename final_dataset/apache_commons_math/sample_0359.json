@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e0385f30bf8dc2774478c3f4cf40b9d158d13640",
+  "issue_summary": "Changed default non-secure generator to Well19937c and changed default seeds to add system identity haschode to timestamp. JIRA: .",
+  "code_before": "private SecureRandom getSecRan() {\n        if (secRand == null) {\n            secRand = new SecureRandom();\n            secRand.setSeed(System.currentTimeMillis());\n        }\n        return secRand;\n    }",
+  "code_after": "private SecureRandom getSecRan() {\n        if (secRand == null) {\n            secRand = new SecureRandom();\n            secRand.setSeed(System.currentTimeMillis() + hashCode());\n        }\n        return secRand;\n    }",
+  "javadoc_before": "/**\n     * Returns the SecureRandom used to generate secure random data.\n     * <p>\n     * Creates and initializes if null.\n     * </p>\n     *\n     * @return the SecureRandom used to generate secure random data\n     */",
+  "javadoc_after": "/**\n     * Returns the SecureRandom used to generate secure random data.\n     * <p>\n     * Creates and initializes if null.  Uses \n     * {@code System.currentTimeMillis() + hashCode()} as the default seed.\n     * </p>\n     *\n     * @return the SecureRandom used to generate secure random data\n     */"
+}

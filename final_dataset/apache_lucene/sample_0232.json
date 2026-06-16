@@ -1,0 +1,8 @@
+{
+  "commit_hash": "984466f31bcb9dfcb1781b053eb621cb9c86b9a3",
+  "issue_summary": "Avoid reregistering JVM Guage as well",
+  "code_before": "public void gauge(Gauge<?> gauge, boolean force, String metricName, String... metricPath) {\n    metricManager.registerGauge(this, registryName, gauge, tag, force, metricName, metricPath);\n  }",
+  "code_after": "public void gauge(Gauge<?> gauge, boolean force, String metricName, String... metricPath) {\n    metricManager.registerGauge(this, registryName, gauge, tag, force ? SolrMetricManager.ResolutionStrategy.REPLACE : SolrMetricManager.ResolutionStrategy.ERROR, metricName, metricPath);\n  }",
+  "javadoc_before": "/**\n   * Convenience method for {@link SolrMetricManager#registerGauge(SolrMetricsContext, String, Gauge, String, boolean, String, String...)}.\n   */",
+  "javadoc_after": "/**\n   * Convenience method for {@link SolrMetricManager#registerGauge(SolrMetricsContext, String, Gauge, String, SolrMetricManager.ResolutionStrategy, String, String...)}.\n   */"
+}

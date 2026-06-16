@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8abe21fe47c128c797bf122b30c8fca9f75652d0",
+  "issue_summary": "Code cleanup: Moved all computations to the constructor, allowing the class to be immutable.",
+  "code_before": "public double[] guess() {\n            if (parameters == null) {\n                parameters = basicGuess(observations);\n            }\n            return parameters.clone();\n        }",
+  "code_after": "public double[] guess() {\n            return new double[] { norm, mean, sigma };\n        }",
+  "javadoc_before": "/**\n         * Guesses the parameters based on the observed points.\n         *\n         * @return the guessed parameters: norm, mean and sigma.\n         */",
+  "javadoc_after": "/**\n         * Gets an estimation of the parameters.\n         *\n         * @return the guessed parameters, in the following order:\n         * <ul>\n         *  <li>Normalization factor</li>\n         *  <li>Mean</li>\n         *  <li>Standard deviation</li>\n         * </ul>\n         */"
+}

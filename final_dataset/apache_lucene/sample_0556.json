@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0f3aecfdffb8cdf4d48ab4d0fc43860c7f959ab4",
+  "issue_summary": "SolrResourceLoader takes a Path for its instance directory",
+  "code_before": "public SolrResourceLoader( String instanceDir, ClassLoader parent )\n  {\n    this(instanceDir, parent, null);\n  }",
+  "code_after": "@Deprecated\n  public SolrResourceLoader(String instanceDir, ClassLoader parent) {\n    this(Paths.get(instanceDir), parent);\n  }",
+  "javadoc_before": "/**\n   * <p>\n   * This loader will delegate to the context classloader when possible,\n   * otherwise it will attempt to resolve resources using any jar files\n   * found in the \"lib/\" directory in the specified instance directory.\n   * If the instance directory is not specified (=null), SolrResourceLoader#locateInstanceDir will provide one.\n   */",
+  "javadoc_after": "/** Use {@link #SolrResourceLoader(Path, ClassLoader)} */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "97078adb4b4a4727a694195d134071f84b834609",
+  "issue_summary": "Reuse Arrays.equals(byte[], byte[]) and deprecate ArchiveUtils.isEqual(byte[], byte[])",
+  "code_before": "public static boolean isEqual(final byte[] buffer1, final byte[] buffer2) {\n        return isEqual(buffer1, 0, buffer1.length, buffer2, 0, buffer2.length, false);\n    }",
+  "code_after": "@Deprecated\n    public static boolean isEqual(final byte[] buffer1, final byte[] buffer2) {\n        return Arrays.equals(buffer1, buffer2);\n    }",
+  "javadoc_before": "/**\n     * Compare byte buffers\n     *\n     * @param buffer1 the first buffer\n     * @param buffer2 the second buffer\n     * @return {@code true} if buffer1 and buffer2 have same contents\n     */",
+  "javadoc_after": "/**\n     * Compare byte buffers\n     *\n     * @param buffer1 the first buffer\n     * @param buffer2 the second buffer\n     * @return {@code true} if buffer1 and buffer2 have same contents\n     * @deprecated Use {@link Arrays#equals(byte[], byte[])}.\n     */"
+}

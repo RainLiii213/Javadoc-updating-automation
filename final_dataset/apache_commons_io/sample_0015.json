@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8080c7cb26b357598c636fc50f52a76995d2949b",
+  "issue_summary": "Add NIO channel support to `AbstractStreamBuilder`",
+  "code_before": "public ByteArraySeekableByteChannel() {\n        this(0);\n    }",
+  "code_after": "public ByteArraySeekableByteChannel() {\n        this(IOUtils.DEFAULT_BUFFER_SIZE);\n    }",
+  "javadoc_before": "/**\n     * Constructs a new instance using a default empty buffer.\n     */",
+  "javadoc_after": "/**\n     * Constructs a new instance, with a default internal buffer capacity.\n     * <p>\n     * The initial size and position of the channel are 0.\n     * </p>\n     *\n     * @see ByteArrayOutputStream#ByteArrayOutputStream()\n     */"
+}

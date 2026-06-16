@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4ef3a687731998dda5fe99d91c5937c3fef201c6",
+  "issue_summary": "Create a Google-internal RateLimitingExecutorService.",
+  "code_before": "private long reserveNextTicket(double requiredPermits, long nowMicros) {\n    resync(nowMicros);\n    long microsToNextFreeTicket = nextFreeTicketMicros - nowMicros;\n    double storedPermitsToSpend = Math.min(requiredPermits, this.storedPermits);\n    double freshPermits = requiredPermits - storedPermitsToSpend;\n\n    long waitMicros = storedPermitsToWaitTime(this.storedPermits, storedPermitsToSpend)\n        + (long) (freshPermits * stableIntervalMicros);\n\n    this.nextFreeTicketMicros = nextFreeTicketMicros + waitMicros;\n    this.storedPermits -= storedPermitsToSpend;\n    return microsToNextFreeTicket;\n  }",
+  "code_after": "private long reserveNextTicket(double requiredPermits, long nowMicros) {\n    resync(nowMicros);\n    long microsToNextFreeTicket = Math.max(0, nextFreeTicketMicros - nowMicros);\n    double storedPermitsToSpend = Math.min(requiredPermits, this.storedPermits);\n    double freshPermits = requiredPermits - storedPermitsToSpend;\n\n    long waitMicros = storedPermitsToWaitTime(this.storedPermits, storedPermitsToSpend)\n        + (long) (freshPermits * stableIntervalMicros);\n\n    this.nextFreeTicketMicros = nextFreeTicketMicros + waitMicros;\n    this.storedPermits -= storedPermitsToSpend;\n    return microsToNextFreeTicket;\n  }",
+  "javadoc_before": "/**\n   * Reserves next ticket and returns the wait time that the caller must wait for.\n   */",
+  "javadoc_after": "/**\n   * Reserves next ticket and returns the wait time that the caller must wait for.\n   *\n   * <p>The return value is guaranteed to be non-negative.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c855dd5a33f6d80dd5da2a888e4ae19fb27ad97c",
+  "issue_summary": "OfflineSorter now uses Directory API; add Directory.createTempOutput and IndexOutput.getName",
+  "code_before": "@Override\n    public void close() throws IOException {\n      if (os instanceof Closeable) {\n        ((Closeable) os).close();\n      }\n    }",
+  "code_after": "@Override\n    public void close() throws IOException {\n      out.close();\n    }",
+  "javadoc_before": "/**\n     * Closes the provided {@link DataOutput} if it is {@link Closeable}.\n     */",
+  "javadoc_after": "/**\n     * Closes the provided {@link IndexOutput}.\n     */"
+}

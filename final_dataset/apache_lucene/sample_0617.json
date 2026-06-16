@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c6821e1a1941e9ed6cbe35a3cb5be831bb6cfe1a",
+  "issue_summary": "Simplified Explanation API.",
+  "code_before": "public boolean isMatch() {\n    return (0.0f < getValue());\n  }",
+  "code_after": "public boolean isMatch() {\n    return match;\n  }",
+  "javadoc_before": "/**\n   * Indicates whether or not this Explanation models a good match.\n   *\n   * <p>\n   * By default, an Explanation represents a \"match\" if the value is positive.\n   * </p>\n   * @see #getValue\n   */",
+  "javadoc_after": "/**\n   * Indicates whether or not this Explanation models a match.\n   */"
+}

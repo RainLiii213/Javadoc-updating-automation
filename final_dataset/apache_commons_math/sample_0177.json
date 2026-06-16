@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1a9e32ab8f63ab40517a9e3837ca8c5dce52f20d",
+  "issue_summary": "fill throws clause for genetics package.",
+  "code_before": "ChromosomePair crossover(Chromosome first, Chromosome second);",
+  "code_after": "ChromosomePair crossover(Chromosome first, Chromosome second) throws MathIllegalArgumentException;",
+  "javadoc_before": "/**\n     * Perform a crossover operation on the given chromosomes.\n     *\n     * @param first the first chromosome.\n     * @param second the second chromosome.\n     * @return the pair of new chromosomes that resulted from the crossover.\n     */",
+  "javadoc_after": "/**\n     * Perform a crossover operation on the given chromosomes.\n     *\n     * @param first the first chromosome.\n     * @param second the second chromosome.\n     * @return the pair of new chromosomes that resulted from the crossover.\n     * @throws MathIllegalArgumentException if the given chromosomes are not compatible with this {@link CrossoverPolicy}\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cb5e94419fd43756bd2abda1e9a25ebde7e8a6c9",
+  "issue_summary": "Improved checking of null vector elements.",
+  "code_before": "public SparseFieldVector(Field<T> field, T[] values) {\n        this.field = field;\n        virtualSize = values.length;\n        entries = new OpenIntToFieldHashMap<T>(field);\n        for (int key = 0; key < values.length; key++) {\n            T value = values[key];\n            entries.put(key, value);\n        }\n    }",
+  "code_after": "public SparseFieldVector(Field<T> field, T[] values) throws NullArgumentException {\n        MathUtils.checkNotNull(values);\n        this.field = field;\n        virtualSize = values.length;\n        entries = new OpenIntToFieldHashMap<T>(field);\n        for (int key = 0; key < values.length; key++) {\n            T value = values[key];\n            entries.put(key, value);\n        }\n    }",
+  "javadoc_before": "/**\n     * Create from a Field array.\n     * Only non-zero entries will be stored.\n     *\n     * @param field Field to which the elements belong.\n     * @param values Set of values to create from.\n     */",
+  "javadoc_after": "/**\n     * Create from a Field array.\n     * Only non-zero entries will be stored.\n     *\n     * @param field Field to which the elements belong.\n     * @param values Set of values to create from.\n     * @exception NullArgumentException if values is null\n     */"
+}

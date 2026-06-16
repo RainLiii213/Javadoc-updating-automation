@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0b93d10f3d705dff8f56e6e63bff82e648293ccf",
+  "issue_summary": "Fix for when a valid raw Snappy stream with uncompressed size > 2 GiB used to decompress and then fail at physical EOF with a “Premature end of stream” exception instead of completing cleanly",
+  "code_before": "@Override\n    public int getSize() {\n        return size;\n    }",
+  "code_after": "@Deprecated\n    @Override\n    public int getSize() {\n        return (int) uncompressedSize;\n    }",
+  "javadoc_before": "/**\n     * Gets the uncompressed size of the stream.\n     *\n     * @return the uncompressed size.\n     */",
+  "javadoc_after": "/**\n     * Gets the uncompressed size of the stream.\n     *\n     * @return the uncompressed size.\n     * @deprecated Use {@link #getUncompressedSize()}\n     */"
+}

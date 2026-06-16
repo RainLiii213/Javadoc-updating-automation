@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0af91ecfbe4deec846cd30fb32145d82b920a4ff",
+  "issue_summary": "Populate \"throws\" clause.",
+  "code_before": "protected void verifyBracketing(final double lower,\n                                    final double upper) {\n        UnivariateSolverUtils.verifyBracketing(function, lower, upper);\n    }",
+  "code_after": "protected void verifyBracketing(final double lower,\n                                    final double upper)\n        throws NullArgumentException,\n               NoBracketingException {\n        UnivariateSolverUtils.verifyBracketing(function, lower, upper);\n    }",
+  "javadoc_before": "/**\n     * Check that the endpoints specify an interval and the function takes\n     * opposite signs at the endpoints.\n     *\n     * @param lower Lower endpoint.\n     * @param upper Upper endpoint.\n     * @throws org.apache.commons.math3.exception.NoBracketingException if\n     * the function has the same sign at the endpoints.\n     */",
+  "javadoc_after": "/**\n     * Check that the endpoints specify an interval and the function takes\n     * opposite signs at the endpoints.\n     *\n     * @param lower Lower endpoint.\n     * @param upper Upper endpoint.\n     * @throws NullArgumentException if the function has not been set.\n     * @throws NoBracketingException if the function has the same sign at\n     * the endpoints.\n     */"
+}

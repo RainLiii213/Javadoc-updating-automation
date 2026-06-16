@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2e3e0829846239f4f1378a81e307ed28b11f9ecc",
+  "issue_summary": "Issues https://issues.apache.org/jira/browse/ https://issues.apache.org/jira/browse/",
+  "code_before": "public void setMedian(double median) {\n        this.median = median;\n    }",
+  "code_after": "@Deprecated\n    public void setMedian(double median) {\n        setMedianInternal(median);\n    }",
+  "javadoc_before": "/**\n     * Modify the median.\n     * @param median for this distribution\n     */",
+  "javadoc_after": "/**\n     * Modify the median.\n     * @param median for this distribution\n     * @deprecated as of 2.1 (class will become immutable in 3.0)\n     */"
+}

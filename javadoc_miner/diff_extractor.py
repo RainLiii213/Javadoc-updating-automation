@@ -1,4 +1,5 @@
 import difflib
+import re
 
 from .git_repo import GitRepo
 from .models import EntityDoc, FileChange
@@ -79,16 +80,21 @@ def bounded_entity_code_pair(
     file_change: FileChange,
     old_entity: EntityDoc,
     new_entity: EntityDoc,
-    max_lines: int = 100,
+    max_lines: int = 500,
+    complete_class_lines: int = 300,
 ) -> tuple[str, str]:
     old_code = entity_code_text(file_change.old_content, old_entity)
     new_code = entity_code_text(file_change.new_content, new_entity)
-    if len(old_code.splitlines()) <= max_lines and len(new_code.splitlines()) <= max_lines:
+    if new_entity.entity_type != "class":
         return old_code, new_code
-    return (
-        _changed_code_window(old_code, new_code, old_side=True, max_lines=max_lines),
-        _changed_code_window(old_code, new_code, old_side=False, max_lines=max_lines),
-    )
+    if max(len(old_code.splitlines()), len(new_code.splitlines())) <= complete_class_lines:
+        return old_code, new_code
+    old_code, new_code = _relevant_class_context_pair(old_code, new_code)
+    if not old_code or not new_code:
+        return "", ""
+    if max(len(old_code.splitlines()), len(new_code.splitlines())) > max_lines:
+        return "", ""
+    return old_code, new_code
 
 
 def _entity_code_without_javadoc(source: str, entity: EntityDoc) -> str:
@@ -97,25 +103,182 @@ def _entity_code_without_javadoc(source: str, entity: EntityDoc) -> str:
     return "\n".join(line.rstrip() for line in code_lines).strip()
 
 
-def _changed_code_window(old_code: str, new_code: str, old_side: bool, max_lines: int) -> str:
-    old_lines = old_code.splitlines()
-    new_lines = new_code.splitlines()
-    opcodes = difflib.SequenceMatcher(None, old_lines, new_lines).get_opcodes()
-    changed_indexes: list[int] = []
-    for tag, old_start, old_end, new_start, new_end in opcodes:
+def _relevant_class_context_pair(old_code: str, new_code: str) -> tuple[str, str]:
+    old_parts = _split_class_context(old_code)
+    new_parts = _split_class_context(new_code)
+    if old_parts is None or new_parts is None:
+        return "", ""
+    old_header, old_members = old_parts
+    new_header, new_members = new_parts
+    matcher = difflib.SequenceMatcher(
+        None,
+        [_normalized_member(member) for member in old_members],
+        [_normalized_member(member) for member in new_members],
+        autojunk=False,
+    )
+    old_selected: list[str] = []
+    new_selected: list[str] = []
+    for tag, old_start, old_end, new_start, new_end in matcher.get_opcodes():
         if tag == "equal":
             continue
-        start, end = (old_start, old_end) if old_side else (new_start, new_end)
-        changed_indexes.extend(range(start, max(start + 1, end)))
-    lines = old_lines if old_side else new_lines
-    if not lines:
-        return ""
-    center = changed_indexes[0] if changed_indexes else 0
-    half = max(1, (max_lines - 2) // 2)
-    start = max(0, center - half)
-    end = min(len(lines), start + max_lines)
-    start = max(0, end - max_lines)
-    window = lines[start:end]
-    if start > 0:
-        window = [lines[0], "    // ... relevant changed context ...", *window[2:]]
-    return "\n".join(window).strip()
+        old_selected.extend(old_members[old_start:old_end])
+        new_selected.extend(new_members[new_start:new_end])
+    if old_header == new_header and not old_selected and not new_selected:
+        return "", ""
+    return (
+        _build_class_context(old_header, old_selected),
+        _build_class_context(new_header, new_selected),
+    )
+
+
+def _split_class_context(code: str) -> tuple[str, list[str]] | None:
+    open_index = _first_code_brace(code)
+    if open_index is None:
+        return None
+    header = code[: open_index + 1].strip()
+    members: list[str] = []
+    member_start = open_index + 1
+    depth = 1
+    state = "normal"
+    index = open_index + 1
+    while index < len(code):
+        char = code[index]
+        next_char = code[index + 1] if index + 1 < len(code) else ""
+        if state == "line_comment":
+            if char == "\n":
+                state = "normal"
+        elif state == "block_comment":
+            if char == "*" and next_char == "/":
+                state = "normal"
+                index += 1
+        elif state in {"string", "char"}:
+            if char == "\\":
+                index += 1
+            elif (state == "string" and char == '"') or (state == "char" and char == "'"):
+                state = "normal"
+        elif char == "/" and next_char == "/":
+            state = "line_comment"
+            index += 1
+        elif char == "/" and next_char == "*":
+            state = "block_comment"
+            index += 1
+        elif char == '"':
+            state = "string"
+        elif char == "'":
+            state = "char"
+        elif char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 1 and _brace_ends_member(code, index):
+                member = code[member_start : index + 1].strip()
+                if member:
+                    members.append(member)
+                member_start = index + 1
+            elif depth == 0:
+                return header, members
+        elif char == ";" and depth == 1:
+            member = code[member_start : index + 1].strip()
+            if member:
+                members.append(member)
+            member_start = index + 1
+        index += 1
+    return None
+
+
+def _first_code_brace(code: str) -> int | None:
+    state = "normal"
+    index = 0
+    while index < len(code):
+        char = code[index]
+        next_char = code[index + 1] if index + 1 < len(code) else ""
+        if state == "line_comment":
+            if char == "\n":
+                state = "normal"
+        elif state == "block_comment":
+            if char == "*" and next_char == "/":
+                state = "normal"
+                index += 1
+        elif state in {"string", "char"}:
+            if char == "\\":
+                index += 1
+            elif (state == "string" and char == '"') or (state == "char" and char == "'"):
+                state = "normal"
+        elif char == "/" and next_char == "/":
+            state = "line_comment"
+            index += 1
+        elif char == "/" and next_char == "*":
+            state = "block_comment"
+            index += 1
+        elif char == '"':
+            state = "string"
+        elif char == "'":
+            state = "char"
+        elif char == "{":
+            return index
+        index += 1
+    return None
+
+
+def _normalized_member(member: str) -> str:
+    without_comments = re.sub(r"/\*.*?\*/|//[^\n]*", " ", member, flags=re.DOTALL)
+    return " ".join(without_comments.split())
+
+
+def _brace_ends_member(code: str, close_index: int) -> bool:
+    remainder = code[close_index + 1 :]
+    stripped = remainder.lstrip()
+    if not stripped:
+        return True
+    if stripped.startswith((";", ")", ",", ".", "]", "?", ":")):
+        return False
+    if re.match(r"^(?:catch|else|finally|while)\b", stripped):
+        return False
+    return True
+
+
+def _build_class_context(header: str, members: list[str]) -> str:
+    if not members:
+        return f"{header}\n}}"
+    indented = "\n\n".join(_remove_java_comments(member).strip() for member in members)
+    return f"{header}\n{indented}\n}}"
+
+
+def _remove_java_comments(code: str) -> str:
+    output: list[str] = []
+    state = "normal"
+    index = 0
+    while index < len(code):
+        char = code[index]
+        next_char = code[index + 1] if index + 1 < len(code) else ""
+        if state == "line_comment":
+            if char == "\n":
+                output.append(char)
+                state = "normal"
+        elif state == "block_comment":
+            if char == "*" and next_char == "/":
+                state = "normal"
+                index += 1
+            elif char == "\n":
+                output.append(char)
+        elif state in {"string", "char"}:
+            output.append(char)
+            if char == "\\" and next_char:
+                output.append(next_char)
+                index += 1
+            elif (state == "string" and char == '"') or (state == "char" and char == "'"):
+                state = "normal"
+        elif char == "/" and next_char == "/":
+            state = "line_comment"
+            index += 1
+        elif char == "/" and next_char == "*":
+            state = "block_comment"
+            index += 1
+        else:
+            output.append(char)
+            if char == '"':
+                state = "string"
+            elif char == "'":
+                state = "char"
+        index += 1
+    return "\n".join(line.rstrip() for line in "".join(output).splitlines() if line.strip())

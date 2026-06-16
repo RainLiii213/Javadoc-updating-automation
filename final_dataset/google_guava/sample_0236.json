@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3c39c3d3cc403c017b3681432e324be92044f141",
+  "issue_summary": "Copy ExecutionList.run to ExecutionList.execute, deprecating the former and updating callers.",
+  "code_before": "public void run() {\n    // Lock while we update our state so the add method above will finish adding\n    // any listeners before we start to run them.\n    synchronized (runnables) {\n      if (executed) {\n        return;\n      }\n      executed = true;\n    }\n\n    // At this point the runnables will never be modified by another\n    // thread, so we are safe using it outside of the synchronized block.\n    while (!runnables.isEmpty()) {\n      runnables.poll().execute();\n    }\n  }",
+  "code_after": "@Deprecated\n  public void run() {\n    execute();\n  }",
+  "javadoc_before": "/**\n   * Runs this execution list, executing all existing pairs in the order they\n   * were added. However, note that listeners added after this point may be\n   * executed before those previously added, and note that the execution order\n   * of all listeners is ultimately chosen by the implementations of the\n   * supplied executors.\n   *\n   * <p>This method is idempotent. Calling it several times in parallel is\n   * semantically equivalent to calling it exactly once.\n   */",
+  "javadoc_after": "/**\n   * Equivalent to {@link #execute}.\n   *\n   * @deprecated Use {@link #execute}.\n   */"
+}

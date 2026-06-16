@@ -92,3 +92,43 @@ def test_commit_summary_joins_wrapped_current_commit_subject():
     message = "Fix NullPointerException when the\ncurrent thread is stopped.\n\nLong body."
 
     assert commit_summary(message) == "Fix NullPointerException when the current thread is stopped."
+
+
+def test_commit_summary_completes_dangling_subject_from_commit_message_body():
+    message = (
+        "DeferredFileOutputStream now clears and deletes its temporary storage by (#858)\n\n"
+        "default.\n\nMore details."
+    )
+
+    assert commit_summary(message) == (
+        "DeferredFileOutputStream now clears and deletes its temporary storage by default."
+    )
+
+
+def test_commit_summary_keeps_issue_context_if_issue_removal_makes_it_dangling():
+    summary, fallback = issue_finder.commit_summary_with_fallback(
+        "COMPRESS-477 mostly cosmetic changes to #84"
+    )
+
+    assert summary == "COMPRESS-477 mostly cosmetic changes to #84"
+    assert fallback is True
+
+
+def test_commit_summary_does_not_treat_complete_punctuated_subject_as_dangling():
+    summary, fallback = issue_finder.commit_summary_with_fallback(
+        "Highlight the mathematical operation each method is based on."
+    )
+
+    assert summary == "Highlight the mathematical operation each method is based on."
+    assert fallback is False
+
+
+def test_commit_summary_falls_back_for_dangling_word_before_spaced_punctuation():
+    summary, fallback = issue_finder.commit_summary_with_fallback(
+        'Revert "LUCENE-8374 part 2/4". LUCENE-8374 is superseded by LUCENE-8585.'
+    )
+
+    assert summary == (
+        'Revert "LUCENE-8374 part 2/4". LUCENE-8374 is superseded by LUCENE-8585.'
+    )
+    assert fallback is True

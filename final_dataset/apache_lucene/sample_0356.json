@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9c0797d9f47a9c690b24a6649f2c4351f322e8b8",
+  "issue_summary": "Build Multi-Release JARs to enable usage of optimized intrinsic methods from Java 9 for index bounds checking and array comparison/mismatch",
+  "code_before": "public static int compare(int count, byte[] a, int aOffset, byte[] b, int bOffset) {\n    // TODO: dedup this w/ BytesRef.compareTo?\n    for(int i=0;i<count;i++) {\n      int cmp = (a[aOffset+i]&0xff) - (b[bOffset+i]&0xff);\n      if (cmp != 0) {\n        return cmp;\n      }\n    }\n\n    return 0;\n  }",
+  "code_after": "@Deprecated\n  public static int compare(int count, byte[] a, int aOffset, byte[] b, int bOffset) {\n    return FutureArrays.compareUnsigned(a, aOffset, aOffset + count, b, bOffset, bOffset + count);\n  }",
+  "javadoc_before": "/** Compares a fixed length slice of two byte arrays interpreted as\n   *  big-endian unsigned values.  Returns positive int if a &gt; b,\n   *  negative int if a &lt; b and 0 if a == b */",
+  "javadoc_after": "/** Compares a fixed length slice of two byte arrays interpreted as\n   *  big-endian unsigned values.  Returns positive int if a &gt; b,\n   *  negative int if a &lt; b and 0 if a == b \n   *  \n   * @deprecated Use FutureArrays.compareUnsigned instead.\n   */"
+}

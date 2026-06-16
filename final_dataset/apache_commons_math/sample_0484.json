@@ -1,0 +1,8 @@
+{
+  "commit_hash": "374abec6b138520cbb99935ae20732b95a6adf22",
+  "issue_summary": "Removed deprecated class \"InvalidMatrixException\".",
+  "code_before": "RealMatrix getInverse()\n        throws InvalidMatrixException;",
+  "code_after": "RealMatrix getInverse();",
+  "javadoc_before": "/** Get the inverse (or pseudo-inverse) of the decomposed matrix.\n     * @return inverse matrix\n     * @throws InvalidMatrixException if decomposed matrix is singular\n     */",
+  "javadoc_after": "/** Get the inverse (or pseudo-inverse) of the decomposed matrix.\n     * @return inverse matrix\n     * @throws org.apache.commons.math.exception.SingularMatrixException\n     * if the decomposed matrix is singular.\n     */"
+}

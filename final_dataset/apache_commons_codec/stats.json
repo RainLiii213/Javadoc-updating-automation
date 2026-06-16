@@ -1,0 +1,12 @@
+{
+  "total_commits_scanned": 3467,
+  "total_commits_containing_javadoc_changes": 1192,
+  "total_commits_containing_code_and_javadoc_changes": 703,
+  "candidate_samples_found": 64,
+  "samples_retained": 41,
+  "samples_filtered": 23,
+  "discarded_truncated_code_context": 3,
+  "moved_to_review": 0,
+  "discarded_weak_inheritdoc": 0,
+  "issue_summary_fallbacks": 2
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5a9079f2ec8a14ec661604a028b3272c1d95fbdb",
+  "issue_summary": "Pass the number of allowed function evaluations as a parameter to the \"optimize\" methods.",
+  "code_before": "protected double computeObjectiveValue(double[] point) throws MathUserException {\n        try {\n            evaluations.incrementCount();\n        } catch (MaxCountExceededException e) {\n            throw new TooManyEvaluationsException(e.getMax());\n        }\n        return function.value(point);\n    }",
+  "code_after": "protected double computeObjectiveValue(double[] point) {\n        try {\n            evaluations.incrementCount();\n        } catch (MaxCountExceededException e) {\n            throw new TooManyEvaluationsException(e.getMax());\n        }\n        return function.value(point);\n    }",
+  "javadoc_before": "/**\n     * Compute the objective function value.\n     *\n     * @param point Point at which the objective function must be evaluated.\n     * @return the objective function value at the specified point.\n     * @throws TooManyEvaluationsException if the maximal number of\n     * evaluations is exceeded.\n     * @throws MathUserException if objective function throws one\n     */",
+  "javadoc_after": "/**\n     * Compute the objective function value.\n     *\n     * @param point Point at which the objective function must be evaluated.\n     * @return the objective function value at the specified point.\n     * @throws TooManyEvaluationsException if the maximal number of\n     * evaluations is exceeded.\n     * @throws org.apache.commons.math.exception.MathUserException if the\n     * objective function throws one.\n     */"
+}

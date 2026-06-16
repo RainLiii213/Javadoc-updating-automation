@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fcec064a6c0a01eb97e2febeca4955881973bd33",
+  "issue_summary": "no longer swallow exceptions on close",
+  "code_before": "public void close() {\n        try {\n            if (!finished) {\n                finish();\n            }\n            file.close();\n        } catch (IOException ioEx) { // NOPMD\n        }\n    }",
+  "code_after": "public void close() throws IOException {\n        if (!finished) {\n            finish();\n        }\n        file.close();\n    }",
+  "javadoc_before": "/**\n     * Closes the archive, calling {@link #finish} if necessary.\n     */",
+  "javadoc_after": "/**\n     * Closes the archive, calling {@link #finish} if necessary.\n     * \n     * @throws IOException\n     */"
+}

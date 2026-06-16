@@ -1,0 +1,8 @@
+{
+  "commit_hash": "69a7cb22e7118415cb75d2262db19322c098047c",
+  "issue_summary": "More granular control of preloading on MMapDirectory.",
+  "code_before": "public void setPreload(boolean preload) {\n    this.preload = preload;\n  }",
+  "code_after": "@Deprecated\n  public void setPreload(boolean preload) {\n    this.preload = preload ? ALL_FILES : NO_FILES;\n  }",
+  "javadoc_before": "/**\n   * Set to {@code true} to ask mapped pages to be loaded into physical memory on init. The behavior\n   * is best-effort and operating system dependent.\n   */",
+  "javadoc_after": "/**\n   * Configure whether to preload files on this {@link MMapDirectory} into physical memory upon\n   * opening. The behavior is best effort and operating system-dependent.\n   *\n   * @deprecated Use {@link #setPreload(BiPredicate)} instead which provides more granular control.\n   */"
+}

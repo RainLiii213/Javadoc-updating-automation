@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fe86094f2f470ca8b9a89b88bbead673d6386d08",
+  "issue_summary": "Completion FSTs to be loaded off-heap at all times",
+  "code_before": "public Completion50PostingsFormat() {\n    this(FSTLoadMode.ON_HEAP);\n  }",
+  "code_after": "public Completion50PostingsFormat() {\n    super(\"completion\");\n  }",
+  "javadoc_before": "/** Creates a {@link Completion50PostingsFormat} that will load the completion FST on-heap. */",
+  "javadoc_after": "/** Creates a {@link Completion50PostingsFormat}. */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "063954ce79f1e4babd22cc177b619c48136766d6",
+  "issue_summary": "Never cache term filters.",
+  "code_before": "protected int minFrequencyToCache(Query query) {\n    if (isCostly(query)) {\n      return 2;\n    } else if (isCheap(query)) {\n      return 20;\n    } else {\n      // default: cache after the filter has been seen 5 times\n      return 5;\n    }\n  }",
+  "code_after": "protected int minFrequencyToCache(Query query) {\n    if (isCostly(query)) {\n      return 2;\n    } else {\n      // default: cache after the filter has been seen 5 times\n      return 5;\n    }\n  }",
+  "javadoc_before": "/**\n   * For a given query, return how many times it should appear in the history\n   * before being cached.\n   */",
+  "javadoc_after": "/**\n   * For a given filter, return how many times it should appear in the history\n   * before being cached. The default implementation returns 2 for filters that\n   * need to evaluate against the entire index to build a {@link DocIdSetIterator},\n   * like {@link MultiTermQuery}, point-based queries or {@link TermInSetQuery},\n   * and 5 for other filters.\n   */"
+}

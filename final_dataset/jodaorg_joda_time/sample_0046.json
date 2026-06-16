@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1707517294d44202e104305e7b0c6fb12dd1a6dd",
+  "issue_summary": "Restored formatting interfaces to provide same functionality as v0.95.",
+  "code_before": "public DateTimeFormatterBuilder append(DateTimeFormatter formatter) {\n        if (formatter == null) {\n            throw new IllegalArgumentException(\"No formatter supplied\");\n        }\n        if (formatter instanceof BaseDateTimeFormatter == false) {\n            throw new IllegalArgumentException(\"Formatter must extend BaseDateTimeFormatter\");\n        }\n        return append0(formatter);\n    }",
+  "code_after": "public DateTimeFormatterBuilder append(DateTimeFormatter formatter) {\n        if (formatter == null) {\n            throw new IllegalArgumentException(\"No formatter supplied\");\n        }\n        return append0(formatter);\n    }",
+  "javadoc_before": "/**\n     * Appends another formatter.\n     * <p>\n     * The formatter must extend <code>DateTimeFormatterProvider</code>.\n     * This is an internal class, which all supplied format classes extend.\n     *\n     * @param formatter  the formatter to add\n     * @return this DateTimeFormatterBuilder\n     * @throws IllegalArgumentException if formatter is null or of an invalid type\n     */",
+  "javadoc_after": "/**\n     * Appends another formatter.\n     *\n     * @param formatter  the formatter to add\n     * @return this DateTimeFormatterBuilder\n     * @throws IllegalArgumentException if formatter is null or of an invalid type\n     */"
+}

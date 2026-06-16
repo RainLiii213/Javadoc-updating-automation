@@ -1,0 +1,8 @@
+{
+  "commit_hash": "aee191d878835e9c0e7d20206bd5310f1cbb114e",
+  "issue_summary": "rewrite how resources are read in ukrainian morfologik analyzer (module vs. classpath lookup).",
+  "code_before": "public UkrainianMorfologikAnalyzer() {\n    this(DefaultSetHolder.DEFAULT_STOP_SET);\n  }",
+  "code_after": "public UkrainianMorfologikAnalyzer() {\n    this(getDefaultResources().stopSet);\n  }",
+  "javadoc_before": "/** Builds an analyzer with the default stop words: {@link #DEFAULT_STOPWORD_FILE}. */",
+  "javadoc_after": "/** Builds an analyzer with the default stop words. */"
+}

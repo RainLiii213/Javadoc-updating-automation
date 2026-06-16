@@ -1,0 +1,8 @@
+{
+  "commit_hash": "939b22c08cffb063ba1c4b07b96fd129e58b92b0",
+  "issue_summary": "SortField.equals now takes the missing value into account.",
+  "code_before": "@Override\n  public int hashCode() {\n    int hash = type.hashCode() ^ 0x346565dd + Boolean.valueOf(reverse).hashCode() ^ 0xaf5998bb;\n    if (field != null) hash += field.hashCode()^0xff5685dd;\n    if (comparatorSource != null) hash += comparatorSource.hashCode();\n    return hash;\n  }",
+  "code_after": "@Override\n  public int hashCode() {\n    return Objects.hash(field, type, reverse, comparatorSource, missingValue);\n  }",
+  "javadoc_before": "/** Returns true if <code>o</code> is equal to this.  If a\n   *  {@link FieldComparatorSource} was provided, it must properly\n   *  implement hashCode (unless a singleton is always\n   *  used). */",
+  "javadoc_after": "/** Returns a hash code for this {@link SortField} instance.  If a\n   *  {@link FieldComparatorSource} was provided, it must properly\n   *  implement hashCode (unless a singleton is always used). */"
+}
