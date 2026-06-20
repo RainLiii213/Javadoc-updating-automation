@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6a085c2fa99578b346db5e31d9dfd938b21f6d34",
+  "issue_summary": "Move System.getProperty(type) in postData() to main()",
+  "code_before": "public void postFile(File file, OutputStream output) {\n\n    InputStream is = null;\n    try {\n      is = new FileInputStream(file);\n      postData(is, (int)file.length(), output);\n    } catch (IOException e) {\n      fatal(\"Can't open/read file: \" + file);\n    } finally {\n      try {\n        if(is!=null) is.close();\n      } catch (IOException e) {\n        fatal(\"IOException while closing file: \"+ e);\n      }\n    }\n  }",
+  "code_after": "public void postFile(File file, OutputStream output) {\n    final String type = System.getProperty(\"type\", DEFAULT_DATA_TYPE);\n    postFile(file, output, type);\n  }",
+  "javadoc_before": "/**\n   * Opens the file and posts it's contents to the solrUrl,\n   * writes to response to output.\n   * @throws UnsupportedEncodingException \n   */",
+  "javadoc_after": "/**\n   * @deprecated use {@link #postFile(File, OutputStream, String)} instead\n   */"
+}

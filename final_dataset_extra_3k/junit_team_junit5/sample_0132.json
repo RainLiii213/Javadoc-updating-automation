@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3a8034e8cd3ee0ecd954806c89cab74fc25e3e70",
+  "issue_summary": "Apply consistent terminology for 'blank' values",
+  "code_before": "public static UniqueId parse(String uniqueId) throws JUnitException {\n\t\tPreconditions.notBlank(uniqueId, \"Unique ID string must not be null or empty\");\n\t\treturn UniqueIdFormat.getDefault().parse(uniqueId);\n\t}",
+  "code_after": "public static UniqueId parse(String uniqueId) throws JUnitException {\n\t\tPreconditions.notBlank(uniqueId, \"Unique ID string must not be null or blank\");\n\t\treturn UniqueIdFormat.getDefault().parse(uniqueId);\n\t}",
+  "javadoc_before": "/**\n\t * Parse a {@code UniqueId} from the supplied string representation using the\n\t * default format.\n\t *\n\t * @param uniqueId the string representation to parse; never {@code null} or empty\n\t * @return a properly constructed {@code UniqueId}\n\t * @throws JUnitException if the string cannot be parsed\n\t */",
+  "javadoc_after": "/**\n\t * Parse a {@code UniqueId} from the supplied string representation using the\n\t * default format.\n\t *\n\t * @param uniqueId the string representation to parse; never {@code null} or blank\n\t * @return a properly constructed {@code UniqueId}\n\t * @throws JUnitException if the string cannot be parsed\n\t */"
+}

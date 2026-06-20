@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9e2322c5c07fb197ccabdf71f3fda6f70a0c9471",
+  "issue_summary": "remove \"throws IOException\" from methods that really never throw this exception",
+  "code_before": "FieldDocSortedHitQueue (SortField[] fields, int size)\n\tthrows IOException {\n\t\tthis.fields = fields;\n\t\tthis.collators = hasCollators (fields);\n\t\tinitialize (size);\n\t}",
+  "code_after": "FieldDocSortedHitQueue (SortField[] fields, int size) {\n\t\tthis.fields = fields;\n\t\tthis.collators = hasCollators (fields);\n\t\tinitialize (size);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a hit queue sorted by the given list of fields.\n\t * @param fields Field names, in priority order (highest priority first).\n\t * @param size  The number of hits to retain.  Must be greater than zero.\n\t * @throws IOException\n\t */",
+  "javadoc_after": "/**\n\t * Creates a hit queue sorted by the given list of fields.\n\t * @param fields Field names, in priority order (highest priority first).\n\t * @param size  The number of hits to retain.  Must be greater than zero.\n\t */"
+}

@@ -1,0 +1,27 @@
+{
+  "target_commit_count": 304,
+  "successfully_reprocessed_commit_count": 304,
+  "failed_or_partially_failed_commit_count": 0,
+  "raw_reprocessed_change_count": 3890,
+  "new_recovered_change_count": 2995,
+  "duplicate_with_existing_count": 877,
+  "duplicate_within_recovery_count": 18,
+  "format_only_removed_count": 202,
+  "invalid_candidate_count": 19,
+  "weak_inheritdoc_only_count": 5456,
+  "per_project_new_recovered_count": {
+    "apache_commons_codec": 30,
+    "apache_commons_collections": 48,
+    "apache_commons_compress": 116,
+    "apache_commons_io": 161,
+    "apache_commons_lang": 1,
+    "apache_commons_math": 1313,
+    "apache_commons_text": 2,
+    "apache_lucene": 855,
+    "fasterxml_jackson_databind": 45,
+    "google_guava": 198,
+    "jodaorg_joda_time": 130,
+    "junit_team_junit5": 36,
+    "spring_projects_spring_data_commons": 60
+  }
+}

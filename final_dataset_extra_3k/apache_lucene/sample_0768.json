@@ -1,0 +1,8 @@
+{
+  "commit_hash": "da634f42eb270fc6d2f3fef068949a28a73ff585",
+  "issue_summary": "simplify the UpdateRequestProcessorFactory framework and use standard initialization techniques",
+  "code_before": "public abstract class UpdateRequestProcessorFactory\n{\n  public void init( final SolrCore core, final Node node )\n  {\n    // could process the Node\n  }\n\n  abstract public UpdateRequestProcessor getInstance(\n      SolrQueryRequest req, SolrQueryResponse rsp, UpdateRequestProcessor next );\n}",
+  "code_after": "public abstract class UpdateRequestProcessorFactory implements NamedListInitializedPlugin\n{\n  public void init( NamedList args )\n  {\n    // could process the Node\n  }\n\n  abstract public UpdateRequestProcessor getInstance(\n      SolrQueryRequest req, SolrQueryResponse rsp, UpdateRequestProcessor next );\n}",
+  "javadoc_before": "/**\n * A factory to generate UpdateRequestProcessors for each request.  \n * \n * @since solr 1.3\n */",
+  "javadoc_after": "/**\n * A factory to generate an UpdateRequestProcessor for each request.  \n * \n * If the factory needs access to {@link SolrCore} in initialization, it could \n * implement {@link SolrCoreAware}\n * \n * @since solr 1.3\n */"
+}

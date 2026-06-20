@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7b13b4db7cec3fbf0709df90e51404345b7ad07e",
+  "issue_summary": "SequenceReader should close readers when its close method is called .",
+  "code_before": "private Reader nextReader() {\n        return this.readers.hasNext() ? this.readers.next() : null;\n    }",
+  "code_after": "private Reader nextReader() throws IOException {\n        if (reader != null) {\n            reader.close();\n        }\n        if (readers.hasNext()) {\n            reader = readers.next();\n        } else {\n            reader = null;\n        }\n        return reader;\n    }",
+  "javadoc_before": "/**\n     * Returns the next available reader or null if done.\n     *\n     * @return the next available reader or null\n     */",
+  "javadoc_after": "/**\n     * Returns the next available reader or null if done.\n     *\n     * @return the next available reader or null.\n     * @throws IOException IOException  If an I/O error occurs.\n     */"
+}

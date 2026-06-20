@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f88c50a10bbd2d1dc4ae6d7ca0a4ece68adc00c1",
+  "issue_summary": "JsonNodeFactory: normalize DecimalNode instances by default",
+  "code_before": "public NumericNode numberNode(BigDecimal v) { return DecimalNode.valueOf(v); }",
+  "code_after": "public NumericNode numberNode(BigDecimal v)\n    {\n        return DecimalNode.valueOf(_cfgBigDecimalExact ? v : v.stripTrailingZeros());\n    }",
+  "javadoc_before": "/**\n     * Factory method for getting an instance of JSON numeric value\n     * that expresses given unlimited precision floating point value\n     */",
+  "javadoc_after": "/**\n     * Factory method for getting an instance of JSON numeric value\n     * that expresses given unlimited precision floating point value\n     *\n     * <p>In the event that the factory has been built to normalize decimal\n     * values, the BigDecimal argument will be stripped off its trailing zeroes,\n     * using {@link BigDecimal#stripTrailingZeros()}.</p>\n     *\n     * @see #JsonNodeFactory(boolean)\n     */"
+}

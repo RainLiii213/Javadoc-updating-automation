@@ -1,0 +1,8 @@
+{
+  "commit_hash": "57cdbe41879df17d6c89b2b36799128d874134d2",
+  "issue_summary": "Added subDoc() method, renamed searcherIndex() to subSearcher().",
+  "code_before": "public int searcherIndex(int n) {               // find searcher for doc n:\n    // replace w/ call to Arrays.binarySearch in Java 1.2\n    int lo = 0;\t\t\t\t\t  // search starts array\n    int hi = searchables.length - 1;\t\t  // for first element less\n\t\t\t\t\t\t  // than n, return its index\n    while (hi >= lo) {\n      int mid = (lo + hi) >> 1;\n      int midValue = starts[mid];\n      if (n < midValue)\n\thi = mid - 1;\n      else if (n > midValue)\n\tlo = mid + 1;\n      else {                                      // found a match\n        while (mid+1 < searchables.length && starts[mid+1] == midValue) {\n          mid++;                                  // scan to last match\n        }\n\treturn mid;\n      }\n    }\n    return hi;\n  }",
+  "code_after": "public int searcherIndex(int n) {\n    return subSearcher(n);\n  }",
+  "javadoc_before": "/** For use by {@link HitCollector} implementations to identify the\n   * index of the sub-searcher that a particular hit came from. */",
+  "javadoc_after": "/** Call {@link #subSearcher} instead.\n   * @deprecated\n   */"
+}

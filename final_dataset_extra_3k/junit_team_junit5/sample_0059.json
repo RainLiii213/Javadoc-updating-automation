@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c720cccb04ae4781a0d523e0b2e1ecff9072bbc7",
+  "issue_summary": "Enable method chaining for Events#assertStatistics() in Test Kit",
+  "code_before": "public void assertStatistics(Consumer<EventStatistics> statisticsConsumer) {\n\t\tEventStatistics eventStatistics = new EventStatistics(this, this.category);\n\t\tstatisticsConsumer.accept(eventStatistics);\n\t\teventStatistics.assertAll();\n\t}",
+  "code_after": "public Events assertStatistics(Consumer<EventStatistics> statisticsConsumer) {\n\t\tEventStatistics eventStatistics = new EventStatistics(this, this.category);\n\t\tstatisticsConsumer.accept(eventStatistics);\n\t\teventStatistics.assertAll();\n\t\treturn this;\n\t}",
+  "javadoc_before": "/**\n\t * Assert statistics for the {@linkplain Event events} contained in this\n\t * {@code Events} object.\n\t *\n\t * <h4>Example</h4>\n\t *\n\t * <p>{@code events.assertStatistics(stats -> stats.started(1).succeeded(1).failed(0));}\n\t *\n\t * @param statisticsConsumer a consumer of {@link EventStatistics}\n\t */",
+  "javadoc_after": "/**\n\t * Assert statistics for the {@linkplain Event events} contained in this\n\t * {@code Events} object.\n\t *\n\t * <h4>Example</h4>\n\t *\n\t * <p>{@code events.assertStatistics(stats -> stats.started(1).succeeded(1).failed(0));}\n\t *\n\t * @param statisticsConsumer a consumer of {@link EventStatistics}\n\t * @return this {@code Events} object for method chaining; never {@code null}\n\t */"
+}

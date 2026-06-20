@@ -1,0 +1,8 @@
+{
+  "commit_hash": "52792a171cf024b45677023024c2a5eb36ca7b5a",
+  "issue_summary": "Refine MethodParameterResolver API",
+  "code_before": "default Object resolve(Parameter parameter, MethodContext methodContext, ExtensionContext extensionContext)\n\t\t\tthrows ParameterResolutionException {\n\n\t\treturn ReflectionUtils.newInstance(parameter.getType());\n\t}",
+  "code_after": "Object resolve(Parameter parameter, MethodContext methodContext, ExtensionContext extensionContext)\n\t\t\tthrows ParameterResolutionException;",
+  "javadoc_before": "/**\n\t * Resolve the given {@link Parameter} for the supplied {@link MethodContext}\n\t * and {@link ExtensionContext}.\n\t *\n\t * <p>The default implementation uses reflection to instantiate the\n\t * required {@link Parameter#getType type} via its default constructor.\n\t *\n\t * @param parameter parameter to be resolved\n\t * @param methodContext method context the parameter belongs to\n\t * @param extensionContext extension context of the method about to be executed\n\t *\n\t * @see ReflectionUtils#newInstance(Class, Object...)\n\t */",
+  "javadoc_after": "/**\n\t * Resolve the given {@link Parameter} for the supplied {@link MethodContext}\n\t * and {@link ExtensionContext}.\n\t *\n\t * @param parameter parameter to be resolved\n\t * @param methodContext method context the parameter belongs to\n\t * @param extensionContext extension context of the method about to be executed\n\t * @return the resolved parameter object\n\t * @see #supports\n\t */"
+}

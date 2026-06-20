@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fe4699b6b0fce0ec97af1672473f654ea9933280",
+  "issue_summary": "leave the default to true for enablePositionIncrements",
+  "code_before": "public AnalyzingSuggester(Analyzer analyzer) {\n    this(analyzer, analyzer, EXACT_FIRST | PRESERVE_SEP, 256, -1, false);\n  }",
+  "code_after": "public AnalyzingSuggester(Analyzer analyzer) {\n    this(analyzer, analyzer, EXACT_FIRST | PRESERVE_SEP, 256, -1, true);\n  }",
+  "javadoc_before": "/**\n   * Calls {@link #AnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean)\n   * AnalyzingSuggester(analyzer, analyzer, EXACT_FIRST |\n   * PRESERVE_SEP, 256, -1, false)}\n   */",
+  "javadoc_after": "/**\n   * Calls {@link #AnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean)\n   * AnalyzingSuggester(analyzer, analyzer, EXACT_FIRST |\n   * PRESERVE_SEP, 256, -1, true)}\n   */"
+}

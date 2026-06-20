@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d7adffa7bd9f1882ec3db3c431f74d92502049ab",
+  "issue_summary": "Fix : add null checks for ObjectNode keys",
+  "code_before": "public JsonNode replace(String propertyName, JsonNode value)\n    {\n        if (value == null) { // let's not store 'raw' nulls but nodes\n            value = nullNode();\n        }\n        return _children.put(propertyName, value);\n    }",
+  "code_after": "public JsonNode replace(String propertyName, JsonNode value)\n    {\n        if (value == null) { // let's not store 'raw' nulls but nodes\n            value = nullNode();\n        }\n        return _children.put(Objects.requireNonNull(propertyName), value);\n    }",
+  "javadoc_before": "/**\n     * Method for replacing value of specific property with passed\n     * value, and returning value (or null if none).\n     *\n     * @param propertyName Property of which value to replace\n     * @param value Value to set property to, replacing old value if any\n     *\n     * @return Old value of the property; null if there was no such property\n     *   with value\n     *\n     * @since 2.1\n     */",
+  "javadoc_after": "/**\n     * Method for replacing value of specific property with passed\n     * value, and returning value (or null if none).\n     *\n     * @param propertyName Property of which value to replace: must not be {@code null}\n     * @param value Value to set property to, replacing old value if any\n     *\n     * @return Old value of the property; null if there was no such property\n     *   with value\n     *\n     * @since 2.1\n     */"
+}

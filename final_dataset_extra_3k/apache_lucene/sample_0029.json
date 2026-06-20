@@ -1,0 +1,8 @@
+{
+  "commit_hash": "89249208a38a9f9b7c9ee8fc8a3882393552f198",
+  "issue_summary": "CMS should not stall its own merge threads",
+  "code_before": "public synchronized int mergeThreadCount() {\n    int count = 0;\n    for (MergeThread mergeThread : mergeThreads) {\n      if (mergeThread.isAlive() && mergeThread.merge.rateLimiter.getAbort() == false) {\n        count++;\n      }\n    }\n    return count;\n  }",
+  "code_after": "public synchronized int mergeThreadCount() {\n    Thread currentThread = Thread.currentThread();\n    int count = 0;\n    for (MergeThread mergeThread : mergeThreads) {\n      if (currentThread != mergeThread && mergeThread.isAlive() && mergeThread.merge.rateLimiter.getAbort() == false) {\n        count++;\n      }\n    }\n    return count;\n  }",
+  "javadoc_before": "/**\n   * Returns the number of merge threads that are alive. Note that this number\n   * is &le; {@link #mergeThreads} size.\n   *\n   * @lucene.internal\n   */",
+  "javadoc_after": "/**\n   * Returns the number of merge threads that are alive, ignoring the calling thread\n   * if it is a merge thread.  Note that this number is &le; {@link #mergeThreads} size.\n   *\n   * @lucene.internal\n   */"
+}

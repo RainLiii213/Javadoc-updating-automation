@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bfa06a9e30416ebfa53490746f99a298b3920c99",
+  "issue_summary": "remove redundant throws FacetException (as it's not really thrown)",
+  "code_before": "public void merge(CategoryContainer other) throws FacetException {\n    for (CategoryAttribute categoryAttribute : other.map.values()) {\n      addCategory(categoryAttribute);\n    }\n  }",
+  "code_after": "public void merge(CategoryContainer other) {\n    for (CategoryAttribute categoryAttribute : other.map.values()) {\n      addCategory(categoryAttribute);\n    }\n  }",
+  "javadoc_before": "/**\n   * Add the categories from another {@link CategoryContainer} to this one.\n   * \n   * @param other\n   *            The {@link CategoryContainer} to take categories from.\n   * @throws FacetException\n   *             If any prohibited merge of category properties is attempted.\n   */",
+  "javadoc_after": "/** Add the categories from another {@link CategoryContainer} to this one. */"
+}

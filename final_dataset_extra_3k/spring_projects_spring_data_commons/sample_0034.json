@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b1a5fc460b69ab72e1877eec38353549f2a58582",
+  "issue_summary": "Apply Kotlin Value Class unboxing to generated Property Accessors.",
+  "code_before": "@Nullable\n\t\tpublic Object wrap(@Nullable Object o) {\n\n\t\t\tif (applyBoxing) {\n\t\t\t\treturn o == null || kClass.isInstance(o) ? o : wrapperConstructor.call(next.wrap(o));\n\t\t\t}\n\n\t\t\tif (hasNext()) {\n\t\t\t\treturn next.wrap(o);\n\t\t\t}\n\n\t\t\treturn o;\n\t\t}",
+  "code_after": "@Nullable\n\t\tpublic Object wrap(@Nullable Object o) {\n\t\t\treturn doWrap(o, false, ValueBoxing::wrap);\n\t\t}",
+  "javadoc_before": "/**\n\t\t * Apply wrapping into the boxing wrapper type if applicable.\n\t\t *\n\t\t * @param o\n\t\t * @return\n\t\t */",
+  "javadoc_after": "/**\n\t\t * Wrap the value into the boxing wrapper type if requested. Already wrapped values are left unchanged.\n\t\t *\n\t\t * @param o\n\t\t * @return\n\t\t */"
+}

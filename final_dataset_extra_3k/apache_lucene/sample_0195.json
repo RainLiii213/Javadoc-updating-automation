@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f9bb96db815dba1adecc23c658a1cd7d2f2dadd0",
+  "issue_summary": "CategoryAssociationsContainer should not allow null associations",
+  "code_before": "public void setAssociation(CategoryPath category, CategoryAssociation association) {\n    categoryAssociations.put(category, association);\n  }",
+  "code_after": "public void setAssociation(CategoryPath category, CategoryAssociation association) {\n    if (association == null) {\n      throw new IllegalArgumentException(\"cannot set a null association to a category\");\n    }\n    categoryAssociations.put(category, association);\n  }",
+  "javadoc_before": "/**\n   * Adds the {@link CategoryAssociation} for the given {@link CategoryPath\n   * category}. Overrides any assocation that was previously set. It is ok to\n   * pass {@code null}, in which case the category will be treated as a regular\n   * one (i.e. without association value).\n   */",
+  "javadoc_after": "/**\n   * Adds the {@link CategoryAssociation} for the given {@link CategoryPath\n   * category}. Overrides any assocation that was previously set.\n   */"
+}

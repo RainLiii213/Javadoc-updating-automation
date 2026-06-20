@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b309970c3d4244317e6ac2c4fddf22045310eced",
+  "issue_summary": "return empty array instead of null for certain get*s methods in Document",
+  "code_before": "public final String[] getValues(String name) {\n    List result = new ArrayList();\n    for (int i = 0; i < fields.size(); i++) {\n      Fieldable field = (Fieldable)fields.get(i);\n      if (field.name().equals(name) && (!field.isBinary()))\n        result.add(field.stringValue());\n    }\n\n    if (result.size() == 0)\n      return null;\n\n    return (String[])result.toArray(new String[result.size()]);\n  }",
+  "code_after": "public final String[] getValues(String name) {\n    List result = new ArrayList();\n    for (int i = 0; i < fields.size(); i++) {\n      Fieldable field = (Fieldable)fields.get(i);\n      if (field.name().equals(name) && (!field.isBinary()))\n        result.add(field.stringValue());\n    }\n\n    if (result.size() == 0)\n      return NO_STRINGS;\n\n    return (String[])result.toArray(new String[result.size()]);\n  }",
+  "javadoc_before": "/**\n   * Returns an array of values of the field specified as the method parameter.\n   * This method can return <code>null</code>.\n   *\n   * @param name the name of the field\n   * @return a <code>String[]</code> of field values or <code>null</code>\n   */",
+  "javadoc_after": "/**\n   * Returns an array of values of the field specified as the method parameter.\n   *\n   * @param name the name of the field\n   * @return a <code>String[]</code> of field values or <code>null</code>\n   */"
+}

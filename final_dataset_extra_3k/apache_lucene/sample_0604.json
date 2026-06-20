@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b51587f72d25a57dde0fcc65638e449b44f9740e",
+  "issue_summary": "revert while discussions are going on about default analyzer...",
+  "code_before": "public void setWriteLockTimeout(long writeLockTimeout) {\n    ensureOpen();\n    this.writeLockTimeout = writeLockTimeout;\n    // Required so config.getSimilarity returns the right value. But this will\n    // go away together with the method in 4.0.\n    config.setWriteLockTimeout(writeLockTimeout);\n  }",
+  "code_after": "public void setWriteLockTimeout(long writeLockTimeout) {\n    ensureOpen();\n    this.writeLockTimeout = writeLockTimeout;\n  }",
+  "javadoc_before": "/**\n   * Sets the maximum time to wait for a write lock (in milliseconds) for this instance of IndexWriter.  @see\n   * @see #setDefaultWriteLockTimeout to change the default value for all instances of IndexWriter.\n   * @deprecated use {@link IndexWriterConfig#setWriteLockTimeout(long)} instead\n   */",
+  "javadoc_after": "/**\n   * Sets the maximum time to wait for a write lock (in milliseconds) for this instance of IndexWriter.  @see\n   * @see #setDefaultWriteLockTimeout to change the default value for all instances of IndexWriter.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "88fbb9638d016d2783675c11ba56da054b1ed683",
+  "issue_summary": "Reject blank value, type, or subtype in MediaType",
+  "code_before": "public static MediaType create(String type, String subtype) {\n\t\tPreconditions.notNull(type, \"type must not be null\");\n\t\tPreconditions.notNull(subtype, \"subtype must not be null\");\n\t\treturn new MediaType(type.strip() + \"/\" + subtype.strip());\n\t}",
+  "code_after": "public static MediaType create(String type, String subtype) {\n\t\tPreconditions.notBlank(type, \"type must not be null or blank\");\n\t\tPreconditions.notBlank(subtype, \"subtype must not be null or blank\");\n\t\treturn new MediaType(type.strip() + \"/\" + subtype.strip());\n\t}",
+  "javadoc_before": "/**\n\t * Create a media type with the given type and subtype.\n\t *\n\t * @param type the type; never {@code null}\n\t * @param subtype the subtype; never {@code null}\n\t * @return the media type\n\t */",
+  "javadoc_after": "/**\n\t * Create a media type with the given type and subtype.\n\t *\n\t * @param type the type; never {@code null} or blank\n\t * @param subtype the subtype; never {@code null} or blank\n\t * @return the media type\n\t */"
+}

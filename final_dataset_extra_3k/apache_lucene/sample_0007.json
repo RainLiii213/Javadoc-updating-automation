@@ -1,0 +1,8 @@
+{
+  "commit_hash": "203bbf504a3360b79a0576909fbc9829eb8d4a31",
+  "issue_summary": "Remove buggy no-op retries in HttpSolrClient",
+  "code_before": "public void setMaxRetries(int maxRetries) {\n    if (maxRetries > 1) {\n      log.warn(\"HttpSolrServer: maximum Retries \" + maxRetries\n          + \" > 1. Maximum recommended retries is 1.\");\n    }\n    this.maxRetries = maxRetries;\n  }",
+  "code_after": "public void setMaxRetries(int maxRetries) { }",
+  "javadoc_before": "/**\n   * Set maximum number of retries to attempt in the event of transient errors.\n   * <p>\n   * Maximum number of retries to attempt in the event of transient errors.\n   * Default: 0 (no) retries. No more than 1 recommended.\n   * </p>\n   * @param maxRetries\n   *          No more than 1 recommended\n   */",
+  "javadoc_after": "/**\n   * @deprecated retries should be implemented in client code, and should be considered carefully per-request\n   */"
+}

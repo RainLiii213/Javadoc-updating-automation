@@ -1,0 +1,8 @@
+{
+  "commit_hash": "31a5f0edcc474f739e8392eac7261b9483fc60bf",
+  "issue_summary": "Various improvements to the new TokenStream API.",
+  "code_before": "public Token next(final Token reusableToken) throws IOException {\n    assert reusableToken != null;\n    if (cache == null) {\n      // fill cache lazily\n      cache = new LinkedList();\n      fillCache(reusableToken);\n      iterator = cache.iterator();\n    }\n\n    if (!iterator.hasNext()) {\n      // the cache is exhausted, return null\n      return null;\n    }\n    // Since the TokenFilter can be reset, the tokens need to be preserved as immutable.\n    Token nextToken = (Token) iterator.next();\n    return (Token) nextToken.clone();\n  }",
+  "code_after": "public final Token next(final Token reusableToken) throws IOException {\n    return super.next(reusableToken);\n  }",
+  "javadoc_before": "/** @deprecated */",
+  "javadoc_after": "/** @deprecated Will be removed in Lucene 3.0. This method is final, as it should\n   * not be overridden. Delegates to the backwards compatibility layer. */"
+}

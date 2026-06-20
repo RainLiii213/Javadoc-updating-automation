@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d1f58c6dc5ee84afd2818a45e25ed08937e999a7",
+  "issue_summary": "Implement , give annotation access through PropertyWriter (similar to what BeanPropertyWriter had)",
+  "code_before": "public void reset(Object key, Object value,\n            JsonSerializer<Object> keySer, JsonSerializer<Object> valueSer)\n    {\n        _key = key;\n        _value = value;\n        _keySerializer = keySer;\n        _valueSerializer = valueSer;\n    }",
+  "code_after": "@Deprecated // since 2.5\n    public void reset(Object key, Object value,\n            JsonSerializer<Object> keySer, JsonSerializer<Object> valueSer) {\n        reset(key, keySer, valueSer);\n    }",
+  "javadoc_before": "/**\n     * Initialization method that needs to be called before passing\n     * property to filter.\n     */",
+  "javadoc_after": "/**\n     * Deprecated method with wrong signature; value should not be assigned\n     * to property, should be passed via proper call-through methods.\n     * \n     * @deprecated Since 2.5, remove in 2.6\n     */"
+}

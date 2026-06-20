@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2228d54781fbe9f364bc86c0a99ae93b92ea9813",
+  "issue_summary": "validate scale before converting to BigInt",
+  "code_before": "public BigInteger bigIntegerValue() { return BigInteger.ZERO; }",
+  "code_after": "public BigInteger bigIntegerValue() throws StreamConstraintsException { return BigInteger.ZERO; }",
+  "javadoc_before": "/**\n     * Returns integer value for this node (as {@link BigInteger}), <b>if and only if</b>\n     * this node is numeric ({@link #isNumber} returns true). For other\n     * types returns <code>BigInteger.ZERO</code>.\n     *\n     * @return {@link BigInteger} value this node contains, if numeric node; <code>BigInteger.ZERO</code> for non-number nodes.\n     */",
+  "javadoc_after": "/**\n     * Returns integer value for this node (as {@link BigInteger}), <b>if and only if</b>\n     * this node is numeric ({@link #isNumber} returns true). For other\n     * types returns <code>BigInteger.ZERO</code>.\n     *\n     * @return {@link BigInteger} value this node contains, if numeric node; <code>BigInteger.ZERO</code> for non-number nodes.\n     * @throws StreamConstraintsException if the scale of the underlying {@link BigDecimal} is too large\n     */"
+}

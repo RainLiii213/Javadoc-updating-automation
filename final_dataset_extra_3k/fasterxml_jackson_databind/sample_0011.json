@@ -1,0 +1,8 @@
+{
+  "commit_hash": "47a18c214ff6fa36189f531d5b5793356823a749",
+  "issue_summary": "Fix : Support numeric `@JsonProperty` enum indexes with `Shape.NUMBER`",
+  "code_before": "protected final boolean _isIntNumber(String text)\n    {\n        final int len = text.length();\n        if (len > 0) {\n            char c = text.charAt(0);\n            // skip leading sign (plus not allowed for strict JSON numbers but...)\n            int i;\n\n            if (c == '-' || c == '+') {\n                if (len == 1) {\n                    return false;\n                }\n                i = 1;\n            } else {\n                i = 0;\n            }\n            // We will allow leading\n            for (; i < len; ++i) {\n                int ch = text.charAt(i);\n                if (ch > '9' || ch < '0') {\n                    return false;\n                }\n            }\n            return true;\n        }\n        return false;\n    }",
+  "code_after": "protected boolean _isIntNumber(String text)\n    {\n        return NumberUtil.isValidJDKIntNumber(text);\n    }",
+  "javadoc_before": "/**\n     * Helper method to check whether given text refers to what looks like a clean simple\n     * integer number, consisting of optional sign followed by a sequence of digits.\n     *<p>\n     * Note that definition is quite loose as leading zeroes are allowed, in addition\n     * to plus sign (not just minus).\n     */",
+  "javadoc_after": "/**\n     * Helper method to check whether given text refers to what looks like a clean simple\n     * integer number, consisting of optional sign followed by a sequence of digits.\n     *<p>\n     * Since 3.2 calls {@link NumberUtil#isValidJDKIntNumber(String)}\n     */"
+}

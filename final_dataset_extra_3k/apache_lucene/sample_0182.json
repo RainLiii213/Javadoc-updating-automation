@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8a71c443209d385218c79226902ce8750350a620",
+  "issue_summary": "merge trunk changes over",
+  "code_before": "public HunspellStemFilter(TokenStream input, HunspellDictionary dictionary, boolean dedup) {\n    super(input);\n    this.dedup = dedup;\n    this.stemmer = new HunspellStemmer(dictionary);\n  }",
+  "code_after": "public HunspellStemFilter(TokenStream input, HunspellDictionary dictionary, boolean dedup) {\n    this(input, dictionary, dedup, 2);\n  }",
+  "javadoc_before": "/**\n   * Creates a new HunspellStemFilter that will stem tokens from the given TokenStream using affix rules in the provided\n   * HunspellDictionary\n   *\n   * @param input TokenStream whose tokens will be stemmed\n   * @param dictionary HunspellDictionary containing the affix rules and words that will be used to stem the tokens\n   * @param dedup true if only unique terms should be output.\n   */",
+  "javadoc_after": "/** Create a {@link HunspellStemFilter} which has a maximum recursion level of 2. \n   *  @see #HunspellStemFilter(TokenStream, HunspellDictionary, boolean, int) */"
+}

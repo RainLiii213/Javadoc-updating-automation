@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7e6ba9e49a2037932a4d52de44576aab2b4f46e2",
+  "issue_summary": "Introduced `AnnotationIntrospector` arguments while maintaining backwards compatibility.",
+  "code_before": "public static EnumResolver constructUsingToString(Class<Enum<?>> enumCls)\n    {\n        Enum<?>[] enumValues = enumCls.getEnumConstants();\n        HashMap<String, Enum<?>> map = new HashMap<String, Enum<?>>();\n        // from last to first, so that in case of duplicate values, first wins\n        for (int i = enumValues.length; --i >= 0; ) {\n            Enum<?> e = enumValues[i];\n            map.put(e.toString(), e);\n        }\n\n        Enum<?> defaultEnum = new JacksonAnnotationIntrospector().findDefaultEnumValue(enumCls);\n        return new EnumResolver(enumCls, enumValues, map, defaultEnum);\n    }",
+  "code_after": "@Deprecated\n    public static EnumResolver constructUsingToString(Class<Enum<?>> enumCls)\n    {\n        return constructUsingToString(enumCls, defaultAnnotationInstrospector);\n    }",
+  "javadoc_before": "/**\n     * Factory method for constructing resolver that maps from Enum.toString() into\n     * Enum value\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.8, use {@link #constructUsingToString(Class, AnnotationIntrospector)} instead\n     */"
+}

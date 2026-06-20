@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c4a324e3cf6652bdb04723b2981c38ab88aa4cfa",
+  "issue_summary": "Introduce support to create domain objects via factory methods.",
+  "code_before": "public Optional<Constructor<?>> getConstructor() {\n\t\treturn Optional.ofNullable(constructor);\n\t}",
+  "code_after": "@Deprecated\n\tpublic Optional<Constructor<?>> getConstructor() {\n\t\treturn getEntityCreator().filter(PreferredConstructor.class::isInstance).map(PreferredConstructor.class::cast)\n\t\t\t\t.map(PreferredConstructor::getConstructor);\n\t}",
+  "javadoc_before": "/**\n\t * The constructor used during the instantiation attempt.\n\t *\n\t * @return the constructor\n\t */",
+  "javadoc_after": "/**\n\t * The constructor used during the instantiation attempt.\n\t *\n\t * @return the constructor\n\t * @deprecated since 3.0, use {@link #getEntityCreator()} instead.\n\t */"
+}

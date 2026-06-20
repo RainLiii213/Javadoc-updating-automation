@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5b0cb1a572e52ec1e2ba1e9e70785a9d48d27114",
+  "issue_summary": "Improved API in Repositories / RepositoryFactoryInformation.",
+  "code_before": "public interface RepositoryFactoryInformation<T, ID extends Serializable> {\n\n\t/**\n\t * Returns {@link EntityInformation} the repository factory is using.\n\t *\n\t * @return\n\t */\n\tEntityInformation<T, ID> getEntityInformation();\n\n\t/**\n\t * Returns the interface of the {@link Repository} the factory will create.\n\t *\n\t * @return\n\t */\n\tClass<? extends Repository<T, ID>> getRepositoryInterface();\n}",
+  "code_after": "public interface RepositoryFactoryInformation<T, ID extends Serializable> {\n\n\t/**\n\t * Returns {@link EntityInformation} the repository factory is using.\n\t *\n\t * @return\n\t */\n\tEntityInformation<T, ID> getEntityInformation();\n\n\t/**\n\t * Returns the {@link RepositoryInformation} to determine meta-information about the repository being used.\n\t *\n\t * @return\n\t */\n\tRepositoryInformation getRepositoryInformation();\n\n\t/**\n\t * Returns all {@link QueryMethod}s declared for that repository.\n\t *\n\t * @return\n\t */\n\tList<QueryMethod> getQueryMethods();\n}",
+  "javadoc_before": "/**\n * Interface for components that can provide {@link EntityInformation} this interface\n * \n * @author Oliver Gierke\n */",
+  "javadoc_after": "/**\n * Interface for components that can provide meta-information about a repository factory, the backing\n * {@link EntityInformation} and {@link RepositoryInformation} as well as the {@link QueryMethod}s exposed by the\n * repository.\n * \n * @author Oliver Gierke\n */"
+}

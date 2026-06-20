@@ -1,0 +1,8 @@
+{
+  "commit_hash": "34eaa4febe360b92f47b2f6c7d827778a395d6ae",
+  "issue_summary": "yet more error reporting changes",
+  "code_before": "public JsonMappingException mappingException(String msgTemplate, Object... args) {\n        String message = String.format(msgTemplate, args);\n        return JsonMappingException.from(getParser(), message);\n    }",
+  "code_after": "@Deprecated\n    public JsonMappingException mappingException(String msgTemplate, Object... args) {\n        if (args != null && args.length > 0) {\n            msgTemplate = String.format(msgTemplate, args);\n        }\n        return JsonMappingException.from(getParser(), msgTemplate);\n    }",
+  "javadoc_before": "/**\n     * Helper method for constructing generic mapping exception with specified\n     * message and current location information\n     * \n     * @since 2.6\n     */",
+  "javadoc_after": "/**\n     * Helper method for constructing generic mapping exception with specified\n     * message and current location information\n     * \n     * @since 2.6\n     *\n     * @deprecated Since 2.8 use {@link #reportMappingException(String, Object...)} instead\n     */"
+}

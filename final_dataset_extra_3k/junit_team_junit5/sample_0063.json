@@ -1,0 +1,8 @@
+{
+  "commit_hash": "872ac7e666d693728697b62492c7c190c58bb34c",
+  "issue_summary": "Test preconditions for PrefixedConfigurationParameters",
+  "code_before": "public PrefixedConfigurationParameters(ConfigurationParameters delegate, String prefix) {\n\t\tthis.delegate = Preconditions.notNull(delegate, \"delegate must not be null\");\n\t\tthis.prefix = Preconditions.notNull(prefix, \"prefix must not be null\");\n\t}",
+  "code_after": "public PrefixedConfigurationParameters(ConfigurationParameters delegate, String prefix) {\n\t\tthis.delegate = Preconditions.notNull(delegate, \"delegate must not be null\");\n\t\tthis.prefix = Preconditions.notBlank(prefix, \"prefix must not be null or blank\");\n\t}",
+  "javadoc_before": "/**\n\t * Create a new view of the supplied {@link ConfigurationParameters} that\n\t * applies the supplied prefix to all queries.\n\t *\n\t * @param delegate the {@link ConfigurationParameters} to delegate to; never\n\t * {@code null}\n\t * @param prefix the prefix to apply to all queries; never {@code null}\n\t */",
+  "javadoc_after": "/**\n\t * Create a new view of the supplied {@link ConfigurationParameters} that\n\t * applies the supplied prefix to all queries.\n\t *\n\t * @param delegate the {@link ConfigurationParameters} to delegate to; never\n\t * {@code null}\n\t * @param prefix the prefix to apply to all queries; never {@code null} or\n\t * blank\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "efc985cbf4930b97deab8a9dd16bafbec74690ee",
+  "issue_summary": "allow SortField to use a custom numeric FieldCache parser",
+  "code_before": "public int hashCode() {\n    int hash=type^0x346565dd + Boolean.valueOf(reverse).hashCode()^0xaf5998bb;\n    if (field != null) hash += field.hashCode()^0xff5685dd;\n    if (locale != null) hash += locale.hashCode()^0x08150815;\n    if (factory != null) hash += factory.hashCode()^0x34987555;\n    return hash;\n  }",
+  "code_after": "public int hashCode() {\n    int hash=type^0x346565dd + Boolean.valueOf(reverse).hashCode()^0xaf5998bb;\n    if (field != null) hash += field.hashCode()^0xff5685dd;\n    if (locale != null) hash += locale.hashCode()^0x08150815;\n    if (factory != null) hash += factory.hashCode()^0x34987555;\n    if (parser != null) hash += parser.hashCode()^0x3aaf56ff;\n    return hash;\n  }",
+  "javadoc_before": "/** Returns a hash code value for this object.  If a\n   *  {@link #SortComparatorSource} was provided, it must\n   *  properly implement hashCode. */",
+  "javadoc_after": "/** Returns true if <code>o</code> is equal to this.  If a\n   *  {@link SortComparatorSource} or {@link\n   *  FieldCache.Parser} was provided, it must properly\n   *  implement hashCode (unless a singleton is always\n   *  used). */"
+}

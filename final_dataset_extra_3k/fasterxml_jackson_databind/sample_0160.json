@@ -1,0 +1,8 @@
+{
+  "commit_hash": "17ab26bfbc3bf4820cf81bae220ed336b65488c7",
+  "issue_summary": "Cleaning up slightly; add another related fluent-style method",
+  "code_before": "public final void setMixInAnnotations(Map<Class<?>, Class<?>> sourceMixins)\n    {\n        _mixInAnnotations.clear();\n        if (sourceMixins != null && sourceMixins.size() > 0) {\n            for (Map.Entry<Class<?>,Class<?>> en : sourceMixins.entrySet()) {\n                _mixInAnnotations.put(new ClassKey(en.getKey()), en.getValue());\n            }\n        }\n    }",
+  "code_after": "public void setMixInAnnotations(Map<Class<?>, Class<?>> sourceMixins) {\n        setMixIns(sourceMixins);\n    }",
+  "javadoc_before": "/**\n     * Method to use for defining mix-in annotations to use for augmenting\n     * annotations that processable (serializable / deserializable)\n     * classes have.\n     * Mixing in is done when introspecting class annotations and properties.\n     * Map passed contains keys that are target classes (ones to augment\n     * with new annotation overrides), and values that are source classes\n     * (have annotations to use for augmentation).\n     * Annotations from source classes (and their supertypes)\n     * will <b>override</b>\n     * annotations that target classes (and their super-types) have.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.5: replaced by a fluent form of the method; {@link #setMixIns(Class, Class)}.\n     */"
+}

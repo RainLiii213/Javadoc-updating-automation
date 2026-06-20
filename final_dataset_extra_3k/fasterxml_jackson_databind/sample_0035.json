@@ -1,0 +1,8 @@
+{
+  "commit_hash": "38b1f7758797af9533eedfd66f4210904c189699",
+  "issue_summary": "Fix",
+  "code_before": "public final boolean isTextual() {\n        return getNodeType() == JsonNodeType.STRING;\n    }",
+  "code_after": "@Deprecated // since 3.0\n    public boolean isTextual() {\n        return isString();\n    }",
+  "javadoc_before": "/**\n     * Method that checks whether this node represents basic JSON String\n     * value.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Use {@link #isString} instead.\n     */"
+}

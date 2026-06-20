@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ad37014a3ac6dcd53de14680ddb63b99c25b1f86",
+  "issue_summary": "Rename getAnalyzer() to getIndexAnalyzer()",
+  "code_before": "public void setQueryAnalyzer(Analyzer analyzer) {\n    throw new SolrException\n      (ErrorCode.SERVER_ERROR,\n       \"FieldType: \" + this.getClass().getSimpleName() +\n       \" (\" + typeName + \") does not support specifying an analyzer\");\n  }",
+  "code_after": "public final void setQueryAnalyzer(Analyzer analyzer) {\n    if (supportsAnalyzers()) {\n      queryAnalyzer = analyzer;\n    } else {\n      throw new SolrException\n        (ErrorCode.SERVER_ERROR,\n         \"FieldType: \" + this.getClass().getSimpleName() +\n         \" (\" + typeName + \") does not support specifying an analyzer\");\n    }\n  }",
+  "javadoc_before": "/**\n   * Sets the Analyzer to be used when querying fields of this type.\n   *\n   * <p>\n   * The default implementation throws a SolrException.  \n   * Subclasses that override this method need to ensure the behavior \n   * of the analyzer is consistent with the implementation of toInternal.\n   * </p>\n   * \n   * @see #toInternal\n   * @see #setAnalyzer\n   * @see #getQueryAnalyzer\n   */",
+  "javadoc_after": "/**\n   * Sets the Analyzer to be used when querying fields of this type.\n   *\n   * <p>\n   * Subclasses should override {@link #supportsAnalyzers()} to\n   * enable this function.\n   * </p>\n   *\n   * @see #supportsAnalyzers()\n   * @see #setIndexAnalyzer\n   * @see #getQueryAnalyzer\n   */"
+}

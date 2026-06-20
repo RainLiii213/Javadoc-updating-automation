@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a2846087788ac06c56a15867ede163361520f17c",
+  "issue_summary": "remove synchronization from terms dict by loading index up front",
+  "code_before": "public int getTermInfosIndexDivisor() {\n    throw new UnsupportedOperationException(\"This reader does not support this method.\");\n  }",
+  "code_after": "public int getTermInfosIndexDivisor() {\n    throw new UnsupportedOperationException(\"Please pass termInfosIndexDivisor up-front when opening IndexReader\");\n  }",
+  "javadoc_before": "/** <p>For IndexReader implementations that use\n   *  TermInfosReader to read terms, this returns the\n   *  current indexDivisor.\n   *  @see #setTermInfosIndexDivisor */",
+  "javadoc_after": "/** <p>For IndexReader implementations that use\n   *  TermInfosReader to read terms, this returns the\n   *  current indexDivisor.\n   *  @see #setTermInfosIndexDivisor\n   * @deprecated Please use {@link IndexReader#open(Directory, IndexDeletionPolicy, boolean, int)} to specify the required TermInfos index divisor instead.\n   */"
+}

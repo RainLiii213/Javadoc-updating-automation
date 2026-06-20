@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6a085c2fa99578b346db5e31d9dfd938b21f6d34",
+  "issue_summary": "Move System.getProperty(type) in postData() to main()",
+  "code_before": "int postFiles(String [] args,int startIndexInArgs, OutputStream out) {\n    int filesPosted = 0;\n    for (int j = startIndexInArgs; j < args.length; j++) {\n      File srcFile = new File(args[j]);\n      if (srcFile.canRead()) {\n        info(\"POSTing file \" + srcFile.getName());\n        postFile(srcFile, out);\n        filesPosted++;\n      } else {\n        warn(\"Cannot read input file: \" + srcFile);\n      }\n    }\n    return filesPosted;\n  }",
+  "code_after": "@Deprecated\n  int postFiles(String [] args,int startIndexInArgs, OutputStream out) {\n    final String type = System.getProperty(\"type\", DEFAULT_DATA_TYPE);\n    return postFiles(args, startIndexInArgs, out, type);\n  }",
+  "javadoc_before": "/** Post all filenames provided in args, return the number of files posted*/",
+  "javadoc_after": "/**\n   * @deprecated use {@link #postData(InputStream, Integer, OutputStream, String)} instead\n   */"
+}

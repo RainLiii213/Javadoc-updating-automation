@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e9c5d07a128b026f1ddd92224032043b8ff2deab",
+  "issue_summary": "Reduce contention in older/buggy JVMs when using AttributeSource#addAttribute() because java.lang.ref.ReferenceQueue#poll() is implemented using synchronization.",
+  "code_before": "public Iterator<V> valueIterator() {\n    reap();\n    return backingStore.values().iterator();\n  }",
+  "code_after": "public Iterator<V> valueIterator() {\n    if (reapOnRead) reap();\n    return backingStore.values().iterator();\n  }",
+  "javadoc_before": "/** Returns an iterator over all values of this map.\n   * This iterator may return values whose key is already\n   * garbage collected while iterator is consumed. */",
+  "javadoc_after": "/** Returns an iterator over all values of this map.\n   * This iterator may return values whose key is already\n   * garbage collected while iterator is consumed,\n   * especially if {@code reapOnRead} is {@code false}. */"
+}

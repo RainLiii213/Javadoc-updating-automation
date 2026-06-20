@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2322ce6a6a26ff604fe05cb0da92a51466fcc0d6",
+  "issue_summary": "Implement : make ArrayNode, ObjectNode non-final again",
+  "code_before": "public final class ArrayNode\n    extends ContainerNode<ArrayNode>\n{\nprivate ArrayNode _add(JsonNode node)\n    {\n        _children.add(node);\n        return this;\n    }\n\nprivate ArrayNode _insert(int index, JsonNode node)\n    {\n        if (index < 0) {\n            _children.add(0, node);\n        } else if (index >= _children.size()) {\n            _children.add(node);\n        } else {\n            _children.add(index, node);\n        }\n        return this;\n    }\n}",
+  "code_after": "public class ArrayNode\n    extends ContainerNode<ArrayNode>\n{\nprotected ArrayNode _add(JsonNode node)\n    {\n        _children.add(node);\n        return this;\n    }\n\nprotected ArrayNode _insert(int index, JsonNode node)\n    {\n        if (index < 0) {\n            _children.add(0, node);\n        } else if (index >= _children.size()) {\n            _children.add(node);\n        } else {\n            _children.add(index, node);\n        }\n        return this;\n    }\n}",
+  "javadoc_before": "/**\n * Node class that represents Arrays mapped from Json content.\n */",
+  "javadoc_after": "/**\n * Node class that represents Arrays mapped from JSON content.\n *<p>\n * Note: class was <code>final</code> temporarily for Jackson 2.2.\n */"
+}

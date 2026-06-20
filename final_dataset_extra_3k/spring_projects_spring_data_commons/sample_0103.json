@@ -1,0 +1,8 @@
+{
+  "commit_hash": "919090bf202c8d2e59e2625e73985350d694a435",
+  "issue_summary": "Extend configuration of CDI repository settings.",
+  "code_before": "default QueryLookupStrategy.Key getQueryLookupStrategy() {\n\t\treturn DefaultRepositoryConfiguration.DEFAULT_QUERY_LOOKUP_STRATEGY;\n\t}",
+  "code_after": "default Optional<QueryLookupStrategy.Key> getQueryLookupStrategy() {\n\t\treturn Optional.empty();\n\t}",
+  "javadoc_before": "/**\n\t * Return the strategy to lookup queries.\n\t *\n\t * @return the lookup strategy to use.\n\t * @since 2.1\n\t */",
+  "javadoc_after": "/**\n\t * Return the {@link QueryLookupStrategy.Key} to lookup queries. Can be {@link Optional#empty()}.\n\t *\n\t * @return the lookup strategy to use, can be {@link Optional#empty()}, must not be {@literal null}.\n\t * @since 2.1\n\t */"
+}

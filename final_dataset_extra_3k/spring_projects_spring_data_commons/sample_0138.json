@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2e4e6ee61faa0657f2d98c2b022cc27cf0a6425b",
+  "issue_summary": "Fixed NullPointerException in PageableHandlerMethodArgumentResolver.",
+  "code_before": "public boolean isFallbackPageable(Pageable pageable) {\n\t\treturn this.fallbackPageable.equals(pageable);\n\t}",
+  "code_after": "public boolean isFallbackPageable(Pageable pageable) {\n\t\treturn fallbackPageable == null ? false : fallbackPageable.equals(pageable);\n\t}",
+  "javadoc_before": "/**\n\t * Returns whether the given {@link Pageable} is the fallback one.\n\t * \n\t * @param pageable\n\t * @since 1.9\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Returns whether the given {@link Pageable} is the fallback one.\n\t * \n\t * @param pageable can be {@literal null}.\n\t * @since 1.9\n\t * @return\n\t */"
+}

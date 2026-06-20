@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c4faa6c26918fbbb8e3dbbde0e8d5077c8873d7c",
+  "issue_summary": "Introduce support for parameterized classes",
+  "code_before": "protected abstract Stream<? extends Arguments> provideArguments(ExtensionContext context, A annotation);",
+  "code_after": "@Deprecated\n\tprotected Stream<? extends Arguments> provideArguments(ExtensionContext context, A annotation) {\n\t\tthrow new JUnitException(String.format(\n\t\t\t\"AnnotationBasedArgumentsProvider does not override the provideArguments(ParameterDeclarations, ExtensionContext, Annotation) method. \"\n\t\t\t\t\t+ \"Please report this issue to the maintainers of %s.\",\n\t\t\tgetClass().getName()));\n\t}",
+  "javadoc_before": "/**\n\t * Provide a {@link Stream} of {@link Arguments} &mdash; based on metadata in the\n\t * provided annotation &mdash; to be passed to a {@code @ParameterizedTest} method.\n\t *\n\t * @param context the current extension context; never {@code null}\n\t * @param annotation the annotation to process; never {@code null}\n\t * @return a stream of arguments; never {@code null}\n\t */",
+  "javadoc_after": "/**\n\t * Provide a {@link Stream} of {@link Arguments} &mdash; based on metadata in the\n\t * provided annotation &mdash; to be passed to a {@code @ParameterizedTest} method.\n\t *\n\t * @param context the current extension context; never {@code null}\n\t * @param annotation the annotation to process; never {@code null}\n\t * @return a stream of arguments; never {@code null}\n\t * @deprecated Please implement\n\t * {@link #provideArguments(ParameterDeclarations, ExtensionContext, Annotation)}\n\t * instead.\n\t */"
+}

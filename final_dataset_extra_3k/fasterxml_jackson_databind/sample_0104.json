@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4db3fdf2302b09d617f60c12520028c6c710bc10",
+  "issue_summary": "start tackling \"shape-shifting\" serializers",
+  "code_before": "public abstract JsonSerializer<Object> createSerializer(SerializerProvider prov,\n            JavaType baseType)\n        throws JsonMappingException;",
+  "code_after": "@Deprecated // since 3.0\n    public JsonSerializer<Object> createSerializer(SerializerProvider prov, JavaType baseType)\n        throws JsonMappingException {\n        return createSerializer(prov, baseType, JsonFormat.Value.empty());\n    }",
+  "javadoc_before": "/**\n     * Method called to create (or, for immutable serializers, reuse) a serializer for given type. \n     * \n     * @param prov Provider that needs to be used to resolve annotation-provided\n     *    serializers (but NOT for others)\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 3.0 use variant that takes {@link JsonFormat.Value} argument\n     */"
+}

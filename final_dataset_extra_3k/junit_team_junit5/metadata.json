@@ -1,0 +1,21 @@
+{
+  "project_slug": "junit_team_junit5",
+  "repository_name": "junit-team/junit5",
+  "repository_url": "https://github.com/junit-team/junit5.git",
+  "retained_samples": 174,
+  "source_folder": "dataset_junit_team_junit5_extra_3k_174_20260620053311",
+  "final_folder": "final_dataset_extra_3k/junit_team_junit5",
+  "mined_at_utc": "2026-06-20T05:33:11+00:00",
+  "commits_scanned": 10843,
+  "candidate_samples_found": 208,
+  "filtered_samples": 32,
+  "discarded_truncated_code_context": 0,
+  "moved_to_review": 2,
+  "discarded_weak_inheritdoc": 0,
+  "issue_summary_fallbacks": 0,
+  "duplicate_against_baseline": 0,
+  "duplicate_inside_new_dataset": 0,
+  "complete_history": true,
+  "stop_reason": "full_history_scanned",
+  "skipped_previously_scanned_commits": 0
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b6601c3247ffa9bc96c9f747b20e2257dc1b76db",
+  "issue_summary": "make it easier to use compressed norms",
+  "code_before": "public Lucene42DocValuesFormat() {\n    super(\"Lucene42\");\n  }",
+  "code_after": "public Lucene42DocValuesFormat() {\n    this(PackedInts.DEFAULT);\n  }",
+  "javadoc_before": "/** Sole constructor */",
+  "javadoc_after": "/** \n   * Calls {@link #Lucene42DocValuesFormat(float) \n   * Lucene42DocValuesFormat(PackedInts.DEFAULT)} \n   */"
+}

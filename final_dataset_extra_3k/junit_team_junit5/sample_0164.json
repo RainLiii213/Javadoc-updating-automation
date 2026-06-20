@@ -1,0 +1,8 @@
+{
+  "commit_hash": "266b9b90ab55ed3ffdfd43960309606300db8758",
+  "issue_summary": "Consistently throw Exception instead of Throwable",
+  "code_before": "void assertEmpty() throws Throwable {\n\t\tif (!this.throwables.isEmpty()) {\n\t\t\tThrowable t = this.throwables.get(0);\n\t\t\tthis.throwables.stream().skip(1).forEach(t::addSuppressed);\n\t\t\tthrow t;\n\t\t}\n\t}",
+  "code_after": "void assertEmpty() {\n\t\tif (!this.throwables.isEmpty()) {\n\t\t\tThrowable t = this.throwables.get(0);\n\t\t\tthis.throwables.stream().skip(1).forEach(t::addSuppressed);\n\t\t\tReflectionUtils.throwAsRuntimeException(t);\n\t\t}\n\t}",
+  "javadoc_before": "/**\n\t * Assert that this {@code ThrowableCollector} is <em>empty</em>.\n\t *\n\t * <p>If this collector is not empty, the first collected {@link Throwable}\n\t * will be thrown with any additional throwables\n\t * {@linkplain Throwable#addSuppressed(Throwable) suppressed} in the\n\t * first {@code Throwable}.\n\t *\n\t * @throws Throwable if this collector is not empty\n\t */",
+  "javadoc_after": "/**\n\t * Assert that this {@code ThrowableCollector} is <em>empty</em>.\n\t *\n\t * <p>If this collector is not empty, the first collected {@link Throwable}\n\t * will be thrown with any additional throwables\n\t * {@linkplain Throwable#addSuppressed(Throwable) suppressed} in the\n\t * first {@code Throwable}. Note, however, that the {@code Throwable}\n\t * will not be wrapped. Rather, it will be thrown as-is using a reflective\n\t * hack (based on generics and type erasure) that tricks the Java compiler\n\t * into believing that the thrown exception is an unchecked exception.\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "058276c9e78aa35826da2804b9dfafc43371fac7",
+  "issue_summary": "Provide consistent API in LauncherDiscoveryRequestBuilder regarding nullability",
+  "code_before": "public LauncherDiscoveryRequestBuilder configurationParameters(Map<String, String> configurationParameters) {\n\t\tif (configurationParameters != null) {\n\t\t\tconfigurationParameters.forEach(this::configurationParameter);\n\t\t}\n\t\treturn this;\n\t}",
+  "code_after": "public LauncherDiscoveryRequestBuilder configurationParameters(Map<String, String> configurationParameters) {\n\t\tPreconditions.notNull(configurationParameters, \"configuration parameters map must not be null\");\n\t\tconfigurationParameters.forEach(this::configurationParameter);\n\t\treturn this;\n\t}",
+  "javadoc_before": "/**\n\t * Add all of the supplied {@code configurationParameters} to the request.\n\t *\n\t * @param configurationParameters the map of configuration parameters to add\n\t */",
+  "javadoc_after": "/**\n\t * Add all of the supplied configuration parameters to the request.\n\t *\n\t * @param configurationParameters the map of configuration parameters to add;\n\t * never {@code null}\n\t * @return this builder for method chaining\n\t * @see #configurationParameter(String, String)\n\t */"
+}

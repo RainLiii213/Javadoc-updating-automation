@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4adcbff5373bf0bde7a12760a83e340762b03aa0",
+  "issue_summary": "Fix",
+  "code_before": "protected <BOGUS> BOGUS wrapAndThrow(Throwable t, Object ref, String key) throws IOException\n    {\n        // to handle StackOverflow:\n        while (t instanceof InvocationTargetException && t.getCause() != null) {\n            t = t.getCause();\n        }\n        // Errors and \"plain\" IOExceptions to be passed as is\n        ClassUtil.throwIfError(t);\n        // ... except for mapping exceptions\n        if (t instanceof IOException && !(t instanceof JsonMappingException)) {\n            throw (IOException) t;\n        }\n        // for [databind#1141]\n        throw JsonMappingException.wrapWithPath(t, ref,\n                ClassUtil.nonNull(key, \"N/A\"));\n    }",
+  "code_after": "@Deprecated\n    protected <BOGUS> BOGUS wrapAndThrow(Throwable t, Object ref, String key) throws IOException\n    {\n        return wrapAndThrow(null, t, ref, key);\n    }",
+  "javadoc_before": "/**\n     * Helper method called by various Map(-like) deserializers.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.12.2 (since it does not get context for accessing config)\n     */"
+}

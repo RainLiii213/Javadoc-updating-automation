@@ -1,0 +1,8 @@
+{
+  "commit_hash": "35f0f926a2abac80e9944d54798b0fce0d6e49df",
+  "issue_summary": "Remove deprecated DocIdSetIterator methods.",
+  "code_before": "public int nextDoc() throws IOException {\n    return doc = next() ? doc() : NO_MORE_DOCS;\n  }",
+  "code_after": "public abstract int nextDoc() throws IOException;",
+  "javadoc_before": "/**\n   * Advances to the next document in the set and returns the doc it is\n   * currently on, or {@link #NO_MORE_DOCS} if there are no more docs in the\n   * set.<br>\n   * \n   * <b>NOTE:</b> in 3.0 this method will become abstract, following the removal\n   * of {@link #next()}. For backward compatibility it is implemented as:\n   * \n   * <pre>\n   * public int nextDoc() throws IOException {\n   *   return next() ? doc() : NO_MORE_DOCS;\n   * }\n   * </pre>\n   * \n   * <b>NOTE:</b> after the iterator has exhausted you should not call this\n   * method, as it may result in unpredicted behavior.\n   * \n   * @since 2.9\n   */",
+  "javadoc_after": "/**\n   * Advances to the next document in the set and returns the doc it is\n   * currently on, or {@link #NO_MORE_DOCS} if there are no more docs in the\n   * set.<br>\n   * \n   * <b>NOTE:</b> after the iterator has exhausted you should not call this\n   * method, as it may result in unpredicted behavior.\n   * \n   * @since 2.9\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "83c7b92925d4c0c1e5dde4513d825228a974db54",
+  "issue_summary": "resolve nocommits",
+  "code_before": "public FuzzySuggester(Analyzer indexAnalyzer, Analyzer queryAnalyzer) {\n    this(indexAnalyzer, queryAnalyzer, EXACT_FIRST | PRESERVE_SEP, 256, -1, DEFAULT_MAX_EDITS, true, DEFAULT_MIN_PREFIX);\n  }",
+  "code_after": "public FuzzySuggester(Analyzer indexAnalyzer, Analyzer queryAnalyzer) {\n    this(indexAnalyzer, queryAnalyzer, EXACT_FIRST | PRESERVE_SEP, 256, -1, DEFAULT_MAX_EDITS, true,\n         DEFAULT_NON_FUZZY_PREFIX, DEFAULT_MIN_FUZZY_LENGTH, DEFAULT_ALLOW_SEP_EDIT);\n  }",
+  "javadoc_before": "/**\n   * Creates a {@link FuzzySuggester} instance with an index & a query analyzer initialized with default values.\n   * Calls\n   * {@link FuzzySuggester#FuzzySuggester(Analyzer, Analyzer, int, int, int, int, boolean, int)}\n   * FuzzySuggester(indexAnalyzer, queryAnalyzer, EXACT_FIRST | PRESERVE_SEP, 256, -1,\n   * DEFAULT_MAX_EDITS, true, DEFAULT_MIN_PREFIX)\n   * \n   * @param indexAnalyzer\n   *           Analyzer that will be used for analyzing suggestions while building the index.\n   * @param queryAnalyzer\n   *           Analyzer that will be used for analyzing query text during lookup\n   */",
+  "javadoc_after": "/**\n   * Creates a {@link FuzzySuggester} instance with an index & a query analyzer initialized with default values.\n   * \n   * @param indexAnalyzer\n   *           Analyzer that will be used for analyzing suggestions while building the index.\n   * @param queryAnalyzer\n   *           Analyzer that will be used for analyzing query text during lookup\n   */"
+}

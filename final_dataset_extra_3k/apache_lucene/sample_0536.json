@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f7a130e393ee5dbe18772e5df50ddb89571d6be8",
+  "issue_summary": "write pointers and skip data more efficiently for fixed and variable intblock",
+  "code_before": "protected VariableIntBlockIndexOutput(IndexOutput out, int maxBlockSize) throws IOException {\n    if (maxBlockSize > MAX_BLOCK_SIZE) {\n      throw new IllegalArgumentException(\"maxBlockSize must be <= \" + MAX_BLOCK_SIZE + \"; got \" + maxBlockSize);\n    }\n    this.out = out;\n    out.writeInt(maxBlockSize);\n  }",
+  "code_after": "protected VariableIntBlockIndexOutput(IndexOutput out, int maxBlockSize) throws IOException {\n    this.out = out;\n    out.writeInt(maxBlockSize);\n  }",
+  "javadoc_before": "/** NOTE: maxBlockSize plus the max non-causal lookahead\n   *  of your codec must be less than 256.  EG Simple9\n   *  requires lookahead=1 because on seeing the Nth value\n   *  it knows it must now encode the N-1 values before it. */",
+  "javadoc_after": "/** NOTE: maxBlockSize must be the maximum block size \n   *  plus the max non-causal lookahead of your codec.  EG Simple9\n   *  requires lookahead=1 because on seeing the Nth value\n   *  it knows it must now encode the N-1 values before it. */"
+}

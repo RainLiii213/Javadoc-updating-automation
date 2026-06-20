@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6ed7caab6700210ab65746fc12a45be0044974d1",
+  "issue_summary": "Fix ; add `JsonGenerator` ref to `SerializerProvider` and change `JsonMappingException` construction to use it",
+  "code_before": "public abstract JsonMappingException mappingException(String message, Object... args);",
+  "code_after": "public JsonMappingException mappingException(String message, Object... args) {\n        if (args != null && args.length > 0) {\n            message = String.format(message, args);\n        }\n        return JsonMappingException.from(getGenerator(), message);\n    }",
+  "javadoc_before": "/**\n     * @since 2.6\n     */",
+  "javadoc_after": "/**\n     * Factory method for constructing a {@link JsonMappingException};\n     * usually only indirectly used by calling\n     * {@link #reportMappingProblem(String, Object...)}.\n     *\n     * @since 2.6\n     */"
+}

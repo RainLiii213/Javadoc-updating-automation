@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4bd3a5789967e2e8c9d5217f906e3b407e49564c",
+  "issue_summary": "TermValComparator can sort missing values last.",
+  "code_before": "private BytesRef getComparableBytes(int doc, BytesRef term) {\n      if (term.length == 0 && docsWithField.get(doc) == false) {\n        return MISSING_BYTESREF;\n      }\n      return term;\n    }",
+  "code_after": "private BytesRef getComparableBytes(int doc, BytesRef term) {\n      if (term.length == 0 && isNull(doc, term)) {\n        return null;\n      }\n      return term;\n    }",
+  "javadoc_before": "/**\n     * Given a document and a term, return the term itself if it exists or\n     * {@link #MISSING_BYTESREF} otherwise.\n     */",
+  "javadoc_after": "/**\n     * Given a document and a term, return the term itself if it exists or\n     * <tt>null</tt> otherwise.\n     */"
+}

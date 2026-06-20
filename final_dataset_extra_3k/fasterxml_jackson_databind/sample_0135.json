@@ -1,0 +1,8 @@
+{
+  "commit_hash": "52ae85f72940673a6a54bfd18c836d18d07c243c",
+  "issue_summary": "Fix",
+  "code_before": "public final void fixAccess() {\n        ClassUtil.checkAndFixAccess(getMember());\n    }",
+  "code_after": "@Deprecated\n    public final void fixAccess() {\n//        fixAccess(false);\n        fixAccess(true);\n    }",
+  "javadoc_before": "/**\n     * Method that can be called to modify access rights, by calling\n     * {@link java.lang.reflect.AccessibleObject#setAccessible} on\n     * the underlying annotated element.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.7 use {@link #fixAccess(boolean)} instead\n     */"
+}

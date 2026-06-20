@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f03d77b558482b517bc7285f20f9d13075c604be",
+  "issue_summary": "switch from Weight (interface) to QueryWeight (abstract class); mate in/out-of docID order scoring between Collector & Scorer",
+  "code_before": "protected Weight createWeight(Searcher searcher) throws IOException {\n    throw new UnsupportedOperationException();\n  }",
+  "code_after": "protected Weight createWeight(Searcher searcher) throws IOException {\n    return createQueryWeight(searcher);\n  }",
+  "javadoc_before": "/** Expert: Constructs an appropriate Weight implementation for this query.\n   *\n   * <p>Only implemented by primitive queries, which re-write to themselves.\n   */",
+  "javadoc_after": "/**\n   * Expert: Constructs an appropriate Weight implementation for this query.\n   * \n   * <p>\n   * Only implemented by primitive queries, which re-write to themselves.\n   * @deprecated use {@link #createQueryWeight(Searcher)} instead.\n   */"
+}

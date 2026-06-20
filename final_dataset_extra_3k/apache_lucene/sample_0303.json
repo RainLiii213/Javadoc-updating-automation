@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6c5f475b4d1c4e063028b10160138ab4cec9ac31",
+  "issue_summary": "FacetIndexing/SearchParams house cleaning",
+  "code_before": "public List<CategoryEnhancement> getCategoryEnhancements();",
+  "code_after": "public List<CategoryEnhancement> getCategoryEnhancements() {\n    return enhancements;\n  }",
+  "javadoc_before": "/**\n   * Get a list of the active category enhancements. If no enhancements exist\n   * return {@code null}. The order of enhancements in the returned list\n   * dictates the order in which the enhancements data appear in the category\n   * tokens payload.\n   * \n   * @return A list of the active category enhancements, or {@code null} if\n   *         there are no enhancements.\n   */",
+  "javadoc_after": "/**\n   * Returns the list of {@link CategoryEnhancement} as were given at\n   * intialization time. You are not expected to modify the list. The order of\n   * the enhancements dictates the order in which they are written in the\n   * document.\n   */"
+}

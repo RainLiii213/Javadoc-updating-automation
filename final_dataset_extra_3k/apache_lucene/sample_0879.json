@@ -1,0 +1,8 @@
+{
+  "commit_hash": "79892c1f40be236e26eb4d301e12e51fa06da3bd",
+  "issue_summary": "Replace OutputStream with IndexOutput and BufferedIndexOutput to permit unbuffered Directory implementations.",
+  "code_before": "public abstract OutputStream createFile(String name)\n       throws IOException;",
+  "code_after": "public OutputStream createFile(String name) throws IOException {\n    return (OutputStream)createOutput(name);\n  }",
+  "javadoc_before": "/** Creates a new, empty file in the directory with the given name.\n      Returns a stream writing this file. */",
+  "javadoc_after": "/** @deprecated use {@link #createOutput(String)} */"
+}

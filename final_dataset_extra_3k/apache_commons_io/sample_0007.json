@@ -1,0 +1,8 @@
+{
+  "commit_hash": "872ed3cc48de0cf5618c3821e56d8ed1a0a5817a",
+  "issue_summary": "MessageDigestCalculatingInputStream.MessageDigestMaintainingObserver.MessageDigestMaintainingObserver(MessageDigest) now throws a NullPointerException if the MessageDigest is null",
+  "code_before": "public MessageDigestMaintainingObserver(final MessageDigest messageDigest) {\n            this.messageDigest = messageDigest;\n        }",
+  "code_after": "public MessageDigestMaintainingObserver(final MessageDigest messageDigest) {\n            this.messageDigest = Objects.requireNonNull(messageDigest, \"messageDigest\");\n        }",
+  "javadoc_before": "/**\n         * Constructs an MessageDigestMaintainingObserver for the given MessageDigest.\n         *\n         * @param messageDigest the message digest to use\n         */",
+  "javadoc_after": "/**\n         * Constructs an MessageDigestMaintainingObserver for the given MessageDigest.\n         *\n         * @param messageDigest the message digest to use\n         * @throws NullPointerException if messageDigest is null.\n         */"
+}

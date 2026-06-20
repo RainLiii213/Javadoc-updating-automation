@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3034575f66028527db0f5cec96875bf53baf7e9e",
+  "issue_summary": "Updated Snowball package, org.tartarus distribution revision 500.",
+  "code_before": "public SnowballFilter(TokenStream in, String name) {\n    super(in);\n    try {\n      Class stemClass =\n        Class.forName(\"net.sf.snowball.ext.\" + name + \"Stemmer\");\n      stemmer = (SnowballProgram) stemClass.newInstance();\n      // why doesn't the SnowballProgram class have an (abstract?) stem method?\n      stemMethod = stemClass.getMethod(\"stem\", new Class[0]);\n    } catch (Exception e) {\n      throw new RuntimeException(e.toString());\n    }\n  }",
+  "code_after": "public SnowballFilter(TokenStream in, String name) {\n    super(in);\n    try {\n      Class stemClass = Class.forName(\"org.tartarus.snowball.ext.\" + name + \"Stemmer\");\n      stemmer = (SnowballProgram) stemClass.newInstance();\n    } catch (Exception e) {\n      throw new RuntimeException(e.toString());\n    }\n  }",
+  "javadoc_before": "/** Construct the named stemming filter.\n   *\n   * @param in the input tokens to stem\n   * @param name the name of a stemmer\n   */",
+  "javadoc_after": "/**\n   * Construct the named stemming filter.\n   *\n   * Available stemmers are listed in {@link org.tartarus.snowball.ext}.\n   * The name of a stemmer is the part of the class name before \"Stemmer\",\n   * e.g., the stemmer in {@link org.tartarus.snowball.ext.EnglishStemmer} is named \"English\".\n   *\n   * @param in the input tokens to stem\n   * @param name the name of a stemmer\n   */"
+}

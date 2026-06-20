@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cc63e5b7a4d505b65e6610ff2b935d98077c9743",
+  "issue_summary": "First draft.",
+  "code_before": "public Sort toSort() {\n\t\treturn this.orders.isEmpty() ? null : new Sort(this.orders);\n\t}",
+  "code_after": "public Optional<Sort> toSort() {\n\t\treturn this.orders.isEmpty() ? Optional.empty() : Optional.of(new Sort(this.orders));\n\t}",
+  "javadoc_before": "/**\n\t * Returns the clause as {@link Sort}.\n\t * \n\t * @return the {@link Sort} or null if no orders found.\n\t */",
+  "javadoc_after": "/**\n\t * Returns the clause as {@link Sort}.\n\t * \n\t * @return the {@link Sort}.\n\t */"
+}

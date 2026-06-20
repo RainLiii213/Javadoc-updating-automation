@@ -1,0 +1,8 @@
+{
+  "commit_hash": "789a44d7061b47d993d2797ff162c8ffc8a51fbe",
+  "issue_summary": "Renamed DocValues to IndexDocValues to prevent naming conflict with Function Queries",
+  "code_before": "@Override\n  public DocValues docValues(String field) throws IOException {\n    return docValues.get(field);\n  }",
+  "code_after": "@Override\n  public IndexDocValues docValues(String field) throws IOException {\n    return docValues.get(field);\n  }",
+  "javadoc_before": "/**\n   * Returns a {@link DocValues} instance for the given field name or\n   * <code>null</code> if this field has no {@link DocValues}.\n   */",
+  "javadoc_after": "/**\n   * Returns a {@link IndexDocValues} instance for the given field name or\n   * <code>null</code> if this field has no {@link IndexDocValues}.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bd6c0bf7c669a520af9be3de46dbd6d3f9e0e0b7",
+  "issue_summary": "RepositoryPopulator now throws event after population.",
+  "code_before": "public void setResources(Resource[] resources) {\n\t\tthis.resources = resources.clone();\n\t}",
+  "code_after": "public void setResources(Resource[] resources) {\n\t\tAssert.notNull(resources, \"Resources must not be null!\");\n\t\tthis.resources = resources.clone();\n\t}",
+  "javadoc_before": "/**\n\t * Configures the {@link Resource}s to be used to load objects from and initialize the repositories eventually.\n\t * \n\t * @param resources the resources to set\n\t */",
+  "javadoc_after": "/**\n\t * Configures the {@link Resource}s to be used to load objects from and initialize the repositories eventually.\n\t * \n\t * @param resources must not be {@literal null}.\n\t */"
+}

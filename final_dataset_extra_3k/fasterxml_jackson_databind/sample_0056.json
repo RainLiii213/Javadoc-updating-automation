@@ -1,0 +1,8 @@
+{
+  "commit_hash": "56fb5d3fd3c69157d6625e94a43fd60aa57bbf72",
+  "issue_summary": "Continue with #1980",
+  "code_before": "public <T extends JsonNode> T withObject(JsonPointer ptr) {\n        // To avoid abstract method, base implementation just fails\n        throw new UnsupportedOperationException(\"`withObject(JsonPointer)` not implemented by \"\n                +getClass().getName());\n    }",
+  "code_after": "public final ObjectNode withObject(JsonPointer ptr) {\n        return withObject(ptr, OverwriteMode.NULLS, true);\n    }",
+  "javadoc_before": "/**\n     * Method that can be called on Object nodes, to access a Object-valued\n     * node pointed to by given {@link JsonPointer}, if such a node exists:\n     * if not, an attempt is made to create it.\n     * If the node method is called on is not Object node,\n     * or if property exists and has value that is not Object node,\n     * {@link UnsupportedOperationException} is thrown\n     *\n     * @since 2.14\n     */",
+  "javadoc_after": "/**\n     * Same as {@link #withObject(JsonPointer, OverwriteMode, boolean)} but\n     * with defaults of {@code OvewriteMode#NULLS} (overwrite mode)\n     * and {@code true} for {@code preferIndex} (that is, will try to\n     * consider {@link JsonPointer} segments index if at all possible\n     * and only secondarily as property name\n     *\n     * @param ptr Pointer that indicates path to use for Object value to return\n     *   (potentially creating as necessary)\n     *\n     * @return ObjectNode found or created\n     *\n     * @since 2.14\n     */"
+}

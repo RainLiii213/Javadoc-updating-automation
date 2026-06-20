@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6f1b9bb79a9cae6fadea1a9c8eacf327f29bd0d1",
+  "issue_summary": "simplify the private iterator Lucene uses when resolving deleted terms -> docids",
+  "code_before": "interface FieldTermIterator {\n  /** Advances to the next term, returning true if it's in a new field or there are no more terms.  Call {@link #field} to see which\n   *  field; if that returns null then the iteration ended. */\n  boolean next();\n\n  /** Returns current field, or null if the iteration ended. */\n  String field();\n\n  /** Returns current term. */\n  BytesRef term();\n\n  /** Del gen of the current term. */\n  // TODO: this is really per-iterator not per term, but when we use MergedPrefixCodedTermsIterator we need to know which iterator we are on\n  long delGen();\n}",
+  "code_after": "abstract class FieldTermIterator implements BytesRefIterator {\n  /** Returns current field.  This method should not be called\n   *  after iteration is done.  Note that you may use == to\n   *  detect a change in field. */\n  abstract String field();\n\n  /** Del gen of the current term. */\n  // TODO: this is really per-iterator not per term, but when we use MergedPrefixCodedTermsIterator we need to know which iterator we are on\n  abstract long delGen();\n}",
+  "javadoc_before": "/** Iterates over terms in multiple fields, notifying the caller when a new field is started. */",
+  "javadoc_after": "/** Iterates over terms in across multiple fields.  The caller must\n *  check {@link #field} after each {@link #next} to see if the field\n *  changed, but {@code ==} can be used since the iterator\n *  implementation ensures it will use the same String instance for\n *  a given field. */"
+}

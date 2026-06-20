@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dd3485677ca295a8fcbf99dba90db5337755b8ef",
+  "issue_summary": "Implemented [Issue-20], JsonFormatException",
+  "code_before": "public JsonMappingException weirdStringException(Class<?> instClass, String msg) {\n        return JsonMappingException.from(_parser, \"Can not construct instance of \"+instClass.getName()+\" from String value '\"+_valueDesc()+\"': \"+msg);\n    }",
+  "code_after": "@Deprecated\n    public JsonMappingException weirdStringException(Class<?> instClass, String msg) {\n        return weirdStringException(null, instClass, msg);\n    }",
+  "javadoc_before": "/**\n     * Method that will construct an exception suitable for throwing when\n     * some String values are acceptable, but the one encountered is not.\n     */",
+  "javadoc_after": "/**\n     * Method that will construct an exception suitable for throwing when\n     * some String values are acceptable, but the one encountered is not.\n     * \n     * \n     * @deprecated Since 2.1 should use variant that takes value\n     */"
+}

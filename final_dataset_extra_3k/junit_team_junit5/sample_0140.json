@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d398b46bc6a4549edbece534773f222cf95ed5cd",
+  "issue_summary": "Overhaul UniqueID implementation and Javadoc",
+  "code_before": "public static UniqueId root(String segmentType, String value) {\n\t\tList<Segment> segments = Collections.singletonList(new Segment(segmentType, value));\n\t\treturn new UniqueId(UniqueIdFormat.getDefault(), segments);\n\t}",
+  "code_after": "public static UniqueId root(String segmentType, String value) {\n\t\tPreconditions.notBlank(segmentType, \"segmentType must not be null or empty\");\n\t\tPreconditions.notBlank(value, \"value must not be null or empty\");\n\t\treturn new UniqueId(UniqueIdFormat.getDefault(), new Segment(segmentType, value));\n\t}",
+  "javadoc_before": "/**\n\t * Create a root unique ID from the supplied {@code segmentType} and\n\t * {@code value} using the default format.\n\t */",
+  "javadoc_after": "/**\n\t * Create a root unique ID from the supplied {@code segmentType} and\n\t * {@code value} using the default format.\n\t *\n\t * @param segmentType the segment type; never {@code null} or empty\n\t * @param value the value; never {@code null} or empty\n\t */"
+}

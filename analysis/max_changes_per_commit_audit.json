@@ -1,0 +1,90 @@
+{
+  "conclusion": "Confirmed: the mining pipeline contains an explicit MAX_SAMPLES_PER_COMMIT = 3 cap before per-project output writing.",
+  "final_distribution": {
+    "commit_count": 2570,
+    "total_change_count": 3591,
+    "min_changes_per_commit": 1,
+    "max_changes_per_commit": 3,
+    "commits_with_1_change": 1853,
+    "commits_with_2_changes": 413,
+    "commits_with_3_changes": 304,
+    "commits_with_more_than_3_changes": 0,
+    "distribution": {
+      "1": 1853,
+      "2": 413,
+      "3": 304
+    }
+  },
+  "source_flat_distributions": {
+    "old_final_dataset_combined_samples": {
+      "1": 1000,
+      "2": 212,
+      "3": 192
+    },
+    "new_final_dataset_extra_3k_combined_samples": {
+      "1": 870,
+      "2": 203,
+      "3": 115
+    }
+  },
+  "code_evidence": [
+    {
+      "file": "javadoc_miner/cli.py",
+      "line": 55,
+      "code": "MAX_SAMPLES_PER_COMMIT = 3",
+      "stage": "configuration constant for candidate/sample selection"
+    },
+    {
+      "file": "javadoc_miner/cli.py",
+      "line": 196,
+      "code": "selected_candidates = _deduplicate_samples(candidate_samples)",
+      "stage": "candidate collection -> high-quality sample build; cap applied before writing output"
+    },
+    {
+      "file": "javadoc_miner/cli.py",
+      "line": 389,
+      "code": "if key in seen or per_commit.get(sample.commit_hash, 0) >= MAX_SAMPLES_PER_COMMIT: continue",
+      "stage": "candidate de-duplication and per-commit cap"
+    },
+    {
+      "file": "tests/test_cli_integration.py",
+      "line": 444,
+      "code": "test_selection_caps_samples_per_commit_for_review_diversity asserts len(selected) == 3 for 5 same-commit samples",
+      "stage": "test coverage confirms intentional cap behavior"
+    }
+  ],
+  "stage_trace": {
+    "raw_candidates": "Not persisted by the miner. candidate_samples is held in memory inside javadoc_miner.cli.mine_repository.",
+    "pre_cap_candidate_collection": "javadoc_miner/cli.py collects all PendingOutputSample objects in candidate_samples before selected_candidates is assigned.",
+    "cap_stage": "javadoc_miner/cli.py:_deduplicate_samples applies MAX_SAMPLES_PER_COMMIT before _build_output_samples and SampleWriter.write_samples.",
+    "retained_samples": "Per-project dataset_*/combined_samples.json already contains capped samples.",
+    "review_samples": "SampleWriter review_samples.json receives only samples that survived _deduplicate_samples; fourth and later per-commit samples never reach review.",
+    "per_project_output": "Already capped at source-specific dataset directories and final_dataset/final_dataset_extra_3k project directories.",
+    "old_combined_dataset": "Already capped because baseline was generated through the same cli.py selection path.",
+    "new_combined_dataset": "Already capped because continuation mine_repository uses the same cli.py selection path.",
+    "cleaned_flat_dataset": "No additional cap; it loads already capped flat samples.",
+    "final_commit_grouped_dataset": "No additional cap; it groups whatever changes are present after source mining and merge cleaning."
+  },
+  "exactly_three_commit_count": 304,
+  "exactly_three_commits_path": "analysis/commits_with_exactly_3_changes.json",
+  "sampled_commit_count": 30,
+  "sample_category_counts_available": {
+    "method_majority_available": 171,
+    "class_majority_available": 53,
+    "mixed_method_class_available": 80,
+    "method_majority_sampled": 10,
+    "class_majority_sampled": 10,
+    "mixed_method_class_sampled": 10
+  },
+  "sample_actual_eligible_max_without_cap": 53,
+  "sample_commits_with_missing_fourth_or_later_change": 14,
+  "affected_commit_lower_bound_from_final_dataset": 304,
+  "affected_commit_estimate_note": "All 304 commits with exactly 3 final changes are potentially affected. The audit confirms a lower-bound risk set, but only re-mining/a pre-cap raw candidate log can determine the exact full count.",
+  "needs_incremental_remining": true,
+  "recommended_minimal_fix": [
+    "Remove or make configurable MAX_SAMPLES_PER_COMMIT in javadoc_miner/cli.py.",
+    "Add tests where one commit contains 5 method changes and where one commit contains mixed method/class changes >3.",
+    "Incrementally reprocess commits that currently have exactly 3 retained changes, plus any source stats/logs indicating candidate_samples per commit >3 if available.",
+    "Merge newly discovered fourth-and-later changes into final_dataset_merged through the existing content fingerprint deduplication path, preserving the existing 3591 changes."
+  ]
+}

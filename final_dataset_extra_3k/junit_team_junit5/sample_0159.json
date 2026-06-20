@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4cf9460f027c6b230a4f9e689871fe3fc3b20c43",
+  "issue_summary": "Avoid NPE in CollectionUtils.getOnlyElement()",
+  "code_before": "public static <T> T getOnlyElement(Collection<T> collection) {\n\t\tPreconditions.condition(collection.size() == 1,\n\t\t\t() -> \"collection must contain exactly one element: \" + collection);\n\t\treturn collection.iterator().next();\n\t}",
+  "code_after": "public static <T> T getOnlyElement(Collection<T> collection) {\n\t\tPreconditions.notNull(collection, \"collection must not be null\");\n\t\tPreconditions.condition(collection.size() == 1,\n\t\t\t() -> \"collection must contain exactly one element: \" + collection);\n\t\treturn collection.iterator().next();\n\t}",
+  "javadoc_before": "/**\n\t * Read the only element of a collection of size 1.\n\t *\n\t * @param collection the collection to read the element from\n\t * @return the only element of the collection\n\t * @throws IllegalArgumentException if the collection is empty or contains\n\t * more than one element\n\t */",
+  "javadoc_after": "/**\n\t * Read the only element of a collection of size 1.\n\t *\n\t * @param collection the collection to get the element from\n\t * @return the only element of the collection\n\t * @throws IllegalArgumentException if the collection is {@code null}\n\t * or does not contain exactly one element\n\t */"
+}

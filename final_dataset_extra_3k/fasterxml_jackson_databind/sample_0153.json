@@ -1,0 +1,8 @@
+{
+  "commit_hash": "42ef5bb69ba5945e6d588e0db8d6834b4febe771",
+  "issue_summary": "Fixed",
+  "code_before": "public static String okNameForGetter(AnnotatedMethod am)\n    {\n        String name = am.getName();\n        String str = okNameForIsGetter(am, name);\n        if (str == null) {\n            str = okNameForRegularGetter(am, name);\n        }\n        return str;\n    }",
+  "code_after": "@Deprecated // since 2.5\n    public static String okNameForGetter(AnnotatedMethod am) {\n        return okNameForGetter(am, false);\n    }",
+  "javadoc_before": "/**********************************************************\n    /* Handling \"getter\" names\n    /**********************************************************\n     */",
+  "javadoc_after": "/**********************************************************\n    /* Handling property names, deprecated methods\n    /**********************************************************\n     */"
+}

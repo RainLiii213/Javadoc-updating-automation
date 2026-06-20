@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bb0e2b5edd644e9dd438c29675678a802bbe8f7a",
+  "issue_summary": "Implement",
+  "code_before": "public Object findFilterId(AnnotatedClass ac) {\n        return null;\n    }",
+  "code_after": "@Deprecated\n    public Object findFilterId(AnnotatedClass ac) {\n        return findFilterId((Annotated) ac);\n    }",
+  "javadoc_before": "/**\n     * Method for finding if annotated class has associated filter; and if so,\n     * to return id that is used to locate filter.\n     * \n     * @return Id of the filter to use for filtering properties of annotated\n     *    class, if any; or null if none found.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.3: use the one that takes generic {@link Annotated}\n     */"
+}

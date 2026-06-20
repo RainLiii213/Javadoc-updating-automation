@@ -1,0 +1,8 @@
+{
+  "commit_hash": "577e25c7ffc11a3dfd64252bc43cde6b62e3fada",
+  "issue_summary": "makeQuery return ConstantScoreQuery, standardize makeDistanceValueSource behavior",
+  "code_before": "public Query makeQuery(SpatialArgs args) {\n    Filter filter = makeFilter(args);\n    ValueSource vs = makeValueSource(args);\n    return new FilteredQuery(new FunctionQuery(vs), filter);\n  }",
+  "code_after": "public ConstantScoreQuery makeQuery(SpatialArgs args) {\n    return new ConstantScoreQuery(makeFilter(args));\n  }",
+  "javadoc_before": "/**\n   * Make a query which has a score based on the distance from the data to the query shape.\n   * The default implementation constructs a {@link FilteredQuery} based on\n   * {@link #makeFilter(org.apache.lucene.spatial.query.SpatialArgs)} and\n   * {@link #makeValueSource(org.apache.lucene.spatial.query.SpatialArgs)}.\n   */",
+  "javadoc_after": "/**\n   * Make a (ConstantScore) Query based principally on {@link org.apache.lucene.spatial.query.SpatialOperation}\n   * and {@link Shape} from the supplied {@code args}.\n   * The default implementation is\n   * <pre>return new ConstantScoreQuery(makeFilter(args));</pre>\n   */"
+}

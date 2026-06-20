@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2e0453f5ee3f74f15713a040e3299630f89be1ba",
+  "issue_summary": "Add ObjectMapper.setVisibility(VisibilityChecker) to replace setVisibilityChecker (which is non-chainable).",
+  "code_before": "public void setVisibilityChecker(VisibilityChecker<?> vc) {\n        _deserializationConfig = _deserializationConfig.with(vc);\n        _serializationConfig = _serializationConfig.with(vc);\n    }",
+  "code_after": "public void setVisibilityChecker(VisibilityChecker<?> vc) {\n        setVisibility(vc);\n    }",
+  "javadoc_before": "/**\n     * Method for setting currently configured visibility checker;\n     * object used for determining whether given property element\n     * (method, field, constructor) can be auto-detected or not.\n     * This default checker is used if no per-class overrides\n     * are defined.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.6 use {@link #setVisibility(VisibilityChecker)} instead.\n     */"
+}

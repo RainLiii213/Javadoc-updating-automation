@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c122d5bf3f575864e725dc455d1d05dac6b344f4",
+  "issue_summary": "remove \"throws IOException\" from methods that really never throw this exception",
+  "code_before": "public final int nextPosition()\n\tthrows IOException\n    {\n\treturn _posList.next();\n    }",
+  "code_after": "public final int nextPosition()\n    {\n\treturn _posList.next();\n    }",
+  "javadoc_before": "/**\n     * Describe <code>nextPosition</code> method here.\n     *\n     * @return an <code>int</code> value\n     * @exception IOException if an error occurs\n     * @see TermPositions#nextPosition()\n     */",
+  "javadoc_after": "/**\n     * Describe <code>nextPosition</code> method here.\n     *\n     * @return an <code>int</code> value\n     * @see TermPositions#nextPosition()\n     */"
+}

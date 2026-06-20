@@ -1,0 +1,8 @@
+{
+  "commit_hash": "875b6ea55d22a6b5e7d734974d7d710fb05825a1",
+  "issue_summary": "Fail immediately if no test engines are detected",
+  "code_before": "public static Launcher create() {\n\t\treturn new DefaultLauncher(new ServiceLoaderTestEngineRegistry().loadTestEngines());\n\t}",
+  "code_after": "public static Launcher create() throws PreconditionViolationException {\n\t\treturn new DefaultLauncher(new ServiceLoaderTestEngineRegistry().loadTestEngines());\n\t}",
+  "javadoc_before": "/**\n\t * Factory method for creating a new instance of {@link Launcher} using dynamically\n\t * registered test engines.\n\t */",
+  "javadoc_after": "/**\n\t * Factory method for creating a new {@link Launcher} using dynamically\n\t * detected test engines.\n\t *\n\t * @throws PreconditionViolationException if no test engines are detected\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "07d946c11d447ba88b62d28750a33651c897da29",
+  "issue_summary": "Fixed -- and also rewrote the whole type resolution system, which will require cascading changes in various datatype modules",
+  "code_before": "public JavaType constructSimpleType(Class<?> rawType, Class<?> parameterTarget,\n            JavaType[] parameterTypes)\n    {\n        // Quick sanity check: must match numbers of types with expected...\n        TypeVariable<?>[] typeVars = parameterTarget.getTypeParameters();\n        if (typeVars.length != parameterTypes.length) {\n            throw new IllegalArgumentException(\"Parameter type mismatch for \"+rawType.getName()\n                    +\" (and target \"+parameterTarget.getName()+\"): expected \"+typeVars.length\n                    +\" parameters, was given \"+parameterTypes.length);\n        }\n        String[] names = new String[typeVars.length];\n        for (int i = 0, len = typeVars.length; i < len; ++i) {\n            names[i] = typeVars[i].getName();\n        }\n        return new SimpleType(rawType, names, parameterTypes, null, null, false, parameterTarget);\n    }",
+  "code_after": "@Deprecated\n    public JavaType constructSimpleType(Class<?> rawType, Class<?> parameterTarget,\n            JavaType[] parameterTypes)\n    {\n        return constructSimpleType(rawType, parameterTypes);\n    }",
+  "javadoc_before": "/**\n     * Method for constructing a type instance with specified parameterization.\n     */",
+  "javadoc_after": "/**\n     * Method for constructing a type instance with specified parameterization.\n     *\n     * @since 2.6\n     *\n     * @deprecated Since 2.7\n     */"
+}

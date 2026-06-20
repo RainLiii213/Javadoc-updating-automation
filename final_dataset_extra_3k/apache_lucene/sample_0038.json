@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e4180d30bb659cb421bd96c0103d7533fee85998",
+  "issue_summary": "CachingTokenFilter.reset() propagates to input if not cached",
+  "code_before": "@Override\n  public void reset() {\n    if (cache != null) {\n      iterator = cache.iterator();\n    }\n  }",
+  "code_after": "@Override\n  public void reset() throws IOException {\n    if (cache == null) {//first time\n      input.reset();\n    } else {\n      iterator = cache.iterator();\n    }\n  }",
+  "javadoc_before": "/**\n   * Rewinds the iterator to the beginning of the cached list.\n   * <p>\n   * Note that this does not call reset() on the wrapped tokenstream ever, even\n   * the first time. You should reset() the inner tokenstream before wrapping\n   * it with CachingTokenFilter.\n   */",
+  "javadoc_after": "/**\n   * Propagates reset if incrementToken has not yet been called. Otherwise\n   * it rewinds the iterator to the beginning of the cached list.\n   */"
+}

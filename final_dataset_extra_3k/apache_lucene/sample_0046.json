@@ -1,0 +1,8 @@
+{
+  "commit_hash": "86a6c37b473ddf1b9311d4a23d4cd1ab5e7857ea",
+  "issue_summary": "Add a filter cache.",
+  "code_before": "public CachingWrapperFilter(Filter filter) {\n    this.filter = filter;\n  }",
+  "code_after": "public CachingWrapperFilter(Filter filter) {\n    this(filter, FilterCachingPolicy.CacheOnLargeSegments.DEFAULT);\n  }",
+  "javadoc_before": "/** Wraps another filter's result and caches it.\n   * @param filter Filter to cache results of\n   */",
+  "javadoc_after": "/** Same as {@link CachingWrapperFilter#CachingWrapperFilter(Filter, FilterCachingPolicy)}\n   *  but enforces the use of the\n   *  {@link FilterCachingPolicy.CacheOnLargeSegments#DEFAULT} policy. */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8607f7650357aeee329ab4f243f0adad7b2ebd5d",
+  "issue_summary": "Remove unnecessary Directory parameters from SIS/SIPC/SI",
+  "code_before": "public String toString(Directory dir, int pendingDelCount) {\n    String s = info.toString(dir, delCount + pendingDelCount);\n    if (delGen != -1) {\n      s += \":delGen=\" + delGen;\n    }\n    if (fieldInfosGen != -1) {\n      s += \":fieldInfosGen=\" + fieldInfosGen;\n    }\n    if (docValuesGen != -1) {\n      s += \":dvGen=\" + docValuesGen;\n    }\n    return s;\n  }",
+  "code_after": "@Deprecated\n  public String toString(Directory dir, int pendingDelCount) {\n    return toString(pendingDelCount);\n  }",
+  "javadoc_before": "/** Returns a description of this segment. */",
+  "javadoc_after": "/** \n   * Returns a description of this segment. \n   * @deprecated Use {@link #toString(int)} instead.\n   */"
+}

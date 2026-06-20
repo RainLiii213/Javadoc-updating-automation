@@ -1,0 +1,8 @@
+{
+  "commit_hash": "80b8e12641fb7a789dcd38468f052528262f6426",
+  "issue_summary": "Polishing.",
+  "code_before": "OffsetScrollPosition parseParameterIntoOffsetScrollPosition(@Nullable List<String> source) {\n\t\t// No parameter or Single empty parameter, e.g \"offset=\"\n\t\tif (source == null || source.size() == 1 && !StringUtils.hasText(source.get(0))) {\n\t\t\treturn ScrollPosition.offset();\n\t\t}\n\t\ttry {\n\t\t\tlong offset = Long.parseLong(source.get(0));\n\t\t\treturn ScrollPosition.offset(offset);\n\t\t} catch (NumberFormatException ex) {\n\t\t\treturn ScrollPosition.offset();\n\t\t}\n\t}",
+  "code_after": "@Nullable\n\tOffsetScrollPosition parseParameterIntoOffsetScrollPosition(@Nullable List<String> source) {\n\n\t\t// No parameter or Single empty parameter, e.g \"offset=\"\n\t\tif (CollectionUtils.isEmpty(source) || (source.size() == 1 && !StringUtils.hasText(source.get(0)))) {\n\t\t\treturn null;\n\t\t}\n\n\t\ttry {\n\t\t\tlong offset = Long.parseLong(source.get(0));\n\t\t\treturn ScrollPosition.offset(offset);\n\t\t} catch (NumberFormatException ex) {\n\t\t\treturn null;\n\t\t}\n\t}",
+  "javadoc_before": "/**\n\t * Parses the given source into a {@link OffsetScrollPosition} instance.\n\t *\n\t * @param source could be {@literal null} or empty.\n\t * @return parsed OffsetScrollPosition\n\t */",
+  "javadoc_after": "/**\n\t * Parses the given source into a {@link OffsetScrollPosition} instance.\n\t *\n\t * @param source could be {@literal null} or empty.\n\t * @return parsed OffsetScrollPosition or {@literal null} if it cannot be constructed.\n\t */"
+}

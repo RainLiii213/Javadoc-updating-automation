@@ -1,0 +1,8 @@
+{
+  "commit_hash": "28e775fcac16452cc011903cd9cca7661c5e9a6f",
+  "issue_summary": "Improve `DeserializationProblemHandler.handleUnexpectedToken()` to allow handling of Collection problems",
+  "code_before": "public JavaType getValueType() { return null; }",
+  "code_after": "public JavaType getValueType() { return _valueType; }",
+  "javadoc_before": "/**\n     * Exact structured type this deserializer handles, if known.\n     *<p>\n     * Default implementation just returns null.\n     */",
+  "javadoc_after": "/**\n     * Exact structured type this deserializer handles, if known.\n     */"
+}

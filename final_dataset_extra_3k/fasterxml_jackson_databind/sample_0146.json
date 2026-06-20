@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9ed3abf2f233a789c28f863221f3da6681b9cf86",
+  "issue_summary": "Finish support for per-property unwrap-single-elem-arrays feature via JsonFormat(with=...)",
+  "code_before": "public CollectionSerializer(JavaType elemType, boolean staticTyping, TypeSerializer vts,\n            BeanProperty property, JsonSerializer<Object> valueSerializer)\n    {\n        super(Collection.class, elemType, staticTyping, vts, property, valueSerializer);\n    }",
+  "code_after": "@Deprecated // since 2.6\n    public CollectionSerializer(JavaType elemType, boolean staticTyping, TypeSerializer vts,\n            BeanProperty property, JsonSerializer<Object> valueSerializer) {\n        // note: assumption is 'property' is always passed as null\n        this(elemType, staticTyping, vts, valueSerializer);\n    }",
+  "javadoc_before": "/**********************************************************\n    /* Life-cycle\n    /**********************************************************\n     */",
+  "javadoc_after": "/**\n     * @deprecated since 2.6\n     */"
+}

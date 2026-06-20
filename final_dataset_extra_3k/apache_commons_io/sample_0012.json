@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5035e97fa05344aa3193fb2d916939e4988d38eb",
+  "issue_summary": "Add ThresholdingOutputStream.getOutputStream() and deprecate getStream()",
+  "code_before": "protected OutputStream getStream() throws IOException {\n        return outputStreamGetter.apply(this);\n    }",
+  "code_after": "@Deprecated\n    protected OutputStream getStream() throws IOException {\n        return getOutputStream();\n    }",
+  "javadoc_before": "/**\n     * Returns the underlying output stream, to which the corresponding {@link OutputStream} methods in this class will\n     * ultimately delegate.\n     *\n     * @return The underlying output stream.\n     *\n     * @throws IOException if an error occurs.\n     */",
+  "javadoc_after": "/**\n     * Gets the underlying output stream, to which the corresponding {@link OutputStream} methods in this class will\n     * ultimately delegate.\n     *\n     * @return The underlying output stream.\n     * @throws IOException if an error occurs.\n     * @deprecated Use {@link #getOutputStream()}.\n     */"
+}

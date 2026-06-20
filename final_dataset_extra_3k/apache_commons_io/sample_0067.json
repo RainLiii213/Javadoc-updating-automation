@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c1d92d87157b7d5a27aa989eff14e302e15f96d7",
+  "issue_summary": "Make LineIterator implement Closeable to support try-with-resources statements.",
+  "code_before": "public static void closeQuietly(final LineIterator iterator) {\n        if (iterator != null) {\n            iterator.close();\n        }\n    }",
+  "code_after": "@Deprecated\n    public static void closeQuietly(final LineIterator iterator) {\n        try {\n            if (iterator != null) {\n                iterator.close();\n            }\n        } catch(final IOException e) {\n            // Suppressed.\n        }\n    }",
+  "javadoc_before": "/**\n     * Closes the iterator, handling null and ignoring exceptions.\n     *\n     * @param iterator  the iterator to close\n     */",
+  "javadoc_after": "/**\n     * Closes a {@code LineIterator} quietly.\n     *\n     * @param iterator The iterator to close, or {@code null}.\n     * @deprecated As of 2.6 removed without replacement. Please use the try-with-resources statement or handle\n     * suppressed exceptions manually.\n     * @see Throwable#addSuppressed(java.lang.Throwable)\n     */"
+}

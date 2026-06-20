@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f0ef5cd78235af44a5faf6e23e49a11cbff6bd8a",
+  "issue_summary": "fix",
+  "code_before": "public boolean hasReturnType() {\n        Class<?> rt = getRawReturnType();\n        return (rt != Void.TYPE && rt != Void.class);\n    }",
+  "code_after": "@Deprecated\n    public boolean hasReturnType() {\n        Class<?> rt = getRawReturnType();\n        // also, as per [databind#2675], only consider `void` to be real \"No return type\"\n        return (rt != Void.TYPE);\n    }",
+  "javadoc_before": "/**\n     * Helper method that can be used to check whether method returns\n     * a value or not; if return type declared as <code>void</code>, returns\n     * false, otherwise true\n     * \n     * @since 2.4\n     */",
+  "javadoc_after": "/**\n     * Helper method that can be used to check whether method returns\n     * a value or not; if return type declared as <code>void</code>, returns\n     * false, otherwise true\n     * \n     * @since 2.4\n     *\n     * @deprecated Since 2.12 (related to [databind#2675]), needs to be configurable\n     */"
+}

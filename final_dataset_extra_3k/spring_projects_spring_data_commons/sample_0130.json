@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cc63e5b7a4d505b65e6610ff2b935d98077c9743",
+  "issue_summary": "First draft.",
+  "code_before": "private String getNullDefaultedAttribute(String attributeName) {\n\t\tString attribute = attributes.getString(attributeName);\n\t\treturn StringUtils.hasText(attribute) ? attribute : null;\n\t}",
+  "code_after": "private Optional<String> getNullDefaultedAttribute(String attributeName) {\n\t\tString attribute = attributes.getString(attributeName);\n\t\treturn StringUtils.hasText(attribute) ? Optional.of(attribute) : Optional.empty();\n\t}",
+  "javadoc_before": "/**\n\t * Returns the {@link String} attribute with the given name and defaults it to {@literal null} in case it's empty.\n\t * \n\t * @param attributeName\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Returns the {@link String} attribute with the given name and defaults it to {@literal Optional#empty()} in case\n\t * it's empty.\n\t * \n\t * @param attributeName\n\t * @return\n\t */"
+}

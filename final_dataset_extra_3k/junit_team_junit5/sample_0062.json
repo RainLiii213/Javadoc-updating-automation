@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0e03295ca3e084ed8cc5de739310be1d6ebc66f7",
+  "issue_summary": "Check arguments of methods for null safety for ReflectionSupport",
+  "code_before": "public static List<Class<?>> findAllClassesInModule(String moduleName, ClassFilter filter) {\n\t\tPreconditions.notBlank(moduleName, \"Module name must not be null or empty\");\n\t\tPreconditions.notNull(filter, \"Class filter must not be null\");\n\n\t\tlogger.config(() -> \"Basic version of findAllClassesInModule() always returns an empty list!\");\n\t\treturn emptyList();\n\t}",
+  "code_after": "public static List<Class<?>> findAllClassesInModule(String moduleName, ClassFilter filter) {\n\t\tPreconditions.notBlank(moduleName, \"Module name must not be null or blank\");\n\t\tPreconditions.notNull(filter, \"Class filter must not be null\");\n\n\t\tlogger.config(() -> \"Basic version of findAllClassesInModule() always returns an empty list!\");\n\t\treturn emptyList();\n\t}",
+  "javadoc_before": "/**\n\t * Find all classes for the given module name.\n\t *\n\t * @param moduleName the name of the module to scan; never {@code null} or\n\t * <em>empty</em>\n\t * @param filter the class filter to apply; never {@code null}\n\t * @return an immutable list of all such classes found; never {@code null}\n\t * but potentially empty\n\t */",
+  "javadoc_after": "/**\n\t * Find all classes for the given module name.\n\t *\n\t * @param moduleName the name of the module to scan; never {@code null} or\n\t * <em>blank</em>\n\t * @param filter the class filter to apply; never {@code null}\n\t * @return an immutable list of all such classes found; never {@code null}\n\t * but potentially empty\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a26f3734c60e2ab9d8cf82b8462b4b3e78080aa1",
+  "issue_summary": "add Fieldable.getBinaryValue/Offset/Length reuse API",
+  "code_before": "public byte[] binaryValue()   { return isBinary ? (byte[])fieldsData : null; }",
+  "code_after": "public byte[] binaryValue() {\n    if (!isBinary)\n      return null;\n    final byte[] data = (byte[]) fieldsData;\n    if (binaryOffset == 0 && data.length == binaryLength)\n      return data; //Optimization\n\n    final byte[] ret = new byte[binaryLength];\n    System.arraycopy(data, binaryOffset, ret, 0, binaryLength);\n    return ret;\n  }",
+  "javadoc_before": "/** The value of the field in Binary, or null.  If null, the Reader value,\n   * String value, or TokenStream value is used. Exactly one of stringValue(), \n   * readerValue(), binaryValue(), and tokenStreamValue() must be set. */",
+  "javadoc_after": "/** The value of the field in Binary, or null.  If null, the Reader value,\n   * String value, or TokenStream value is used. Exactly one of stringValue(), \n   * readerValue(), getBinaryValue(), and tokenStreamValue() must be set.\n   * @deprecated This method must allocate a new byte[] if\n   * the {@link AbstractField#getBinaryOffset()} is non-zero\n   * or {@link AbstractField#getBinaryLength()} is not the\n   * full length of the byte[]. Please use {@link\n   * AbstractField#getBinaryValue()} instead, which simply\n   * returns the byte[].\n   */"
+}

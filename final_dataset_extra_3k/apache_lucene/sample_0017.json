@@ -1,0 +1,8 @@
+{
+  "commit_hash": "46ede7622e42d9acfe1f3213c2391add9ad8c1fa",
+  "issue_summary": "Encapsulate JettySolrRunner config",
+  "code_before": "public JettySolrRunner(String solrHome, String context, int port,\n      String solrConfigFilename, String schemaFileName, boolean stopAtShutdown,\n      SortedMap<ServletHolder,String> extraServlets) {\n    this (solrHome, context, port, solrConfigFilename, schemaFileName,\n      stopAtShutdown, extraServlets, null, null);\n  }",
+  "code_after": "@Deprecated\n  public JettySolrRunner(String solrHome, String context, int port,\n      String solrConfigFilename, String schemaFileName, boolean stopAtShutdown,\n      SortedMap<ServletHolder,String> extraServlets) {\n    this(solrHome, solrConfigFilename, schemaFileName, JettyConfig.builder()\n        .setContext(context)\n        .setPort(port)\n        .stopAtShutdown(stopAtShutdown)\n        .withServlets(extraServlets)\n        .build());\n  }",
+  "javadoc_before": "/**\n   * Constructor taking an ordered list of additional (servlet holder -&gt; path spec) mappings\n   * to add to the servlet context\n   */",
+  "javadoc_after": "/**\n   * Constructor taking an ordered list of additional (servlet holder -&gt; path spec) mappings\n   * to add to the servlet context\n   * @deprecated use {@link #JettySolrRunner(String,String,String,JettyConfig)}\n   */"
+}

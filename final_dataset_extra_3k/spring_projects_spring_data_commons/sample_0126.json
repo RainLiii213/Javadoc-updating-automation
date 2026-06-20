@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d4811e29d9a95b97dc4ee219ae2de46be93049bb",
+  "issue_summary": "Second draft.",
+  "code_before": "public PageRequest(int page, int size) {\n\t\tthis(page, size, null);\n\t}",
+  "code_after": "@Deprecated\n\tpublic PageRequest(int page, int size) {\n\t\tthis(page, size, Sort.unsorted());\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link PageRequest}. Pages are zero indexed, thus providing 0 for {@code page} will return the first\n\t * page.\n\t * \n\t * @param page zero-based page index.\n\t * @param size the size of the page to be returned.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link PageRequest}. Pages are zero indexed, thus providing 0 for {@code page} will return the first\n\t * page.\n\t * \n\t * @param page zero-based page index.\n\t * @param size the size of the page to be returned.\n\t * @deprecated use {@link #of(int, int)} instead.\n\t */"
+}

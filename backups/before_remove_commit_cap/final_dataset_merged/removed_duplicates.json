@@ -1,0 +1,640 @@
+[
+  {
+    "fingerprint": "a0df5a9a3abcfbf07034f1e7ff5715a550c5e16828b5332c10ea21f306da8fd9",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_commons_math",
+      "repository_url": "https://github.com/apache/commons-math.git",
+      "source_sample_id": "apache_commons_math/sample_0281",
+      "commit_hash": "f63bfec50c1926be86a8cf82e255d0e103a0e2f1",
+      "issue_summary": "reverted vetoed code change about cloning literal arrays"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_commons_math",
+        "repository_url": "https://github.com/apache/commons-math.git",
+        "source_sample_id": "apache_commons_math/sample_0312",
+        "commit_hash": "7dc0c33e7c50bbfe160f72cdc71ea18ae731eaea",
+        "issue_summary": "FastMath has static code which slows the first access to FastMath Protect array entries against malicious or accidental corruption by returning a clone"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "eb491bf7362b58de8f5301de28b0e6b34519deb4fc840c7a59647d78fdcda1a7",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_commons_math",
+      "repository_url": "https://github.com/apache/commons-math.git",
+      "source_sample_id": "apache_commons_math/sample_0282",
+      "commit_hash": "f63bfec50c1926be86a8cf82e255d0e103a0e2f1",
+      "issue_summary": "reverted vetoed code change about cloning literal arrays"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_commons_math",
+        "repository_url": "https://github.com/apache/commons-math.git",
+        "source_sample_id": "apache_commons_math/sample_0313",
+        "commit_hash": "7dc0c33e7c50bbfe160f72cdc71ea18ae731eaea",
+        "issue_summary": "FastMath has static code which slows the first access to FastMath Protect array entries against malicious or accidental corruption by returning a clone"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "5ec292aad96921294451b65661383be12314d55839d429cb9b5070dccc9cbcf6",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_commons_math",
+      "repository_url": "https://github.com/apache/commons-math.git",
+      "source_sample_id": "apache_commons_math/sample_0283",
+      "commit_hash": "f63bfec50c1926be86a8cf82e255d0e103a0e2f1",
+      "issue_summary": "reverted vetoed code change about cloning literal arrays"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_commons_math",
+        "repository_url": "https://github.com/apache/commons-math.git",
+        "source_sample_id": "apache_commons_math/sample_0314",
+        "commit_hash": "7dc0c33e7c50bbfe160f72cdc71ea18ae731eaea",
+        "issue_summary": "FastMath has static code which slows the first access to FastMath Protect array entries against malicious or accidental corruption by returning a clone"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "7f4df031e54b6ffabaffdea11c03c6cf675267eeba3f19709f54df8d3a765bdb",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0079",
+      "commit_hash": "75e1ebc4501733a6a9857858b3fd9c30304234d0",
+      "issue_summary": "Add new parallel merge task executor for parallel actions within a single merge action"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0081",
+        "commit_hash": "e3a34bfe56ae555fdf36f7a43c2f0d2698101c89",
+        "issue_summary": "Add new parallel merge task executor for parallel actions within a single merge action"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "f8cbd5b2552495026a17b6c3b24ddb440a25a10c14c594d1a3218900d1718d58",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0115",
+      "commit_hash": "9ab324d2bed5bec60af01654aa01fa4da8f2026e",
+      "issue_summary": "Allow reusing indexed binary fields."
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0117",
+        "commit_hash": "84778549afabc32cd6e5a3459b1b8aaa89b74a74",
+        "issue_summary": "Allow reusing indexed binary fields."
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "2c5929e028cf12329aa4ddcc8fa431f8685642d6f96af3dff7c504a716f50e26",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0161",
+      "commit_hash": "d2c98912eb224e3ee8ba65914ccf138f25b75f69",
+      "issue_summary": "This reverts commit a7b50f723d6c6249faa688a1a4423cc4006d37dd."
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0164",
+        "commit_hash": "aee191d878835e9c0e7d20206bd5310f1cbb114e",
+        "issue_summary": "rewrite how resources are read in ukrainian morfologik analyzer (module vs. classpath lookup)."
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "0aaeaf84433af7b9af020a2403bcb43af8c6a5e653b593ad53cbfe3ba9f83eb3",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0225",
+      "commit_hash": "6b8288445f96e3cb5715e0f106ea2202dab57561",
+      "issue_summary": "ConjunctionDISI sub-iterators check"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0227",
+        "commit_hash": "5f34acfdb59f58987e0f69e8876e190b5e91dd3a",
+        "issue_summary": "ConjunctionDISI sub-iterators check"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "c0efc2b40004ffb47fa5e3b813c6c7b145b6d0f8e248f906ed1274ec42d90000",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0231",
+      "commit_hash": "984466f31bcb9dfcb1781b053eb621cb9c86b9a3",
+      "issue_summary": "Avoid reregistering JVM Guage as well"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0246",
+        "commit_hash": "7b289d6185f30b316d07d5ae5755cfc70c97921d",
+        "issue_summary": "Cert Auth plugin"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "6f86ea8f4eb9225adcdd9f7ccb14a30bb5df1bd4b327050356e51de377836485",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0346",
+      "commit_hash": "23bff7dbc207083af2ccb1b308c121ac18c36508",
+      "issue_summary": "un-revert \": ICUTokenizer support for emoji/emoji sequence tokens\"\""
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0358",
+        "commit_hash": "972df6c69de494b8a4f59e4e0d4de241d4ca6a80",
+        "issue_summary": "ICUTokenizer support for emoji/emoji sequence tokens"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "f335f22c439bb00d520f0221887021560a9ce1df503241ed701b746cce37cef5",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0420",
+      "commit_hash": "d8df9f8c9963c2fc1718fd471316bf5d964125ba",
+      "issue_summary": "Squash-merge from master."
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0424",
+        "commit_hash": "9ed722f5655639dd572853df5a5a14130323cf0f",
+        "issue_summary": "improve setMaxTokenLength javadocs for StandardAnalyzer/Tokenizer and UAX29URLEmailAnalyzer/Tokenizer"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "06e3734b7078ba5a90c350d8a161454c288602ed0e7f9a7af59614901786b4cc",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0427",
+      "commit_hash": "8100cbfdf17024103df6d2e4380aff078f59f62f",
+      "issue_summary": "DocumentBuilder move longest field to last position"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0428",
+        "commit_hash": "8fbd9f1e403cc697f77d827cd1aa85876c8665ae",
+        "issue_summary": "DocumentBuilder move longest field to last position"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "fc1ebbb86e8f264ecad5f38ec1e46b617c96ee8b4155f68af6c86345dfcb249c",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0560",
+      "commit_hash": "ecf410f41334dc0c130e45ec1be96a99f7489b80",
+      "issue_summary": "Added ClassicSimilarityFactory, marked DefaultSimilarityFactory as deprecated"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0563",
+        "commit_hash": "2a24085bcd53855aee00aff57439fb3cf8049c8a",
+        "issue_summary": "Added ClassicSimilarityFactory, marked DefaultSimilarityFactory as deprecated"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "7e2b74e25f5891819786fcc00b7ddaa52addfe35f057c2ae7220453bd2509f11",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "google_guava",
+      "repository_url": "https://github.com/google/guava.git",
+      "source_sample_id": "google_guava/sample_0110",
+      "commit_hash": "248ce9fde9013bb1562b1f1647abc6017c37811d",
+      "issue_summary": "Remove \"SetView\" from all graph implementations. See [] for why it should be killed with fire. In particular, it made the returned Sets have O(N) (in both time and memory) size() and contains() methods, and in one case, O(N^2) iteration!"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "google_guava",
+        "repository_url": "https://github.com/google/guava.git",
+        "source_sample_id": "google_guava/sample_0116",
+        "commit_hash": "8b0ec570c69b969b47262eff5935ddc7a80ced50",
+        "issue_summary": "Remove \"SetView\" from all graph implementations. See [] for why it should be killed with fire. In particular, it made the returned Sets have O(N) (in both time and memory) size() and contains() methods, and in one case, O(N^2) iteration!"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "502de9dd09544059f2dc2a23bb7b0fef029282915676de2bfaddc1a476f0d2d3",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "google_guava",
+      "repository_url": "https://github.com/google/guava.git",
+      "source_sample_id": "google_guava/sample_0111",
+      "commit_hash": "248ce9fde9013bb1562b1f1647abc6017c37811d",
+      "issue_summary": "Remove \"SetView\" from all graph implementations. See [] for why it should be killed with fire. In particular, it made the returned Sets have O(N) (in both time and memory) size() and contains() methods, and in one case, O(N^2) iteration!"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "google_guava",
+        "repository_url": "https://github.com/google/guava.git",
+        "source_sample_id": "google_guava/sample_0117",
+        "commit_hash": "8b0ec570c69b969b47262eff5935ddc7a80ced50",
+        "issue_summary": "Remove \"SetView\" from all graph implementations. See [] for why it should be killed with fire. In particular, it made the returned Sets have O(N) (in both time and memory) size() and contains() methods, and in one case, O(N^2) iteration!"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "a4b0a9c62341df33db1618ca7da066eb81bda6d381c24881741063507703f61b",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "google_guava",
+      "repository_url": "https://github.com/google/guava.git",
+      "source_sample_id": "google_guava/sample_0112",
+      "commit_hash": "248ce9fde9013bb1562b1f1647abc6017c37811d",
+      "issue_summary": "Remove \"SetView\" from all graph implementations. See [] for why it should be killed with fire. In particular, it made the returned Sets have O(N) (in both time and memory) size() and contains() methods, and in one case, O(N^2) iteration!"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "google_guava",
+        "repository_url": "https://github.com/google/guava.git",
+        "source_sample_id": "google_guava/sample_0118",
+        "commit_hash": "8b0ec570c69b969b47262eff5935ddc7a80ced50",
+        "issue_summary": "Remove \"SetView\" from all graph implementations. See [] for why it should be killed with fire. In particular, it made the returned Sets have O(N) (in both time and memory) size() and contains() methods, and in one case, O(N^2) iteration!"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "cadc0fe548ec9c90dc2e239690205d66d85739c527e5da27586eb21f9fb0f50e",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "google_guava",
+      "repository_url": "https://github.com/google/guava.git",
+      "source_sample_id": "google_guava/sample_0129",
+      "commit_hash": "5bd76be2e74fde183e6c43788bf5d8f5e572ada2",
+      "issue_summary": "Re-add Google-internal getAllEntries. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=85742568"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "google_guava",
+        "repository_url": "https://github.com/google/guava.git",
+        "source_sample_id": "google_guava/sample_0130",
+        "commit_hash": "42b35e1ea6626ba910a9c17ef1a70af60cae2190",
+        "issue_summary": "Add Google-internal getAllEntries. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=85375065"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "b10902b68a90a8e5603760097623387ddec6e66c1486caf954bb48bdc9fcb267",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "google_guava",
+      "repository_url": "https://github.com/google/guava.git",
+      "source_sample_id": "google_guava/sample_0135",
+      "commit_hash": "c0b37db12875fe340dbf82fabfea8264f7c61de6",
+      "issue_summary": "Rollforward the previously rolled back AbstractFuture change. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=81501035"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "google_guava",
+        "repository_url": "https://github.com/google/guava.git",
+        "source_sample_id": "google_guava/sample_0137",
+        "commit_hash": "b5eb4953579952edd753540e2919463a3ac1630d",
+        "issue_summary": "Increase the guarantees about what happens when you call setFuture with a completed future."
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "1aa8a004b40a33a3f7bd5cc6c3cf90ad173e925319f61cb4c4e9633f604252c7",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "google_guava",
+      "repository_url": "https://github.com/google/guava.git",
+      "source_sample_id": "google_guava/sample_0223",
+      "commit_hash": "4b454d968113001e544011c90fc7ba6408a68171",
+      "issue_summary": "rollback"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "google_guava",
+        "repository_url": "https://github.com/google/guava.git",
+        "source_sample_id": "google_guava/sample_0237",
+        "commit_hash": "ab3bd3a78d8acc6922f328269b4810c1a56541ce",
+        "issue_summary": "rollback"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "a588b052f0d4430f9b0056d4d387ed41924bdc66b6fca1cff8d5168fdc754b58",
+    "kept": {
+      "source_dataset": "old",
+      "project_slug": "google_guava",
+      "repository_url": "https://github.com/google/guava.git",
+      "source_sample_id": "google_guava/sample_0224",
+      "commit_hash": "04cb0bd4acb8028fb66127a59ba9d0e93a5e6892",
+      "issue_summary": "Make ListeningScheduledExecutorService.schedule* return a ListenableFuture"
+    },
+    "removed": [
+      {
+        "source_dataset": "old",
+        "project_slug": "google_guava",
+        "repository_url": "https://github.com/google/guava.git",
+        "source_sample_id": "google_guava/sample_0238",
+        "commit_hash": "eff547826025edda6873becb3104d07c13f81630",
+        "issue_summary": "Make ListeningScheduledExecutorService.schedule* return a ListenableFuture"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "7fb7a133e6b8c0dc3e70436e5ee444113ada982942d49553a038a3c913f60758",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "apache_commons_io",
+      "repository_url": "https://github.com/apache/commons-io.git",
+      "source_sample_id": "apache_commons_io/sample_0061",
+      "commit_hash": "947c01f6d8000122a174da3d668208eec877a799",
+      "issue_summary": "PR"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "apache_commons_io",
+        "repository_url": "https://github.com/apache/commons-io.git",
+        "source_sample_id": "apache_commons_io/sample_0063",
+        "commit_hash": "72d00532aa8f0fb96371f01688ace8b9d53b17b8",
+        "issue_summary": "PR"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "f14db7afb04bbee2cbb82d74ca91bb4b5cb59d742ace2e06dfcc805f8978203c",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "apache_commons_io",
+      "repository_url": "https://github.com/apache/commons-io.git",
+      "source_sample_id": "apache_commons_io/sample_0062",
+      "commit_hash": "947c01f6d8000122a174da3d668208eec877a799",
+      "issue_summary": "PR"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "apache_commons_io",
+        "repository_url": "https://github.com/apache/commons-io.git",
+        "source_sample_id": "apache_commons_io/sample_0064",
+        "commit_hash": "72d00532aa8f0fb96371f01688ace8b9d53b17b8",
+        "issue_summary": "PR"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "58ceadfbe0f8750f2168963e0b6d3ef353d0094c063f77988fbf0623cbd35624",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0182",
+      "commit_hash": "8a71c443209d385218c79226902ce8750350a620",
+      "issue_summary": "merge trunk changes over"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0196",
+        "commit_hash": "59a1435742fecf5cc508e132f741dd3a0e006496",
+        "issue_summary": "Make HunspellStemFilter's maximum recursion level configurable."
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "90e44be8d0644ffecccbcb1cf50abb22ff6e5a1c07e296786d56c53ede2d9713",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0183",
+      "commit_hash": "8a71c443209d385218c79226902ce8750350a620",
+      "issue_summary": "merge trunk changes over"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0197",
+        "commit_hash": "97fb0209ce3588a5c408c333edcf4c4bfd28366c",
+        "issue_summary": "FuzzySuggester can optionally measure edits in Unicode code points instead of UTF8 bytes"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "128f2e405029c1f8b321aa7c6353a15793b1ba82a299fed4d9467782743b054e",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0184",
+      "commit_hash": "8a71c443209d385218c79226902ce8750350a620",
+      "issue_summary": "merge trunk changes over"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0198",
+        "commit_hash": "97fb0209ce3588a5c408c333edcf4c4bfd28366c",
+        "issue_summary": "FuzzySuggester can optionally measure edits in Unicode code points instead of UTF8 bytes"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "4bcc0ea93b085f428d73a9abf0f3565d8f9b1cf27596bc6c7e54395d83666885",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0204",
+      "commit_hash": "f38c5163cc898e55e1ec51f6026f41a0de8987d6",
+      "issue_summary": "Tidy up CoreContainer construction logic"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0207",
+        "commit_hash": "f47bb580ee835b29e167522289ff3f7af3115bf9",
+        "issue_summary": "Tidy up CoreContainer construction logic"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "831d5bbdc8cea9e1d221e72f8bb894dc0d97e3b73e96ea3f21062aea0294cf09",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0599",
+      "commit_hash": "53c19d660aad6db9c5d62272d65c38a53a728325",
+      "issue_summary": "cutover to IndexWriterConfig object for settings to IW"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0605",
+        "commit_hash": "7641c23cefccfa957186f3dbd2056efe3e5ebf50",
+        "issue_summary": "cutover to IndexWriterConfig object for settings to IW"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "c23829fb3ca920b4235519e4505325012bb1e90802848119dc4875950425c2f2",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0600",
+      "commit_hash": "53c19d660aad6db9c5d62272d65c38a53a728325",
+      "issue_summary": "cutover to IndexWriterConfig object for settings to IW"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0606",
+        "commit_hash": "7641c23cefccfa957186f3dbd2056efe3e5ebf50",
+        "issue_summary": "cutover to IndexWriterConfig object for settings to IW"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "e6b1261a42c0502d2971289738a5d4348d9aa3d964200e9ac7f41007ced55a65",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "apache_lucene",
+      "repository_url": "https://github.com/apache/lucene.git",
+      "source_sample_id": "apache_lucene/sample_0601",
+      "commit_hash": "53c19d660aad6db9c5d62272d65c38a53a728325",
+      "issue_summary": "cutover to IndexWriterConfig object for settings to IW"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "apache_lucene",
+        "repository_url": "https://github.com/apache/lucene.git",
+        "source_sample_id": "apache_lucene/sample_0607",
+        "commit_hash": "7641c23cefccfa957186f3dbd2056efe3e5ebf50",
+        "issue_summary": "cutover to IndexWriterConfig object for settings to IW"
+      }
+    ],
+    "reason": "identical_content"
+  },
+  {
+    "fingerprint": "8837e54040b0e8d7545fbf53df0b1884ad6c214e8ef1edb9e42cea32e6a464f3",
+    "kept": {
+      "source_dataset": "new",
+      "project_slug": "fasterxml_jackson_databind",
+      "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+      "source_sample_id": "fasterxml_jackson_databind/sample_0188",
+      "commit_hash": "d0f31bdb2a4e02c944c8223f07d580f1e8ad100f",
+      "issue_summary": "previously removed generateSchema is returned"
+    },
+    "removed": [
+      {
+        "source_dataset": "new",
+        "project_slug": "fasterxml_jackson_databind",
+        "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+        "source_sample_id": "fasterxml_jackson_databind/sample_0189",
+        "commit_hash": "767cead79205755c97839251ea06afba361812ce",
+        "issue_summary": "Roll back changes to JSON Schema generation (pull ), since it causes Public API breakage, can't do for minor version"
+      }
+    ],
+    "reason": "identical_content"
+  }
+]

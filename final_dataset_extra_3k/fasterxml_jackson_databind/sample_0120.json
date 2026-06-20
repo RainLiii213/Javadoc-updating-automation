@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fbc1fa23c92a69da474f3a7039e5494de7dc7ae2",
+  "issue_summary": "Fixed . And tons of assorted related improvements to try to pipe `targetType` to input mismatch exception.",
+  "code_before": "public void reportMissingContent(String msg, Object... msgArgs)\n        throws JsonMappingException\n    {\n        if (msg == null) {\n            msg = \"No content to map due to end-of-input\";\n        } else if (msgArgs.length > 0) {\n            msg = String.format(msg, msgArgs);\n        }\n        throw InputMismatchException.from(getParser(), msg);\n    }",
+  "code_after": "@Deprecated // since 2.9\n    public void reportMissingContent(String msg, Object... msgArgs)\n        throws JsonMappingException\n    {\n        if (msg == null) {\n            msg = \"No content to map due to end-of-input\";\n        } else if (msgArgs.length > 0) {\n            msg = String.format(msg, msgArgs);\n        }\n        throw InputMismatchException.from(getParser(), (JavaType) null, msg);\n    }",
+  "javadoc_before": "/**\n     * @since 2.8\n     */",
+  "javadoc_after": "/**\n     * @since 2.8\n     *\n     * @deprecated Since 2.9: not clear this ever occurs\n     */"
+}

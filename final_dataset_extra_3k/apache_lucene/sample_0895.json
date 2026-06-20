@@ -1,0 +1,8 @@
+{
+  "commit_hash": "12eee6df5a994de466e89f626bc42b67a163c09a",
+  "issue_summary": "Added term vector support.",
+  "code_before": "public static final Field UnStored(String name, String value) {\n    return new Field(name, value, false, true, true);\n  }",
+  "code_after": "public static final Field UnStored(String name, String value) {\n    return UnStored(name, value, false);\n  }",
+  "javadoc_before": "/** Constructs a String-valued Field that is tokenized and indexed,\n    but that is not stored in the index. */",
+  "javadoc_after": "/** Constructs a String-valued Field that is tokenized and indexed,\n    but that is not stored in the index.  Term vector will not be stored for this field. */"
+}

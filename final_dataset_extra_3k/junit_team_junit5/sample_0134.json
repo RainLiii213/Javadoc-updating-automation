@@ -1,0 +1,8 @@
+{
+  "commit_hash": "35d4733fea906c6853ef0f12ba4bb86c838d6046",
+  "issue_summary": "Add missing preconditions in Launcher module",
+  "code_before": "public LoggingListener(BiConsumer<Throwable, Supplier<String>> logger) {\n\t\tthis.logger = logger;\n\t}",
+  "code_after": "public LoggingListener(BiConsumer<Throwable, Supplier<String>> logger) {\n\t\tthis.logger = Preconditions.notNull(logger, \"logger must not be null\");\n\t}",
+  "javadoc_before": "/**\n\t * Create a {@code LoggingListener} which delegates to the supplied\n\t * {@link BiConsumer} for consumption of logging messages.\n\t * @param logger a logger implemented as a {@code BiConsumer}\n\t *\n\t * @see #forJavaUtilLogging()\n\t * @see #forJavaUtilLogging(Level)\n\t */",
+  "javadoc_after": "/**\n\t * Create a {@code LoggingListener} which delegates to the supplied\n\t * {@link BiConsumer} for consumption of logging messages.\n\t *\n\t * @param logger a logger implemented as a {@code BiConsumer};\n\t * never {@code null}\n\t *\n\t * @see #forJavaUtilLogging()\n\t * @see #forJavaUtilLogging(Level)\n\t */"
+}

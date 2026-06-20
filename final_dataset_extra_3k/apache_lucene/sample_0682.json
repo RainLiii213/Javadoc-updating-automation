@@ -1,0 +1,8 @@
+{
+  "commit_hash": "820620f3a7224c6416d001984570897682112676",
+  "issue_summary": "Update ArabicAnalyzer to light10 stemming, stopwords improvements, lowercase non-arabic text",
+  "code_before": "public final TokenStream tokenStream(String fieldName, Reader reader) {\n    TokenStream result = new ArabicLetterTokenizer( reader );\n    result = new StopFilter( result, stoptable );\n    result = new ArabicNormalizationFilter( result );\n    result = new ArabicStemFilter( result );\n\n    return result;\n  }",
+  "code_after": "public final TokenStream tokenStream(String fieldName, Reader reader) {\n    TokenStream result = new ArabicLetterTokenizer( reader );\n    result = new StopFilter( result, stoptable );\n    result = new LowerCaseFilter(result);\n    result = new ArabicNormalizationFilter( result );\n    result = new ArabicStemFilter( result );\n\n    return result;\n  }",
+  "javadoc_before": "/**\n   * Creates a TokenStream which tokenizes all the text in the provided Reader.\n   *\n   * @return  A TokenStream build from a StandardTokenizer filtered with\n   * \t\t\tStandardFilter, StopFilter, ArabicNormalizationFilter and ArabicStemFilter.\n   */",
+  "javadoc_after": "/**\n   * Creates a TokenStream which tokenizes all the text in the provided Reader.\n   *\n   * @return  A TokenStream build from an ArabicTokenizer filtered with\n   * \t\t\tStopFilter, LowerCaseFilter, ArabicNormalizationFilter and ArabicStemFilter.\n   */"
+}

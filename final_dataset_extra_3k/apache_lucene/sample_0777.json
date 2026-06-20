@@ -1,0 +1,8 @@
+{
+  "commit_hash": "18b61286fa637eee623cbd3d9a6a161519efd92c",
+  "issue_summary": "Changed Filter API to return a DocIdSet instead of a java.util.BitSet. This allows using more efficient data structures for Filters and makes them more flexible.",
+  "code_before": "public abstract class Filter implements java.io.Serializable {\n  /** Returns a BitSet with true for documents which should be permitted in\n    search results, and false for those that should not. */\n  public abstract BitSet bits(IndexReader reader) throws IOException;\n}",
+  "code_after": "public abstract class Filter implements java.io.Serializable {\n  /**\n   * @return A BitSet with true for documents which should be permitted in\n   * search results, and false for those that should not.\n   * @deprecated Use {@link #getDocIdSet(IndexReader)} instead.\n   */\n  public BitSet bits(IndexReader reader) throws IOException {\n    return null;\n  }\n\n  /**\n   * @return a DocIdSet that provides the documents which should be\n   * permitted or prohibited in search results.\n   * @see DocIdBitSet\n   */\n  public DocIdSet getDocIdSet(IndexReader reader) throws IOException {\n    return new DocIdBitSet(bits(reader));\n  }\n}",
+  "javadoc_before": "/** Abstract base class providing a mechanism to restrict searches to a subset\n of an index. */",
+  "javadoc_after": "/** Abstract base class providing a mechanism to use a subset of an index\n *  for restriction or permission of index search results.\n *  <p>\n *  <b>Note:</b> In Lucene 3.0 {@link #bits(IndexReader)} will be removed\n *  and {@link #getDocIdSet(IndexReader)} will be defined as abstract.\n *  All implementing classes must therefore implement {@link #getDocIdSet(IndexReader)}\n *  in order to work with Lucene 3.0.\n */"
+}

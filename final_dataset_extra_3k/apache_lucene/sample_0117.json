@@ -1,0 +1,8 @@
+{
+  "commit_hash": "138bd925d85c079c5777efa61206f6af57110b52",
+  "issue_summary": "switch BytesRef/BytesRefHash hashing to MurmurHash3",
+  "code_before": "@Override\n  public int hashCode() {\n    int hash = 0;\n    final int end = offset + length;\n    for(int i=offset;i<end;i++) {\n      hash = 31 * hash + bytes[i];\n    }\n    return hash;\n  }",
+  "code_after": "@Override\n  public int hashCode() {\n    return StringHelper.murmurhash3_x86_32(this, StringHelper.GOOD_FAST_HASH_SEED);\n  }",
+  "javadoc_before": "/** Calculates the hash code as required by TermsHash during indexing.\n   * <p>It is defined as:\n   * <pre class=\"prettyprint\">\n   *  int hash = 0;\n   *  for (int i = offset; i &lt; offset + length; i++) {\n   *    hash = 31*hash + bytes[i];\n   *  }\n   * </pre>\n   */",
+  "javadoc_after": "/** Calculates the hash code as required by TermsHash during indexing.\n   *  <p> This is currently implemented as MurmurHash3 (32\n   *  bit), using the seed from {@link\n   *  StringHelper#GOOD_FAST_HASH_SEED}, but is subject to\n   *  change from release to release. */"
+}

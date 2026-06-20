@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8226476315091e6af255335ed28c3bbf027711dd",
+  "issue_summary": "pattern-match copyField source name",
+  "code_before": "public SchemaField[] getCopyFields(String sourceField) {\n    return copyFields.get(sourceField);\n  }",
+  "code_after": "public SchemaField[] getCopyFields(String sourceField) {\n    // Get the dynamic ones into a list.\n    List<SchemaField> matchCopyFields = new ArrayList<SchemaField>();\n\n    for(DynamicCopy dynamicCopy : dynamicCopyFields) {\n      if(dynamicCopy.matches(sourceField)) {\n        matchCopyFields.add(dynamicCopy.targetField);\n      }\n    }\n\n    // Get the fixed ones, if there are any.\n    SchemaField[] fixedCopyFields = copyFields.get(sourceField);\n\n    boolean appendFixed = copyFields.containsKey(sourceField);\n\n    // Construct the results by concatenating dynamic and fixed into a results array.\n\n    SchemaField[] results = new SchemaField[matchCopyFields.size() + (appendFixed ? fixedCopyFields.length : 0)];\n\n    matchCopyFields.toArray(results);\n\n    if(appendFixed) {\n      System.arraycopy(fixedCopyFields, 0, results, matchCopyFields.size(), fixedCopyFields.length);\n    }\n\n    return results;\n  }",
+  "javadoc_before": "/**\n   * Returns the list of fields that should recieve a copy of any indexed values added to the specified field.\n   * @return may be null or empty if there are no matching copyField directives\n   */",
+  "javadoc_after": "/**\n   * Get all copy fields, both the static and the dynamic ones.\n   * @param sourceField\n   * @return Array of fields to copy to.\n   */"
+}

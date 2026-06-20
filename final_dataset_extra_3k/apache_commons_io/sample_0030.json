@@ -1,0 +1,8 @@
+{
+  "commit_hash": "69e3b819a154793128ec7c0336d33623f6cc8a21",
+  "issue_summary": "Method that allocates should release resources.",
+  "code_before": "public void stop() {\n        this.run = false;\n    }",
+  "code_after": "@Deprecated\n    public void stop() {\n        close();\n    }",
+  "javadoc_before": "/**\n     * Requests the tailer to complete its current loop and return.\n     */",
+  "javadoc_after": "/**\n     * Requests the tailer to complete its current loop and return.\n     *\n     * @deprecated Use {@link #close()}.\n     */"
+}

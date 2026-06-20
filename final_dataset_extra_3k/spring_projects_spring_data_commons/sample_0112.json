@@ -1,0 +1,8 @@
+{
+  "commit_hash": "88ac1fc1654331984b1b1242cbc188b1246ffb15",
+  "issue_summary": "Polishing.",
+  "code_before": "P getPersistentProperty(Class<? extends Annotation> annotationType);",
+  "code_after": "default P getPersistentProperty(Class<? extends Annotation> annotationType) {\n\n\t\tIterator<P> it = getPersistentProperties(annotationType).iterator();\n\t\treturn it.hasNext() ? it.next() : null;\n\t}",
+  "javadoc_before": "/**\n\t * Returns the property equipped with an annotation of the given type.\n\t *\n\t * @param annotationType must not be {@literal null}.\n\t * @return\n\t * @since 1.8\n\t */",
+  "javadoc_after": "/**\n\t * Returns the first property equipped with an {@link Annotation} of the given type.\n\t *\n\t * @param annotationType must not be {@literal null}.\n\t * @return {@literal null} if no property found with given annotation type.\n\t * @since 1.8\n\t */"
+}

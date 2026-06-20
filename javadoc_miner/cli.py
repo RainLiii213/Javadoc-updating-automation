@@ -52,7 +52,6 @@ class PendingOutputSample:
 
 
 SelectableSample = TypeVar("SelectableSample", OutputSample, PendingOutputSample)
-MAX_SAMPLES_PER_COMMIT = 3
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -67,6 +66,9 @@ def main(argv: list[str] | None = None) -> int:
             max_samples=args.max_samples,
             full_history=args.full_history,
             force_refresh=args.force_refresh,
+            skip_commits=args.skip_commits,
+            fetch_existing=not args.no_fetch_existing,
+            progress_interval=args.progress_interval,
         )
         samples = mine_repository(config)
         print(f"Wrote {len(samples)} samples to {config.output_dir}")
@@ -92,13 +94,42 @@ def main(argv: list[str] | None = None) -> int:
         except ValueError as error:
             parser.error(str(error))
         return 0
+    if args.command == "mine-continuation":
+        from .continuation import ContinuationConfig, mine_continuation_dataset
+
+        config = ContinuationConfig(
+            root_dir=args.root_dir,
+            baseline_dir=args.baseline_dir,
+            output_dir=args.output_dir,
+            cache_dir=args.cache_dir,
+            target_new=args.target_new,
+            start_from=args.start_from,
+            max_commits_per_repo=args.max_commits_per_repo,
+            max_repos=args.max_repos,
+            dry_run=args.dry_run,
+            force_refresh=args.force_refresh,
+        )
+        try:
+            mine_continuation_dataset(config)
+        except (FileNotFoundError, ValueError) as error:
+            parser.error(str(error))
+        return 0
     parser.print_help()
     return 1
 
 
 def mine_repository(config: MinerConfig) -> list[OutputSample]:
-    repo = GitRepo.clone_or_update(config.repo_url, config.cache_dir, config.force_refresh)
+    repo = GitRepo.clone_or_update(
+        config.repo_url,
+        config.cache_dir,
+        config.force_refresh,
+        fetch_existing=config.fetch_existing,
+    )
     commits = repo.iter_commits(config.full_history, config.max_commits)
+    if config.skip_commits > 0:
+        skipped = min(config.skip_commits, len(commits))
+        print(f"Skipping {skipped} previously scanned commits.", flush=True)
+        commits = commits[config.skip_commits :]
     candidate_samples: list[PendingOutputSample] = []
     scanned = 0
     javadoc_commits = 0
@@ -108,6 +139,15 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
 
     for commit_hash in commits:
         scanned += 1
+        if config.progress_interval and scanned % config.progress_interval == 0:
+            print(
+                f"Progress: scanned {scanned}/{len(commits)} commits after skip; "
+                f"javadoc_commits={javadoc_commits}; "
+                f"code_and_javadoc_commits={code_and_javadoc_commits}; "
+                f"candidate_samples={len(candidate_samples)}; "
+                f"unique_candidates={_unique_sample_count(candidate_samples)}",
+                flush=True,
+            )
         try:
             patch = repo.show_commit_patch(commit_hash)
         except GitCommandError:
@@ -169,7 +209,8 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
     )
     print(
         f"Scanned {scanned} commits, found {javadoc_commits} commits with JavaDoc changes "
-        f"({code_and_javadoc_commits} also changed code)."
+        f"({code_and_javadoc_commits} also changed code).",
+        flush=True,
     )
     print(
         "Stats: "
@@ -179,7 +220,8 @@ def mine_repository(config: MinerConfig) -> list[OutputSample]:
         f"discarded_truncated_code_context={stats.discarded_truncated_code_context}, "
         f"moved_to_review={stats.moved_to_review}, "
         f"discarded_weak_inheritdoc={stats.discarded_weak_inheritdoc}, "
-        f"issue_summary_fallbacks={stats.issue_summary_fallbacks}"
+        f"issue_summary_fallbacks={stats.issue_summary_fallbacks}",
+        flush=True,
     )
     return samples
 
@@ -339,16 +381,42 @@ def _select_samples(
 
 def _deduplicate_samples(samples: list[SelectableSample]) -> list[SelectableSample]:
     unique: list[SelectableSample] = []
-    seen: set[tuple[str, str, str]] = set()
-    per_commit: dict[str, int] = {}
+    seen: set[tuple[str, str, str, str]] = set()
     for sample in samples:
-        key = (sample.commit_hash, sample.entity_type, sample.entity_name)
-        if key in seen or per_commit.get(sample.commit_hash, 0) >= MAX_SAMPLES_PER_COMMIT:
+        key = _sample_content_key(sample)
+        if key in seen:
             continue
         seen.add(key)
-        per_commit[sample.commit_hash] = per_commit.get(sample.commit_hash, 0) + 1
         unique.append(sample)
     return unique
+
+
+def _sample_content_key(sample: OutputSample | PendingOutputSample) -> tuple[str, str, str, str]:
+    if isinstance(sample, OutputSample):
+        code_before = sample.code_before
+        code_after = sample.code_after
+        javadoc_before = sample.javadoc_before
+        javadoc_after = sample.javadoc_after
+    else:
+        code_before, code_after = _entity_code_pair(sample.file_change, sample.old_entity, sample.new_entity)
+        javadoc_before = sample.old_entity.javadoc if sample.old_entity is not None else ""
+        javadoc_after = sample.new_entity.javadoc if sample.new_entity is not None else ""
+    return (
+        _normalize_sample_text(code_before),
+        _normalize_sample_text(code_after),
+        _normalize_sample_text(javadoc_before),
+        _normalize_sample_text(javadoc_after),
+    )
+
+
+def _normalize_sample_text(text: str) -> str:
+    lines = text.replace("\r\n", "\n").replace("\r", "\n").split("\n")
+    lines = [line.rstrip() for line in lines]
+    while lines and not lines[0]:
+        lines.pop(0)
+    while lines and not lines[-1]:
+        lines.pop()
+    return "\n".join(lines)
 
 
 def _unique_sample_count(samples: list[PendingOutputSample]) -> int:
@@ -397,6 +465,9 @@ def _build_parser() -> argparse.ArgumentParser:
     mine.add_argument("--max-samples", type=int, default=50)
     mine.add_argument("--full-history", action="store_true")
     mine.add_argument("--force-refresh", action="store_true")
+    mine.add_argument("--skip-commits", type=int, default=0)
+    mine.add_argument("--no-fetch-existing", action="store_true")
+    mine.add_argument("--progress-interval", type=int, default=0)
 
     multiple = subparsers.add_parser(
         "mine-multiple",
@@ -413,6 +484,21 @@ def _build_parser() -> argparse.ArgumentParser:
     multiple.add_argument("--resume", action="store_true")
     multiple.add_argument("--dry-run", action="store_true")
     multiple.add_argument("--force-refresh", action="store_true")
+
+    continuation = subparsers.add_parser(
+        "mine-continuation",
+        help="Mine new continuation samples while preserving and deduplicating against a baseline.",
+    )
+    continuation.add_argument("--root-dir", type=Path, default=Path("."))
+    continuation.add_argument("--baseline-dir", type=Path, default=Path("final_dataset"))
+    continuation.add_argument("--output-dir", type=Path, default=Path("final_dataset_extra_3k"))
+    continuation.add_argument("--cache-dir", type=Path, default=Path(".cache/repos"))
+    continuation.add_argument("--target-new", type=int, default=3000)
+    continuation.add_argument("--start-from", default="")
+    continuation.add_argument("--max-commits-per-repo", type=int)
+    continuation.add_argument("--max-repos", type=int)
+    continuation.add_argument("--dry-run", action="store_true")
+    continuation.add_argument("--force-refresh", action="store_true")
     return parser
 
 

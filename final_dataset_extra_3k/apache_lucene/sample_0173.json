@@ -1,0 +1,8 @@
+{
+  "commit_hash": "91c01ddb5ffa75f48b743c8d767385da33c9f0f3",
+  "issue_summary": "HighFreqTerms has confusing behavior with -t option",
+  "code_before": "final class TermStatsQueue extends PriorityQueue<TermStats> {\n  TermStatsQueue(int size) {\n    super(size);\n  }\n\n  @Override\n  protected boolean lessThan(TermStats termInfoA, TermStats termInfoB) {\n    return termInfoA.docFreq < termInfoB.docFreq;\n  }\n\n  protected void fill(String field, TermsEnum termsEnum) throws IOException {\n    while (true) {\n      BytesRef term = termsEnum.next();\n      if (term != null) {\n        insertWithOverflow(new TermStats(field, term, termsEnum.docFreq()));\n      } else {\n        break;\n      }\n    }\n  }\n}",
+  "code_after": "static final class TermStatsQueue extends PriorityQueue<TermStats> {\n    final Comparator<TermStats> comparator;\n\n    TermStatsQueue(int size, Comparator<TermStats> comparator) {\n      super(size);\n      this.comparator = comparator;\n    }\n\n    @Override\n    protected boolean lessThan(TermStats termInfoA, TermStats termInfoB) {\n      return comparator.compare(termInfoA, termInfoB) < 0;\n    }\n\n    protected void fill(String field, TermsEnum termsEnum) throws IOException {\n      BytesRef term = null;\n      while ((term = termsEnum.next()) != null) {\n        insertWithOverflow(new TermStats(field, term, termsEnum.docFreq(), termsEnum.totalTermFreq()));\n      }\n    }\n  }",
+  "javadoc_before": "/**\n * Priority queue for TermStats objects ordered by docFreq\n **/",
+  "javadoc_after": "/**\n   * Priority queue for TermStats objects\n   **/"
+}

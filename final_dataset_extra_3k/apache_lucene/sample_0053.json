@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dbe6c7ff052927be10a0a6953686771d788ebda5",
+  "issue_summary": "remove 4.x back compat",
+  "code_before": "public byte[] getId() {\n    return id == null ? null : id.clone();\n  }",
+  "code_after": "public byte[] getId() {\n    return id.clone();\n  }",
+  "javadoc_before": "/** Since Lucene 5.0, every commit (segments_N) writes a unique id.  This will\n   *  return that id, or null if this commit was prior to 5.0. */",
+  "javadoc_after": "/** Since Lucene 5.0, every commit (segments_N) writes a unique id.  This will\n   *  return that id */"
+}

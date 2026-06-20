@@ -1,0 +1,8 @@
+{
+  "commit_hash": "93c708379e2c12bb976b3cc8c1f455f57a74d9a9",
+  "issue_summary": "Address review comments.",
+  "code_before": "public static boolean isKotlinClass(Class<?> type) {\n\n\t\treturn KOTLIN_IS_PRESENT && Arrays.stream(type.getDeclaredAnnotations()) //\n\t\t\t\t.map(Annotation::annotationType) //\n\t\t\t\t.anyMatch(annotation -> annotation.getName().equals(\"kotlin.Metadata\"));\n\t}",
+  "code_after": "@Deprecated\n\tpublic static boolean isKotlinClass(Class<?> type) {\n\t\treturn KotlinDetector.isKotlinType(type);\n\t}",
+  "javadoc_before": "/**\n\t * Return {@literal true} if the specified class is a Kotlin one.\n\t *\n\t * @return {@literal true} if {@code type} is a Kotlin class.\n\t * @since 2.0\n\t */",
+  "javadoc_after": "/**\n\t * Return {@literal true} if the specified class is a Kotlin one.\n\t *\n\t * @return {@literal true} if {@code type} is a Kotlin class.\n\t * @since 2.0\n\t * @deprecated since 2.3, use {@link KotlinDetector#isKotlinType(Class)} instead.\n\t */"
+}

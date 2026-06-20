@@ -1,0 +1,8 @@
+{
+  "commit_hash": "423db743f4dba81eeac625e5a6bd167f1c9b2980",
+  "issue_summary": "minor clean up of builder-based deserializer; add better error checking, reporting",
+  "code_before": "public BuilderBasedDeserializer(BeanDeserializerBuilder builder,\n            BeanDescription beanDesc,\n            BeanPropertyMap properties, Map<String, SettableBeanProperty> backRefs,\n            Set<String> ignorableProps, boolean ignoreAllUnknown,\n            boolean hasViews)\n    {\n        super(builder, beanDesc, properties, backRefs,\n                ignorableProps, ignoreAllUnknown, hasViews);\n        _buildMethod = builder.getBuildMethod();\n        // 05-Mar-2012, tatu: Can not really make Object Ids work with builders, not yet anyway\n        if (_objectIdReader != null) {\n            throw new IllegalArgumentException(\"Can not use Object Id with Builder-based deserialization (type \"\n                    +beanDesc.getType()+\")\");\n        }\n    }",
+  "code_after": "@Deprecated\n    public BuilderBasedDeserializer(BeanDeserializerBuilder builder,\n            BeanDescription beanDesc,\n            BeanPropertyMap properties, Map<String, SettableBeanProperty> backRefs,\n            Set<String> ignorableProps, boolean ignoreAllUnknown,\n            boolean hasViews)\n    {\n        this(builder, beanDesc,\n                beanDesc.getType(), // Wrong! But got no access via `BeanDeserializerBuilder`\n                properties, backRefs, ignorableProps, ignoreAllUnknown, hasViews);\n    }",
+  "javadoc_before": "/**\n     * Constructor used by {@link BeanDeserializerBuilder}.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.9\n     */"
+}

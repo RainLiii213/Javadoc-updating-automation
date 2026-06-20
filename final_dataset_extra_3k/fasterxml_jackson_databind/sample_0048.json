@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9906b135a0a2e97246c50f632d752db4ef28f4d7",
+  "issue_summary": "Fix TypeFactory cache performance degradation with `constructSpecializedType`",
+  "code_before": "public Object asKey(Class<?> rawBase) {\n        // safe to pass _types array without copy since it is not exposed via\n        // any access, nor modified by this class\n        return new AsKey(rawBase, _types, _hashCode);\n    }",
+  "code_after": "public Object asKey(Class<?> rawBase) {\n        // safe to pass _types array without copy since it is not exposed via\n        // any access, nor modified by this class\n        if (invalidCacheKey()) {\n            // If placeholders are present, no key may be returned because the key is unhelpful without context.\n            return null;\n        }\n        return new AsKey(rawBase, _types, _hashCode);\n    }",
+  "javadoc_before": "/**\n     * Factory method that will create an object that can be used as a key for\n     * caching purposes by {@link TypeFactory}\n     *\n     * @since 2.8\n     */",
+  "javadoc_after": "/**\n     * Factory method that will create an object that can be used as a key for\n     * caching purposes by {@link TypeFactory}\n     *\n     * @return An object which can be used as a key in TypeFactory, or {@code null} if no key can be created.\n     *\n     * @since 2.8\n     */"
+}

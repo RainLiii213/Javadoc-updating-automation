@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dd667704d812894a21b5e3affd5fe3de4d6d4b10",
+  "issue_summary": "Move PreconditionViolationException to base package",
+  "code_before": "@API(status = INTERNAL, since = \"1.0\")\npublic class PreconditionViolationException extends JUnitException {\n\n\tprivate static final long serialVersionUID = 1L;\n\n\tpublic PreconditionViolationException(String message) {\n\t\tsuper(message);\n\t}\n\n\tpublic PreconditionViolationException(String message, Throwable cause) {\n\t\tsuper(message, cause);\n\t}\n\n}",
+  "code_after": "@API(status = DEPRECATED, since = \"1.5\")\n@Deprecated\npublic class PreconditionViolationException extends JUnitException {\n\n\tprivate static final long serialVersionUID = 1L;\n\n\tpublic PreconditionViolationException(String message) {\n\t\tsuper(message);\n\t}\n\n\tpublic PreconditionViolationException(String message, Throwable cause) {\n\t\tsuper(message, cause);\n\t}\n\n}",
+  "javadoc_before": "/**\n * Thrown if a <em>precondition</em> is violated.\n *\n * @since 1.0\n * @see Preconditions\n */",
+  "javadoc_after": "/**\n * Thrown if a <em>precondition</em> is violated.\n *\n * @since 1.0\n * @see Preconditions\n * @deprecated Use {@linkplain org.junit.platform.commons.PreconditionViolationException} instead.\n */"
+}

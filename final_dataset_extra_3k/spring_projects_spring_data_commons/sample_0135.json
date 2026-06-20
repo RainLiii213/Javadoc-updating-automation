@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5d591db848e449bd27756a7de393d4f872ad15ba",
+  "issue_summary": "Polishing.",
+  "code_before": "public static boolean isAvailable() {\n\t\treturn isAvailable(ReactiveLibrary.PROJECT_REACTOR) || isAvailable(ReactiveLibrary.RXJAVA1)\n\t\t\t\t|| isAvailable(ReactiveLibrary.RXJAVA2);\n\t}",
+  "code_after": "public static boolean isAvailable() {\n\t\treturn Arrays.stream(ReactiveLibrary.values()).anyMatch(ReactiveWrappers::isAvailable);\n\t}",
+  "javadoc_before": "/**\n\t * Returns {@literal true} if reactive support is available. More specifically, whether RxJava1/2 or Project Reactor\n\t * libraries are on the class path.\n\t *\n\t * @return {@literal true} if reactive support is available.\n\t */",
+  "javadoc_after": "/**\n\t * Returns {@literal true} if reactive support is available. More specifically, whether any of the libraries defined\n\t * in {@link ReactiveLibrary} are on the class path.\n\t *\n\t * @return {@literal true} if reactive support is available.\n\t */"
+}

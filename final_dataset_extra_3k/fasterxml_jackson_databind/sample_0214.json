@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0344ce08eb33d9d3aeb6478ce0391368596eac04",
+  "issue_summary": "Remove separate 'isIgnoredXxx' methods; combined into 'hasIgnoralMarker' method in AnnotationIntrospector",
+  "code_before": "public boolean hasIgnoreMarker(AnnotatedMember m)\n    {\n        /* For maximum backwards compatibility, we better call\n         * existing methods.\n         */\n        /* TODO: For 2.0, replace with simple 'return false;'\n         */\n        if (m instanceof AnnotatedMethod) {\n            return isIgnorableMethod((AnnotatedMethod) m);\n        }\n        if (m instanceof AnnotatedField) {\n            return isIgnorableField((AnnotatedField) m);\n        }\n        if (m instanceof AnnotatedConstructor) {\n            return isIgnorableConstructor((AnnotatedConstructor) m);\n        }\n        return false;\n    }",
+  "code_after": "public boolean hasIgnoreMarker(AnnotatedMember m)\n    {\n        return false;\n    }",
+  "javadoc_before": "/**\n     * Method called to check whether given property is marked to\n     * be ignored; but NOT to determine if it should necessarily\n     * be ignored, since that may depend on other factors.\n     *<p>\n     * Default implementation calls existing 'isIgnored' methods\n     * such as {@link #isIgnorableField(AnnotatedField)} and\n     * {@link #isIgnorableMethod(AnnotatedMethod)}.\n     */",
+  "javadoc_after": "/**\n     * Method called to check whether given property is marked to\n     * be ignored. This is used to determine whether to ignore\n     * properties, on per-property basis, usually combining\n     * annotations from multiple accessors (getters, setters, fields,\n     * constructor parameters).\n     */"
+}

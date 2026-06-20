@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2655224b64cbb9c1a5211b73162be802a1e91999",
+  "issue_summary": "Remove all variants of register() in ExtensionPointRegistry",
+  "code_before": "default void register(ExtensionPoint extensionPoint, Position position) {\n\t\tregister(extensionPoint, null, position);\n\t}",
+  "code_after": "void register(ExtensionPoint extensionPoint, Position position);",
+  "javadoc_before": "/**\n\t * Register the supplied {@link ExtensionPoint} using the supplied\n\t * {@link Position}.\n\t *\n\t * <p>This variant of {@code register()} is typically used to register\n\t * an instance of a class that implements one or more {@code ExtensionPoint}\n\t * APIs.\n\t *\n\t * @param extensionPoint the extension point to register\n\t * @param position the position in which the extension point\n\t * should be registered\n\t * @see #register(ExtensionPoint)\n\t * @see #register(ExtensionPoint, Class)\n\t * @see #register(ExtensionPoint, Class, Position)\n\t */",
+  "javadoc_after": "/**\n\t * Register the supplied {@link ExtensionPoint} using the supplied\n\t * {@link Position}.\n\t *\n\t * <p>See the {@linkplain ExtensionPointRegistry class-level Javadoc}\n\t * and user guide for examples.\n\t *\n\t * @param extensionPoint the extension point to register\n\t * @param position the position in which the extension point\n\t * should be registered\n\t * @see #register(ExtensionPoint)\n\t */"
+}

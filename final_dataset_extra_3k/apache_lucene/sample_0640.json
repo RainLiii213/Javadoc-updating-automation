@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ab447b6af0653d1c1438b0aa4fa33b270814af65",
+  "issue_summary": "Enable safe concurrent spell-index modifications in Spellchecker",
+  "code_before": "public void close() throws IOException {\n    searcher.close();\n    searcher = null;\n  }",
+  "code_after": "public void close() throws IOException {\n    synchronized (searcherLock) {\n      ensureOpen();\n      closed = true;\n      if (searcher != null) {\n        searcher.close();\n      }\n      searcher = null;\n    }\n  }",
+  "javadoc_before": "/**\n   * Close the IndexSearcher used by this SpellChecker.\n   */",
+  "javadoc_after": "/**\n   * Close the IndexSearcher used by this SpellChecker\n   * @throws IOException if the close operation causes an {@link IOException}\n   * @throws AlreadyClosedException if the {@link SpellChecker} is already closed\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "43307b438d6aab67686cb0941e6541c82a6fab2a",
+  "issue_summary": "Fixed",
+  "code_before": "protected TypeBase(Class<?> raw, int hash,\n            Object valueHandler, Object typeHandler)\n    {\n        super(raw, hash, valueHandler, typeHandler);\n    }",
+  "code_after": "@Deprecated\n    protected TypeBase(Class<?> raw, int hash,\n            Object valueHandler, Object typeHandler)\n    {\n        this(raw, hash, valueHandler, typeHandler, false);\n    }",
+  "javadoc_before": "/**\n     * Main constructor to use by extending classes.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.2 use method that takes 'asStatic' argument\n     */"
+}

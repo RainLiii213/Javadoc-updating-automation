@@ -1,0 +1,8 @@
+{
+  "commit_hash": "767ecb29a5a79f799113d13eb137389ff5a4c2c5",
+  "issue_summary": "Try to add support for retaining type ids via TokenBuffer",
+  "code_before": "public TokenBuffer(ObjectCodec codec)\n    {\n        _objectCodec = codec;\n        _generatorFeatures = DEFAULT_PARSER_FEATURES;\n        _writeContext = JsonWriteContext.createRootContext();\n        // at first we have just one segment\n        _first = _last = new Segment();\n        _appendOffset = 0;\n    }",
+  "code_after": "@Deprecated\n    public TokenBuffer(ObjectCodec codec) {\n        this(codec, false);\n    }",
+  "javadoc_before": "/**\n     * @param codec Object codec to use for stream-based object\n     *   conversion through parser/generator interfaces. If null,\n     *   such methods can not be used.\n     */",
+  "javadoc_after": "/**\n     * @param codec Object codec to use for stream-based object\n     *   conversion through parser/generator interfaces. If null,\n     *   such methods can not be used.\n     *   \n     * @deprecated since 2.3 preferred variant is one that takes {@link JsonParser} or additional boolean parameter.\n     */"
+}

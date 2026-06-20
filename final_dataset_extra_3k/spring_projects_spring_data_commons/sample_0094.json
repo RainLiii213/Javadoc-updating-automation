@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5da6cf20a2e0cb1aea24000c2343cc88688d8a9a",
+  "issue_summary": "Add support for deferred repository initialization.",
+  "code_before": "public static void registerIfNotAlreadyRegistered(AbstractBeanDefinition bean, BeanDefinitionRegistry registry,\n\t\t\tString beanName, Object source) {\n\n\t\tif (registry.containsBeanDefinition(beanName)) {\n\t\t\treturn;\n\t\t}\n\n\t\tbean.setSource(source);\n\t\tregistry.registerBeanDefinition(beanName, bean);\n\t}",
+  "code_after": "@Deprecated\n\tpublic static void registerIfNotAlreadyRegistered(AbstractBeanDefinition bean, BeanDefinitionRegistry registry,\n\t\t\tString beanName, Object source) {\n\t\tregisterIfNotAlreadyRegistered(() -> bean, registry, beanName, source);\n\t}",
+  "javadoc_before": "/**\n\t * Registers the given {@link AbstractBeanDefinition} with the given registry with the given bean name unless the\n\t * registry already contains a bean with that name.\n\t *\n\t * @param bean must not be {@literal null}.\n\t * @param registry must not be {@literal null}.\n\t * @param beanName must not be {@literal null} or empty.\n\t * @param source must not be {@literal null}.\n\t */",
+  "javadoc_after": "/**\n\t * Registers the given {@link AbstractBeanDefinition} with the given registry with the given bean name unless the\n\t * registry already contains a bean with that name.\n\t *\n\t * @param bean must not be {@literal null}.\n\t * @param registry must not be {@literal null}.\n\t * @param beanName must not be {@literal null} or empty.\n\t * @param source must not be {@literal null}.\n\t * @deprecated since 2.1, prefer\n\t *             {@link #registerIfNotAlreadyRegistered(Supplier, BeanDefinitionRegistry, String, Object)}\n\t */"
+}

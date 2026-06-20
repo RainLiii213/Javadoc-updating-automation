@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5324b752cbb7508bccf1460af246eb932204e2dd",
+  "issue_summary": "Add offset corrections in PatternTokenizerFactory",
+  "code_before": "public static List<Token> split( Matcher matcher, String input )\n  {\n    int index = 0;\n    int lastNonEmptySize = Integer.MAX_VALUE;\n    ArrayList<Token> matchList = new ArrayList<Token>();\n\n    // Add segments before each match found\n    while(matcher.find()) {\n      String match = input.subSequence(index, matcher.start()).toString();\n      matchList.add( new Token( match, index, matcher.start()) );\n      index = matcher.end();\n      if( match.length() > 0 ) {\n        lastNonEmptySize = matchList.size();\n      }\n    }\n\n    // If no match is found, return the full string\n    if (index == 0) {\n      matchList.add( new Token( input, 0, input.length()) );\n    }\n    else {\n      String match = input.subSequence(index, input.length()).toString();\n      matchList.add( new Token( match, index, input.length()) );\n      if( match.length() > 0 ) {\n        lastNonEmptySize = matchList.size();\n      }\n    }\n\n    // Don't use trailing empty strings.  This behavior matches String.split();\n    if( lastNonEmptySize < matchList.size() ) {\n      return matchList.subList( 0, lastNonEmptySize );\n    }\n    return matchList;\n  }",
+  "code_after": "public static List<Token> split( Matcher matcher, String input ){\n    return split(matcher,input,null);\n  }",
+  "javadoc_before": "/**\n   * This behaves just like String.split( ), but returns a list of Tokens\n   * rather then an array of strings\n   */",
+  "javadoc_after": "/**\n   * @deprecated\n   */"
+}

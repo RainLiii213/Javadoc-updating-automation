@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b309970c3d4244317e6ac2c4fddf22045310eced",
+  "issue_summary": "return empty array instead of null for certain get*s methods in Document",
+  "code_before": "public final Field[] getFields(String name) {\n     List result = new ArrayList();\n     for (int i = 0; i < fields.size(); i++) {\n       Field field = (Field)fields.get(i);\n       if (field.name().equals(name)) {\n         result.add(field);\n       }\n     }\n\n     if (result.size() == 0)\n       return null;\n\n     return (Field[])result.toArray(new Field[result.size()]);\n   }",
+  "code_after": "public final Field[] getFields(String name) {\n     List result = new ArrayList();\n     for (int i = 0; i < fields.size(); i++) {\n       Field field = (Field)fields.get(i);\n       if (field.name().equals(name)) {\n         result.add(field);\n       }\n     }\n\n     if (result.size() == 0)\n       return NO_FIELDS;\n\n     return (Field[])result.toArray(new Field[result.size()]);\n   }",
+  "javadoc_before": "/**\n   * Returns an array of {@link Field}s with the given name.\n   * This method can return <code>null</code>.\n   * Do not use with lazy loaded fields.\n   *\n   * @param name the name of the field\n   * @return a <code>Field[]</code> array\n   */",
+  "javadoc_after": "/**\n   * Returns an array of {@link Field}s with the given name.\n   * Do not use with lazy loaded fields.\n   *\n   * @param name the name of the field\n   * @return a <code>Field[]</code> array\n   */"
+}

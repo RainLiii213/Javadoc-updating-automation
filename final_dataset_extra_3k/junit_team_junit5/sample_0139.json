@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d398b46bc6a4549edbece534773f222cf95ed5cd",
+  "issue_summary": "Overhaul UniqueID implementation and Javadoc",
+  "code_before": "public static UniqueId forEngine(String engineId) {\n\t\treturn root(TYPE_ENGINE, engineId);\n\t}",
+  "code_after": "public static UniqueId forEngine(String engineId) {\n\t\tPreconditions.notBlank(engineId, \"engineId must not be null or empty\");\n\t\treturn root(ENGINE_SEGMENT_TYPE, engineId);\n\t}",
+  "javadoc_before": "/**\n\t * Create an engine's unique ID from its {@code engineId} using the default\n\t * format.\n\t */",
+  "javadoc_after": "/**\n\t * Create an engine's unique ID from its {@code engineId} using the default\n\t * format.\n\t *\n\t * @param engineId the engine ID; never {@code null} or empty\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5d591db848e449bd27756a7de393d4f872ad15ba",
+  "issue_summary": "Polishing.",
+  "code_before": "static boolean isNonUnwrappingWrapper(Class<?> parameterType) {\n\t\treturn QueryExecutionConverters.supports(parameterType)\n\t\t\t\t&& !QueryExecutionConverters.supportsUnwrapping(parameterType);\n\t}",
+  "code_after": "static boolean isNonUnwrappingWrapper(Class<?> parameterType) {\n\n\t\tAssert.notNull(parameterType, \"Parameter type must not be null!\");\n\n\t\treturn QueryExecutionConverters.supports(parameterType)\n\t\t\t\t&& !QueryExecutionConverters.supportsUnwrapping(parameterType);\n\t}",
+  "javadoc_before": "/**\n\t * Checks whether the type is a wrapper without unwrapping support. Reactive wrappers don't like to be unwrapped.\n\t *\n\t * @param parameterType\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Checks whether the type is a wrapper without unwrapping support. Reactive wrappers don't like to be unwrapped.\n\t *\n\t * @param parameterType must not be {@literal null}.\n\t * @return\n\t */"
+}

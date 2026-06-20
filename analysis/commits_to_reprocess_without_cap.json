@@ -1,0 +1,2434 @@
+[
+  {
+    "project_slug": "apache_commons_codec",
+    "repository_url": "https://github.com/apache/commons-codec.git",
+    "commit_hash": "9f1b740a17f0d54366edfb45df0636b8e302666a",
+    "issue_summary": "Reimplement the new-in-1.15 BaseNCodec's and friends' strict vs. lenient decoding as final instance variables and with an enum instead of a boolean. Introduce the last amount of new constructors.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_codec",
+    "repository_url": "https://github.com/apache/commons-codec.git",
+    "commit_hash": "b5ce7fae5bb6794d41216756f080a087cb956e90",
+    "issue_summary": "Fully documented MurmurHash3.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "150ba4af81b71517d3b44c0669b0da0f445e6ac3",
+    "issue_summary": "Add ability to specify wait time to QueueInputStream",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "issue_summary": "Add builders and avoid creating more constructors for all permutations of current options.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "218b5e7b7d76654004f4122c674308f78c87954e",
+    "issue_summary": "Patch from PR 32 from jonfreedman with additional changes and cleanups",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_codec",
+    "repository_url": "https://github.com/apache/commons-codec.git",
+    "commit_hash": "fc393f7bdf6c971cb0dcd977d3015ad5ce524149",
+    "issue_summary": "Partial patch application of [] More tests and minor things.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "dcb09db922e1edbd6dc6cb1531b827451d58aa83",
+    "issue_summary": "Add and use PathUtils.sizeOf(Path)",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_codec",
+    "repository_url": "https://github.com/apache/commons-codec.git",
+    "commit_hash": "453c56cff0dbbc0ecefaa7f20b8df6d11d6d12ec",
+    "issue_summary": "Use Charset objects when possible, create Charsets for required character encodings.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "083c58432d8bb169f350cb8936e59883f7dd448f",
+    "issue_summary": "Remove IOException from the method signatures that no longer throw IOException. This maintains binary compatibility but not source compatibility. FilenameUtils directoryContains(String, String) BoundedReader BoundedReader(java.io.Reader, int) IOUtils lineIterator(java.io.InputStream, Charset) lineIterator(java.io.InputStream, String) toByteArray(String) toInputStream(CharSequence, String) toInputStream(String, String) toString(byte[]) toString(byte[], String)",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "0cee29aa4c1818963ed1a55058219282e89d7488",
+    "issue_summary": "FileUtils throws IllegalArgumentException for (most) illegal input to methods.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "488393e60081b89fb1178bd93a66f414008ea6e1",
+    "issue_summary": "Allow counting Bloom filters with cell size other than Integer.SIZE",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "issue_summary": "Let org.apache.commons.io.filefilter classes work with java.nio.file.Files.walk* APIs.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "7eb78290c8d7d1fa379536700de0bd4a81320bb0",
+    "issue_summary": "Better NPE messages in CollectionUtils with Objects.requireNonNull",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "e585cd0433ae4cfbc56e58572b9869bd0c86b611",
+    "issue_summary": "Removed serialization support for the identified unsafe classes in the collections4 branch.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "f4693f0adf5c9994127890877d018c4ba7bbca06",
+    "issue_summary": "Clarify null argument behavior of IterableUtils and FluentIterable: decorators do not accept null values, whereas utility methods are null-safe wrt Iterable instances.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "d684f950c4a29d10097590cbe4346ad6e82e5e25",
+    "issue_summary": "First bunch of methods which take an Iterable/Iterator/Enumeration as input shall be moved to the appropriate Util classes. Mark existing methods in CollectionUtils as deprecated.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "a56cc14c2dd316cf6439e94444530b3ab4894949",
+    "issue_summary": "Update cancellation behaviour in DirectoryWalker to use a new CancelException, also add IOException to \"lifecycle\" method definitions.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "76d6a4b8e4403a99bb670fdba799f3e03240cdba",
+    "issue_summary": "Fix findbugs warning wrt exposed internal representation.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "c7e9e83f831de261eefbf0e29380fff125eb9eb3",
+    "issue_summary": "apply signature change to factory method.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8",
+    "issue_summary": "Commons IO 2.21.0 and more",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "5829240bfd3531639767e40ddf9608b84d3b235c",
+    "issue_summary": "Add org.apache.commons.compress.compressors.xz.XZCompressorInputStream.builder/Builder()",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "d3cfba9b29511279b79071ee8fe6ed1996a2af3c",
+    "issue_summary": "cutover Spans to DISI, reuse ConjunctionDISI, use two-phased iteration",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "fec9f1c10efa7bd0e5b113b8e545121f10ae257c",
+    "issue_summary": "Upgrade commons-io from 2.15.1 to 2.16.1 https://github.com/apache/commons-compress/pull/513/files",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "a43843701d9dbf790f9104a2ce1f6f38e98e8370",
+    "issue_summary": "Add optional collection parameter to all SolrClient methods",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "cf88875456e9f0230bb0dedb40a801cf8474d51b",
+    "issue_summary": "Reuse commons-io, don't duplicate class FileTimes (deprecated TimeUtils methods)",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "c13216934c58870b487a9bd04b2fd4ea24431000",
+    "issue_summary": "Replace DocsEnum and DocsAndPositionsEnum with PostingsEnum",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "856a540d3eeb463527c509853f4d205f4adc272f",
+    "issue_summary": "Resue commons-io",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "6c20f8b1226cc7dd55bae98b224bb87795390b75",
+    "issue_summary": "Add FileNameUtil.getCompressedFileName(String) and deprecate getCompressedFilename(String)",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "650ad0555e3702177c7403544ae8850f4ebbc9b1",
+    "issue_summary": "Use FileTime in SevenZArchiveEntry",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "39abfb17b02acd7d07b0c3ff5bac666a7bd35ea7",
+    "issue_summary": "Remove unused exceptions.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "c429f437f08cd5ea95351232b9c51104607cbda5",
+    "issue_summary": "Restructure Directory and LockFactory APIs",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "e716544cda2457e73d10d9b32ae939d6f7b11461",
+    "issue_summary": "Fix some generics. Remove unused exceptions deep in pack200 (maintains binary compatibility but not source compatibility).",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "24005cdcc59eee9e0ee9d06fffb29e32b7e9a0cb",
+    "issue_summary": "fix compile/javadocs, tighten up backwards codecs, add more safety to 5.x fields/vectors",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "8d969d60536b8878f73fd494c517de5d18be9d89",
+    "issue_summary": "Revert \" : throws IOException if non-number exists in pax header\"",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "b8a0b54c59191cb8338585eab055897737730a9e",
+    "issue_summary": "throws IOException if non-number exists in pax header",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "9938a39a872d4f232f718b2672d0245cae658e0b",
+    "issue_summary": "Remove Version from Analyzer constructors",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e6d29d223b14778cf22682268539534160458089",
+    "issue_summary": "Literally add back dead code to please a bunch of fucking babies",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "40b1d2fb8ff2eb4374eda8169524fade205a5e6c",
+    "issue_summary": "make varius places where bad data can cause RuntimeExceptions throw checked exceptions",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "0368c604cc6bfcabf9c7f1c2afd0dd2e0fbb4a96",
+    "issue_summary": "remove dead code: changes no runtime behavior, these are all unused variables",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "58364058bd2903ebd1568f6df22161e142a0dc86",
+    "issue_summary": "throw IOException for certain malformed archives",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "474d846bb5b5c4f8c9e09807ec6654be77fc999f",
+    "issue_summary": "Fix compareTo in MutableValueDouble and MutableValueBool, this caused incorrect results when grouping on fields with missing values",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "8f267c8560cac15d140c5097dfd6392c4270d3d2",
+    "issue_summary": "BinaryDocValues producers don't allocate or copy bytes on each access anymore",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "9df7b5c7cfad8e8a5623eeb9da0e0857c54f3e0d",
+    "issue_summary": "current state to branch",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "138bd925d85c079c5777efa61206f6af57110b52",
+    "issue_summary": "switch BytesRef/BytesRefHash hashing to MurmurHash3",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "794c20fe50038a8fe88852e4ab95e6381ed8027b",
+    "issue_summary": "a few 'extract method' refactorings to make code more readable, still won't win a beauty-contest",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "cb37781779d46be803d75fec52aefad5b61be8ec",
+    "issue_summary": "Implement Zip64Mode.Never. and git-svn-id: https://svn.apache.org/repos/asf/commons/proper/compress/trunk@1155274 13f79535-47bb-0310-9956-ffa450edef68",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+    "issue_summary": "applied patch by Christian Grobmeier",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "6d3ce61418fe49031c6b75f58253a2d5a9eceddc",
+    "issue_summary": "Backport `Objects.checkFromIndexSize` to `IOUtils`",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "8bac549ce35181839740c7e220c4d35e8eb06a66",
+    "issue_summary": "Add getter for reuse strategy to Analyzer, make AnalyzerWrapper's reuse strategy configurable, fix strategy to be stateless",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "8a71c443209d385218c79226902ce8750350a620",
+    "issue_summary": "merge trunk changes over",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "3c53c39c453b73af4971c7654f31b10bbd674359",
+    "issue_summary": "Don't decode and reencode characters in a potentially different charset in AbstractOrigin.CharSequenceOrigin.getReader(Charset)",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5a42052fbaf53d58898d35841d2c0504e29b7c5c",
+    "issue_summary": "Factor out core discovery and persistence logic",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e021451d6c08433d2e442456b3b5925f4cdb7129",
+    "issue_summary": "Fix the n-gram tokenizers and filters.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "8a7f2b6cc4575878f2b9cfd105e76429f3d6107b",
+    "issue_summary": "Deprecate broken TokenFilter options.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_lang",
+    "repository_url": "https://github.com/apache/commons-lang.git",
+    "commit_hash": "4369537d8b1387b94a1126a36a4fc400a35d35cc",
+    "issue_summary": "ArrayUtils.toPrimitive(Boolean...) null array elements map to false like Boolean.parseBoolean(null) and its callers return false.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "802058f4eef00c02209375210439f52b3268e5ce",
+    "issue_summary": "Remove spurious \"throws\" clauses, and other nits.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "3066a8085f86b743da14a161427c403a7038e8b0",
+    "issue_summary": "New sampling API for multivariate distributions (similar to changes performed for ). issue MATH-1351",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "ae2c81ad18f82278c5840d12ac22e572c3d31bf3",
+    "issue_summary": "Removed deprecated sampling API (and constructors). In this pass, the integer distributions have been updated.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "9867d9f2817fd6dd20d458022de3dda8c3b43b2f",
+    "issue_summary": "Using the new sampler API. Deprecate old API (including the now obsolete constructors).",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "9dbfa22b82dba84252a30b0c78b25b7bc37a55ed",
+    "issue_summary": "Make IndexWriterConfig setters throw an exception when passed null if null is not a valid value.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "49747dc1d34a48e966ceb424f40f0b7994d1cea7",
+    "issue_summary": "Fixed additional equations mapping.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "c053a327f9f64d0a02fc70ae198d8d9f96cfef02",
+    "issue_summary": "Cehck array dimensions in equations mapper.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a7294ccd794d2d3f55b67b75b9798de151451fb8",
+    "issue_summary": "Added a RotationConvention enumerate.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "5ca0a1c3564d35293a5ecf03e5f32e6f0f6f445c",
+    "issue_summary": "check for equal array lengths in distance functions",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "93b0a15183d5d25ba1b132e64c143c546d96a16c",
+    "issue_summary": "Change Aggregator and CategoryListIterator to be per-segment",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "de17206f02ada12c56b8e8910e9804a80bb07f69",
+    "issue_summary": "IntEncoder/Decoder bulk API",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "6c5f475b4d1c4e063028b10160138ab4cec9ac31",
+    "issue_summary": "FacetIndexing/SearchParams house cleaning",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "d83cdb913332b02fd310f5cdf3df045162c4cc54",
+    "issue_summary": "Simplified 1-sphere case.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2d1614a2077eab0b981d4a0c4c6e10a7ecda71cf",
+    "issue_summary": "Finish FuzzyKMeans clustering algorithm.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2fd0bbbeec512c34a202fbf7aca781d9d1695a1b",
+    "issue_summary": "Finalized implementation of diagonal matrix.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "6f5c10b30552439f5277053eadafaef703685707",
+    "issue_summary": "Added consumeAllTokens option to LimitTokenCountFilter",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "cb5e94419fd43756bd2abda1e9a25ebde7e8a6c9",
+    "issue_summary": "Improved checking of null vector elements.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "6f3165670c9c1c6e383b283f390270968402e081",
+    "issue_summary": "Filled throws clauses for the analysis package.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "0b24467e5f96a5343c931353fa0c68a73ebe0b14",
+    "issue_summary": "Throw exception from optimizers that do not support simple bounds. Changing visibility of \"parseOptimizationData\" method to \"protected\" in order to allow the parent class to parse its data before the subclass (and thus providing more flexibility: the subclass is able check input consistency at the options parsing step).",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "2ea2adcf6b3633aa895b841eedc09ab540dc9b4d",
+    "issue_summary": "wrap up cutover to blockpostingsformat",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "8da1dede2432607b2dff6fb09bb1dfbe23779da9",
+    "issue_summary": "Added a constructor in the custom checkers that enables normal termination of an optimization algorithm (i.e. returning the curent best point after a selected number of iterations have been performed).",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "4cd203f41e34a07771791fe3423a94dde542f841",
+    "issue_summary": "Changed type of \"expansionFactor\" and \"contractionCriteria\" from \"float\" to \"double\" and deprecated methods and constructors that use \"float\".",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "f1ae7dad35eea86e5fc9c3aa5d1608f46e24e05c",
+    "issue_summary": "regenerate snowball stemmers so they aren't so heavy",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "54cfc6ce0a5d405008ae0cdcbab793cec680d1bc",
+    "issue_summary": "Deprecated \"protected\" fields. Created new methods (that take arguments and return a value) to replace those that operate on protected fields. Removed call to deprecated methods in unit tests. Added public method \"setCost\" to replace the direct assignment to a protected field.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e96b143b6a28b12b130ee49c030b5ab7dfc04903",
+    "issue_summary": "Make packed int arrays usable by codecs.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "c61b08e546703881350346490ecd887266220ba4",
+    "issue_summary": "Fixed naming inconsistencies between Interval and IntervalsSet classes.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "fd16190940d7495e985f44ce7504562c8bbc91e6",
+    "issue_summary": "clean up redundant throws clauses",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "7cac883ba071fd11ecf8972c476bd1620c37c965",
+    "issue_summary": "populated throws clause of BlockFieldMatrix.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bc3a3dc5d47af0c00748468b1ae14b4a18854366",
+    "issue_summary": "remove deprecations from trunk (just the easy ones for now)",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "e055dcd21a4ed619ac117ce806b7bfc67416f177",
+    "issue_summary": "Added missing throws declarations. JIRA: .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "9462626718e809e3b92e353fdca80e807b413edb",
+    "issue_summary": "filled the \"throws\" clause of BlockRealMatrix.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2a32964f25171a5776ade829b1c57d16a5832661",
+    "issue_summary": "Populated throws clause of OpenMapRealMatrix .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "19c954cabcf87dee4ebec17b028b061fccc35877",
+    "issue_summary": "populated throws clause of AbstractRealMatrix.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "06880f1138498473cebcb273d034d0e9d4d4aed6",
+    "issue_summary": "Populated throws clause of RealMatrix ; javadoc + formatting.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "dae4cf5da15517eee16a9a337d42b7e9677f060e",
+    "issue_summary": "Added missing throws declarations and fixed javadoc to match what is actually thrown. JIRA: .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "1a9e32ab8f63ab40517a9e3837ca8c5dce52f20d",
+    "issue_summary": "fill throws clause for genetics package.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "1c032ee45483926f8f539457c342ba33dc1a8cb9",
+    "issue_summary": "Populated throws clause of FieldVector, ArrayFieldVector, SparseFieldVector . Added some missing precondition checks. Corrected some mistakes in javadoc.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "8469bc496c0f6f629b0f6406e11bc8ad5a93b0b4",
+    "issue_summary": "document all exceptions in ArrayFieldVector.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "f303bcd4650ac96d88b84dade253fbf4cb407158",
+    "issue_summary": "Cleanup Suggest / Lookup API",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "443f4127282f4b758d4932b8c927aacd14aa2bae",
+    "issue_summary": "in interface FieldVector, replaced throws statements with javadoc comments.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "f0921e844d248366acca73b14097412d6f91e205",
+    "issue_summary": "fill the \"throws\" clause of FieldVector, ArrayFieldVector.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "ffe65f8eaca4ab6705816cc378c241c2ab078bb1",
+    "issue_summary": "fill the \"throws\" clause of RealVector.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "72ae3171beffb53da4b25462e49dd34684d41ba7",
+    "issue_summary": "Trappy behavior with StopFilter/ignoreCase",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "dac1b58277c41d66197bbe2a11cc14a4a406e99c",
+    "issue_summary": "add fieldtypes for different languages to the example",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "5998035a9fafcfb68ffbdc33551b8ed41ab14d4e",
+    "issue_summary": "fill the \"throws\" clause of ArrayFieldVector.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "71469066967dde4c30b14e38a2b1c818c619adcd",
+    "issue_summary": "fill the \"throws\" clause of FieldVector.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "b883dcbc08044687bc037ed2170f18416893f7d0",
+    "issue_summary": "Updated throws declaration for random package (and part of distribution).",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "42b2c861166c05b22de4dcee1bc52bd29a28cfb1",
+    "issue_summary": "First steps, still incomplete. No tests pass or even compile, but core code now compiles. See issue!",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "9e69a3400847abbff912f1848e29d7eee6643f5d",
+    "issue_summary": "Added missing throws declarations. JIRA: .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "6a085c2fa99578b346db5e31d9dfd938b21f6d34",
+    "issue_summary": "Move System.getProperty(type) in postData() to main()",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "ae26b9bf23d2c8924e854a36fa92e454a0e2c6f2",
+    "issue_summary": "Added throws declarations, improved javadoc, made Kurtosis increment consistent with other moment statistics. JIRA: .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "b8f2fb815f7a8f0d97b79dfcb544199ba4a661c6",
+    "issue_summary": "Populate \"throws\" clause.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "ad923872f34675312d7ca774512d2e28e0052501",
+    "issue_summary": "fill the \"throws\" clause of OpenMapRealVector.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "86321681e744be1c1c3192c1e5f7cb1516e79a06",
+    "issue_summary": "Add throw declarations for filter package, javadoc formatting.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "1dd611f794913bee56a0e7089b28861f168b0dce",
+    "issue_summary": "Added throw declarations for package util.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "003f022df47bfb1370514aca3b2cee1a9116f3d7",
+    "issue_summary": "Added throw declarations for FieldElements.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "fa6500fa6caade1741a1f43173ec80e5ebcd4a10",
+    "issue_summary": "restructure codec hierarchy",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "4e7d797b1c33397378de21f83a132ecbf1305b10",
+    "issue_summary": "fill the throws clause of all methods.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "56a22909a1ef737952329dce5149a5b21fc4c2d7",
+    "issue_summary": "populate the throws clause in package o.a.c.m.linear.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "63b736c033cf1c645a2dff04e730b0e72526c3ba",
+    "issue_summary": "Random access non RAM resident IndexDocValues (CSF)",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "9e933debcb82fa645c66d561d2dc4c179390b4e6",
+    "issue_summary": "Populate throws declarations for geometry package.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "e8e94f59360f776d638bc31abed86cc06a1d17a2",
+    "issue_summary": "populate throws declaration for ODE package",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "aa79abed6da00ed31cc208f1e5392b869901033b",
+    "issue_summary": "Populate \"throws\" clause.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "0af91ecfbe4deec846cd30fb32145d82b920a4ff",
+    "issue_summary": "Populate \"throws\" clause.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "issue_summary": "cutover to FieldType",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "a338c7b30998a3aa15dc7e31429e6819e09e7662",
+    "issue_summary": "committing _phillipe_ramalho_3.patch from git-svn-id: https://svn.apache.org/repos/asf/lucene/dev/trunk@1142862 13f79535-47bb-0310-9956-ffa450edef68",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "f81d4ff3a0a38839b415f6ba6699e729fce98245",
+    "issue_summary": "Cleanup ListPopulation class after suggestion from Reid Hochstedler added more sanity checks/exceptions in ctor and setters, unit tests, hide and protect internal representation.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "f63bfec50c1926be86a8cf82e255d0e103a0e2f1",
+    "issue_summary": "reverted vetoed code change about cloning literal arrays",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "64e0d5d213f685c5345fde0e49113a72c716cdc0",
+    "issue_summary": "Removed usage of non-localized error message. Changed exception type.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "3109c12ec8936957d1aba94bafb0f24d0fcac486",
+    "issue_summary": "Changed deprecated MathRuntimeException in package stat.regression JIRA",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "c9369dc298af3ab89ef7252694d7910cd8fb2d6e",
+    "issue_summary": "Changed deprecated MathRuntimeException in package stat.correlation JIRA",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "29cd56b6f41313f758e4b559d1140c68afdd55b3",
+    "issue_summary": "Removed unchecked exceptions from method signatures. See Commons-Dev mailing list http://mail-archives.apache.org/mod_mbox/commons-dev/201201.mbox/%3C20120113105913.GM6537%40dusk.harfang.homelinux.org%3E \"Effective Java, second edition\", item 62.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2689ee367b185f922e963dbbd124a3b2c5c3b27c",
+    "issue_summary": "Removed references to deprecated MathRuntimeException .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2d16e3fe0a1e777db80a265b4adbe8052ae04797",
+    "issue_summary": "Removed references to deprecated MathRuntimeException .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "4cce3340e889eefbb4f4cc7567ce318dc086e4c6",
+    "issue_summary": "Removed references to deprecated MathRuntimeException .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "37d642ec3056d6add8a535e9ef8d47992e3c0ae7",
+    "issue_summary": "Removed references to MathRuntimeException .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "c40763f0c7e7ca488f57f9b67207c1ee2d85ca91",
+    "issue_summary": "Improved accuracy of Runge-Kutta based step interpolators near step start.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "d161d473bbd756de5092b3fab07134415f40eedc",
+    "issue_summary": "Merged PoissonDistribution and PoissonDistributionImpl . Merged TDistribution and TDistributionImpl . Merged WeibullDistribution and WeibullDistributionImpl .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "936b93751740c64ad9c77343e25fc9a97fd5856f",
+    "issue_summary": "Merged BetaDistribution and BetaDistributionImpl .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "b679816a7001ba986618f103a9a9c67ececc7ff8",
+    "issue_summary": "Reintegrate flex_1458 branch into trunk (revision 931101)",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "issue_summary": "Eliminated MathException from distribution interfaces and impls.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "53c19d660aad6db9c5d62272d65c38a53a728325",
+    "issue_summary": "cutover to IndexWriterConfig object for settings to IW",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "b51587f72d25a57dde0fcc65638e449b44f9740e",
+    "issue_summary": "revert while discussions are going on about default analyzer...",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "a6b7c5552ba1158a9833ea607bd89b7fe3ba6ef9",
+    "issue_summary": "better snowball integration, deprecate buggy handcoded snowball impls, restructure lang support",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "4107ac1db878bcf7f952e17beed187c54430f7ad",
+    "issue_summary": "Removed completely MathUserException.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "49b3a12971b2ac03478707c95548c3b44c3dfcd5",
+    "issue_summary": "Added Unicode 4 support to CharTokenizer and its subclasses",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "78d1a613d41367a148c6e57bd9d3af4674b984b6",
+    "issue_summary": "removed MathUserException from transform package",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e9a979f1eb80733756b0467950e1c2cc70b84800",
+    "issue_summary": "Support protected words in stemming TokenFilters using a new KeywordAttribute",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "1de3d116a9b212af4b895535842642603875c6a0",
+    "issue_summary": "removed MathUserException from ODE package",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "c9943deeb977259e44313f611ce271288f0ca282",
+    "issue_summary": "Use the refactored exceptions framework for ODE.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "cdac1f711339a6614fffb085f204fc9ef5ba5b39",
+    "issue_summary": "remove Byte/CharBuffer wrapping for collation key generation",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "7d35aafe71661e51ee01639ddf88503184610329",
+    "issue_summary": "make CMS smarter about prioritizing its threads",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "c5f349b12a6800dc1664317024269596e8b0305f",
+    "issue_summary": "Changed integration API for consistency with solvers API. Now the main convergence parameters are set in the constructor and remain fixed, but a maximal number of function evaluation must be provided at each call to the integration method.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "2ef402eefa101b713f019cb7836e7c264f6d32b6",
+    "issue_summary": "Add a stemmer for Czech",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "62a313f67d40f2cd192b7f5890f0be14f358b390",
+    "issue_summary": "Replaced NullPointerException by NullArgumentException",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "aaddac89926bbb04b7b7ccf77e5e4e662919de77",
+    "issue_summary": "add Version to QueryParser & contrib analyzers",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "d708c9d1019c9db667ca828e1c8ca8e12b035bbe",
+    "issue_summary": "Removed checked exceptions. Some Javadoc cleanup. Tests upgraded to Junit 4 .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "dd9c1b0101fb9fb96eefbaae1a50969baca26abc",
+    "issue_summary": "Remove deprecated charset support from Greek and Russian analyzers",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a28aac9aa8e7288673200c10f33184455937f298",
+    "issue_summary": "Removed occurrences of \"MathException\" in multidimensional interpolator. Replaced \"DimensionMismatchException\" by its unchecked equivalent . I forgot to make those changes as part of . Fixed Javadoc.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "7fff5a7ea7cbc0e01b115705884b9b579989bddf",
+    "issue_summary": "QueryWight back to Weight, but as abstract class rather than interface - explain now takes a Searcher and passes the sub reader that contains the doc if a top level reader is a multi reader.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "bef6c1869977f144c170a751d6a5cb1575d55fdf",
+    "issue_summary": "Removed the checked \"MathException\" from the interpolator interfaces. Updated all affected classes. \"LoessInterpolator\": Replaced usage of \"MathException\" with specific exceptions.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "b6f92546451fecbd207b2d67e0854fe1e8ce27e0",
+    "issue_summary": "Made all new exception classes inherit from \"MathRuntimeException\". Changed accordingly all tests that relied on catching the standard Java exception (e.g. \"MathIllegalArgumentEception\" is not a subclass of \"IllegalArgumentEception\" anymore). Replaced occurrences of the old \"MathRuntimeException\" by the appropriate exception from the \"exception\" package .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "5a9079f2ec8a14ec661604a028b3272c1d95fbdb",
+    "issue_summary": "Pass the number of allowed function evaluations as a parameter to the \"optimize\" methods.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "be66120dffb677ea4ce263282d6fd35956b84e78",
+    "issue_summary": "enable different rewrite methods for MultiTermQuery",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "31a5f0edcc474f739e8392eac7261b9483fc60bf",
+    "issue_summary": "Various improvements to the new TokenStream API.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "b9559bfce972a8b079ebc5ac8b6326a524ce29f8",
+    "issue_summary": "Refactored the \"solvers\" package. Implementations refer to number of evaluation of the objective function (instead of the number of iterations). New interfaces and base classes. \"NewtonSolver\" fits in the design without resorting to a cast. Created class \"MullerSolver2\" to contain the code of the method named \"solve2\" in class \"MullerSolver\". Removed \"UnivariateRealSolverFactory\" and \"UnivariateRealSolverFactoryImpl\". Default solver in \"UnivariateRealSolverUtils\" is explicitely instantiated. \"AbstractContinuousDistribution\": Type of exception thrown changed in \"UnivariateRealSolverUtils\". Factored out duplicate code (in \"GaussNewtonOptimizerTest\" and \"LevenbergMarquardtOptimizerTest\"): class \"Circle\" is now called \"CircleVectorial\". Also factored out the \"Circle\" class from \"NonLinearConjugateGradientOptimizerTest\": class is named \"CircleScalar\". Created \"SecantSolverTest\", moving there all the tests for the class \"SecantSolver\" that were located in class \"BrentSolverTest\". Created new interface and base class for polynomial functions solvers (\"LaguerreSolver\") so that the function type is now checked at compile time. Removed deprecated exceptions . Javadoc clean-up. Lowered tolerance values in some unit tests. Tests upgraded to Junit 4 .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "0b3c388aebe23cde0c7d3afbcd1171c4a8a3f5c5",
+    "issue_summary": "Removed redundant exception \"throws\" clauses. Javadoc cleanup. Throwing \"NoDataException\" instead of \"ZeroException\" when row or column data is missing.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "4f05aa7d181a279ef82b268f9a441b16d5505d70",
+    "issue_summary": "removed FunctionEvaluationException, DerivativeException and MatrixVisitorException these exception were deprecated in 2.2 and a smooth transition path was set up to help users, now all user functions should use the new unchecked MathUserException",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "f03d77b558482b517bc7285f20f9d13075c604be",
+    "issue_summary": "switch from Weight (interface) to QueryWeight (abstract class); mate in/out-of docID order scoring between Collector & Scorer",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "3f353cbde4f98c6a8158d4e597bc211bd050790a",
+    "issue_summary": "Removed occurences of \"FunctionEvaluationException\".",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "09e1c64fe93063b522e75e61162fc2445ac3450f",
+    "issue_summary": "Removed uses of \"FunctionEvaluationException\" and \"MathRuntimeException\".",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "a93e2c41b0669788bcf448ea953a4d6d85ba0640",
+    "issue_summary": "switch next -> nextDoc, skipTo -> advance, doc -> docID in DISI",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "509e239d7028097e90a6d2907aa11889ff029629",
+    "issue_summary": "Fix MMapDirectory, add hack for JVM bug that keeps mmapped files open, fix tests, that cannot use other dir impls than SimpleFSDirectory, some API fine tuning.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "374abec6b138520cbb99935ae20732b95a6adf22",
+    "issue_summary": "Removed deprecated class \"InvalidMatrixException\".",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "c51402208191409d0d94b11f96f7f45fe30240b5",
+    "issue_summary": "split FSDir into base class vs SimpleFSDir; strenghten javadocs on which FSDir subclass is best; add FSDir.open that picks a good default",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "07f166332003e7f0857954ffc5bd3e85ca762f69",
+    "issue_summary": "Removed usage of exceptions defined in the package \"linear\". Added replacements in package \"exception\". Modified tests to catch the new exception type. Deleted the deprecated package \"estimation\" (test failed because of the changes). Deprecated \"MaxIterationsExceededException\". Changes in package \"optimization.general\" were necessary to comply with the new exceptions and to be consistent in reporting the actual cause of failure.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "634e51b50e2000d38498161afcdc7359bae61ce1",
+    "issue_summary": "Created an unchecked \"FunctionEvaluationException\" in package \"exception\". Removed \"throws\" clause from interface \"UnivariateRealFunction\". \"PolynomialFunctionLagrangeForm\": Added early check on the interpolating array having distinct points; removed redundant test in methods \"evaluate\" and \"computeCoefficients\". \"DividedDifferenceInerpolator\": Removed redundant check. \"Mathutils\": Added method \"sortInPlace\". Removed (most) references to the deprecated \"MathRuntimeException\" class. \"optimization.direct\": Removed deprecated classes. Javadoc clean up.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "826fc64e968e5fd84dae5757537ab8ed815e2126",
+    "issue_summary": "Deleted deprecated classes in package \"linear\". Removed redundant methods in \"Array2DRowRealMatrix\". Removed usage of \"MatrixIndexException\" (class is now deprecated). Javadoc clean up.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "ad79d914e48c5c2b0683c8331afffe8187ae4fb2",
+    "issue_summary": "switch to new Collector API",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "1b27e0019e7369fbe4c620af538702682fac2a4a",
+    "issue_summary": "Replaced \"MatrixIndexException\" with \"OutOfRangeException\" or \"DimensionMismatchException\". Removed try/catch blocks misused as preconditions check.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "13ae26b7feae8e62d98c9b4bc34125d20768b1a8",
+    "issue_summary": "Make TrieRange completely independent from Document/Field with TokenStream of prefix encoded values",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "3588581c948d373fc308b97c3b7939d54893a278",
+    "issue_summary": "Cleanup duplicated code in deprecated HighlightingUtils",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "de001e7bcf9acb761047bdcf40f48244f8b63642",
+    "issue_summary": "Removed deprecated code in implementations of \"IntegerDistribution\". Added \"final\" keyword. Added \"sample\" methods to \"IntegerDistribution\" and \"ContinuousDistribution\" interfaces. Cleaned up Javadoc.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "73a02ec6fec6020f819dd462c8ba3a32943c622f",
+    "issue_summary": "Fix for Lucene-1500 - new exception added to Highlighter API to handle TokenStreams with Tokens that exceed given text length",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2c508b8458fe1f8c3506032b4b0a4b6d6230a635",
+    "issue_summary": "Introduced \"MatrixDimensionMismatchException\" to replace \"InvalidMatrixException\" whenever it was used to signal a row or column dimension mismatch. \"MessageFactory\": Fixed wrong order of appearance of general and specific messages.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "aba7e04d4430e2f9786b97d19a22ccb536419687",
+    "issue_summary": "Made intercept/noIntercept configurable in multiple regression classes. JIRA: .",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "7584e481bffc5a5ffb8673b0cb869b56c73d3b87",
+    "issue_summary": "* Modified multiple regression newSample methods to ensure that by default in all cases regression models are estimated with intercept terms. Prior to the fix for this issue newXSampleData(double[][]), newSampleData(double[], double[][]) and newSampleData(double[], double[][], double[][]) all required columns of \"1's\" to be inserted into the x[][] arrays to create a model with an intercept term while newSampleData(double[], int, int) created a model including an intercept term without requiring the unitary column. All methods have been changed to eliminate the need for users to add unitary columns to specify regression models. * Improved javadoc * Improved tests JIRA",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "44f6b8b20f0ed5bf1965ef575b9ad30bd4f8b256",
+    "issue_summary": "(points 1, 2 and 10) Reverted to the original version of the convergence checker (using only the previous and current best points). \"LevenberMarquardtOptimizer\": Removed setters (control parameters must be set at construction). Added a contructor.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "issue_summary": "Overhaul of the \"optimization\" package. Removed lots of duplicate code. Removed methods referring to the concept of \"iteration\". Removed interface methods to access the number of evaluations of the gradient and Jacobian. Removed all references to \"OptimizationException\" (replaced by \"ConvergenceException\"). Javadoc comments updated.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "c15e80eba987c7f43462c8fdd38ac0b86f71a3f1",
+    "issue_summary": "Created \"NullArgumentException\" (subclass of \"MathIllegalArgumentException\"). Changed all occurrences of \"createIllegalArgumentException\" (in \"MathRuntime\") to throw the new exception whenever a \"null\" is not allowed. Added a few checks for null in \"BigFraction.java\". Simplified \"LocalizedFormats\" enum. Changed \"ZeroNotAllowedException\" to \"ZeroException\".",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "issue_summary": "improvements to Token reuse API and full cutover to reuse API for all core and contrib analyzers",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "b309970c3d4244317e6ac2c4fddf22045310eced",
+    "issue_summary": "return empty array instead of null for certain get*s methods in Document",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "92a9c20dc56dddc8710226d40c079fc13ab5331d",
+    "issue_summary": "changed the localization mechanism for error messages. The new system is based on an enum rather than on duplicated string literals. JIRA",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e395be3fafc2c08e40adca9d29cff73bfbc80b3e",
+    "issue_summary": "new CharArraySet, make StopFilter directly use it",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2e3e0829846239f4f1378a81e307ed28b11f9ecc",
+    "issue_summary": "Issues https://issues.apache.org/jira/browse/ https://issues.apache.org/jira/browse/",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "c06cc933b6814a76ecf2c6aef459b61d0bc25fb2",
+    "issue_summary": "changed SVD to compute either compact SVD (using only positive singular values) or truncated SVD (using only singular values up to a user-specified max number) started fix of SVD solver that did not compute a least square solution the fix is not complete yet as it seems the solution does not really gives the smallest possible residuals. See for example the commented out parts of testMath320A in SingularValueSolverTest. JIRA",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "54729a50b67b4cec70bd4879c6876371986b455f",
+    "issue_summary": "allow flushing by ram, doc count, or both (whichever comes first) in IndexWriter",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "68aa14653501d3aa0b67583e585d68bd383d9922",
+    "issue_summary": "Refactored SegmentInfos from IndexReader into the new subclass DirectoryIndexReader.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "d42de329840f0a224fc93e51296d81c34efd4730",
+    "issue_summary": "deprecate Token.termText() & optimize core tokenizers by re-using tokens & TokenStreams",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_commons_text",
+    "repository_url": "https://github.com/apache/commons-text.git",
+    "commit_hash": "36798250bb098a139042d5138ffd02fa07735a6b",
+    "issue_summary": "Add StringLookupFactory.builder() for fencing Path resolution of the file, properties and XML lookups",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4541271b9dc666c0473aebf5d1f9e4b476c10f7b",
+    "issue_summary": "added 3 new exceptions (subclasses of IOException) to better call out possible root causes of an IOException",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "6f30895add887ee992d1ac7bc8c96b7f7bfa69a1",
+    "issue_summary": "Allow supplying KnnSearchStrategy to vector similarity queries",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "9ba7a8e612e933da24c4eae0f927bf2fb6af32b0",
+    "issue_summary": "RAMDirectory.sizeInBytes, public flushRamSegments",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "254945aa32d84588125162a3ed1053e919471c31",
+    "issue_summary": "Decouple locking from Directory",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "issue_summary": "gdata update",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72",
+    "issue_summary": "gdata dev update from Simon 2006-06-06",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "fe86094f2f470ca8b9a89b88bbead673d6386d08",
+    "issue_summary": "Completion FSTs to be loaded off-heap at all times",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "f1667be0fc27f733c6bf4ad0a96fa799278aa501",
+    "issue_summary": "Grant's nw termvector patch (Bug ) applied with some modifications.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "942065cc3e7e3941167ab1ffacbada225d612d79",
+    "issue_summary": "Convert more classes to record classes",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "15bcd46829c8798be03301424aa675e04640522b",
+    "issue_summary": "Add throws clause to query factory methods, allowing subclasses to use for rejecting, etc",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "ffb347eab3c69b8204c8dcdf8baa5824ae2b91a7",
+    "issue_summary": "Fix : primitive wrapper default values",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "96136b42821205e942f21a26c4992530c6909aca",
+    "issue_summary": "Improve document API for stored fields.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5acca826330b2afc15b6a2d5e2134d7d1a64e4a9",
+    "issue_summary": "Reduce bloom filter size by using the optimal count for hash functions.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "d7adffa7bd9f1882ec3db3c431f74d92502049ab",
+    "issue_summary": "Fix : add null checks for ObjectNode keys",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "92e67ec626b32a95145dcc1f7dff8d50f28ae393",
+    "issue_summary": "Rename vector float classes and methods",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "99d0ab645116f87f606f25150a410abcf3c507a1",
+    "issue_summary": "Implement : improve/add number accessors to `JsonNode`",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "91e29405d8e4017e40e613323d6ef8f598167588",
+    "issue_summary": "Deprecate DocValuesFieldExistsQuery, NormsFieldExistsQuery and KnnVectorFieldExistsQuery with FieldExistsQuery",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "9479f3af292591c67162c6972c1d048a2d56106f",
+    "issue_summary": "Yet more work on deprecating JsonMappingException in 3.0; down to ~100",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "eed59609bad45995700b4764b83d35fee66252ee",
+    "issue_summary": "update javadocs wrt 3.0",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "28e28c636fbedba82cba3a4d05477a949c26365c",
+    "issue_summary": "Improve javadocs wrt",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "c4cf7aa3e199c53d9cf9401363b0c65df5c36111",
+    "issue_summary": "more efficient getCommonSuffix/Prefix, and more accurate 'effort limit', instead of precise output state limit, during determinize, for throwing TooComplexToDeterminizeException",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "d669ddebc53845e921bc3703f16aa2c1daef0124",
+    "issue_summary": "Support multi-value fields in range facet counting",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "227256d951accc1b5c9bb554715ee145bce7cf90",
+    "issue_summary": "Set BM25Similarity discountOverlaps via the constructor",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "4f3f4ff8c8fd99c88b5d346f0e1fb7efe5a3db67",
+    "issue_summary": "Add global default settings for setter info (JsonSetter.Value) to allow for default merging. Also MapperFeature to avoid exceptions.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e1cd426bce39abc4345b748d9cff5ff7fe10315f",
+    "issue_summary": "diversity heuristic for HNSW graph neighbor selection",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "4bd13c5da81f5de9c8864a98170f73f9bb681b14",
+    "issue_summary": "Bit more work on property config overrides",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "67f9245ce30bb21d3976c05548856c81cf7ee8a1",
+    "issue_summary": "Optimize CoreContainer.getAllCoreNames and getLoadedCoreNames. Also optimize getCoreDescriptors.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "07d946c11d447ba88b62d28750a33651c897da29",
+    "issue_summary": "Fixed -- and also rewrote the whole type resolution system, which will require cascading changes in various datatype modules",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "7c593b1940fd5026275313db6631e8367aecb2e4",
+    "issue_summary": "Deprecate CDCR",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "40f1c93b492e535a9d1c74579c702a08123f329d",
+    "issue_summary": "Avoid setting explName to true if name is null in POJOPropertyBuilder",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "6bba35a7096ef2d4023ba9339e9cc30268d520ce",
+    "issue_summary": "FST.Arc.BitTable reads directly FST bytes. Arc is lightweight again and FSTEnum traversal faster.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "c0a446b179e8091f84e795ab04c6c3fcc9396ebe",
+    "issue_summary": "LRUStatsCache size explosion and ineffective caching.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+    "issue_summary": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "53f56fb7ad44afab9c78fab2e89737438093247f",
+    "issue_summary": "Move max clause checks to IndexSearcher",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+    "issue_summary": "Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e99934b240cbb197331edc5e1889203e60b3d5d9",
+    "issue_summary": "Adding Http2 equivalent classes of CloudSolrClient and HttpClusterStateProvider",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "2196d97edc152c2b0a8dda2d6ddffe66ab516d81",
+    "issue_summary": "Deprecate junit-jupiter-migrationsupport for removal in 7.0",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "920b68868e6f258b9370996e4371c7ba44061b92",
+    "issue_summary": "Use value references in Javadoc to eliminate duplication",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "c659dd3bf40a266f9fceb0dea94c9c47dd0fdb20",
+    "issue_summary": "Document & enforce preconditions in Events & Executions in Test Kit",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "352ec01a6ef68bc81fdb84a7f72e81a6698f594c",
+    "issue_summary": "UH switch to SpanCollector API. Better accuracy. * Use the filtered freq in position sensitive terms (better scores) * Refactored UH's OffsetsEnum * Improved test randomization in TestUnifiedHighlighter & MTQ",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "8fd7ead940f69a892dfc951a1aa042e8cae806c1",
+    "issue_summary": "SimScorer now only takes a frequency and a norm as per-document scoring factors.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "8013c6a6a2f07463c4f78f295f5652c04554b065",
+    "issue_summary": "Convert Test Kit to a fluent API",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "4db8e8e359cb0a209b7321b5afc3a304e941c9f0",
+    "issue_summary": "Introduce DisplayNameUtils helper",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "ca5f9b34576545f1a51cde1526f42de519989527",
+    "issue_summary": "Make scoring statistics mandatory",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "2f2e00ffe235ba590f43bf07dabd4201e6da53c6",
+    "issue_summary": "Remove spatial-extras dependency on queries module",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "abc393dbfdb805361747ef651393332968851f3d",
+    "issue_summary": "Remove LeafReader.fields in lieu of LeafReader.terms. Optimized MultiFields.getTerms.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e46d39bd5a571522bb2b9ffe97e7e0bca5d9836c",
+    "issue_summary": "Make builder based SolrClient constructors to be the only valid way to construct client objects and increase the visibility of builder elements to be protected so extending the builder, and the clients is possible.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "906679adc80f0fad1e5c311b03023c7bd95633d7",
+    "issue_summary": "LUCENE=7705: Allow CharTokenizer-derived tokenizers and KeywordTokenizer to configure the max token length",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "058276c9e78aa35826da2804b9dfafc43371fac7",
+    "issue_summary": "Provide consistent API in LauncherDiscoveryRequestBuilder regarding nullability",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "decaeffc5566049ca2eee3bf09d8dd911907adcd",
+    "issue_summary": "Store raw path in FileSelector and DirectorySelector",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "d8df9f8c9963c2fc1718fd471316bf5d964125ba",
+    "issue_summary": "Squash-merge from master.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "3a8034e8cd3ee0ecd954806c89cab74fc25e3e70",
+    "issue_summary": "Apply consistent terminology for 'blank' values",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "713b65d1dcc80c1fe147a5bf999e1a88b63b9dce",
+    "issue_summary": "Deprecate ValueSource methods in facets module",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "5d8663dabcd3103dfedae65a64d838246f8230b0",
+    "issue_summary": "Document Preconditions",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "f7aa200d406dbd05a35d6116198302d90b92cb29",
+    "issue_summary": "switch doc values usage to an iterator API, based on DocIdSetIterator, instead of random acces, freeing codecs for future improvements",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "820af2a2969b04c9336d607973a78fd39ac79969",
+    "issue_summary": "Introduce first-class type-safe property path references.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "72914198e60dcaa2008f6945e53e36e1c0053078",
+    "issue_summary": "Speed up conjunctions.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "84bfc04529a989e620a84f4e2f007e00ef17d279",
+    "issue_summary": "Initial draft of Jackson 3 support.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "c7cdf2832bbfbc46d9bfa3cb5041a821fbb7be1d",
+    "issue_summary": "PointValues aggregated stats fail if the provided field does not have points on one of the leaves.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "096836ee808d2cf82caf2efd48cb56271e6ee7c8",
+    "issue_summary": "Add `ValueExpression` infrastructure for query methods.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "eb184669db2666f17372b750dd1d1be1bab3a606",
+    "issue_summary": "Revise `OffsetScrollPosition` to use zero-based indexesAlign Offset Scrolling Position.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "67163d02e3b7cf469a1d71290c7b4a66db07914a",
+    "issue_summary": "Evolve ValueExpressionParser.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e80ab3926c12349f0d7a94bd5021a272b0bc6311",
+    "issue_summary": "fix remaining api issues with XYZPoint classes",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "07342cffb59eddd6cd9d31b931282fffde444a3c",
+    "issue_summary": "Polishing.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "099e0311398cb61f53a1b58ed567053bec4904aa",
+    "issue_summary": "remove all encode/decode hooks from PointRangeQuery",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "c4a324e3cf6652bdb04723b2981c38ab88aa4cfa",
+    "issue_summary": "Introduce support to create domain objects via factory methods.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "7da175b0b6b4185ee6b5df852e59b93d9a9a1c86",
+    "issue_summary": "rename/deprecate numeric classes in favor of dimensional values",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "ddb3a97678fa112292c0f5aed271087a79281d12",
+    "issue_summary": "Make Scorer expose an iterator instead of extending DocIdSetIterator.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "c945fa4f9aedfece83b32605527a11917aabe275",
+    "issue_summary": "Drop own converters in favor of ReactiveAdapterRegistry.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "1d2b81bec89d5899e0019bcbf185001753bef98c",
+    "issue_summary": "Introduce InstantiationAwarePropertyAccessor.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "049970874dca2b648c9d2f3bfdd01f0e8a11de51",
+    "issue_summary": "Introduced usage of nullable annotations for API validation.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "a42e164b3d94edbe55b7599f33d7a85e5ec040ec",
+    "issue_summary": "Fix NumericUtils getMin/Max methods to return null if there are no terms for the specified field",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "92e890703063af1785f4e0400cc3a4c67e731b69",
+    "issue_summary": "Allow Repositories to be composed of an arbitrary number of implementation classes.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "d4811e29d9a95b97dc4ee219ae2de46be93049bb",
+    "issue_summary": "Second draft.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "cc63e5b7a4d505b65e6610ff2b935d98077c9743",
+    "issue_summary": "First draft.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "9c12b35df967c5a5068b2ab4db3ea83daa43dd62",
+    "issue_summary": "Simplify SpanCollector interface",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "feb83a1c8fd2e7670b244d5afd23cba5aca43284",
+    "issue_summary": "Restrict permissions when creating temporary files and directories, or fail if that's not possible.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "2b98d3c1e96b750dc997c29f283084aeb72fb3cf",
+    "issue_summary": "Reannotate `ClassToInstanceMap` and `TypeToInstanceMap` to use `Class<@NonNull ...>`.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "4c6afc5c30fe35a22e8c3534dd6601ff5f84c0a4",
+    "issue_summary": "Allow dedicated control over the access type for properties.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "59bb189b0b06ddaf28c4df833879a645746ca210",
+    "issue_summary": "Defer overlap checking in ImmutableRange{Set,Map}.Builder to the build() call, which matches the behavior in ImmutableMap.Builder and allows significantly faster handling of the case where ranges are inserted in predictable order.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "73e382fa877f80994817a136b0adcc4365ccd904",
+    "issue_summary": "Release Java 8 changes to Guava.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "cfe05dfda3ba79aa1bd3acce6b4e766eb7b9bc00",
+    "issue_summary": "Changes to common.graph. Sorry for the churn, but after this things should be settled down for a while (and we'll be launching v20 soon!). Changes include",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "ceee77fafdc9bdc5e2e6df85e231879c4ab6d755",
+    "issue_summary": "Rename \"Graph\" to \"BasicGraph\". Flip the inheritance hierarchy. Now, BasicGraph<N> extends ValueGraph<N, Presence>.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "660634db9f0aca515d34931e6afa0f032b197918",
+    "issue_summary": "Reduce the memory usage of Networks by roughly 20%. Delete the IncidentNodes class. Remove (unused) equals/hashcode impl from NodeConnections. Additionally, removeEdge() is now O(1) in all cases (used to be O(D) for networks with parallel edges). edgesConnecting() is now O(1) for networks that don\u2019t allow parallel edges (used to be O(D), even though a network without parallel edges cannot return > 1 edge for this method). Created by MOE: https://github.com/google/moe MOE_MIGRATED_REVID=120272801",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "c1c5dae45283129c67eb7d5d2b5b90eff4c92c4c",
+    "issue_summary": "Graph.java: break out mutation- and edge-specific methods into subinterfaces * Network.java: edge-specific methods (extends Graph) * MutableGraph.java: mutation methods for Graph (extends Graph) * MutableNetwork.java: mutation methods for Network (extends Network) Graph<N, E> becomes Graph<N>.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "2bcf189a62275bb23fd92edf4dc72e9ad849a89e",
+    "issue_summary": "Add throwIfUnchecked and throwIfInstanceOf. Created by MOE: https://github.com/google/moe MOE_MIGRATED_REVID=119271623",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "b9731bcb3345be0f9a184fae26c6747351365c90",
+    "issue_summary": "Create an abstract base class for our graph implementations. Eliminate lots of redundant code! Also improves the (currently incorrectly documented) runtime of removeNode() in IncidenceSetUndirectedGraph on multigraphs from O(degree^2) to O(degree). Created by MOE: https://github.com/google/moe MOE_MIGRATED_REVID=114995238",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "248ce9fde9013bb1562b1f1647abc6017c37811d",
+    "issue_summary": "Remove \"SetView\" from all graph implementations. See [] for why it should be killed with fire. In particular, it made the returned Sets have O(N) (in both time and memory) size() and contains() methods, and in one case, O(N^2) iteration!",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "6336404e539bb948caac14b4a00152409c3e7120",
+    "issue_summary": "Automated g4 rollback of changelist 113583321.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "353ae349a24fb6c9b3e233ca03e4012761c7f3d8",
+    "issue_summary": "Rewrite AbstractFuture to fix the following issues",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "5b19db451f68be2d4707174492ecad58467e6983",
+    "issue_summary": "Copy static factory methods from HashCodes to HashCode. Deprecate the old methods in HashCodes. Update usages in com/google/common/hash to use new methods. Move the tests from HashCodesTest to HashCodeTest. Created by MOE: http://code.google.com/p/moe-java MOE_MIGRATED_REVID=50448177",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "81eedd445ecba741fc53b9846c5a2e56e6eeb171",
+    "issue_summary": "Rework exception handling in Futures.get and Futures.getUnchecked. Add ExecutionError, and use it in Futures.get, Futures.getUnchecked, and Cache interface and implementations. Specialize UncheckedExecutionException constructors to accept only Exception, rather than Error, to encourage use of ExecutionError. Fix an unrelated typo in the MapMaker Javadoc.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "87df707d642a3cbf8037678aa4ea4c58c502fe85",
+    "issue_summary": "introduce CacheStats.createExceptionCount",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "46c620d094ef1f7caec153616b421b2f35798829",
+    "issue_summary": "LinkedListMultimap values() and entries() methods now return Lists",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "9773a7573adcb2baf9459966ae9a8fddb47327e4",
+    "issue_summary": "Provide default implementations for various methods in ForwardingMap and ForwardingSortedMap.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "e899c1158b140d6b1dc845dbc16ab9bb04747a2c",
+    "issue_summary": "Provide default implementations of methods as protected methods in Forwarding{Collection,List,Set}.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "issue_summary": "Revision created by MOE tool push_codebase.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "ee071f342edd0f5240dc2667a11e717a3a9395e6",
+    "issue_summary": "Huge new source dump for source release 3, which will also become our first binary release shortly.",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "bbab2ce3c162b244119bdc22a990d7b75fdef0af",
+    "issue_summary": "ARGHGH, guess I was in the wrong directory when submitting... amateurs...",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "621b83eafe8dcddf5c1b108c41051b5917efbbd9",
+    "issue_summary": "Test LocalTime",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "6a5b8bd64e0cc18555c4cfe791f853278e3f24e7",
+    "issue_summary": "Increase test coverage",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "9566157414404c5ea9b4003e4c3bdf334abcd67f",
+    "issue_summary": "Rework InstantConverter to reduce number of methods",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "233ac67186840969dadbc86b371ad15c673ed0ca",
+    "issue_summary": "Add chronology to interval",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "fa310b0723a1c0ded3328bcf150d242ab6cc2e34",
+    "issue_summary": "Add isXxx() methods Optimise by using DateTimeUtils",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "fecb52131ddbfef462a71375fa1124f83c030668",
+    "issue_summary": "Remove null restrictions, javadoc and tidy prior to testing",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "b030ae5c1137496f8cef9cc1579f93e968194c35",
+    "issue_summary": "Update and test durations",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "a7210d05fc3669383277fdf1305d04406bf1b9e0",
+    "issue_summary": "Update from testing",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "534cb58fd7673b3c66b454b43311b22b4bd8d1ab",
+    "issue_summary": "Test MutableDateTime",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "0e07ac6b2cff63550d7df336355ca63cc05aa40b",
+    "issue_summary": "Move from Joda CVS",
+    "current_change_count": 3,
+    "target_reason": "current_merged_change_count_is_3"
+  }
+]

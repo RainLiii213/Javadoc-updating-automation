@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0bd1fcf488e84aee93a4a0d40dd40b51fac68840",
+  "issue_summary": "throw exception for MultiSortedSource instead of returning null",
+  "code_before": "public SortedSource asSortedSource() {\n      return null;\n    }",
+  "code_after": "public SortedSource asSortedSource() {\n      throw new UnsupportedOperationException(\"asSortedSource is not supported\");\n    }",
+  "javadoc_before": "/**\n     * If this {@link Source} is sorted this method will return an instance of\n     * {@link SortedSource} otherwise <code>null</code>\n     */",
+  "javadoc_after": "/**\n     * If this {@link Source} is sorted this method will return an instance of\n     * {@link SortedSource} otherwise <code>UOE</code>\n     */"
+}

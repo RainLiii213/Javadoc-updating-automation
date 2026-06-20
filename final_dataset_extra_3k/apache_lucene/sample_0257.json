@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9dbfa22b82dba84252a30b0c78b25b7bc37a55ed",
+  "issue_summary": "Make IndexWriterConfig setters throw an exception when passed null if null is not a valid value.",
+  "code_before": "public IndexWriterConfig setSimilarity(Similarity similarity) {\n    this.similarity = similarity == null ? IndexSearcher.getDefaultSimilarity() : similarity;\n    return this;\n  }",
+  "code_after": "public IndexWriterConfig setSimilarity(Similarity similarity) {\n    if (similarity == null) {\n      throw new IllegalArgumentException(\"similarity must not be null\");\n    }\n    this.similarity = similarity;\n    return this;\n  }",
+  "javadoc_before": "/**\n   * Expert: set the {@link Similarity} implementation used by this IndexWriter.\n   * <p>\n   * <b>NOTE:</b> the similarity cannot be null. If <code>null</code> is passed,\n   * the similarity will be set to the default implementation (unspecified).\n   *\n   * <p>Only takes effect when IndexWriter is first created. */",
+  "javadoc_after": "/**\n   * Expert: set the {@link Similarity} implementation used by this IndexWriter.\n   * <p>\n   * <b>NOTE:</b> the similarity cannot be null.\n   *\n   * <p>Only takes effect when IndexWriter is first created. */"
+}

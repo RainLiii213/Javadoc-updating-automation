@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8bac549ce35181839740c7e220c4d35e8eb06a66",
+  "issue_summary": "Add getter for reuse strategy to Analyzer, make AnalyzerWrapper's reuse strategy configurable, fix strategy to be stateless",
+  "code_before": "protected AnalyzerWrapper() {\n    super(new PerFieldReuseStrategy());\n  }",
+  "code_after": "@Deprecated\n  protected AnalyzerWrapper() {\n    this(PER_FIELD_REUSE_STRATEGY);\n  }",
+  "javadoc_before": "/**\n   * Creates a new AnalyzerWrapper.  Since the {@link Analyzer.ReuseStrategy} of\n   * the wrapped Analyzers are unknown, {@link Analyzer.PerFieldReuseStrategy} is assumed\n   */",
+  "javadoc_after": "/**\n   * Creates a new AnalyzerWrapper.  Since the {@link Analyzer.ReuseStrategy} of\n   * the wrapped Analyzers are unknown, {@link #PER_FIELD_REUSE_STRATEGY} is assumed.\n   * @deprecated Use {@link #AnalyzerWrapper(Analyzer.ReuseStrategy)}\n   * and specify a valid {@link Analyzer.ReuseStrategy}, probably retrieved from the\n   * wrapped analyzer using {@link #getReuseStrategy()}.\n   */"
+}

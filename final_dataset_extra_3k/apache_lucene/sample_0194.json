@@ -1,0 +1,8 @@
+{
+  "commit_hash": "47bf70812bae1eb6de20cd15624a2ab4d53b0668",
+  "issue_summary": "multiplier to spatial makeDistanceValueSource",
+  "code_before": "public abstract ValueSource makeDistanceValueSource(Point queryPoint);",
+  "code_after": "public ValueSource makeDistanceValueSource(Point queryPoint) {\n    return makeDistanceValueSource(queryPoint, 1.0);\n  }",
+  "javadoc_before": "/**\n   * Make a ValueSource returning the distance between the center of the\n   * indexed shape and {@code queryPoint}.  If there are multiple indexed shapes\n   * then the closest one is chosen.\n   */",
+  "javadoc_after": "/**\n   * See {@link #makeDistanceValueSource(com.spatial4j.core.shape.Point, double)} called with\n   * a multiplier of 1.0 (i.e. units of degrees).\n   */"
+}

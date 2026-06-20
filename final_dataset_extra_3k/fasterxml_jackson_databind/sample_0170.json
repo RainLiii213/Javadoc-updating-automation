@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6b89162eb32a94c5686ed56dc9c8e5a4d1c7e919",
+  "issue_summary": "Trying to make StdDateFormat use Locale, if defined",
+  "code_before": "public static DateFormat getRFC1123Format(TimeZone tz) {\n        return _cloneFormat(DATE_FORMAT_RFC1123, tz);\n    }",
+  "code_after": "@Deprecated\n    public static DateFormat getRFC1123Format(TimeZone tz) {\n        return getRFC1123Format(tz, DEFAULT_LOCALE);\n    }",
+  "javadoc_before": "/**\n     * Method for getting a non-shared DateFormat instance\n     * that uses specific timezone and can handle RFC-1123\n     * compliant date format.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.4; use variant that takes Locale\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0b04251bbe19445f7d5f8244c455c07329f09818",
+  "issue_summary": "PersistentEntities are not held in cache if verify() fails.",
+  "code_before": "void verify();",
+  "code_after": "void verify() throws MappingException;",
+  "javadoc_before": "/**\n\t * Callback method to trigger validation of the {@link PersistentEntity}. As {@link MutablePersistentEntity} is not\n\t * immutable there might be some verification steps necessary after the object has reached is final state.\n\t */",
+  "javadoc_after": "/**\n\t * Callback method to trigger validation of the {@link PersistentEntity}. As {@link MutablePersistentEntity} is not\n\t * immutable there might be some verification steps necessary after the object has reached is final state.\n\t * \n\t * @throws MappingException in case the entity is invalid\n\t */"
+}

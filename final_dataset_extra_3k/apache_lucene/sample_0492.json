@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+  "issue_summary": "cutover to FieldType",
+  "code_before": "@Deprecated\n  public final Field getField(String name) {\n    return (Field) getFieldable(name);\n  }",
+  "code_after": "public final IndexableField getField(String name) {\n    for (IndexableField field : fields) {\n      if (field.name().equals(name)) {\n        return field;\n      }\n    }\n    return null;\n  }",
+  "javadoc_before": "/** Returns a field with the given name if any exist in this document, or\n   * null.  If multiple fields exists with this name, this method returns the\n   * first value added.\n   * Do not use this method with lazy loaded fields or {@link NumericField}.\n   * @deprecated use {@link #getFieldable} instead and cast depending on\n   * data type.\n   * @throws ClassCastException if you try to retrieve a numerical or\n   * lazy loaded field.\n   */",
+  "javadoc_after": "/** Returns a field with the given name if any exist in this document, or\n   * null.  If multiple fields exists with this name, this method returns the\n   * first value added.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fd16190940d7495e985f44ce7504562c8bbc91e6",
+  "issue_summary": "clean up redundant throws clauses",
+  "code_before": "public static DirectoryReader open(final Directory directory) throws CorruptIndexException, IOException {\n    return StandardDirectoryReader.open(directory, null, DEFAULT_TERMS_INDEX_DIVISOR);\n  }",
+  "code_after": "public static DirectoryReader open(final Directory directory) throws IOException {\n    return StandardDirectoryReader.open(directory, null, DEFAULT_TERMS_INDEX_DIVISOR);\n  }",
+  "javadoc_before": "/** Returns a IndexReader reading the index in the given\n   *  Directory\n   * @param directory the index directory\n   * @throws CorruptIndexException if the index is corrupt\n   * @throws IOException if there is a low-level IO error\n   */",
+  "javadoc_after": "/** Returns a IndexReader reading the index in the given\n   *  Directory\n   * @param directory the index directory\n   * @throws IOException if there is a low-level IO error\n   */"
+}

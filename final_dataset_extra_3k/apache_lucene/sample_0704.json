@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ec88b1578dd8a6d53c4b18ad8ca5f4ad6803de02",
+  "issue_summary": "make Query.createQueryWeight optional, with default impl to wrap existing createWeight",
+  "code_before": "public QueryWeight createQueryWeight(Searcher searcher) throws IOException {\n    throw new UnsupportedOperationException();\n  }",
+  "code_after": "public QueryWeight createQueryWeight(Searcher searcher) throws IOException {\n    return new QueryWeightWrapper(weight(searcher));\n  }",
+  "javadoc_before": "/**\n   * Expert: Constructs an appropriate {@link QueryWeight} implementation for\n   * this query.\n   * \n   * <p>\n   * Only implemented by primitive queries, which re-write to themselves.\n   */",
+  "javadoc_after": "/**\n   * Expert: Constructs an appropriate {@link QueryWeight} implementation for\n   * this query.\n   * <p>\n   * Only implemented by primitive queries, which re-write to themselves.\n   * <p>\n   * <b>NOTE:</b> in 3.0 this method will throw\n   * {@link UnsupportedOperationException}. It is implemented now by calling\n   * {@link #createWeight(Searcher)} for backwards compatibility, for\n   * {@link Query} implementations that did not override it yet (but did\n   * override {@link #createWeight(Searcher)}).\n   */"
+}

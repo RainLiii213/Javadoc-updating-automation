@@ -1,0 +1,8 @@
+{
+  "commit_hash": "89662b14ef9092fdecf812c8fc7d18e7de1dd0a5",
+  "issue_summary": "Fixed",
+  "code_before": "public abstract AnnotatedMember findAnySetterField();",
+  "code_after": "@Deprecated\n    public AnnotatedMember findAnySetterField() {\n        AnnotatedMember m = findAnySetterAccessor();\n        if (m instanceof AnnotatedField) {\n            return m;\n        }\n        return null;\n    }",
+  "javadoc_before": "/**\n     * Method used to locate the field of the class that implements\n     * {@link com.fasterxml.jackson.annotation.JsonAnySetter} If no such method\n     * exists null is returned. If more than one are found, an exception is thrown.\n     * \n     * @since 2.8\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.9: use {@link #findAnySetterAccessor} instead\n     */"
+}

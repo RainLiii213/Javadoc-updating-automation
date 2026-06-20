@@ -1,0 +1,8 @@
+{
+  "commit_hash": "07342cffb59eddd6cd9d31b931282fffde444a3c",
+  "issue_summary": "Polishing.",
+  "code_before": "TypeInformation<? extends S> specialize(ClassTypeInformation<?> type);",
+  "code_after": "@Deprecated\n\tdefault TypeInformation<? extends S> specialize(ClassTypeInformation<?> type) {\n\t\treturn specialize((TypeInformation<?>) type);\n\t}",
+  "javadoc_before": "/**\n\t * Specializes the given (raw) {@link ClassTypeInformation} using the context of the current potentially parameterized\n\t * type, basically turning the given raw type into a parameterized one. Will return the given type as is if no\n\t * generics are involved.\n\t *\n\t * @param type must not be {@literal null}.\n\t * @return will never be {@literal null}.\n\t */",
+  "javadoc_after": "/**\n\t * Specializes the given (raw) {@link ClassTypeInformation} using the context of the current potentially parameterized\n\t * type, basically turning the given raw type into a parameterized one. Will return the given type as is if no\n\t * generics are involved.\n\t *\n\t * @param type must not be {@literal null}.\n\t * @return will never be {@literal null}.\n\t * @deprecated since 3.0. Use {@link #specialize(TypeInformation)} instead, i.e. switch the given parameter's type to\n\t *             {@link TypeInformation} in the first place.\n\t */"
+}

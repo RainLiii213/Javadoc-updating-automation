@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a2e8a95f6aedf44953833f39b7128d40a3b04370",
+  "issue_summary": "Fix infinite loop on wrong argument in MathUtil.log",
+  "code_before": "public static int log(long x, int base) {\n    assert base > 1;\n    int ret = 0;\n    while (x >= base) {\n      x /= base;\n      ret++;\n    }\n    return ret;\n  }",
+  "code_after": "public static int log(long x, int base) {\n    if (base <= 1) {\n      throw new IllegalArgumentException(\"base must be > 1\");\n    }\n    int ret = 0;\n    while (x >= base) {\n      x /= base;\n      ret++;\n    }\n    return ret;\n  }",
+  "javadoc_before": "/** returns x == 0 ? 0 : Math.floor(Math.log(x) / Math.log(base)) */",
+  "javadoc_after": "/**\n   * Returns {@code x <= 0 ? 0 : Math.floor(Math.log(x) / Math.log(base))}\n   * @param base must be {@code > 1}\n   */"
+}

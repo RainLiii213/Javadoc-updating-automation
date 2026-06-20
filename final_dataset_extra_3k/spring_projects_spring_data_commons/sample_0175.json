@@ -1,0 +1,8 @@
+{
+  "commit_hash": "583a60baedb135c0f2db8aae8117b2817320a97e",
+  "issue_summary": "Improved working with getters and setters for PersistentProperty.",
+  "code_before": "public Object getProperty(PersistentProperty<?> property) throws IllegalAccessException, InvocationTargetException {\n\t\treturn getProperty(property, property.getType(), false);\n\t}",
+  "code_after": "public Object getProperty(PersistentProperty<?> property) {\n\t\treturn getProperty(property, property.getType(), false);\n\t}",
+  "javadoc_before": "/**\n\t * Returns the value of the given {@link PersistentProperty} of the underlying bean instance.\n\t * \n\t * @param <S>\n\t * @param property\n\t * @return\n\t * @throws IllegalAccessException\n\t * @throws InvocationTargetException\n\t */",
+  "javadoc_after": "/**\n\t * Returns the value of the given {@link PersistentProperty} of the underlying bean instance.\n\t * \n\t * @param <S>\n\t * @param property\n\t * @return\n\t */"
+}

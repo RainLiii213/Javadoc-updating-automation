@@ -1,0 +1,21 @@
+{
+  "project_slug": "apache_lucene",
+  "repository_name": "apache/lucene",
+  "repository_url": "https://github.com/apache/lucene.git",
+  "retained_samples": 911,
+  "source_folder": "dataset_apache_lucene_extra_3k_911_20260618133216",
+  "final_folder": "final_dataset_extra_3k/apache_lucene",
+  "mined_at_utc": "2026-06-18T13:32:16+00:00",
+  "commits_scanned": 22341,
+  "candidate_samples_found": 1290,
+  "filtered_samples": 348,
+  "discarded_truncated_code_context": 2,
+  "moved_to_review": 31,
+  "discarded_weak_inheritdoc": 0,
+  "issue_summary_fallbacks": 7,
+  "duplicate_against_baseline": 0,
+  "duplicate_inside_new_dataset": 0,
+  "complete_history": true,
+  "stop_reason": "full_history_scanned",
+  "skipped_previously_scanned_commits": 16937
+}

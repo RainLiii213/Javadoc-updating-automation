@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f047743cfa4edbfef76a1e32dadbfc650ee6781d",
+  "issue_summary": "Rebuild quotation index from rewritten SpEL query.",
+  "code_before": "public boolean isQuoted(int index) {\n\t\t\treturn quotedRanges.stream().anyMatch(r -> r.contains(index));\n\t\t}",
+  "code_after": "public boolean isQuoted(int index) {\n\t\t\treturn quotations.isQuoted(index);\n\t\t}",
+  "javadoc_before": "/**\n\t\t * Checks if a given index is within a quoted range.\n\t\t *\n\t\t * @param index to check if it is part of a quoted range.\n\t\t * @return whether the query contains a quoted range at {@literal index}.\n\t\t */",
+  "javadoc_after": "/**\n\t\t * Return whether the {@link #getQueryString() query} at {@code index} is quoted.\n\t\t *\n\t\t * @param index\n\t\t * @return {@literal true} if quoted; {@literal false} otherwise.\n\t\t */"
+}

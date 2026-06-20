@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ce303c347e42b606ce51eaf72294dabf19a0ae72",
+  "issue_summary": "Support \"Test*\" prefix for test class names by default",
+  "code_before": "String[] value() default \"^.*Tests?$\";",
+  "code_after": "String[] value() default \"^(Test.*|.+[.$]Test.*|.*Tests?)$\";",
+  "javadoc_before": "/**\n\t * Regular expressions used to match against fully qualified class names.\n\t *\n\t * <p>Defaults to {@code \"^.*Tests?$\"} which matches against class names\n\t * ending in {@code Test} or {@code Tests} (in any package).\n\t */",
+  "javadoc_after": "/**\n\t * Regular expressions used to match against fully qualified class names.\n\t *\n\t * <p>The default pattern matches against classes whose names either begin\n\t * with {@code Test} or end with {@code Test} or {@code Tests} (in any package).\n\t */"
+}

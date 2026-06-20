@@ -1,0 +1,8 @@
+{
+  "commit_hash": "54729a50b67b4cec70bd4879c6876371986b455f",
+  "issue_summary": "allow flushing by ram, doc count, or both (whichever comes first) in IndexWriter",
+  "code_before": "public void setMaxBufferedDeleteTerms(int maxBufferedDeleteTerms) {\n    ensureOpen();\n    docWriter.setMaxBufferedDeleteTerms(maxBufferedDeleteTerms);\n  }",
+  "code_after": "public void setMaxBufferedDeleteTerms(int maxBufferedDeleteTerms) {\n    ensureOpen();\n    if (maxBufferedDeleteTerms != DISABLE_AUTO_FLUSH\n        && maxBufferedDeleteTerms < 1)\n      throw new IllegalArgumentException(\n          \"maxBufferedDeleteTerms must at least be 1 when enabled\");\n    docWriter.setMaxBufferedDeleteTerms(maxBufferedDeleteTerms);\n  }",
+  "javadoc_before": "/**\n   * <p>Determines the minimal number of delete terms required before the buffered\n   * in-memory delete terms are applied and flushed. If there are documents\n   * buffered in memory at the time, they are merged and a new segment is\n   * created.</p>\n\n   * <p>The default value is {@link #DEFAULT_MAX_BUFFERED_DELETE_TERMS}.\n   * @throws IllegalArgumentException if maxBufferedDeleteTerms is smaller than 1</p>\n   */",
+  "javadoc_after": "/**\n   * <p>Determines the minimal number of delete terms required before the buffered\n   * in-memory delete terms are applied and flushed. If there are documents\n   * buffered in memory at the time, they are merged and a new segment is\n   * created.</p>\n\n   * <p>Disabled by default (writer flushes by RAM usage).</p>\n   * \n   * @throws IllegalArgumentException if maxBufferedDeleteTerms\n   * is enabled but smaller than 1\n   * @see #setRAMBufferSizeMB\n   */"
+}

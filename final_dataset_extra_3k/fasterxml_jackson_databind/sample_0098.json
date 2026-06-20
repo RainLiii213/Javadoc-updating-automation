@@ -1,0 +1,8 @@
+{
+  "commit_hash": "01ed12c853f234f3731095c6cc32265c0aa6d799",
+  "issue_summary": "More work on #2195",
+  "code_before": "public ObjectMapper enableDefaultTyping() {\n        return enableDefaultTyping(DefaultTyping.OBJECT_AND_NON_CONCRETE);\n    }",
+  "code_after": "@Deprecated\n    public ObjectMapper enableDefaultTyping() {\n        return enableDefaultTyping(getPolymorphicTypeValidator());\n    }",
+  "javadoc_before": "/**\n     * Convenience method that is equivalent to calling\n     *<pre>\n     *  enableDefaultTyping(DefaultTyping.OBJECT_AND_NON_CONCRETE);\n     *</pre>\n     *<p>\n     * NOTE: use of Default Typing can be a potential security risk if incoming\n     * content comes from untrusted sources, and it is recommended that this\n     * is either not done, or, if enabled, use {@link #setDefaultTyping}\n     * passing a custom {@link TypeResolverBuilder} implementation that white-lists\n     * legal types to use.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.10 use {@link #enableDefaultTyping(PolymorphicTypeValidator)} instead\n     */"
+}

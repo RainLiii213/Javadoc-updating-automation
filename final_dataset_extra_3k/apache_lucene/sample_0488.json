@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4c5606ee29e767db929999d906a66e9db32d7c68",
+  "issue_summary": "Converted most Analyzers over to using ReusableAnalyzerBase",
+  "code_before": "protected boolean reset(final Reader reader) throws IOException {\n      source.reset(reader);\n      return true;\n    }",
+  "code_after": "protected void reset(final Reader reader) throws IOException {\n      source.reset(reader);\n    }",
+  "javadoc_before": "/**\n     * Resets the encapsulated components with the given reader. This method by\n     * default returns <code>true</code> indicating that the components have\n     * been reset successfully. Subclasses of {@link ReusableAnalyzerBase} might use\n     * their own {@link TokenStreamComponents} returning <code>false</code> if\n     * the components cannot be reset.\n     * \n     * @param reader\n     *          a reader to reset the source component\n     * @return <code>true</code> if the components were reset, otherwise\n     *         <code>false</code>\n     * @throws IOException\n     *           if the component's reset method throws an {@link IOException}\n     */",
+  "javadoc_after": "/**\n     * Resets the encapsulated components with the given reader. If the components\n     * cannot be reset, an Exception should be thrown.\n     * \n     * @param reader\n     *          a reader to reset the source component\n     * @throws IOException\n     *           if the component's reset method throws an {@link IOException}\n     */"
+}

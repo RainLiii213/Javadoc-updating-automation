@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1cd7e93ab1fbd610a3b552d8295d8e565adeecb2",
+  "issue_summary": "Fix for - Files over 2GB will result in an incorrect count being returned by the getCount() and resetCount() methods (as they return an integer). These methods have been deprecated and new getByteCount() and resetByteCount() methods have been added which return a long.",
+  "code_before": "public int getCount() {\n        return this.count;\n    }",
+  "code_after": "public int getCount() {\n        return (int)getByteCount();\n    }",
+  "javadoc_before": "/**\n     * The number of bytes that have passed through this stream.\n     *\n     * @return the number of bytes accumulated\n     */",
+  "javadoc_after": "/**\n     * The number of bytes that have passed through this stream.\n     * <p>\n     * <strong>WARNING</strong> This method will return an\n     * incorrect count for files over 2GB - use\n     * <code>getByteCount()</code> instead.\n     *\n     * @return the number of bytes accumulated\n     * @deprecated use <code>getByteCount()</code> - see issue IO-84\n     */"
+}

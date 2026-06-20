@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a43843701d9dbf790f9104a2ce1f6f38e98e8370",
+  "issue_summary": "Add optional collection parameter to all SolrClient methods",
+  "code_before": "public SolrDocument getById(String id, SolrParams params) throws SolrServerException, IOException {\n    SolrDocumentList docs = getById(Arrays.asList(id), params);\n    if (!docs.isEmpty()) {\n      return docs.get(0);\n    }\n    return null;\n  }",
+  "code_after": "public SolrDocument getById(String id, SolrParams params) throws SolrServerException, IOException {\n    return getById(null, id, params);\n  }",
+  "javadoc_before": "/**\n   * Retrieves the SolrDocument associated with the given identifier and uses\n   * the SolrParams to execute the request.\n   *\n   * @return retrieved SolrDocument, null if no document is found.\n   */",
+  "javadoc_after": "/**\n   * Retrieves the SolrDocument associated with the given identifier and uses\n   * the SolrParams to execute the request.\n   *\n   * @param id the id\n   * @param params additional parameters to add to the query\n   *\n   * @return retrieved SolrDocument, or null if no document is found.\n   *\n   * @throws IOException If there is a low-level I/O error.\n   * @throws SolrServerException if there is an error on the server\n   */"
+}

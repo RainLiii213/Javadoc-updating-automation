@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4c6afc5c30fe35a22e8c3534dd6601ff5f84c0a4",
+  "issue_summary": "Allow dedicated control over the access type for properties.",
+  "code_before": "public static <E extends PersistentEntity<T, ?>, T> BeanWrapper<E, T> create(T bean,\n\t\t\tConversionService conversionService) {\n\t\treturn new BeanWrapper<E, T>(bean, conversionService);\n\t}",
+  "code_after": "public static <E extends PersistentEntity<T, ?>, T> BeanWrapper<E, T> create(T bean,\n\t\t\tConversionService conversionService) {\n\n\t\tAssert.notNull(bean, \"Wrapped instance must not be null!\");\n\n\t\treturn new BeanWrapper<E, T>(bean, conversionService);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link BeanWrapper} for the given bean instance and {@link ConversionService}. If\n\t * {@link ConversionService} is {@literal null} no property type conversion will take place.\n\t * \n\t * @param <E>\n\t * @param <T>\n\t * @param bean must not be {@literal null}\n\t * @param conversionService\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link BeanWrapper} for the given bean instance and {@link ConversionService}. If\n\t * {@link ConversionService} is {@literal null} no property type conversion will take place.\n\t * \n\t * @param <E>\n\t * @param <T>\n\t * @param bean must not be {@literal null}.\n\t * @param conversionService can be {@literal null}.\n\t * @return\n\t */"
+}

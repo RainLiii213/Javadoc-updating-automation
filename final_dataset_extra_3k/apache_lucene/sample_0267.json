@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3f8993715bac570c137af771621410cf3cebf375",
+  "issue_summary": "rename FacetIndexingParams.ALL_PARENTS to DEFAULT",
+  "code_before": "public FacetSearchParams(FacetRequest... facetRequests) {\n    this(FacetIndexingParams.ALL_PARENTS, Arrays.asList(facetRequests));\n  }",
+  "code_after": "public FacetSearchParams(FacetRequest... facetRequests) {\n    this(FacetIndexingParams.DEFAULT, Arrays.asList(facetRequests));\n  }",
+  "javadoc_before": "/**\n   * Initializes with the given {@link FacetRequest requests} and default\n   * {@link FacetIndexingParams#ALL_PARENTS}. If you used a different\n   * {@link FacetIndexingParams}, you should use\n   * {@link #FacetSearchParams(FacetIndexingParams, List)}.\n   */",
+  "javadoc_after": "/**\n   * Initializes with the given {@link FacetRequest requests} and default\n   * {@link FacetIndexingParams#DEFAULT}. If you used a different\n   * {@link FacetIndexingParams}, you should use\n   * {@link #FacetSearchParams(FacetIndexingParams, List)}.\n   */"
+}

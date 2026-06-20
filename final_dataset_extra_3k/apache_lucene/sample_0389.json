@@ -1,0 +1,8 @@
+{
+  "commit_hash": "872f71e0d93a5fe65fa0b75953ca95ae661291cc",
+  "issue_summary": "move httpclient details into a utility class, improve javadocs",
+  "code_before": "public void setSoTimeout(int timeout) {\n    HttpConnectionParams.setSoTimeout(httpClient.getParams(), timeout);\n  }",
+  "code_after": "public void setSoTimeout(int timeout) {\n    HttpClientUtil.setSoTimeout(httpClient, timeout);\n  }",
+  "javadoc_before": "/**\n   * Sets HttpConnectionParams.setSoTimeout (read timeout). This is desirable\n   * for queries, but probably not for indexing.\n   * \n   * @param timeout\n   *          Timeout in milliseconds\n   **/",
+  "javadoc_after": "/**\n   * Set SoTimeout (read timeout). This is desirable\n   * for queries, but probably not for indexing.\n   * \n   * @param timeout\n   *          Timeout in milliseconds\n   **/"
+}

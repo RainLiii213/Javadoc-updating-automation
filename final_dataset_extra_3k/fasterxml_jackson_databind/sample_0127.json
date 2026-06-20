@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6519db34cb56dc2f9a2d885d11c50e14de02681e",
+  "issue_summary": "simplify type handling for virtual members",
+  "code_before": "public VirtualAnnotatedMember(TypeResolutionContext typeContext, Class<?> declaringClass,\n            String name, Class<?> rawType)\n    {\n        super(typeContext, /* AnnotationMap*/ null);\n        _declaringClass = declaringClass;\n        _rawType = rawType;\n        _name = name;\n    }",
+  "code_after": "@Deprecated\n    public VirtualAnnotatedMember(TypeResolutionContext typeContext, Class<?> declaringClass,\n            String name, Class<?> rawType) {\n        this(typeContext, declaringClass, name, typeContext.resolveType(rawType));\n    }",
+  "javadoc_before": "/**********************************************************\n    /* Life-cycle\n    /**********************************************************\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.8\n     */"
+}

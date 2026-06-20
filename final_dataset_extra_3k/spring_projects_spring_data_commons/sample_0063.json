@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c4a324e3cf6652bdb04723b2981c38ab88aa4cfa",
+  "issue_summary": "Introduce support to create domain objects via factory methods.",
+  "code_before": "public boolean isConstructorParameter(PersistentProperty<?> property) {\n\n\t\tAssert.notNull(property, \"Property must not be null!\");\n\n\t\tvar cached = isPropertyParameterCache.get(property);\n\n\t\tif (cached != null) {\n\t\t\treturn cached;\n\t\t}\n\n\t\tvar result = false;\n\t\tfor (Parameter<?, P> parameter : parameters) {\n\t\t\tif (parameter.maps(property)) {\n\t\t\t\tresult = true;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\n\t\tisPropertyParameterCache.put(property, result);\n\n\t\treturn result;\n\t}",
+  "code_after": "@Deprecated\n\tpublic boolean isConstructorParameter(PersistentProperty<?> property) {\n\t\treturn isCreatorParameter(property);\n\t}",
+  "javadoc_before": "/**\n\t * Returns whether the given {@link PersistentProperty} is referenced in a constructor argument of the\n\t * {@link PersistentEntity} backing this {@link PreferredConstructor}.\n\t * <p>\n\t * Results of this call are cached and reused on the next invocation. Calling this method for a\n\t * {@link PersistentProperty} that was not yet added to its owning {@link PersistentEntity} will capture that state\n\t * and return the same result after adding {@link PersistentProperty} to its entity.\n\t *\n\t * @param property must not be {@literal null}.\n\t * @return {@literal true} if the {@link PersistentProperty} is used in the constructor.\n\t */",
+  "javadoc_after": "/**\n\t * @param property\n\t * @return\n\t * @deprecated since 3.0, use {@link #isCreatorParameter(PersistentProperty)} instead.\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e9a586677731eb6634f731c63a81012b9db46390",
+  "issue_summary": "call clear when reusing token, change clear to only resent essential fields, re-add Token.clone()",
+  "code_before": "public void clear() {\n    payload = null;\n    // Leave termBuffer to allow re-use\n    termLength = 0;\n    termText = null;\n    positionIncrement = 1;\n    startOffset = endOffset = 0;\n    type = DEFAULT_TYPE;\n  }",
+  "code_after": "public void clear() {\n    payload = null;\n    // Leave termBuffer to allow re-use\n    termLength = 0;\n    termText = null;\n    positionIncrement = 1;\n    // startOffset = endOffset = 0;\n    // type = DEFAULT_TYPE;\n  }",
+  "javadoc_before": "/** Reset all state for this token back to defaults. */",
+  "javadoc_after": "/** Resets the term text, payload, and positionIncrement to default.\n   * Other fields such as startOffset, endOffset and the token type are\n   * not reset since they are normally overwritten by the tokenizer. */"
+}

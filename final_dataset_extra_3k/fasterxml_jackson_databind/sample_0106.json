@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b3542d2cfb5dd0551711b980d4b7ca075ebb6106",
+  "issue_summary": "Simplify `VisibilityChecker` (see if it can be further merged with `@JsonAutoDetect.Value`)",
+  "code_before": "public T withOverrides(JsonAutoDetect.Value vis);",
+  "code_after": "public VisibilityChecker withOverrides(JsonAutoDetect.Value vis)\n    {\n        if (vis == null) {\n            return this;\n        }\n        return _with(\n                _defaultOrOverride(_fieldMinLevel, vis.getFieldVisibility()),\n                _defaultOrOverride(_getterMinLevel, vis.getGetterVisibility()),\n                _defaultOrOverride(_isGetterMinLevel, vis.getIsGetterVisibility()),\n                _defaultOrOverride(_setterMinLevel, vis.getSetterVisibility()),\n                _defaultOrOverride(_creatorMinLevel, vis.getCreatorVisibility()),\n                _defaultOrOverride(_scalarConstructorMinLevel, vis.getScalarConstructorVisibility())\n                );\n    }",
+  "javadoc_before": "/**\n     * Method that can be used for merging default values from `this`\n     * instance with specified overrides; and either return `this`\n     * if overrides had no effect (that is, result would be equal),\n     * or a new instance with merged visibility settings.\n     */",
+  "javadoc_after": "/**********************************************************************\n    /* Mutant factories\n    /**********************************************************************\n     */"
+}

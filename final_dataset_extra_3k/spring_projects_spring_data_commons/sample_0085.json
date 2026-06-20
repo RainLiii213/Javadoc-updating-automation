@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c945fa4f9aedfece83b32605527a11917aabe275",
+  "issue_summary": "Drop own converters in favor of ReactiveAdapterRegistry.",
+  "code_before": "public static Collection<Class<?>> getMultiValueTypes() {\n\n\t\treturn REACTIVE_WRAPPERS.stream()//\n\t\t\t\t.filter(ReactiveTypeDescriptor::isMultiValue)//\n\t\t\t\t.map(ReactiveTypeDescriptor::getReactiveType)//\n\t\t\t\t.collect(Collectors.toList());\n\t}",
+  "code_after": "@Deprecated\n\tpublic static Collection<Class<?>> getMultiValueTypes() {\n\t\treturn Collections.emptyList();\n\t}",
+  "javadoc_before": "/**\n\t * Returns a collection of multi-value wrapper types.\n\t *\n\t * @return a collection of multi-value wrapper types.\n\t */",
+  "javadoc_after": "/**\n\t * Returns a collection of multi-value wrapper types.\n\t *\n\t * @return a collection of multi-value wrapper types.\n\t * @deprecated not supported anymore.\n\t */"
+}

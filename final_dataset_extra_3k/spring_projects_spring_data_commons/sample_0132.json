@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f93d2df4f1b83713b84a45113fe01dcce100e0ba",
+  "issue_summary": "Support for downcasts in Querydsl web bindings.",
+  "code_before": "PropertyPath getPropertyPath(String path, TypeInformation<?> type) {\n\n\t\tAssert.notNull(path, \"Path must not be null!\");\n\n\t\tif (!isPathVisible(path)) {\n\t\t\treturn null;\n\t\t}\n\n\t\tif (pathSpecs.containsKey(path)) {\n\t\t\treturn PropertyPath.from(toDotPath(pathSpecs.get(path).getPath()), type);\n\t\t}\n\n\t\ttry {\n\t\t\tPropertyPath propertyPath = PropertyPath.from(path, type);\n\t\t\treturn isPathVisible(propertyPath) ? propertyPath : null;\n\t\t} catch (PropertyReferenceException o_O) {\n\t\t\treturn null;\n\t\t}\n\t}",
+  "code_after": "PathInformation getPropertyPath(String path, TypeInformation<?> type) {\n\n\t\tAssert.notNull(path, \"Path must not be null!\");\n\t\tAssert.notNull(type, \"Type information must not be null!\");\n\n\t\tif (!isPathVisible(path)) {\n\t\t\treturn null;\n\t\t}\n\n\t\tif (pathSpecs.containsKey(path)) {\n\t\t\treturn QuerydslPathInformation.of(pathSpecs.get(path).getPath());\n\t\t}\n\n\t\ttry {\n\t\t\tPathInformation propertyPath = PropertyPathInformation.of(path, type);\n\t\t\treturn isPathVisible(propertyPath) ? propertyPath : null;\n\t\t} catch (PropertyReferenceException o_O) {\n\t\t\treturn null;\n\t\t}\n\t}",
+  "javadoc_before": "/**\n\t * @param path\n\t * @param type\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Returns the {@link PathInformation} for the given path and {@link TypeInformation}.\n\t * \n\t * @param path must not be {@literal null}.\n\t * @param type must not be {@literal null}.\n\t * @return\n\t */"
+}

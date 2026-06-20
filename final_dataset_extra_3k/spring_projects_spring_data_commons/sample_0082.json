@@ -1,0 +1,8 @@
+{
+  "commit_hash": "93c708379e2c12bb976b3cc8c1f455f57a74d9a9",
+  "issue_summary": "Address review comments.",
+  "code_before": "public static boolean isSupportedKotlinClass(Class<?> type) {\n\n\t\tif (!isKotlinClass(type)) {\n\t\t\treturn false;\n\t\t}\n\n\t\treturn Arrays.stream(type.getDeclaredAnnotations()) //\n\t\t\t\t.filter(annotation -> annotation.annotationType().getName().equals(\"kotlin.Metadata\")) //\n\t\t\t\t.map(annotation -> AnnotationUtils.getValue(annotation, \"k\")) //\n\t\t\t\t.anyMatch(it -> Integer.valueOf(KOTLIN_KIND_CLASS).equals(it));\n\t}",
+  "code_after": "@Deprecated\n\tpublic static boolean isSupportedKotlinClass(Class<?> type) {\n\t\treturn KotlinReflectionUtils.isSupportedKotlinClass(type);\n\t}",
+  "javadoc_before": "/**\n\t * Return {@literal true} if the specified class is a supported Kotlin class. Currently supported are only regular\n\t * Kotlin classes. Other class types (synthetic, SAM, lambdas) are not supported via reflection.\n\t *\n\t * @return {@literal true} if {@code type} is a supported Kotlin class.\n\t * @since 2.0\n\t */",
+  "javadoc_after": "/**\n\t * Return {@literal true} if the specified class is a supported Kotlin class. Currently supported are only regular\n\t * Kotlin classes. Other class types (synthetic, SAM, lambdas) are not supported via reflection.\n\t *\n\t * @return {@literal true} if {@code type} is a supported Kotlin class.\n\t * @since 2.0\n\t * @deprecated since 2.3, use {@link KotlinReflectionUtils#isSupportedKotlinClass(Class)} instead.\n\t */"
+}

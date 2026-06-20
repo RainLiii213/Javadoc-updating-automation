@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9b936ce650f4ed98dc6fc7d47351952caac121d0",
+  "issue_summary": "Add support for termInfosIndexDivisor and termIndexInterval",
+  "code_before": "public void init(NamedList args) {\n    /* :NOOP: */\n  }",
+  "code_after": "public void init(NamedList args) {\n    Integer v = (Integer)args.get(\"termInfosIndexDivisor\");\n    if (v != null) {\n      termInfosIndexDivisor = v.intValue();\n    }\n  }",
+  "javadoc_before": "/**\n   * <code>init</code> will be called just once, immediately after creation.\n   * <p>\n   * The args are user-level initialization parameters that may be specified\n   * when declaring an indexReaderFactory in solrconfig.xml\n   */",
+  "javadoc_after": "/**\n   * Potentially initializes {@link #termInfosIndexDivisor}.  Overriding classes should call super.init() in order\n   * to make sure termInfosIndexDivisor is set.\n   * <p>\n   * <code>init</code> will be called just once, immediately after creation.\n   * <p>\n   * The args are user-level initialization parameters that may be specified\n   * when declaring an indexReaderFactory in solrconfig.xml\n   *\n   */"
+}

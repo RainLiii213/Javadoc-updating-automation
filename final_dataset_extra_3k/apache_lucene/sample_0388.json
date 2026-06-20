@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8e90661734c86dad3a556c046aee020e742c5c32",
+  "issue_summary": "fix AIOOBE in copyBytes/copyChars, off-by-one in subSequence",
+  "code_before": "public void copyChars(char[] otherChars, int otherOffset, int otherLength) {\n    grow(otherLength);\n    System.arraycopy(otherChars, otherOffset, this.chars, 0,\n        otherLength);\n    this.offset = 0;\n    this.length = otherLength;\n  }",
+  "code_after": "public void copyChars(char[] otherChars, int otherOffset, int otherLength) {\n    if (chars.length - offset < otherLength) {\n      chars = new char[otherLength];\n      offset = 0;\n    }\n    System.arraycopy(otherChars, otherOffset, chars, offset, otherLength);\n    length = otherLength;\n  }",
+  "javadoc_before": "/**\n   * Copies the given array into this CharsRef starting at offset 0\n   */",
+  "javadoc_after": "/**\n   * Copies the given array into this CharsRef.\n   */"
+}

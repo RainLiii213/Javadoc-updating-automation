@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cdeef19d7aac3c89068aa451a6a57212a8c64825",
+  "issue_summary": "FastVectorHighlighter now supports highlighting against several indexed fields",
+  "code_before": "public String getText() {\n      return text;\n    }",
+  "code_after": "public String getText() {\n      StringBuilder text = new StringBuilder();\n      for ( TermInfo ti: termsInfos ) {\n        text.append( ti.getText() );\n      }\n      return text.toString();\n    }",
+  "javadoc_before": "/**\n     * @return the text\n     */",
+  "javadoc_after": "/**\n     * Text of the match, calculated on the fly.  Use for debugging only.\n     * @return the text\n     */"
+}

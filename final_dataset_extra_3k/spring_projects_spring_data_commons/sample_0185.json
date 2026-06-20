@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c4d81a28f1f4cd259bb587c98c0a8246c1341d4a",
+  "issue_summary": "Refactored RepositoryFactorySupport.getQueryLookupStrategy(…)",
+  "code_before": "protected abstract QueryLookupStrategy getQueryLookupStrategy(Key key);",
+  "code_after": "protected QueryLookupStrategy getQueryLookupStrategy(Key key) {\n    \treturn null;\n    }",
+  "javadoc_before": "/**\n     * Returns the {@link QueryLookupStrategy} for the given {@link Key}.\n     * \n     * @param key can be {@literal null}\n     * @return\n     */",
+  "javadoc_after": "/**\n\t * Returns the {@link QueryLookupStrategy} for the given {@link Key}.\n\t * \n\t * @param key can be {@literal null}\n\t * @return the {@link QueryLookupStrategy} to use or {@literal null} if no queries should be looked up.\n\t */"
+}

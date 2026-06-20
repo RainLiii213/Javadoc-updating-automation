@@ -1,0 +1,8 @@
+{
+  "commit_hash": "67083534ff882768f504cc0531ac5c892433e55f",
+  "issue_summary": "* TokenizerFactory.create(Reader) is made final, and calls the AttributeFactory-accepting version with AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY * TokenizerFactory.create(AttributeFactory, Reader) is made abstract * Added AttributeFactory-accepting constructors to all Tokenizer's with existing TokenizerFactory subclasses that didn't already have them * Removed create(Reader) from all TokenizerFactory subclasses",
+  "code_before": "public ICUTokenizer(Reader input, ICUTokenizerConfig config) {\n    super(input);\n    this.config = config;\n    breaker = new CompositeBreakIterator(config);\n  }",
+  "code_after": "public ICUTokenizer(Reader input, ICUTokenizerConfig config) {\n    this(AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY, input, config);\n  }",
+  "javadoc_before": "/**\n   * Construct a new ICUTokenizer that breaks text into words from the given\n   * Reader, using a tailored BreakIterator configuration.\n   *\n   * @param input Reader containing text to tokenize.\n   * @param config Tailored BreakIterator configuration \n   */",
+  "javadoc_after": "/**\n   * Construct a new ICUTokenizer that breaks text into words from the given\n   * Reader, using a tailored BreakIterator configuration.\n   * <p>\n   * The default attribute factory is used.\n   *\n   * @param input Reader containing text to tokenize.\n   * @param config Tailored BreakIterator configuration \n   */"
+}

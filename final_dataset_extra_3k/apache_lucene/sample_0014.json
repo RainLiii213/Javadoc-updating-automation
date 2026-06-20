@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e4d88cab5cafaabce803cf3df9d8b2331bc18f7f",
+  "issue_summary": "CachingWrapperFilter -> CachingWrapperQuery, FilterCache -> QueryCache and added caching to IndexSearcher.",
+  "code_before": "public BitDocIdSetCachingWrapperFilter(Filter filter) {\n    super();\n    this.filter = new CachingWrapperFilter(filter, FilterCachingPolicy.ALWAYS_CACHE) {\n      @Override\n      protected BitDocIdSet docIdSetToCache(DocIdSet docIdSet, LeafReader reader) throws IOException {\n        if (docIdSet == null || docIdSet instanceof BitDocIdSet) {\n          // this is different from CachingWrapperFilter: even when the DocIdSet is\n          // cacheable, we convert it to a BitSet since we require all the\n          // cached filters to be BitSets\n          return (BitDocIdSet) docIdSet;\n        }\n\n        final DocIdSetIterator it = docIdSet.iterator();\n        if (it == null) {\n          return null;\n        }\n        BitDocIdSet.Builder builder = new BitDocIdSet.Builder(reader.maxDoc());\n        builder.or(it);\n        return builder.build();\n      }\n    };\n  }",
+  "code_after": "public BitDocIdSetCachingWrapperFilter(Filter filter) {\n    this.filter = filter;\n  }",
+  "javadoc_before": "/** Sole constructor. */",
+  "javadoc_after": "/** Wraps another filter's result and caches it into bitsets.\n   * @param filter Filter to cache results of\n   */"
+}

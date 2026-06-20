@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0a3b71f0a18e7d2a6ce3c142cdea1bf3509067b0",
+  "issue_summary": "Allow CDI Repositories to be composed of an arbitrary number of implementation classes.",
+  "code_before": "@Deprecated\n\tprotected T create(CreationalContext<T> creationalContext, Class<T> repositoryType) {\n\n\t\tOptional<Bean<?>> customImplementationBean = getCustomImplementationBean(repositoryType, beanManager, qualifiers);\n\t\tOptional<Object> customImplementation = customImplementationBean\n\t\t\t\t.map(it -> beanManager.getReference(it, it.getBeanClass(), beanManager.createCreationalContext(it)));\n\n\t\treturn create(creationalContext, repositoryType, customImplementation);\n\t}",
+  "code_after": "protected T create(CreationalContext<T> creationalContext, Class<T> repositoryType) {\n\n\t\tCdiRepositoryConfiguration cdiRepositoryConfiguration = lookupConfiguration(beanManager, qualifiers);\n\n\t\tOptional<Bean<?>> customImplementationBean = getCustomImplementationBean(repositoryType,\n\t\t\t\tcdiRepositoryConfiguration);\n\t\tOptional<Object> customImplementation = customImplementationBean.map(this::getDependencyInstance);\n\n\t\treturn create(creationalContext, repositoryType, customImplementation);\n\t}",
+  "javadoc_before": "/**\n\t * Creates the actual component instance.\n\t *\n\t * @param creationalContext will never be {@literal null}.\n\t * @param repositoryType will never be {@literal null}.\n\t * @return\n\t * @deprecated override {@link #create(CreationalContext, Class, Object)} instead.\n\t */",
+  "javadoc_after": "/**\n\t * Creates the actual component instance.\n\t *\n\t * @param creationalContext will never be {@literal null}.\n\t * @param repositoryType will never be {@literal null}.\n\t * @return\n\t */"
+}

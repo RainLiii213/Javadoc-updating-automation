@@ -1,0 +1,8 @@
+{
+  "commit_hash": "04f4bba5a3872ecf0852d70f3847b9e66d59809d",
+  "issue_summary": "Allow a MethodOrderer to set the default ExecutionMode",
+  "code_before": "class Random implements MethodOrderer {\n\n\t\t@Override\n\t\tpublic void orderMethods(List<? extends MethodDescriptor> methodDescriptors) {\n\t\t\tCollections.shuffle(methodDescriptors);\n\t\t}\n\t}",
+  "code_after": "class Random implements MethodOrderer {\n\n\t\t@Override\n\t\tpublic void orderMethods(List<? extends MethodDescriptor> methodDescriptors) {\n\t\t\tCollections.shuffle(methodDescriptors);\n\t\t}\n\n\t\t/**\n\t\t * Returns {@link ExecutionMode#CONCURRENT CONCURRENT} to allow concurrent\n\t\t * execution of randomly ordered methods by default.\n\t\t */\n\t\t@Override\n\t\tpublic ExecutionMode getDefaultExecutionMode() {\n\t\t\treturn ExecutionMode.CONCURRENT;\n\t\t}\n\t}",
+  "javadoc_before": "/**\n\t * {@code MethodOrderer} that orders methods randomly.\n\t */",
+  "javadoc_after": "/**\n\t * {@code MethodOrderer} that orders methods randomly and allows for concurrent\n\t * execution by default.\n\t *\n\t * @see #getDefaultExecutionMode()\n\t */"
+}

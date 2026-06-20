@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8e3727bb0521b7c27f7109f338690794776bc7c2",
+  "issue_summary": "remove FieldInfos leniency",
+  "code_before": "public FieldInfo fieldInfo(int fieldNumber) {\n    return (fieldNumber >= 0) ? byNumber.get(fieldNumber) : null;\n  }",
+  "code_after": "public FieldInfo fieldInfo(int fieldNumber) {\n    if (fieldNumber < 0) {\n      throw new IllegalArgumentException(\"Illegal field number: \" + fieldNumber);\n    }\n    return byNumber.get(fieldNumber);\n  }",
+  "javadoc_before": "/**\n   * Return the fieldinfo object referenced by the fieldNumber.\n   * @param fieldNumber field's number. if this is negative, this method\n   *        always returns null.\n   * @return the FieldInfo object or null when the given fieldNumber\n   * doesn't exist.\n   */",
+  "javadoc_after": "/**\n   * Return the fieldinfo object referenced by the fieldNumber.\n   * @param fieldNumber field's number.\n   * @return the FieldInfo object or null when the given fieldNumber\n   * doesn't exist.\n   * @throws IllegalArgumentException if fieldNumber is negative\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6a78ef8903ef7c2c785b8d0cc08a150d1e2ba818",
+  "issue_summary": "Normalize internal buffers to 8192 bytes.",
+  "code_before": "public CircularByteBuffer() {\n        this(8192);\n    }",
+  "code_after": "public CircularByteBuffer() {\n        this(IOUtils.DEFAULT_BUFFER_SIZE);\n    }",
+  "javadoc_before": "/**\n     * Creates a new instance with a reasonable default buffer size (8192).\n     */",
+  "javadoc_after": "/**\n     * Creates a new instance with a reasonable default buffer size ({@link IOUtils#DEFAULT_BUFFER_SIZE}).\n     */"
+}

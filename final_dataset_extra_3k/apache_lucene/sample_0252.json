@@ -1,0 +1,8 @@
+{
+  "commit_hash": "67083534ff882768f504cc0531ac5c892433e55f",
+  "issue_summary": "* TokenizerFactory.create(Reader) is made final, and calls the AttributeFactory-accepting version with AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY * TokenizerFactory.create(AttributeFactory, Reader) is made abstract * Added AttributeFactory-accepting constructors to all Tokenizer's with existing TokenizerFactory subclasses that didn't already have them * Removed create(Reader) from all TokenizerFactory subclasses",
+  "code_before": "public abstract Tokenizer create(Reader input);",
+  "code_after": "public final Tokenizer create(Reader input) {\n    return create(AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY, input);\n  }",
+  "javadoc_before": "/** Creates a TokenStream of the specified input */",
+  "javadoc_after": "/** Creates a TokenStream of the specified input using the default attribute factory. */"
+}

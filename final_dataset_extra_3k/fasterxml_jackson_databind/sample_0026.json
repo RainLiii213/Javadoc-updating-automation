@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bd7adfbd1f8fa6bf6e22826fcc24ea2ada1a4dc9",
+  "issue_summary": "Allow default enums with `@JsonCreator`",
+  "code_before": "public static JsonDeserializer<?> deserializerForCreator(DeserializationConfig config,\n            Class<?> enumClass, AnnotatedMethod factory,\n            ValueInstantiator valueInstantiator, SettableBeanProperty[] creatorProps)\n    {\n        if (config.canOverrideAccessModifiers()) {\n            ClassUtil.checkAndFixAccess(factory.getMember(),\n                    config.isEnabled(MapperFeature.OVERRIDE_PUBLIC_ACCESS_MODIFIERS));\n        }\n        return new FactoryBasedEnumDeserializer(enumClass, factory,\n                factory.getParameterType(0),\n                valueInstantiator, creatorProps);\n    }",
+  "code_after": "@Deprecated\n    public static JsonDeserializer<?> deserializerForCreator(DeserializationConfig config,\n             Class<?> enumClass, AnnotatedMethod factory,\n             ValueInstantiator valueInstantiator, SettableBeanProperty[] creatorProps) {\n        return deserializerForCreator(config, enumClass, factory, valueInstantiator,\n                creatorProps, null);\n    }",
+  "javadoc_before": "/**\n     * Factory method used when Enum instances are to be deserialized\n     * using a creator (static factory method)\n     *\n     * @return Deserializer based on given factory method\n     *\n     * @since 2.8\n     */",
+  "javadoc_after": "/**\n     * Factory method used when Enum instances are to be deserialized\n     * using a creator (static factory method)\n     *\n     * @return Deserializer based on given factory method\n     *\n     * @since 2.8\n     * @deprecated Since 2.19\n     */"
+}

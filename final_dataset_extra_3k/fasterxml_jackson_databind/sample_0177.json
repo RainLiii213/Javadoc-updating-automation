@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1488cef12ee88e25dd0161f1b85c552a32775778",
+  "issue_summary": "Completing conversion to using PropertyName instead of String in most parts of API",
+  "code_before": "public abstract BeanPropertyDefinition withName(String newName);",
+  "code_after": "@Deprecated // since 2.3\n    public BeanPropertyDefinition withName(String newName) {\n        return withSimpleName(newName);\n    }",
+  "javadoc_before": "/**\n     * Method that can be used to create a definition with\n     * same settings as this one, but with different\n     * (external) name; that is, one for which\n     * {@link #getName()} would return <code>newName</code>.\n     */",
+  "javadoc_after": "/**********************************************************\n    /* Fluent factory methods for creating modified copies\n    /**********************************************************\n     */"
+}

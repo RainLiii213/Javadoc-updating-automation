@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a56cc14c2dd316cf6439e94444530b3ab4894949",
+  "issue_summary": "Update cancellation behaviour in DirectoryWalker to use a new CancelException, also add IOException to \"lifecycle\" method definitions.",
+  "code_before": "protected void handleStart(File startDirectory, Collection results) {\n        // do nothing - overridable by subclass\n    }",
+  "code_after": "protected void handleStart(File startDirectory, Collection results) throws IOException {\n        // do nothing - overridable by subclass\n    }",
+  "javadoc_before": "/**\n     * Overridable callback method invoked at the start of processing.\n     * <p>\n     * This implementation does nothing.\n     *\n     * @param startDirectory  the directory to start from\n     * @param results  the collection of result objects, may be updated\n     */",
+  "javadoc_after": "/**\n     * Overridable callback method invoked at the start of processing.\n     * <p>\n     * This implementation does nothing.\n     *\n     * @param startDirectory  the directory to start from\n     * @param results  the collection of result objects, may be updated\n     * @throws IOException if an I/O Error occurs\n     */"
+}

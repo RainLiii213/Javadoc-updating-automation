@@ -1,0 +1,8 @@
+{
+  "commit_hash": "819344aeab0f4c8697c15ab842fdb784fe1faaf0",
+  "issue_summary": "Fix charset problems in XML loading in HyphenationCompoundWordTokenFilter",
+  "code_before": "public static HyphenationTree getHyphenationTree(Reader hyphenationReader)\n      throws Exception {\n    HyphenationTree tree = new HyphenationTree();\n\n    tree.loadPatterns(new InputSource(hyphenationReader));\n\n    return tree;\n  }",
+  "code_after": "@Deprecated\n  public static HyphenationTree getHyphenationTree(Reader hyphenationReader)\n      throws Exception {\n    final InputSource is = new InputSource(hyphenationReader);\n    // we need this to load the DTD in very old parsers (like the one in JDK 1.4).\n    // The DTD itsself is provided via EntityResolver, so it should always load, but\n    // some parsers still want to have a base URL (Crimson).\n    is.setSystemId(\"urn:java:\" + HyphenationTree.class.getName());\n    return getHyphenationTree(is);\n  }",
+  "javadoc_before": "/**\n   * Create a hyphenator tree\n   * \n   * @param hyphenationReader the reader of the XML grammar to load from\n   * @return An object representing the hyphenation patterns\n   * @throws Exception\n   */",
+  "javadoc_after": "/**\n   * Create a hyphenator tree\n   * \n   * @param hyphenationReader the reader of the XML grammar to load from\n   * @return An object representing the hyphenation patterns\n   * @throws Exception\n   * @deprecated Don't use Readers with fixed charset to load XML files, unless programatically created.\n   * Use {@link #getHyphenationTree(InputSource)} instead, where you can supply default charset and input\n   * stream, if you like.\n   */"
+}

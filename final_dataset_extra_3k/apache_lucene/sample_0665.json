@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c70555f62d29820bb826e6f83321089ce358ab69",
+  "issue_summary": "Remove deprecated Directory stuff and IR/IW open/ctor hell",
+  "code_before": "public String[] listAll()\n    throws IOException\n  {\n    return list();\n  }",
+  "code_after": "public abstract String[] listAll() throws IOException;",
+  "javadoc_before": "/** Returns an array of strings, one for each file in the\n   *  directory.  Unlike {@link #list} this method does no\n   *  filtering of the contents in a directory, and it will\n   *  never return null (throws IOException instead).\n   *\n   *  Currently this method simply falls back to {@link\n   *  #list} for Directory impls outside of Lucene's core &\n   *  contrib, but in 3.0 that method will be removed and\n   *  this method will become abstract. */",
+  "javadoc_after": "/** Returns an array of strings, one for each file in the\n   *  directory.  Unlike {@link #list} this method does no\n   *  filtering of the contents in a directory, and it will\n   *  never return null (throws IOException instead).\n   */"
+}

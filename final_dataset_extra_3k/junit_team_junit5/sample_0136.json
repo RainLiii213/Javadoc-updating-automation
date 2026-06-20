@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0414ad6b13893ca67c6fe9341e73efb43faed31f",
+  "issue_summary": "Enforce preconditions across selectors",
+  "code_before": "public String getUniqueId() {\n\t\treturn this.uniqueId;\n\t}",
+  "code_after": "public UniqueId getUniqueId() {\n\t\treturn this.uniqueId;\n\t}",
+  "javadoc_before": "/**\n\t * Get the selected unique ID.\n\t */",
+  "javadoc_after": "/**\n\t * Get the selected {@link UniqueId}.\n\t */"
+}

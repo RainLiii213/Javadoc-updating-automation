@@ -1,0 +1,8 @@
+{
+  "commit_hash": "24d76157a06bb370308fa94ff698d7c104826df3",
+  "issue_summary": "let Similarity.computeNorm compute the norm; add option to discount overlap tokens when computing lengthNorm",
+  "code_before": "public void setLengthNormFactors(String field, int min, int max,\n                                   float steepness) {\n    ln_mins.put(field, new Integer(min));\n    ln_maxs.put(field, new Integer(max));\n    ln_steeps.put(field, new Float(steepness));\n  }",
+  "code_after": "public void setLengthNormFactors(String field, int min, int max,\n                                   float steepness) {\n    setLengthNormFactors(field, min, max, steepness, false);\n  }",
+  "javadoc_before": "/**\n   * Sets the function variables used by lengthNorm for a specific named field\n   *\n   * @see #lengthNorm\n   */",
+  "javadoc_after": "/**\n   * Sets the function variables used by lengthNorm for a\n   * specific named field.\n   * \n   * @deprecated Please call {@link #setLengthNormFactors(String,\n   * int, int, float, boolean)} instead.\n   * \n   * @param field field name\n   * @param min minimum value\n   * @param max maximum value\n   * @param steepness steepness of the curve\n   *\n   * @see #lengthNorm\n   */"
+}

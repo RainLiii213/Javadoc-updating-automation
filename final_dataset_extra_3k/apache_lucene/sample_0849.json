@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8e9950debb1af91a00dd5f4684fa872e3144548b",
+  "issue_summary": "configurable language for SnowballPorterFilterFactory",
+  "code_before": "public class SnowballPorterFilterFactory extends BaseTokenFilterFactory {\n  public TokenStream create(TokenStream input) {\n    // Browsing the code, SnowballFilter uses reflection to adapt to Lucene...\n    // don't use this if you are concerned about speed.  Use EnglishPorterFilterFactory.\n\n    // TODO: make language configurable\n    return new SnowballFilter(input,\"English\");\n  }\n}",
+  "code_after": "public class SnowballPorterFilterFactory extends BaseTokenFilterFactory {\n  private String language = \"English\";\n\n  public void init(Map<String, String> args) {\n    super.init(args);\n    final String cfgLanguage = args.get(\"language\");\n    if(cfgLanguage!=null) language = cfgLanguage;\n    SolrCore.log.fine(\"SnowballPorterFilterFactory: language=\" + language);\n  }\n\n  public TokenStream create(TokenStream input) {\n    return new SnowballFilter(input,language);\n  }\n}",
+  "javadoc_before": "/**\n * @author yonik\n * @version $Id$\n */",
+  "javadoc_after": "/**\n * Factory for SnowballFilters, with configurable language\n * \n * Browsing the code, SnowballFilter uses reflection to adapt to Lucene... don't\n * use this if you are concerned about speed. Use EnglishPorterFilterFactory.\n * \n * @author yonik\n * @version $Id$\n */"
+}

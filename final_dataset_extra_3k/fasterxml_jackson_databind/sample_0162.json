@@ -1,0 +1,8 @@
+{
+  "commit_hash": "29446171c4157d3f9404f7855842e78e8893e420",
+  "issue_summary": "Initial work to support Map.Entry; now serialization works, some improvements to type handling as well",
+  "code_before": "public JavaType constructParametricType(Class<?> parametrized, Class<?>... parameterClasses)\n    {\n        int len = parameterClasses.length;\n        JavaType[] pt = new JavaType[len];\n        for (int i = 0; i < len; ++i) {\n            pt[i] = _fromClass(parameterClasses[i], null);\n        }\n        return constructParametricType(parametrized, pt);\n    }",
+  "code_after": "@Deprecated\n    public JavaType constructParametricType(Class<?> parametrized, Class<?>... parameterClasses) {\n        return constructParametrizedType(parametrized, parametrized, parameterClasses);\n    }",
+  "javadoc_before": "/**\n     * Factory method for constructing {@link JavaType} that\n     * represents a parameterized type. For example, to represent\n     * type <code>List&lt;Set&lt;Integer>></code>, you could\n     * call\n     *<pre>\n     *  TypeFactory.parametricType(List.class, Integer.class);\n     *</pre>\n     *<p>\n     * NOTE: type modifiers are NOT called on constructed type itself; but are called\n     * for contained types.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.5, use {@link #constructParametrizedType} instead.\n     */"
+}

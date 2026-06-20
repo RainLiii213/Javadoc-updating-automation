@@ -1,0 +1,8 @@
+{
+  "commit_hash": "994189c221b6569e30444506f5f41558fa580ea4",
+  "issue_summary": "Fix a bunch of issues related to spatial",
+  "code_before": "public double log2(double value) {\n\n    return Math.log(value) / Math.log(2);\n  }",
+  "code_after": "public static double log2(double value) {\n    return Math.log(value) / LOG_2;\n  }",
+  "javadoc_before": "/**\n   * a log to the base 2 formula\n   * <code>Math.log(value) / Math.log(2)</code>\n   * @param value\n   */",
+  "javadoc_after": "/**\n   * Computes log to base 2 of the given value\n   * \n   * @param value\n   *          Value to compute the log of\n   * @return Log_2 of the value\n   */"
+}

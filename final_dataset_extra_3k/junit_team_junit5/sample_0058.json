@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c659dd3bf40a266f9fceb0dea94c9c47dd0fdb20",
+  "issue_summary": "Document & enforce preconditions in Events & Executions in Test Kit",
+  "code_before": "public Events debug(OutputStream out) {\n\t\tdebug(new PrintWriter(out, true));\n\t\treturn this;\n\t}",
+  "code_after": "public Events debug(OutputStream out) {\n\t\tPreconditions.notNull(out, \"OutputStream must not be null\");\n\t\tdebug(new PrintWriter(out, true));\n\t\treturn this;\n\t}",
+  "javadoc_before": "/**\n\t * Print all events to the supplied {@link OutputStream}.\n\t *\n\t * @return this {@code Events} object for method chaining; never {@code null}\n\t */",
+  "javadoc_after": "/**\n\t * Print all events to the supplied {@link OutputStream}.\n\t *\n\t * @param out the {@code OutputStream} to print to; never {@code null}\n\t * @return this {@code Events} object for method chaining; never {@code null}\n\t */"
+}

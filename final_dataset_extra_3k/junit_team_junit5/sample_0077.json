@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4db8e8e359cb0a209b7321b5afc3a304e941c9f0",
+  "issue_summary": "Introduce DisplayNameUtils helper",
+  "code_before": "static String parameterTypesAsString(Method method) {\n\t\treturn '(' + ClassUtils.nullSafeToString(Class::getSimpleName, method.getParameterTypes()) + ')';\n\t}",
+  "code_after": "static String parameterTypesAsString(Method method) {\n\t\tPreconditions.notNull(method, \"Method must not be null\");\n\t\treturn '(' + ClassUtils.nullSafeToString(Class::getSimpleName, method.getParameterTypes()) + ')';\n\t}",
+  "javadoc_before": "/**\n\t * Compile a string representation from all simple parameter type names.\n\t *\n\t * @param method the method providing parameter types for the result\n\t * @return a string representation of all parameter types of the\n\t *         supplied method or {@code \"()\"} if the method has no parameters\n\t */",
+  "javadoc_after": "/**\n\t * Compile a string representation from all simple parameter type names.\n\t *\n\t * @param method the method providing parameter types for the result; never {@code null}\n\t * @return a string representation of all parameter types of the\n\t *         supplied method or {@code \"()\"} if the method has no parameters\n\t */"
+}

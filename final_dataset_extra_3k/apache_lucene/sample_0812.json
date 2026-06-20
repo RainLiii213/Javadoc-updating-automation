@@ -1,0 +1,8 @@
+{
+  "commit_hash": "39e0ff32f2d7f957d31d9fc7b44c6a8a5bdc76b1",
+  "issue_summary": "add splitOnCaseChange parameter to WordDelimiterFilter",
+  "code_before": "public WordDelimiterFilter(TokenStream in, byte[] charTypeTable, int generateWordParts, int generateNumberParts, int catenateWords, int catenateNumbers, int catenateAll) {\n    super(in);\n    this.generateWordParts = generateWordParts;\n    this.generateNumberParts = generateNumberParts;\n    this.catenateWords = catenateWords;\n    this.catenateNumbers = catenateNumbers;\n    this.catenateAll = catenateAll;\n    this.charTypeTable = charTypeTable;\n  }",
+  "code_after": "@Deprecated\n  public WordDelimiterFilter(TokenStream in, byte[] charTypeTable, int generateWordParts, int generateNumberParts, int catenateWords, int catenateNumbers, int catenateAll) {\n    this(in, charTypeTable, generateWordParts, generateNumberParts, catenateWords, catenateNumbers, catenateAll, 1);\n  }",
+  "javadoc_before": "/**\n   *\n   * @param in Token stream to be filtered.\n   * @param charTypeTable\n   * @param generateWordParts If 1, causes parts of words to be generated: \"PowerShot\" => \"Power\" \"Shot\"\n   * @param generateNumberParts If 1, causes number subwords to be generated: \"500-42\" => \"500\" \"42\"\n   * @param catenateWords  1, causes maximum runs of word parts to be catenated: \"wi-fi\" => \"wifi\"\n   * @param catenateNumbers If 1, causes maximum runs of number parts to be catenated: \"500-42\" => \"50042\"\n   * @param catenateAll If 1, causes all subword parts to be catenated: \"wi-fi-4000\" => \"wifi4000\"\n   */",
+  "javadoc_after": "/** Compatibility constructor */"
+}

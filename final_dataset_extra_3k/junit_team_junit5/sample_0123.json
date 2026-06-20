@@ -1,0 +1,8 @@
+{
+  "commit_hash": "decaeffc5566049ca2eee3bf09d8dd911907adcd",
+  "issue_summary": "Store raw path in FileSelector and DirectorySelector",
+  "code_before": "public File getDirectory() {\n\t\treturn this.directory;\n\t}",
+  "code_after": "public File getDirectory() {\n\t\treturn new File(this.path);\n\t}",
+  "javadoc_before": "/**\n\t * Get the selected {@linkplain File directory}.\n\t */",
+  "javadoc_after": "/**\n\t * Get the selected directory as a {@link java.io.File}.\n\t *\n\t * @see #getPath()\n\t * @see #getRawPath()\n\t */"
+}

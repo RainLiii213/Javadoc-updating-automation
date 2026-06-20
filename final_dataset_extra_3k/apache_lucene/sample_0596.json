@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b12f372bb53fc01a7490e71c8459a8281ef3ee6f",
+  "issue_summary": "sync up to lucene trunk rev 925561",
+  "code_before": "public IndexWriterConfig setMaxThreadStates(int maxThreadStates) {\n    this.maxThreadStates = maxThreadStates;\n    return this;\n  }",
+  "code_after": "public IndexWriterConfig setMaxThreadStates(int maxThreadStates) {\n    this.maxThreadStates = maxThreadStates < 1 ? DEFAULT_MAX_THREAD_STATES : maxThreadStates;\n    return this;\n  }",
+  "javadoc_before": "/** Sets the max number of simultaneous threads that may\n   *  be indexing documents at once in IndexWriter. */",
+  "javadoc_after": "/**\n   * Sets the max number of simultaneous threads that may be indexing documents\n   * at once in IndexWriter. Values &lt; 1 are invalid and if passed\n   * <code>maxThreadStates</code> will be set to\n   * {@link #DEFAULT_MAX_THREAD_STATES}.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1761255c2dfe4197d3741ffc445e93f03d625e74",
+  "issue_summary": "Enabled annotation based repository declaration model.",
+  "code_before": "public DefaultRepositoryMetadata(Class<?> repositoryInterface) {\n\n\t\tAssert.notNull(repositoryInterface);\n\t\tthis.repositoryInterface = repositoryInterface;\n\t}",
+  "code_after": "public DefaultRepositoryMetadata(Class<?> repositoryInterface) {\n\n\t\tAssert.notNull(repositoryInterface);\n\t\tAssert.isTrue(Repository.class.isAssignableFrom(repositoryInterface));\n\t\tthis.repositoryInterface = repositoryInterface;\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link DefaultRepositoryMetadata} for the given repository\n\t * interface and repository base class.\n\t *\n\t * @param repositoryInterface\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link DefaultRepositoryMetadata} for the given repository\n\t * interface.\n\t *\n\t * @param repositoryInterface\n\t */"
+}

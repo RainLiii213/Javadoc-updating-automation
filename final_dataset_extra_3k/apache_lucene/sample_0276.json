@@ -1,0 +1,8 @@
+{
+  "commit_hash": "42256baec586dbfeeb397dcdcd4f9a010deab398",
+  "issue_summary": "Add OrdinalPolicy.ALL_BUT_DIMENSION",
+  "code_before": "public static FacetsCollector create(FacetSearchParams fsp, IndexReader indexReader, TaxonomyReader taxoReader) {\n    if (CountingFacetsCollector.assertParams(fsp) == null) {\n      return new CountingFacetsCollector(fsp, taxoReader);\n    }\n\n    return new StandardFacetsCollector(fsp, indexReader, taxoReader);\n  }",
+  "code_after": "public static FacetsCollector create(FacetSearchParams fsp, IndexReader indexReader, TaxonomyReader taxoReader) {\n    if (CountingFacetsCollector.assertParams(fsp) == null) {\n      return new CountingFacetsCollector(fsp, taxoReader);\n    }\n\n    if (StandardFacetsCollector.assertParams(fsp) == null) {\n      return new StandardFacetsCollector(fsp, indexReader, taxoReader);\n    }\n\n    throw new IllegalArgumentException(\"None of the built-in FacetsCollectors can handle the given search params\");\n  }",
+  "javadoc_before": "/**\n   * Returns the most optimized {@link FacetsCollector} for the given search\n   * parameters. The returned {@link FacetsCollector} is guaranteed to satisfy\n   * the requested parameters.\n   */",
+  "javadoc_after": "/**\n   * Returns the most optimized {@link FacetsCollector} for the given search\n   * parameters. The returned {@link FacetsCollector} is guaranteed to satisfy\n   * the requested parameters.\n   * \n   * @throws IllegalArgumentException\n   *           if there is no built-in collector that can satisfy the search\n   *           parameters.\n   */"
+}

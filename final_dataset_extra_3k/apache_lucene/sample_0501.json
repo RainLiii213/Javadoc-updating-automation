@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1c646d24c9f9118e770fca947c2bc5b68775f425",
+  "issue_summary": "omit positions but keep term freq",
+  "code_before": "public boolean hasProx() {\n    if (isReadOnly()) {\n      return hasProx;\n    }\n    // mutable FIs must check!\n    for (FieldInfo fi : this) {\n      if (fi.isIndexed && !fi.omitTermFreqAndPositions) {\n        return true;\n      }\n    }\n    return false;\n  }",
+  "code_after": "public boolean hasProx() {\n    if (isReadOnly()) {\n      return hasProx;\n    }\n    // mutable FIs must check!\n    for (FieldInfo fi : this) {\n      if (fi.isIndexed && fi.indexOptions == IndexOptions.DOCS_AND_FREQS_AND_POSITIONS) {\n        return true;\n      }\n    }\n    return false;\n  }",
+  "javadoc_before": "/** Returns true if any fields do not omitTermFreqAndPositions */",
+  "javadoc_after": "/** Returns true if any fields do not positions */"
+}

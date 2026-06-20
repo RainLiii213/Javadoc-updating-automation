@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ce20baf6033cc123f9732de59ec09d83bb4ddd43",
+  "issue_summary": "Setting builder delay duration to null acts as a reset.",
+  "code_before": "public Builder setDelayDuration(final Duration delayDuration) {\n            this.delayDuration = Objects.requireNonNull(delayDuration, \"delayDuration\");\n            return this;\n        }",
+  "code_after": "public Builder setDelayDuration(final Duration delayDuration) {\n            this.delayDuration = delayDuration != null ? delayDuration : DEFAULT_DELAY_DURATION;\n            return this;\n        }",
+  "javadoc_before": "/**\n         * Sets the delay duration.\n         *\n         * @param delayDuration the delay between checks of the file for new content.\n         * @return this\n         */",
+  "javadoc_after": "/**\n         * Sets the delay duration. null resets to the default delay of one second.\n         *\n         * @param delayDuration the delay between checks of the file for new content.\n         * @return this\n         */"
+}

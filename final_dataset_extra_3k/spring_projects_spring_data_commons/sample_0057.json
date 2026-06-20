@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1d6331ccb6eb68919d3ab0dac4df0b102a144bd7",
+  "issue_summary": "Use ResolvableType to back TypeInformation.",
+  "code_before": "public static <S> TypeInformation<S> fromReturnTypeOf(Method method) {\n\n\t\tAssert.notNull(method, \"Method must not be null\");\n\t\treturn (TypeInformation<S>) ClassTypeInformation.from(method.getDeclaringClass())\n\t\t\t\t.createInfo(method.getGenericReturnType());\n\t}",
+  "code_after": "@Deprecated\n\tpublic static TypeInformation<?> fromReturnTypeOf(Method method) {\n\t\treturn new TypeDiscoverer<>(ResolvableType.forMethodReturnType(method));\n\t}",
+  "javadoc_before": "/**\n\t * Creates a {@link TypeInformation} from the given method's return type.\n\t *\n\t * @param method must not be {@literal null}.\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Warning: Does not fully resolve generic arguments.\n\t * @param method\n\t * @return\n\t * @deprecated since 3.0 Use {@link #fromReturnTypeOf(Method, Class)} instead.\n\t */"
+}

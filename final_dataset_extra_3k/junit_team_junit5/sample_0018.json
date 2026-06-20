@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c3ad4ede68a681f630cd8586d8266593da867ee7",
+  "issue_summary": "Document and check preconditions",
+  "code_before": "static Builder builder(Severity severity, String message) {\n\t\treturn new DefaultDiscoveryIssue.Builder(severity, message);\n\t}",
+  "code_after": "static Builder builder(Severity severity, String message) {\n\t\tPreconditions.notNull(severity, \"severity must not be null\");\n\t\tPreconditions.notBlank(message, \"message must not be blank\");\n\t\treturn new DefaultDiscoveryIssue.Builder(severity, message);\n\t}",
+  "javadoc_before": "/**\n\t * Create a new {@link Builder} for creating a {@code DiscoveryIssue} with\n\t * the supplied {@link Severity} and message.\n\t *\n\t * @see Builder\n\t * @see #create(Severity, String)\n\t */",
+  "javadoc_after": "/**\n\t * Create a new {@link Builder} for creating a {@code DiscoveryIssue} with\n\t * the supplied {@link Severity} and message.\n\t *\n\t * @param severity the severity of the issue; never {@code null}\n\t * @param message the message of the issue; never blank\n\t * @see Builder\n\t * @see #create(Severity, String)\n\t */"
+}

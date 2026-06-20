@@ -1,0 +1,8 @@
+{
+  "commit_hash": "02a2f383b21da427b901171add813d5d90d9623e",
+  "issue_summary": "FixedGapTermsIndex should use monotonic compression",
+  "code_before": "@Override\n  public void init(NamedList args) {\n    Integer v = (Integer)args.get(\"setTermIndexDivisor\");\n    if (v != null) {\n      termInfosIndexDivisor = v.intValue();\n    }\n  }",
+  "code_after": "@Override\n  public void init(NamedList args) {\n   Object v = args.get(\"setTermIndexDivisor\");\n   if (v != null) {\n     throw new IllegalArgumentException(\"Illegal parameter 'setTermIndexDivisor'\");\n   }\n  }",
+  "javadoc_before": "/**\n   * Potentially initializes {@link #termInfosIndexDivisor}.  Overriding classes should call super.init() in order\n   * to make sure termInfosIndexDivisor is set.\n   * <p>\n   * <code>init</code> will be called just once, immediately after creation.\n   * <p>\n   * The args are user-level initialization parameters that may be specified\n   * when declaring an indexReaderFactory in solrconfig.xml\n   *\n   */",
+  "javadoc_after": "/**\n   * init will be called just once, immediately after creation.\n   * <p>\n   * The args are user-level initialization parameters that may be specified\n   * when declaring an indexReaderFactory in solrconfig.xml\n   *\n   */"
+}

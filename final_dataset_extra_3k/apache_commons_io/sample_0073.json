@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5d982c5fab42e707bb0b97b4a35ac966cb5aef42",
+  "issue_summary": "Make explicit where the default platform encoding is being used",
+  "code_before": "@Override\n    public String toString() {\n        return new String(toByteArray());\n    }",
+  "code_after": "@Override\n    public String toString() {\n        // make explicit the use of the default charset\n        return new String(toByteArray(), Charset.defaultCharset());\n    }",
+  "javadoc_before": "/**\n     * Gets the curent contents of this byte stream as a string.\n     * @return the contents of the byte array as a String\n     * @see java.io.ByteArrayOutputStream#toString()\n     */",
+  "javadoc_after": "/**\n     * Gets the curent contents of this byte stream as a string\n     * using the platform default charset.\n     * @return the contents of the byte array as a String\n     * @see java.io.ByteArrayOutputStream#toString()\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "56685ec2f8b56c21f81dcfbd586aa51d8823da47",
+  "issue_summary": "Init MapDataBinder with custom collection limit.",
+  "code_before": "public MapDataBinder(Class<?> type, ConversionService conversionService) {\n\n\t\tsuper(new HashMap<String, Object>());\n\n\t\tthis.type = type;\n\t\tthis.conversionService = conversionService;\n\t}",
+  "code_after": "public MapDataBinder(Class<?> type, ConversionService conversionService) {\n\t\tthis(type, conversionService, DEFAULT_COLLECTION_LIMIT);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link MapDataBinder} for the given type and {@link ConversionService}.\n\t *\n\t * @param type target type to detect property that need to be bound.\n\t * @param conversionService the {@link ConversionService} to be used to preprocess values.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link MapDataBinder} for the given type and {@link ConversionService},\n\t * limiting collections to a size of {@link #DEFAULT_COLLECTION_LIMIT} for data binding.\n\t *\n\t * @param type target type to detect property that need to be bound.\n\t * @param conversionService the {@link ConversionService} to be used to preprocess values.\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6610c0489d4d8453f23930a371ddf20663eb872f",
+  "issue_summary": "<bool>on</bool> and <bool>yes</bool> in solrconfig.xml work as expected.",
+  "code_before": "protected boolean parseBool(String s) {\n    if( s != null ) {\n      if( s.startsWith(\"true\") || s.startsWith(\"on\") || s.startsWith(\"yes\") ) {\n        return true;\n      }\n      if( s.startsWith(\"false\") || s.startsWith(\"off\") || s.equals(\"no\") ) {\n        return false;\n      }\n    }\n    throw new SolrException( SolrException.ErrorCode.BAD_REQUEST, \"invalid boolean value: \"+s );\n  }",
+  "code_after": "@Deprecated\n  protected boolean parseBool(String s) {\n    return StrUtils.parseBool(s);\n  }",
+  "javadoc_before": "/** how to transform a String into a boolean... more flexible than\n   * Boolean.parseBoolean() to enable easier integration with html forms.\n   */",
+  "javadoc_after": "/** how to transform a String into a boolean... more flexible than\n   * Boolean.parseBoolean() to enable easier integration with html forms.\n   * @deprecated Use org.apache.solr.common.util.StrUtils.parseBool\n   */"
+}

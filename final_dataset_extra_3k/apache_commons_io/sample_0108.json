@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1d4766b9f16ed6b33a26d44c3f0531ae85f0f370",
+  "issue_summary": "Allow subclasses to block skip directory processing Add start and end callback methods Improve documentation",
+  "code_before": "protected void handleDirectoryStart(File directory, int depth, List results) {\n        results.add(directory);\n    }",
+  "code_after": "protected boolean handleDirectoryStart(File directory, int depth, List results) {\n        results.add(directory);\n        return true;\n    }",
+  "javadoc_before": "/**\n     * <p>Initial directory processing.</p>\n     *\n     * <p>This implementation adds the directory to the\n     * results collection.</p>\n     *\n     * @param directory The directory being processed\n     * @param depth The directory level (starting directory = 0)\n     * @param results The collection of files found.\n     */",
+  "javadoc_after": "/**\n     * Overridable callback method invoked at the start of processing each directory.\n     * <p>\n     * This method returns a boolean to indicate if the directory should be examined\n     * or not. If you return false, the next event received will be the\n     * {@link #handleDirectoryEnd} for that directory. Note that this functionality\n     * is in addition to the filtering by file filter.\n     * <p>\n     * This implementation adds the directory to the results collection.\n     *\n     * @param directory  the current directory being processed\n     * @param depth  the current directory level (starting directory = 0)\n     * @param results  the collection of result objects, may be updated\n     * @return true to process this directory, false to skip this directory\n     */"
+}

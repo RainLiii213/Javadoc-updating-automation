@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a438d1ef17aa75a40430cfb711d4499fd53dda8a",
+  "issue_summary": "Polishing of @Enable…Auditing support.",
+  "code_before": "public AnnotationAuditingConfigurationSupport(AnnotationMetadata metadata, Class<? extends Annotation> annotation) {\n\n\t\tAssert.notNull(metadata, \"metadata must not be null!\");\n\t\tAssert.notNull(annotation, \"annotation must not be null!\");\n\t\tattributes = new AnnotationAttributes(metadata.getAnnotationAttributes(annotation.getName()));\n\t}",
+  "code_after": "public AnnotationAuditingConfigurationSupport(AnnotationMetadata metadata, Class<? extends Annotation> annotation) {\n\n\t\tAssert.notNull(metadata, \"AnnotationMetadata must not be null!\");\n\t\tAssert.notNull(annotation, \"Annotation must not be null!\");\n\n\t\tthis.attributes = new AnnotationAttributes(metadata.getAnnotationAttributes(annotation.getName()));\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new instance of {@link AnnotationAuditingConfigurationSupport}.\n\t * \n\t * @param metadata, must not be {@literal null}.\n\t * @param annotation, must not be {@literal null}.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new instance of {@link AnnotationAuditingConfigurationSupport} for the given {@link AnnotationMetadata}\n\t * and annotation type.\n\t * \n\t * @param metadata must not be {@literal null}.\n\t * @param annotation must not be {@literal null}.\n\t */"
+}

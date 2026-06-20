@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2ea2adcf6b3633aa895b841eedc09ab540dc9b4d",
+  "issue_summary": "wrap up cutover to blockpostingsformat",
+  "code_before": "public final class Lucene40PostingsBaseFormat extends PostingsBaseFormat {\n\n  /** Sole constructor. */\n  public Lucene40PostingsBaseFormat() {\n    super(\"Lucene40\");\n  }\n\n  @Override\n  public PostingsReaderBase postingsReaderBase(SegmentReadState state) throws IOException {\n    return new Lucene40PostingsReader(state.dir, state.fieldInfos, state.segmentInfo, state.context, state.segmentSuffix);\n  }\n\n  @Override\n  public PostingsWriterBase postingsWriterBase(SegmentWriteState state) throws IOException {\n    return new Lucene40PostingsWriter(state);\n  }\n}",
+  "code_after": "@Deprecated\npublic final class Lucene40PostingsBaseFormat extends PostingsBaseFormat {\n\n  /** Sole constructor. */\n  public Lucene40PostingsBaseFormat() {\n    super(\"Lucene40\");\n  }\n\n  @Override\n  public PostingsReaderBase postingsReaderBase(SegmentReadState state) throws IOException {\n    return new Lucene40PostingsReader(state.dir, state.fieldInfos, state.segmentInfo, state.context, state.segmentSuffix);\n  }\n\n  @Override\n  public PostingsWriterBase postingsWriterBase(SegmentWriteState state) throws IOException {\n    throw new UnsupportedOperationException(\"this codec can only be used for reading\");\n  }\n}",
+  "javadoc_before": "/** \n * Provides a {@link PostingsReaderBase} and {@link\n * PostingsWriterBase}.\n *\n * @lucene.experimental */",
+  "javadoc_after": "/** \n * Provides a {@link PostingsReaderBase} and {@link\n * PostingsWriterBase}.\n *\n * @deprecated Only for reading old 4.0 segments */"
+}

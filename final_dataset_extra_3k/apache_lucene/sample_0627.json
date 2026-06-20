@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a33e8679220e42375250bd84cbc6a2e61f72c584",
+  "issue_summary": "Add a utility class for tracking deprecated overridden methods in non-final subclasses",
+  "code_before": "@Deprecated\n  protected void setOverridesTokenStreamMethod(Class<? extends Analyzer> baseClass) {\n    try {\n      Method m = this.getClass().getMethod(\"tokenStream\", String.class, Reader.class);\n      overridesTokenStreamMethod = m.getDeclaringClass() != baseClass;\n    } catch (NoSuchMethodException nsme) {\n      // cannot happen, as baseClass is subclass of Analyzer through generics\n      overridesTokenStreamMethod = false;\n    }\n  }",
+  "code_after": "@Deprecated\n  protected void setOverridesTokenStreamMethod(Class<? extends Analyzer> baseClass) {\n  }",
+  "javadoc_before": "/** @deprecated This is only present to preserve\n   *  back-compat of classes that subclass a core analyzer\n   *  and override tokenStream but not reusableTokenStream */",
+  "javadoc_after": "/** @deprecated This is a no-op since Lucene 3.1. */"
+}

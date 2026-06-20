@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8934cbd804efb7372a802b66ea0adea3bddd62f5",
+  "issue_summary": "Add a new DocIdSet.isCacheable() method that defaults to false, but is true for some DocIdSet impls, that are effective and use no disk I/O during iteration (OpenBitSet, SortedVIntList, DocIdBitSet, EMPTY_DOCIDSET, some FieldCache filter impls). CachingWrapperFilter now copies all DocIdSets, which are not cacheable, into an OpenBitSetDISI for caching.",
+  "code_before": "protected DocIdSet docIdSetToCache(DocIdSet docIdSet, IndexReader reader) {\n    return docIdSet;\n  }",
+  "code_after": "protected DocIdSet docIdSetToCache(DocIdSet docIdSet, IndexReader reader) throws IOException {\n    if (docIdSet.isCacheable()) {\n      return docIdSet;\n    } else {\n      final DocIdSetIterator it = docIdSet.iterator();\n      // null is allowed to be returned by iterator(),\n      // in this case we wrap with the empty set,\n      // which is cacheable.\n      return (it == null) ? DocIdSet.EMPTY_DOCIDSET : new OpenBitSetDISI(it, reader.maxDoc());\n    }\n  }",
+  "javadoc_before": "/** Provide the DocIdSet to be cached, using the DocIdSet provided\n   *  by the wrapped Filter.\n   *  This implementation returns the given DocIdSet.\n   */",
+  "javadoc_after": "/** Provide the DocIdSet to be cached, using the DocIdSet provided\n   *  by the wrapped Filter.\n   *  <p>This implementation returns the given {@link DocIdSet}, if {@link DocIdSet#isCacheable}\n   *  returns <code>true</code>, else it copies the {@link DocIdSetIterator} into\n   *  an {@link OpenBitSetDISI}.\n   */"
+}

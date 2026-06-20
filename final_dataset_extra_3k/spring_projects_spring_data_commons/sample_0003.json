@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a03a7560276771861b1ceff7c8c3e3d66c3cb83a",
+  "issue_summary": "Remove `Assert#notNull` for nullable `Link`.",
+  "code_before": "public <R extends RepresentationModel<?>> SlicedModel<R> toModel(Slice<T> slice,\n\t\t\tRepresentationModelAssembler<T, R> assembler, Link link) {\n\t\treturn createModel(slice, assembler, link);\n\t}",
+  "code_after": "public <R extends RepresentationModel<?>> SlicedModel<R> toModel(Slice<T> slice,\n\t\t\tRepresentationModelAssembler<T, R> assembler, Link link) {\n\t\tAssert.notNull(link, \"Link must not be null\");\n\t\treturn createModel(slice, assembler, link);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link SlicedModel} by converting the given {@link Slice} into a {@link SliceMetadata} instance and\n\t * using the given {@link SlicedModel} to turn elements of the {@link Slice} into resources. Will add pagination links\n\t * based on the given the self link.\n\t *\n\t * @param slice must not be {@literal null}.\n\t * @param assembler must not be {@literal null}.\n\t * @param link must not be {@literal null}.\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link SlicedModel} by converting the given {@link Slice} into a {@link SliceMetadata} instance and\n\t * using the given {@link SlicedModel} to turn elements of the {@link Slice} into resources. Will add pagination links\n\t * based on the given the self link.\n\t *\n\t * @param slice must not be {@literal null}.\n\t * @param assembler must not be {@literal null}.\n\t * @param link must not be {@literal null}.\n\t * @return a {@link SlicedModel} must not be {@literal null}.\n\t */"
+}

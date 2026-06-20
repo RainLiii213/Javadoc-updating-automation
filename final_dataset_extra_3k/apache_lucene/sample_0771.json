@@ -1,0 +1,8 @@
+{
+  "commit_hash": "aecd167b05b4a668ab18d8a79cae3be3c29fe833",
+  "issue_summary": "record per-segment deletion count in segments file; add maxDoc() & numDocs() in IW; deprecate docCount() in favor of maxDoc()",
+  "code_before": "public synchronized int docCount() {\n    ensureOpen();\n    int count;\n    if (docWriter != null)\n      count = docWriter.getNumDocsInRAM();\n    else\n      count = 0;\n    for (int i = 0; i < segmentInfos.size(); i++) {\n      SegmentInfo si = segmentInfos.info(i);\n      count += si.docCount;\n    }\n    return count;\n  }",
+  "code_after": "public synchronized int docCount() {\n    ensureOpen();\n    return maxDoc();\n  }",
+  "javadoc_before": "/** Returns the number of documents currently in this index. */",
+  "javadoc_after": "/** Returns the number of documents currently in this\n   *  index, not counting deletions.\n   * @deprecated Please use {@link #maxDoc()} (same as this\n   * method) or {@link #numDocs()} (also takes deletions\n   * into account), instead. */"
+}

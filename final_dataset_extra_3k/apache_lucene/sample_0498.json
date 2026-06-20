@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ef56f5d551ea30634bc96b97bc781ec3a55bd628",
+  "issue_summary": "port url+email tokenizer to standardtokenizerinterface, fix combining marks bug",
+  "code_before": "public UAX29URLEmailTokenizer(AttributeSource source, Reader input) {\n    super(source, input);\n    zzReader = input;\n  }",
+  "code_after": "@Deprecated\n  public UAX29URLEmailTokenizer(AttributeSource source, Reader input) {\n    this(Version.LUCENE_31, source, input);\n  }",
+  "javadoc_before": "/**\n   * @param source The AttributeSource to use\n   * @param input The input reader\n   */",
+  "javadoc_after": "/** @deprecated use {@link #UAX29URLEmailTokenizer(Version, AttributeSource, Reader)} instead. */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d4811e29d9a95b97dc4ee219ae2de46be93049bb",
+  "issue_summary": "Second draft.",
+  "code_before": "public QSort(List<OrderSpecifier<?>> orderSpecifiers) {\n\n\t\tsuper(toOrders(orderSpecifiers));\n\n\t\tAssert.notEmpty(orderSpecifiers, \"Order specifiers must not be null or empty!\");\n\t\tthis.orderSpecifiers = orderSpecifiers;\n\t}",
+  "code_after": "public QSort(List<OrderSpecifier<?>> orderSpecifiers) {\n\n\t\tsuper(toOrders(orderSpecifiers));\n\n\t\tthis.orderSpecifiers = orderSpecifiers;\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link QSort} instance with the given {@link OrderSpecifier}s.\n\t * \n\t * @param orderSpecifiers must not be {@literal null} or empty.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link QSort} instance with the given {@link OrderSpecifier}s.\n\t * \n\t * @param orderSpecifiers must not be {@literal null}.\n\t */"
+}

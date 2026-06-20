@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8b5e57faee943dbf9f4b1123cda6dc3f3d513860",
+  "issue_summary": "facets NRT support",
+  "code_before": "void add(int ordinal, int parentOrdinal) {\n    if (ordinal >= prefetchParentOrdinal.length) {\n      // grow the array, if necessary.\n      // In Java 6, we could just do Arrays.copyOf()...\n      int[] newarray = new int[ordinal*2+1];\n      System.arraycopy(prefetchParentOrdinal, 0, newarray, 0,\n          prefetchParentOrdinal.length);\n      prefetchParentOrdinal = newarray;\n    }\n    prefetchParentOrdinal[ordinal] = parentOrdinal;\n  }",
+  "code_after": "ParentArray add(int ordinal, int parentOrdinal) {\n    if (ordinal >= parentOrdinals.length) {\n      int[] newarray = ArrayUtil.grow(parentOrdinals);\n      newarray[ordinal] = parentOrdinal;\n      return new ParentArray(newarray);\n    }\n    parentOrdinals[ordinal] = parentOrdinal;\n    return this;\n  }",
+  "javadoc_before": "/**\n   * add() is used in LuceneTaxonomyWriter, not in LuceneTaxonomyReader.\n   * It is only called from a synchronized method, so it is not reentrant,\n   * and also doesn't need to worry about reads happening at the same time.\n   * \n   * NOTE: add() and refresh() CANNOT be used together. If you call add(),\n   * this changes the arrays and refresh() can no longer be used.\n   */",
+  "javadoc_after": "/**\n   * Adds the given ordinal/parent info and returns either a new instance if the\n   * underlying array had to grow, or this instance otherwise.\n   * <p>\n   * <b>NOTE:</b> you should call this method from a thread-safe code.\n   */"
+}

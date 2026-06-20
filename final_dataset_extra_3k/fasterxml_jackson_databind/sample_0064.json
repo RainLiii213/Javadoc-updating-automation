@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e58e3a0ab9cbdfcb3ea6e372ffa291a26bf514af",
+  "issue_summary": "Follow-up renaming inspired by jackson-core/670",
+  "code_before": "public class MappingIterator<T> implements Iterator<T>, Closeable\n{\npublic JsonParser getParser() {\n        return _parser;\n    }\n\npublic FormatSchema getParserSchema() {\n    \treturn _parser.getSchema();\n    }\n\npublic JsonLocation getCurrentLocation() {\n        return _parser.currentLocation();\n    }\n}",
+  "code_after": "public class MappingIterator<T> implements Iterator<T>, Closeable\n{\npublic JsonParser parser() {\n        return _parser;\n    }\n\npublic FormatSchema parserSchema() {\n        return _parser.getSchema();\n    }\n\npublic JsonLocation currentLocation() {\n        return _parser.currentLocation();\n    }\n}",
+  "javadoc_before": "/**\n * Iterator exposed by {@link ObjectMapper} when binding sequence of\n * objects. Extension is done to allow more convenient access\n * (in Jackson 2.x exception handling required it, too, but not in 3.x)\n */",
+  "javadoc_after": "/**\n * Iterator exposed by {@link ObjectMapper} when binding sequence of\n * objects. Extension is done to allow more convenient access to some\n * aspects of databinding, such as current location (see {@link #currentLocation()}.\n *<p>\n * NOTE: in Jackson 2.x exception handling required use of this class in many case\n * (due to Jackson 2.x API exposing checked exceptions) but this is no longer\n * necessary with Jackson 3.x.\n */"
+}

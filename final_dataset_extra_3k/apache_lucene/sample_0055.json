@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8f9f8a3252c73428e67bc5d390e58d1370e060ba",
+  "issue_summary": "remove IndexableFieldType.indexed and FieldInfo.indexed (it's redundant with IndexOptions != null)",
+  "code_before": "public boolean isIndexed() {\n    return indexed;\n  }",
+  "code_after": "public boolean isIndexed() {\n    return indexOptions != null;\n  }",
+  "javadoc_before": "/**\n   * Returns true if this field is indexed.\n   */",
+  "javadoc_after": "/**\n   * Returns true if this field is indexed (has non-null {@link #getIndexOptions}).\n   */"
+}

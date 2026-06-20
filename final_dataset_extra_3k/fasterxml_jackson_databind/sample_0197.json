@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e6faa455fdc0475c62fe268e7dbd39bfebddffd0",
+  "issue_summary": "...",
+  "code_before": "public Locale getLocale() {\n        if (_locale != null) {\n            return _locale;\n        }\n        return Locale.getDefault();\n    }",
+  "code_after": "public Locale getLocale() {\n        return _config.getLocale();\n    }",
+  "javadoc_before": "/**\n     * Method for accessing default Locale to use; can be overridden.\n     */",
+  "javadoc_after": "/**\n     * Method for accessing default Locale to use: convenience method for\n     *<pre>\n     *   getConfig().getLocale();\n     *</pre>\n     */"
+}

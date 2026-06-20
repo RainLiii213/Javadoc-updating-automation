@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e395be3fafc2c08e40adca9d29cff73bfbc80b3e",
+  "issue_summary": "new CharArraySet, make StopFilter directly use it",
+  "code_before": "public void add(char[] text) {\n    if (ignoreCase)\n      for(int i=0;i<text.length;i++)\n        text[i] = Character.toLowerCase(text[i]);\n    int code = getHashCode(text, text.length);\n    int pos = code & mask;\n    char[] text2 = entries[pos];\n    if (text2 != null) {\n      final int inc = ((code>>8)+code)|1;\n      do {\n        code += inc;\n        pos = code & mask;\n        text2 = entries[pos];\n      } while (text2 != null);\n    }\n    entries[pos] = text;\n    count++;\n\n    if (((double) count)/entries.length > MAX_LOAD_FACTOR) {\n      rehash();\n    }\n  }",
+  "code_after": "public boolean add(char[] text) {\n    if (ignoreCase)\n      for(int i=0;i<text.length;i++)\n        text[i] = Character.toLowerCase(text[i]);\n    int slot = getSlot(text, 0, text.length);\n    if (entries[slot] != null) return false;\n    entries[slot] = text;\n    count++;\n\n    if (count > entries.length + (entries.length>>2) ) {\n      rehash();\n    }\n\n    return true;\n  }",
+  "javadoc_before": "/** Add this text into the set */",
+  "javadoc_after": "/** Add this char[] directly to the set.\n   * If ignoreCase is true for this Set, the text array will be directly modified.\n   * The user should never modify this text array after calling this method.\n   */"
+}

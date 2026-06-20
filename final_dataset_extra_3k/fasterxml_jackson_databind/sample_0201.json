@@ -1,0 +1,8 @@
+{
+  "commit_hash": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+  "issue_summary": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt",
+  "code_before": "public abstract JsonParser getParser();",
+  "code_after": "public final JsonParser getParser() { return _parser; }",
+  "javadoc_before": "/**\n     * Accessor for getting access to the underlying JSON parser used\n     * for deserialization.\n     */",
+  "javadoc_after": "/**\n     * Method for accessing the currently active parser.\n     * May be different from the outermost parser\n     * when content is buffered.\n     *<p>\n     * Use of this method is discouraged: if code has direct access\n     * to the active parser, that should be used instead.\n     */"
+}

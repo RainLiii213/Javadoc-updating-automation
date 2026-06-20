@@ -1,0 +1,8 @@
+{
+  "commit_hash": "430f2f647d4cc2f4cbe37bd2d68be51c2c370614",
+  "issue_summary": "Introduce and enforce syntax for tags",
+  "code_before": "public static PostDiscoveryFilter excludeTags(String... tags) {\n\t\tPreconditions.notNull(tags, \"tags array must not be null\");\n\t\treturn excludeTags(asList(tags));\n\t}",
+  "code_after": "public static PostDiscoveryFilter excludeTags(String... tags) throws PreconditionViolationException {\n\t\tPreconditions.notNull(tags, \"tags array must not be null\");\n\t\treturn excludeTags(asList(tags));\n\t}",
+  "javadoc_before": "/**\n\t * Create an <em>exclude</em> filter based on the supplied {@code tags}.\n\t *\n\t * <p>Note: each tag will be {@linkplain String#trim() trimmed}, and any\n\t * blank tag will be ignored.\n\t *\n\t * <p>Containers and tests will only be executed if they are <em>not</em>\n\t * tagged with any of the supplied <em>excluded</em> tags.\n\t *\n\t * @param tags the excluded tags; never {@code null} or empty\n\t * @see #excludeTags(List)\n\t */",
+  "javadoc_after": "/**\n\t * Create an <em>exclude</em> filter based on the supplied {@code tags}.\n\t *\n\t * <p>Note: each tag will be {@linkplain String#trim() trimmed}.\n\t *\n\t * <p>Containers and tests will only be executed if they are <em>not</em>\n\t * tagged with any of the supplied <em>excluded</em> tags.\n\t *\n\t * @param tags the excluded tags; never {@code null} or empty\n\t * @throws PreconditionViolationException if the supplied tags array is\n\t * {@code null} or empty, or if any individual tag is not syntactically\n\t * valid\n\t * @see #excludeTags(List)\n\t * @see TestTag#isValid(String)\n\t */"
+}

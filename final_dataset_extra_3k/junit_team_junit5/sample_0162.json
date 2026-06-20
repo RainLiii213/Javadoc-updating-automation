@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5d8663dabcd3103dfedae65a64d838246f8230b0",
+  "issue_summary": "Document Preconditions",
+  "code_before": "public static void notEmpty(String str, String message) {\n\t\tcondition(StringUtils.isNotEmpty(str), message);\n\t}",
+  "code_after": "public static void notEmpty(String str, String message) throws IllegalArgumentException {\n\t\tnotEmpty(str, () -> message);\n\t}",
+  "javadoc_before": "/**\n\t * @see StringUtils#isNotEmpty(CharSequence)\n\t */",
+  "javadoc_after": "/**\n\t * Assert that the supplied {@link String} is not {@code null} or empty.\n\t *\n\t * @param str the string to check\n\t * @param message precondition failure message\n\t * @see #notEmpty(String, Supplier)\n\t */"
+}

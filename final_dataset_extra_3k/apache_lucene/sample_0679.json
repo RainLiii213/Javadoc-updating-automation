@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7fff5a7ea7cbc0e01b115705884b9b579989bddf",
+  "issue_summary": "QueryWight back to Weight, but as abstract class rather than interface - explain now takes a Searcher and passes the sub reader that contains the doc if a top level reader is a multi reader.",
+  "code_before": "public Weight weight(Searcher searcher) throws IOException {\n    return queryWeight(searcher);\n  }",
+  "code_after": "public Weight weight(Searcher searcher) throws IOException {\n    Query query = searcher.rewrite(this);\n    Weight weight = query.createWeight(searcher);\n    float sum = weight.sumOfSquaredWeights();\n    float norm = getSimilarity(searcher).queryNorm(sum);\n    weight.normalize(norm);\n    return weight;\n  }",
+  "javadoc_before": "/**\n   * Expert: Constructs and initializes a Weight for a top-level query.\n   * \n   * @deprecated use {@link #queryWeight(Searcher)} instead.\n   */",
+  "javadoc_after": "/**\n   * Expert: Constructs and initializes a Weight for a top-level query.\n   */"
+}

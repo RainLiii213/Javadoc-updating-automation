@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6a849bc8ef09bc71c3005a556759516e95a18884",
+  "issue_summary": "Introduced PersistentPropertyAccessor.",
+  "code_before": "public static <T> BeanWrapper<T> create(T bean, ConversionService conversionService) {\n\n\t\tAssert.notNull(bean, \"Wrapped instance must not be null!\");\n\t\treturn new BeanWrapper<T>(bean, conversionService);\n\t}",
+  "code_after": "@Deprecated\n\tpublic static <T> BeanWrapper<T> create(T bean, ConversionService conversionService) {\n\t\treturn new BeanWrapper<T>(bean);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link BeanWrapper} for the given bean instance and {@link ConversionService}. If\n\t * {@link ConversionService} is {@literal null} no property type conversion will take place.\n\t * \n\t * @param <T>\n\t * @param bean must not be {@literal null}.\n\t * @param conversionService can be {@literal null}.\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link BeanWrapper} for the given bean and {@link ConversionService}.TODO: remove!\n\t * \n\t * @param bean must not be {@literal null}.\n\t * @param conversionService can be {@literal null}.\n\t * @return\n\t * @deprecated use {@link PersistentEntity#getPropertyAccessor(Object)} instead. Will be removed in 1.10 RC1.\n\t */"
+}

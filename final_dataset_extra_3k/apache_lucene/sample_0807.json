@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f7804a08f8ac3b15c86521eac91ea08e6f8de320",
+  "issue_summary": "have remove( name ) return the SolrInputField rather then true/false",
+  "code_before": "public boolean removeField(String name) {\n    return _fields.remove( name ) != null;\n  }",
+  "code_after": "public SolrInputField removeField(String name) {\n    return _fields.remove( name );\n  }",
+  "javadoc_before": "/**\n   * Remove a field\n   * \n   * @param the field name\n   * @return true if a field was removed\n   */",
+  "javadoc_after": "/**\n   * Remove a field from the document\n   * \n   * @param key The field name whose field is to be removed from the document\n   * @return the previous field with <tt>name</tt>, or\n   *         <tt>null</tt> if there was no field for <tt>key</tt>.\n   */"
+}

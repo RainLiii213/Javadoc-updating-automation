@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4c6afc5c30fe35a22e8c3534dd6601ff5f84c0a4",
+  "issue_summary": "Allow dedicated control over the access type for properties.",
+  "code_before": "private PersistentPropertyCreator(E entity, Map<String, PropertyDescriptor> descriptors) {\n\t\t\tthis.entity = entity;\n\t\t\tthis.descriptors = descriptors;\n\t\t}",
+  "code_after": "private PersistentPropertyCreator(E entity, Map<String, PropertyDescriptor> descriptors) {\n\n\t\t\tAssert.notNull(entity, \"PersistentEntity must not be null!\");\n\t\t\tAssert.notNull(descriptors, \"PropertyDescriptors must not be null!\");\n\n\t\t\tthis.entity = entity;\n\t\t\tthis.descriptors = descriptors;\n\t\t\tthis.remainingDescriptors = new HashMap<String, PropertyDescriptor>(descriptors);\n\t\t}",
+  "javadoc_before": "/**\n\t\t * Creates a new {@link PersistentPropertyCreator} for the given {@link PersistentEntity} and\n\t\t * {@link PropertyDescriptor}s.\n\t\t * \n\t\t * @param entity\n\t\t * @param descriptors\n\t\t */",
+  "javadoc_after": "/**\n\t\t * Creates a new {@link PersistentPropertyCreator} for the given {@link PersistentEntity} and\n\t\t * {@link PropertyDescriptor}s.\n\t\t * \n\t\t * @param entity must not be {@literal null}.\n\t\t * @param descriptors must not be {@literal null}.\n\t\t */"
+}

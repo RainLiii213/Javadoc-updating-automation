@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c4a324e3cf6652bdb04723b2981c38ab88aa4cfa",
+  "issue_summary": "Introduce support to create domain objects via factory methods.",
+  "code_before": "boolean isConstructorArgument(PersistentProperty<?> property);",
+  "code_after": "@Deprecated\n\tdefault boolean isConstructorArgument(PersistentProperty<?> property) {\n\t\treturn isCreatorArgument(property);\n\t}",
+  "javadoc_before": "/**\n\t * Returns whether the given {@link PersistentProperty} is referred to by a constructor argument of the\n\t * {@link PersistentEntity}.\n\t *\n\t * @param property can be {@literal null}.\n\t * @return true if the given {@link PersistentProperty} is referred to by a constructor argument or {@literal false}\n\t *         if not or {@literal null}.\n\t */",
+  "javadoc_after": "/**\n\t * Returns whether the given {@link PersistentProperty} is referred to by a constructor argument of the\n\t * {@link PersistentEntity}.\n\t *\n\t * @param property can be {@literal null}.\n\t * @return true if the given {@link PersistentProperty} is referred to by a constructor argument or {@literal false}\n\t *         if not or {@literal null}.\n\t * @deprecated since 3.0, use {@link #isCreatorArgument(PersistentProperty)} instead.\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f38c5163cc898e55e1ec51f6026f41a0de8987d6",
+  "issue_summary": "Tidy up CoreContainer construction logic",
+  "code_before": "public CoreContainer(SolrResourceLoader loader) {\n    this(loader.getInstanceDir());\n    this.loader = loader;\n  }",
+  "code_after": "public CoreContainer(SolrResourceLoader loader) {\n    this(loader, ConfigSolr.fromSolrHome(loader.getInstanceDir()));\n  }",
+  "javadoc_before": "/**\n   * Minimal CoreContainer constructor.\n   * @param loader the CoreContainer resource loader\n   */",
+  "javadoc_after": "/**\n   * Create a new CoreContainer using the given SolrResourceLoader.  The container's\n   * cores are not loaded.\n   * @param loader the SolrResourceLoader\n   * @see #load()\n   */"
+}

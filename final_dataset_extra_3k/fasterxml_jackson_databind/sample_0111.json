@@ -1,0 +1,8 @@
+{
+  "commit_hash": "89662b14ef9092fdecf812c8fc7d18e7de1dd0a5",
+  "issue_summary": "Fixed",
+  "code_before": "public abstract AnnotatedMethod findAnySetter();",
+  "code_after": "@Deprecated\n    public AnnotatedMethod findAnySetter() {\n        AnnotatedMember m = findAnySetterAccessor();\n        if (m instanceof AnnotatedMethod) {\n            return (AnnotatedMethod) m;\n        }\n        return null;\n    }",
+  "javadoc_before": "/**\n     * Method used to locate the method of introspected class that\n     * implements {@link com.fasterxml.jackson.annotation.JsonAnySetter}. If no such method exists\n     * null is returned. If more than one are found, an exception\n     * is thrown.\n     * Additional checks are also made to see that method signature\n     * is acceptable: needs to take 2 arguments, first one String or\n     * Object; second any can be any type.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.9: use {@link #findAnySetterAccessor} instead\n     */"
+}

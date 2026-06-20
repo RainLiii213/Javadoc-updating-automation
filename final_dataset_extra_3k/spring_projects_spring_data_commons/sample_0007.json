@@ -1,0 +1,8 @@
+{
+  "commit_hash": "820af2a2969b04c9336d607973a78fd39ac79969",
+  "issue_summary": "Introduce first-class type-safe property path references.",
+  "code_before": "public class MethodInvocationRecorder {\n}",
+  "code_after": "@Deprecated(since = \"4.1\")\npublic class MethodInvocationRecorder {\n}",
+  "javadoc_before": "/**\n * API to record method invocations via method references on a proxy.\n *\n * @author Oliver Gierke\n * @author Johannes Englmeier\n * @since 2.2\n * @soundtrack The Intersphere - Don't Think Twice (The Grand Delusion)\n */",
+  "javadoc_after": "/**\n * API to record method invocations via method references on a proxy.\n *\n * @author Oliver Gierke\n * @author Johannes Englmeier\n * @since 2.2\n * @soundtrack The Intersphere - Don't Think Twice (The Grand Delusion)\n * @deprecated since 4.1 in favor of {@link org.springframework.data.core.PropertyReference} and\n *             {@link org.springframework.data.core.TypedPropertyPath} infrastructure and limitations imposed by\n *             subclass proxy limitations.\n */"
+}

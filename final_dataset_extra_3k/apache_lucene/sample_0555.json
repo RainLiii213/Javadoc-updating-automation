@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7e85ff665593c372ebee6a6b8c9b2ee147544b69",
+  "issue_summary": "add paging to result grouping",
+  "code_before": "public interface GroupParams {\n  public static final String GROUP = \"group\";\n\n  public static final String GROUP_QUERY = GROUP + \".query\";\n  public static final String GROUP_FIELD = GROUP + \".field\";\n  public static final String GROUP_FUNC = GROUP + \".func\";\n  public static final String GROUP_SORT = GROUP + \".sort\";\n\n  /** the limit for the number of documents in each group */\n  public static final String GROUP_LIMIT = GROUP + \".limit\";\n}",
+  "code_after": "public interface GroupParams {\n  public static final String GROUP = \"group\";\n\n  public static final String GROUP_QUERY = GROUP + \".query\";\n  public static final String GROUP_FIELD = GROUP + \".field\";\n  public static final String GROUP_FUNC = GROUP + \".func\";\n  public static final String GROUP_SORT = GROUP + \".sort\";\n\n  /** the limit for the number of documents in each group */\n  public static final String GROUP_LIMIT = GROUP + \".limit\";\n  /** the offset for the doclist of each group */\n  public static final String GROUP_OFFSET = GROUP + \".offset\";\n}",
+  "javadoc_before": "/**\n * Facet parameters\n */",
+  "javadoc_after": "/**\n * Group parameters\n */"
+}

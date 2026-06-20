@@ -1,0 +1,8 @@
+{
+  "commit_hash": "221ad9353e29d82d75ab8428573d3cfd5212e70d",
+  "issue_summary": "Tighten nullability constraints for Sort parameters in PageRequest factory methods.",
+  "code_before": "protected PageRequest(int page, int size, Sort sort) {\n\n\t\tsuper(page, size);\n\n\t\tthis.sort = sort;\n\t}",
+  "code_after": "protected PageRequest(int page, int size, Sort sort) {\n\n\t\tsuper(page, size);\n\n\t\tAssert.notNull(sort, \"Sort must not be null!\");\n\n\t\tthis.sort = sort;\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link PageRequest} with sort parameters applied.\n\t *\n\t * @param page zero-based page index.\n\t * @param size the size of the page to be returned.\n\t * @param sort must not be {@literal null}, use {@link Sort#unsorted()} instead.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link PageRequest} with sort parameters applied.\n\t *\n\t * @param page zero-based page index, must not be negative.\n\t * @param size the size of the page to be returned, must be greater than 0.\n\t * @param sort must not be {@literal null}, use {@link Sort#unsorted()} instead.\n\t */"
+}

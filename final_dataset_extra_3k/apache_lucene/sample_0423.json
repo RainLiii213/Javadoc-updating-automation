@@ -1,0 +1,8 @@
+{
+  "commit_hash": "930816cc5b9672a19610de411287fc84457ccc32",
+  "issue_summary": "AEProviderFactory getAEProvider logic cleaned",
+  "code_before": "public synchronized AEProvider getAEProvider(String keyPrefix, String aePath,\n          Map<String, Object> runtimeParameters) {\n    String key = new StringBuilder(keyPrefix).append(aePath).append(OverridingParamsAEProvider.class).toString();\n    if (providerCache.get(key) == null) {\n      providerCache.put(key, new OverridingParamsAEProvider(aePath, runtimeParameters));\n    }\n    return providerCache.get(key);\n  }",
+  "code_after": "public synchronized AEProvider getAEProvider(String keyPrefix, String aePath, Map<String, Object> runtimeParameters) {\n    String key = new StringBuilder(keyPrefix != null ? keyPrefix : \"\").append(aePath).append(runtimeParameters != null ?\n        runtimeParameters.toString() : \"\").toString();\n    if (providerCache.get(key) == null) {\n      AEProvider aeProvider;\n      if (runtimeParameters != null)\n        aeProvider = new OverridingParamsAEProvider(aePath, runtimeParameters);\n      else\n        aeProvider = new BasicAEProvider(aePath);\n      providerCache.put(key, aeProvider);\n    }\n    return providerCache.get(key);\n  }",
+  "javadoc_before": "/**\n   *\n   * @param keyPrefix\n   * @param aePath\n   * @param runtimeParameters\n   * @return AEProvider\n   */",
+  "javadoc_after": "/**\n   * @param keyPrefix a prefix of the key used to cache the AEProvider\n   * @param aePath the AnalysisEngine descriptor path\n   * @param runtimeParameters map of runtime parameters to configure inside the AnalysisEngine\n   * @return AEProvider\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e03d721bb4dfd2e4ba7719f76ce17e860890dd2e",
+  "issue_summary": "Change int methods from deprecated to exception throwng",
+  "code_before": "public int getCount() {\n        return (int) getByteCount();\n    }",
+  "code_after": "public synchronized int getCount() {\n        long result = getByteCount();\n        if (result > Integer.MAX_VALUE) {\n            throw new ArithmeticException(\"The byte count \" + result + \" is too large to be converted to an int\");\n        }\n        return (int) result;\n    }",
+  "javadoc_before": "/**\n     * The number of bytes that have passed through this stream.\n     * <p>\n     * <strong>WARNING</strong> This method will return an\n     * incorrect count for files over 2GB - use\n     * <code>getByteCount()</code> instead.\n     *\n     * @return the number of bytes accumulated\n     * @deprecated use <code>getByteCount()</code> - see issue IO-84\n     */",
+  "javadoc_after": "/**\n     * The number of bytes that have passed through this stream.\n     * <p>\n     * NOTE: From v1.3 this method throws an ArithmeticException if the\n     * count is greater than can be expressed by an <code>int</code>.\n     * See {@link #getByteCount()} for a method using a <code>long</code>.\n     *\n     * @return the number of bytes accumulated\n     * @throws ArithmeticException if the byte count is too large\n     */"
+}

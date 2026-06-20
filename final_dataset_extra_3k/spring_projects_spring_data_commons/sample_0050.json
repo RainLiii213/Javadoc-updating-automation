@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6190baa3db51dda52fc6071d9ac963fc8bd99f7e",
+  "issue_summary": "Move `ReactiveWrappers` into `o.s.d.util` package.",
+  "code_before": "public enum ReactiveLibrary {\n\n\t\tPROJECT_REACTOR, RXJAVA3, KOTLIN_COROUTINES, MUTINY;\n\t}",
+  "code_after": "@Deprecated(since = \"3.0\", forRemoval = true)\n\tpublic enum ReactiveLibrary {\n\n\t\tPROJECT_REACTOR, RXJAVA3, KOTLIN_COROUTINES, MUTINY;\n\t}",
+  "javadoc_before": "/**\n\t * Enumeration of supported reactive libraries.\n\t *\n\t * @author Mark Paluch\n\t */",
+  "javadoc_after": "/**\n\t * Enumeration of supported reactive libraries.\n\t *\n\t * @author Mark Paluch\n\t * @deprecated use {@link org.springframework.data.util.ReactiveWrappers.ReactiveLibrary} instead.\n\t */"
+}

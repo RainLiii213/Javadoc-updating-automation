@@ -1,0 +1,8 @@
+{
+  "commit_hash": "afc68d0a5296b2bd79c6390167a14133a8acde0a",
+  "issue_summary": "add IndexWriter.setCommitData",
+  "code_before": "public final void prepareCommit() throws IOException {\n    ensureOpen();\n    prepareCommit(null);\n  }",
+  "code_after": "public final void prepareCommit() throws IOException {\n    ensureOpen();\n    prepareCommitInternal();\n  }",
+  "javadoc_before": "/** Expert: prepare for commit.\n   *\n   * <p><b>NOTE</b>: if this method hits an OutOfMemoryError\n   * you should immediately close the writer.  See <a\n   * href=\"#OOME\">above</a> for details.</p>\n   *\n   * @see #prepareCommit(Map) */",
+  "javadoc_after": "/** <p>Expert: prepare for commit.  This does the\n   *  first phase of 2-phase commit. This method does all\n   *  steps necessary to commit changes since this writer\n   *  was opened: flushes pending added and deleted docs,\n   *  syncs the index files, writes most of next segments_N\n   *  file.  After calling this you must call either {@link\n   *  #commit()} to finish the commit, or {@link\n   *  #rollback()} to revert the commit and undo all changes\n   *  done since the writer was opened.</p>\n   *\n   * <p>You can also just call {@link #commit()} directly\n   *  without prepareCommit first in which case that method\n   *  will internally call prepareCommit.\n   *\n   *  <p><b>NOTE</b>: if this method hits an OutOfMemoryError\n   *  you should immediately close the writer.  See <a\n   *  href=\"#OOME\">above</a> for details.</p>\n   */"
+}

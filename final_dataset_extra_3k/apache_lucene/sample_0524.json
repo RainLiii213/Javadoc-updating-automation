@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f47c3e8298536ad1dae694c2446d02be4fe95c00",
+  "issue_summary": "cleaned up javadoc with respect to DWPT changes",
+  "code_before": "public IndexWriterConfig setIndexerThreadPool(DocumentsWriterPerThreadPool threadPool) {\n    this.indexerThreadPool = threadPool;\n    return this;\n  }",
+  "code_after": "public IndexWriterConfig setIndexerThreadPool(DocumentsWriterPerThreadPool threadPool) {\n    if(threadPool == null) {\n      throw new IllegalArgumentException(\"DocumentsWriterPerThreadPool must not be nul\");\n    }\n    this.indexerThreadPool = threadPool;\n    return this;\n  }",
+  "javadoc_before": "/**\n   * Sets the max number of simultaneous threads that may be indexing documents\n   * at once in IndexWriter. Values &lt; 1 are invalid and if passed\n   * <code>maxThreadStates</code> will be set to\n   * {@link #DEFAULT_MAX_THREAD_STATES}.\n   *\n   * <p>Only takes effect when IndexWriter is first created. */",
+  "javadoc_after": "/** Expert: Sets the {@link DocumentsWriterPerThreadPool} instance used by the\n   * IndexWriter to assign thread-states to incoming indexing threads. If no\n   * {@link DocumentsWriterPerThreadPool} is set {@link IndexWriter} will use\n   * {@link ThreadAffinityDocumentsWriterThreadPool} with max number of\n   * thread-states set to {@value #DEFAULT_MAX_THREAD_STATES} (see\n   * {@link #DEFAULT_MAX_THREAD_STATES}).\n   * </p>\n   * <p>\n   * NOTE: The given {@link DocumentsWriterPerThreadPool} instance must not be used with\n   * other {@link IndexWriter} instances once it has been initialized / associated with an\n   * {@link IndexWriter}.\n   * </p>\n   * <p>\n   * NOTE: This only takes effect when IndexWriter is first created.</p>*/"
+}

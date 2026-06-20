@@ -1,0 +1,8 @@
+{
+  "commit_hash": "49a461a2b43e07499ec9f1694dd378f01e2180f0",
+  "issue_summary": "Remove CachingWrapperFilter recacheDeletes boolean",
+  "code_before": "public CachingWrapperFilter(Filter filter) {\n    this(filter, false);\n  }",
+  "code_after": "public CachingWrapperFilter(Filter filter) {\n    this.filter = filter;\n  }",
+  "javadoc_before": "/** Wraps another filter's result and caches it.\n   * Deletions are not cached and AND'd in on the fly, see\n   * {@link #CachingWrapperFilter(Filter,boolean)} for an explanation.\n   * This constructor is recommended for often changing indexes.\n   * @param filter Filter to cache results of\n   * @see #CachingWrapperFilter(Filter,boolean)\n   */",
+  "javadoc_after": "/** Wraps another filter's result and caches it.\n   * @param filter Filter to cache results of\n   */"
+}

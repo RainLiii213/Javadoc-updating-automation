@@ -1,0 +1,8 @@
+{
+  "commit_hash": "99d0ab645116f87f606f25150a410abcf3c507a1",
+  "issue_summary": "Implement : improve/add number accessors to `JsonNode`",
+  "code_before": "public BigInteger bigIntegerValue() { return BigInteger.ZERO; }",
+  "code_after": "public abstract BigInteger bigIntegerValue();",
+  "javadoc_before": "/**\n     * Returns integer value for this node (as {@link BigInteger}), <b>if and only if</b>\n     * this node is numeric ({@link #isNumber} returns true). For other\n     * types returns <code>BigInteger.ZERO</code>.\n     *<p>\n     * May also throw {@link tools.jackson.core.exc.StreamConstraintsException}\n     *   if the scale of the underlying {@link BigDecimal} is too large to convert.\n     *\n     * @return {@link BigInteger} value this node contains, if numeric node; <code>BigInteger.ZERO</code> for non-number nodes.\n     */",
+  "javadoc_after": "/**\n     * Method that will try to access value of this node as a {@link BigInteger},\n     * but if node value cannot be expressed <b>exactly</b> as a {@link BigInteger},\n     * a {@link JsonNodeException} will be thrown.\n     * Access works for following cases:\n     * <ul>\n     *  <li>JSON Integer values\n     *   </li>\n     *  <li>JSON Floating-point values that do not have fractional part.\n     *    </li>\n     * </ul>\n     *<p>\n     *\n     * @return {@code BigInteger} value this node represents, if possible to accurately represent\n     *\n     * @throws JsonNodeException if node value cannot be converted to Java {@code BigInteger}\n     */"
+}

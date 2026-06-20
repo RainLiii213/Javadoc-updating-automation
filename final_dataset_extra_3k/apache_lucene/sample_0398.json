@@ -1,0 +1,8 @@
+{
+  "commit_hash": "800f5a54a68bf3750f4331d8639ef28cf10a443b",
+  "issue_summary": "add UpdateRequestHandler that handles xml,csv,json, and javabin",
+  "code_before": "public class JsonUpdateRequestHandler extends ContentStreamHandlerBase {\n  public static Logger log = LoggerFactory.getLogger(JsonUpdateRequestHandler.class);\n\n\n  @Override\n  public void init(NamedList args) {\n    super.init(args);\n  }\n\n  @Override\n  protected ContentStreamLoader newLoader(SolrQueryRequest req, UpdateRequestProcessor processor) {\n    return new JsonLoader(req, processor);\n  }\n\n  //////////////////////// SolrInfoMBeans methods //////////////////////\n\n  @Override\n  public String getDescription() {\n    return \"Add documents with JSON\";\n  }\n\n  @Override\n  public String getSource() {\n    return \"$URL$\";\n  }\n}",
+  "code_after": "@Deprecated\npublic class JsonUpdateRequestHandler extends UpdateRequestHandler {\n\n  @Override\n  public void init(NamedList args) {\n    super.init(args);\n    setAssumeContentType(\"application/json\");\n    log.warn(\"Using deprecated class: \"+this.getClass().getSimpleName()+\" -- replace with UpdateRequestHandler\");\n  }\n\n  //////////////////////// SolrInfoMBeans methods //////////////////////\n\n  @Override\n  public String getDescription() {\n    return \"Add documents with JSON\";\n  }\n\n  @Override\n  public String getSource() {\n    return \"$URL$\";\n  }\n}",
+  "javadoc_before": "/**\n * Add documents to solr using the noggit JSON parser.\n */",
+  "javadoc_after": "/**\n * use {@link UpdateRequestHandler}\n */"
+}

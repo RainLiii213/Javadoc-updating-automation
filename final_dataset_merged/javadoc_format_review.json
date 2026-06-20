@@ -1,0 +1,2027 @@
+[
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "947c01f6d8000122a174da3d668208eec877a799",
+    "source_sample_id": "apache_commons_io/sample_0062",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "8fc87cae153493e041856c83d253d9f418dc7b15",
+    "source_sample_id": "apache_commons_io/sample_0106",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "8fc87cae153493e041856c83d253d9f418dc7b15",
+    "source_sample_id": "apache_commons_io/sample_0106",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "1d4766b9f16ed6b33a26d44c3f0531ae85f0f370",
+    "source_sample_id": "apache_commons_io/sample_0107",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "1d4766b9f16ed6b33a26d44c3f0531ae85f0f370",
+    "source_sample_id": "apache_commons_io/sample_0107",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "4fe355979f38b486f9d9be307720ac3cf64f2f5b",
+    "source_sample_id": "apache_commons_io/sample_0109",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "4fe355979f38b486f9d9be307720ac3cf64f2f5b",
+    "source_sample_id": "apache_commons_io/sample_0109",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "b39e430b27a666ec6195d9f77b09b3ae2c21f011",
+    "source_sample_id": "apache_commons_io/sample_0114",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "b39e430b27a666ec6195d9f77b09b3ae2c21f011",
+    "source_sample_id": "apache_commons_io/sample_0114",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "b39e430b27a666ec6195d9f77b09b3ae2c21f011",
+    "source_sample_id": "apache_commons_io/sample_0115",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "b39e430b27a666ec6195d9f77b09b3ae2c21f011",
+    "source_sample_id": "apache_commons_io/sample_0115",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "a09ebfc6c0f84a0aa9a05da04801461d99509ec5",
+    "source_sample_id": "apache_commons_io/sample_0122",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "a09ebfc6c0f84a0aa9a05da04801461d99509ec5",
+    "source_sample_id": "apache_commons_io/sample_0122",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "5964ce6decf3d7ab3efb7e1a9852b2f85a03ec6d",
+    "source_sample_id": "apache_commons_io/sample_0124",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "5964ce6decf3d7ab3efb7e1a9852b2f85a03ec6d",
+    "source_sample_id": "apache_commons_io/sample_0124",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "977e83dbfe903e712143ce281dd9a303fa8e9a7d",
+    "source_sample_id": "apache_commons_io/sample_0125",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "commit_hash": "977e83dbfe903e712143ce281dd9a303fa8e9a7d",
+    "source_sample_id": "apache_commons_io/sample_0125",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "commit_hash": "4e442bb44280243f6e0e72d845fa8275d665ca84",
+    "source_sample_id": "apache_commons_compress/sample_0115",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "18d2cfaf9c4db4eabc07ee47a23b6425aaeb29e2",
+    "source_sample_id": "apache_lucene/sample_0100",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "4c2cca57dd81e082dda995978df195f89027a76f",
+    "source_sample_id": "apache_lucene/sample_0106",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "18bcf7fc8252e6b6083147fa18b730c68bd4e0ab",
+    "source_sample_id": "apache_lucene/sample_0145",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "commit_hash": "1cef96536a04d2ea96aa251f9a7330bc64ce1a58",
+    "source_sample_id": "apache_commons_compress/sample_0172",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "469ce1ab530d4c5c7986e0d7c5956f6f8fff0ded",
+    "source_sample_id": "apache_lucene/sample_0156",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "f7d2ac0b0da944773d4c02709b199db619648ab6",
+    "source_sample_id": "apache_lucene/sample_0177",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "f7d2ac0b0da944773d4c02709b199db619648ab6",
+    "source_sample_id": "apache_lucene/sample_0177",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "b9dc8ef8f68022a87ab56e44128431be9dc35570",
+    "source_sample_id": "apache_lucene/sample_0215",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "061f31e910f0f6cb2ad4e7ed6d1b11325c38bc72",
+    "source_sample_id": "apache_lucene/sample_0245",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "ae2c81ad18f82278c5840d12ac22e572c3d31bf3",
+    "source_sample_id": "apache_commons_math/sample_0016",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "ae2c81ad18f82278c5840d12ac22e572c3d31bf3",
+    "source_sample_id": "apache_commons_math/sample_0016",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "9867d9f2817fd6dd20d458022de3dda8c3b43b2f",
+    "source_sample_id": "apache_commons_math/sample_0019",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "9867d9f2817fd6dd20d458022de3dda8c3b43b2f",
+    "source_sample_id": "apache_commons_math/sample_0019",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "66d0a9a0a00dbb259425f17745f7dddd7e676f71",
+    "source_sample_id": "apache_commons_math/sample_0039",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "6e94f431523a969485e0b400838f59323f0a53bc",
+    "source_sample_id": "apache_lucene/sample_0278",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "6e94f431523a969485e0b400838f59323f0a53bc",
+    "source_sample_id": "apache_lucene/sample_0278",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "c5ae09d77e8756ab73e1c39f77f1b303aa4ba384",
+    "source_sample_id": "apache_commons_math/sample_0059",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "c5ae09d77e8756ab73e1c39f77f1b303aa4ba384",
+    "source_sample_id": "apache_commons_math/sample_0059",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "a8edec70d708048bf9f766c9ac380566e1e809ac",
+    "source_sample_id": "apache_commons_math/sample_0080",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "ad35857d0fab949b00dafc22b20b8e93bcb603d2",
+    "source_sample_id": "apache_commons_math/sample_0082",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "ad35857d0fab949b00dafc22b20b8e93bcb603d2",
+    "source_sample_id": "apache_commons_math/sample_0082",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "9aabf587ca8e613deae405d9de33a7f432a9ac50",
+    "source_sample_id": "apache_commons_math/sample_0087",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "9aabf587ca8e613deae405d9de33a7f432a9ac50",
+    "source_sample_id": "apache_commons_math/sample_0087",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "96f6fd10b62fc48eb64062175865a5aefa7e70b7",
+    "source_sample_id": "apache_commons_math/sample_0110",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "96f6fd10b62fc48eb64062175865a5aefa7e70b7",
+    "source_sample_id": "apache_commons_math/sample_0110",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "96f6fd10b62fc48eb64062175865a5aefa7e70b7",
+    "source_sample_id": "apache_commons_math/sample_0111",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "96f6fd10b62fc48eb64062175865a5aefa7e70b7",
+    "source_sample_id": "apache_commons_math/sample_0111",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "905aaf45670c63aff879ab3b3b03667fc00cda40",
+    "source_sample_id": "apache_commons_math/sample_0112",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "25369207345ba370b9509af807a6f04fc2d08882",
+    "source_sample_id": "apache_commons_math/sample_0122",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "4cd203f41e34a07771791fe3423a94dde542f841",
+    "source_sample_id": "apache_commons_math/sample_0123",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "4cd203f41e34a07771791fe3423a94dde542f841",
+    "source_sample_id": "apache_commons_math/sample_0123",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "32d47dd08750c603eac2f41ace3b13c79cec3c4a",
+    "source_sample_id": "apache_commons_math/sample_0127",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "32d47dd08750c603eac2f41ace3b13c79cec3c4a",
+    "source_sample_id": "apache_commons_math/sample_0127",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "d0e8a3587a59c9190c81708ef7726c1f1437516c",
+    "source_sample_id": "apache_commons_math/sample_0146",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "9f663a15e68d6b6dfc9937e970f38171f2b8e08b",
+    "source_sample_id": "apache_commons_math/sample_0153",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "872f71e0d93a5fe65fa0b75953ca95ae661291cc",
+    "source_sample_id": "apache_lucene/sample_0390",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "872f71e0d93a5fe65fa0b75953ca95ae661291cc",
+    "source_sample_id": "apache_lucene/sample_0390",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "eb615fad86a2e86058d87380e295f77846b3e747",
+    "source_sample_id": "apache_lucene/sample_0391",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "19c954cabcf87dee4ebec17b028b061fccc35877",
+    "source_sample_id": "apache_commons_math/sample_0166",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "19c954cabcf87dee4ebec17b028b061fccc35877",
+    "source_sample_id": "apache_commons_math/sample_0167",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "b883dcbc08044687bc037ed2170f18416893f7d0",
+    "source_sample_id": "apache_commons_math/sample_0204",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "b883dcbc08044687bc037ed2170f18416893f7d0",
+    "source_sample_id": "apache_commons_math/sample_0205",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "b883dcbc08044687bc037ed2170f18416893f7d0",
+    "source_sample_id": "apache_commons_math/sample_0205",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "b883dcbc08044687bc037ed2170f18416893f7d0",
+    "source_sample_id": "apache_commons_math/sample_0206",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "b883dcbc08044687bc037ed2170f18416893f7d0",
+    "source_sample_id": "apache_commons_math/sample_0206",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "b8f2fb815f7a8f0d97b79dfcb544199ba4a661c6",
+    "source_sample_id": "apache_commons_math/sample_0216",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "b8f2fb815f7a8f0d97b79dfcb544199ba4a661c6",
+    "source_sample_id": "apache_commons_math/sample_0217",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1dd611f794913bee56a0e7089b28861f168b0dce",
+    "source_sample_id": "apache_commons_math/sample_0229",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1dd611f794913bee56a0e7089b28861f168b0dce",
+    "source_sample_id": "apache_commons_math/sample_0229",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1dd611f794913bee56a0e7089b28861f168b0dce",
+    "source_sample_id": "apache_commons_math/sample_0230",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1dd611f794913bee56a0e7089b28861f168b0dce",
+    "source_sample_id": "apache_commons_math/sample_0230",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "0af91ecfbe4deec846cd30fb32145d82b920a4ff",
+    "source_sample_id": "apache_commons_math/sample_0251",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "0af91ecfbe4deec846cd30fb32145d82b920a4ff",
+    "source_sample_id": "apache_commons_math/sample_0251",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "b6bf913d140d3616906fc7c75235660e1de90d79",
+    "source_sample_id": "apache_commons_math/sample_0255",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "4b44bd7d831a48a91437735fb7b1cab73d1e3518",
+    "source_sample_id": "apache_lucene/sample_0491",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "4b44bd7d831a48a91437735fb7b1cab73d1e3518",
+    "source_sample_id": "apache_lucene/sample_0491",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "5396f1e119b6e9ab7f58b66a67e38bcda9a6d989",
+    "source_sample_id": "apache_commons_math/sample_0261",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "5396f1e119b6e9ab7f58b66a67e38bcda9a6d989",
+    "source_sample_id": "apache_commons_math/sample_0261",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "015ecfa0a0255f053682bb2436b2b8dec5cb8283",
+    "source_sample_id": "apache_lucene/sample_0502",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "a338c7b30998a3aa15dc7e31429e6819e09e7662",
+    "source_sample_id": "apache_lucene/sample_0508",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "a338c7b30998a3aa15dc7e31429e6819e09e7662",
+    "source_sample_id": "apache_lucene/sample_0508",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "82c6dafc010e373266af9d49534f74ccb0d4b8a1",
+    "source_sample_id": "apache_lucene/sample_0510",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "82c6dafc010e373266af9d49534f74ccb0d4b8a1",
+    "source_sample_id": "apache_lucene/sample_0510",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "64e0d5d213f685c5345fde0e49113a72c716cdc0",
+    "source_sample_id": "apache_commons_math/sample_0284",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "64e0d5d213f685c5345fde0e49113a72c716cdc0",
+    "source_sample_id": "apache_commons_math/sample_0285",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "64e0d5d213f685c5345fde0e49113a72c716cdc0",
+    "source_sample_id": "apache_commons_math/sample_0286",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "f703f234145d88339cfb87f5629fa031d58360c3",
+    "source_sample_id": "apache_lucene/sample_0521",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "a5cf43289f7f0cea67b7136fff715ca3872bc843",
+    "source_sample_id": "apache_commons_math/sample_0288",
+    "field": "javadoc_after",
+    "reasons": [
+      "replacement_character"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "fa1ac87eaa879b6a821623f3eed3b38c2a3a400b",
+    "source_sample_id": "apache_lucene/sample_0525",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "fa1ac87eaa879b6a821623f3eed3b38c2a3a400b",
+    "source_sample_id": "apache_lucene/sample_0525",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "ffc89e5bafd6c61d43c270714a66c20dce47256a",
+    "source_sample_id": "apache_commons_math/sample_0302",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "ffc89e5bafd6c61d43c270714a66c20dce47256a",
+    "source_sample_id": "apache_commons_math/sample_0302",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "3109c12ec8936957d1aba94bafb0f24d0fcac486",
+    "source_sample_id": "apache_commons_math/sample_0304",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "3109c12ec8936957d1aba94bafb0f24d0fcac486",
+    "source_sample_id": "apache_commons_math/sample_0304",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "55612869048d232d70e9d8a51e3738efc61256b9",
+    "source_sample_id": "apache_lucene/sample_0545",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "55612869048d232d70e9d8a51e3738efc61256b9",
+    "source_sample_id": "apache_lucene/sample_0545",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "58133c861282c9107e9b62ca41bf97b93af4c8b7",
+    "source_sample_id": "apache_commons_math/sample_0316",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "58133c861282c9107e9b62ca41bf97b93af4c8b7",
+    "source_sample_id": "apache_commons_math/sample_0316",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "a58c26978f5c7a0dbbbe535c627ef5388fad550b",
+    "source_sample_id": "apache_lucene/sample_0550",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "29cd56b6f41313f758e4b559d1140c68afdd55b3",
+    "source_sample_id": "apache_commons_math/sample_0320",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "29cd56b6f41313f758e4b559d1140c68afdd55b3",
+    "source_sample_id": "apache_commons_math/sample_0320",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "29cd56b6f41313f758e4b559d1140c68afdd55b3",
+    "source_sample_id": "apache_commons_math/sample_0321",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "29cd56b6f41313f758e4b559d1140c68afdd55b3",
+    "source_sample_id": "apache_commons_math/sample_0321",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "29cd56b6f41313f758e4b559d1140c68afdd55b3",
+    "source_sample_id": "apache_commons_math/sample_0322",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "29cd56b6f41313f758e4b559d1140c68afdd55b3",
+    "source_sample_id": "apache_commons_math/sample_0322",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "dfed16f2fddce83fc544584c0fca1f5ba6d354a7",
+    "source_sample_id": "apache_lucene/sample_0566",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "a21d5ae301df6432b0ed6dec848f59e6545cbed8",
+    "source_sample_id": "apache_commons_math/sample_0335",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "02d7cea111cfe0bebba42d1c030dadd1b82036db",
+    "source_sample_id": "apache_commons_math/sample_0339",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "8f71031ac88ed4f3fb027143fbc8caa3c42a2c8c",
+    "source_sample_id": "apache_lucene/sample_0574",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "8f71031ac88ed4f3fb027143fbc8caa3c42a2c8c",
+    "source_sample_id": "apache_lucene/sample_0574",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "3b94e30307f45a5a0283ac63638a56488feee839",
+    "source_sample_id": "apache_commons_math/sample_0347",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "3b94e30307f45a5a0283ac63638a56488feee839",
+    "source_sample_id": "apache_commons_math/sample_0347",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "3b94e30307f45a5a0283ac63638a56488feee839",
+    "source_sample_id": "apache_commons_math/sample_0348",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "3b94e30307f45a5a0283ac63638a56488feee839",
+    "source_sample_id": "apache_commons_math/sample_0348",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "87f0f14381f9070b88720b5a0a43292dadb7deb9",
+    "source_sample_id": "apache_commons_math/sample_0355",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "87f0f14381f9070b88720b5a0a43292dadb7deb9",
+    "source_sample_id": "apache_commons_math/sample_0355",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "source_sample_id": "apache_commons_math/sample_0362",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "source_sample_id": "apache_commons_math/sample_0362",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "65a21459a258c9a180ad7161f9da318692215c99",
+    "source_sample_id": "apache_lucene/sample_0597",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "65a21459a258c9a180ad7161f9da318692215c99",
+    "source_sample_id": "apache_lucene/sample_0597",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "source_sample_id": "apache_commons_math/sample_0364",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "source_sample_id": "apache_commons_math/sample_0364",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "7c81ac50a25f08f29dee96f633c22f68154febcb",
+    "source_sample_id": "apache_commons_math/sample_0367",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "7c81ac50a25f08f29dee96f633c22f68154febcb",
+    "source_sample_id": "apache_commons_math/sample_0367",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "fdf4ea244880344675f1f3b6aea1d3a6685ea261",
+    "source_sample_id": "apache_lucene/sample_0619",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "fdf4ea244880344675f1f3b6aea1d3a6685ea261",
+    "source_sample_id": "apache_lucene/sample_0619",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "49b3a12971b2ac03478707c95548c3b44c3dfcd5",
+    "source_sample_id": "apache_lucene/sample_0622",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "f78206e0658d13a73f6776779139b3ee5bd62528",
+    "source_sample_id": "apache_commons_math/sample_0398",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "f78206e0658d13a73f6776779139b3ee5bd62528",
+    "source_sample_id": "apache_commons_math/sample_0398",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "7d35aafe71661e51ee01639ddf88503184610329",
+    "source_sample_id": "apache_lucene/sample_0635",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "5a2d63e2c336419195105e326a978799412f213f",
+    "source_sample_id": "apache_commons_math/sample_0405",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "9edfb3b66ade32697ba356525b1adaafa4ed604a",
+    "source_sample_id": "apache_lucene/sample_0641",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "2ef402eefa101b713f019cb7836e7c264f6d32b6",
+    "source_sample_id": "apache_lucene/sample_0644",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "2ef402eefa101b713f019cb7836e7c264f6d32b6",
+    "source_sample_id": "apache_lucene/sample_0645",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "6d291937d09390360f96f2cc357bd9f33368789c",
+    "source_sample_id": "apache_commons_math/sample_0413",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "6d291937d09390360f96f2cc357bd9f33368789c",
+    "source_sample_id": "apache_commons_math/sample_0413",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "e69141c51a29d8abba8efbb17fd941cd137e2127",
+    "source_sample_id": "apache_lucene/sample_0647",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "e69141c51a29d8abba8efbb17fd941cd137e2127",
+    "source_sample_id": "apache_lucene/sample_0647",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "d708c9d1019c9db667ca828e1c8ca8e12b035bbe",
+    "source_sample_id": "apache_commons_math/sample_0428",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "d708c9d1019c9db667ca828e1c8ca8e12b035bbe",
+    "source_sample_id": "apache_commons_math/sample_0428",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "d708c9d1019c9db667ca828e1c8ca8e12b035bbe",
+    "source_sample_id": "apache_commons_math/sample_0429",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "d708c9d1019c9db667ca828e1c8ca8e12b035bbe",
+    "source_sample_id": "apache_commons_math/sample_0429",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "618f2f80ca55d75354ba906ea8067c3386dabbd9",
+    "source_sample_id": "apache_commons_math/sample_0444",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "1d9a96c2fc69b254a238337d16a7a4dceaa0849f",
+    "source_sample_id": "apache_lucene/sample_0678",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "1d9a96c2fc69b254a238337d16a7a4dceaa0849f",
+    "source_sample_id": "apache_lucene/sample_0678",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "618f2f80ca55d75354ba906ea8067c3386dabbd9",
+    "source_sample_id": "apache_commons_math/sample_0445",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "c96c12f79769c006f97307c85a9fa95b51e1f32a",
+    "source_sample_id": "apache_commons_math/sample_0450",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "1073d29a530aef38c2d6a13a1524ddc2ea5bd913",
+    "source_sample_id": "apache_lucene/sample_0687",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "0f9d2ec5b8cb5d00248cf82e3657ad7214d45e70",
+    "source_sample_id": "apache_lucene/sample_0688",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "5fe9b36c454f8a38416a96455da6ffeadbbe8a37",
+    "source_sample_id": "apache_commons_math/sample_0459",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "5fe9b36c454f8a38416a96455da6ffeadbbe8a37",
+    "source_sample_id": "apache_commons_math/sample_0459",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "8bb8d6561c9bb562807e2a4a3ad631c30121a50c",
+    "source_sample_id": "apache_lucene/sample_0700",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "826fc64e968e5fd84dae5757537ab8ed815e2126",
+    "source_sample_id": "apache_commons_math/sample_0492",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1b238344cd2c311fc68d998043602320c5f11970",
+    "source_sample_id": "apache_commons_math/sample_0496",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1b238344cd2c311fc68d998043602320c5f11970",
+    "source_sample_id": "apache_commons_math/sample_0496",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1b27e0019e7369fbe4c620af538702682fac2a4a",
+    "source_sample_id": "apache_commons_math/sample_0499",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1ec00befad424a8f340f73da32b8dae3581c2b18",
+    "source_sample_id": "apache_commons_math/sample_0500",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1ec00befad424a8f340f73da32b8dae3581c2b18",
+    "source_sample_id": "apache_commons_math/sample_0500",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1ec00befad424a8f340f73da32b8dae3581c2b18",
+    "source_sample_id": "apache_commons_math/sample_0501",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "1ec00befad424a8f340f73da32b8dae3581c2b18",
+    "source_sample_id": "apache_commons_math/sample_0501",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "de001e7bcf9acb761047bdcf40f48244f8b63642",
+    "source_sample_id": "apache_commons_math/sample_0502",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "de001e7bcf9acb761047bdcf40f48244f8b63642",
+    "source_sample_id": "apache_commons_math/sample_0503",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "de001e7bcf9acb761047bdcf40f48244f8b63642",
+    "source_sample_id": "apache_commons_math/sample_0504",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "c6d53a52582d2d4c6fdec7a5f1a8cbee16db0e65",
+    "source_sample_id": "apache_commons_math/sample_0505",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "4b9b7585dcfb93bc027f6e08931100edee6a00b8",
+    "source_sample_id": "apache_commons_math/sample_0507",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "f210f2fbce724d83a1a1b77f25c42e2c9a01a55e",
+    "source_sample_id": "apache_commons_math/sample_0508",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "a10ae161bfd1eef861e424cf99ece3b4ff652739",
+    "source_sample_id": "apache_commons_math/sample_0509",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "39c1b9b3a5fee7e7896db94f1fbaada26d18cc4f",
+    "source_sample_id": "apache_lucene/sample_0746",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "7584e481bffc5a5ffb8673b0cb869b56c73d3b87",
+    "source_sample_id": "apache_commons_math/sample_0516",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "source_sample_id": "apache_lucene/sample_0764",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "source_sample_id": "apache_lucene/sample_0764",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "92f005ad13c989d70da393072c4f3d66798e4a1b",
+    "source_sample_id": "apache_commons_math/sample_0536",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "92f005ad13c989d70da393072c4f3d66798e4a1b",
+    "source_sample_id": "apache_commons_math/sample_0536",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "e038fdb1cc191cd1a11ebbf5f7f5370a3d4788b8",
+    "source_sample_id": "apache_commons_math/sample_0537",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "commit_hash": "e038fdb1cc191cd1a11ebbf5f7f5370a3d4788b8",
+    "source_sample_id": "apache_commons_math/sample_0538",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "39e0ff32f2d7f957d31d9fc7b44c6a8a5bdc76b1",
+    "source_sample_id": "apache_lucene/sample_0812",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "92c5c6933cadf50ce13fca584dcef03e81ac6660",
+    "source_sample_id": "apache_lucene/sample_0829",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "92c5c6933cadf50ce13fca584dcef03e81ac6660",
+    "source_sample_id": "apache_lucene/sample_0829",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "d407edf4b87227735b3ba2d8a81af1994a02d8e9",
+    "source_sample_id": "apache_lucene/sample_0103",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "d407edf4b87227735b3ba2d8a81af1994a02d8e9",
+    "source_sample_id": "apache_lucene/sample_0103",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "7f4d4dfdbf6d95466889aed1f6f720776dcdc8e7",
+    "source_sample_id": "apache_lucene/sample_0195",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "7f4d4dfdbf6d95466889aed1f6f720776dcdc8e7",
+    "source_sample_id": "apache_lucene/sample_0195",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "67f9245ce30bb21d3976c05548856c81cf7ee8a1",
+    "source_sample_id": "apache_lucene/sample_0217",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "67f9245ce30bb21d3976c05548856c81cf7ee8a1",
+    "source_sample_id": "apache_lucene/sample_0217",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "commit_hash": "07d946c11d447ba88b62d28750a33651c897da29",
+    "source_sample_id": "fasterxml_jackson_databind/sample_0139",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "commit_hash": "07d946c11d447ba88b62d28750a33651c897da29",
+    "source_sample_id": "fasterxml_jackson_databind/sample_0140",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "commit_hash": "29446171c4157d3f9404f7855842e78e8893e420",
+    "source_sample_id": "fasterxml_jackson_databind/sample_0162",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "commit_hash": "32fcb5ddd31ee7bcec0028d34c7d2a9f36463ffa",
+    "source_sample_id": "fasterxml_jackson_databind/sample_0196",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "commit_hash": "c659dd3bf40a266f9fceb0dea94c9c47dd0fdb20",
+    "source_sample_id": "junit_team_junit5/sample_0056",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "commit_hash": "c659dd3bf40a266f9fceb0dea94c9c47dd0fdb20",
+    "source_sample_id": "junit_team_junit5/sample_0056",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "4fb7e3d02c6354cf1a1dce522e652610f95bec24",
+    "source_sample_id": "apache_lucene/sample_0354",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "apache_lucene",
+    "commit_hash": "4fb7e3d02c6354cf1a1dce522e652610f95bec24",
+    "source_sample_id": "apache_lucene/sample_0354",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "commit_hash": "c720cccb04ae4781a0d523e0b2e1ecff9072bbc7",
+    "source_sample_id": "junit_team_junit5/sample_0059",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "junit_team_junit5",
+    "commit_hash": "c720cccb04ae4781a0d523e0b2e1ecff9072bbc7",
+    "source_sample_id": "junit_team_junit5/sample_0059",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "2564f6a049326ddc01d9c3123568bda5c2c96036",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0047",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "2564f6a049326ddc01d9c3123568bda5c2c96036",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0047",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "e7cc9a6104db786e44a28c15c66ee2c639ad9571",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0052",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "04f59f130717b245d700aff6de37186da8a33bca",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0070",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "04f59f130717b245d700aff6de37186da8a33bca",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0070",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "474c9981dab4b4c193161415d25348cd426a0dda",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0136",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "474c9981dab4b4c193161415d25348cd426a0dda",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0136",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "2e4d63fdddc4871bab450fa1a237d60fa098df46",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0137",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "2e4d63fdddc4871bab450fa1a237d60fa098df46",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0137",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "306795468d494578b1b5f9dd5a591e9ae023f1b8",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0143",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "3ed2f44e60d47adf2ef51f6008c56aac4fbac6bb",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0145",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "3ed2f44e60d47adf2ef51f6008c56aac4fbac6bb",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0145",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "5db3def79b066caa41d3b0f61e9d51936c37736b",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0148",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "commit_hash": "5db3def79b066caa41d3b0f61e9d51936c37736b",
+    "source_sample_id": "spring_projects_spring_data_commons/sample_0148",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "69cad187a571fc370a49b49fe5be475599727221",
+    "source_sample_id": "google_guava/sample_0005",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "69cad187a571fc370a49b49fe5be475599727221",
+    "source_sample_id": "google_guava/sample_0005",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "3f61870ac6e5b18dbb74ce6f6cb2930ad8750a43",
+    "source_sample_id": "google_guava/sample_0007",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "b72fe8611c3ed4b2782ca79dec170efe5d1fbd0e",
+    "source_sample_id": "google_guava/sample_0040",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "b72fe8611c3ed4b2782ca79dec170efe5d1fbd0e",
+    "source_sample_id": "google_guava/sample_0040",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "557649df91e5f8bab4d5f39d56c81bd47e134b06",
+    "source_sample_id": "google_guava/sample_0054",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "557649df91e5f8bab4d5f39d56c81bd47e134b06",
+    "source_sample_id": "google_guava/sample_0054",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "af5e29f3fd05df9a05e597380b6922cc9fc15995",
+    "source_sample_id": "google_guava/sample_0056",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "af5e29f3fd05df9a05e597380b6922cc9fc15995",
+    "source_sample_id": "google_guava/sample_0056",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "15b547abb7015069bb464833a72f433d82b83829",
+    "source_sample_id": "google_guava/sample_0065",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "2d9d38c335bc38adc7045c90283f8e4f90048b6e",
+    "source_sample_id": "google_guava/sample_0072",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "cfe05dfda3ba79aa1bd3acce6b4e766eb7b9bc00",
+    "source_sample_id": "google_guava/sample_0075",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "e16c9e16b2e645d884944b721522aeb85e4c8bbf",
+    "source_sample_id": "google_guava/sample_0076",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "c1c5dae45283129c67eb7d5d2b5b90eff4c92c4c",
+    "source_sample_id": "google_guava/sample_0100",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "0b4e7e5df7f985026f731f10f2c37a44543a5355",
+    "source_sample_id": "google_guava/sample_0141",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "d099e2b65d5ae3b5fa9e31ff5206dd4b51ba2ce1",
+    "source_sample_id": "google_guava/sample_0210",
+    "field": "javadoc_before",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "d099e2b65d5ae3b5fa9e31ff5206dd4b51ba2ce1",
+    "source_sample_id": "google_guava/sample_0210",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "google_guava",
+    "commit_hash": "928a3fadb7be6ab3046798ef870759ded8bc4dc3",
+    "source_sample_id": "google_guava/sample_0229",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "commit_hash": "6762d7919e99c741c66f0a22f0d1175d3e631c86",
+    "source_sample_id": "jodaorg_joda_time/sample_0007",
+    "field": "javadoc_after",
+    "reasons": [
+      "unbalanced_angle_brackets"
+    ]
+  }
+]

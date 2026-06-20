@@ -1,0 +1,8 @@
+{
+  "commit_hash": "10ead35ab06709879be3cacb2d38a05860baa2a5",
+  "issue_summary": "Cut over to consistent default values and added support for entire long range",
+  "code_before": "public final LookupResult getByValue(BytesRef value) {\n      return getByValue(value, new BytesRef());\n    }",
+  "code_after": "public final int getByValue(BytesRef value) {\n      return getByValue(value, new BytesRef());\n    }",
+  "javadoc_before": "/**\n     * Finds the largest ord whose value is less or equal to the requested\n     * value. If {@link LookupResult#found} is true, then ord is an exact match.\n     * The returned {@link LookupResult} may be reused across calls.\n     */",
+  "javadoc_after": "/**\n     * Finds the ordinal whose value is greater or equal to the given value.\n     * \n     * @return the given values ordinal if found or otherwise\n     *         <code>(-(ord)-1)</code>, defined as the ordinal of the first\n     *         element that is greater than the given value. This guarantees\n     *         that the return value will always be &gt;= 0 if the given value\n     *         is found.\n     * \n     */"
+}

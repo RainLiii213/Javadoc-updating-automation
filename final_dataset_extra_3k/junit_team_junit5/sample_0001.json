@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dd6d1d6b87f1a0e039185ba4592ee1dece747907",
+  "issue_summary": "Prefer @Nullable to Optional for InterceptingExecutableInvoker",
+  "code_before": "List<Object> getArguments();",
+  "code_after": "List<@Nullable Object> getArguments();",
+  "javadoc_before": "/**\n\t * Get the arguments of the executable in this invocation context.\n\t *\n\t * @return the arguments of the executable in this invocation context;\n\t * immutable and never {@code null}\n\t */",
+  "javadoc_after": "/**\n\t * Get the arguments of the executable in this invocation context.\n\t *\n\t * @return the arguments of the executable in this invocation context;\n\t * immutable and never {@code null} but may contain {@code null}.\n\t */"
+}

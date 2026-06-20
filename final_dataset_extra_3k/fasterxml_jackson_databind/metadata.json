@@ -1,0 +1,21 @@
+{
+  "project_slug": "fasterxml_jackson_databind",
+  "repository_name": "FasterXML/jackson-databind",
+  "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+  "retained_samples": 215,
+  "source_folder": "dataset_fasterxml_jackson_databind_extra_3k_215_20260618144137",
+  "final_folder": "final_dataset_extra_3k/fasterxml_jackson_databind",
+  "mined_at_utc": "2026-06-18T14:41:37+00:00",
+  "commits_scanned": 12973,
+  "candidate_samples_found": 273,
+  "filtered_samples": 33,
+  "discarded_truncated_code_context": 12,
+  "moved_to_review": 25,
+  "discarded_weak_inheritdoc": 0,
+  "issue_summary_fallbacks": 6,
+  "duplicate_against_baseline": 0,
+  "duplicate_inside_new_dataset": 0,
+  "complete_history": true,
+  "stop_reason": "full_history_scanned",
+  "skipped_previously_scanned_commits": 0
+}

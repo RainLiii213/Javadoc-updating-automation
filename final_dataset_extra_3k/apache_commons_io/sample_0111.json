@@ -1,0 +1,8 @@
+{
+  "commit_hash": "69faa8fc52bf4a8125e882d48208355a8a5ebeb8",
+  "issue_summary": "Fix javadoc and method return type",
+  "code_before": "public static Iterator lineIterator(Reader reader) {\n        return new LineIterator(reader);\n    }",
+  "code_after": "public static LineIterator lineIterator(Reader reader) {\n        return new LineIterator(reader);\n    }",
+  "javadoc_before": "/**\n     * Return an Iterator for the lines in a <code>Reader</code>.\n     *\n     * @param reader  the <code>Reader</code> to read from, not null\n     * @return an Iterator of the lines in the reader, never null\n     * @throws NullPointerException if the reader is null\n     * @since Commons IO 1.2\n     */",
+  "javadoc_after": "/**\n     * Return an Iterator for the lines in a <code>Reader</code>.\n     * Please read the javadoc of {@link LineIterator} to understand\n     * whether you should close the iterator.\n     * The file is closed if an exception is thrown.\n     *\n     * @param reader  the <code>Reader</code> to read from, not null\n     * @return an Iterator of the lines in the reader, never null\n     * @throws NullPointerException if the reader is null\n     * @since Commons IO 1.2\n     */"
+}

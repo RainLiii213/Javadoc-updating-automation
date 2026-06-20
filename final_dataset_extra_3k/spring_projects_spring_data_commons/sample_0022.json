@@ -1,0 +1,8 @@
+{
+  "commit_hash": "30457ac4ed3b8a6719b53609e13003f3e90a3329",
+  "issue_summary": "Migrate to JSpecify annotations for nullability constraints.",
+  "code_before": "protected Optional<EvaluationContextProvider> createDefaultEvaluationContextProvider(\n\t\t\tListableBeanFactory beanFactory) {\n\t\treturn Optional.of(QueryMethodValueEvaluationContextAccessor.createEvaluationContextProvider(beanFactory));\n\t}",
+  "code_after": "protected @Nullable EvaluationContextProvider createDefaultEvaluationContextProvider(\n\t\t\tListableBeanFactory beanFactory) {\n\t\treturn QueryMethodValueEvaluationContextAccessor.createEvaluationContextProvider(beanFactory);\n\t}",
+  "javadoc_before": "/**\n\t * Create a default {@link EvaluationContextProvider} (or subclass) from {@link ListableBeanFactory}.\n\t *\n\t * @param beanFactory the bean factory to use.\n\t * @return the default instance. May be {@link Optional#empty()}.\n\t * @since 3.4\n\t */",
+  "javadoc_after": "/**\n\t * Create a default {@link EvaluationContextProvider} (or subclass) from {@link ListableBeanFactory}.\n\t *\n\t * @param beanFactory the bean factory to use.\n\t * @return the default instance. May be {@code null}.\n\t * @since 3.4\n\t */"
+}

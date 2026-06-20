@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a2ff432585cc8b3fd44fc1a6225bbb08a855c811",
+  "issue_summary": "Update inclusion calls to new introspection methods",
+  "code_before": "public JsonInclude.Value findPropertyInclusion(Annotated a) {\n        JsonInclude.Include def = JsonInclude.Include.USE_DEFAULTS;\n        JsonInclude.Include vi = findSerializationInclusion(a, def);\n        JsonInclude.Include ci = findSerializationInclusionForContent(a, def);\n        return JsonInclude.Value.construct(vi, ci);\n    }",
+  "code_after": "public JsonInclude.Value findPropertyInclusion(Annotated a) {\n        return JsonInclude.Value.empty();\n    }",
+  "javadoc_before": "/**\n     * NOTE: introduced in 2.6 but NOT YET USED by core databind until 2.7\n     *\n     * @since 2.6\n     */",
+  "javadoc_after": "/**\n     * Method for checking inclusion criteria for a type (Class) or property (yes, method\n     * name is bit unfortunate -- not just for properties!).\n     * In case of class, acts as the default for properties POJO contains; for properties\n     * acts as override for class defaults and possible global defaults.\n     *\n     * @since 2.6\n     */"
+}

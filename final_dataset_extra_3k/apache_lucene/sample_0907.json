@@ -1,0 +1,8 @@
+{
+  "commit_hash": "419359a057ddacc9d1ce168ab84cd6ed0ef2e380",
+  "issue_summary": "Changed the stemming algorithm to ignore case while stripping. The algorithm is faster and produces more equal stems from nouns and verbs derived from the same word. That fixes the problem finding substantives when the searchterm is provided in lowercase. Now the stemming results are almost case insensitive. Changed the checking of legal terms to only reject terms that contain non letters, which solves problems with terms that contain irregular cased letters. Removal of pertical denotion now produces less overstemming errors. Code is rearranged a bit.",
+  "code_before": "private StringBuffer removeParticleDenotion( StringBuffer buffer ) {\n\tfor ( int c = 0; c < buffer.length(); c++ ) {\n\t    // Strip from the beginning of the string to the \"ge\" inclusive\n\t    if ( c < ( buffer.length() - 4 ) && buffer.charAt( c ) == 'g' && buffer.charAt ( c + 1 ) == 'e' ) {\n\t\tbuffer.delete( 0, c + 2 );\n\t    }\n\t}\n\treturn sb;\n    }",
+  "code_after": "private void removeParticleDenotion( StringBuffer buffer ) {\n\t\tif ( buffer.length() > 4 ) {\n\t\t\tfor ( int c = 0; c < buffer.length() - 3; c++ ) {\n\t\t\t\tif ( buffer.substring( c, c + 4 ).equals( \"gege\" ) ) {\n\t\t\t\t\tbuffer.delete( c, c + 2 );\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n    }",
+  "javadoc_before": "/**\n     * Removes a particle denotion (\"ge\") from a term, but only if at least 3\n     * characters will remain.\n     *\n     * @return  The term without particle denotion, if there was one.\n     */",
+  "javadoc_after": "/**\n     * Removes a particle denotion (\"ge\") from a term.\n     */"
+}

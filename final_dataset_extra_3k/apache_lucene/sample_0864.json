@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6952e966484437031e8d3c62ee4a0b80742988eb",
+  "issue_summary": "revamp toString so as to not deal with potential IOException from fetching a document",
+  "code_before": "public String toString() {\n    try {\n      return getDocument().toString();\n    } catch (IOException e) {\n      return null;\n    }\n  }",
+  "code_after": "public String toString() {\n    StringBuffer buffer = new StringBuffer();\n    buffer.append(\"Hit<\");\n    buffer.append(hits.toString());\n    buffer.append(\" [\");\n    buffer.append(hitNumber);\n    buffer.append(\"] \");\n    if (resolved) {\n        buffer.append(\"resolved\");\n    } else {\n        buffer.append(\"unresolved\");\n    }\n    buffer.append(\">\");\n    return buffer.toString();\n  }",
+  "javadoc_before": "/**\n   * Prints the fields of the underlying document for human consumption.\n   * <p/>\n   * If an IOException occurs whilst getting the document, returns null\n   *\n   * @see Document#toString()\n   */",
+  "javadoc_after": "/**\n   * Prints the parameters to be used to discover the promised result.\n   */"
+}

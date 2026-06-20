@@ -1,0 +1,10 @@
+[
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "e6faa455fdc0475c62fe268e7dbd39bfebddffd0",
+    "issue_summary": "...",
+    "source_sample_id": "fasterxml_jackson_databind/sample_0197",
+    "reason": "weak_issue_summary_unresolved"
+  }
+]

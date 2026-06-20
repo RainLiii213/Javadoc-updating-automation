@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5ddfe45731ee90ab21eb56baeb6fda12331e5788",
+  "issue_summary": "modifying MultiCore implementaion to treat \"singlecore\" as a CoreCollection with only one Core",
+  "code_before": "public SolrCore getAdminCore() {\n    synchronized (cores) {\n      SolrCore core = adminCore != null ? adminCore.get() : null;\n      if (core == null || core.isClosed()) {\n        for (CoreDescriptor descr : this.cores.values()) {\n          core = descr.getCore();\n          if (core == null || core.isClosed()) {\n            core = null;\n          } else {\n            break;\n          }\n        }\n        setAdminCore(core);\n      }\n      return core;\n    }\n  }",
+  "code_after": "public SolrCore getAdminCore() {\n    synchronized (cores) {\n      SolrCore core = adminCore != null ? adminCore.get() : null;\n//      solr-647\n//      if (core != null)\n//        core = core.open();\n      if (core == null) {\n        for (CoreDescriptor descr : this.cores.values()) {\n          core = descr.getCore();\n//          solr-647\n//          if (core != null)\n//            core = core.open();\n          if (core != null) {\n            break;\n          }\n        }\n        setAdminCore(core);\n      }\n      return core;\n    }\n  }",
+  "javadoc_before": "/**\n   * Gets a core to handle CoreContainer admin tasks (@see SolrDispatchFilter).\n   * This makes the best attempt to reuse the same opened SolrCore across calls.\n   */",
+  "javadoc_after": "/**\n   * Ensures there is a valid core to handle MultiCore admin taks and\n   * increase its refcount.\n   * @return the acquired admin core, null if no core is available\n   */"
+}

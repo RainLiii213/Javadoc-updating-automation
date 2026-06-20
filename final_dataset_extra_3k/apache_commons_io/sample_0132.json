@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6afa3db854c9b574faaf1499247a898c524eded7",
+  "issue_summary": "Add encoding specific methods, Javadoc, Reformat to standards",
+  "code_before": "public static byte[] toByteArray( String input )\n        throws IOException\n    {\n        ByteArrayOutputStream output = new ByteArrayOutputStream();\n        CopyUtils.copy( input, output );\n        return output.toByteArray();\n    }",
+  "code_after": "public static byte[] toByteArray(String input) throws IOException {\n        return input.getBytes();\n    }",
+  "javadoc_before": "/**\n     * Get the contents of a <code>String</code> as a <code>byte[]</code>.\n     * @param input the <code>String</code> to convert\n     * @return the requested byte array\n     * @throws IOException In case of an I/O problem\n     * @deprecated This is reundant, use java.lang.String.toByteArray.\n     */",
+  "javadoc_after": "/**\n     * Get the contents of a <code>String</code> as a <code>byte[]</code>\n     * using the default character encoding of the platform.\n     * <p>\n     * This is the same as {@link String#getBytes()}.\n     * \n     * @param input  the <code>String</code> to convert\n     * @return the requested byte array\n     * @throws NullPointerException if the input is null\n     * @throws IOException if an I/O error occurs\n     *  (never happens, but can't remove due to backwards compatibility)\n     */"
+}

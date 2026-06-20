@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d65ed29a4395d24d93bd114f6ba4ce054a390730",
+  "issue_summary": "remove dead code",
+  "code_before": "MutableFieldInfos(FieldNumberBiMap globalFieldNumbers) {\n    this.globalFieldNumbers = globalFieldNumbers;\n  }",
+  "code_after": "MutableFieldInfos(FieldNumberBiMap globalFieldNumbers) {\n    assert globalFieldNumbers != null;\n    this.globalFieldNumbers = globalFieldNumbers;\n  }",
+  "javadoc_before": "/**\n   * Creates a new FieldInfos instance with the given {@link FieldNumberBiMap}. \n   * If the {@link FieldNumberBiMap} is <code>null</code> this instance will be read-only.\n   * @see #isReadOnly()\n   */",
+  "javadoc_after": "/**\n   * Creates a new FieldInfos instance with the given {@link FieldNumberBiMap}. \n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "694efb6dbd8506d623d5c117d1df39f9260f72df",
+  "issue_summary": "Fix enclosing class bug in IndicativeSentences",
+  "code_before": "String separator() default \"\";",
+  "code_after": "String separator() default DEFAULT_SEPARATOR;",
+  "javadoc_before": "/**\n\t * Custom separator for indicative sentences generator.\n\t */",
+  "javadoc_after": "/**\n\t * Custom separator for sentence fragments.\n\t *\n\t * <p>Defaults to {@value #DEFAULT_SEPARATOR}.\n\t */"
+}

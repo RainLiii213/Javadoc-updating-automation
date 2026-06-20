@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4f3f4ff8c8fd99c88b5d346f0e1fb7efe5a3db67",
+  "issue_summary": "Add global default settings for setter info (JsonSetter.Value) to allow for default merging. Also MapperFeature to avoid exceptions.",
+  "code_before": "public ObjectMapper setPropertyInclusion(JsonInclude.Value incl) {\n        _serializationConfig = _serializationConfig.withPropertyInclusion(incl);\n        return this;\n    }",
+  "code_after": "@Deprecated\n    public ObjectMapper setPropertyInclusion(JsonInclude.Value incl) {\n        return setDefaultPropertyInclusion(incl);\n    }",
+  "javadoc_before": "/**\n     * Method for setting default POJO property inclusion strategy for serialization.\n     *\n     * @since 2.7\n     */",
+  "javadoc_after": "/**\n     * @since 2.7\n     * @deprecated Since 2.9 use {@link #setDefaultPropertyInclusion}\n     */"
+}

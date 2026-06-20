@@ -1,0 +1,8 @@
+{
+  "commit_hash": "873f1999244555a1e1b3e14698e7f9494f4ef00c",
+  "issue_summary": "move TermVectors,FieldInfos,SegmentInfos to codec",
+  "code_before": "public abstract TermsEnum terms() throws IOException;",
+  "code_after": "public abstract Terms terms() throws IOException;",
+  "javadoc_before": "/** Get {@link TermsEnum} for the current field.  You\n   *  should not call {@link #next} until you're done using\n   *  this {@link TermsEnum}.  After {@link #next} returns\n   *  null this method should not be called. This method\n   *  will not return null. */",
+  "javadoc_after": "/** Get {@link Terms} for the current field.  After {@link #next} returns\n   *  null this method should not be called. This method may\n   *  return null in some cases, which means the provided\n   *  field does not have any terms. */"
+}

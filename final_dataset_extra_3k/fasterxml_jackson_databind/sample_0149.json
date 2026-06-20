@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c0b9552892a55bdd6f8f6263c6f22fd9c56f8cfa",
+  "issue_summary": "Implement : Add `ObjectMapper.setDefaultPrettyPrinter(...)`",
+  "code_before": "protected PrettyPrinter _defaultPrettyPrinter() {\n        return _defaultPrettyPrinter;\n    }",
+  "code_after": "@Deprecated\n    protected PrettyPrinter _defaultPrettyPrinter() {\n        return _serializationConfig.constructDefaultPrettyPrinter();\n    }",
+  "javadoc_before": "/**\n     * Helper method that should return default pretty-printer to\n     * use for generators constructed by this mapper, when instructed\n     * to use default pretty printer.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.6, use {@link SerializationConfig#constructDefaultPrettyPrinter()} directly\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "67163d02e3b7cf469a1d71290c7b4a66db07914a",
+  "issue_summary": "Evolve ValueExpressionParser.",
+  "code_before": "public String getSpelExpression() {\n\t\treturn key;\n\t}",
+  "code_after": "@Nullable\n\tpublic String getSpelExpression() {\n\t\treturn getValueExpression();\n\t}",
+  "javadoc_before": "/**\n\t * Returns the key to be used when looking up a source data structure to populate the actual parameter value.\n\t *\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Returns the expression to be used when looking up a source data structure to populate the actual parameter value.\n\t *\n\t * @return the expression to be used when looking up a source data structure.\n\t * @deprecated since 3.3, use {@link #getValueExpression()} instead.\n\t */"
+}

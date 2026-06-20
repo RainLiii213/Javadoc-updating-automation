@@ -1,0 +1,8 @@
+{
+  "commit_hash": "21b7c5bbee13b88fc2b28318314c8a38b9388d07",
+  "issue_summary": "make bulk postings codec private",
+  "code_before": "@Override\n  public int nextDoc() throws IOException {\n    pointer++;\n    if (pointer >= pointerMax) {\n      pointerMax = docsEnum.read();  // refill\n      if (pointerMax != 0) {\n        pointer = 0;\n      } else {\n        return doc = NO_MORE_DOCS;\n      }\n    }\n    doc = docs[pointer];\n    freq = freqs[pointer];\n    assert doc != NO_MORE_DOCS;\n    return doc;\n  }",
+  "code_after": "@Override\n  public int nextDoc() throws IOException {\n    return docsEnum.nextDoc();\n  }",
+  "javadoc_before": "/**\n   * Advances to the next document matching the query. <br>\n   * The iterator over the matching documents is buffered using\n   * {@link TermDocs#read(int[],int[])}.\n   * \n   * @return the document matching the query or NO_MORE_DOCS if there are no more documents.\n   */",
+  "javadoc_after": "/**\n   * Advances to the next document matching the query. <br>\n   * \n   * @return the document matching the query or NO_MORE_DOCS if there are no more documents.\n   */"
+}

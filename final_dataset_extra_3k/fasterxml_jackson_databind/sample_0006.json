@@ -1,0 +1,8 @@
+{
+  "commit_hash": "aca9295618b06cd11e7c368208e3c6426a79a26c",
+  "issue_summary": "Fix : Forward Object Id references in Collection properties leak Builder instance",
+  "code_before": "public PropertyValueBuffer startBuildingWithAnySetter(JsonParser p, DeserializationContext ctxt,\n            ObjectIdReader oir, SettableAnyProperty anySetter\n    ) {\n        return new PropertyValueBuffer(p, ctxt, _propertyCount, oir, anySetter,\n                _injectablePropIndexes);\n    }",
+  "code_after": "@Deprecated\n    public PropertyValueBuffer startBuildingWithAnySetter(JsonParser p,\n            DeserializationContext ctxt,\n            ObjectIdReader oir, SettableAnyProperty anySetter\n    ) {\n        return startBuildingWithAnySetter(p, ctxt, oir, anySetter, false);\n    }",
+  "javadoc_before": "/**\n     * Method called when starting to build a bean instance.\n     *\n     * @since 2.18 (added SettableAnyProperty parameter)\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 3.2\n     */"
+}

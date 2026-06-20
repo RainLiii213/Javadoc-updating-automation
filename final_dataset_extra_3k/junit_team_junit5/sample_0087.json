@@ -1,0 +1,8 @@
+{
+  "commit_hash": "137f831bba9d0f45085d64fad47947cbc91a30e9",
+  "issue_summary": "Make ThrowableCollector configurable",
+  "code_before": "public TestExecutionResult toTestExecutionResult() {\n\t\tif (isEmpty()) {\n\t\t\treturn successful();\n\t\t}\n\t\tif (throwable instanceof TestAbortedException) {\n\t\t\treturn aborted(throwable);\n\t\t}\n\t\treturn failed(throwable);\n\t}",
+  "code_after": "TestExecutionResult toTestExecutionResult() {\n\t\tif (isEmpty()) {\n\t\t\treturn successful();\n\t\t}\n\t\tif (hasAbortedExecution(throwable)) {\n\t\t\treturn aborted(throwable);\n\t\t}\n\t\treturn failed(throwable);\n\t}",
+  "javadoc_before": "/**\n\t * Convert the collected throwables into a {@link TestExecutionResult}.\n\t *\n\t * @return {@linkplain TestExecutionResult#aborted aborted} if the collected\n\t * {@code throwable} is a {@link TestAbortedException};\n\t * {@linkplain TestExecutionResult#failed failed} if any other\n\t * {@link Throwable} was collected; and\n\t * {@linkplain TestExecutionResult#successful successful} otherwise\n\t */",
+  "javadoc_after": "/**\n\t * Convert the collected {@link Throwable Throwables} into a {@link TestExecutionResult}.\n\t *\n\t * @return {@linkplain TestExecutionResult#aborted aborted} if the collected\n\t * {@code Throwable} <em>aborted</em> execution;\n\t * {@linkplain TestExecutionResult#failed failed} if it <em>failed</em>\n\t * execution; and {@linkplain TestExecutionResult#successful successful}\n\t * otherwise\n\t */"
+}

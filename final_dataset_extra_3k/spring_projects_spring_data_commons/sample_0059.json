@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dda102ad7f17b252c06d7919ed0600d06143b239",
+  "issue_summary": "Polishing.",
+  "code_before": "@Nullable\n\t<A, B, C extends PersistentProperty<C>, D extends ValueConversionContext<C>> PropertyValueConverter<A, B, D> getValueConverter(\n\t\t\tC property);",
+  "code_after": "<DV, SV, C extends PersistentProperty<C>, VCC extends ValueConversionContext<C>> PropertyValueConverter<DV, SV, VCC> getValueConverter(\n\t\t\tC property);",
+  "javadoc_before": "/**\n\t * Get the {@link PropertyValueConverter} for the given {@literal property} if present.\n\t *\n\t * @param property must not be {@literal null}. param <A> domain specific type\n\t * @param <B> store native type\n\t * @param <C> conversion context type\n\t * @return the suitable {@link PropertyValueConverter} or {@literal null} if none available.\n\t */",
+  "javadoc_after": "/**\n\t * Get the {@link PropertyValueConverter} for the given {@literal property}.\n\t *\n\t * @param property must not be {@literal null}.\n\t * @param <DV> domain-specific type\n\t * @param <SV> store-native type\n\t * @param <C> conversion context type\n\t * @return the suitable {@link PropertyValueConverter}.\n\t */"
+}

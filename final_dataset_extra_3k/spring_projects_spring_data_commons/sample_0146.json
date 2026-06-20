@@ -1,0 +1,8 @@
+{
+  "commit_hash": "be47572e56e79a667629dbd5980377d0907e20a1",
+  "issue_summary": "Fixed assignability check for from QueryMethod.",
+  "code_before": "public static void assertReturnTypeAssignable(Method method, Class<?>... types) {\n\n\t\tfor (Class<?> type : types) {\n\t\t\tif (type.isAssignableFrom(method.getReturnType())) {\n\t\t\t\treturn;\n\t\t\t}\n\t\t}\n\n\t\tthrow new IllegalStateException(\"Method has to have one of the following return types! \" + Arrays.toString(types));\n\t}",
+  "code_after": "public static void assertReturnTypeAssignable(Method method, Class<?>... types) {\n\n\t\tAssert.notNull(method, \"Method must not be null!\");\n\t\tAssert.notEmpty(types, \"Types must not be null or empty!\");\n\n\t\tTypeInformation<?> returnType = ClassTypeInformation.fromReturnTypeOf(method);\n\t\treturnType = QueryExecutionConverters.supports(returnType.getType()) ? returnType.getComponentType() : returnType;\n\n\t\tfor (Class<?> type : types) {\n\t\t\tif (type.isAssignableFrom(returnType.getType())) {\n\t\t\t\treturn;\n\t\t\t}\n\t\t}\n\n\t\tthrow new IllegalStateException(\"Method has to have one of the following return types! \" + Arrays.toString(types));\n\t}",
+  "javadoc_before": "/**\n\t * Asserts the given {@link Method}'s return type to be one of the given types.\n\t * \n\t * @param method\n\t * @param types\n\t */",
+  "javadoc_after": "/**\n\t * Asserts the given {@link Method}'s return type to be one of the given types. Will unwrap known wrapper types before\n\t * the assignment check (see {@link QueryExecutionConverters}).\n\t * \n\t * @param method must not be {@literal null}.\n\t * @param types must not be {@literal null} or empty.\n\t */"
+}

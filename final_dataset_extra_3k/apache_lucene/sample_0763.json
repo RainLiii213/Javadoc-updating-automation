@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+  "issue_summary": "improvements to Token reuse API and full cutover to reuse API for all core and contrib analyzers",
+  "code_before": "public final void setTermBuffer(char[] buffer, int offset, int length) {\n    resizeTermBuffer(length);\n    System.arraycopy(buffer, offset, termBuffer, 0, length);\n    termLength = length;\n  }",
+  "code_after": "public final void setTermBuffer(char[] buffer, int offset, int length) {\n    termText = null;\n    char[] newCharBuffer = growTermBuffer(length);\n    if (newCharBuffer != null) {\n      termBuffer = newCharBuffer;\n    }\n    System.arraycopy(buffer, offset, termBuffer, 0, length);\n    termLength = length;\n  }",
+  "javadoc_before": "/** Copies the contents of buffer, starting at offset for\n   *  length characters, into the termBuffer\n   *  array. <b>NOTE:</b> for better indexing speed you\n   *  should instead retrieve the termBuffer, using {@link\n   *  #termBuffer()} or {@link #resizeTermBuffer(int)}, and\n   *  fill it in directly to set the term text.  This saves\n   *  an extra copy. */",
+  "javadoc_after": "/** Copies the contents of buffer, starting at offset for\n   *  length characters, into the termBuffer array.\n   *  @param buffer the buffer to copy\n   *  @param offset the index in the buffer of the first character to copy\n   *  @param length the number of characters to copy\n   */"
+}

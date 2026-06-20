@@ -1,0 +1,8 @@
+{
+  "commit_hash": "562a1ed6315db942eeb0e2f45c7b92e9cf9655d7",
+  "issue_summary": "Implement : Allow injecting `MissingNode` for \"absent\" `JsonNode` via Creator",
+  "code_before": "@Override // since 2.13\n    public Object getAbsentValue(DeserializationContext ctxt) {\n        return null;\n    }",
+  "code_after": "@Override // since 2.13\n    public Object getAbsentValue(DeserializationContext ctxt) {\n        // [databind#5861] Optionally map absent to MissingNode\n        if (ctxt.isEnabled(JsonNodeFeature.MAP_ABSENT_TO_MISSING)) {\n            return ctxt.getNodeFactory().missingNode();\n        }\n        return null;\n    }",
+  "javadoc_before": "/**\n     * Overridden variant to ensure that absent values are NOT coerced into\n     * {@code NullNode}s, unlike incoming {@code null} values.\n     */",
+  "javadoc_after": "/**\n     * Overridden variant to ensure that absent values are NOT coerced into\n     * {@code NullNode}s, unlike incoming {@code null} values.\n     * Will return {@code MissingNode} if\n     * {@link JsonNodeFeature#MAP_ABSENT_TO_MISSING} is enabled;\n     * Java {@code null} otherwise.\n     */"
+}

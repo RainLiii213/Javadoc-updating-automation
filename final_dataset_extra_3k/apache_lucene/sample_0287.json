@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d77d05d44d63d076c5842680428ae138e0b5b906",
+  "issue_summary": "make FacetResultNode a simple bin",
+  "code_before": "public String toString(String prefix);",
+  "code_after": "public String toString(String prefix) {\n    StringBuilder sb = new StringBuilder(prefix);\n    if (label == null) {\n      sb.append(\"not labeled (ordinal=\").append(ordinal).append(\")\");\n    } else {\n      sb.append(label.toString());\n    }\n    sb.append(\" (\").append(Double.toString(value)).append(\")\");\n    if (residue > 0) {\n      sb.append(\" (residue=\").append(residue).append(\")\");\n    }\n    for (FacetResultNode sub : subResults) {\n      sb.append(\"\\n\").append(prefix).append(sub.toString(prefix + \"  \"));\n    }\n    return sb.toString();\n  }",
+  "javadoc_before": "/**\n   * String representation of this facet result node.\n   * Use with caution: might return a very long string.\n   * @param prefix prefix for each result line\n   */",
+  "javadoc_after": "/** Returns a String representation of this facet result node. */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7b9147ec56141908a88d635f8d018b7b0e80b3ee",
+  "issue_summary": "Deprecate and then remove all methods that use the default encoding",
+  "code_before": "public static void copy(\n            final InputStream input,\n            final Writer output)\n                throws IOException {\n        final InputStreamReader in = new InputStreamReader(input);\n        copy(in, output);\n    }",
+  "code_after": "@Deprecated\n    public static void copy(\n            final InputStream input,\n            final Writer output)\n                throws IOException {\n        // make explicit the dependency on the default encoding\n        final InputStreamReader in = new InputStreamReader(input, Charset.defaultCharset());\n        copy(in, output);\n    }",
+  "javadoc_before": "/**\n     * Copy and convert bytes from an <code>InputStream</code> to chars on a\n     * <code>Writer</code>.\n     * The platform's default encoding is used for the byte-to-char conversion.\n     * @param input the <code>InputStream</code> to read from\n     * @param output the <code>Writer</code> to write to\n     * @throws IOException In case of an I/O problem\n     */",
+  "javadoc_after": "/**\n     * Copy and convert bytes from an <code>InputStream</code> to chars on a\n     * <code>Writer</code>.\n     * The platform's default encoding is used for the byte-to-char conversion.\n     * @param input the <code>InputStream</code> to read from\n     * @param output the <code>Writer</code> to write to\n     * @throws IOException In case of an I/O problem\n     * @deprecated use {@link #copy(InputStream, Writer, String)} instead\n     */"
+}

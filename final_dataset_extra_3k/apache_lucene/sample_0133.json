@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b5926da2d67820f5fdf8c8ec9b2e642b74d12070",
+  "issue_summary": "Add .getCount method to all suggesters (Lookup), persist count metadata on .store(), Dictionary returns InputIterator, Dictionary.getWordIterator renamed to .getEntryIterator",
+  "code_before": "public abstract boolean load(InputStream input) throws IOException;",
+  "code_after": "public boolean load(InputStream input) throws IOException {\n    DataInput dataIn = new InputStreamDataInput(input);\n    try {\n      return load(dataIn);\n    } finally {\n      IOUtils.close(input);\n    }\n  }",
+  "javadoc_before": "/**\n   * Discard current lookup data and load it from a previously saved copy.\n   * Optional operation.\n   * @param input the {@link InputStream} to load the lookup data.\n   * @return true if completed successfully, false if unsuccessful or not supported.\n   * @throws IOException when fatal IO error occurs.\n   */",
+  "javadoc_after": "/**\n   * Calls {@link #load(DataInput)} after converting\n   * {@link InputStream} to {@link DataInput}\n   */"
+}

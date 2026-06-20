@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2aeaa707f120162557918414246f17bb4edbff9e",
+  "issue_summary": "Polishing.",
+  "code_before": "public record ConstructorArgument(String parameterName, ResolvableType parameterType, @Nullable String fieldName) {\n\n\t\tboolean isBoundToField() {\n\t\t\treturn fieldName != null;\n\t\t}\n\n\t\tTypeName typeName() {\n\t\t\treturn typeNameOf(parameterType());\n\t\t}\n\n\t}",
+  "code_after": "public record ConstructorArgument(String parameterName, ResolvableType parameterType, boolean bindToField,\n\t\t\tAotRepositoryConstructorBuilder.ParameterOrigin parameterOrigin) {\n\n\t\tboolean isBoundToField() {\n\t\t\treturn bindToField;\n\t\t}\n\n\t\tTypeName typeName() {\n\t\t\treturn typeNameOf(parameterType());\n\t\t}\n\n\t}",
+  "javadoc_before": "/**\n\t * Constructor argument metadata.\n\t *\n\t * @param parameterName\n\t * @param parameterType\n\t * @param fieldName\n\t */",
+  "javadoc_after": "/**\n\t * Constructor argument metadata.\n\t *\n\t * @param parameterName\n\t * @param parameterType\n\t * @param bindToField\n\t */"
+}

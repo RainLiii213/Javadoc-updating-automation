@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b5926da2d67820f5fdf8c8ec9b2e642b74d12070",
+  "issue_summary": "Add .getCount method to all suggesters (Lookup), persist count metadata on .store(), Dictionary returns InputIterator, Dictionary.getWordIterator renamed to .getEntryIterator",
+  "code_before": "public abstract boolean store(OutputStream output) throws IOException;",
+  "code_after": "public boolean store(OutputStream output) throws IOException {\n    DataOutput dataOut = new OutputStreamDataOutput(output);\n    try {\n      return store(dataOut);\n    } finally {\n      IOUtils.close(output);\n    }\n  }",
+  "javadoc_before": "/**\n   * Persist the constructed lookup data to a directory. Optional operation.\n   * @param output {@link OutputStream} to write the data to.\n   * @return true if successful, false if unsuccessful or not supported.\n   * @throws IOException when fatal IO error occurs.\n   */",
+  "javadoc_after": "/**\n   * Calls {@link #store(DataOutput)} after converting\n   * {@link OutputStream} to {@link DataOutput}\n   */"
+}

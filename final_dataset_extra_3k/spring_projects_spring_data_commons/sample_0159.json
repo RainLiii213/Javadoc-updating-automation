@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e9bcca11be30caec582093612e2a1ea321e2a5db",
+  "issue_summary": "Enhanced auditing subsystem to work with accessor annotations.",
+  "code_before": "public IsNewAwareAuditingHandler(IsNewStrategyFactory isNewStrategyFactory) {\n\n\t\tAssert.notNull(isNewStrategyFactory, \"IsNewStrategy must not be null!\");\n\t\tthis.isNewStrategyFactory = isNewStrategyFactory;\n\t}",
+  "code_after": "@Deprecated\n\tpublic IsNewAwareAuditingHandler(IsNewStrategyFactory isNewStrategyFactory) {\n\n\t\tAssert.notNull(isNewStrategyFactory, \"IsNewStrategyFactory must not be null!\");\n\t\tthis.isNewStrategyFactory = isNewStrategyFactory;\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link IsNewAwareAuditingHandler} using the given {@link IsNewStrategyFactory}.\n\t * \n\t * @param isNewStrategyFactory must not be {@literal null}.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link IsNewAwareAuditingHandler} using the given {@link IsNewStrategyFactory}.\n\t * \n\t * @param isNewStrategyFactory must not be {@literal null}.\n\t * @deprecated use constructor taking a {@link MappingContext} directly. Will be removed in 1.9.\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6ff0f656f2b27d189d69f28b0fddedcf1a01df69",
+  "issue_summary": "Fix",
+  "code_before": "public VisibilityChecker(JsonAutoDetect ann)\n    {\n        // let's combine checks for enabled/disabled, with minimum level checks:\n        _fieldMinLevel = ann.fieldVisibility();\n        _getterMinLevel = ann.getterVisibility();\n        _isGetterMinLevel = ann.isGetterVisibility();\n        _setterMinLevel = ann.setterVisibility();\n        _creatorMinLevel = ann.creatorVisibility();\n        _scalarConstructorMinLevel = ann.scalarConstructorVisibility();\n    }",
+  "code_after": "@Deprecated // @since 3.2\n    public VisibilityChecker(JsonAutoDetect ann)\n    {\n        // let's combine checks for enabled/disabled, with minimum level checks:\n        _fieldMinLevel = ann.fieldVisibility();\n        _getterMinLevel = ann.getterVisibility();\n        _isGetterMinLevel = ann.isGetterVisibility();\n        _setterMinLevel = ann.setterVisibility();\n        _creatorMinLevel = ann.creatorVisibility();\n        _scalarConstructorMinLevel = ann.scalarConstructorVisibility();\n    }",
+  "javadoc_before": "/**\n     * Constructor used for building instance that has minumum visibility\n     * levels as indicated by given annotation instance\n     *\n     * @param ann Annotations to use for determining minimum visibility levels\n     */",
+  "javadoc_after": "/**\n     * Constructor used for building instance that has minumum visibility\n     * levels as indicated by given annotation instance\n     *\n     * @param ann Annotations to use for determining minimum visibility levels\n     *\n     * @deprecated Should use {@link #construct(JsonAutoDetect.Value)} instead.\n     */"
+}

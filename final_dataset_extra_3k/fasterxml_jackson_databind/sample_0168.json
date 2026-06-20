@@ -1,0 +1,8 @@
+{
+  "commit_hash": "40f1c93b492e535a9d1c74579c702a08123f329d",
+  "issue_summary": "Avoid setting explName to true if name is null in POJOPropertyBuilder",
+  "code_before": "@Deprecated\n    public void addGetter(AnnotatedMethod a, String name, boolean visible, boolean ignored) {\n        addGetter(a, _propName(name), true, visible, ignored);\n    }",
+  "code_after": "@Deprecated\n    public void addGetter(AnnotatedMethod a, String name, boolean visible, boolean ignored) {\n        addGetter(a, _propName(name), name != null, visible, ignored);\n    }",
+  "javadoc_before": "/**\n     * @deprecated Since 2.4 call method that takes additional 'explName' argument, to indicate\n     *   whether name of property was provided by annotation (and not derived from accessor name);\n     *   this method simply passes 'true' for it.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.4 call method that takes additional 'explName' argument, to indicate\n     *   whether name of property was provided by annotation (and not derived from accessor name);\n     *   this method assumes the name is explicit if it is non-null.\n     */"
+}

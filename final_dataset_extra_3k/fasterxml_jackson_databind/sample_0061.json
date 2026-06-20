@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9ff5b793600ca10092f8b29bb7cefdefa297a68a",
+  "issue_summary": "Expose message of cause in case of `InvocationTargetException`",
+  "code_before": "public static String exceptionMessage(Throwable t) {\n        if (t instanceof JacksonException) {\n            return ((JacksonException) t).getOriginalMessage();\n        }\n        return t.getMessage();\n    }",
+  "code_after": "public static String exceptionMessage(Throwable t) {\n        if (t instanceof JacksonException) {\n            return ((JacksonException) t).getOriginalMessage();\n        }\n        if (t instanceof InvocationTargetException && t.getCause() != null) {\n            return t.getCause().getMessage();\n        }\n        return t.getMessage();\n    }",
+  "javadoc_before": "/**\n     * Helper method that returns {@link Throwable#getMessage()} for all other exceptions\n     * except for {@link JacksonException}, for which {@code getOriginalMessage()} is\n     * returned instead.\n     * Method is used to avoid accidentally including trailing location information twice\n     * in message when wrapping exceptions.\n     */",
+  "javadoc_after": "/**\n     * Helper method that returns {@link Throwable#getMessage()} for all other exceptions\n     * except for (a) {@link JacksonException}, for which {@code getOriginalMessage()} is\n     * returned, and (b) {@link InvocationTargetException}, for which the cause's message\n     * is returned, if available.\n     * Method is used to avoid accidentally including trailing location information twice\n     * in message when wrapping exceptions.\n     */"
+}

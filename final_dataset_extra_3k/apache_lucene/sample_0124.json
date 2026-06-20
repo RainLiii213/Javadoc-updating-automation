@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ed22afea8ac22949494f58ac343cc955964054d9",
+  "issue_summary": "Morfologik filter can accept custom dictionary resources.",
+  "code_before": "public MorfologikFilter(final TokenStream in, final Version version) {\n    super(in);\n    this.input = in;\n\n    // SOLR-4007: temporarily substitute context class loader to allow finding dictionary resources.\n    Thread me = Thread.currentThread();\n    ClassLoader cl = me.getContextClassLoader();\n    try {\n      me.setContextClassLoader(PolishStemmer.class.getClassLoader());\n      this.stemmer = new PolishStemmer();\n      this.charUtils = CharacterUtils.getInstance(version);\n      this.lemmaList = Collections.emptyList();\n    } finally {\n      me.setContextClassLoader(cl);\n    }\n  }",
+  "code_after": "public MorfologikFilter(final TokenStream in, final Version version) {\n    this(in, MorfologikFilterFactory.DEFAULT_DICTIONARY_RESOURCE, version);\n  }",
+  "javadoc_before": "/**\n   * Creates MorfologikFilter\n   * @param in   input token stream\n   * @param version Lucene version compatibility for lowercasing.\n   */",
+  "javadoc_after": "/**\n   * Creates a filter with the default (Polish) dictionary.\n   */"
+}

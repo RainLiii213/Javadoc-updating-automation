@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ee64225be0c86512596a045701e4f8dc461afafa",
+  "issue_summary": "Reject reactive repository implementation by default.",
+  "code_before": "protected boolean useRepositoryConfiguration(RepositoryMetadata metadata) {\n\t\treturn true;\n\t}",
+  "code_after": "protected boolean useRepositoryConfiguration(RepositoryMetadata metadata) {\n\n\t\tif (metadata.isReactiveRepository()) {\n\t\t\tthrow new InvalidDataAccessApiUsageException(\n\t\t\t\t\tString.format(\"Reactive Repositories are not supported by %s. Offending repository is %s!\", getModuleName(),\n\t\t\t\t\t\t\tmetadata.getRepositoryInterface().getName()));\n\t\t}\n\n\t\treturn true;\n\t}",
+  "javadoc_before": "/**\n\t * Return whether to use the configuration for the repository with the given metadata. Defaults to {@literal true}.\n\t *\n\t * @param metadata will never be {@literal null}.\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Return whether to use the configuration for the repository with the given metadata. Defaults to {@literal true} and\n\t * {@link InvalidDataAccessApiUsageException} for {@link RepositoryMetadata#isReactiveRepository() reactive\n\t * repositories}. Must be overridden by store modules that wish to provide reactive repositories.\n\t *\n\t * @param metadata will never be {@literal null}.\n\t * @throws InvalidDataAccessApiUsageException on {@link RepositoryMetadata#isReactiveRepository() repositories} by\n\t *           default.\n\t * @return\n\t */"
+}

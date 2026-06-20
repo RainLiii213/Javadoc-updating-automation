@@ -1,0 +1,8 @@
+{
+  "commit_hash": "00f07ee46006b65ee352088931bb0cbdf09870bc",
+  "issue_summary": "Contrib Analyzer Setters should be deprecated and replace with ctor arguments, thanks to Simon Willnauer",
+  "code_before": "public GermanAnalyzer(Version matchVersion) {\n    stopSet = StopFilter.makeStopSet(GERMAN_STOP_WORDS);\n    setOverridesTokenStreamMethod(GermanAnalyzer.class);\n    this.matchVersion = matchVersion;\n  }",
+  "code_after": "public GermanAnalyzer(Version matchVersion) {\n    this(matchVersion, DefaultSetHolder.DEFAULT_SET);\n  }",
+  "javadoc_before": "/**\n   * Builds an analyzer with the default stop words:\n   * {@link #GERMAN_STOP_WORDS}.\n   */",
+  "javadoc_after": "/**\n   * Builds an analyzer with the default stop words:\n   * {@link #getDefaultStopSet()}.\n   */"
+}

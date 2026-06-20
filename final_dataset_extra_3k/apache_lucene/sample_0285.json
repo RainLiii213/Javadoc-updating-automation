@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cefb5f852364dc16880e4a953b54b57118996642",
+  "issue_summary": "add CountingFacetsCollector",
+  "code_before": "public List<FacetResult> getFacetResults() throws IOException {\n    synchronized (resultsGuard) { // over protection\n      if (results == null) {\n        // lazy creation but just once\n        results = facetsAccumulator.accumulate(scoreDocIdCollector.getScoredDocIDs());\n        scoreDocIdCollector = null;\n      }\n      return results;\n    }\n  }",
+  "code_after": "public abstract List<FacetResult> getFacetResults() throws IOException;",
+  "javadoc_before": "/**\n   * Return accumulated facets results (according to faceted search parameters) \n   * for collected documents.\n   * @throws IOException on error\n   */",
+  "javadoc_after": "/**\n   * Returns a {@link FacetResult} per {@link FacetRequest} set in\n   * {@link FacetSearchParams}. Note that if one of the {@link FacetRequest\n   * requests} is for a {@link CategoryPath} that does not exist in the taxonomy,\n   * no matching {@link FacetResult} will be returned.\n   */"
+}

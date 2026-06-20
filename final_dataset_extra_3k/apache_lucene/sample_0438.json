@@ -1,0 +1,8 @@
+{
+  "commit_hash": "66f17c3bab7604582575f95ebf59b83e44051ee5",
+  "issue_summary": "Move all commit/version/indexExists/reopen/open stuff to DirectoryReader, IR/AIR/CIR is now only an abstract index to search on, nothing more. In the future we might create an interface Reopenable that has all methods. For now SearcherManager & Co. simply check for instanceof DirectoryReader",
+  "code_before": "public static DirectoryReader open(final Directory directory) throws CorruptIndexException, IOException {\n    return DirectoryReader.open(directory, null, DEFAULT_TERMS_INDEX_DIVISOR);\n  }",
+  "code_after": "@Deprecated\n  public static DirectoryReader open(final Directory directory) throws CorruptIndexException, IOException {\n    return DirectoryReader.open(directory);\n  }",
+  "javadoc_before": "/** Returns a IndexReader reading the index in the given\n   *  Directory\n   * @param directory the index directory\n   * @throws CorruptIndexException if the index is corrupt\n   * @throws IOException if there is a low-level IO error\n   */",
+  "javadoc_after": "/** Returns a IndexReader reading the index in the given\n   *  Directory\n   * @param directory the index directory\n   * @throws CorruptIndexException if the index is corrupt\n   * @throws IOException if there is a low-level IO error\n   * @deprecated Use {@link DirectoryReader#open(Directory)}\n   */"
+}

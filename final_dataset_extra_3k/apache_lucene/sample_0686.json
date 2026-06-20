@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1743081b078a3206e676bdd4ebe9203f5bad6c90",
+  "issue_summary": "Changed TokenStreams/TokenFilters in contrib to use the new TokenStream API.",
+  "code_before": "public Token next(final Token reusableToken) throws IOException {\n    assert reusableToken != null;\n    Token nextToken = input.next(reusableToken);\n    if (nextToken == null)\n      return null;\n\n    char[] termBuffer = nextToken.termBuffer();\n    int termLength = nextToken.termLength();\n\n    int minPoz = Integer.MAX_VALUE;\n    for (int i = 0; i < apostrophes.length; i++) {\n      char apos = apostrophes[i];\n      // The equivalent of String.indexOf(ch)\n      for (int poz = 0; poz < termLength ; poz++) {\n        if (termBuffer[poz] == apos) {\n            minPoz = Math.min(poz, minPoz);\n            break;\n        }\n      }\n    }\n\n    // An apostrophe has been found. If the prefix is an article strip it off.\n    if (minPoz != Integer.MAX_VALUE\n        && articles.contains(new String(nextToken.termBuffer(), 0, minPoz).toLowerCase())) {\n      nextToken.setTermBuffer(nextToken.termBuffer(), minPoz + 1, nextToken.termLength() - (minPoz + 1));\n    }\n\n    return nextToken;\n  }",
+  "code_after": "public final Token next(final Token reusableToken) throws java.io.IOException {\n    return super.next(reusableToken);\n  }",
+  "javadoc_before": "/**\n   * Returns the next input Token with term() without elisioned start\n   */",
+  "javadoc_after": "/** @deprecated Will be removed in Lucene 3.0. This method is final, as it should\n   * not be overridden. Delegates to the backwards compatibility layer. */"
+}

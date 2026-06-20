@@ -1,0 +1,8 @@
+{
+  "commit_hash": "504cd94c0bcce905266b087f3d514f4bdd103e1f",
+  "issue_summary": "More generified APIs and implementations (when will we be finished?). Thanks Kay Kay!",
+  "code_before": "public List getPositions() {\n      return positions;\n    }",
+  "code_after": "public List<StartEnd> getPositions() {\n      return positions;\n    }",
+  "javadoc_before": "/**\n     *\n     * @return A List of {@link org.apache.lucene.search.SpanFilterResult.StartEnd} objects\n     */",
+  "javadoc_after": "/**\n     *\n     * @return Positions\n     */"
+}

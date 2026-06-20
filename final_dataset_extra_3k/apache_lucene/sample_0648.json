@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e69141c51a29d8abba8efbb17fd941cd137e2127",
+  "issue_summary": "Fixed ReverseStringFilter for Unicode 4.0. Reverse Supplementary Characters correctly.",
+  "code_before": "public ReverseStringFilter(TokenStream in, char marker) {\n    super(in);\n    this.marker = marker;\n    termAtt = addAttribute(TermAttribute.class);\n  }",
+  "code_after": "public ReverseStringFilter(TokenStream in, char marker) {\n    this(Version.LUCENE_30, in, marker);\n  }",
+  "javadoc_before": "/**\n   * Create a new ReverseStringFilter that reverses and marks all tokens in the\n   * supplied {@link TokenStream}.\n   * <p>\n   * The reversed tokens will be prepended (marked) by the <code>marker</code>\n   * character.\n   * </p>\n   * \n   * @param in {@link TokenStream} to filter\n   * @param marker A character used to mark reversed tokens\n   */",
+  "javadoc_after": "/**\n   * Create a new ReverseStringFilter that reverses and marks all tokens in the\n   * supplied {@link TokenStream}.\n   * <p>\n   * The reversed tokens will be prepended (marked) by the <code>marker</code>\n   * character.\n   * </p>\n   * \n   * @param in {@link TokenStream} to filter\n   * @param marker A character used to mark reversed tokens\n   * @deprecated use {@link #ReverseStringFilter(Version, TokenStream, char)} \n   *    instead. This constructor will be removed in Lucene 4.0 \n   */"
+}

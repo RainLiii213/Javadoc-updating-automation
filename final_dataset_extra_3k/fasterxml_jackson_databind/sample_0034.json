@@ -1,0 +1,8 @@
+{
+  "commit_hash": "99d0ab645116f87f606f25150a410abcf3c507a1",
+  "issue_summary": "Implement : improve/add number accessors to `JsonNode`",
+  "code_before": "public BigDecimal decimalValue() { return BigDecimal.ZERO; }",
+  "code_after": "public abstract BigDecimal decimalValue();",
+  "javadoc_before": "/**\n     * Returns floating point value for this node (as {@link BigDecimal}), <b>if and only if</b>\n     * this node is numeric ({@link #isNumber} returns true). For other\n     * types returns <code>BigDecimal.ZERO</code>.\n     *\n     * @return {@link BigDecimal} value this node contains, if numeric node;\n     *   {@code BigDecimal.ZERO} for non-number nodes.\n     */",
+  "javadoc_after": "/**\n     * Method that will try to access value of this node as a Java {@code BigDecimal}:\n     * but if node value cannot be expressed <b>exactly</b> as a {@code BigDecimal},\n     * a {@link JsonNodeException} will be thrown.\n     * Access works for following cases:\n     * <ul>\n     *  <li>All JSON Number values\n     *    </li>\n     * </ul>\n     *<p>\n     * NOTE: for more lenient conversions, use {@link #asDecimal()}\n     *\n     * @return {@code BigDecimal} value this node represents, if possible to accurately represent\n     *\n     * @throws JsonNodeException if node value cannot be converted to Java {@code BigDecimal}\n     */"
+}

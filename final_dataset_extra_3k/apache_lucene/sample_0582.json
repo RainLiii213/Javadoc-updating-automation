@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0ddd505d9a82d3639ab847089833b626360f302b",
+  "issue_summary": "Eliminate support for the abortOnConfigurationError ... this also fixes",
+  "code_before": "public void setAbortOnConfigurationError(boolean abortOnConfigurationError) {\n      this.abortOnConfigurationError = abortOnConfigurationError;\n    }",
+  "code_after": "public void setAbortOnConfigurationError(boolean abortOnConfigurationError) {\n      if (false == abortOnConfigurationError)\n        throw new SolrException\n          (SolrException.ErrorCode.SERVER_ERROR,\n           \"Setting abortOnConfigurationError==false is no longer supported\");\n    }",
+  "javadoc_before": "/** Note for no good reason what so ever, this method has only ever\n     * influenced the default behavior of \"single core\" mode.  when using\n     * solr.xml values specified this way are ignored, and false is the default.\n     * initialize() will modify this value.\n     */",
+  "javadoc_after": "/**\n     * @exception generates an error if you attempt to set this value to false\n     * @deprecated all cores now abort on configuration error regardless of configuration\n     */"
+}

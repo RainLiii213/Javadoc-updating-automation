@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a58c26978f5c7a0dbbbe535c627ef5388fad550b",
+  "issue_summary": "drop deprecations from trunk",
+  "code_before": "protected boolean isTokenChar(int c) {\n    throw new UnsupportedOperationException(\"since LUCENE_31 subclasses of CharTokenizer must implement isTokenChar(int)\");\n  }",
+  "code_after": "protected abstract boolean isTokenChar(int c);",
+  "javadoc_before": "/**\n   * Returns true iff a codepoint should be included in a token. This tokenizer\n   * generates as tokens adjacent sequences of codepoints which satisfy this\n   * predicate. Codepoints for which this is false are used to define token\n   * boundaries and are not included in tokens.\n   * <p>\n   * As of Lucene 3.1 the char based API ({@link #isTokenChar(char)} and\n   * {@link #normalize(char)}) has been depreciated in favor of a Unicode 4.0\n   * compatible int based API to support codepoints instead of UTF-16 code\n   * units. Subclasses of {@link CharTokenizer} must not override the char based\n   * methods if a {@link Version} >= 3.1 is passed to the constructor.\n   * <p>\n   * <p>\n   * NOTE: This method will be marked <i>abstract</i> in Lucene 4.0.\n   * </p>\n   */",
+  "javadoc_after": "/**\n   * Returns true iff a codepoint should be included in a token. This tokenizer\n   * generates as tokens adjacent sequences of codepoints which satisfy this\n   * predicate. Codepoints for which this is false are used to define token\n   * boundaries and are not included in tokens.\n   */"
+}

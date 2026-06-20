@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fe0db49d62f50afabf12da2b9077ed87c0f37ed1",
+  "issue_summary": "Deprecate all methods that use the default encoding",
+  "code_before": "public ReversedLinesFileReader(final File file) throws IOException {\n        this(file, 4096, Charset.defaultCharset().toString());\n    }",
+  "code_after": "@Deprecated\n    public ReversedLinesFileReader(final File file) throws IOException {\n        this(file, 4096, Charset.defaultCharset());\n    }",
+  "javadoc_before": "/**\n     * Creates a ReversedLinesFileReader with default block size of 4KB and the\n     * platform's default encoding.\n     *\n     * @param file\n     *            the file to be read\n     * @throws IOException  if an I/O error occurs\n     */",
+  "javadoc_after": "/**\n     * Creates a ReversedLinesFileReader with default block size of 4KB and the\n     * platform's default encoding.\n     *\n     * @param file\n     *            the file to be read\n     * @throws IOException  if an I/O error occurs\n     * @deprecated 2.5 use {@link #ReversedLinesFileReader(File, Charset)} instead\n     */"
+}

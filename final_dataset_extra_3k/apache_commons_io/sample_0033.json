@@ -1,0 +1,8 @@
+{
+  "commit_hash": "218b5e7b7d76654004f4122c674308f78c87954e",
+  "issue_summary": "Patch from PR 32 from jonfreedman with additional changes and cleanups",
+  "code_before": "public File getFile() {\n        return file;\n    }",
+  "code_after": "public File getFile() {\n        if (tailable instanceof TailablePath) {\n            return ((TailablePath) tailable).getPath().toFile();\n        }\n        throw new IllegalStateException(\"Cannot extract java.io.File from \" + tailable.getClass().getName());\n    }",
+  "javadoc_before": "/**\n     * Return the file.\n     *\n     * @return the file\n     */",
+  "javadoc_after": "/**\n     * Gets the file.\n     *\n     * @return the file\n     * @throws IllegalStateException if constructed using a user provided {@link Tailable} implementation\n     */"
+}

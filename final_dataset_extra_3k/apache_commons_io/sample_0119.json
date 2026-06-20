@@ -1,0 +1,8 @@
+{
+  "commit_hash": "745375d22e427574f1ef1301c8378cd81e85a1fc",
+  "issue_summary": "Make FilenameUtils equals methods case-sensitive, with some optional system case matching",
+  "code_before": "public static boolean equals(String filename1, String filename2) {\n        if (filename1 == filename2) {\n            return true;\n        }\n        if (filename1 == null || filename2 == null) {\n            return false;\n        }\n        if (SYSTEM_SEPARATOR == WINDOWS_SEPARATOR) {\n            return filename1.equalsIgnoreCase(filename2);\n        } else {\n            return filename1.equals(filename2);\n        }\n    }",
+  "code_after": "public static boolean equals(String filename1, String filename2) {\n        return equals(filename1, filename2, false, false);\n    }",
+  "javadoc_before": "/**\n     * Checks whether two filenames are equal using the case rules of the system.\n     * <p>\n     * No processing is performed on the filenames other than comparison.\n     * The check is case sensitive on Unix and case insensitive on Windows.\n     *\n     * @param filename1  the first filename to query, may be null\n     * @param filename2  the second filename to query, may be null\n     * @return true if the filenames are equal, null equals null\n     */",
+  "javadoc_after": "/**\n     * Checks whether two filenames are equal exactly.\n     * <p>\n     * No processing is performed on the filenames other than comparison,\n     * thus this is merely a null-safe case-sensitive equals.\n     *\n     * @param filename1  the first filename to query, may be null\n     * @param filename2  the second filename to query, may be null\n     * @return true if the filenames are equal, null equals null\n     */"
+}

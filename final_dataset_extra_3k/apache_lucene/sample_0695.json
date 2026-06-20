@@ -1,0 +1,8 @@
+{
+  "commit_hash": "91e37bf1fb8958ec5b7b9f20a7a7543f1dcd32ca",
+  "issue_summary": "un-deprecate IndexReader.getTermInfosIndexDivisor",
+  "code_before": "public int getTermInfosIndexDivisor() {\n    throw new UnsupportedOperationException(\"Please pass termInfosIndexDivisor up-front when opening IndexReader\");\n  }",
+  "code_after": "public int getTermInfosIndexDivisor() {\n    throw new UnsupportedOperationException(\"This reader does not support this method.\");\n  }",
+  "javadoc_before": "/** <p>For IndexReader implementations that use\n   *  TermInfosReader to read terms, this returns the\n   *  current indexDivisor.\n   *  @see #setTermInfosIndexDivisor\n   * @deprecated Please use {@link IndexReader#open(Directory, IndexDeletionPolicy, boolean, int)} to specify the required TermInfos index divisor instead.\n   */",
+  "javadoc_after": "/** <p>For IndexReader implementations that use\n   *  TermInfosReader to read terms, this returns the\n   *  current indexDivisor as specified when the reader was\n   *  opened.\n   */"
+}

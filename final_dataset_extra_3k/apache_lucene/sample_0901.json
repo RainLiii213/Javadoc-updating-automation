@@ -1,0 +1,8 @@
+{
+  "commit_hash": "15bcd46829c8798be03301424aa675e04640522b",
+  "issue_summary": "Add throws clause to query factory methods, allowing subclasses to use for rejecting, etc",
+  "code_before": "protected Query getBooleanQuery(Vector clauses)\n  {\n    BooleanQuery query = new BooleanQuery();\n    for (int i = 0; i < clauses.size(); i++) {\n        query.add((BooleanClause)clauses.elementAt(i));\n    }\n    return query;\n  }",
+  "code_after": "protected Query getBooleanQuery(Vector clauses) throws ParseException\n  {\n    BooleanQuery query = new BooleanQuery();\n    for (int i = 0; i < clauses.size(); i++) {\n        query.add((BooleanClause)clauses.elementAt(i));\n    }\n    return query;\n  }",
+  "javadoc_before": "/**\n   * Factory method for generating query, given a set of clauses.\n   * By default creates a boolean query composed of clauses passed in.\n   *\n   * Can be overridden by extending classes, to modify query being\n   * returned.\n   *\n   * @param clauses Vector that contains {@link BooleanClause} instances\n   *    to join.\n   *\n   * @return Resulting {@link Query} object.\n   */",
+  "javadoc_after": "/**\n   * Factory method for generating query, given a set of clauses.\n   * By default creates a boolean query composed of clauses passed in.\n   *\n   * Can be overridden by extending classes, to modify query being\n   * returned.\n   *\n   * @param clauses Vector that contains {@link BooleanClause} instances\n   *    to join.\n   *\n   * @return Resulting {@link Query} object.\n   * @exception ParseException throw in overridden method to disallow\n   */"
+}

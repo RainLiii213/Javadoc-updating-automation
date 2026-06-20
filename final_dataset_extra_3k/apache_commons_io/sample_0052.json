@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f3695711ed2fe576c221a21f851e2a1b874aff46",
+  "issue_summary": "New PathFilter no longer throws to play nice with predicates and other functional interfaces.",
+  "code_before": "FileVisitResult accept(Path path, BasicFileAttributes attributes) throws IOException;",
+  "code_after": "FileVisitResult accept(Path path, BasicFileAttributes attributes);",
+  "javadoc_before": "/**\n     * Tests whether or not to include the specified Path in a result.\n     *\n     * @param path The Path to test.\n     * @param attributes the file's basic attributes.\n     * @return a FileVisitResult\n     * @throws IOException if an I/O error occurs.\n     */",
+  "javadoc_after": "/**\n     * Tests whether or not to include the specified Path in a result.\n     *\n     * @param path The Path to test.\n     * @param attributes the file's basic attributes.\n     * @return a FileVisitResult\n     */"
+}

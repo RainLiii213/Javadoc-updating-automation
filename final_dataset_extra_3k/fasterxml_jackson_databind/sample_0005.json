@@ -1,0 +1,8 @@
+{
+  "commit_hash": "aca9295618b06cd11e7c368208e3c6426a79a26c",
+  "issue_summary": "Fix : Forward Object Id references in Collection properties leak Builder instance",
+  "code_before": "public PropertyValueBuffer startBuilding(JsonParser p, DeserializationContext ctxt,\n            ObjectIdReader oir) {\n        return new PropertyValueBuffer(p, ctxt, _propertyCount, oir, null,\n                _injectablePropIndexes);\n    }",
+  "code_after": "@Deprecated\n    public PropertyValueBuffer startBuilding(JsonParser p, DeserializationContext ctxt,\n            ObjectIdReader oir) {\n        return startBuilding(p, ctxt, oir, false);\n    }",
+  "javadoc_before": "/**\n     * Method called when starting to build a bean instance.\n     */",
+  "javadoc_after": "/**\n     * Method called when starting to build a bean instance.\n     *\n     * @deprecated Since 3.2\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5877c03a01544019812aa9ffb61fe6220edc5fb4",
+  "issue_summary": "Make scoring in docid order the default and add setAllowDocsOutOfOrder() and getAllowDocsOutOfOrder() to BooleanQuery.",
+  "code_before": "public BooleanScorer2(Similarity similarity, int minNrShouldMatch) {\n    super(similarity);\n    if (minNrShouldMatch < 0) {\n      throw new IllegalArgumentException(\"Minimum number of optional scorers should not be negative\");\n    }\n    coordinator = new Coordinator();\n    this.minNrShouldMatch = minNrShouldMatch;\n  }",
+  "code_after": "public BooleanScorer2(Similarity similarity, int minNrShouldMatch) {\n    this(similarity, minNrShouldMatch, false);\n  }",
+  "javadoc_before": "/** Create a BooleanScorer2.\n   * @param similarity The similarity to be used.\n   * @param minNrShouldMatch The minimum number of optional added scorers\n   *                         that should match during the search.\n   *                         In case no required scorers are added,\n   *                         at least one of the optional scorers will have to\n   *                         match during the search.\n   */",
+  "javadoc_after": "/** Create a BooleanScorer2.\n   *  In no required scorers are added,\n   *  at least one of the optional scorers will have to match during the search.\n   * @param similarity The similarity to be used.\n   * @param minNrShouldMatch The minimum number of optional added scorers\n   *                         that should match during the search.\n   *                         In case no required scorers are added,\n   *                         at least one of the optional scorers will have to\n   *                         match during the search.\n   */"
+}

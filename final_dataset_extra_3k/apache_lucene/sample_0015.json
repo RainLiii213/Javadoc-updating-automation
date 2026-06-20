@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ec843c6e0ad38c7f75188e1bb1b01741112459ed",
+  "issue_summary": "SimpleQueryParser returns empty query rather than null for empty query",
+  "code_before": "public Query parse(String queryText) {\n    char data[] = queryText.toCharArray();\n    char buffer[] = new char[data.length];\n\n    State state = new State(data, buffer, 0, data.length);\n    parseSubQuery(state);\n    return state.top;\n  }",
+  "code_after": "public Query parse(String queryText) {\n    char data[] = queryText.toCharArray();\n    char buffer[] = new char[data.length];\n\n    State state = new State(data, buffer, 0, data.length);\n    parseSubQuery(state);\n    if (state.top == null) {\n      return new BooleanQuery();\n    } else {\n      return state.top;\n    }\n  }",
+  "javadoc_before": "/** Parses the query text and returns parsed query (or null if empty) */",
+  "javadoc_after": "/** Parses the query text and returns parsed query */"
+}

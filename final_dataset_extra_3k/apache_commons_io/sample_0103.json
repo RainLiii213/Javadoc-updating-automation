@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dc5bb1187f027d3b9cdc70d3517c442d7b4c45ef",
+  "issue_summary": "FileDeleteStrategy / FileCleaner FileDeleteStrategy is a strategy for handling file deletion and can be used as a calback in FileCleaner Together these allow FileCleaner to do a forceDelete to kill directories and provide hooks for secure delete",
+  "code_before": "public static void track(File file, Object marker) {\n        trackers.add(new Tracker(file, marker, q));\n    }",
+  "code_after": "public static void track(File file, Object marker) {\n        track(file, marker, (FileDeleteStrategy) null);\n    }",
+  "javadoc_before": "/**\n     * Track the specified file, using the provided marker, deleting the file\n     * when the marker instance is garbage collected.\n     *\n     * @param file   The file to be tracked.\n     * @param marker The marker object used to track the file.\n     */",
+  "javadoc_after": "/**\n     * Track the specified file, using the provided marker, deleting the file\n     * when the marker instance is garbage collected.\n     * The {@link FileDeleteStrategy#NORMAL normal} deletion strategy will be used.\n     *\n     * @param file  the file to be tracked, not null\n     * @param marker  the marker object used to track the file, not null\n     * @throws NullPointerException if the file is null\n     */"
+}

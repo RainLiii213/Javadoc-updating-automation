@@ -1,0 +1,8 @@
+{
+  "commit_hash": "54dc16297ee22b2b1680717d7536fa22a6c13727",
+  "issue_summary": "Continuing work to support \"shape-shifting\"",
+  "code_before": "public Class<T> handledType() { return null; }",
+  "code_after": "public Class<?> handledType() { return Object.class; }",
+  "javadoc_before": "/**\n     * Method for accessing type of Objects this serializer can handle.\n     * Note that this information is not guaranteed to be exact -- it\n     * may be a more generic (super-type) -- but it should not be\n     * incorrect (return a non-related type).\n     *<p>\n     * Default implementation will return null, which essentially means\n     * same as returning <code>Object.class</code> would; that is, that\n     * nothing is known about handled type.\n     *<p>\n     */",
+  "javadoc_after": "/**\n     * Method for accessing type of Objects this serializer can handle.\n     * Note that this information is not guaranteed to be exact -- it\n     * may be a more generic (super-type) -- but it should not be\n     * incorrect (return a non-related type).\n     *<p>\n     * NOTE: starting with 3.0, left {@code abstract}.\n     */"
+}

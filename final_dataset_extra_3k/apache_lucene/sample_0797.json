@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e3dacf01c782f6462a01aa8e4b9587265f8b0a91",
+  "issue_summary": "removing the core name and 'cores' registry stuff. this should be part of , not SolrCore",
+  "code_before": "@Deprecated\n  public static SolrCore getSolrCore() {\n    return getSolrCore(null);\n  }",
+  "code_after": "@Deprecated\n  public static SolrCore getSolrCore() {\n    return instance;\n  }",
+  "javadoc_before": "/** Alias for SolrCore.getSolrCore(null). */",
+  "javadoc_after": "/** \n   * @return the last core initalized.  If you are using multiple cores, \n   * this is not a function to use.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "39fdb63607a0e7a6dbf9d6be84fe7e380e661dcb",
+  "issue_summary": "Minor changes post to avoid changing API (but trading in \"sneaky\" throws)",
+  "code_before": "public BigInteger bigIntegerValue() throws StreamConstraintsException { return BigInteger.ZERO; }",
+  "code_after": "public BigInteger bigIntegerValue() { return BigInteger.ZERO; }",
+  "javadoc_before": "/**\n     * Returns integer value for this node (as {@link BigInteger}), <b>if and only if</b>\n     * this node is numeric ({@link #isNumber} returns true). For other\n     * types returns <code>BigInteger.ZERO</code>.\n     *\n     * @return {@link BigInteger} value this node contains, if numeric node; <code>BigInteger.ZERO</code> for non-number nodes.\n     * @throws StreamConstraintsException if the scale of the underlying {@link BigDecimal} is too large\n     */",
+  "javadoc_after": "/**\n     * Returns integer value for this node (as {@link BigInteger}), <b>if and only if</b>\n     * this node is numeric ({@link #isNumber} returns true). For other\n     * types returns <code>BigInteger.ZERO</code>.\n     *<p>\n     * NOTE: In Jackson 2.x MAY throw {@link com.fasterxml.jackson.core.exc.StreamConstraintsException}\n     *   if the scale of the underlying {@link BigDecimal} is too large to convert (NOTE: thrown\n     *   \"sneakily\" in Jackson 2.x due to API compatibility restrictions)\n     *\n     * @return {@link BigInteger} value this node contains, if numeric node; <code>BigInteger.ZERO</code> for non-number nodes.\n     */"
+}

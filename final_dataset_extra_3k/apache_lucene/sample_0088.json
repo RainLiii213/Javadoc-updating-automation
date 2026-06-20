@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ae6ea5d4f03b829dc23d8e836a092c5f6ee70227",
+  "issue_summary": "cutover to FixedBitSet to mark the accept states; improve javadocs",
+  "code_before": "public Set<Integer> getAcceptStates() {\n    return acceptStates;\n  }",
+  "code_after": "FixedBitSet getAcceptStates() {\n    return isAccept;\n  }",
+  "javadoc_before": "/** Returns accept states. */",
+  "javadoc_after": "/** Returns accept states.  If the bit is set then that state is an accept state. */"
+}

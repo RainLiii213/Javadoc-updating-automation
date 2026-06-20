@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2220c6e8ba9546f31852b7e0d94e98ddc8d937fb",
+  "issue_summary": "use paged byte[] under the hood for FST",
+  "code_before": "public static abstract class BytesReader extends DataInput {\n    protected int pos;\n    protected final byte[] bytes;\n    protected BytesReader(byte[] bytes, int pos) {\n      this.bytes = bytes;\n      this.pos = pos;\n    }\n    abstract void skip(int byteCount);\n    abstract void skip(int base, int byteCount);\n  }",
+  "code_after": "public static abstract class BytesReader extends DataInput {\n    /** Get current read position. */\n    public abstract int getPosition();\n\n    /** Set current read position. */\n    public abstract void setPosition(int pos);\n\n    /** Returns true if this reader uses reversed bytes\n     *  under-the-hood. */\n    public abstract boolean reversed();\n\n    /** Skips bytes. */\n    public abstract void skipBytes(int count);\n  }",
+  "javadoc_before": "/** Reads the bytes from this FST.  Use {@link\n   *  #getBytesReader(int)} to obtain an instance for this\n   *  FST; re-use across calls (but only within a single\n   *  thread) for better performance. */",
+  "javadoc_after": "/** Reads bytes stored in an FST. */"
+}

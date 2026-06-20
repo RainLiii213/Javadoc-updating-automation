@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fd4cd859c579419c2227d6d931f9206d8fdac4d9",
+  "issue_summary": "PhraseQuery and PhrasePrefixQuery are extended. It's now possible to specify the relative position of a term within a phrase. This allows gaps and multiple terms at the same position.",
+  "code_before": "public void add(Term term) {\n    if (terms.size() == 0)\n      field = term.field();\n    else if (term.field() != field)\n      throw new IllegalArgumentException\n\t(\"All phrase terms must be in the same field: \" + term);\n\n    terms.addElement(term);\n  }",
+  "code_after": "public void add(Term term) {\n    int position = 0;\n    if(positions.size() > 0)\n        position = ((Integer) positions.lastElement()).intValue() + 1;\n\n    add(term, position);\n  }",
+  "javadoc_before": "/** Adds a term to the end of the query phrase. */",
+  "javadoc_after": "/**\n   * Adds a term to the end of the query phrase.\n   * The relative position of the term is the one immediately after the last term added.\n   */"
+}

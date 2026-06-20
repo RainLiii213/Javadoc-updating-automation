@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6f5c10b30552439f5277053eadafaef703685707",
+  "issue_summary": "Added consumeAllTokens option to LimitTokenCountFilter",
+  "code_before": "public LimitTokenCountAnalyzer(Analyzer delegate, int maxTokenCount) {\n    this.delegate = delegate;\n    this.maxTokenCount = maxTokenCount;\n  }",
+  "code_after": "public LimitTokenCountAnalyzer(Analyzer delegate, int maxTokenCount) {\n    this(delegate, maxTokenCount, false);\n  }",
+  "javadoc_before": "/**\n   * Build an analyzer that limits the maximum number of tokens per field.\n   */",
+  "javadoc_after": "/**\n   * Build an analyzer that limits the maximum number of tokens per field.\n   * This analyzer will not consume any tokens beyond the maxTokenCount limit\n   *\n   * @see #LimitTokenCountAnalyzer(Analyzer,int,boolean)\n   */"
+}

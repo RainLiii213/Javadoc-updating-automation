@@ -1,0 +1,8 @@
+{
+  "commit_hash": "acf12423e0a6dc197a64ecfdb8a46be81c895434",
+  "issue_summary": "Added dedicated Sort type to be able to express directions for revisions.",
+  "code_before": "public boolean isAscending() {\n\t\t\treturn this.direction.equals(Direction.ASC);\n\t\t}",
+  "code_after": "public boolean isAscending() {\n\t\t\treturn this.equals(ASC);\n\t\t}",
+  "javadoc_before": "/**\n\t\t * Returns whether sorting for this property shall be ascending.\n\t\t * \n\t\t * @return\n\t\t */",
+  "javadoc_after": "/**\n\t\t * Returns whether the direction is ascending.\n\t\t * \n\t\t * @return\n\t\t * @since 1.13\n\t\t */"
+}

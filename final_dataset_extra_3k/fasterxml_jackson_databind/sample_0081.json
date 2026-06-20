@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5e941f6f534b4a000fb93017734eb1f2e2a51703",
+  "issue_summary": "Manual merge of fix for (from PR )",
+  "code_before": "protected SerializationConfig(SerializationConfig src,\n            SimpleMixInResolver mixins, RootNameLookup rootNames,\n            ConfigOverrides configOverrides)\n    {\n        super(src, mixins, rootNames, configOverrides);\n        _serFeatures = src._serFeatures;\n        _filterProvider = src._filterProvider;\n        _defaultPrettyPrinter = src._defaultPrettyPrinter;\n        _generatorFeatures = src._generatorFeatures;\n        _generatorFeaturesToChange = src._generatorFeaturesToChange;\n        _formatWriteFeatures = src._formatWriteFeatures;\n        _formatWriteFeaturesToChange = src._formatWriteFeaturesToChange;\n    }",
+  "code_after": "@Deprecated\n    protected SerializationConfig(SerializationConfig src,\n            SimpleMixInResolver mixins, RootNameLookup rootNames,\n            ConfigOverrides configOverrides)\n    {\n        this(src, src._subtypeResolver, mixins, rootNames, configOverrides);\n    }",
+  "javadoc_before": "/**\n     * Copy-constructor used for making a copy to be used by new {@link ObjectMapper}.\n     *\n     * @since 2.9\n     */",
+  "javadoc_after": "/**\n     * @since 2.9\n     * @deprecated since 2.11.2\n     */"
+}

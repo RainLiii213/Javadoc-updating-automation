@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e2c89312199103fa8e4e5eb6fc5154bd528b712a",
+  "issue_summary": "revert Document.getFields for back compatibility",
+  "code_before": "public final Fieldable[] getFields(String name) {\n     List result = new ArrayList();\n     for (int i = 0; i < fields.size(); i++) {\n       Fieldable field = (Fieldable)fields.get(i);\n       if (field.name().equals(name)) {\n         result.add(field);\n       }\n     }\n\n     if (result.size() == 0)\n       return null;\n\n     return (Fieldable[])result.toArray(new Fieldable[result.size()]);\n   }",
+  "code_after": "public final Field[] getFields(String name) {\n     List result = new ArrayList();\n     for (int i = 0; i < fields.size(); i++) {\n       Field field = (Field)fields.get(i);\n       if (field.name().equals(name)) {\n         result.add(field);\n       }\n     }\n\n     if (result.size() == 0)\n       return null;\n\n     return (Field[])result.toArray(new Field[result.size()]);\n   }",
+  "javadoc_before": "/**\n   * Returns an array of {@link Fieldable}s with the given name.\n   * This method can return <code>null</code>.\n   *\n   * @param name the name of the field\n   * @return a <code>Fieldable[]</code> array\n   */",
+  "javadoc_after": "/**\n   * Returns an array of {@link Field}s with the given name.\n   * This method can return <code>null</code>.\n   * Do not use with lazy loaded fields.\n   *\n   * @param name the name of the field\n   * @return a <code>Field[]</code> array\n   */"
+}

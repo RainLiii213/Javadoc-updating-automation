@@ -1,0 +1,8 @@
+{
+  "commit_hash": "757795bffe332a649d579a6c9fbf4c33196681e4",
+  "issue_summary": "add matchVersion to StandardAnalyzer, and improve defaults if version is 2.9+",
+  "code_before": "public StandardAnalyzer() {\n    this(STOP_WORDS);\n  }",
+  "code_after": "public StandardAnalyzer() {\n    this(Version.LUCENE_24, STOP_WORDS);\n  }",
+  "javadoc_before": "/** Builds an analyzer with the default stop words ({@link\n   * #STOP_WORDS}).\n   * @deprecated Use {@link #StandardAnalyzer(boolean, String[])},\n   * passing in null for the stop words, instead */",
+  "javadoc_after": "/** Builds an analyzer with the default stop words ({@link\n   * #STOP_WORDS}).\n   * @deprecated Use {@link #StandardAnalyzer(Version)},\n   * instead. */"
+}

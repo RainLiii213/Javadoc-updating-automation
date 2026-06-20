@@ -1,0 +1,8 @@
+{
+  "commit_hash": "84bfc04529a989e620a84f4e2f007e00ef17d279",
+  "issue_summary": "Initial draft of Jackson 3 support.",
+  "code_before": "public class Jackson2RepositoryPopulatorFactoryBean extends AbstractRepositoryPopulatorFactoryBean {\n\n\tprivate @Nullable ObjectMapper mapper;\n\n\t/**\n\t * Configures the {@link ObjectMapper} to be used.\n\t *\n\t * @param mapper can be {@literal null}.\n\t */\n\tpublic void setMapper(@Nullable ObjectMapper mapper) {\n\t\tthis.mapper = mapper;\n\t}\n\n\t@Override\n\tprotected ResourceReader getResourceReader() {\n\t\treturn new Jackson2ResourceReader(mapper);\n\t}\n}",
+  "code_after": "@Deprecated(since = \"4.0\", forRemoval = true)\npublic class Jackson2RepositoryPopulatorFactoryBean extends AbstractRepositoryPopulatorFactoryBean {\n\n\tprivate @Nullable ObjectMapper mapper;\n\n\t/**\n\t * Configures the {@link ObjectMapper} to be used.\n\t *\n\t * @param mapper can be {@literal null}.\n\t */\n\tpublic void setMapper(@Nullable ObjectMapper mapper) {\n\t\tthis.mapper = mapper;\n\t}\n\n\t@Override\n\tprotected ResourceReader getResourceReader() {\n\t\treturn new Jackson2ResourceReader(mapper);\n\t}\n}",
+  "javadoc_before": "/**\n * {@link FactoryBean} to set up a {@link ResourceReaderRepositoryPopulator} with a {@link Jackson2ResourceReader}.\n *\n * @author Oliver Gierke\n * @author Christoph Strobl\n * @since 1.6\n */",
+  "javadoc_after": "/**\n * {@link FactoryBean} to set up a {@link ResourceReaderRepositoryPopulator} with a {@link Jackson2ResourceReader}.\n *\n * @author Oliver Gierke\n * @author Christoph Strobl\n * @since 1.6\n * @deprecated since 4.0, in favor of {@link JacksonRepositoryPopulatorFactoryBean}.\n */"
+}

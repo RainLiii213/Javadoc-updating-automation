@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fc2135df3d94edbbe1c6c823ebe53e464d355721",
+  "issue_summary": "Unified is-new-detection in PersistentEntity.isNew(…).",
+  "code_before": "public void markAudited(Object object) {\n\n\t\tAssert.notNull(object, \"Source object must not be null!\");\n\n\t\tif (!isAuditable(object)) {\n\t\t\treturn;\n\t\t}\n\n\t\tIsNewStrategy strategy = isNewStrategyFactory.getIsNewStrategy(object.getClass());\n\n\t\tif (strategy.isNew(object)) {\n\t\t\tmarkCreated(object);\n\t\t} else {\n\t\t\tmarkModified(object);\n\t\t}\n\t}",
+  "code_after": "public void markAudited(Object object) {\n\n\t\tAssert.notNull(object, \"Source object must not be null!\");\n\n\t\tif (!isAuditable(object)) {\n\t\t\treturn;\n\t\t}\n\n\t\tPersistentEntity<?, ? extends PersistentProperty<?>> entity = entities\n\t\t\t\t.getRequiredPersistentEntity(object.getClass());\n\n\t\tif (entity.isNew(object)) {\n\t\t\tmarkCreated(object);\n\t\t} else {\n\t\t\tmarkModified(object);\n\t\t}\n\t}",
+  "javadoc_before": "/**\n\t * Marks the given object created or modified based on the {@link IsNewStrategy} returned by the\n\t * {@link IsNewStrategyFactory} configured. Will rout the calls to {@link #markCreated(Optional)} and\n\t * {@link #markModified(Optional)} accordingly.\n\t *\n\t * @param object\n\t */",
+  "javadoc_after": "/**\n\t * Marks the given object created or modified based on {@link PersistentEntity#isNew(Object)}. Will route the calls to\n\t * {@link #markCreated(Optional)} and {@link #markModified(Optional)} accordingly.\n\t *\n\t * @param object\n\t */"
+}

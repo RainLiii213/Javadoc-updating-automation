@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8607f7650357aeee329ab4f243f0adad7b2ebd5d",
+  "issue_summary": "Remove unnecessary Directory parameters from SIS/SIPC/SI",
+  "code_before": "public Collection<String> files(Directory dir, boolean includeSegmentsFile) throws IOException {\n    HashSet<String> files = new HashSet<>();\n    if (includeSegmentsFile) {\n      final String segmentFileName = getSegmentsFileName();\n      if (segmentFileName != null) {\n        files.add(segmentFileName);\n      }\n    }\n    final int size = size();\n    for(int i=0;i<size;i++) {\n      final SegmentCommitInfo info = info(i);\n      assert info.info.dir == dir;\n      if (info.info.dir == dir) {\n        files.addAll(info.files());\n      }\n    }\n\n    return files;\n  }",
+  "code_after": "@Deprecated\n  public final Collection<String> files(Directory dir, boolean includeSegmentsFile) throws IOException {\n    return files(includeSegmentsFile);\n  }",
+  "javadoc_before": "/** Returns all file names referenced by SegmentInfo\n   *  instances matching the provided Directory (ie files\n   *  associated with any \"external\" segments are skipped).\n   *  The returned collection is recomputed on each\n   *  invocation.  */",
+  "javadoc_after": "/**\n   * Returns all file names referenced by SegmentInfo.\n   * @deprecated Use {@link #files(boolean)} instead.\n   */"
+}

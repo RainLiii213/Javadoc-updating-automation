@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d8b407137ca2d33e0950b734cf94b959a2ed7b79",
+  "issue_summary": "Implement [Issue], make JavaType implement java.lang.reflect.Type",
+  "code_before": "public abstract class JavaType\n    extends ResolvedType\n    implements java.io.Serializable\n{\n}",
+  "code_after": "public abstract class JavaType\n    extends ResolvedType\n    implements java.io.Serializable, // 2.1\n        java.lang.reflect.Type // 2.2\n{\n}",
+  "javadoc_before": "/**\n * Base class for type token classes used both to contain information\n * and as keys for deserializers.\n *<p>\n * Instances can (only) be constructed by\n * <code>com.fasterxml.jackson.databind.TypeFactory</code>\n * (included in \"jackson-databind\")\n */",
+  "javadoc_after": "/**\n * Base class for type token classes used both to contain information\n * and as keys for deserializers.\n *<p>\n * Instances can (only) be constructed by\n * <code>com.fasterxml.jackson.databind.TypeFactory</code>.\n *<p>\n * Since 2.2 this implements {@link java.lang.reflect.Type} to allow\n * it to be pushed through interfaces that only expose that type.\n */"
+}

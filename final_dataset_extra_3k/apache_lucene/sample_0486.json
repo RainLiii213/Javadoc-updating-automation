@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c0965ed3a2c9e9c237065a8ff5cdf9901af5e865",
+  "issue_summary": "add spellchecker SuggestMode",
+  "code_before": "public SuggestWord[] suggestSimilar(Term term, int numSug, IndexReader ir)\n     throws IOException {\n    return suggestSimilar(term, numSug, ir, false);\n  }",
+  "code_after": "public SuggestWord[] suggestSimilar(Term term, int numSug, IndexReader ir)\n     throws IOException {\n    return suggestSimilar(term, numSug, ir, SuggestMode.SUGGEST_WHEN_NOT_IN_INDEX);\n  }",
+  "javadoc_before": "/**\n   * Calls {@link #suggestSimilar(Term, int, IndexReader, boolean) \n   *       suggestSimilar(term, numSug, ir, false)}\n   */",
+  "javadoc_after": "/**\n   * Calls {@link #suggestSimilar(Term, int, IndexReader, SuggestMode) \n   *       suggestSimilar(term, numSug, ir, SuggestMode.SUGGEST_WHEN_NOT_IN_INDEX)}\n   */"
+}

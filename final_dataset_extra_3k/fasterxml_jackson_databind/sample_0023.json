@@ -1,0 +1,8 @@
+{
+  "commit_hash": "08251b9d75f9d5105f2888b66b6b163c811f0383",
+  "issue_summary": "Fixes : generate distinct names (type ids) if `Version` has no artifact id",
+  "code_before": "public SimpleModule(Version version) {\n        this(version.getArtifactId(), version);\n    }",
+  "code_after": "public SimpleModule(Version version) {\n        // 07-Apr-2025, tatu: [databind#5063]: check that we actually have a name;\n        //    if not, generate it\n        String maybeName = version.getArtifactId();\n        // Only considered explicit if name is non-null and not empty (i.e. not generated)\n        _hasExplicitName = (maybeName != null) && !maybeName.isEmpty();\n        if (_hasExplicitName) {\n            _name = maybeName;\n        } else {\n            _name = _generateName(getClass());\n        }\n        _version = Version.unknownVersion();\n    }",
+  "javadoc_before": "/**\n     * Convenience constructor that will use specified Version,\n     * including name from {@link Version#getArtifactId()}.\n     */",
+  "javadoc_after": "/**\n     * Convenience constructor that will use specified Version,\n     * including name from {@link Version#getArtifactId()}\n     * (if available -- if not, will generate).\n     */"
+}

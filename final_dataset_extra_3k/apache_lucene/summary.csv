@@ -1,0 +1,912 @@
+sample_id,commit_hash,issue_summary
+sample_0001,6f1b9bb79a9cae6fadea1a9c8eacf327f29bd0d1,simplify the private iterator Lucene uses when resolving deleted terms -> docids
+sample_0002,30807709e663c35f6760084632407dc1bf76aff7,"add auto-prefix terms to block tree, and experimental AutoPrefixTermsPostingsFormat"
+sample_0003,30807709e663c35f6760084632407dc1bf76aff7,"add auto-prefix terms to block tree, and experimental AutoPrefixTermsPostingsFormat"
+sample_0004,d3cfba9b29511279b79071ee8fe6ed1996a2af3c,"cutover Spans to DISI, reuse ConjunctionDISI, use two-phased iteration"
+sample_0005,d3cfba9b29511279b79071ee8fe6ed1996a2af3c,"cutover Spans to DISI, reuse ConjunctionDISI, use two-phased iteration"
+sample_0006,d3cfba9b29511279b79071ee8fe6ed1996a2af3c,"cutover Spans to DISI, reuse ConjunctionDISI, use two-phased iteration"
+sample_0007,203bbf504a3360b79a0576909fbc9829eb8d4a31,Remove buggy no-op retries in HttpSolrClient
+sample_0008,5048456a7a73dd6273fdfe95a3a12167ac827fbc,Add constructors to EmbeddedSolrServer taking Path or NodeConfig
+sample_0009,5ac2c238cffa26ac93ebd7cda9820a58038cd564,StatsComponent now supports Percentiles
+sample_0010,a43843701d9dbf790f9104a2ce1f6f38e98e8370,Add optional collection parameter to all SolrClient methods
+sample_0011,a43843701d9dbf790f9104a2ce1f6f38e98e8370,Add optional collection parameter to all SolrClient methods
+sample_0012,a43843701d9dbf790f9104a2ce1f6f38e98e8370,Add optional collection parameter to all SolrClient methods
+sample_0013,e4d88cab5cafaabce803cf3df9d8b2331bc18f7f,"CachingWrapperFilter -> CachingWrapperQuery, FilterCache -> QueryCache and added caching to IndexSearcher."
+sample_0014,e4d88cab5cafaabce803cf3df9d8b2331bc18f7f,"CachingWrapperFilter -> CachingWrapperQuery, FilterCache -> QueryCache and added caching to IndexSearcher."
+sample_0015,ec843c6e0ad38c7f75188e1bb1b01741112459ed,SimpleQueryParser returns empty query rather than null for empty query
+sample_0016,09a0dcb6c64b2da332911f58b10052f12d147e58,Fix SolrContentHandler for TIKA to ignore multiple startDocument events
+sample_0017,46ede7622e42d9acfe1f3213c2391add9ad8c1fa,Encapsulate JettySolrRunner config
+sample_0018,8607f7650357aeee329ab4f243f0adad7b2ebd5d,Remove unnecessary Directory parameters from SIS/SIPC/SI
+sample_0019,8607f7650357aeee329ab4f243f0adad7b2ebd5d,Remove unnecessary Directory parameters from SIS/SIPC/SI
+sample_0020,0e203d56373a343d8919b338bd21c453818cb3ba,Fix PhraseQuery inconsistencies.
+sample_0021,82eff4eb4de76ff641ddd603d9b8558a4277644d,Make Filter extend Query.
+sample_0022,08bc225ad8807f1cb4c6e1b4da5dab8b5dfdab7c,Removed RAMUsageEstimator's sun.misc.Unsafe calls
+sample_0023,78e1153dcb9d726274d0616e5dd2891d0823f494,Support changing field key when using interval faceting
+sample_0024,ac50da161391474338b3740a0b82548d43410055,New facet.heatmap on spatial RPT fields
+sample_0025,c13216934c58870b487a9bd04b2fd4ea24431000,Replace DocsEnum and DocsAndPositionsEnum with PostingsEnum
+sample_0026,c13216934c58870b487a9bd04b2fd4ea24431000,Replace DocsEnum and DocsAndPositionsEnum with PostingsEnum
+sample_0027,c13216934c58870b487a9bd04b2fd4ea24431000,Replace DocsEnum and DocsAndPositionsEnum with PostingsEnum
+sample_0028,c95398620990e5003a470a46e2740bbaf9071910,Improvements to minShouldMatch handling.
+sample_0029,89249208a38a9f9b7c9ee8fc8a3882393552f198,CMS should not stall its own merge threads
+sample_0030,89249208a38a9f9b7c9ee8fc8a3882393552f198,CMS should not stall its own merge threads
+sample_0031,344be1a6b196e5fce7ffeae020ff97de77f75ff7,Remove methods and classes deprecated in 4.x
+sample_0032,90dd4ab345df3c18c01b7188adef6bfaaf6cf814,Expose HdfsDirectoryFactory Block Cache statistics via JMX.
+sample_0033,41fcc722ff07393586f7758d8a733c7e2e59bebc,CMS dynamically rate limits IO writes of each merge depending on incoming merge rate
+sample_0034,d7e0fd28dd935f08439cb35b6bd2a6d5e9461a4f,Add the ability to compute finer-grained stats on the LRU filter cache.
+sample_0035,ef809a0f10e78aec3f97c878f90ff74673f98745,Deprecate SolrServer classes and replace with SolrClient
+sample_0036,ef809a0f10e78aec3f97c878f90ff74673f98745,Deprecate SolrServer classes and replace with SolrClient
+sample_0037,33410e30c1af7105a6b8b922255af047d13be626,try to detect if index is on an SSD and default CMS's settings accordingly
+sample_0038,e4180d30bb659cb421bd96c0103d7533fee85998,CachingTokenFilter.reset() propagates to input if not cached
+sample_0039,5a9639c3e629d6af02d20acfee58d33d2d35b1a6,Improve the efficiency of the history structure for recently-used filters.
+sample_0040,85a43a77a93218a591271f99996c60b6073a6c46,"DateRangeField support for facet.range, exclusive ranges, DateMath"
+sample_0041,0ddb7567f1c17f53c8e732129b6f19851a799b54,"spatial NumberRangePrefixTree refactorings, mostly * rename NRPT.LevelledValue -> UnitNRShape, NRPT.NRShape -> SpanUnitsNRShape, both subclass new NRPT.NRShape marker class; make all 3 public and use these types in method signatures as appropriate. * remove NRPT pass-through convenience methods on NRPTStrategy (not needed; maintenance burden) * re-order some factory/parsing methods in NRPT to keep together at the top * UnitNRShape implements Comparable, and both NRShape implements Cloneable * improve randomized test to pick better random calendars * more docs"
+sample_0042,66745d3ce7f4658155d31220c07f351d98e153df,More options for stored fields compression
+sample_0043,83f0d3578cdc35ed8f0c98877c8b3c844ee7bc88,faster join using join=zipper aka merge join for nested DIH EntityProcessors
+sample_0044,015eacf293cece2f8ae20dc7ad8f33bafaca123e,DefaultSolrHighlighter: avoid CachingTokenFilter when not needed
+sample_0045,6083352aa7503804d6e643f37f6eb437d77488b4,Optimize TokenSources term vector to TokenStream
+sample_0046,86a6c37b473ddf1b9311d4a23d4cd1ab5e7857ea,Add a filter cache.
+sample_0047,95ddd51108bcaedee1e9766a3170552bbd65d0b7,allow for MUST and MUST_NOT (in addition to SHOULD) context tags in Analyzing/BlendedInfixSuggester
+sample_0048,c429f437f08cd5ea95351232b9c51104607cbda5,Restructure Directory and LockFactory APIs
+sample_0049,c429f437f08cd5ea95351232b9c51104607cbda5,Restructure Directory and LockFactory APIs
+sample_0050,c429f437f08cd5ea95351232b9c51104607cbda5,Restructure Directory and LockFactory APIs
+sample_0051,ba56e757045b0a2c15dabf1d1395bfb4f1a33d82,add maxDeterminizedStates to determinize to prevent exhausting CPU/RAM when the automaton is too difficult to determinize
+sample_0052,bc41d58cd37ab38c1a088ea67197bd3c338ac53f,cutover to IndexOptions.NO/DocValuesType.NO instead of null
+sample_0053,dbe6c7ff052927be10a0a6953686771d788ebda5,remove 4.x back compat
+sample_0054,8f9f8a3252c73428e67bc5d390e58d1370e060ba,remove IndexableFieldType.indexed and FieldInfo.indexed (it's redundant with IndexOptions != null)
+sample_0055,8f9f8a3252c73428e67bc5d390e58d1370e060ba,remove IndexableFieldType.indexed and FieldInfo.indexed (it's redundant with IndexOptions != null)
+sample_0056,bfc1b3deee543b2655c6020a8a1cd3a47578485b,CachingWrapperFilter now uses RoaringDocIdSet.
+sample_0057,8f96faf3d33e8b21e1324cfcaef6fb4732e6804e,Add a new sparse fixed bit set and remove ConstantScoreAutoRewrite.
+sample_0058,24005cdcc59eee9e0ee9d06fffb29e32b7e9a0cb,"fix compile/javadocs, tighten up backwards codecs, add more safety to 5.x fields/vectors"
+sample_0059,24005cdcc59eee9e0ee9d06fffb29e32b7e9a0cb,"fix compile/javadocs, tighten up backwards codecs, add more safety to 5.x fields/vectors"
+sample_0060,24005cdcc59eee9e0ee9d06fffb29e32b7e9a0cb,"fix compile/javadocs, tighten up backwards codecs, add more safety to 5.x fields/vectors"
+sample_0061,7a876d886544eb763f0c8d11fa91c7811e368d13,OOM or exceptions during checkpoint make IndexWriter have a bad day
+sample_0062,7a876d886544eb763f0c8d11fa91c7811e368d13,OOM or exceptions during checkpoint make IndexWriter have a bad day
+sample_0063,9d80c17a57f6ee2d3dbec26fb9f05b66f460a77d,Change SimpleFSDirectory to use newByteChannel
+sample_0064,bb0256f26076849b94de4e036cc5af055f0e6cd4,use rename instead of segments_N fallback/segments.gen
+sample_0065,c5dd7783a3b24cb2e5fc77dd4c939ed41d5afee9,Fix Lucene43NGramTokenizer to be final
+sample_0066,f695231df7e4e10a314215c20af583abc40722b6,CloudSolrServer constructor improvements
+sample_0067,ba04a792ce932779ecb44a971d3ae56dbe9a9a57,one one thread can IW.close at once
+sample_0068,872bd9145cd9504fc16b318f7ea0a666d9429103,Remove Version from IndexWriterConfig
+sample_0069,872bd9145cd9504fc16b318f7ea0a666d9429103,Remove Version from IndexWriterConfig
+sample_0070,9938a39a872d4f232f718b2672d0245cae658e0b,Remove Version from Analyzer constructors
+sample_0071,9938a39a872d4f232f718b2672d0245cae658e0b,Remove Version from Analyzer constructors
+sample_0072,9938a39a872d4f232f718b2672d0245cae658e0b,Remove Version from Analyzer constructors
+sample_0073,e6d29d223b14778cf22682268539534160458089,Literally add back dead code to please a bunch of fucking babies
+sample_0074,e6d29d223b14778cf22682268539534160458089,Literally add back dead code to please a bunch of fucking babies
+sample_0075,e6d29d223b14778cf22682268539534160458089,Literally add back dead code to please a bunch of fucking babies
+sample_0076,0368c604cc6bfcabf9c7f1c2afd0dd2e0fbb4a96,"remove dead code: changes no runtime behavior, these are all unused variables"
+sample_0077,0368c604cc6bfcabf9c7f1c2afd0dd2e0fbb4a96,"remove dead code: changes no runtime behavior, these are all unused variables"
+sample_0078,0368c604cc6bfcabf9c7f1c2afd0dd2e0fbb4a96,"remove dead code: changes no runtime behavior, these are all unused variables"
+sample_0079,73503c4f669b4c4db509c19794bf86e951d962dc,Auto-generate a unique key in schema-less example if data does not have an id field
+sample_0080,4bd3a5789967e2e8c9d5217f906e3b407e49564c,TermValComparator can sort missing values last.
+sample_0081,7e0aff8dabc4c3780f1e16a515646483cf92c2cc,Enhance BBoxStrategy & Overlap similarity. Configurable docValues / index usage. Add new ShapeAreaValueSource.
+sample_0082,474d846bb5b5c4f8c9e09807ec6654be77fc999f,"Fix compareTo in MutableValueDouble and MutableValueBool, this caused incorrect results when grouping on fields with missing values"
+sample_0083,474d846bb5b5c4f8c9e09807ec6654be77fc999f,"Fix compareTo in MutableValueDouble and MutableValueBool, this caused incorrect results when grouping on fields with missing values"
+sample_0084,474d846bb5b5c4f8c9e09807ec6654be77fc999f,"Fix compareTo in MutableValueDouble and MutableValueBool, this caused incorrect results when grouping on fields with missing values"
+sample_0085,2f28cc16e0e419e52e1892578b2bc2e941507790,reverting
+sample_0086,af18eeed89c1469c1ec55451133843cd69c20972,"one state.json per collection , support for one json per collection"
+sample_0087,42aaf72f62d7e52f3eecfd98eaf5ed5cc648d463,deprecate JaspellLookup
+sample_0088,ae6ea5d4f03b829dc23d8e836a092c5f6ee70227,cutover to FixedBitSet to mark the accept states; improve javadocs
+sample_0089,6ac082fbe1dfcbd5656c6286f37d4a6ef74ddf05,remove last nocommits; turn on method-level javadocs for oal.util.automaton; improve tests
+sample_0090,e7f81b4d6ccf72b218087527ec3cfc89dd12f16f,OrdinalMap optimizations.
+sample_0091,5927445bb605ec386117ec1121bf321d558a266d,track isDeterministic privately in LA; also remove states not reachable from initial node in removeDeadStates; move prefix handling into LevA
+sample_0092,5927445bb605ec386117ec1121bf321d558a266d,track isDeterministic privately in LA; also remove states not reachable from initial node in removeDeadStates; move prefix handling into LevA
+sample_0093,b31ae698e5d1574105d43901356ae752eedb6e4e,Monotonic compression doesn't use zig-zag encoding anymore.
+sample_0094,8f267c8560cac15d140c5097dfd6392c4270d3d2,BinaryDocValues producers don't allocate or copy bytes on each access anymore
+sample_0095,8f267c8560cac15d140c5097dfd6392c4270d3d2,BinaryDocValues producers don't allocate or copy bytes on each access anymore
+sample_0096,8f267c8560cac15d140c5097dfd6392c4270d3d2,BinaryDocValues producers don't allocate or copy bytes on each access anymore
+sample_0097,9e6c1432a6b9e5483982fb2d4d2982779f192b7a,split out direct packed ints from in-ram ones
+sample_0098,9e6c1432a6b9e5483982fb2d4d2982779f192b7a,split out direct packed ints from in-ram ones
+sample_0099,d8ce02547178fbd9d200c69eef4f1c6fd71d98ce,remove the ability to unset a DocValues field through DV updates
+sample_0100,18d2cfaf9c4db4eabc07ee47a23b6425aaeb29e2,fix nocommits
+sample_0101,9714faa3141d871a1a1699763faa978b06830445,get solr compiling
+sample_0102,9df7b5c7cfad8e8a5623eeb9da0e0857c54f3e0d,current state to branch
+sample_0103,9df7b5c7cfad8e8a5623eeb9da0e0857c54f3e0d,current state to branch
+sample_0104,9df7b5c7cfad8e8a5623eeb9da0e0857c54f3e0d,current state to branch
+sample_0105,4c2cca57dd81e082dda995978df195f89027a76f,add RateLimiter.getMinPauseCheckBytes for callers to know minimal number of bytes before consulting rate limiter
+sample_0106,4c2cca57dd81e082dda995978df195f89027a76f,add RateLimiter.getMinPauseCheckBytes for callers to know minimal number of bytes before consulting rate limiter
+sample_0107,8c4e826818110362afa900412cdbe5e77cb47763,change getFiniteStrings to iterative impl
+sample_0108,6e9cbf3986981ff44b1a508e2583c1579d5140ce,pack the core attributes into one impl by default
+sample_0109,6e9cbf3986981ff44b1a508e2583c1579d5140ce,pack the core attributes into one impl by default
+sample_0110,ad37014a3ac6dcd53de14680ddb63b99c25b1f86,Rename getAnalyzer() to getIndexAnalyzer()
+sample_0111,b8c02f6267f3f520713b1ceaee7828dcf5ef4260,replace NoMergePolicy.COMPOUND/NO_COMPOUND by NoMergePolicy.INSTANCE
+sample_0112,2ce57608ee95f3075c2e466210566f69285b11a3,revert
+sample_0113,f0414ff3af796b65b394306a0cc704040c778c8f,fix the crazy getAttribute API to prevent double lookups and extra code everywhere
+sample_0114,67ebc26fa97552476fc9a7a49716c08c4ee47afa,put current patch on branch
+sample_0115,8e3727bb0521b7c27f7109f338690794776bc7c2,remove FieldInfos leniency
+sample_0116,138bd925d85c079c5777efa61206f6af57110b52,switch BytesRef/BytesRefHash hashing to MurmurHash3
+sample_0117,138bd925d85c079c5777efa61206f6af57110b52,switch BytesRef/BytesRefHash hashing to MurmurHash3
+sample_0118,138bd925d85c079c5777efa61206f6af57110b52,switch BytesRef/BytesRefHash hashing to MurmurHash3
+sample_0119,597912787c3f7171ffbca0f3d6ba9629432ca20e,Removed deprecated non-Trie-based numeric & date field types.
+sample_0120,f58f711f73d4929cfe1df04dae02d9a72af33ffe,RegexReplaceProcessorFactory should support pattern capture group substitution in replacement string.
+sample_0121,8559eafd99e5b569d4ad866e98f410fb4868fd4c,"fix IW.close to just close, even on exception"
+sample_0122,e081587dea1291da5bcb5f82a112e1bf41dda0f2,Allow ExpandComponent to accept query and filter query parameters
+sample_0123,c189d0fb74dd1632c18d7c87d490516ff08b3fae,add checksums to index files
+sample_0124,ed22afea8ac22949494f58ac343cc955964054d9,Morfologik filter can accept custom dictionary resources.
+sample_0125,ed22afea8ac22949494f58ac343cc955964054d9,Morfologik filter can accept custom dictionary resources.
+sample_0126,40fc92d3c8e0909cb05eab8e80de89d9f16655fb,add contexts to AnalyzingInfixSuggester
+sample_0127,40fc92d3c8e0909cb05eab8e80de89d9f16655fb,add contexts to AnalyzingInfixSuggester
+sample_0128,6e2f6a69eb0adbefe90798b178e51539ab81aeca,"Fix ThaiWordFilter, smartcn WordTokenFilter"
+sample_0129,6890323868b0e615f46d913ae988940cb0163096,javadocs cleanups
+sample_0130,328fdf92177a9cb85635f4a05581fe6b2436e538,merge Sorter and SortSorter (in progress)
+sample_0131,c4f4beb27e6cb636b0b151b4288f2230e350adc4,hunspell2 -> hunspell (with previous options and tests)
+sample_0132,b872f4b5c3c5324711ebb379e6c8e4c705ab3f42,Add LongBitSet to handle large number of bits; replace usage of OpenBitSet by FixedBitSet/LongBitSet
+sample_0133,b5926da2d67820f5fdf8c8ec9b2e642b74d12070,"Add .getCount method to all suggesters (Lookup), persist count metadata on .store(), Dictionary returns InputIterator, Dictionary.getWordIterator renamed to .getEntryIterator"
+sample_0134,b5926da2d67820f5fdf8c8ec9b2e642b74d12070,"Add .getCount method to all suggesters (Lookup), persist count metadata on .store(), Dictionary returns InputIterator, Dictionary.getWordIterator renamed to .getEntryIterator"
+sample_0135,20a280c33cd9765ca9186593771fc628b92cf6b3,faster drill-down/sideways on costly filters
+sample_0136,d1999b77917ef6466a0463704b985925fbd74cd9,Suggest module should not depend on expression module
+sample_0137,b27fe755d10a4d9eea2d073b0950afb15d71e85d,IndexWriter.addIndexes(Directory[]) now acquires the IW write lock on the incoming indices to ensure there are no active IndexWriters in those directories
+sample_0138,33d88bef57ef0d2c385ec88cc4d32e4f4dacd34f,Upgrade Spatial4j 0.4. Moved away from stuff deprecated in Spatial4j.
+sample_0139,33d88bef57ef0d2c385ec88cc4d32e4f4dacd34f,Upgrade Spatial4j 0.4. Moved away from stuff deprecated in Spatial4j.
+sample_0140,b5dbac5e3582a1cfd59af34c1a41f88aed203da1,upgrade ICU to icu4j 52.1
+sample_0141,b5dbac5e3582a1cfd59af34c1a41f88aed203da1,upgrade ICU to icu4j 52.1
+sample_0142,dff3579da3e9b27c4478343286aeaa6a6a0da83b,applying hoss's patch to fix function edge case in distributed sort
+sample_0143,4109c6db3365a901de47c97dcb41e673ee62ec95,The 'map' function query accepts a ValueSource as target and default value
+sample_0144,3693346afa9f15bb8e1db90f93bae81e5f2d38eb,fix some nocommits; move taxoWriter out of FacetsConfig; move search + collect utility methods to FacetsCollector
+sample_0145,18bcf7fc8252e6b6083147fa18b730c68bd4e0ab,Fix improperly named module solr-extraction -> solr-cell
+sample_0146,2f4c2380cd821f45e735642bef673441859972a4,Document/ExpressionDictionary are now lenient if a doc is missing term/payload/weight
+sample_0147,2f4c2380cd821f45e735642bef673441859972a4,Document/ExpressionDictionary are now lenient if a doc is missing term/payload/weight
+sample_0148,21afda7b2285aad21acf2af89c87bb672830244b,Eliminate the 1500ms wait in overseer loop as well as polling the ZK distributed queue.
+sample_0149,99255ff0da685e6727d08833ed1c7feca18525ce,Add Payload support to FileDictionary (Suggest) and make it more configurable
+sample_0150,99255ff0da685e6727d08833ed1c7feca18525ce,Add Payload support to FileDictionary (Suggest) and make it more configurable
+sample_0151,55c8752b20d0a8b220f826cfdd1d9440fe532015,allow range faceting on any ValueSource
+sample_0152,55c8752b20d0a8b220f826cfdd1d9440fe532015,allow range faceting on any ValueSource
+sample_0153,fe4699b6b0fce0ec97af1672473f654ea9933280,leave the default to true for enablePositionIncrements
+sample_0154,cdeef19d7aac3c89068aa451a6a57212a8c64825,FastVectorHighlighter now supports highlighting against several indexed fields
+sample_0155,cdeef19d7aac3c89068aa451a6a57212a8c64825,FastVectorHighlighter now supports highlighting against several indexed fields
+sample_0156,469ce1ab530d4c5c7986e0d7c5956f6f8fff0ded,EliasFanoDocIdSet now has an index and uses broadword bit selection to speed-up advance()
+sample_0157,78d52bef1f0f382daece814f3e975529aace7c98,cutover all postings formats to FieldsConsumer
+sample_0158,86a0b893fe04478b162a21c572e3b76f09523d90,move config argument retrieval/removal from Update Processor code to NamedList
+sample_0159,f6ae77fc1e65fe6f0cc3ce76823caaa0c64a77d9,Fix SegmentInfo.attributes when updates are involved
+sample_0160,f6ae77fc1e65fe6f0cc3ce76823caaa0c64a77d9,Fix SegmentInfo.attributes when updates are involved
+sample_0161,1a740cad063db6886f34f068efea3c15de284e16,Add support for FieldInfos generation
+sample_0162,1a740cad063db6886f34f068efea3c15de284e16,Add support for FieldInfos generation
+sample_0163,017a3bf628189bfd559dfb187f8b42ddabdb2c7e,invert postings writing API
+sample_0164,9d16038391bbc3c4648284639ab0d01b0ddb59b2,Add support to SynonymFilterFactory for custom parsers
+sample_0165,499bd3688a323c9078ac34f0f57689d9a553c1b8,"Better javadocs and error checking of 'format' option in StopFilterFactory, as well as comments in all snowball formated files about specifying format option"
+sample_0166,1120e46961b242104410190b70d1f4e4e57d1a40,add NumericDocValues updates
+sample_0167,e6c0692d4b0d06948274e6b281376e100fd07fcb,"Add checks for classloader, so all methods in the Map are accessible"
+sample_0168,b29b3e5f3f702254cb134470d51131e55c9c4daa,minor docs and API cleanups
+sample_0169,047a650004184829b9430807cb41b9e809fd5a9c,follow-up code cleanups.
+sample_0170,047a650004184829b9430807cb41b9e809fd5a9c,follow-up code cleanups.
+sample_0171,7a7989452804c69d087a45580f6f7a253afe92dd,Rewritten selection of the default search and document clustering algorithms.
+sample_0172,bd4f9b9896adac095001d7cd0d8c6d5ccadc6bda,CloudSolrServer can now route updates locally and no longer relies on inter-node update forwarding. Allow CloudSolrServer and SolrCmdDistributor to use JavaBin. CloudSolrServer now uses multiple threads to send updates by default.
+sample_0173,91c01ddb5ffa75f48b743c8d767385da33c9f0f3,HighFreqTerms has confusing behavior with -t option
+sample_0174,13bedbe616337ccc832e079d1c130e05b494f4d1,UniqFieldsUpdateProcessorFactory now extends FieldMutatingUpdateProcessorFactory and supports all of it's selector options
+sample_0175,642ac287a24236efc04f109b305df569ebc9cdfc,make 4.2 read only / setup impersonator
+sample_0176,642ac287a24236efc04f109b305df569ebc9cdfc,make 4.2 read only / setup impersonator
+sample_0177,f7d2ac0b0da944773d4c02709b199db619648ab6,"IndexWriter no longer places a limit on length of DV binary fields (individual codecs still have their limits, including the default codec)"
+sample_0178,f7d2ac0b0da944773d4c02709b199db619648ab6,"IndexWriter no longer places a limit on length of DV binary fields (individual codecs still have their limits, including the default codec)"
+sample_0179,8bac549ce35181839740c7e220c4d35e8eb06a66,"Add getter for reuse strategy to Analyzer, make AnalyzerWrapper's reuse strategy configurable, fix strategy to be stateless"
+sample_0180,8bac549ce35181839740c7e220c4d35e8eb06a66,"Add getter for reuse strategy to Analyzer, make AnalyzerWrapper's reuse strategy configurable, fix strategy to be stateless"
+sample_0181,8bac549ce35181839740c7e220c4d35e8eb06a66,"Add getter for reuse strategy to Analyzer, make AnalyzerWrapper's reuse strategy configurable, fix strategy to be stateless"
+sample_0182,8a71c443209d385218c79226902ce8750350a620,merge trunk changes over
+sample_0183,8a71c443209d385218c79226902ce8750350a620,merge trunk changes over
+sample_0184,8a71c443209d385218c79226902ce8750350a620,merge trunk changes over
+sample_0185,51314afdd40d0b5455325a36de14a75dcfd2523c,"set sane default readChunkSizes, make the setter work, and test the chunking"
+sample_0186,96c161f11fc2c2a0a5167a1f204ad7fd72aca0bf,add OrdinalValueResolver
+sample_0187,2c5856cf25b0268dafe3cd44428c896cacb60fd0,AppendingPackedLongBuffer and added suport for bulk get operations to the Appending*Buffers.
+sample_0188,02a2f383b21da427b901171add813d5d90d9623e,FixedGapTermsIndex should use monotonic compression
+sample_0189,bb1164b2fc524138700573e793f0da849b4028dd,Make it easier to mix different kinds of FacetRequests
+sample_0190,70344afbfca2fd9d6caaf5653233a9326ea2e81e,don't clone IndexWriterConfig by IndexWriter; prevent config from being shared with multiple writers
+sample_0191,bd455f46da0189bc39c9259f7fc75ffabe7b0df8,geodist support for RPT
+sample_0192,2e1b9f5f16523cee3a3918732148b32d45694496,add not-near capability to SpanNotQuery
+sample_0193,c74f89adc4e4d46f51eead866bf1bae6765f80aa,improve FacetRequest javadocs
+sample_0194,47bf70812bae1eb6de20cd15624a2ab4d53b0668,multiplier to spatial makeDistanceValueSource
+sample_0195,f9bb96db815dba1adecc23c658a1cd7d2f2dadd0,CategoryAssociationsContainer should not allow null associations
+sample_0196,59a1435742fecf5cc508e132f741dd3a0e006496,Make HunspellStemFilter's maximum recursion level configurable.
+sample_0197,97fb0209ce3588a5c408c333edcf4c4bfd28366c,FuzzySuggester can optionally measure edits in Unicode code points instead of UTF8 bytes
+sample_0198,97fb0209ce3588a5c408c333edcf4c4bfd28366c,FuzzySuggester can optionally measure edits in Unicode code points instead of UTF8 bytes
+sample_0199,5a42052fbaf53d58898d35841d2c0504e29b7c5c,Factor out core discovery and persistence logic
+sample_0200,5a42052fbaf53d58898d35841d2c0504e29b7c5c,Factor out core discovery and persistence logic
+sample_0201,5a42052fbaf53d58898d35841d2c0504e29b7c5c,Factor out core discovery and persistence logic
+sample_0202,efc6826ed813788691c19046b786809ec46a5e8d,"Update to Morfologik 1.6.0. MorfologikAnalyzer and MorfologikFilter no longer support multiple ""dictionaries"" as there is only one dictionary available."
+sample_0203,efc6826ed813788691c19046b786809ec46a5e8d,"Update to Morfologik 1.6.0. MorfologikAnalyzer and MorfologikFilter no longer support multiple ""dictionaries"" as there is only one dictionary available."
+sample_0204,f38c5163cc898e55e1ec51f6026f41a0de8987d6,Tidy up CoreContainer construction logic
+sample_0205,3cf2f34181f24a6e9ecead2c4826861105bc5ff5,Allow TfIDFSimilarity implementations to encode norm values into more than a single byte
+sample_0206,450534ff3a14c5b3fdaa649cf4769bd9d9a876b5,Revert 1496505
+sample_0207,f47bb580ee835b29e167522289ff3f7af3115bf9,Tidy up CoreContainer construction logic
+sample_0208,b6601c3247ffa9bc96c9f747b20e2257dc1b76db,make it easier to use compressed norms
+sample_0209,b6601c3247ffa9bc96c9f747b20e2257dc1b76db,make it easier to use compressed norms
+sample_0210,b3d70e8f6995f8d1666cd2ba534fd229547e37fb,fix NPE in AnalyzingSuggester when there are too many graph expansions
+sample_0211,e021451d6c08433d2e442456b3b5925f4cdb7129,Fix the n-gram tokenizers and filters.
+sample_0212,e021451d6c08433d2e442456b3b5925f4cdb7129,Fix the n-gram tokenizers and filters.
+sample_0213,e021451d6c08433d2e442456b3b5925f4cdb7129,Fix the n-gram tokenizers and filters.
+sample_0214,b9dc8ef8f68022a87ab56e44128431be9dc35570,SlowFuzzyQuery was accepting too many documents when provided minSimilarity is an int > 1
+sample_0215,b9dc8ef8f68022a87ab56e44128431be9dc35570,SlowFuzzyQuery was accepting too many documents when provided minSimilarity is an int > 1
+sample_0216,d784679c845148c824aae8f111b103f2ef3baea4,Unexpected performance difference between SamplingAccumulator and StandardFacetAccumulator
+sample_0217,eefd3884b172ec6055f8798db54b0bad91702dc8,Deprecate PositionFilter.
+sample_0218,a1e29c741522172a7378da03a158ab20ab7ba6f4,Fix SynonymFilterFactory to allow init parameters for tokenizer factory used when parsing synonyms file
+sample_0219,cc12d7e65955a1f869c62dd38bc3326bfa302b6d,Remove deprecated options (trnk only).
+sample_0220,cc12d7e65955a1f869c62dd38bc3326bfa302b6d,Remove deprecated options (trnk only).
+sample_0221,582d0f103b2413339576738d678177bbe25765a1,Fix EdgeNGramTokenizer and EdgeNGramTokenFilter to not generate corrupt token stream graphs.
+sample_0222,582d0f103b2413339576738d678177bbe25765a1,Fix EdgeNGramTokenizer and EdgeNGramTokenFilter to not generate corrupt token stream graphs.
+sample_0223,fa76c30147024cc3c12a852596b5643bbe2a496d,Completely remove deprecated options in 5.0.
+sample_0224,fa76c30147024cc3c12a852596b5643bbe2a496d,Completely remove deprecated options in 5.0.
+sample_0225,8a7f2b6cc4575878f2b9cfd105e76429f3d6107b,Deprecate broken TokenFilter options.
+sample_0226,8a7f2b6cc4575878f2b9cfd105e76429f3d6107b,Deprecate broken TokenFilter options.
+sample_0227,8a7f2b6cc4575878f2b9cfd105e76429f3d6107b,Deprecate broken TokenFilter options.
+sample_0228,efeaac746ae10c63d71051ce2d8575cf85bb6616,use single file to hold PersistentSnapshotDeletionPolicy state on disk
+sample_0229,30e43c836ab10a4745e60ce8a2d18b4d58a210da,Persistent/SnapshotDeletionPolicy no longer require a unique id
+sample_0230,2bcdaaa114518242afa1f481f265e72b3c3b0c3e,Filters should return null if they don't accept documents
+sample_0231,a03e38d5d05008aaef969a200071c03a1d6cb991,"Fix NGramTokenizer and NGramTokenFilter, and remove them from TestRandomChains' exclusion list."
+sample_0232,a03e38d5d05008aaef969a200071c03a1d6cb991,"Fix NGramTokenizer and NGramTokenFilter, and remove them from TestRandomChains' exclusion list."
+sample_0233,fecbb50d7ea1c474b9ea151a875783af0984eb8f,"Changes for , finalizing the new form of solrxml"
+sample_0234,e9c5d07a128b026f1ddd92224032043b8ff2deab,Reduce contention in older/buggy JVMs when using AttributeSource#addAttribute() because java.lang.ref.ReferenceQueue#poll() is implemented using synchronization.
+sample_0235,e9c5d07a128b026f1ddd92224032043b8ff2deab,Reduce contention in older/buggy JVMs when using AttributeSource#addAttribute() because java.lang.ref.ReferenceQueue#poll() is implemented using synchronization.
+sample_0236,a79c85d338fade59c12202c6c40a6544b2f84f5d,make PassageFormatter abstract
+sample_0237,6e24f5adf47061c4ac64d7f111d44a0f9c5866f2,simplify DirectoryReader.indexExists; fix IndexWriter with CREATE to succeed on a corrupted index; add random IOExceptions to MockDirectoryWrapper.openInput/createOutput
+sample_0238,a2524c00c23bd6a401af43c620a6773a4154aee2,add descending sort order to NumericDocValuesSorter
+sample_0239,e2e3e2bfdafdd30145a8bd4b1ddb036245bb409a,add EarlyTerminatingSortingCollector
+sample_0240,71397bebd4b64b1201b38a3b0d85392f1d065e34,"Requests attempting to use SolrCores which had init failures now result in 500 error responses with the details about the init failure, instead of 404 error responses"
+sample_0241,609c2f2065ea632f13c8ff29454fded9d68e8224,add BreakIterator config to PostingsSolrHighlighter
+sample_0242,57bf4438342ac183d265cf54b6e283286d935537,Improve PostingsHighlighter integration
+sample_0243,9588a84dec9fe5da210a9210cb0efbe3221c9f9e,Don't override non abstract methods that have an impl through other abstract methods in FilterAtomicReader and related classes.
+sample_0244,9588a84dec9fe5da210a9210cb0efbe3221c9f9e,Don't override non abstract methods that have an impl through other abstract methods in FilterAtomicReader and related classes.
+sample_0245,061f31e910f0f6cb2ad4e7ed6d1b11325c38bc72,javadocs for SentinelIntSet
+sample_0246,29b5142e79b3179f1e0b4f84b42a62f10079792d,throw exception for invalid arguments in analysis factories
+sample_0247,b1e4ba6843e78e92168e3ac315ea8238095a39d6,"In preparation for REST API requests that can modify the schema, a ""managed schema"" is introduced."
+sample_0248,1f964c57642e4a686b4812241eae67e0dc83ce06,Deeply clone IndexWriterConfigs.
+sample_0249,4f117dee400f945fbdb5fddf84d1bbc5b350b31a,UnicodeUtil.codePointCount implementation replaced with a non-array-lookup version.
+sample_0250,a6549cb76c6c20030f2a1bbf6af168252b3c1343,Spatial IsWithin predicate for RecursivePrefixTreeStrategy
+sample_0251,97ec69bb69ccbed1a06160a632d64f167482ac86,Added SortingMergePolicy that sorts documents when merging.
+sample_0252,67083534ff882768f504cc0531ac5c892433e55f,"* TokenizerFactory.create(Reader) is made final, and calls the AttributeFactory-accepting version with AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY * TokenizerFactory.create(AttributeFactory, Reader) is made abstract * Added AttributeFactory-accepting constructors to all Tokenizer's with existing TokenizerFactory subclasses that didn't already have them * Removed create(Reader) from all TokenizerFactory subclasses"
+sample_0253,67083534ff882768f504cc0531ac5c892433e55f,"* TokenizerFactory.create(Reader) is made final, and calls the AttributeFactory-accepting version with AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY * TokenizerFactory.create(AttributeFactory, Reader) is made abstract * Added AttributeFactory-accepting constructors to all Tokenizer's with existing TokenizerFactory subclasses that didn't already have them * Removed create(Reader) from all TokenizerFactory subclasses"
+sample_0254,0d8da946240d5bb5af2c883ae7bb57a5c6fc56e7,Association facets aggregators should not support rollupValues
+sample_0255,0d8da946240d5bb5af2c883ae7bb57a5c6fc56e7,Association facets aggregators should not support rollupValues
+sample_0256,9dbfa22b82dba84252a30b0c78b25b7bc37a55ed,Make IndexWriterConfig setters throw an exception when passed null if null is not a valid value.
+sample_0257,9dbfa22b82dba84252a30b0c78b25b7bc37a55ed,Make IndexWriterConfig setters throw an exception when passed null if null is not a valid value.
+sample_0258,9dbfa22b82dba84252a30b0c78b25b7bc37a55ed,Make IndexWriterConfig setters throw an exception when passed null if null is not a valid value.
+sample_0259,45e65d12b8b450500e3c454237281310d73d3e2b,Add PatternKeywordTokenFilter to marks keywords based on regular expressions
+sample_0260,2fa013d7df0b7f5ef53ef5757bfeaee6e3d507d0,Fix various places that still assume File based paths even when not using a file based DirectoryFactory. CachingDirectoryFactory needs to create CacheEntry's with the fullpath not path.
+sample_0261,14c9f28f57bc102c6346a4bc6a58b57816a55735,Clean up schema information REST API
+sample_0262,daa66dd5d0d2e2e1c1420e792fd58d59dcbbb4db,"CurrencyField's OpenExchangeRatesOrgProvider now requires a ratesFileLocation init param, since the previous global default no longer works"
+sample_0263,c1b8dcfb0f85633299be009f7578f36af614455b,Spatial PrefixTree traversal abstraction
+sample_0264,2c30b69f82e56b101863d07a31aceded4e421cd3,add DrillSideways utility class to facets module
+sample_0265,3a4103d19b3445c4674dfa62c62d8139af02d15a,The Replication 'index move' rather than copy optimization doesn't kick in when using NRTCachingDirectory or the rate limiting feature.
+sample_0266,3f8993715bac570c137af771621410cf3cebf375,rename FacetIndexingParams.ALL_PARENTS to DEFAULT
+sample_0267,3f8993715bac570c137af771621410cf3cebf375,rename FacetIndexingParams.ALL_PARENTS to DEFAULT
+sample_0268,be177241c8cdea2b72ee6d202f3cee85c4308624,Move Facet associations to new FacetsAggregator API
+sample_0269,be177241c8cdea2b72ee6d202f3cee85c4308624,Move Facet associations to new FacetsAggregator API
+sample_0270,fbfeca05cdd702b309aae5c32b56cf819fad5321,remove FacetRequest.SortBy
+sample_0271,109edfb06253f873ae412de1081e5ddcbce3d1f6,cleanup FacetsAccumulator API
+sample_0272,109edfb06253f873ae412de1081e5ddcbce3d1f6,cleanup FacetsAccumulator API
+sample_0273,efada75bd83ac61d3f0b3ba0d682cd55dd82f60b,tune default perf (fasterButMoreRam)
+sample_0274,722df2c1e7e9d95479f1f29cc8b717d90bb34603,merge Lucene42 codec from lucene-4547 branch
+sample_0275,ebf3b9432b190acc102b1775def1b0e87da25000,"fix Disk to be reasonable, keep unreasonable version in test-framework"
+sample_0276,42256baec586dbfeeb397dcdcd4f9a010deab398,Add OrdinalPolicy.ALL_BUT_DIMENSION
+sample_0277,d6317b5e68450d1aeb0e7371dc846b0175b51132,langid.enforceSchema option checks source field instead of target field
+sample_0278,6e94f431523a969485e0b400838f59323f0a53bc,Make PackedInts encoding from/to byte byte-aligned.
+sample_0279,94e1ff621727f272b18b16b08c55379caeffc458,"make 4.0 fieldinfos read-only, move to impersonator"
+sample_0280,94e1ff621727f272b18b16b08c55379caeffc458,"make 4.0 fieldinfos read-only, move to impersonator"
+sample_0281,28567c2327f011e467a3b4f9ed0a19853f1829fd,NumericDocValues: Prevent rare extreme values from raising the number of bits per value for everyone.
+sample_0282,041a0f424f0c313640ab613696369d429421e7da,split simpletext reader/writer out
+sample_0283,48133ed363971104af4f085c8525cba73700b108,make 4.1 codec read-only and add impersonator for testing
+sample_0284,cefb5f852364dc16880e4a953b54b57118996642,add CountingFacetsCollector
+sample_0285,cefb5f852364dc16880e4a953b54b57118996642,add CountingFacetsCollector
+sample_0286,d77d05d44d63d076c5842680428ae138e0b5b906,make FacetResultNode a simple bin
+sample_0287,d77d05d44d63d076c5842680428ae138e0b5b906,make FacetResultNode a simple bin
+sample_0288,8ef98119381d522e5159ad07edc231b734a65ddc,progress towards full cutover to 2.0 apis
+sample_0289,8ef98119381d522e5159ad07edc231b734a65ddc,progress towards full cutover to 2.0 apis
+sample_0290,93b0a15183d5d25ba1b132e64c143c546d96a16c,Change Aggregator and CategoryListIterator to be per-segment
+sample_0291,93b0a15183d5d25ba1b132e64c143c546d96a16c,Change Aggregator and CategoryListIterator to be per-segment
+sample_0292,93b0a15183d5d25ba1b132e64c143c546d96a16c,Change Aggregator and CategoryListIterator to be per-segment
+sample_0293,aff120659c5d3ec01a7a3399b850a8fd2453ffca,add BytesStore.truncate and use it to not double-buffer during pack
+sample_0294,2220c6e8ba9546f31852b7e0d94e98ddc8d937fb,use paged byte[] under the hood for FST
+sample_0295,de17206f02ada12c56b8e8910e9804a80bb07f69,IntEncoder/Decoder bulk API
+sample_0296,de17206f02ada12c56b8e8910e9804a80bb07f69,IntEncoder/Decoder bulk API
+sample_0297,de17206f02ada12c56b8e8910e9804a80bb07f69,IntEncoder/Decoder bulk API
+sample_0298,b9a3d9ca70f17af7e58575b8cd79441a787b7c72,Cleanup CategoryPath
+sample_0299,b9a3d9ca70f17af7e58575b8cd79441a787b7c72,Cleanup CategoryPath
+sample_0300,ce94072769c0264c73ceb1efed2a06ee33736f32,"clean up some typos, add a description (from mikes blog), null checks, and other sand"
+sample_0301,9e82c2409d62e7be04dc4fae7c45c3712be639a2,log forwarded updates
+sample_0302,6c5f475b4d1c4e063028b10160138ab4cec9ac31,FacetIndexing/SearchParams house cleaning
+sample_0303,6c5f475b4d1c4e063028b10160138ab4cec9ac31,FacetIndexing/SearchParams house cleaning
+sample_0304,6c5f475b4d1c4e063028b10160138ab4cec9ac31,FacetIndexing/SearchParams house cleaning
+sample_0305,8f54a18e1a3af5d339e66e370c422033cf21915f,CompressingStoredFieldsFormat: fix .abort() when the segment suffix is not empty.
+sample_0306,7dd14db96b82eec1084b5fb3b0aa1f2b90b7cedc,do not reuse facet aggregation arrays by default; added ReusingFacetArrays
+sample_0307,7dd14db96b82eec1084b5fb3b0aa1f2b90b7cedc,do not reuse facet aggregation arrays by default; added ReusingFacetArrays
+sample_0308,edca562dade00c1ce1c95de138ffe98aa6862df8,don't cache replicated index files
+sample_0309,3159590f4d4f4a72773dc5ec044c6c99a1596267,Implement OrdinalPolicy.NO_PARENTS
+sample_0310,dffaebd814eaeb9432b165f7632c72c9da463bc8,Change PayloadIterator to not use top-level reader API
+sample_0311,dffe8d2877f5a5fb47d463a57763d78cddab6757,write out replication stats through Directory
+sample_0312,e4071374f4a041d00faf7e9c0914a2e0ca78d4f5,"Test indexing non-point shapes; and add SpatialOperation.evaluate(s1,s2)"
+sample_0313,5c777db7b25ba315351b25323d1c9486a8db15da,Facet DrillDown should return a ConstantScoreQuery
+sample_0314,5c777db7b25ba315351b25323d1c9486a8db15da,Facet DrillDown should return a ConstantScoreQuery
+sample_0315,6024e1465e02302a0c1402127a6f407194365cd8,Add per-script customizability to ICUTokenizerFactory via rule files in the ICU RuleBasedBreakIterator format.
+sample_0316,afc68d0a5296b2bd79c6390167a14133a8acde0a,add IndexWriter.setCommitData
+sample_0317,1cee959d6bc01e4a41182e45be9e75465a14bdfa,"progress - introduce DocCollection, add properties for collections, add a router collection property, add some builtin routers, rename HashPartitioner to DocRouter"
+sample_0318,f6b3aa4054b3933f6edba908fc94513edc71907d,add RefreshListener to Reference/Searcher/NRTManager
+sample_0319,49a461a2b43e07499ec9f1694dd378f01e2180f0,Remove CachingWrapperFilter recacheDeletes boolean
+sample_0320,2d4e789d00ecb5dfaf73e7df01a7da4502c404a9,solr specific parser + localParams syntax
+sample_0321,8b5e57faee943dbf9f4b1123cda6dc3f3d513860,facets NRT support
+sample_0322,8b5e57faee943dbf9f4b1123cda6dc3f3d513860,facets NRT support
+sample_0323,6f5c10b30552439f5277053eadafaef703685707,Added consumeAllTokens option to LimitTokenCountFilter
+sample_0324,6f5c10b30552439f5277053eadafaef703685707,Added consumeAllTokens option to LimitTokenCountFilter
+sample_0325,6f5c10b30552439f5277053eadafaef703685707,Added consumeAllTokens option to LimitTokenCountFilter
+sample_0326,2537836d4ab125dcdaf69cbefc266a17184815ea,handle 0 byte values in lookup keys
+sample_0327,52c7cf587029eb3fc5419bc451121d25be998902,Remove CompressingStoredFieldsFormat.DISK_DOC.
+sample_0328,bebdb3707afc698c9de43f56732cb2142dad8460,ValueSource.getSortField() shouldn't throw IOException
+sample_0329,c9a38e32363ef68637f139879fca6d9f449a48b3,remove allowSepEdit (it doesn't work); add test
+sample_0330,83c7b92925d4c0c1e5dde4513d825228a974db54,resolve nocommits
+sample_0331,83c7b92925d4c0c1e5dde4513d825228a974db54,resolve nocommits
+sample_0332,42f27adc1a916565180b3d7fec98bbc46bb64ef4,Make Directory and DirectoryFactory first class so that the majority of Solr's features work with any custom implementations.
+sample_0333,b8c727af8de81c30dc230fd27cfdaef045072b5b,"Fix for , unloading core with deleteInstanceDir not working unless path absolute"
+sample_0334,b5f59e10c057bf4fadc0c7df945967940e98c4b3,"adding k-nearestneighbor classifier (based on mlt), improving testing by abstracting a basetest class, added ngram test for simplenaivebayes, changed build.xml to incorporate queries and analyzer-common deps"
+sample_0335,61d9cc7c995e3b210668671c75d8704dbba93f73,Fix highlighter on index w/ positions but no offsets
+sample_0336,83a1417bd566e9601e6595e06a9765b779347284,"cleanup tests, add javadocs, reenable assertions, prepare reintegration"
+sample_0337,2ea2adcf6b3633aa895b841eedc09ab540dc9b4d,wrap up cutover to blockpostingsformat
+sample_0338,2ea2adcf6b3633aa895b841eedc09ab540dc9b4d,wrap up cutover to blockpostingsformat
+sample_0339,2ea2adcf6b3633aa895b841eedc09ab540dc9b4d,wrap up cutover to blockpostingsformat
+sample_0340,66b2c78d6bafbed21e70ab1de9fea25f35f2ca04,commit current patch
+sample_0341,0f062118e120702ad84343c3a29d84ee132fe968,Remove AppendingCodec
+sample_0342,922c7316d81bd44376b635f5cee4c9bb38f1d09e,Support dateline and circles for TwoDoublesStrategy
+sample_0343,577e25c7ffc11a3dfd64252bc43cde6b62e3fada,"makeQuery return ConstantScoreQuery, standardize makeDistanceValueSource behavior"
+sample_0344,577e25c7ffc11a3dfd64252bc43cde6b62e3fada,"makeQuery return ConstantScoreQuery, standardize makeDistanceValueSource behavior"
+sample_0345,b34c9a96839801495dc8b77542d7aa9c153df42b,"separate ZkNodeProps from Replica, change properties from String values to Object values"
+sample_0346,9ff1c66154a91963a7e11ff0c9ccf60215720b8c,MMapDirectory makes too many maps for CFS
+sample_0347,0d707bd8c73271f0518171890ac3e83b8f082047,"fix broken javadocs (javacc bug) by regenerating with latest version, fix broken links in .javacc (reintroduced if you regenerate)"
+sample_0348,504b792937cc2f1a0c820cc540b737d11573bfcc,disallow null CoreContainer
+sample_0349,568156b710af2361115c0581d4907e86484d6329,Don't extend the trappy/broken FilterReader and simplify CharFilter so subclasses are correct readers
+sample_0350,5cb2b9b9f2bcf34ee7903b95616fb78ece194cfa,"Minor fixes for Fields abstract class, TermVectorsWriter, remove UnmodifiableIterator (added before, without issue)."
+sample_0351,7dc5897676d3b83d308d905e7c6d2d74ff76ab5c,Improve Javadocs of IndexInput/IndexOutput. Remove useless casting when acquiring clones of IndexInput
+sample_0352,7dc5897676d3b83d308d905e7c6d2d74ff76ab5c,Improve Javadocs of IndexInput/IndexOutput. Remove useless casting when acquiring clones of IndexInput
+sample_0353,92171e49a5daf8d50371ff3ae07fbbaaf911250b,SimplePostTool: Mode for indexing a web page
+sample_0354,378cbd4523ddfd98152092d105b88c67c1092ed5,performance improvements to the 'BlockPacked' codec.
+sample_0355,b4540d63697890494663a9ba17c096b0b22d005d,add unibigram option to CJKBigramFilter
+sample_0356,b4540d63697890494663a9ba17c096b0b22d005d,add unibigram option to CJKBigramFilter
+sample_0357,f1ae7dad35eea86e5fc9c3aa5d1608f46e24e05c,regenerate snowball stemmers so they aren't so heavy
+sample_0358,f1ae7dad35eea86e5fc9c3aa5d1608f46e24e05c,regenerate snowball stemmers so they aren't so heavy
+sample_0359,f1ae7dad35eea86e5fc9c3aa5d1608f46e24e05c,regenerate snowball stemmers so they aren't so heavy
+sample_0360,179a0c87bdb24bb78492777d4a67f45f22298b37,SimplePostTool: Improvements for posting files
+sample_0361,179a0c87bdb24bb78492777d4a67f45f22298b37,SimplePostTool: Improvements for posting files
+sample_0362,4527c4b3f3a60d4ea90eb2fdbdc46b5bdaea08a8,Add support for fields to check-forbidden-apis; cleanup classpath; improve logging messages
+sample_0363,3d964bea636479548b0d4a1a372f3e9ed73df10e,fix more default Locale uses
+sample_0364,6569c4854bc858a8a809065f8ded15872318c5d5,don't apply CharFilters twice in Solr
+sample_0365,e96b143b6a28b12b130ee49c030b5ab7dfc04903,Make packed int arrays usable by codecs.
+sample_0366,e96b143b6a28b12b130ee49c030b5ab7dfc04903,Make packed int arrays usable by codecs.
+sample_0367,e96b143b6a28b12b130ee49c030b5ab7dfc04903,Make packed int arrays usable by codecs.
+sample_0368,1e21e6ceec9f9c181e109e3bc5189187df69fd88,Performance improvements to Packed64 (Toke Eskildsen).
+sample_0369,fd16190940d7495e985f44ce7504562c8bbc91e6,clean up redundant throws clauses
+sample_0370,fd16190940d7495e985f44ce7504562c8bbc91e6,clean up redundant throws clauses
+sample_0371,fd16190940d7495e985f44ce7504562c8bbc91e6,clean up redundant throws clauses
+sample_0372,42abb41cddc2d04f92c417f40b8dfded477a53bd,Improve TermQueryPrefixTreeStrategy and move makeQuery impl to SpatialStrategy
+sample_0373,0cf9ac0833aab766919eda2d2dc9584b815e4147,change SnapPuller to use solrj
+sample_0374,a2e8a95f6aedf44953833f39b7128d40a3b04370,Fix infinite loop on wrong argument in MathUtil.log
+sample_0375,f12b94ab86e3b395eedc15d5b9c32f987cfae48c,Rename Query Type to Request Handler
+sample_0376,ae212ff6f6af5ba08e5a743cb7f541ad7358bc50,"CompositeReader.getSequentialSubReaders() now returns unmodifiable List<? extends IndexReader>. ReaderUtil.Gather was removed, as IndexReaderContext.leaves() is now the preferred way to access sub-readers"
+sample_0377,ae212ff6f6af5ba08e5a743cb7f541ad7358bc50,"CompositeReader.getSequentialSubReaders() now returns unmodifiable List<? extends IndexReader>. ReaderUtil.Gather was removed, as IndexReaderContext.leaves() is now the preferred way to access sub-readers"
+sample_0378,a11013a9901fdf32832e0fdfdd17a51002e4be81,"introduce LiveIndexWriterConfig, returned from IndexWriter.getConfig()"
+sample_0379,4104901e64e832a96b4709bf6be0b2da1d1c8b6d,FST.pack: Use packed integer arrays for improved memory efficiency.
+sample_0380,dba50b31e7543e3861e44de6e0ff6e7f79ec1be4,add ctors create stored or not-stored variants of indexed fields
+sample_0381,dba50b31e7543e3861e44de6e0ff6e7f79ec1be4,add ctors create stored or not-stored variants of indexed fields
+sample_0382,a1a3808a6e1cc3c47021da5f13568088fe14d137,o.a.l.Search.Suggest.WordBreakSpellChecker Solr integration
+sample_0383,7d87c740ee829a3d4aa721e7b52332965dc52ef4,Added support for handling rules with incorrect number of arguments
+sample_0384,bc3a3dc5d47af0c00748468b1ae14b4a18854366,remove deprecations from trunk (just the easy ones for now)
+sample_0385,bc3a3dc5d47af0c00748468b1ae14b4a18854366,remove deprecations from trunk (just the easy ones for now)
+sample_0386,bc3a3dc5d47af0c00748468b1ae14b4a18854366,remove deprecations from trunk (just the easy ones for now)
+sample_0387,8e90661734c86dad3a556c046aee020e742c5c32,"fix AIOOBE in copyBytes/copyChars, off-by-one in subSequence"
+sample_0388,8e90661734c86dad3a556c046aee020e742c5c32,"fix AIOOBE in copyBytes/copyChars, off-by-one in subSequence"
+sample_0389,872f71e0d93a5fe65fa0b75953ca95ae661291cc,"move httpclient details into a utility class, improve javadocs"
+sample_0390,872f71e0d93a5fe65fa0b75953ca95ae661291cc,"move httpclient details into a utility class, improve javadocs"
+sample_0391,eb615fad86a2e86058d87380e295f77846b3e747,impl shared docstores as codec attributes
+sample_0392,f330cf65adc5bd11d72bd3f8e78f20112da1fed5,"javadocs, file formats docs, clear some nocommits"
+sample_0393,2ec6fa5d7f1ff06f6ce4e51d1deacd03b54aee33,"remove .per file, instead use fieldinfo metadata to resolve fieldnames -> posting formats"
+sample_0394,d65ed29a4395d24d93bd114f6ba4ce054a390730,remove dead code
+sample_0395,04dceabc182ef5f7ff38cc382aaef2e0852cf167,Group count incorrect when not all shards are queried in the second pass.
+sample_0396,04dceabc182ef5f7ff38cc382aaef2e0852cf167,Group count incorrect when not all shards are queried in the second pass.
+sample_0397,0b698c15af766417625c0985351f1f73ba68af0b,Offline Sorter wrongly uses MIN_BUFFER_SIZE if there is more memory available
+sample_0398,800f5a54a68bf3750f4331d8639ef28cf10a443b,"add UpdateRequestHandler that handles xml,csv,json, and javabin"
+sample_0399,8f7c1da3ba370effb17306cfc119c24c6e029706,FuzzyQuery should never do edit distance > 2
+sample_0400,3e9b5a9893c07e2c9fac4cb877f2bbb104288c40,use FST instead of recursive HashMaps for MappingCharFilter
+sample_0401,3e9b5a9893c07e2c9fac4cb877f2bbb104288c40,use FST instead of recursive HashMaps for MappingCharFilter
+sample_0402,9707be81c1caa8d1e44e57e10253da0dba033099,PhoneticFilterFactory thread-safety bug. Improved documentation & tests too.
+sample_0403,d5eeb396a5ac6af5163677c61fb95c18c38027ac,"PingRequestHandler is now directly configured with a ""healthcheckFile"" instead of looking for the legacy <admin><healthcheck/></admin> syntax. Filenames specified as relative paths have been fixed so that they are resolved against the data dir instead of the CWD of the java process."
+sample_0404,9554a045e94c56253a157caf6ec6a6c09b5c1310,add javadocs
+sample_0405,d2875edd993256568f555ccd76270ace90393053,"New support for a ""TZ"" request param which overrides the TimeZone used when rounding Dates in DateMath expressions"
+sample_0406,91b6b379cd82e4daaeb4e7c5d7b591ba9a401deb,send UpdateRequest.getParams() as HTTP request params
+sample_0407,4ed059b7e69b5eeab808ec53548db34add1d4605,Distributed grouping failed when rows parameter was set to 0 and sometimes returned a wrong hit count as matches.
+sample_0408,4ed059b7e69b5eeab808ec53548db34add1d4605,Distributed grouping failed when rows parameter was set to 0 and sometimes returned a wrong hit count as matches.
+sample_0409,058179d177208450850c5e3e3103710cadd3b53e,Deprecate/Remove <indexDefaults> and <mainIndex> in favor of <indexConfig> in solrconfig.xml (trunk)
+sample_0410,e3374c9c9b6e6d915ac77526b16cce018d94b0eb,OpenExchangeRates.Org Exchange Rate Provider and improved ExchangeRateProvider interface
+sample_0411,3f32f09c95da5fe669246025a988cc75390ad31f,Fix CoreContainer and SolrResourceLoader logging to stop misleading people about SolrCore instanceDir's being the Solr Home Dir
+sample_0412,56a177774e35f25d4a9923e7ead15ba6205fc2c6,"Fix incorrect short-circuit, improve memory usage."
+sample_0413,dd831066b24c870ba73a05d512ad272e4152d3eb,remove another redundant throws FacetException from CategoryContainer
+sample_0414,bfa06a9e30416ebfa53490746f99a298b3920c99,remove redundant throws FacetException (as it's not really thrown)
+sample_0415,bfa06a9e30416ebfa53490746f99a298b3920c99,remove redundant throws FacetException (as it's not really thrown)
+sample_0416,263787259c64c9d357fdc8b1d9f054a5ff615384,fix thread safety issues in IW's livedocs/reader pool
+sample_0417,40a9dbf3ce4042bde81d35ae73efe7f275f4ca8e,"deprecate AtomicReader.hasNorms, implement via fieldinfos, make final, and cleanup/javadoc some related fieldinfos methods"
+sample_0418,187bfe2ebc4555e93b71d6fe463d14d1a3b45932,SloppyPhraseScorer sometimes misses documents that ExactPhraseScorer finds.
+sample_0419,f303bcd4650ac96d88b84dade253fbf4cb407158,Cleanup Suggest / Lookup API
+sample_0420,f303bcd4650ac96d88b84dade253fbf4cb407158,Cleanup Suggest / Lookup API
+sample_0421,f303bcd4650ac96d88b84dade253fbf4cb407158,Cleanup Suggest / Lookup API
+sample_0422,565777a7b30f19da70fd50309b2f77a19567419f,remove shard info from zk when unload is called
+sample_0423,930816cc5b9672a19610de411287fc84457ccc32,AEProviderFactory getAEProvider logic cleaned
+sample_0424,9da52f435279eeeb314cb8aa52043d109c692d6b,now you acquire/release directly from NRTManager (fixes trap)
+sample_0425,7141c6c72db6193c8620ba9ee2db66714abdc226,simplify NRTManager: applyDeletes is only passed to ctor now
+sample_0426,8a50cefc6b4c640b3088c68ba6db424cec5ebedd,EnglishPossessiveFilter did not work with a proper right quotation mark
+sample_0427,72ae3171beffb53da4b25462e49dd34684d41ba7,Trappy behavior with StopFilter/ignoreCase
+sample_0428,72ae3171beffb53da4b25462e49dd34684d41ba7,Trappy behavior with StopFilter/ignoreCase
+sample_0429,72ae3171beffb53da4b25462e49dd34684d41ba7,Trappy behavior with StopFilter/ignoreCase
+sample_0430,dac1b58277c41d66197bbe2a11cc14a4a406e99c,add fieldtypes for different languages to the example
+sample_0431,dac1b58277c41d66197bbe2a11cc14a4a406e99c,add fieldtypes for different languages to the example
+sample_0432,dac1b58277c41d66197bbe2a11cc14a4a406e99c,add fieldtypes for different languages to the example
+sample_0433,36ff785606f75a062f53029616f78fcf080864b1,suggest.fst.Sort.BufferSize should not automatically fail just because of freeMemory()
+sample_0434,8fbd9d767344801e1915168cf7fa4bd404758de7,Similarity.java javadocs and simplifications for 4.0
+sample_0435,d1165b19726fa0cd13a539827a7cd43237a4feef,add optional packing to FSTs
+sample_0436,1a4b926b13042959cf29d4307d605cc605880434,"Fix NRT reopen (the logic is still horrible, but thats what current trunk does!)"
+sample_0437,9fed484fb108e53cd6026133f660b3fd270e2025,merge in solrcloud branch (watch out hudson!)
+sample_0438,66f17c3bab7604582575f95ebf59b83e44051ee5,"Move all commit/version/indexExists/reopen/open stuff to DirectoryReader, IR/AIR/CIR is now only an abstract index to search on, nothing more. In the future we might create an interface Reopenable that has all methods. For now SearcherManager & Co. simply check for instanceof DirectoryReader"
+sample_0439,17fe719bb50f5465472c31ef5382cc4690688d91,Calling DirectoryTaxonomyReader.refresh() could mess up reference counting
+sample_0440,42b2c861166c05b22de4dcee1bc52bd29a28cfb1,"First steps, still incomplete. No tests pass or even compile, but core code now compiles. See issue!"
+sample_0441,42b2c861166c05b22de4dcee1bc52bd29a28cfb1,"First steps, still incomplete. No tests pass or even compile, but core code now compiles. See issue!"
+sample_0442,42b2c861166c05b22de4dcee1bc52bd29a28cfb1,"First steps, still incomplete. No tests pass or even compile, but core code now compiles. See issue!"
+sample_0443,87bc4521c2f1298fa4898fbda465731a59c8a41b,move some confusing FST sugar out
+sample_0444,6a085c2fa99578b346db5e31d9dfd938b21f6d34,Move System.getProperty(type) in postData() to main()
+sample_0445,6a085c2fa99578b346db5e31d9dfd938b21f6d34,Move System.getProperty(type) in postData() to main()
+sample_0446,6a085c2fa99578b346db5e31d9dfd938b21f6d34,Move System.getProperty(type) in postData() to main()
+sample_0447,cdb2ee8a7bc73b47f7334ec89b6fe8c3134fa9b1,replace IR.getFieldNames with IR.getFieldInfos
+sample_0448,b2970db4bcb6aae9ea4f1e86779bd5165b93610d,filter to process output of Standard/ICUTokenizer and create overlapping bigrams for CJK
+sample_0449,b096910a8219f1575cb8e257673915f1a821ffef,extend LevenshteinAutomata to support transpositions as primitive a edit
+sample_0450,4d51b9012b81f24a7a76cedcd2767748bc4e3d13,make SegmentReader read-only (IndexWriter now privately tracks the pending deletes against a segment)
+sample_0451,0d86474d3c59396d27add2263b742e988ad9ddca,"FilteredQuery and IndexSearcher.search(Query, Filter,...) now optimize the special case ""query instanceof MatchAllDocsQuery"" to execute as ConstantScoreQuery"
+sample_0452,701000cf27bb1cea6e023645be20b757f331712f,function DocValues -> FunctionValues
+sample_0453,ad7cb17bc9ec7b5b564d15baa38b52abc8e8b143,Make PKIndexSplitter and MultiPassIndexSplitter work per segment
+sample_0454,0bd1fcf488e84aee93a4a0d40dd40b51fac68840,throw exception for MultiSortedSource instead of returning null
+sample_0455,0bd1fcf488e84aee93a4a0d40dd40b51fac68840,throw exception for MultiSortedSource instead of returning null
+sample_0456,21989c90c26821ff8444c9d8d6d840434a5a499f,Commit to not corrumpt Robert's work on Default*: Improve InfoStream class in trunk to be more consistent with logging-frameworks like slf4j/log4j/commons-logging
+sample_0457,21b7c5bbee13b88fc2b28318314c8a38b9388d07,make bulk postings codec private
+sample_0458,21b7c5bbee13b88fc2b28318314c8a38b9388d07,make bulk postings codec private
+sample_0459,4dd6b5fbedfcd6420550674f93c31a1339b33576,"Localized rangequery support for icu/jdk collation filters, parametric tailoring for icu collators"
+sample_0460,4dd6b5fbedfcd6420550674f93c31a1339b33576,"Localized rangequery support for icu/jdk collation filters, parametric tailoring for icu collators"
+sample_0461,873f1999244555a1e1b3e14698e7f9494f4ef00c,"move TermVectors,FieldInfos,SegmentInfos to codec"
+sample_0462,0780806efe6c401d998eaa15a1876ee8f32add73,TaxonomyReader.refresh() was broken if taxonomy index recreated since taxo reader last opened or refreshed.
+sample_0463,04a9b55618ac0822804094ff71d4e4d522196733,StatsComponent can now support dates (and other non-numeric fields)
+sample_0464,e7294aab77dcd0501576c0639bc644ca7a0015c2,Support pluggable caching implementations
+sample_0465,5200e8e38f5f44b78e8c9d066a1947f6a84a4046,port 3.x's FieldCache.getDocsWithField to trunk
+sample_0466,5200e8e38f5f44b78e8c9d066a1947f6a84a4046,port 3.x's FieldCache.getDocsWithField to trunk
+sample_0467,fa6500fa6caade1741a1f43173ec80e5ebcd4a10,restructure codec hierarchy
+sample_0468,fa6500fa6caade1741a1f43173ec80e5ebcd4a10,restructure codec hierarchy
+sample_0469,fa6500fa6caade1741a1f43173ec80e5ebcd4a10,restructure codec hierarchy
+sample_0470,94f98ab7f36c63641bfe35fa2216c4781a697156,"Filters can now be applied down-low, if their DocIdSet implements a new bits() method, returning all documents in a random access way"
+sample_0471,94f98ab7f36c63641bfe35fa2216c4781a697156,"Filters can now be applied down-low, if their DocIdSet implements a new bits() method, returning all documents in a random access way"
+sample_0472,ec186e7280c365479b503d0833ec8215f0f432c6,Decompounders based on CompoundWordTokenFilterBase can now be used with custom attributes. All those attributes are preserved and set on all added decompounded tokens
+sample_0473,ec186e7280c365479b503d0833ec8215f0f432c6,Decompounders based on CompoundWordTokenFilterBase can now be used with custom attributes. All those attributes are preserved and set on all added decompounded tokens
+sample_0474,9d9e457baca95cf2edd9cfaa2766ff548a64ce9f,add alternative language detection impl
+sample_0475,63b736c033cf1c645a2dff04e730b0e72526c3ba,Random access non RAM resident IndexDocValues (CSF)
+sample_0476,63b736c033cf1c645a2dff04e730b0e72526c3ba,Random access non RAM resident IndexDocValues (CSF)
+sample_0477,63b736c033cf1c645a2dff04e730b0e72526c3ba,Random access non RAM resident IndexDocValues (CSF)
+sample_0478,22dcd39d9ef66d75d5aaa1ba9c88f7eacda94032,Allow case insensitive Hunspell stemming
+sample_0479,534d8abed0087f15591a41b519e04c2fe2f5d2ab,Cut over numeric docvalues to fixed straight bytes
+sample_0480,67c13bd2fe57d73a824f163f9c73018fa51a1a65,Renamed Analyzer.reusableTokenStream to Analyzer.tokenStream
+sample_0481,67c13bd2fe57d73a824f163f9c73018fa51a1a65,Renamed Analyzer.reusableTokenStream to Analyzer.tokenStream
+sample_0482,4ff0b2f82c6b87266d9bab90cb273dab39bd6dda,"Collapsing Analyzer and ReusableAnalyzerBase together, mandating use of TokenStreamComponents"
+sample_0483,c54608b60dc6fb3e451dd1d3c430cf42c38f5fb5,SloppyPhraseScorer sometimes computed Infinite freq.
+sample_0484,d58350aead436dcd6fb13ac071f55271bf043df0,Added support for group.truncate for distributed search. Also added some more jdocs.
+sample_0485,96c4bb7074546cb87885bba5a7eaa1dea36d7c33,Added support for distributed grouping.
+sample_0486,c0965ed3a2c9e9c237065a8ff5cdf9901af5e865,add spellchecker SuggestMode
+sample_0487,318911200d59556c78705d8fa252220a2fe5b13c,Removed state changing setters in ShingleAnalyzerWrapper and PerFieldAnalyzerWrapper
+sample_0488,4c5606ee29e767db929999d906a66e9db32d7c68,Converted most Analyzers over to using ReusableAnalyzerBase
+sample_0489,ffb3cbee57e1b075dac827bcc46bc95483c603e0,Moved over to using IndexableFieldType interface
+sample_0490,013e2776b867cc7f087ec17207a2720f2806689e,CommitTracker fixes
+sample_0491,4b44bd7d831a48a91437735fb7b1cab73d1e3518,Deprecated multi-int constructors in WordDelimiterFilter. Now uses int bitfield
+sample_0492,4dad0ba89f1d663939999be9005433dd629955f1,cutover to FieldType
+sample_0493,4dad0ba89f1d663939999be9005433dd629955f1,cutover to FieldType
+sample_0494,4dad0ba89f1d663939999be9005433dd629955f1,cutover to FieldType
+sample_0495,b7846ffaa1ff8cd050feaa924e3a6ab12a43549b,"add BlockTreeTermsReader/Writer, a more efficient tree-structure for the terms dictionary"
+sample_0496,7354f8d9e8a41141d56607f317d314ba9d7fe477,Directorys used by a SolrCore are now closed when they are no longer used. The same Directory instance is now always used across a SolrCore so that it's easier to add other DirectoryFactory's without static caching hacks.
+sample_0497,7354f8d9e8a41141d56607f317d314ba9d7fe477,Directorys used by a SolrCore are now closed when they are no longer used. The same Directory instance is now always used across a SolrCore so that it's easier to add other DirectoryFactory's without static caching hacks.
+sample_0498,ef56f5d551ea30634bc96b97bc781ec3a55bd628,"port url+email tokenizer to standardtokenizerinterface, fix combining marks bug"
+sample_0499,2dda5bc35f8c49a1443a4f65616e4a4e390def9b,StandardTokenizer wrongly discarded combining marks attached to Han/Hiragana
+sample_0500,1b8c3f1de9af0397884e0d48a7fb9cde8be8f737,"If Java7 is detected, IOUtils.closeSafely() will log suppressed exceptions in the original exception, so stack trace will contain them"
+sample_0501,1c646d24c9f9118e770fca947c2bc5b68775f425,omit positions but keep term freq
+sample_0502,015ecfa0a0255f053682bb2436b2b8dec5cb8283,"improve ram/perf of SynonymFilter, add wordnet parsing, nuke contrib/wordnet"
+sample_0503,015ecfa0a0255f053682bb2436b2b8dec5cb8283,"improve ram/perf of SynonymFilter, add wordnet parsing, nuke contrib/wordnet"
+sample_0504,ea67cd8b2c43274d80999c140c948a6fe1ffe52e,decouple vector space scoring from Query/Weight/Scorer
+sample_0505,ea67cd8b2c43274d80999c140c948a6fe1ffe52e,decouple vector space scoring from Query/Weight/Scorer
+sample_0506,a338c7b30998a3aa15dc7e31429e6819e09e7662,committing _phillipe_ramalho_3.patch from git-svn-id: https://svn.apache.org/repos/asf/lucene/dev/trunk@1142862 13f79535-47bb-0310-9956-ffa450edef68
+sample_0507,a338c7b30998a3aa15dc7e31429e6819e09e7662,committing _phillipe_ramalho_3.patch from git-svn-id: https://svn.apache.org/repos/asf/lucene/dev/trunk@1142862 13f79535-47bb-0310-9956-ffa450edef68
+sample_0508,a338c7b30998a3aa15dc7e31429e6819e09e7662,committing _phillipe_ramalho_3.patch from git-svn-id: https://svn.apache.org/repos/asf/lucene/dev/trunk@1142862 13f79535-47bb-0310-9956-ffa450edef68
+sample_0509,4401ef4dae285889ad56fa3baae824e345c3d9cc,fix MemoryCodec to always set BytesRef.bytes when returning payload
+sample_0510,82c6dafc010e373266af9d49534f74ccb0d4b8a1,NRTCachingDir doesn't need the MergeScheduler anymore
+sample_0511,cf0e5ec4678ca203a1f5c1c263c73dfe2c698d47,add TermsEnum.seekExact(BytesRef); renamne existing methods to seekCeil/seekExact
+sample_0512,74257a2d138a86accdb197358dd5bf6e61d5d184,remove error-prone release number in source code
+sample_0513,40f5948b3df17d20017428d2c6ac310a0bdffe99,"Make it use a filter, correct & improve tests"
+sample_0514,789a44d7061b47d993d2797ff162c8ffc8a51fbe,Renamed DocValues to IndexDocValues to prevent naming conflict with Function Queries
+sample_0515,10ead35ab06709879be3cacb2d38a05860baa2a5,Cut over to consistent default values and added support for entire long range
+sample_0516,b935c20eb017a3ee7b3508623fb55a59f1310449,IndexWriter.addIndexes can make any incoming segment into CFS if it isn't already
+sample_0517,af9930c6cb8e5dfe1e75ce1bb7dcb5930988815c,sloppy phrase query failed to match valid documents when multiple query terms had same position in the query.
+sample_0518,153475ad31e803f40dc02201908f475345490f1c,"removed legacy code, fixed minor javadoc issues and renamed Type to ValueType"
+sample_0519,fa23344e40ae27cbb480c43d9c55219e80fa2240,add factory method to CachingCollector
+sample_0520,1c464e6dcc3f41ffa14f260f4e9787d47c860e18,add AllGroupsCollector
+sample_0521,f703f234145d88339cfb87f5629fa031d58360c3,default is TieredMP if version >= 3.2
+sample_0522,c678de49eeb4b16b3e31f5f2b9ae9cdf5985dc44,Fix javadocs and add Version parameter to ctor
+sample_0523,a871b29ed6e6ae060c2e3da2cbd6d3fdd9ac61ea,add ElisionFilter to ItalianAnalyzer
+sample_0524,f47c3e8298536ad1dae694c2446d02be4fe95c00,cleaned up javadoc with respect to DWPT changes
+sample_0525,fa1ac87eaa879b6a821623f3eed3b38c2a3a400b,some polishing & removed all nocommit
+sample_0526,cf37cec0c6ab82b20055d7c889c7433c27070e63,Tiered flushing of DWPTs by RAM with low/high water marks
+sample_0527,caaa23a1b7672132b81e9a5058975598229eb227,Transforming documents in the ResponseWriters. This will allow for more complex results in responses and open the door for function queries as results.
+sample_0528,0a94d14ee6ae6ffa289f148fe597db35f7f76320,Build SegmentCodecs incrementally for consistent codecIDs during indexing
+sample_0529,0a94d14ee6ae6ffa289f148fe597db35f7f76320,Build SegmentCodecs incrementally for consistent codecIDs during indexing
+sample_0530,e67bf6b08941605e83a7671904544f5167284a18,"fix BytesRef reuse bugs, TermToBytesRefAttribute owns the bytes like other attributes"
+sample_0531,0e043f9bd74da514372019fd02871c5b9f353133,All ResponseWriters now use only ServletOutputStreams and wrap their own Writer around it when serializing. This fixes the bug in PHPSerializedResponseWriter that produced wrong string length if the servlet container had a broken encoding that was in fact (see ). The hack was removed by this followup-patch.
+sample_0532,fea853a3d2e6360db3bfcf6c808b5681cd6cefae,Fix FieldType so setting an analyzer on a FieldType that doesn't expect it will generate an error
+sample_0533,fea853a3d2e6360db3bfcf6c808b5681cd6cefae,Fix FieldType so setting an analyzer on a FieldType that doesn't expect it will generate an error
+sample_0534,308e0bd4a9d24ab613fb2b3e7a5e094452447917,"collation uses byte[] keys, deprecate old unscalable locale sort/range, termrangequery/filter work on bytes"
+sample_0535,308e0bd4a9d24ab613fb2b3e7a5e094452447917,"collation uses byte[] keys, deprecate old unscalable locale sort/range, termrangequery/filter work on bytes"
+sample_0536,f7a130e393ee5dbe18772e5df50ddb89571d6be8,write pointers and skip data more efficiently for fixed and variable intblock
+sample_0537,295c8f84c73327cf93fe705224c13e11aa852480,allow non-contiguous merges; improve handling of buffered deletes
+sample_0538,a798ef362b9da271b79909c9502f1a11f264af46,more javadocs and code cleanups
+sample_0539,466530addfc478c7aaf0448a5b60fdc196f92009,port to trunk
+sample_0540,4f7eba849a001ae27d879482e9ee06313874be3b,remove SimilarityDelegator; force cutover of Similarity.lengthNorm -> Similarity.computeNorm
+sample_0541,4f7eba849a001ae27d879482e9ee06313874be3b,remove SimilarityDelegator; force cutover of Similarity.lengthNorm -> Similarity.computeNorm
+sample_0542,1cab313a2b88d3e1d1365af4e30f06f7a0d49547,"add variable gap terms index writer/reader, using FST to hold the index"
+sample_0543,c26fd7564a5d343a18f204277571d230ab43c397,improve Spellchecker indexing speed
+sample_0544,55612869048d232d70e9d8a51e3738efc61256b9,added javadoc & cleaned up some API
+sample_0545,55612869048d232d70e9d8a51e3738efc61256b9,added javadoc & cleaned up some API
+sample_0546,adfabc3df71f372a5c968d61e9167890388d24fd,ConstantScoreQuery now directly supports wrapping a Query instance for stripping off scores
+sample_0547,36aab2d41cf210ed0fc7d44e6e9ad08982100836,remove solr deprecations - add.overwritePending/overwriteCommitted/allowDups
+sample_0548,bbf683cdbedcb23ef8cace4c0280e824da4c9b0c,buffer pending deletes by segment
+sample_0549,bbf683cdbedcb23ef8cace4c0280e824da4c9b0c,buffer pending deletes by segment
+sample_0550,a58c26978f5c7a0dbbbe535c627ef5388fad550b,drop deprecations from trunk
+sample_0551,a58c26978f5c7a0dbbbe535c627ef5388fad550b,drop deprecations from trunk
+sample_0552,04a44b515de19b3258ebabb8461f097d7519fb35,Change all FilteredTermsEnum impls into TermsEnums decorators
+sample_0553,24178a6eb86ee9193bb58416391f24ca1c1d5774,"Make SegmentMerger always work on atomic subreaders, even when IndexWriter.addIndexes(IndexReader...) is used with DirectoryReaders or other MultiReaders. This saves lots of memory during merge of norms"
+sample_0554,ac71ebc23716010a7397d98da0f87a1f8e29bca5,Added a wrapper around MultiTermQueries to add span support: SpanMultiTermQueryWrapper<Q extends MultiTermQuery>. Using this wrapper its easy to add fuzzy/wildcard to e.g. a SpanNearQuery. This patch also refactors all RewriteMethods and Attributes in MTQ (class was unmaintainable).
+sample_0555,7e85ff665593c372ebee6a6b8c9b2ee147544b69,add paging to result grouping
+sample_0556,819344aeab0f4c8697c15ab842fdb784fe1faaf0,Fix charset problems in XML loading in HyphenationCompoundWordTokenFilter
+sample_0557,c74daf63d1c231f839e86105e3aff8e6597cb358,QP treats * as open end in range
+sample_0558,686e94403824b8d566556fb4be72700d924493d0,Use an internal attribute to cache DFAs in FuzzyTermsEnum during per-segment search
+sample_0559,dd1c7a858538b2716d3844bcb8f6edbe2e702cb3,MultiTermQuery boolean rewrites per segment
+sample_0560,b55f338757d2bbd616bc5f77c3a05dcfd20b3022,"SolrCloud - added shared/central config and core/shard managment via zookeeper, built-in load balancing, and infrastructure for future SolrCloud work."
+sample_0561,8887a044ea69b3e4b0fda6e0eded3f9870364013,add some new SpanQuery classes
+sample_0562,d029a5f222ada06638e0f6eeb7cd3893468b003a,friendly geodist function
+sample_0563,d029a5f222ada06638e0f6eeb7cd3893468b003a,friendly geodist function
+sample_0564,a15dd4b5cb6ddf4e70d98930fc5e5ead8aed96ad,improve interaction of MTQ & terms cache
+sample_0565,dfed16f2fddce83fc544584c0fca1f5ba6d354a7,Improve defaults for FuzzyQuery so it has good performance
+sample_0566,dfed16f2fddce83fc544584c0fca1f5ba6d354a7,Improve defaults for FuzzyQuery so it has good performance
+sample_0567,c84bd2f1eca628c011113ae1d1fc0756bab948a1,ThaiAnalyzer assumes things about your jre
+sample_0568,bbfbc428ca562b9f746db378d1996ec745f4bcb8,switch JavaBin over to standard
+sample_0569,48dde8359f9177780e270921b2249349659e272f,speed up BaseCharFilter
+sample_0570,48dde8359f9177780e270921b2249349659e272f,speed up BaseCharFilter
+sample_0571,f39ad7f02eecad81fb78ebf2a7723ee69babaae5,Add support for alternate comparators for spelling
+sample_0572,adaeb656c80722e74f64f75a83dab28ea036e750,Added support for generalized Numerical Range faceting on any numeric (or date) field. Note: this required modifying ConvertedLegacyTest to deal with an expectation about how many fields a specific document has (there are more now because of a copyField i added to the schema)
+sample_0573,cc5882ab7568f8946c7eb7d6ff549130ec32d7d4,queryparser turns all CJK queries into phrase queries
+sample_0574,8f71031ac88ed4f3fb027143fbc8caa3c42a2c8c,consolidate remaining solr tokenstreams into modules/analysis
+sample_0575,c91bddb26b1244912990d48f25b6801ea7b1b17b,hard cutover of all preflex APIs to flex
+sample_0576,d43627afe13b1e3ecc6afd720a9c622ffce37831,Enhance SnapshotDeletionPolicy to allow taking multiple snapshots (merge from 3x)
+sample_0577,9276737924a9066c8519e3556a4b9259406eade8,DebugComponent now uses a NamedList to model Explanation objects in it's responses instead of Explanation.toString
+sample_0578,85a977bf9df45f149507bf6c57279f28844f933f,make CachingWrapperFilter treatment of new deletes customizable
+sample_0579,85a977bf9df45f149507bf6c57279f28844f933f,make CachingWrapperFilter treatment of new deletes customizable
+sample_0580,d6dd2e234e12bd955fd33ae4d7996c56ffa37f1d,Some house cleaning in addIndexes* (trunk)
+sample_0581,28a153babc42c6b27d102f0f3282e0bb5f2090d2,add custom ExecutorService to ParallelMultiSearcher
+sample_0582,0ddd505d9a82d3639ab847089833b626360f302b,Eliminate support for the abortOnConfigurationError ... this also fixes
+sample_0583,cd45643b96dd638feba5015571a8008d448766d3,"Remove hack, as JFlex trunk now has the zzBuffer bug fixed"
+sample_0584,acbf053b7c3d6caa0287cd615ad3b282f726a0eb,Improve Greek analysis
+sample_0585,ee5ec3ed3230c5ca5f5931303f22e625a6716a09,add total TF tracking to HighFreqTerms tool
+sample_0586,a95a785c74b4c2e147dd99e35127e94f3033cfe4,Improve performance of ThaiWordFilter by using a char[]-backed CharacterIterator (currently from javax.swing).
+sample_0587,994189c221b6569e30444506f5f41558fa580ea4,Fix a bunch of issues related to spatial
+sample_0588,5aa974d3308faaacce5dccee632e0da0c7334f45,"Removed the now obsolete and deprecated Analyzer.setOverridesTokenStreamMethod(). Analyzer and TokenStream base classes now have an assertion in their ctor, that check subclasses to be final or at least have final implementations of incrementToken(), tokenStream(), and reusableTokenStream()"
+sample_0589,0a5e6806f381bdb332aec56c678e167462d157b0,some small cleanups after landing flex
+sample_0590,b679816a7001ba986618f103a9a9c67ececc7ff8,Reintegrate flex_1458 branch into trunk (revision 931101)
+sample_0591,b679816a7001ba986618f103a9a9c67ececc7ff8,Reintegrate flex_1458 branch into trunk (revision 931101)
+sample_0592,b679816a7001ba986618f103a9a9c67ececc7ff8,Reintegrate flex_1458 branch into trunk (revision 931101)
+sample_0593,3860c16a66bfa3db8daf9515c53a5aa142097b08,cleanup and sync analysis with Lucene trunk
+sample_0594,29963c7c7e837f9e359722a11d854d0b300dadfe,"deprecate static Directory.copy in favor non-static Directory.copyTo; if it's FSDir -> FSDir, use nio's FileChannel.transferTo"
+sample_0595,b12f372bb53fc01a7490e71c8459a8281ef3ee6f,sync up to lucene trunk rev 925561
+sample_0596,b12f372bb53fc01a7490e71c8459a8281ef3ee6f,sync up to lucene trunk rev 925561
+sample_0597,65a21459a258c9a180ad7161f9da318692215c99,a hackey commit of stuff needed to get on lucene 3.0.1
+sample_0598,65a21459a258c9a180ad7161f9da318692215c99,a hackey commit of stuff needed to get on lucene 3.0.1
+sample_0599,53c19d660aad6db9c5d62272d65c38a53a728325,cutover to IndexWriterConfig object for settings to IW
+sample_0600,53c19d660aad6db9c5d62272d65c38a53a728325,cutover to IndexWriterConfig object for settings to IW
+sample_0601,53c19d660aad6db9c5d62272d65c38a53a728325,cutover to IndexWriterConfig object for settings to IW
+sample_0602,b51587f72d25a57dde0fcc65638e449b44f9740e,revert while discussions are going on about default analyzer...
+sample_0603,b51587f72d25a57dde0fcc65638e449b44f9740e,revert while discussions are going on about default analyzer...
+sample_0604,b51587f72d25a57dde0fcc65638e449b44f9740e,revert while discussions are going on about default analyzer...
+sample_0605,7641c23cefccfa957186f3dbd2056efe3e5ebf50,cutover to IndexWriterConfig object for settings to IW
+sample_0606,7641c23cefccfa957186f3dbd2056efe3e5ebf50,cutover to IndexWriterConfig object for settings to IW
+sample_0607,7641c23cefccfa957186f3dbd2056efe3e5ebf50,cutover to IndexWriterConfig object for settings to IW
+sample_0608,0a1472386a48e014d334f2b53225d1667828a103,remove more unnecessary snowball object creation
+sample_0609,21044e1c8f6e3198b77381540319d8f46a94f3f1,allow public but internal access to oal.index.IndexFileNames API
+sample_0610,7b9c0f796952f25f9e375ee1cfecef2046368e94,Fix javadocs of TopScoreDocCollector
+sample_0611,7b06e1c5db753a82644b53141854dbeb45f57f5e,make TopTermsScoringBooleanRewrite's PQ size configurable
+sample_0612,a6b7c5552ba1158a9833ea607bd89b7fe3ba6ef9,"better snowball integration, deprecate buggy handcoded snowball impls, restructure lang support"
+sample_0613,a6b7c5552ba1158a9833ea607bd89b7fe3ba6ef9,"better snowball integration, deprecate buggy handcoded snowball impls, restructure lang support"
+sample_0614,a6b7c5552ba1158a9833ea607bd89b7fe3ba6ef9,"better snowball integration, deprecate buggy handcoded snowball impls, restructure lang support"
+sample_0615,c96611b8f11b9e3c8ebe76ed04195dc7eb74cfc3,"In the slave , If 'mov'ing file does not succeed , copy the file"
+sample_0616,924d7faa6843255986f765219ca4b7f5b93f3649,Add a CharArrayMap<V> for performance improvements in some stemmers and synonym filters
+sample_0617,869c789563e8b62eb44206892a98de27f43a0b69,SimpleAnalyzer and WhitespaceAnalyzer now have Version ctors. This commit also fixes all core tests to no longer use the deprecated ctors.
+sample_0618,869c789563e8b62eb44206892a98de27f43a0b69,SimpleAnalyzer and WhitespaceAnalyzer now have Version ctors. This commit also fixes all core tests to no longer use the deprecated ctors.
+sample_0619,fdf4ea244880344675f1f3b6aea1d3a6685ea261,"Improvements to ShingleFilter (performance, configurable sep. char and min shingle size)"
+sample_0620,49b3a12971b2ac03478707c95548c3b44c3dfcd5,Added Unicode 4 support to CharTokenizer and its subclasses
+sample_0621,49b3a12971b2ac03478707c95548c3b44c3dfcd5,Added Unicode 4 support to CharTokenizer and its subclasses
+sample_0622,49b3a12971b2ac03478707c95548c3b44c3dfcd5,Added Unicode 4 support to CharTokenizer and its subclasses
+sample_0623,e9a979f1eb80733756b0467950e1c2cc70b84800,Support protected words in stemming TokenFilters using a new KeywordAttribute
+sample_0624,e9a979f1eb80733756b0467950e1c2cc70b84800,Support protected words in stemming TokenFilters using a new KeywordAttribute
+sample_0625,e9a979f1eb80733756b0467950e1c2cc70b84800,Support protected words in stemming TokenFilters using a new KeywordAttribute
+sample_0626,fc4cf94bdf0eddbee86ac9c7f648021dda762c46,"use char[] for snowball, don't create intermediate strings"
+sample_0627,a33e8679220e42375250bd84cbc6a2e61f72c584,Add a utility class for tracking deprecated overridden methods in non-final subclasses
+sample_0628,c19d78dd4e4f2737897355237c55a693b8d8eb5c,Improve Spatial Utility like classes
+sample_0629,c19d78dd4e4f2737897355237c55a693b8d8eb5c,Improve Spatial Utility like classes
+sample_0630,cdac1f711339a6614fffb085f204fc9ef5ba5b39,remove Byte/CharBuffer wrapping for collation key generation
+sample_0631,cdac1f711339a6614fffb085f204fc9ef5ba5b39,remove Byte/CharBuffer wrapping for collation key generation
+sample_0632,cdac1f711339a6614fffb085f204fc9ef5ba5b39,remove Byte/CharBuffer wrapping for collation key generation
+sample_0633,48b275af8085e54bdd13fd4fe32bad45e94b128f,don't accept Store for binary fields -- it must always be YES
+sample_0634,7d35aafe71661e51ee01639ddf88503184610329,make CMS smarter about prioritizing its threads
+sample_0635,7d35aafe71661e51ee01639ddf88503184610329,make CMS smarter about prioritizing its threads
+sample_0636,7d35aafe71661e51ee01639ddf88503184610329,make CMS smarter about prioritizing its threads
+sample_0637,dc3f92e6e58c788227b9cfe82d584cbe10e5e5bb,switch to AtomicInteger for IR's ref count; remove sync from IW's ensureOpen (it's only 'best effort')
+sample_0638,41e48be570b40a8d6be1f1d42c4ef8bc6c091732,"Move FuzzyQuery rewrite as separate RewriteMode into MTQ. This also fixes a slowdown / memory issue added by -- *WARNING* Do not merge this patch to flex, it's already there in a different variant!"
+sample_0639,41e48be570b40a8d6be1f1d42c4ef8bc6c091732,"Move FuzzyQuery rewrite as separate RewriteMode into MTQ. This also fixes a slowdown / memory issue added by -- *WARNING* Do not merge this patch to flex, it's already there in a different variant!"
+sample_0640,ab447b6af0653d1c1438b0aa4fa33b270814af65,Enable safe concurrent spell-index modifications in Spellchecker
+sample_0641,9edfb3b66ade32697ba356525b1adaafa4ed604a,Prepare CharArraySet for Unicode 4.0
+sample_0642,9edfb3b66ade32697ba356525b1adaafa4ed604a,Prepare CharArraySet for Unicode 4.0
+sample_0643,2ef402eefa101b713f019cb7836e7c264f6d32b6,Add a stemmer for Czech
+sample_0644,2ef402eefa101b713f019cb7836e7c264f6d32b6,Add a stemmer for Czech
+sample_0645,2ef402eefa101b713f019cb7836e7c264f6d32b6,Add a stemmer for Czech
+sample_0646,f0e064eb41b9b62b630be37bf89e3e8eed8208ba,supplementary char support for lowercasefilter
+sample_0647,e69141c51a29d8abba8efbb17fd941cd137e2127,Fixed ReverseStringFilter for Unicode 4.0. Reverse Supplementary Characters correctly.
+sample_0648,e69141c51a29d8abba8efbb17fd941cd137e2127,Fixed ReverseStringFilter for Unicode 4.0. Reverse Supplementary Characters correctly.
+sample_0649,00f07ee46006b65ee352088931bb0cbdf09870bc,"Contrib Analyzer Setters should be deprecated and replace with ctor arguments, thanks to Simon Willnauer"
+sample_0650,00f07ee46006b65ee352088931bb0cbdf09870bc,"Contrib Analyzer Setters should be deprecated and replace with ctor arguments, thanks to Simon Willnauer"
+sample_0651,aaddac89926bbb04b7b7ccf77e5e4e662919de77,add Version to QueryParser & contrib analyzers
+sample_0652,aaddac89926bbb04b7b7ccf77e5e4e662919de77,add Version to QueryParser & contrib analyzers
+sample_0653,aaddac89926bbb04b7b7ccf77e5e4e662919de77,add Version to QueryParser & contrib analyzers
+sample_0654,04da5e73f26bb92a74eb10b3baf870ad0133312c,Parameter -> Java 5 enum transition
+sample_0655,faa1b9815eb38db478130d4ae64c19a3767b8ae9,don't let IndexWriter's ram buffer size exceed 2048 MB
+sample_0656,504cd94c0bcce905266b087f3d514f4bdd103e1f,More generified APIs and implementations (when will we be finished?). Thanks Kay Kay!
+sample_0657,173d95a166bcf3b7a363a1d06f292bf6a90a1f42,Generify CharArraySet
+sample_0658,c5af8f8fee730139c34cffbf350072f0f2cabc71,Remove the rest of deprecated HitCollectors
+sample_0659,594c9a35f78a4d6f65c68bad21487bce50532cdb,"Remove deprecated ExtendedFieldCache, custom and auto caches, SortField.AUTO, deprecated custom sort, deprecated sorting HitCollectors, deprecated TopDocs HitCollectors, legacy search"
+sample_0660,35f0f926a2abac80e9944d54798b0fce0d6e49df,Remove deprecated DocIdSetIterator methods.
+sample_0661,f20e419aff4676f7045dda5489d015cd5d8b6157,remove autoCommit=true from IndexWriter
+sample_0662,39b4a0e4dc9ae589881cc30a08abd7c9d987d8a8,Remove Filter.bits(IndexReader).
+sample_0663,6634bec9ce40fc4f08d233374d8770fa1b350149,DIH: Enhance XPathRecordReader to deal with //tagname and other improvments.
+sample_0664,6634bec9ce40fc4f08d233374d8770fa1b350149,DIH: Enhance XPathRecordReader to deal with //tagname and other improvments.
+sample_0665,c70555f62d29820bb826e6f83321089ce358ab69,Remove deprecated Directory stuff and IR/IW open/ctor hell
+sample_0666,dd9c1b0101fb9fb96eefbaae1a50969baca26abc,Remove deprecated charset support from Greek and Russian analyzers
+sample_0667,dd9c1b0101fb9fb96eefbaae1a50969baca26abc,Remove deprecated charset support from Greek and Russian analyzers
+sample_0668,dd9c1b0101fb9fb96eefbaae1a50969baca26abc,Remove deprecated charset support from Greek and Russian analyzers
+sample_0669,0db6aefc6c421dcff6fb8d6300fc8d7094fdb37c,. javadocs added. skipTag inlined and use loop instead of recursion
+sample_0670,aa02a6a5c80872c54ceb3b193a906552a027c606,Use Tokenizer.correctOffset() instead of CharStream.correctOffset()
+sample_0671,aa02a6a5c80872c54ceb3b193a906552a027c606,Use Tokenizer.correctOffset() instead of CharStream.correctOffset()
+sample_0672,8934cbd804efb7372a802b66ea0adea3bddd62f5,"Add a new DocIdSet.isCacheable() method that defaults to false, but is true for some DocIdSet impls, that are effective and use no disk I/O during iteration (OpenBitSet, SortedVIntList, DocIdBitSet, EMPTY_DOCIDSET, some FieldCache filter impls). CachingWrapperFilter now copies all DocIdSets, which are not cacheable, into an OpenBitSetDISI for caching."
+sample_0673,5d234337ba9301c32607d303ffae46c8a29ba7cc,"updates to phps support, per hoss"
+sample_0674,566f02f0b24d283fb0e7c530b931487d525183d2,additional CESU8 system property to control how serialized PHP writer calculates bytes
+sample_0675,9b936ce650f4ed98dc6fc7d47351952caac121d0,Add support for termInfosIndexDivisor and termIndexInterval
+sample_0676,5324b752cbb7508bccf1460af246eb932204e2dd,Add offset corrections in PatternTokenizerFactory
+sample_0677,5324b752cbb7508bccf1460af246eb932204e2dd,Add offset corrections in PatternTokenizerFactory
+sample_0678,1d9a96c2fc69b254a238337d16a7a4dceaa0849f,Add option to ReverseStringFilter to mark reversed tokens
+sample_0679,7fff5a7ea7cbc0e01b115705884b9b579989bddf,"QueryWight back to Weight, but as abstract class rather than interface - explain now takes a Searcher and passes the sub reader that contains the doc if a top level reader is a multi reader."
+sample_0680,7fff5a7ea7cbc0e01b115705884b9b579989bddf,"QueryWight back to Weight, but as abstract class rather than interface - explain now takes a Searcher and passes the sub reader that contains the doc if a top level reader is a multi reader."
+sample_0681,7fff5a7ea7cbc0e01b115705884b9b579989bddf,"QueryWight back to Weight, but as abstract class rather than interface - explain now takes a Searcher and passes the sub reader that contains the doc if a top level reader is a multi reader."
+sample_0682,820620f3a7224c6416d001984570897682112676,"Update ArabicAnalyzer to light10 stemming, stopwords improvements, lowercase non-arabic text"
+sample_0683,10b41d2dce28227c619a3aad3331167230cdea25,"The position aware SpanScorer has become the default scorer for Highlighting. The SpanScorer implementation has replaced QueryScorer and the old term highlighting QueryScorer has been renamed to QueryTermScorer. Multi-term queries are also now expanded by default. If you were previously rewritting the query for multi-term query highlighting, you should no longer do that (unless you switch to using QueryTermScorer). The SpanScorer API (now QueryScorer) has also been improved to more closely match the API of the previous QueryScorer implementation."
+sample_0684,10b41d2dce28227c619a3aad3331167230cdea25,"The position aware SpanScorer has become the default scorer for Highlighting. The SpanScorer implementation has replaced QueryScorer and the old term highlighting QueryScorer has been renamed to QueryTermScorer. Multi-term queries are also now expanded by default. If you were previously rewritting the query for multi-term query highlighting, you should no longer do that (unless you switch to using QueryTermScorer). The SpanScorer API (now QueryScorer) has also been improved to more closely match the API of the previous QueryScorer implementation."
+sample_0685,457c29d31ee8ef0bd4db92fabeed5604a7e84297,"Change remaining contrib TokenFilters (shingle, prefix-suffix) to use the new TokenStream API."
+sample_0686,1743081b078a3206e676bdd4ebe9203f5bad6c90,Changed TokenStreams/TokenFilters in contrib to use the new TokenStream API.
+sample_0687,1073d29a530aef38c2d6a13a1524ddc2ea5bd913,"Slightly more readable code in Token/TermAttributeImpl, additional tests, deep cloning bug with Token.copyTo fixed"
+sample_0688,0f9d2ec5b8cb5d00248cf82e3657ad7214d45e70,"Some additional changes to / MTQ Deprecate one ctor of MultiTermQuery(Term), as Term field is deprecated Add readResolve also for the default auto rewrite method (not really needed because equals/hashcode impl, but singleton status is preserved) Some changes in NumericRangeQueryTests (now they use always constant score boolean/filter rewrite in basic tests, the default in all other tests) Add some explanations for the rewriteMethod used in NumericRangeQery's ctor (term enum seeks and so on). I also made a switch statement of the valSize (like at other places in this class, this is for later 8 or 16 bit valSize extensions)"
+sample_0689,be66120dffb677ea4ce263282d6fd35956b84e78,enable different rewrite methods for MultiTermQuery
+sample_0690,be66120dffb677ea4ce263282d6fd35956b84e78,enable different rewrite methods for MultiTermQuery
+sample_0691,be66120dffb677ea4ce263282d6fd35956b84e78,enable different rewrite methods for MultiTermQuery
+sample_0692,31a5f0edcc474f739e8392eac7261b9483fc60bf,Various improvements to the new TokenStream API.
+sample_0693,31a5f0edcc474f739e8392eac7261b9483fc60bf,Various improvements to the new TokenStream API.
+sample_0694,31a5f0edcc474f739e8392eac7261b9483fc60bf,Various improvements to the new TokenStream API.
+sample_0695,91e37bf1fb8958ec5b7b9f20a7a7543f1dcd32ca,un-deprecate IndexReader.getTermInfosIndexDivisor
+sample_0696,849d072a41f65a8892e4df36dd237aa0d4cf08c6,"make SegmentReader, SegmentInfo, SegmentInfos public as 'expert' and 'subject-to-change-suddenly' APIs"
+sample_0697,516f633ba7bf27d91672654d24803a66bbe05767,all the variable names which use 'snap' has been renamed
+sample_0698,b2a4bc68adf2101970a83c8489fc5d936c6e9116,Set default precisionStep for NumericField and NumericRange*
+sample_0699,a2846087788ac06c56a15867ede163361520f17c,remove synchronization from terms dict by loading index up front
+sample_0700,8bb8d6561c9bb562807e2a4a3ad631c30121a50c,add WordDelimiterFilter.stemEnglishPossessive option
+sample_0701,7acabfecf0298498e9a9e5cbb3a24669d18da4b3,Some minor fixes and additions to JavaDocs. ConstantScoreRangeQuery is fixed to this mode now.
+sample_0702,fed4bba63d724da192988fc7717a25da6832ff8b,Rename RangeQuery -> TermRangeQuery (part 1)
+sample_0703,f3896a58df5cb201eb039da8c788d6e8d0243914,Add support for numeric types to FieldCacheRangeFilter
+sample_0704,ec88b1578dd8a6d53c4b18ad8ca5f4ad6803de02,"make Query.createQueryWeight optional, with default impl to wrap existing createWeight"
+sample_0705,f03d77b558482b517bc7285f20f9d13075c604be,switch from Weight (interface) to QueryWeight (abstract class); mate in/out-of docID order scoring between Collector & Scorer
+sample_0706,f03d77b558482b517bc7285f20f9d13075c604be,switch from Weight (interface) to QueryWeight (abstract class); mate in/out-of docID order scoring between Collector & Scorer
+sample_0707,f03d77b558482b517bc7285f20f9d13075c604be,switch from Weight (interface) to QueryWeight (abstract class); mate in/out-of docID order scoring between Collector & Scorer
+sample_0708,edfce675a575bf83baecb52ca58c6e307d50eaad,"Add NumericField , make plain text numeric parsers public in FieldCache, move trie parsers to FieldCache, merge ExtendedFieldCache and FieldCache"
+sample_0709,757795bffe332a649d579a6c9fbf4c33196681e4,"add matchVersion to StandardAnalyzer, and improve defaults if version is 2.9+"
+sample_0710,757795bffe332a649d579a6c9fbf4c33196681e4,"add matchVersion to StandardAnalyzer, and improve defaults if version is 2.9+"
+sample_0711,cbc9fae327920cd0f7b912dc0ead45631481c6d9,"moved updateHandler, updateprocessor to solrconfig"
+sample_0712,406454d30bc3022cc003fc81f7c6392e19b51da6,Deprecate all String/File ctors/opens in IndexReader/IndexWriter/IndexSearcher
+sample_0713,a93e2c41b0669788bcf448ea953a4d6d85ba0640,"switch next -> nextDoc, skipTo -> advance, doc -> docID in DISI"
+sample_0714,a93e2c41b0669788bcf448ea953a4d6d85ba0640,"switch next -> nextDoc, skipTo -> advance, doc -> docID in DISI"
+sample_0715,a93e2c41b0669788bcf448ea953a4d6d85ba0640,"switch next -> nextDoc, skipTo -> advance, doc -> docID in DISI"
+sample_0716,509e239d7028097e90a6d2907aa11889ff029629,"Fix MMapDirectory, add hack for JVM bug that keeps mmapped files open, fix tests, that cannot use other dir impls than SimpleFSDirectory, some API fine tuning."
+sample_0717,509e239d7028097e90a6d2907aa11889ff029629,"Fix MMapDirectory, add hack for JVM bug that keeps mmapped files open, fix tests, that cannot use other dir impls than SimpleFSDirectory, some API fine tuning."
+sample_0718,509e239d7028097e90a6d2907aa11889ff029629,"Fix MMapDirectory, add hack for JVM bug that keeps mmapped files open, fix tests, that cannot use other dir impls than SimpleFSDirectory, some API fine tuning."
+sample_0719,c51402208191409d0d94b11f96f7f45fe30240b5,split FSDir into base class vs SimpleFSDir; strenghten javadocs on which FSDir subclass is best; add FSDir.open that picks a good default
+sample_0720,c51402208191409d0d94b11f96f7f45fe30240b5,split FSDir into base class vs SimpleFSDir; strenghten javadocs on which FSDir subclass is best; add FSDir.open that picks a good default
+sample_0721,c51402208191409d0d94b11f96f7f45fe30240b5,split FSDir into base class vs SimpleFSDir; strenghten javadocs on which FSDir subclass is best; add FSDir.open that picks a good default
+sample_0722,d4f98095200d1c48c24597809f8e61e961aad3f7,optimize core Collectors for in-docID-order scorer case
+sample_0723,e2a020b6c6fb409e3111166ffe27fcf8ccbeddb4,A LineEntityProcessor which can stream lines of text from a given file to be indexed directly or for processing with transformers and child entities.
+sample_0724,55c0cc3922f5501e705f1194ece3191675bf606e,"improve MultiTermQuery for better sharing, and so Trie(Numeric)RangeQuery can use it"
+sample_0725,55c0cc3922f5501e705f1194ece3191675bf606e,"improve MultiTermQuery for better sharing, and so Trie(Numeric)RangeQuery can use it"
+sample_0726,6610c0489d4d8453f23930a371ddf20663eb872f,<bool>on</bool> and <bool>yes</bool> in solrconfig.xml work as expected.
+sample_0727,ad79d914e48c5c2b0683c8331afffe8187ae4fb2,switch to new Collector API
+sample_0728,ad79d914e48c5c2b0683c8331afffe8187ae4fb2,switch to new Collector API
+sample_0729,ad79d914e48c5c2b0683c8331afffe8187ae4fb2,switch to new Collector API
+sample_0730,3c91517add263dcc2cada194f9545b573b920daf,add near real-time search to IndexWriter
+sample_0731,13ae26b7feae8e62d98c9b4bc34125d20768b1a8,Make TrieRange completely independent from Document/Field with TokenStream of prefix encoded values
+sample_0732,13ae26b7feae8e62d98c9b4bc34125d20768b1a8,Make TrieRange completely independent from Document/Field with TokenStream of prefix encoded values
+sample_0733,13ae26b7feae8e62d98c9b4bc34125d20768b1a8,Make TrieRange completely independent from Document/Field with TokenStream of prefix encoded values
+sample_0734,3588581c948d373fc308b97c3b7939d54893a278,Cleanup duplicated code in deprecated HighlightingUtils
+sample_0735,3588581c948d373fc308b97c3b7939d54893a278,Cleanup duplicated code in deprecated HighlightingUtils
+sample_0736,3588581c948d373fc308b97c3b7939d54893a278,Cleanup duplicated code in deprecated HighlightingUtils
+sample_0737,73a02ec6fec6020f819dd462c8ba3a32943c622f,Fix for Lucene-1500 - new exception added to Highlighter API to handle TokenStreams with Tokens that exceed given text length
+sample_0738,73a02ec6fec6020f819dd462c8ba3a32943c622f,Fix for Lucene-1500 - new exception added to Highlighter API to handle TokenStreams with Tokens that exceed given text length
+sample_0739,73a02ec6fec6020f819dd462c8ba3a32943c622f,Fix for Lucene-1500 - new exception added to Highlighter API to handle TokenStreams with Tokens that exceed given text length
+sample_0740,a00257a7ba60631be5764d6d5331b67b87d8a9d4,"add compress/decompressString, too"
+sample_0741,c314ad000f7f839cb47f852ffc1e25196f9f8431,API change in RangeBuilder
+sample_0742,c314ad000f7f839cb47f852ffc1e25196f9f8431,API change in RangeBuilder
+sample_0743,8b79fa51a55b4eaefd17fbfdcb13fe27d3231211,New implementation using encoding of TrieUtils and TrieRangeFilter that now also supports 32bit and 64bit fields
+sample_0744,e2c19ac5ad545f8f64411bbcb8a517337d570a06,"Javadoc, one deprecation and one warning"
+sample_0745,d495237c0e7b3405e107cca1348b5d91b6588ae1,"followup. improve handling of null handler name to make semantics closer to what they were before ConcurrentHashMap, and cleanup some now superfulous null checks"
+sample_0746,39c1b9b3a5fee7e7896db94f1fbaada26d18cc4f,WordDelimiterFilter splitOnNumerics and protwords
+sample_0747,89557b26aaaddf9686833dca608288eb12b11d9e,some SolrIndexWriter.getDirectory cleanup
+sample_0748,efc985cbf4930b97deab8a9dd16bafbec74690ee,allow SortField to use a custom numeric FieldCache parser
+sample_0749,efc985cbf4930b97deab8a9dd16bafbec74690ee,allow SortField to use a custom numeric FieldCache parser
+sample_0750,8f184caf793beb93b1df21405d3ae5e1c866ee47,facet.sort=false for distrib search + change facet.sort to count/lex
+sample_0751,cedd07b500a32ad8445f3e416d6f9e93cfa6cf11,Solr Cell: Add support for Tika content extraction
+sample_0752,cea5444e91a0d81257cc3cc272fc5f61c7b3a3fd,added maxChars attribute for copyField
+sample_0753,898cfe87cdb7dab5e754d777e5685ec31ff6527b,"New TokenStream API that uses a new class called AttributeSource instead of the now deprecated Token class. All attributes that the Token class had have been moved into separate classes: TermAttribute, OffsetAttribute, PositionIncrementAttribute, PayloadAttribute, TypeAttribute and FlagsAttribute."
+sample_0754,24d76157a06bb370308fa94ff698d7c104826df3,let Similarity.computeNorm compute the norm; add option to discount overlap tokens when computing lengthNorm
+sample_0755,0b90b5e23d904a669c92a692765d1acd77cf1971,"add opaque userData String passed to IndexWriter.commit, recorded into the segments file"
+sample_0756,0b90b5e23d904a669c92a692765d1acd77cf1971,"add opaque userData String passed to IndexWriter.commit, recorded into the segments file"
+sample_0757,d8a60238e3fd87274b89a127222357c0398d100b,make CheckIndex back-compatible again; improve programmatic access
+sample_0758,d8a60238e3fd87274b89a127222357c0398d100b,make CheckIndex back-compatible again; improve programmatic access
+sample_0759,3034575f66028527db0f5cec96875bf53baf7e9e,"Updated Snowball package, org.tartarus distribution revision 500."
+sample_0760,3034575f66028527db0f5cec96875bf53baf7e9e,"Updated Snowball package, org.tartarus distribution revision 500."
+sample_0761,f0d2a151ca344cb8479b20b12826a39d15609e41,"enable read-only IndexReaders; the default is to get a read-write IndexReader on open, but in 3.0 this will change to read-only"
+sample_0762,bb6b7117186b656b4777850fdc463e0eaa541130,improvements to Token reuse API and full cutover to reuse API for all core and contrib analyzers
+sample_0763,bb6b7117186b656b4777850fdc463e0eaa541130,improvements to Token reuse API and full cutover to reuse API for all core and contrib analyzers
+sample_0764,bb6b7117186b656b4777850fdc463e0eaa541130,improvements to Token reuse API and full cutover to reuse API for all core and contrib analyzers
+sample_0765,a26f3734c60e2ab9d8cf82b8462b4b3e78080aa1,add Fieldable.getBinaryValue/Offset/Length reuse API
+sample_0766,5ddfe45731ee90ab21eb56baeb6fda12331e5788,"modifying MultiCore implementaion to treat ""singlecore"" as a CoreCollection with only one Core"
+sample_0767,5ddfe45731ee90ab21eb56baeb6fda12331e5788,"modifying MultiCore implementaion to treat ""singlecore"" as a CoreCollection with only one Core"
+sample_0768,da634f42eb270fc6d2f3fef068949a28a73ff585,simplify the UpdateRequestProcessorFactory framework and use standard initialization techniques
+sample_0769,f60122e08d23fc641410b80bd6debed6f8a62538,"and : Multiple fixes to DateField regarding lenient parsing of optional milliseconds, and correct formating using the canonical representation. LegacyDateField has been added for people who have come to depend on the existing broken behavior."
+sample_0770,8540820fe13f51e8ce622a1d0bf571835c02bd6d,add preparCommit() to IW to do phase 1 of 2-phase commit
+sample_0771,aecd167b05b4a668ab18d8a79cae3be3c29fe833,record per-segment deletion count in segments file; add maxDoc() & numDocs() in IW; deprecate docCount() in favor of maxDoc()
+sample_0772,b309970c3d4244317e6ac2c4fddf22045310eced,return empty array instead of null for certain get*s methods in Document
+sample_0773,b309970c3d4244317e6ac2c4fddf22045310eced,return empty array instead of null for certain get*s methods in Document
+sample_0774,b309970c3d4244317e6ac2c4fddf22045310eced,return empty array instead of null for certain get*s methods in Document
+sample_0775,caed55ef5eb1e06c8d52c5fa084517cc5f7ab9e8,"Added thread-safety around use of core's QueryParser. Old XML parser constructors use a mode which will synchronize on use of the user-supplied QueryParser. New constructors offer alternative option of passing ""defaultField"" String which is used to create a new single-use QueryParser for each parse operation."
+sample_0776,7965c59942a81d3fa8d418c5a08871efdbc591be,"when too many merge threads are running, pause until one or more finishes, instead of doing the merge with the foreground thread"
+sample_0777,18b61286fa637eee623cbd3d9a6a161519efd92c,Changed Filter API to return a DocIdSet instead of a java.util.BitSet. This allows using more efficient data structures for Filters and makes them more flexible.
+sample_0778,23da0335a53004479e2f1f4135e60dfa62cf2941,Fixed Hits behavior when hits' docs are deleted along with iterating the hits.
+sample_0779,adb9a5c594f9da02a40d51078f0c0c4552686df4,DocValues cleanup: constructor & getInnerArray().
+sample_0780,b0d2b1c90eac6fe8e1a12e7d85308b6baabc3519,revert the doSync option to FSDirectory
+sample_0781,e395be3fafc2c08e40adca9d29cff73bfbc80b3e,"new CharArraySet, make StopFilter directly use it"
+sample_0782,e395be3fafc2c08e40adca9d29cff73bfbc80b3e,"new CharArraySet, make StopFilter directly use it"
+sample_0783,e395be3fafc2c08e40adca9d29cff73bfbc80b3e,"new CharArraySet, make StopFilter directly use it"
+sample_0784,e9a586677731eb6634f731c63a81012b9db46390,"call clear when reusing token, change clear to only resent essential fields, re-add Token.clone()"
+sample_0785,439ba586fc33f3875dcd4fc6608fc1c1c7e565c5,"add doSync option to FSDirectory.getDirectory, defaulting to true, to sync() each file descriptor before close()"
+sample_0786,f69f98c0e4690d5ed4dc556b1affb32f2d2708b3,"fix Lock.obtain(...) to work properly on very large timeouts, eg Long.MAX_VALUE"
+sample_0787,4b3ae817b722875f5c32485878bc4dfbfcf4225b,spell checker upgrade
+sample_0788,4b3ae817b722875f5c32485878bc4dfbfcf4225b,spell checker upgrade
+sample_0789,54729a50b67b4cec70bd4879c6876371986b455f,"allow flushing by ram, doc count, or both (whichever comes first) in IndexWriter"
+sample_0790,54729a50b67b4cec70bd4879c6876371986b455f,"allow flushing by ram, doc count, or both (whichever comes first) in IndexWriter"
+sample_0791,54729a50b67b4cec70bd4879c6876371986b455f,"allow flushing by ram, doc count, or both (whichever comes first) in IndexWriter"
+sample_0792,68aa14653501d3aa0b67583e585d68bd383d9922,Refactored SegmentInfos from IndexReader into the new subclass DirectoryIndexReader.
+sample_0793,68aa14653501d3aa0b67583e585d68bd383d9922,Refactored SegmentInfos from IndexReader into the new subclass DirectoryIndexReader.
+sample_0794,68aa14653501d3aa0b67583e585d68bd383d9922,Refactored SegmentInfos from IndexReader into the new subclass DirectoryIndexReader.
+sample_0795,299d6357dd296f87a099fadd0764292b28dbde47,"factor MergePolicy & MergeScheduler out of IndexWriter, improve overall concurrency of IndexWriter, and add ConcurrentMergeScheduler"
+sample_0796,299d6357dd296f87a099fadd0764292b28dbde47,"factor MergePolicy & MergeScheduler out of IndexWriter, improve overall concurrency of IndexWriter, and add ConcurrentMergeScheduler"
+sample_0797,e3dacf01c782f6462a01aa8e4b9587265f8b0a91,"removing the core name and 'cores' registry stuff. this should be part of , not SolrCore"
+sample_0798,e3dacf01c782f6462a01aa8e4b9587265f8b0a91,"removing the core name and 'cores' registry stuff. this should be part of , not SolrCore"
+sample_0799,d42de329840f0a224fc93e51296d81c34efd4730,deprecate Token.termText() & optimize core tokenizers by re-using tokens & TokenStreams
+sample_0800,d42de329840f0a224fc93e51296d81c34efd4730,deprecate Token.termText() & optimize core tokenizers by re-using tokens & TokenStreams
+sample_0801,d42de329840f0a224fc93e51296d81c34efd4730,deprecate Token.termText() & optimize core tokenizers by re-using tokens & TokenStreams
+sample_0802,fdc4ed58b48a97a9e9d49957df0979b17e588191,Removing some weirdness in the SolrInputDocument interface that is not really needed for . git-svn-id: https://svn.apache.org/repos/asf/lucene/solr/trunk@562832 13f79535-47bb-0310-9956-ffa450edef68
+sample_0803,77f2a49896dc33d5e919eddeffd95f042f76a162,Move deprecated functions out of o.a.s.common and put it in the deprecated classes from . This seperates the parameter defination classes from the SolrParams classes
+sample_0804,9c0d22fe9b887b29aa55ed31dd110a2a3c5b51c4,RegexFragmenter
+sample_0805,b6ca445debf170c6d79073942d943f3452af2a42,adding UpdateRequestProcessor as a top level plugin managed by SolrCore. This sets up a default processing chain.
+sample_0806,8355ab88b338fdbc8a4f048aafb84d01efa94bc6,fixed the triggerMerger logic from that I accidentally lost
+sample_0807,f7804a08f8ac3b15c86521eac91ea08e6f8de320,have remove( name ) return the SolrInputField rather then true/false
+sample_0808,1760d4242d9c510e88e5754aa772b48165002cba,changing the SolrDocument/SolrInputDocument implementation so each one as as efficient as it can be. The API changes mostly affect solrj users.
+sample_0809,579b316839b8f1ff4648854361f8c61190e67e75,Using a factory pattern to generate UpdateRequestProcessor.
+sample_0810,be08e284147b2e06247fb52e7d84dad369d1228d,"updating the RandomSortField so it follows the Comparator contract. This uses the: field name hash, docID, and reader version as a random generator seed."
+sample_0811,04e7c94b99a1b71015d4651907694f0aafeb98db,Added toObject( Fieldable ) to FieldType. This lets the DocumentBuilder convert lucene Document to a SolrDocument. This patch also lets the DocumentBuilder convert a SolrInputDocument to a lucene Document.
+sample_0812,39e0ff32f2d7f957d31d9fc7b44c6a8a5bdc76b1,add splitOnCaseChange parameter to WordDelimiterFilter
+sample_0813,5877c03a01544019812aa9ffb61fe6220edc5fb4,Make scoring in docid order the default and add setAllowDocsOutOfOrder() and getAllowDocsOutOfOrder() to BooleanQuery.
+sample_0814,ca0dedf563721e1bae51483bb8c12e7c728a215c,use encoding unless something else is specified.
+sample_0815,b83182132466245abe55ca1f9fe2d905c1380e69,Removed caching from QueryFilter and added QueryWrapperFilter that can be combined with CachingWrapperFilter to provide caching.
+sample_0816,21a4500699c87352bf828a6662748f52cb1f7024,use fixed encoding to read the files to POST
+sample_0817,eb20c06a62c52b7b2fce4b26bcf32f31b9c52e70,Added the ability to store arbitrary binary metadata (payloads) in the posting list.
+sample_0818,1159f9a7685e740abf729c146ef694ef86ebfdff,add optional autoCommit=true/false mode and customizable IndexDeletionPolicy to IndexWriter
+sample_0819,25227a299dca7aa620915f17ea8bc427f748b9fb,enables multi-param for several dismax params
+sample_0820,81fef0c161133db5606d41104e4a895a3e067774,reverting some of Erik's recent changes to the SolrQueryParser constructor and implementing the intent in a new IndexSchema.getSolrQueryParser method
+sample_0821,4541271b9dc666c0473aebf5d1f9e4b476c10f7b,added 3 new exceptions (subclasses of IOException) to better call out possible root causes of an IOException
+sample_0822,4541271b9dc666c0473aebf5d1f9e4b476c10f7b,added 3 new exceptions (subclasses of IOException) to better call out possible root causes of an IOException
+sample_0823,4541271b9dc666c0473aebf5d1f9e4b476c10f7b,added 3 new exceptions (subclasses of IOException) to better call out possible root causes of an IOException
+sample_0824,95bab8401f3684cbd2b561f8557309fe971065c2,merge NewIndexModifier back into IndexWriter
+sample_0825,0149b5f82f02ac9e37fb8972d243e44bc5c0e55e,"Changes to improve server-side speed and thread safety by caching reusable, compiled stylesheets."
+sample_0826,6d18f027e04c83ccbb8476a9b1bf209ac2b5d846,"Commit . Omitted the typed collection change in DUH2 (trunk has been updated), and added autocommits to the stats tracked by DUH2"
+sample_0827,befe8bd62b26f4714cdf831136ab7594d95893e3,negative queries
+sample_0828,02d6b05cd67e960b60edccb7e11222824231bf68,"deprecate ""create"" argument to FSDirectory.getDirectory(*); use IndexWriter's ""create"" argument instead"
+sample_0829,92c5c6933cadf50ce13fca584dcef03e81ac6660,"throw error for missing sort direction, sort on unindexed field"
+sample_0830,ceaa0c30913ce20396d33a095b23fac89a525c09,"DateTools support for QueryParser, Resolution can be set on a per field basis"
+sample_0831,d6823ef3746e7c7dba3aa64571d1ec04db620c0b,make sure addIndexes(*) does not corrupt index on disk full; change to transactional semantics; fix IndexWriter.mergeSegments and IndexReader.commit to clean up (and leave instance consistent) on exception
+sample_0832,d6823ef3746e7c7dba3aa64571d1ec04db620c0b,make sure addIndexes(*) does not corrupt index on disk full; change to transactional semantics; fix IndexWriter.mergeSegments and IndexReader.commit to clean up (and leave instance consistent) on exception
+sample_0833,8ccee0c870936b4cb03698f36640f238d2dd1c85,hashing on a pair isn't necessary and overly complicates semantics. So taking Pair logic out.
+sample_0834,9ba7a8e612e933da24c4eae0f927bf2fb6af32b0,"RAMDirectory.sizeInBytes, public flushRamSegments"
+sample_0835,9ba7a8e612e933da24c4eae0f927bf2fb6af32b0,"RAMDirectory.sizeInBytes, public flushRamSegments"
+sample_0836,9ba7a8e612e933da24c4eae0f927bf2fb6af32b0,"RAMDirectory.sizeInBytes, public flushRamSegments"
+sample_0837,f5661f7c58d2f5c712fa93978c05b39edd7b00d3,unicode escapes for QueryParser
+sample_0838,901c8c379c4a7ab107e1e03fe6aefad419d53d2d,DisjunctionSumScorer performance improvement
+sample_0839,901c8c379c4a7ab107e1e03fe6aefad419d53d2d,DisjunctionSumScorer performance improvement
+sample_0840,5c89547898da1e3ce0ad35900c28e5b39cbbc8bc,added support for per field boost factor
+sample_0841,ec38c40d94fb0b76f8eb1af701ee72e89781ccfb,support for appended and invariant SolrParams in solrconfig.xml
+sample_0842,254945aa32d84588125162a3ed1053e919471c31,Decouple locking from Directory
+sample_0843,254945aa32d84588125162a3ed1053e919471c31,Decouple locking from Directory
+sample_0844,254945aa32d84588125162a3ed1053e919471c31,Decouple locking from Directory
+sample_0845,8456ba93f8b3040d8eddb2d52e655148170e7f9b,Changed explain method to use TermDocs.skipTo instead of looping.
+sample_0846,5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7,gdata update
+sample_0847,5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7,gdata update
+sample_0848,5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7,gdata update
+sample_0849,8e9950debb1af91a00dd5f4684fa872e3144548b,configurable language for SnowballPorterFilterFactory
+sample_0850,1c06c7739391e7cb405ecb99ce202f8d2cba2adb,highlighting
+sample_0851,1c06c7739391e7cb405ecb99ce202f8d2cba2adb,highlighting
+sample_0852,4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72,gdata dev update from Simon 2006-06-06
+sample_0853,4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72,gdata dev update from Simon 2006-06-06
+sample_0854,4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72,gdata dev update from Simon 2006-06-06
+sample_0855,e2c89312199103fa8e4e5eb6fc5154bd528b712a,revert Document.getFields for back compatibility
+sample_0856,8226476315091e6af255335ed28c3bbf027711dd,pattern-match copyField source name
+sample_0857,c2338fca20994d340e60a25dd5145aee16a88dc7,"adding neccessary SolrConfig hooks so TestHarness and unit tests can specify arbitrary solrconfig.xml files, modified unit tests to demonstrate this -- per and git-svn-id: https://svn.apache.org/repos/asf/incubator/solr/trunk@395148 13f79535-47bb-0310-9956-ffa450edef68"
+sample_0858,cf4c00556ce85a7486409da5c44567d83bdca1f5,"Likewise rename the delete methods for IndexModifier, deprecating the old (though not strictly necessary since IndexModifier was added after 1.4.3)"
+sample_0859,e46b8070a648d070f56af80b6bee164d62b51c17,"make more methods and the exceptions work, adding test cases for these adding a warning to the javadoc that the user is responsible for keeping the indexes in sync"
+sample_0860,e46b8070a648d070f56af80b6bee164d62b51c17,"make more methods and the exceptions work, adding test cases for these adding a warning to the javadoc that the user is responsible for keeping the indexes in sync"
+sample_0861,f770e5fbe23c57bc74f58e08924eb024f029bda4,use setter/getter instead of system property; catch security exception so Lucene can be used inside an applet
+sample_0862,4e5151110be2ef47d71e0995a920b1a6c52b6cdc,catch security exception so this class can be used from an applet tiny improvement to the exception output (no toString())
+sample_0863,52cda0c4ef17f4150778809c706c97012583ec14,"Most of Wolf Siberski's patch to fix /: MulitSearcher failed on WildcardQuery etc. this has not been committed: removal of mergeBooleanQueries(); change to BooleanQuery.equals() added: a test case that is commented out which shows strange queries like ""multi* multi* foo"" don't work properly"
+sample_0864,6952e966484437031e8d3c62ee4a0b80742988eb,revamp toString so as to not deal with potential IOException from fetching a document
+sample_0865,52537afdb633db3d8ce57fe5044a5464fe5458c4,throw IllegalArgumentException to avoid endless loop
+sample_0866,9eca2a3160933eb1420b65f58a26b76b9ecd99e0,"make sure code works with WordNet2.0 (no problem) and add Query expansion, and comments"
+sample_0867,9e7e1d417f8630b4ad2ec4ad9b8005a27a23b82b,prelim rework
+sample_0868,07b4dfa01f9fe4daa3b9758c4ff68182d0c92145,"add ""throws IOException"" so that these analyzer compiles against Lucene 1.4 -- please tell me if I broke the encoding of the special characters"
+sample_0869,07b4dfa01f9fe4daa3b9758c4ff68182d0c92145,"add ""throws IOException"" so that these analyzer compiles against Lucene 1.4 -- please tell me if I broke the encoding of the special characters"
+sample_0870,82cd7f0b76529fbb34f1395047f8b03ed3dc15b6,upgrade index task to some ancient enhancements i had locally
+sample_0871,82cd7f0b76529fbb34f1395047f8b03ed3dc15b6,upgrade index task to some ancient enhancements i had locally
+sample_0872,b6243a3cbecaf213a695c2c5f83a2e4bcbb151e6,better handling of status codes
+sample_0873,a716edd6d108f4b2609a9331c026c022eaf5d2e7,Importing the classes seem to have warped the whitespaces. Here's my attempt to get things back to normal.
+sample_0874,4f3aad23f2086f79ea400bec2aae2a9362d52ecb,Deprecate the old constructors and the main parse(...) method. The new one now generates a query that works as expected for both AND and OR mode. Also do better argument checking in the static methods and throw IllegalArgumentException if something is wrong.
+sample_0875,f1667be0fc27f733c6bf4ad0a96fa799278aa501,Grant's nw termvector patch (Bug ) applied with some modifications.
+sample_0876,f1667be0fc27f733c6bf4ad0a96fa799278aa501,Grant's nw termvector patch (Bug ) applied with some modifications.
+sample_0877,f1667be0fc27f733c6bf4ad0a96fa799278aa501,Grant's nw termvector patch (Bug ) applied with some modifications.
+sample_0878,b32c045d35353b61fa255de173fce7cf35936795,Updated FSDirectory and RAMDirectory to no longer use deprecated methods.
+sample_0879,79892c1f40be236e26eb4d301e12e51fa06da3bd,Replace OutputStream with IndexOutput and BufferedIndexOutput to permit unbuffered Directory implementations.
+sample_0880,79892c1f40be236e26eb4d301e12e51fa06da3bd,Replace OutputStream with IndexOutput and BufferedIndexOutput to permit unbuffered Directory implementations.
+sample_0881,99fdf6af1f8312403be094a3c7b75db478b29453,Permit unbuffered index input.
+sample_0882,99fdf6af1f8312403be094a3c7b75db478b29453,Permit unbuffered index input.
+sample_0883,a6fad246dd8feb71df4e32130c43dd5ff6e6697d,Applied patch supplied by Drew Farris and Bernhard Messer.
+sample_0884,fd4cd859c579419c2227d6d931f9206d8fdac4d9,PhraseQuery and PhrasePrefixQuery are extended. It's now possible to specify the relative position of a term within a phrase. This allows gaps and multiple terms at the same position.
+sample_0885,7e0155537ab810940c7534de404ae41e84cb2417,QueryParser can now handle minimumSimilarity parameter of FuzzyQuery; FuzzyQuery extended to allow for non-fuzzy prefixes.
+sample_0886,ed7723dca0354cdf5dc0e5ca6afa636c6a6e7a9a,throw NullPointerException instead of IllegalArgumentException if appropriate
+sample_0887,c122d5bf3f575864e725dc455d1d05dac6b344f4,"remove ""throws IOException"" from methods that really never throw this exception"
+sample_0888,9e2322c5c07fb197ccabdf71f3fda6f70a0c9471,"remove ""throws IOException"" from methods that really never throw this exception"
+sample_0889,4e486c14349b20278c5d1e00b9335db0a1dffe86,expose term cache as a public object
+sample_0890,25f78d7cc2bb75f32fe67aafd1c8e085223d44a8,Applied a patch for bug 18410: http://issues.apache.org/bugzilla/show_bug.cgi?id=18410 git-svn-id: https://svn.apache.org/repos/asf/lucene/java/trunk@150267 13f79535-47bb-0310-9956-ffa450edef68
+sample_0891,338499e86bccbb938cb83b38e9a61fdf49e08203,add exceptions to WordlistLoader to missing file causes error instead of silently failing
+sample_0892,31974f29f0ce1012cdc7befba276b833da22ada2,Fixed problem with sorting.
+sample_0893,60f1d192c7fe49cba55432569ed988099f4de5e4,"Latest patches to hit sorting code, including unit tests, two of which currently fail."
+sample_0894,12eee6df5a994de466e89f626bc42b67a163c09a,Added term vector support.
+sample_0895,12eee6df5a994de466e89f626bc42b67a163c09a,Added term vector support.
+sample_0896,32d5bcd9501eaa316cc34caf46a7a18c424f4bf6,"Added hit sorting code, from Tim Jones."
+sample_0897,32d5bcd9501eaa316cc34caf46a7a18c424f4bf6,"Added hit sorting code, from Tim Jones."
+sample_0898,d83ae1586c4017420c5f16034df4972f12a74224,revert position increment change due to conflict with PhraseQuery
+sample_0899,fd5806ddf2655d207fdcee2c82d6ad1cb3ca3554,Use position increments to account for removed stop words
+sample_0900,1a39c55c4c49423b64ec6ab9bbdf08058d83fb85,only throw ParseException from parse methods
+sample_0901,15bcd46829c8798be03301424aa675e04640522b,"Add throws clause to query factory methods, allowing subclasses to use for rejecting, etc"
+sample_0902,15bcd46829c8798be03301424aa675e04640522b,"Add throws clause to query factory methods, allowing subclasses to use for rejecting, etc"
+sample_0903,15bcd46829c8798be03301424aa675e04640522b,"Add throws clause to query factory methods, allowing subclasses to use for rejecting, etc"
+sample_0904,b22cd7789009557c10718d470c16bc6b09e443ff,added ability to wait on any Lock. changed write.lock wait to 1 sec from none.
+sample_0905,57cdbe41879df17d6c89b2b36799128d874134d2,"Added subDoc() method, renamed searcherIndex() to subSearcher()."
+sample_0906,6772e7567d96b0b670828a38866507012a8112e3,"Added a public, extensible scoring API."
+sample_0907,419359a057ddacc9d1ce168ab84cd6ed0ef2e380,"Changed the stemming algorithm to ignore case while stripping. The algorithm is faster and produces more equal stems from nouns and verbs derived from the same word. That fixes the problem finding substantives when the searchterm is provided in lowercase. Now the stemming results are almost case insensitive. Changed the checking of legal terms to only reject terms that contain non letters, which solves problems with terms that contain irregular cased letters. Removal of pertical denotion now produces less overstemming errors. Code is rearranged a bit."
+sample_0908,53f0f3b4fb071c1aa8042dc7d9dc937d83304c20,"Made many methods and classes non-final, per requests. This includes IndexWriter and IndexSearcher, among others."
+sample_0909,43f5e32b7e25cf20891c44ed1f5abed6cecf1e1f,Reduced the number of condition checks for disabling locks. Documented the use of 'disableLocks' system property in class Javadoc.
+sample_0910,4cee88c43846ea3236814636259fae43c8d63de7,"Added the ability to disable creation of locks on the file system, in order to allow Lucene to be used on read-only media."
+sample_0911,89a554ffab239c0118ccd454d76cdf714d793911,"Fixed Bug 4555. Possible NullPointerException when a short term with substitutions was being checked for a particle denotion. Length checking corrected, and sequence of resubstitution and removing particle denotion changed to prevent denoted term to pass through remove because of the reduced length. Corrected and improved documentation. Fix in WordlistLoader, files are not read correct, loosing a line. Fix in GermanStemFilter, typo in constructor with custom exclusion table as parameter, parameter was ignored. GermanStemFilter has two new Methods for setting stemmer and exclusion list after creating the filter object."

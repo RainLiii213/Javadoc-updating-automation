@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3588581c948d373fc308b97c3b7939d54893a278",
+  "issue_summary": "Cleanup duplicated code in deprecated HighlightingUtils",
+  "code_before": "public static QueryScorer getQueryScorer(Query query, String fieldName, SolrQueryRequest request) {\n      boolean reqFieldMatch = getParams(request).getFieldBool(fieldName, FIELD_MATCH, false);\n      if (reqFieldMatch) {\n         return new QueryScorer(query, request.getSearcher().getReader(), fieldName);\n      }\n      else {\n         return new QueryScorer(query);\n      }\n   }",
+  "code_after": "public static QueryScorer getQueryScorer(Query query, String fieldName, SolrQueryRequest request) {\n     return HIGHLIGHTER.getQueryScorerX(query, fieldName, request);\n   }",
+  "javadoc_before": "/**\n    * Return a QueryScorer suitable for this Query and field.\n    * @param query The current query\n    * @param fieldName The name of the field\n    * @param request The SolrQueryRequest\n    */",
+  "javadoc_after": "/**\n    * @deprecated use DefaultSolrHighlighter\n    * @see DefaultSolrHighlighter\n    */"
+}

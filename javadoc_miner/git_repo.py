@@ -19,6 +19,7 @@ class GitRepo:
         repo_url: str,
         cache_dir: Path,
         force_refresh: bool = False,
+        fetch_existing: bool = True,
     ) -> "GitRepo":
         cache_dir.mkdir(parents=True, exist_ok=True)
         target = cache_dir / _cache_name(repo_url)
@@ -26,7 +27,8 @@ class GitRepo:
             shutil.rmtree(target)
         if target.exists():
             repo = cls(repo_url, target)
-            repo.run_git(["fetch", "--all", "--tags", "--prune"])
+            if fetch_existing:
+                repo.run_git(["fetch", "--all", "--tags", "--prune"])
             return repo
         _run(["git", "clone", repo_url, str(target)], cwd=None)
         return cls(repo_url, target)

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b51587f72d25a57dde0fcc65638e449b44f9740e",
+  "issue_summary": "revert while discussions are going on about default analyzer...",
+  "code_before": "public void setSimilarity(Similarity similarity) {\n    ensureOpen();\n    this.similarity = similarity;\n    docWriter.setSimilarity(similarity);\n    // Required so config.getSimilarity returns the right value. But this will\n    // go away together with the method in 4.0.\n    config.setSimilarity(similarity);\n  }",
+  "code_after": "public void setSimilarity(Similarity similarity) {\n    ensureOpen();\n    this.similarity = similarity;\n    docWriter.setSimilarity(similarity);\n  }",
+  "javadoc_before": "/** Expert: Set the Similarity implementation used by this IndexWriter.\n   *\n   * @see Similarity#setDefault(Similarity)\n   * @deprecated use {@link IndexWriterConfig#setSimilarity(Similarity)} instead\n   */",
+  "javadoc_after": "/** Expert: Set the Similarity implementation used by this IndexWriter.\n   *\n   * @see Similarity#setDefault(Similarity)\n   */"
+}

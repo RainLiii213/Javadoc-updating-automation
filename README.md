@@ -94,6 +94,136 @@ cumulative dataset reached 2,000 samples. Jackson Databind, Spring Data
 Commons, and JUnit 5 were not scanned in this continuation because the target
 had already been reached.
 
+## Merged Commit-Level Dataset
+
+The accepted baseline in `final_dataset/` and the continuation dataset in
+`final_dataset_extra_3k/` have been merged locally into
+`final_dataset_merged/`.
+
+The merge keeps the original source datasets intact and writes source backups
+under `final_dataset_merged/source_backups/`. The merged output is grouped as
+`commit -> changes`, where each commit object preserves `project_slug`,
+`repository_url`, `commit_hash`, one `issue_summary`, and a non-empty `changes`
+array. Each change has:
+
+```json
+{
+  "change_index": 1,
+  "entity_type": "method",
+  "code_before": "...",
+  "code_after": "...",
+  "javadoc_before": "...",
+  "javadoc_after": "..."
+}
+```
+
+Current merged counts:
+
+| Metric | Count |
+| --- | ---: |
+| Old baseline flat changes | 2,000 |
+| New continuation flat changes | 1,621 |
+| Raw merged flat changes | 3,621 |
+| Removed duplicate changes | 29 |
+| Removed format-only Javadoc changes | 0 |
+| Weak issue summaries detected | 34 |
+| Weak issue summaries resolved from real history | 33 |
+| Weak issue summaries unresolved | 1 |
+| Final commits | 2,570 |
+| Final method-level changes | 2,294 |
+| Final class-level changes | 1,297 |
+| Final changes | 3,591 |
+
+The merge only removes exact content duplicates and pure formatting-only
+Javadoc edits. It does not classify or judge whether a patch semantically
+caused the Javadoc change. Weak issue summaries are repaired only from real
+issue/PR/commit text available in project history; the merge script does not
+generate or paraphrase summaries.
+
+Re-run the local merge and validation with:
+
+```powershell
+python scripts/merge_and_clean_datasets.py `
+  --old-dir final_dataset `
+  --new-dir final_dataset_extra_3k `
+  --output-dir final_dataset_merged
+```
+
+The merged delivery files are:
+
+- `final_dataset_merged/combined_raw_flat.json`
+- `final_dataset_merged/combined_cleaned_flat.json`
+- `final_dataset_merged/combined_by_commit.json`
+- `final_dataset_merged/removed_duplicates.json`
+- `final_dataset_merged/removed_format_only.json`
+- `final_dataset_merged/unresolved_issue_summary.json`
+- `final_dataset_merged/summary.json`
+- `final_dataset_merged/summary.csv`
+- `final_dataset_merged/validation_report.json`
+
+## No-Cap Recovery Dataset
+
+An audit found that older mining code kept at most three changes per commit.
+The cap has been removed from `javadoc_miner/cli.py`; sample selection now
+deduplicates by exact content over `code_before`, `code_after`,
+`javadoc_before`, and `javadoc_after`, without limiting how many distinct
+method/class changes a commit can contribute.
+
+Before changing the pipeline, the previous merged output was copied to:
+
+```text
+backups/before_remove_commit_cap/final_dataset_merged/
+```
+
+The no-cap recovery did not rescan full histories. It only reprocessed the 304
+target commits listed in `analysis/commits_to_reprocess_without_cap.json`,
+starting from `analysis/commits_with_exactly_3_changes.json`.
+
+Independent recovery output:
+
+- `recovery_without_commit_cap/target_commits.json`
+- `recovery_without_commit_cap/recovered_raw_flat.json`
+- `recovery_without_commit_cap/recovered_cleaned_flat.json`
+- `recovery_without_commit_cap/recovered_by_commit.json`
+- `recovery_without_commit_cap/recovered_duplicates.json`
+- `recovery_without_commit_cap/recovered_format_only.json`
+- `recovery_without_commit_cap/reprocess_failures.json`
+- `recovery_without_commit_cap/summary.json`
+
+Final no-cap merged output:
+
+- `final_dataset_merged_no_commit_cap/combined_cleaned_flat.json`
+- `final_dataset_merged_no_commit_cap/combined_by_commit.json`
+- `final_dataset_merged_no_commit_cap/newly_recovered_changes.json`
+- `final_dataset_merged_no_commit_cap/removed_duplicates.json`
+- `final_dataset_merged_no_commit_cap/removed_format_only.json`
+- `final_dataset_merged_no_commit_cap/unresolved_reprocess_commits.json`
+- `final_dataset_merged_no_commit_cap/summary.json`
+- `final_dataset_merged_no_commit_cap/summary.csv`
+- `final_dataset_merged_no_commit_cap/validation_report.json`
+
+No-cap recovery counts:
+
+| Metric | Count |
+| --- | ---: |
+| Target commits reprocessed | 304 |
+| Original merged changes | 3,591 |
+| Raw reprocessed changes | 3,890 |
+| Newly recovered non-duplicate changes | 2,995 |
+| Final no-cap commits | 2,570 |
+| Final no-cap changes | 6,586 |
+| Method-level changes | 4,545 |
+| Class-level changes | 2,041 |
+| Commits with more than 3 changes | 274 |
+| Max changes in one commit | 111 |
+| Unresolved reprocess commits | 0 |
+
+Validation passed for `final_dataset_merged_no_commit_cap/combined_by_commit.json`.
+The audit examples now contain 46, 24, and 93 changes respectively for
+`apache_commons_compress/86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8`,
+`apache_commons_io/8b6d4969ffb55bf7301a44a8156f02b0213e6d68`, and
+`jodaorg_joda_time/0e07ac6b2cff63550d7df336355ca63cc05aa40b`.
+
 ## Run Single-Repository Mining
 
 ```powershell

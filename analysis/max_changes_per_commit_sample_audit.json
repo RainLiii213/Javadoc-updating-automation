@@ -1,0 +1,2829 @@
+[
+  {
+    "category": "method_majority",
+    "project_slug": "apache_commons_codec",
+    "repository_url": "https://github.com/apache/commons-codec.git",
+    "commit_hash": "b5ce7fae5bb6794d41216756f080a087cb956e90",
+    "issue_summary": "Fully documented MurmurHash3.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-codec",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/digest/MurmurHash3.java",
+        "entity_type": "method",
+        "entity_name": "hash32",
+        "entity_signature": "public static int hash32(final byte[] data, final int offset, final int length, final int seed)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/digest/MurmurHash3.java",
+        "entity_type": "method",
+        "entity_name": "hash64",
+        "entity_signature": "public static long hash64(final byte[] data, final int offset, final int length, final int seed)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/digest/MurmurHash3.java",
+        "entity_type": "method",
+        "entity_name": "hash128",
+        "entity_signature": "public static long[] hash128(final byte[] data, final int offset, final int length, final int seed)"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "method_majority",
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "218b5e7b7d76654004f4122c674308f78c87954e",
+    "issue_summary": "Patch from PR 32 from jonfreedman with additional changes and cleanups",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-io",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+        "entity_type": "method",
+        "entity_name": "create",
+        "entity_signature": "@Deprecated public static Tailer create(final File file, final TailerListener listener)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+        "entity_type": "method",
+        "entity_name": "Tailer",
+        "entity_signature": "@Deprecated public Tailer(final File file, final Charset charset, final TailerListener listener, final long delayMillis, final boolean end, final boolean reOpen, final int bufSize)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+        "entity_type": "method",
+        "entity_name": "getFile",
+        "entity_signature": "public File getFile()"
+      }
+    ],
+    "diagnostics": [
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+        "entity_type": "method",
+        "entity_name": "create",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+        "entity_type": "method",
+        "entity_name": "create",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+        "entity_type": "method",
+        "entity_name": "create",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      }
+    ]
+  },
+  {
+    "category": "method_majority",
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "488393e60081b89fb1178bd93a66f414008ea6e1",
+    "issue_summary": "Allow counting Bloom filters with cell size other than Integer.SIZE",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-collections",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/bloomfilter/CountingBloomFilter.java",
+        "entity_type": "method",
+        "entity_name": "merge",
+        "entity_signature": "@Override default boolean merge(final IndexProducer indexProducer)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/bloomfilter/CountingBloomFilter.java",
+        "entity_type": "method",
+        "entity_name": "remove",
+        "entity_signature": "default boolean remove(final IndexProducer indexProducer)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/bloomfilter/IndexProducer.java",
+        "entity_type": "method",
+        "entity_name": "asIndexArray",
+        "entity_signature": "default int[] asIndexArray()"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "method_majority",
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8",
+    "issue_summary": "Commons IO 2.21.0 and more",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-compress",
+    "actual_pre_cap_candidate_count": 15,
+    "actual_eligible_retain_count_without_cap": 15,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 12,
+    "missing_entities": [
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "CpioArchiveInputStream",
+        "entity_signature": "public CpioArchiveInputStream(final InputStream in) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "read",
+        "entity_signature": "@Override public int read(final byte[] b, final int off, final int len) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java",
+        "entity_type": "method",
+        "entity_name": "write",
+        "entity_signature": "@Override public void write(final byte[] b, final int off, final int len) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "DumpArchiveInputStream",
+        "entity_signature": "public DumpArchiveInputStream(final InputStream is) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/jar/JarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "JarArchiveInputStream",
+        "entity_signature": "public JarArchiveInputStream(final InputStream inputStream) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java",
+        "entity_type": "method",
+        "entity_name": "setSeekableByteChannel",
+        "entity_signature": "@Deprecated public Builder setSeekableByteChannel(final SeekableByteChannel seekableByteChannel)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java",
+        "entity_type": "method",
+        "entity_name": "toNonNegativeInt",
+        "entity_signature": "private static int toNonNegativeInt(final String description, final long value) throws ArchiveException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "TarArchiveInputStream",
+        "entity_signature": "public TarArchiveInputStream(final InputStream inputStream) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ZipArchiveInputStream",
+        "entity_signature": "public ZipArchiveInputStream(final InputStream inputStream) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/compressors/lz77support/LZ77Compressor.java",
+        "entity_type": "method",
+        "entity_name": "compress",
+        "entity_signature": "public void compress(final byte[] data, int off, int len) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+        "entity_type": "method",
+        "entity_name": "readFully",
+        "entity_signature": "@Deprecated public static int readFully(final InputStream input, final byte[] array) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+        "entity_type": "method",
+        "entity_name": "skip",
+        "entity_signature": "@Deprecated public static long skip(final InputStream input, final long toSkip) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/ArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ArchiveInputStream",
+        "entity_signature": "@Deprecated protected ArchiveInputStream(final InputStream inputStream, final String charsetName)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ArArchiveInputStream",
+        "entity_signature": "public ArArchiveInputStream(final InputStream inputStream) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/arj/ArjArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ArjArchiveInputStream",
+        "entity_signature": "public ArjArchiveInputStream(final InputStream inputStream) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "CpioArchiveInputStream",
+        "entity_signature": "public CpioArchiveInputStream(final InputStream in) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "read",
+        "entity_signature": "@Override public int read(final byte[] b, final int off, final int len) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java",
+        "entity_type": "method",
+        "entity_name": "write",
+        "entity_signature": "@Override public void write(final byte[] b, final int off, final int len) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "DumpArchiveInputStream",
+        "entity_signature": "public DumpArchiveInputStream(final InputStream is) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/jar/JarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "JarArchiveInputStream",
+        "entity_signature": "public JarArchiveInputStream(final InputStream inputStream) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java",
+        "entity_type": "method",
+        "entity_name": "setSeekableByteChannel",
+        "entity_signature": "@Deprecated public Builder setSeekableByteChannel(final SeekableByteChannel seekableByteChannel)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java",
+        "entity_type": "method",
+        "entity_name": "toNonNegativeInt",
+        "entity_signature": "private static int toNonNegativeInt(final String description, final long value) throws ArchiveException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "TarArchiveInputStream",
+        "entity_signature": "public TarArchiveInputStream(final InputStream inputStream) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ZipArchiveInputStream",
+        "entity_signature": "public ZipArchiveInputStream(final InputStream inputStream) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/compressors/lz77support/LZ77Compressor.java",
+        "entity_type": "method",
+        "entity_name": "compress",
+        "entity_signature": "public void compress(final byte[] data, int off, int len) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+        "entity_type": "method",
+        "entity_name": "readFully",
+        "entity_signature": "@Deprecated public static int readFully(final InputStream input, final byte[] array) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+        "entity_type": "method",
+        "entity_name": "skip",
+        "entity_signature": "@Deprecated public static long skip(final InputStream input, final long toSkip) throws IOException"
+      }
+    ],
+    "diagnostics": [
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/arj/ArjArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ArjArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "CpioArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "CpioArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "CpioArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "DumpArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "read",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/jar/JarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "JarArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/sevenz/BoundedSeekableByteChannelInputStream.java",
+        "entity_type": "method",
+        "entity_name": "read",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "TarArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "TarArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "TarArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "TarArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "TarArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "TarArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "TarArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "read",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+        "entity_type": "method",
+        "entity_name": "write",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ZipArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ZipArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ZipArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+        "entity_type": "method",
+        "entity_name": "ZipArchiveInputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java",
+        "entity_type": "method",
+        "entity_name": "write",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipFile.java",
+        "entity_type": "method",
+        "entity_name": "setSeekableByteChannel",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipSplitOutputStream.java",
+        "entity_type": "method",
+        "entity_name": "write",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+        "entity_type": "method",
+        "entity_name": "readFully",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+        "entity_type": "method",
+        "entity_name": "readFully",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      }
+    ]
+  },
+  {
+    "category": "method_majority",
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "a43843701d9dbf790f9104a2ce1f6f38e98e8370",
+    "issue_summary": "Add optional collection parameter to all SolrClient methods",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__lucene",
+    "actual_pre_cap_candidate_count": 4,
+    "actual_eligible_retain_count_without_cap": 4,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 1,
+    "missing_entities": [
+      {
+        "file_path": "solr/solrj/src/java/org/apache/solr/client/solrj/SolrClient.java",
+        "entity_type": "method",
+        "entity_name": "request",
+        "entity_signature": "public final NamedList<Object> request(final SolrRequest request) throws SolrServerException, IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "solr/solrj/src/java/org/apache/solr/client/solrj/SolrClient.java",
+        "entity_type": "method",
+        "entity_name": "addBeans",
+        "entity_signature": "public UpdateResponse addBeans(Collection<?> beans, int commitWithinMs) throws SolrServerException, IOException"
+      },
+      {
+        "file_path": "solr/solrj/src/java/org/apache/solr/client/solrj/SolrClient.java",
+        "entity_type": "method",
+        "entity_name": "queryAndStreamResponse",
+        "entity_signature": "public QueryResponse queryAndStreamResponse(SolrParams params, StreamingResponseCallback callback) throws SolrServerException, IOException"
+      },
+      {
+        "file_path": "solr/solrj/src/java/org/apache/solr/client/solrj/SolrClient.java",
+        "entity_type": "method",
+        "entity_name": "getById",
+        "entity_signature": "public SolrDocument getById(String id, SolrParams params) throws SolrServerException, IOException"
+      },
+      {
+        "file_path": "solr/solrj/src/java/org/apache/solr/client/solrj/SolrClient.java",
+        "entity_type": "method",
+        "entity_name": "request",
+        "entity_signature": "public final NamedList<Object> request(final SolrRequest request) throws SolrServerException, IOException"
+      }
+    ],
+    "diagnostics": [
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "solr/solrj/src/java/org/apache/solr/client/solrj/SolrClient.java",
+        "entity_type": "method",
+        "entity_name": "getById",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      }
+    ]
+  },
+  {
+    "category": "method_majority",
+    "project_slug": "apache_commons_lang",
+    "repository_url": "https://github.com/apache/commons-lang.git",
+    "commit_hash": "4369537d8b1387b94a1126a36a4fc400a35d35cc",
+    "issue_summary": "ArrayUtils.toPrimitive(Boolean...) null array elements map to false like Boolean.parseBoolean(null) and its callers return false.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-lang",
+    "actual_pre_cap_candidate_count": 4,
+    "actual_eligible_retain_count_without_cap": 4,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 1,
+    "missing_entities": [
+      {
+        "file_path": "src/main/java/org/apache/commons/lang3/BooleanUtils.java",
+        "entity_type": "method",
+        "entity_name": "xor",
+        "entity_signature": "public static Boolean xor(final Boolean... array)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/lang3/ArrayUtils.java",
+        "entity_type": "method",
+        "entity_name": "toPrimitive",
+        "entity_signature": "public static boolean[] toPrimitive(final Boolean[] array)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/lang3/BooleanUtils.java",
+        "entity_type": "method",
+        "entity_name": "and",
+        "entity_signature": "public static Boolean and(final Boolean... array)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/lang3/BooleanUtils.java",
+        "entity_type": "method",
+        "entity_name": "or",
+        "entity_signature": "public static Boolean or(final Boolean... array)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/lang3/BooleanUtils.java",
+        "entity_type": "method",
+        "entity_name": "xor",
+        "entity_signature": "public static Boolean xor(final Boolean... array)"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "method_majority",
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "802058f4eef00c02209375210439f52b3268e5ce",
+    "issue_summary": "Remove spurious \"throws\" clauses, and other nits.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-math",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/math4/stat/descriptive/rank/Percentile.java",
+        "entity_type": "method",
+        "entity_name": "Percentile",
+        "entity_signature": "public Percentile(final Percentile original)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/math4/stat/descriptive/rank/Percentile.java",
+        "entity_type": "method",
+        "entity_name": "setData",
+        "entity_signature": "public void setData(final double[] values, final double[] sampleWeights)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/math4/stat/descriptive/rank/Percentile.java",
+        "entity_type": "method",
+        "entity_name": "evaluate",
+        "entity_signature": "public double evaluate(final double p)"
+      }
+    ],
+    "diagnostics": [
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/math4/stat/descriptive/rank/Percentile.java",
+        "entity_type": "method",
+        "entity_name": "Percentile",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/math4/stat/descriptive/rank/Percentile.java",
+        "entity_type": "method",
+        "entity_name": "setData",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/math4/stat/descriptive/rank/Percentile.java",
+        "entity_type": "method",
+        "entity_name": "evaluate",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/math4/stat/descriptive/rank/Percentile.java",
+        "entity_type": "method",
+        "entity_name": "evaluate",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/math4/stat/descriptive/rank/Percentile.java",
+        "entity_type": "method",
+        "entity_name": "evaluate",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      }
+    ]
+  },
+  {
+    "category": "method_majority",
+    "project_slug": "apache_commons_text",
+    "repository_url": "https://github.com/apache/commons-text.git",
+    "commit_hash": "36798250bb098a139042d5138ffd02fa07735a6b",
+    "issue_summary": "Add StringLookupFactory.builder() for fencing Path resolution of the file, properties and XML lookups",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-text",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/text/lookup/StringLookupFactory.java",
+        "entity_type": "method",
+        "entity_name": "fileStringLookup",
+        "entity_signature": "public StringLookup fileStringLookup()"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/text/lookup/StringLookupFactory.java",
+        "entity_type": "method",
+        "entity_name": "propertiesStringLookup",
+        "entity_signature": "public StringLookup propertiesStringLookup()"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/text/lookup/StringLookupFactory.java",
+        "entity_type": "method",
+        "entity_name": "xmlStringLookup",
+        "entity_signature": "public StringLookup xmlStringLookup()"
+      }
+    ],
+    "diagnostics": [
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/text/lookup/StringLookupFactory.java",
+        "entity_type": "method",
+        "entity_name": "xmlStringLookup",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      }
+    ]
+  },
+  {
+    "category": "method_majority",
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "ffb347eab3c69b8204c8dcdf8baa5824ae2b91a7",
+    "issue_summary": "Fix : primitive wrapper default values",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\FasterXML__jackson-databind",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/tools/jackson/databind/util/BeanUtil.java",
+        "entity_type": "method",
+        "entity_name": "getDefaultValue",
+        "entity_signature": "@Deprecated // since 3.1 public static Object getDefaultValue(JavaType type)"
+      },
+      {
+        "file_path": "src/main/java/tools/jackson/databind/util/ClassUtil.java",
+        "entity_type": "method",
+        "entity_name": "defaultValue",
+        "entity_signature": "public static Object defaultValue(Class<?> cls)"
+      },
+      {
+        "file_path": "src/main/java/tools/jackson/databind/util/ClassUtil.java",
+        "entity_type": "method",
+        "entity_name": "wrapperType",
+        "entity_signature": "public static Class<?> wrapperType(Class<?> primitiveType)"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "method_majority",
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "c659dd3bf40a266f9fceb0dea94c9c47dd0fdb20",
+    "issue_summary": "Document & enforce preconditions in Events & Executions in Test Kit",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 3
+    },
+    "repo_cache_path": ".cache\\repos\\junit-team__junit5",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "junit-platform-testkit/src/main/java/org/junit/platform/testkit/engine/Events.java",
+        "entity_type": "method",
+        "entity_name": "assertStatistics",
+        "entity_signature": "public Events assertStatistics(Consumer<EventStatistics> statisticsConsumer)"
+      },
+      {
+        "file_path": "junit-platform-testkit/src/main/java/org/junit/platform/testkit/engine/Events.java",
+        "entity_type": "method",
+        "entity_name": "assertEventsMatchExactly",
+        "entity_signature": "@SafeVarargs public final void assertEventsMatchExactly(Condition<? super Event>... conditions)"
+      },
+      {
+        "file_path": "junit-platform-testkit/src/main/java/org/junit/platform/testkit/engine/Events.java",
+        "entity_type": "method",
+        "entity_name": "debug",
+        "entity_signature": "public Events debug(OutputStream out)"
+      }
+    ],
+    "diagnostics": [
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "junit-platform-testkit/src/main/java/org/junit/platform/testkit/engine/Events.java",
+        "entity_type": "method",
+        "entity_name": "debug",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "junit-platform-testkit/src/main/java/org/junit/platform/testkit/engine/Executions.java",
+        "entity_type": "method",
+        "entity_name": "debug",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "junit-platform-testkit/src/main/java/org/junit/platform/testkit/engine/Executions.java",
+        "entity_type": "method",
+        "entity_name": "debug",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      }
+    ]
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "apache_commons_codec",
+    "repository_url": "https://github.com/apache/commons-codec.git",
+    "commit_hash": "9f1b740a17f0d54366edfb45df0636b8e302666a",
+    "issue_summary": "Reimplement the new-in-1.15 BaseNCodec's and friends' strict vs. lenient decoding as final instance variables and with an enum instead of a boolean. Introduce the last amount of new constructors.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-codec",
+    "actual_pre_cap_candidate_count": 5,
+    "actual_eligible_retain_count_without_cap": 5,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 2,
+    "missing_entities": [
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/binary/Base64OutputStream.java",
+        "entity_type": "class",
+        "entity_name": "Base64OutputStream",
+        "entity_signature": "public class Base64OutputStream extends BaseNCodecOutputStream",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/binary/BaseNCodec.java",
+        "entity_type": "class",
+        "entity_name": "BaseNCodec",
+        "entity_signature": "public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/binary/Base32InputStream.java",
+        "entity_type": "class",
+        "entity_name": "Base32InputStream",
+        "entity_signature": "public class Base32InputStream extends BaseNCodecInputStream"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/binary/Base32OutputStream.java",
+        "entity_type": "class",
+        "entity_name": "Base32OutputStream",
+        "entity_signature": "public class Base32OutputStream extends BaseNCodecOutputStream"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/binary/Base64InputStream.java",
+        "entity_type": "class",
+        "entity_name": "Base64InputStream",
+        "entity_signature": "public class Base64InputStream extends BaseNCodecInputStream"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/binary/Base64OutputStream.java",
+        "entity_type": "class",
+        "entity_name": "Base64OutputStream",
+        "entity_signature": "public class Base64OutputStream extends BaseNCodecOutputStream"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/codec/binary/BaseNCodec.java",
+        "entity_type": "class",
+        "entity_name": "BaseNCodec",
+        "entity_signature": "public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "issue_summary": "Let org.apache.commons.io.filefilter classes work with java.nio.file.Files.walk* APIs.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-io",
+    "actual_pre_cap_candidate_count": 19,
+    "actual_eligible_retain_count_without_cap": 19,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 16,
+    "missing_entities": [
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/CanReadFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "CanReadFileFilter",
+        "entity_signature": "public class CanReadFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/CanWriteFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "CanWriteFileFilter",
+        "entity_signature": "public class CanWriteFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/DirectoryFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "DirectoryFileFilter",
+        "entity_signature": "public class DirectoryFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/EmptyFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "EmptyFileFilter",
+        "entity_signature": "public class EmptyFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/FileFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "FileFileFilter",
+        "entity_signature": "public class FileFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/FileFilterUtils.java",
+        "entity_type": "method",
+        "entity_name": "filterList",
+        "entity_signature": "public static List<File> filterList(final IOFileFilter filter, final Iterable<File> files)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/FileFilterUtils.java",
+        "entity_type": "method",
+        "entity_name": "filterSet",
+        "entity_signature": "public static Set<File> filterSet(final IOFileFilter filter, final Iterable<File> files)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/HiddenFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "HiddenFileFilter",
+        "entity_signature": "public class HiddenFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/MagicNumberFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "MagicNumberFileFilter",
+        "entity_signature": "public class MagicNumberFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/NameFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "NameFileFilter",
+        "entity_signature": "public class NameFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/PrefixFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "PrefixFileFilter",
+        "entity_signature": "public class PrefixFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/RegexFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "RegexFileFilter",
+        "entity_signature": "public class RegexFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/SizeFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "SizeFileFilter",
+        "entity_signature": "public class SizeFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/SuffixFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "SuffixFileFilter",
+        "entity_signature": "public class SuffixFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/WildcardFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "WildcardFileFilter",
+        "entity_signature": "public class WildcardFileFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/WildcardFilter.java",
+        "entity_type": "class",
+        "entity_name": "WildcardFilter",
+        "entity_signature": "@Deprecated public class WildcardFilter extends AbstractFileFilter implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/io/file/AccumulatorPathVisitor.java",
+        "entity_type": "class",
+        "entity_name": "AccumulatorPathVisitor",
+        "entity_signature": "public class AccumulatorPathVisitor extends CountingPathVisitor"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/AgeFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "AgeFileFilter",
+        "entity_signature": "public class AgeFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/CanExecuteFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "CanExecuteFileFilter",
+        "entity_signature": "public class CanExecuteFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/CanReadFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "CanReadFileFilter",
+        "entity_signature": "public class CanReadFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/CanWriteFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "CanWriteFileFilter",
+        "entity_signature": "public class CanWriteFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/DirectoryFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "DirectoryFileFilter",
+        "entity_signature": "public class DirectoryFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/EmptyFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "EmptyFileFilter",
+        "entity_signature": "public class EmptyFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/FileFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "FileFileFilter",
+        "entity_signature": "public class FileFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/FileFilterUtils.java",
+        "entity_type": "method",
+        "entity_name": "filterList",
+        "entity_signature": "public static List<File> filterList(final IOFileFilter filter, final Iterable<File> files)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/FileFilterUtils.java",
+        "entity_type": "method",
+        "entity_name": "filterSet",
+        "entity_signature": "public static Set<File> filterSet(final IOFileFilter filter, final Iterable<File> files)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/HiddenFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "HiddenFileFilter",
+        "entity_signature": "public class HiddenFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/MagicNumberFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "MagicNumberFileFilter",
+        "entity_signature": "public class MagicNumberFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/NameFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "NameFileFilter",
+        "entity_signature": "public class NameFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/PrefixFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "PrefixFileFilter",
+        "entity_signature": "public class PrefixFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/RegexFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "RegexFileFilter",
+        "entity_signature": "public class RegexFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/SizeFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "SizeFileFilter",
+        "entity_signature": "public class SizeFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/SuffixFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "SuffixFileFilter",
+        "entity_signature": "public class SuffixFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/WildcardFileFilter.java",
+        "entity_type": "class",
+        "entity_name": "WildcardFileFilter",
+        "entity_signature": "public class WildcardFileFilter extends AbstractFileFilter implements Serializable"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/WildcardFilter.java",
+        "entity_type": "class",
+        "entity_name": "WildcardFilter",
+        "entity_signature": "@Deprecated public class WildcardFilter extends AbstractFileFilter implements Serializable"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "e585cd0433ae4cfbc56e58572b9869bd0c86b611",
+    "issue_summary": "Removed serialization support for the identified unsafe classes in the collections4 branch.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-collections",
+    "actual_pre_cap_candidate_count": 7,
+    "actual_eligible_retain_count_without_cap": 7,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 4,
+    "missing_entities": [
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/InstantiateTransformer.java",
+        "entity_type": "class",
+        "entity_name": "InstantiateTransformer",
+        "entity_signature": "public class InstantiateTransformer<T> implements Transformer<Class<? extends T>, T>",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/InvokerTransformer.java",
+        "entity_type": "class",
+        "entity_name": "InvokerTransformer",
+        "entity_signature": "public class InvokerTransformer<I, O> implements Transformer<I, O>",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/PrototypeFactory.java",
+        "entity_type": "class",
+        "entity_name": "PrototypeFactory",
+        "entity_signature": "public class PrototypeFactory",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/WhileClosure.java",
+        "entity_type": "class",
+        "entity_name": "WhileClosure",
+        "entity_signature": "public class WhileClosure<E> implements Closure<E>",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/CloneTransformer.java",
+        "entity_type": "class",
+        "entity_name": "CloneTransformer",
+        "entity_signature": "public class CloneTransformer<T> implements Transformer<T, T>"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/ForClosure.java",
+        "entity_type": "class",
+        "entity_name": "ForClosure",
+        "entity_signature": "public class ForClosure<E> implements Closure<E>"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/InstantiateFactory.java",
+        "entity_type": "class",
+        "entity_name": "InstantiateFactory",
+        "entity_signature": "public class InstantiateFactory<T> implements Factory<T>"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/InstantiateTransformer.java",
+        "entity_type": "class",
+        "entity_name": "InstantiateTransformer",
+        "entity_signature": "public class InstantiateTransformer<T> implements Transformer<Class<? extends T>, T>"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/InvokerTransformer.java",
+        "entity_type": "class",
+        "entity_name": "InvokerTransformer",
+        "entity_signature": "public class InvokerTransformer<I, O> implements Transformer<I, O>"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/PrototypeFactory.java",
+        "entity_type": "class",
+        "entity_name": "PrototypeFactory",
+        "entity_signature": "public class PrototypeFactory"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/functors/WhileClosure.java",
+        "entity_type": "class",
+        "entity_name": "WhileClosure",
+        "entity_signature": "public class WhileClosure<E> implements Closure<E>"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "c13216934c58870b487a9bd04b2fd4ea24431000",
+    "issue_summary": "Replace DocsEnum and DocsAndPositionsEnum with PostingsEnum",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__lucene",
+    "actual_pre_cap_candidate_count": 4,
+    "actual_eligible_retain_count_without_cap": 4,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 1,
+    "missing_entities": [
+      {
+        "file_path": "lucene/queries/src/java/org/apache/lucene/queries/function/valuesource/TermFreqValueSource.java",
+        "entity_type": "class",
+        "entity_name": "TermFreqValueSource",
+        "entity_signature": "public class TermFreqValueSource extends DocFreqValueSource",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/codecs/PostingsReaderBase.java",
+        "entity_type": "class",
+        "entity_name": "PostingsReaderBase",
+        "entity_signature": "public abstract class PostingsReaderBase implements Closeable, Accountable"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/index/DocsEnum.java",
+        "entity_type": "class",
+        "entity_name": "DocsEnum",
+        "entity_signature": "public abstract class DocsEnum extends PostingsEnum"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/index/FilterLeafReader.java",
+        "entity_type": "class",
+        "entity_name": "FilterDocsEnum",
+        "entity_signature": "public static class FilterDocsEnum extends PostingsEnum"
+      },
+      {
+        "file_path": "lucene/queries/src/java/org/apache/lucene/queries/function/valuesource/TermFreqValueSource.java",
+        "entity_type": "class",
+        "entity_name": "TermFreqValueSource",
+        "entity_signature": "public class TermFreqValueSource extends DocFreqValueSource"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "0b24467e5f96a5343c931353fa0c68a73ebe0b14",
+    "issue_summary": "Throw exception from optimizers that do not support simple bounds. Changing visibility of \"parseOptimizationData\" method to \"protected\" in order to allow the parent class to parse its data before the subclass (and thus providing more flexibility: the subclass is able check input consistency at the options parsing step).",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-math",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.java",
+        "entity_type": "class",
+        "entity_name": "NonLinearConjugateGradientOptimizer",
+        "entity_signature": "public class NonLinearConjugateGradientOptimizer extends GradientMultivariateOptimizer"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java",
+        "entity_type": "class",
+        "entity_name": "PowellOptimizer",
+        "entity_signature": "public class PowellOptimizer extends MultivariateOptimizer"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer.java",
+        "entity_type": "class",
+        "entity_name": "SimplexOptimizer",
+        "entity_signature": "public class SimplexOptimizer extends MultivariateOptimizer"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2",
+    "issue_summary": "Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\FasterXML__jackson-databind",
+    "actual_pre_cap_candidate_count": 4,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 1,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+        "entity_type": "class",
+        "entity_name": "DeserializationConfig",
+        "entity_signature": "public class DeserializationConfig extends MapperConfigBase<DeserializationConfig.Feature, DeserializationConfig>"
+      },
+      {
+        "file_path": "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+        "entity_type": "class",
+        "entity_name": "Feature",
+        "entity_signature": "public enum Feature implements ConfigFeature"
+      },
+      {
+        "file_path": "src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java",
+        "entity_type": "class",
+        "entity_name": "SerializationConfig",
+        "entity_signature": "public class SerializationConfig extends MapperConfigBase<SerializationConfig.Feature, SerializationConfig>"
+      }
+    ],
+    "diagnostics": [
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java",
+        "entity_type": "class",
+        "entity_name": "Feature",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      }
+    ]
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "2196d97edc152c2b0a8dda2d6ddffe66ab516d81",
+    "issue_summary": "Deprecate junit-jupiter-migrationsupport for removal in 7.0",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\junit-team__junit5",
+    "actual_pre_cap_candidate_count": 6,
+    "actual_eligible_retain_count_without_cap": 6,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 3,
+    "missing_entities": [
+      {
+        "file_path": "junit-jupiter-migrationsupport/src/main/java/org/junit/jupiter/migrationsupport/rules/ExpectedExceptionSupport.java",
+        "entity_type": "class",
+        "entity_name": "ExpectedExceptionSupport",
+        "entity_signature": "@SuppressWarnings(\"removal\") @API(status = DEPRECATED, since = \"6.0\") @Deprecated(since = \"6.0\", forRemoval = true) public class ExpectedExceptionSupport implements AfterEachCallback, TestExecutionExceptionHandler",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "junit-jupiter-migrationsupport/src/main/java/org/junit/jupiter/migrationsupport/rules/ExternalResourceSupport.java",
+        "entity_type": "class",
+        "entity_name": "ExternalResourceSupport",
+        "entity_signature": "@SuppressWarnings(\"removal\") @API(status = DEPRECATED, since = \"6.0\") @Deprecated(since = \"6.0\", forRemoval = true) public class ExternalResourceSupport implements BeforeEachCallback, AfterEachCallback",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "junit-jupiter-migrationsupport/src/main/java/org/junit/jupiter/migrationsupport/rules/VerifierSupport.java",
+        "entity_type": "class",
+        "entity_name": "VerifierSupport",
+        "entity_signature": "@SuppressWarnings(\"removal\") @API(status = DEPRECATED, since = \"6.0\") @Deprecated(since = \"6.0\", forRemoval = true) public class VerifierSupport implements AfterEachCallback",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "junit-jupiter-migrationsupport/src/main/java/org/junit/jupiter/migrationsupport/EnableJUnit4MigrationSupport.java",
+        "entity_type": "class",
+        "entity_name": "EnableJUnit4MigrationSupport",
+        "entity_signature": "@SuppressWarnings(\"removal\") @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @API(status = DEPRECATED, since = \"6.0\") @Deprecated(since = \"6.0\", forRemoval = true) @EnableRuleMigrationSupport @ExtendWith(IgnoreCondition.class) public @interface EnableJUnit4MigrationSupport"
+      },
+      {
+        "file_path": "junit-jupiter-migrationsupport/src/main/java/org/junit/jupiter/migrationsupport/conditions/IgnoreCondition.java",
+        "entity_type": "class",
+        "entity_name": "IgnoreCondition",
+        "entity_signature": "@API(status = DEPRECATED, since = \"6.0\") @Deprecated(since = \"6.0\", forRemoval = true) public class IgnoreCondition implements ExecutionCondition"
+      },
+      {
+        "file_path": "junit-jupiter-migrationsupport/src/main/java/org/junit/jupiter/migrationsupport/rules/EnableRuleMigrationSupport.java",
+        "entity_type": "class",
+        "entity_name": "EnableRuleMigrationSupport",
+        "entity_signature": "@SuppressWarnings(\"removal\") @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @API(status = DEPRECATED, since = \"6.0\") @Deprecated(since = \"6.0\", forRemoval = true) @ExtendWith(ExternalResourceSupport.class) @ExtendWith(VerifierSupport.class) @ExtendWith(ExpectedExceptionSupport.class) public @interface EnableRuleMigrationSupport"
+      },
+      {
+        "file_path": "junit-jupiter-migrationsupport/src/main/java/org/junit/jupiter/migrationsupport/rules/ExpectedExceptionSupport.java",
+        "entity_type": "class",
+        "entity_name": "ExpectedExceptionSupport",
+        "entity_signature": "@SuppressWarnings(\"removal\") @API(status = DEPRECATED, since = \"6.0\") @Deprecated(since = \"6.0\", forRemoval = true) public class ExpectedExceptionSupport implements AfterEachCallback, TestExecutionExceptionHandler"
+      },
+      {
+        "file_path": "junit-jupiter-migrationsupport/src/main/java/org/junit/jupiter/migrationsupport/rules/ExternalResourceSupport.java",
+        "entity_type": "class",
+        "entity_name": "ExternalResourceSupport",
+        "entity_signature": "@SuppressWarnings(\"removal\") @API(status = DEPRECATED, since = \"6.0\") @Deprecated(since = \"6.0\", forRemoval = true) public class ExternalResourceSupport implements BeforeEachCallback, AfterEachCallback"
+      },
+      {
+        "file_path": "junit-jupiter-migrationsupport/src/main/java/org/junit/jupiter/migrationsupport/rules/VerifierSupport.java",
+        "entity_type": "class",
+        "entity_name": "VerifierSupport",
+        "entity_signature": "@SuppressWarnings(\"removal\") @API(status = DEPRECATED, since = \"6.0\") @Deprecated(since = \"6.0\", forRemoval = true) public class VerifierSupport implements AfterEachCallback"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "820af2a2969b04c9336d607973a78fd39ac79969",
+    "issue_summary": "Introduce first-class type-safe property path references.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\spring-projects__spring-data-commons",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/springframework/data/core/PropertyPath.java",
+        "entity_type": "class",
+        "entity_name": "PropertyPath",
+        "entity_signature": "public interface PropertyPath extends Streamable<PropertyPath>"
+      },
+      {
+        "file_path": "src/main/java/org/springframework/data/domain/Sort.java",
+        "entity_type": "class",
+        "entity_name": "TypedSort",
+        "entity_signature": "@Deprecated(since = \"4.1\") public static class TypedSort<T> extends Sort"
+      },
+      {
+        "file_path": "src/main/java/org/springframework/data/util/MethodInvocationRecorder.java",
+        "entity_type": "class",
+        "entity_name": "MethodInvocationRecorder",
+        "entity_signature": "@Deprecated(since = \"4.1\") public class MethodInvocationRecorder"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "2b98d3c1e96b750dc997c29f283084aeb72fb3cf",
+    "issue_summary": "Reannotate `ClassToInstanceMap` and `TypeToInstanceMap` to use `Class<@NonNull ...>`.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\google__guava",
+    "actual_pre_cap_candidate_count": 4,
+    "actual_eligible_retain_count_without_cap": 4,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 1,
+    "missing_entities": [
+      {
+        "file_path": "guava/src/com/google/common/reflect/TypeToInstanceMap.java",
+        "entity_type": "class",
+        "entity_name": "TypeToInstanceMap",
+        "entity_signature": "@DoNotMock(\"Use ImmutableTypeToInstanceMap or MutableTypeToInstanceMap\") @ElementTypesAreNonnullByDefault public interface TypeToInstanceMap<B extends @Nullable Object> extends Map<TypeToken<? extends @NonNull B>, B>",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "guava/src/com/google/common/collect/ClassToInstanceMap.java",
+        "entity_type": "class",
+        "entity_name": "ClassToInstanceMap",
+        "entity_signature": "@DoNotMock(\"Use ImmutableClassToInstanceMap or MutableClassToInstanceMap\") @GwtCompatible @ElementTypesAreNonnullByDefault public interface ClassToInstanceMap<B extends @Nullable Object> extends Map<Class<? extends @NonNull B>, B>"
+      },
+      {
+        "file_path": "guava/src/com/google/common/collect/MutableClassToInstanceMap.java",
+        "entity_type": "class",
+        "entity_name": "MutableClassToInstanceMap",
+        "entity_signature": "@J2ktIncompatible @GwtIncompatible @SuppressWarnings(\"serial\") // using writeReplace instead of standard serialization @ElementTypesAreNonnullByDefault public final class MutableClassToInstanceMap<B extends @Nullable Object> extends ForwardingMap<Class<? extends @NonNull B>, B> implements ClassToInstanceMap<B>, Serializable"
+      },
+      {
+        "file_path": "guava/src/com/google/common/reflect/MutableTypeToInstanceMap.java",
+        "entity_type": "class",
+        "entity_name": "MutableTypeToInstanceMap",
+        "entity_signature": "@ElementTypesAreNonnullByDefault public final class MutableTypeToInstanceMap<B extends @Nullable Object> extends ForwardingMap<TypeToken<? extends @NonNull B>, B> implements TypeToInstanceMap<B>"
+      },
+      {
+        "file_path": "guava/src/com/google/common/reflect/TypeToInstanceMap.java",
+        "entity_type": "class",
+        "entity_name": "TypeToInstanceMap",
+        "entity_signature": "@DoNotMock(\"Use ImmutableTypeToInstanceMap or MutableTypeToInstanceMap\") @ElementTypesAreNonnullByDefault public interface TypeToInstanceMap<B extends @Nullable Object> extends Map<TypeToken<? extends @NonNull B>, B>"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "class_majority",
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "c429f437f08cd5ea95351232b9c51104607cbda5",
+    "issue_summary": "Restructure Directory and LockFactory APIs",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 3
+    },
+    "repo_cache_path": ".cache\\repos\\apache__lucene",
+    "actual_pre_cap_candidate_count": 4,
+    "actual_eligible_retain_count_without_cap": 4,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 1,
+    "missing_entities": [
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/store/NoLockFactory.java",
+        "entity_type": "class",
+        "entity_name": "NoLockFactory",
+        "entity_signature": "public final class NoLockFactory extends LockFactory",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/store/BaseDirectory.java",
+        "entity_type": "class",
+        "entity_name": "BaseDirectory",
+        "entity_signature": "public abstract class BaseDirectory extends Directory"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/store/FSLockFactory.java",
+        "entity_type": "class",
+        "entity_name": "FSLockFactory",
+        "entity_signature": "public abstract class FSLockFactory extends LockFactory"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/store/FileSwitchDirectory.java",
+        "entity_type": "class",
+        "entity_name": "FileSwitchDirectory",
+        "entity_signature": "public class FileSwitchDirectory extends Directory"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/store/NoLockFactory.java",
+        "entity_type": "class",
+        "entity_name": "NoLockFactory",
+        "entity_signature": "public final class NoLockFactory extends LockFactory"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "150ba4af81b71517d3b44c0669b0da0f445e6ac3",
+    "issue_summary": "Add ability to specify wait time to QueueInputStream",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 1,
+      "method": 2
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-io",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/io/input/QueueInputStream.java",
+        "entity_type": "class",
+        "entity_name": "QueueInputStream",
+        "entity_signature": "public class QueueInputStream extends InputStream"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/input/QueueInputStream.java",
+        "entity_type": "method",
+        "entity_name": "QueueInputStream",
+        "entity_signature": "public QueueInputStream(final BlockingQueue<Integer> blockingQueue)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/input/QueueInputStream.java",
+        "entity_type": "method",
+        "entity_name": "read",
+        "entity_signature": "@Override public int read()"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "f4693f0adf5c9994127890877d018c4ba7bbca06",
+    "issue_summary": "Clarify null argument behavior of IterableUtils and FluentIterable: decorators do not accept null values, whereas utility methods are null-safe wrt Iterable instances.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 2,
+      "class": 1
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-collections",
+    "actual_pre_cap_candidate_count": 4,
+    "actual_eligible_retain_count_without_cap": 4,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 1,
+    "missing_entities": [
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/IterableUtils.java",
+        "entity_type": "method",
+        "entity_name": "loopingIterable",
+        "entity_signature": "public static <E> Iterable<E> loopingIterable(final Iterable<E> iterable)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/FluentIterable.java",
+        "entity_type": "method",
+        "entity_name": "of",
+        "entity_signature": "public static <T> FluentIterable<T> of(final Iterable<T> iterable)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/FluentIterable.java",
+        "entity_type": "method",
+        "entity_name": "zip",
+        "entity_signature": "public FluentIterable<E> zip(final Iterable<? extends E>... others)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/IterableUtils.java",
+        "entity_type": "class",
+        "entity_name": "IterableUtils",
+        "entity_signature": "public class IterableUtils"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/collections4/IterableUtils.java",
+        "entity_type": "method",
+        "entity_name": "loopingIterable",
+        "entity_signature": "public static <E> Iterable<E> loopingIterable(final Iterable<E> iterable)"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "5829240bfd3531639767e40ddf9608b84d3b235c",
+    "issue_summary": "Add org.apache.commons.compress.compressors.xz.XZCompressorInputStream.builder/Builder()",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 2,
+      "method": 1
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-compress",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/compressors/xz/XZCompressorInputStream.java",
+        "entity_type": "class",
+        "entity_name": "XZCompressorInputStream",
+        "entity_signature": "public class XZCompressorInputStream extends CompressorInputStream implements InputStreamStatistics"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/compressors/xz/XZCompressorInputStream.java",
+        "entity_type": "method",
+        "entity_name": "XZCompressorInputStream",
+        "entity_signature": "@Deprecated public XZCompressorInputStream(final InputStream inputStream, final boolean decompressConcatenated) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/compress/compressors/xz/XZCompressorOutputStream.java",
+        "entity_type": "class",
+        "entity_name": "XZCompressorOutputStream",
+        "entity_signature": "public class XZCompressorOutputStream extends CompressorOutputStream<XZOutputStream>"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "d3cfba9b29511279b79071ee8fe6ed1996a2af3c",
+    "issue_summary": "cutover Spans to DISI, reuse ConjunctionDISI, use two-phased iteration",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 1,
+      "method": 2
+    },
+    "repo_cache_path": ".cache\\repos\\apache__lucene",
+    "actual_pre_cap_candidate_count": 6,
+    "actual_eligible_retain_count_without_cap": 6,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 3,
+    "missing_entities": [
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/SpanPositionRangeQuery.java",
+        "entity_type": "class",
+        "entity_name": "SpanPositionRangeQuery",
+        "entity_signature": "public class SpanPositionRangeQuery extends SpanPositionCheckQuery",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/Spans.java",
+        "entity_type": "class",
+        "entity_name": "Spans",
+        "entity_signature": "public abstract class Spans extends DocIdSetIterator",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/TermSpans.java",
+        "entity_type": "class",
+        "entity_name": "TermSpans",
+        "entity_signature": "public class TermSpans extends Spans",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/FilterSpans.java",
+        "entity_type": "class",
+        "entity_name": "FilterSpans",
+        "entity_signature": "public class FilterSpans extends Spans"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/NearSpansOrdered.java",
+        "entity_type": "method",
+        "entity_name": "stretchToOrder",
+        "entity_signature": "private boolean stretchToOrder() throws IOException"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/SpanOrQuery.java",
+        "entity_type": "method",
+        "entity_name": "SpanOrQuery",
+        "entity_signature": "public SpanOrQuery(SpanQuery... clauses)"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/SpanPositionRangeQuery.java",
+        "entity_type": "class",
+        "entity_name": "SpanPositionRangeQuery",
+        "entity_signature": "public class SpanPositionRangeQuery extends SpanPositionCheckQuery"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/Spans.java",
+        "entity_type": "class",
+        "entity_name": "Spans",
+        "entity_signature": "public abstract class Spans extends DocIdSetIterator"
+      },
+      {
+        "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/TermSpans.java",
+        "entity_type": "class",
+        "entity_name": "TermSpans",
+        "entity_signature": "public class TermSpans extends Spans"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "d83cdb913332b02fd310f5cdf3df045162c4cc54",
+    "issue_summary": "Simplified 1-sphere case.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 1,
+      "method": 2
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-math",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/math3/geometry/spherical/oned/ArcsSet.java",
+        "entity_type": "class",
+        "entity_name": "ArcsSet",
+        "entity_signature": "public class ArcsSet extends AbstractRegion<Sphere1D, Sphere1D>"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/math3/geometry/spherical/oned/ArcsSet.java",
+        "entity_type": "method",
+        "entity_name": "ArcsSet",
+        "entity_signature": "public ArcsSet(final double lower, final double upper, final double tolerance) throws NumberIsTooLargeException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/math3/geometry/spherical/oned/ArcsSet.java",
+        "entity_type": "method",
+        "entity_name": "buildTree",
+        "entity_signature": "private static BSPTree<Sphere1D> buildTree(final double lower, final double upper, final double tolerance) throws NumberIsTooLargeException"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "junit_team_junit5",
+    "repository_url": "https://github.com/junit-team/junit5.git",
+    "commit_hash": "4db8e8e359cb0a209b7321b5afc3a304e941c9f0",
+    "issue_summary": "Introduce DisplayNameUtils helper",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 2,
+      "class": 1
+    },
+    "repo_cache_path": ".cache\\repos\\junit-team__junit5",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "junit-jupiter-api/src/main/java/org/junit/jupiter/api/DisplayNameGeneration.java",
+        "entity_type": "method",
+        "entity_name": "value",
+        "entity_signature": "Class<? extends DisplayNameGenerator> value()"
+      },
+      {
+        "file_path": "junit-jupiter-api/src/main/java/org/junit/jupiter/api/DisplayNameGenerator.java",
+        "entity_type": "class",
+        "entity_name": "DisplayNameGenerator",
+        "entity_signature": "@API(status = EXPERIMENTAL, since = \"5.4\") public interface DisplayNameGenerator"
+      },
+      {
+        "file_path": "junit-jupiter-api/src/main/java/org/junit/jupiter/api/DisplayNameGenerator.java",
+        "entity_type": "method",
+        "entity_name": "parameterTypesAsString",
+        "entity_signature": "static String parameterTypesAsString(Method method)"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "eb184669db2666f17372b750dd1d1be1bab3a606",
+    "issue_summary": "Revise `OffsetScrollPosition` to use zero-based indexesAlign Offset Scrolling Position.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 1,
+      "method": 2
+    },
+    "repo_cache_path": ".cache\\repos\\spring-projects__spring-data-commons",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/springframework/data/domain/OffsetScrollPosition.java",
+        "entity_type": "class",
+        "entity_name": "OffsetScrollPosition",
+        "entity_signature": "public final class OffsetScrollPosition implements ScrollPosition"
+      },
+      {
+        "file_path": "src/main/java/org/springframework/data/domain/OffsetScrollPosition.java",
+        "entity_type": "method",
+        "entity_name": "getOffset",
+        "entity_signature": "public long getOffset()"
+      },
+      {
+        "file_path": "src/main/java/org/springframework/data/domain/Pageable.java",
+        "entity_type": "method",
+        "entity_name": "toScrollPosition",
+        "entity_signature": "default OffsetScrollPosition toScrollPosition()"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "feb83a1c8fd2e7670b244d5afd23cba5aca43284",
+    "issue_summary": "Restrict permissions when creating temporary files and directories, or fail if that's not possible.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 1,
+      "method": 2
+    },
+    "repo_cache_path": ".cache\\repos\\google__guava",
+    "actual_pre_cap_candidate_count": 3,
+    "actual_eligible_retain_count_without_cap": 3,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 0,
+    "missing_entities": [],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "guava/src/com/google/common/io/FileBackedOutputStream.java",
+        "entity_type": "class",
+        "entity_name": "FileBackedOutputStream",
+        "entity_signature": "@Beta @J2ktIncompatible @GwtIncompatible @J2ObjCIncompatible @ElementTypesAreNonnullByDefault public final class FileBackedOutputStream extends OutputStream"
+      },
+      {
+        "file_path": "guava/src/com/google/common/io/FileBackedOutputStream.java",
+        "entity_type": "method",
+        "entity_name": "FileBackedOutputStream",
+        "entity_signature": "public FileBackedOutputStream(int fileThreshold, boolean resetOnFinalize)"
+      },
+      {
+        "file_path": "guava/src/com/google/common/io/Files.java",
+        "entity_type": "method",
+        "entity_name": "createTempDir",
+        "entity_signature": "@Beta @Deprecated @J2ObjCIncompatible public static File createTempDir()"
+      }
+    ],
+    "diagnostics": []
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "0e07ac6b2cff63550d7df336355ca63cc05aa40b",
+    "issue_summary": "Move from Joda CVS",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "class": 1,
+      "method": 2
+    },
+    "repo_cache_path": ".cache\\repos\\JodaOrg__joda-time",
+    "actual_pre_cap_candidate_count": 55,
+    "actual_eligible_retain_count_without_cap": 53,
+    "actual_review_count": 2,
+    "actual_discard_count": 0,
+    "missing_change_count": 50,
+    "missing_entities": [
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/AbstractInstant.java",
+        "entity_type": "class",
+        "entity_name": "AbstractInstant",
+        "entity_signature": "public abstract class AbstractInstant implements ReadableInstant",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/AbstractInstant.java",
+        "entity_type": "method",
+        "entity_name": "toCalendar",
+        "entity_signature": "public final Calendar toCalendar(Locale locale)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "class",
+        "entity_name": "Chronology",
+        "entity_signature": "public abstract class Chronology implements Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "millisOfSecond",
+        "entity_signature": "public DateTimeField millisOfSecond()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "millisOfDay",
+        "entity_signature": "public DateTimeField millisOfDay()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "secondOfMinute",
+        "entity_signature": "public DateTimeField secondOfMinute()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "secondOfDay",
+        "entity_signature": "public DateTimeField secondOfDay()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "minuteOfHour",
+        "entity_signature": "public DateTimeField minuteOfHour()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "minuteOfDay",
+        "entity_signature": "public DateTimeField minuteOfDay()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "hourOfDay",
+        "entity_signature": "public DateTimeField hourOfDay()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "clockhourOfDay",
+        "entity_signature": "public DateTimeField clockhourOfDay()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "hourOfHalfday",
+        "entity_signature": "public DateTimeField hourOfHalfday()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "clockhourOfHalfday",
+        "entity_signature": "public DateTimeField clockhourOfHalfday()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "halfdayOfDay",
+        "entity_signature": "public DateTimeField halfdayOfDay()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "dayOfWeek",
+        "entity_signature": "public DateTimeField dayOfWeek()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "dayOfMonth",
+        "entity_signature": "public DateTimeField dayOfMonth()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "dayOfYear",
+        "entity_signature": "public DateTimeField dayOfYear()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "weekOfWeekyear",
+        "entity_signature": "public DateTimeField weekOfWeekyear()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "weekyear",
+        "entity_signature": "public DateTimeField weekyear()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "monthOfYear",
+        "entity_signature": "public DateTimeField monthOfYear()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "year",
+        "entity_signature": "public DateTimeField year()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "yearOfEra",
+        "entity_signature": "public DateTimeField yearOfEra()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "yearOfCentury",
+        "entity_signature": "public DateTimeField yearOfCentury()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "centuryOfEra",
+        "entity_signature": "public DateTimeField centuryOfEra()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "era",
+        "entity_signature": "public DateTimeField era()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTime.java",
+        "entity_type": "class",
+        "entity_name": "DateTime",
+        "entity_signature": "public class DateTime extends AbstractDateTime implements ReadableDateTime, Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTime.java",
+        "entity_type": "method",
+        "entity_name": "DateTime",
+        "entity_signature": "public DateTime()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTimeComparator.java",
+        "entity_type": "method",
+        "entity_name": "compare",
+        "entity_signature": "public int compare(Object lhsObj, Object rhsObj)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTimeField.java",
+        "entity_type": "class",
+        "entity_name": "DateTimeField",
+        "entity_signature": "public interface DateTimeField",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTimeField.java",
+        "entity_type": "method",
+        "entity_name": "getMaximumTextLength",
+        "entity_signature": "public int getMaximumTextLength(Locale locale)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTimeFieldProperty.java",
+        "entity_type": "class",
+        "entity_name": "DateTimeFieldProperty",
+        "entity_signature": "public class DateTimeFieldProperty extends AbstractDateTimeFieldProperty",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Instant.java",
+        "entity_type": "class",
+        "entity_name": "Instant",
+        "entity_signature": "public final class Instant extends AbstractInstant implements ReadableInstant, Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTime.java",
+        "entity_type": "class",
+        "entity_name": "MutableDateTime",
+        "entity_signature": "public class MutableDateTime extends AbstractDateTime implements ReadWritableDateTime, Cloneable, Serializable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTime.java",
+        "entity_type": "method",
+        "entity_name": "MutableDateTime",
+        "entity_signature": "public MutableDateTime()",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTime.java",
+        "entity_type": "method",
+        "entity_name": "setChronology",
+        "entity_signature": "public void setChronology(Chronology chronology)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTime.java",
+        "entity_type": "method",
+        "entity_name": "setDateTimeZone",
+        "entity_signature": "public void setDateTimeZone(DateTimeZone zone)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTimeFieldProperty.java",
+        "entity_type": "class",
+        "entity_name": "MutableDateTimeFieldProperty",
+        "entity_signature": "public class MutableDateTimeFieldProperty extends AbstractDateTimeFieldProperty",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/ReadableInstant.java",
+        "entity_type": "class",
+        "entity_name": "ReadableInstant",
+        "entity_signature": "public interface ReadableInstant extends Comparable",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/chrono/DividedDateTimeField.java",
+        "entity_type": "class",
+        "entity_name": "DividedDateTimeField",
+        "entity_signature": "public class DividedDateTimeField extends DecoratedDateTimeField",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/chrono/RemainderDateTimeField.java",
+        "entity_type": "class",
+        "entity_name": "RemainderDateTimeField",
+        "entity_signature": "public class RemainderDateTimeField extends DecoratedDateTimeField",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/chrono/buddhist/BuddhistChronology.java",
+        "entity_type": "class",
+        "entity_name": "BuddhistChronology",
+        "entity_signature": "public final class BuddhistChronology extends DecoratedChronology",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeFormat.java",
+        "entity_type": "method",
+        "entity_name": "getInstance",
+        "entity_signature": "public static synchronized DateTimeFormat getInstance(Chronology chrono, Locale locale)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeFormatterBuilder.java",
+        "entity_type": "method",
+        "entity_name": "DateTimeFormatterBuilder",
+        "entity_signature": "public DateTimeFormatterBuilder(Chronology chrono, Locale locale)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeFormatterBuilder.java",
+        "entity_type": "method",
+        "entity_name": "appendNumeric",
+        "entity_signature": "public DateTimeFormatterBuilder appendNumeric( DateTimeField field, int minDigits, int maxDigits)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeFormatterBuilder.java",
+        "entity_type": "method",
+        "entity_name": "appendSignedNumeric",
+        "entity_signature": "public DateTimeFormatterBuilder appendSignedNumeric( DateTimeField field, int minDigits, int maxDigits)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeParser.java",
+        "entity_type": "method",
+        "entity_name": "parseMillis",
+        "entity_signature": "long parseMillis(String text)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeParser.java",
+        "entity_type": "method",
+        "entity_name": "parseDateTime",
+        "entity_signature": "DateTime parseDateTime(String text)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeParser.java",
+        "entity_type": "method",
+        "entity_name": "parseMutableDateTime",
+        "entity_signature": "MutableDateTime parseMutableDateTime(String text)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/ISODateTimeFormat.java",
+        "entity_type": "class",
+        "entity_name": "ISODateTimeFormat",
+        "entity_signature": "public class ISODateTimeFormat",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/tz/ZoneInfoProvider.java",
+        "entity_type": "class",
+        "entity_name": "ZoneInfoProvider",
+        "entity_signature": "public class ZoneInfoProvider implements Provider",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/AbstractDateTime.java",
+        "entity_type": "class",
+        "entity_name": "AbstractDateTime",
+        "entity_signature": "public abstract class AbstractDateTime extends AbstractInstant implements ReadableDateTime, Serializable"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/AbstractDateTime.java",
+        "entity_type": "method",
+        "entity_name": "selectChronology",
+        "entity_signature": "private static Chronology selectChronology(Chronology chrono)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/AbstractDateTime.java",
+        "entity_type": "method",
+        "entity_name": "toString",
+        "entity_signature": "public String toString(String pattern) throws IllegalArgumentException"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/AbstractInstant.java",
+        "entity_type": "class",
+        "entity_name": "AbstractInstant",
+        "entity_signature": "public abstract class AbstractInstant implements ReadableInstant"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/AbstractInstant.java",
+        "entity_type": "method",
+        "entity_name": "toCalendar",
+        "entity_signature": "public final Calendar toCalendar(Locale locale)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "class",
+        "entity_name": "Chronology",
+        "entity_signature": "public abstract class Chronology implements Serializable"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "millisOfSecond",
+        "entity_signature": "public DateTimeField millisOfSecond()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "millisOfDay",
+        "entity_signature": "public DateTimeField millisOfDay()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "secondOfMinute",
+        "entity_signature": "public DateTimeField secondOfMinute()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "secondOfDay",
+        "entity_signature": "public DateTimeField secondOfDay()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "minuteOfHour",
+        "entity_signature": "public DateTimeField minuteOfHour()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "minuteOfDay",
+        "entity_signature": "public DateTimeField minuteOfDay()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "hourOfDay",
+        "entity_signature": "public DateTimeField hourOfDay()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "clockhourOfDay",
+        "entity_signature": "public DateTimeField clockhourOfDay()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "hourOfHalfday",
+        "entity_signature": "public DateTimeField hourOfHalfday()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "clockhourOfHalfday",
+        "entity_signature": "public DateTimeField clockhourOfHalfday()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "halfdayOfDay",
+        "entity_signature": "public DateTimeField halfdayOfDay()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "dayOfWeek",
+        "entity_signature": "public DateTimeField dayOfWeek()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "dayOfMonth",
+        "entity_signature": "public DateTimeField dayOfMonth()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "dayOfYear",
+        "entity_signature": "public DateTimeField dayOfYear()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "weekOfWeekyear",
+        "entity_signature": "public DateTimeField weekOfWeekyear()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "weekyear",
+        "entity_signature": "public DateTimeField weekyear()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "monthOfYear",
+        "entity_signature": "public DateTimeField monthOfYear()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "year",
+        "entity_signature": "public DateTimeField year()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "yearOfEra",
+        "entity_signature": "public DateTimeField yearOfEra()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "yearOfCentury",
+        "entity_signature": "public DateTimeField yearOfCentury()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "centuryOfEra",
+        "entity_signature": "public DateTimeField centuryOfEra()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Chronology.java",
+        "entity_type": "method",
+        "entity_name": "era",
+        "entity_signature": "public DateTimeField era()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTime.java",
+        "entity_type": "class",
+        "entity_name": "DateTime",
+        "entity_signature": "public class DateTime extends AbstractDateTime implements ReadableDateTime, Serializable"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTime.java",
+        "entity_type": "method",
+        "entity_name": "DateTime",
+        "entity_signature": "public DateTime()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTimeComparator.java",
+        "entity_type": "method",
+        "entity_name": "compare",
+        "entity_signature": "public int compare(Object lhsObj, Object rhsObj)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTimeField.java",
+        "entity_type": "class",
+        "entity_name": "DateTimeField",
+        "entity_signature": "public interface DateTimeField"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTimeField.java",
+        "entity_type": "method",
+        "entity_name": "getMaximumTextLength",
+        "entity_signature": "public int getMaximumTextLength(Locale locale)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/DateTimeFieldProperty.java",
+        "entity_type": "class",
+        "entity_name": "DateTimeFieldProperty",
+        "entity_signature": "public class DateTimeFieldProperty extends AbstractDateTimeFieldProperty"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/Instant.java",
+        "entity_type": "class",
+        "entity_name": "Instant",
+        "entity_signature": "public final class Instant extends AbstractInstant implements ReadableInstant, Serializable"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTime.java",
+        "entity_type": "class",
+        "entity_name": "MutableDateTime",
+        "entity_signature": "public class MutableDateTime extends AbstractDateTime implements ReadWritableDateTime, Cloneable, Serializable"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTime.java",
+        "entity_type": "method",
+        "entity_name": "MutableDateTime",
+        "entity_signature": "public MutableDateTime()"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTime.java",
+        "entity_type": "method",
+        "entity_name": "setChronology",
+        "entity_signature": "public void setChronology(Chronology chronology)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTime.java",
+        "entity_type": "method",
+        "entity_name": "setDateTimeZone",
+        "entity_signature": "public void setDateTimeZone(DateTimeZone zone)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTimeFieldProperty.java",
+        "entity_type": "class",
+        "entity_name": "MutableDateTimeFieldProperty",
+        "entity_signature": "public class MutableDateTimeFieldProperty extends AbstractDateTimeFieldProperty"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/ReadableInstant.java",
+        "entity_type": "class",
+        "entity_name": "ReadableInstant",
+        "entity_signature": "public interface ReadableInstant extends Comparable"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/chrono/DividedDateTimeField.java",
+        "entity_type": "class",
+        "entity_name": "DividedDateTimeField",
+        "entity_signature": "public class DividedDateTimeField extends DecoratedDateTimeField"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/chrono/RemainderDateTimeField.java",
+        "entity_type": "class",
+        "entity_name": "RemainderDateTimeField",
+        "entity_signature": "public class RemainderDateTimeField extends DecoratedDateTimeField"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/chrono/buddhist/BuddhistChronology.java",
+        "entity_type": "class",
+        "entity_name": "BuddhistChronology",
+        "entity_signature": "public final class BuddhistChronology extends DecoratedChronology"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeFormat.java",
+        "entity_type": "method",
+        "entity_name": "getInstance",
+        "entity_signature": "public static synchronized DateTimeFormat getInstance(Chronology chrono, Locale locale)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeFormatterBuilder.java",
+        "entity_type": "method",
+        "entity_name": "DateTimeFormatterBuilder",
+        "entity_signature": "public DateTimeFormatterBuilder(Chronology chrono, Locale locale)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeFormatterBuilder.java",
+        "entity_type": "method",
+        "entity_name": "appendNumeric",
+        "entity_signature": "public DateTimeFormatterBuilder appendNumeric( DateTimeField field, int minDigits, int maxDigits)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeFormatterBuilder.java",
+        "entity_type": "method",
+        "entity_name": "appendSignedNumeric",
+        "entity_signature": "public DateTimeFormatterBuilder appendSignedNumeric( DateTimeField field, int minDigits, int maxDigits)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeParser.java",
+        "entity_type": "method",
+        "entity_name": "parseMillis",
+        "entity_signature": "long parseMillis(String text)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeParser.java",
+        "entity_type": "method",
+        "entity_name": "parseDateTime",
+        "entity_signature": "DateTime parseDateTime(String text)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/DateTimeParser.java",
+        "entity_type": "method",
+        "entity_name": "parseMutableDateTime",
+        "entity_signature": "MutableDateTime parseMutableDateTime(String text)"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/format/ISODateTimeFormat.java",
+        "entity_type": "class",
+        "entity_name": "ISODateTimeFormat",
+        "entity_signature": "public class ISODateTimeFormat"
+      },
+      {
+        "file_path": "JodaTime/src/java/org/joda/time/tz/ZoneInfoProvider.java",
+        "entity_type": "class",
+        "entity_name": "ZoneInfoProvider",
+        "entity_signature": "public class ZoneInfoProvider implements Provider"
+      }
+    ],
+    "diagnostics": [
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "JodaTime/src/java/org/joda/time/AbstractDateTime.java",
+        "entity_type": "method",
+        "entity_name": "toString",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "JodaTime/src/java/org/joda/time/DateTime.java",
+        "entity_type": "method",
+        "entity_name": "DateTime",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "JodaTime/src/java/org/joda/time/MutableDateTime.java",
+        "entity_type": "method",
+        "entity_name": "MutableDateTime",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "JodaTime/src/java/org/joda/time/chrono/buddhist/BuddhistChronology.java",
+        "entity_type": "method",
+        "entity_name": "yearOfCentury",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "JodaTime/src/java/org/joda/time/chrono/buddhist/BuddhistChronology.java",
+        "entity_type": "method",
+        "entity_name": "centuryOfEra",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "JodaTime/src/java/org/joda/time/format/ISODateTimeFormat.java",
+        "entity_type": "method",
+        "entity_name": "getInstance",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      }
+    ]
+  },
+  {
+    "category": "mixed_method_class",
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "issue_summary": "Add builders and avoid creating more constructors for all permutations of current options.",
+    "final_dataset_change_count": 3,
+    "final_entity_type_distribution": {
+      "method": 2,
+      "class": 1
+    },
+    "repo_cache_path": ".cache\\repos\\apache__commons-io",
+    "actual_pre_cap_candidate_count": 5,
+    "actual_eligible_retain_count_without_cap": 5,
+    "actual_review_count": 0,
+    "actual_discard_count": 0,
+    "missing_change_count": 2,
+    "missing_entities": [
+      {
+        "file_path": "src/main/java/org/apache/commons/io/output/DeferredFileOutputStream.java",
+        "entity_type": "method",
+        "entity_name": "DeferredFileOutputStream",
+        "entity_signature": "@Deprecated public DeferredFileOutputStream(final int threshold, final int initialBufferSize, final File outputFile)",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/output/LockableFileWriter.java",
+        "entity_type": "method",
+        "entity_name": "LockableFileWriter",
+        "entity_signature": "@Deprecated public LockableFileWriter(final File file, final Charset charset, final boolean append, String lockDir) throws IOException",
+        "reason_each_missing_change_was_excluded": "not present in final output; consistent with MAX_SAMPLES_PER_COMMIT cap when retained count exceeds 3"
+      }
+    ],
+    "retained_entities_without_cap": [
+      {
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/WildcardFileFilter.java",
+        "entity_type": "method",
+        "entity_name": "WildcardFileFilter",
+        "entity_signature": "@Deprecated public WildcardFileFilter(final List<String> wildcards, final IOCase ioCase)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/input/ReversedLinesFileReader.java",
+        "entity_type": "method",
+        "entity_name": "ReversedLinesFileReader",
+        "entity_signature": "@Deprecated public ReversedLinesFileReader(final Path file, final int blockSize, final Charset charset) throws IOException"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+        "entity_type": "class",
+        "entity_name": "Builder",
+        "entity_signature": "public static class Builder extends AbstractStreamBuilder<Tailer, Builder>"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/output/DeferredFileOutputStream.java",
+        "entity_type": "method",
+        "entity_name": "DeferredFileOutputStream",
+        "entity_signature": "@Deprecated public DeferredFileOutputStream(final int threshold, final int initialBufferSize, final File outputFile)"
+      },
+      {
+        "file_path": "src/main/java/org/apache/commons/io/output/LockableFileWriter.java",
+        "entity_type": "method",
+        "entity_name": "LockableFileWriter",
+        "entity_signature": "@Deprecated public LockableFileWriter(final File file, final Charset charset, final boolean append, String lockDir) throws IOException"
+      }
+    ],
+    "diagnostics": [
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/WildcardFileFilter.java",
+        "entity_type": "method",
+        "entity_name": "WildcardFileFilter",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/WildcardFileFilter.java",
+        "entity_type": "method",
+        "entity_name": "WildcardFileFilter",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/io/filefilter/WildcardFileFilter.java",
+        "entity_type": "method",
+        "entity_name": "WildcardFileFilter",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      },
+      {
+        "stage": "pre_cap_entity_dedup",
+        "file_path": "src/main/java/org/apache/commons/io/output/DeferredFileOutputStream.java",
+        "entity_type": "method",
+        "entity_name": "DeferredFileOutputStream",
+        "reason": "duplicate entity_type/entity_name in same commit"
+      }
+    ]
+  }
+]

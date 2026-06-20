@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7db177e3cdefd07371837d62b3959c32b8175e35",
+  "issue_summary": "Remove `@Deprecated` API.",
+  "code_before": "public boolean isExplicitlyAnnotated() {\n\n\t\tvar annotations = MergedAnnotations.from(getExecutable());\n\n\t\treturn annotations.isPresent(PersistenceConstructor.class)\n\t\t\t\t|| annotations.isPresent(PersistenceCreator.class);\n\t}",
+  "code_after": "public boolean isExplicitlyAnnotated() {\n\n\t\tvar annotations = MergedAnnotations.from(getExecutable());\n\n\t\treturn annotations.isPresent(PersistenceCreator.class);\n\t}",
+  "javadoc_before": "/**\n\t * Returns whether the constructor was explicitly selected (by {@link PersistenceConstructor}).\n\t *\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Returns whether the constructor was explicitly selected (by {@link PersistenceCreator}).\n\t *\n\t * @return {@literal true} if the constructor was explicitly selected.\n\t */"
+}

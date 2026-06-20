@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3d964bea636479548b0d4a1a372f3e9ed73df10e",
+  "issue_summary": "fix more default Locale uses",
+  "code_before": "public DateRecognizerSinkFilter() {\n    this(DateFormat.getDateInstance());\n  }",
+  "code_after": "public DateRecognizerSinkFilter() {\n    this(DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.ROOT));\n  }",
+  "javadoc_before": "/**\n   * Uses {@link java.text.SimpleDateFormat#getDateInstance()} as the {@link java.text.DateFormat} object.\n   */",
+  "javadoc_after": "/**\n   * Uses {@link java.text.SimpleDateFormat#getDateInstance(DateFormat.DEFAULT, Locale.ROOT)} as \n   * the {@link java.text.DateFormat} object.\n   */"
+}

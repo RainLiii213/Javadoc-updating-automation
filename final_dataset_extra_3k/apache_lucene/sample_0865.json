@@ -1,0 +1,8 @@
+{
+  "commit_hash": "52537afdb633db3d8ce57fe5044a5464fe5458c4",
+  "issue_summary": "throw IllegalArgumentException to avoid endless loop",
+  "code_before": "public void setMaxBufferedDocs(int maxBufferedDocs) {\n    this.minMergeDocs = maxBufferedDocs;\n  }",
+  "code_after": "public void setMaxBufferedDocs(int maxBufferedDocs) {\n    if (maxBufferedDocs < 1)\n      throw new IllegalArgumentException(\"maxBufferedDocs must at least be 1\");\n    this.minMergeDocs = maxBufferedDocs;\n  }",
+  "javadoc_before": "/** Determines the minimal number of documents required before the buffered\n   * in-memory documents are merging and a new Segment is created.\n   * Since Documents are merged in a {@link org.apache.lucene.store.RAMDirectory},\n   * large value gives faster indexing.  At the same time, mergeFactor limits\n   * the number of files open in a FSDirectory.\n   *\n   * <p> The default value is 10.\n   */",
+  "javadoc_after": "/** Determines the minimal number of documents required before the buffered\n   * in-memory documents are merging and a new Segment is created.\n   * Since Documents are merged in a {@link org.apache.lucene.store.RAMDirectory},\n   * large value gives faster indexing.  At the same time, mergeFactor limits\n   * the number of files open in a FSDirectory.\n   *\n   * <p> The default value is 10.\n   * \n   * @throws IllegalArgumentException if maxBufferedDocs is smaller than 1 \n   */"
+}

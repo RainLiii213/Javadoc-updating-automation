@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7dd14db96b82eec1084b5fb3b0aa1f2b90b7cedc",
+  "issue_summary": "do not reuse facet aggregation arrays by default; added ReusingFacetArrays",
+  "code_before": "public void free() {\n    if (intArrayAllocator!=null) {\n      intArrayAllocator.free(intArray);\n      // Should give up handle to the array now\n      // that it is freed.\n      intArray = null;\n    }\n    if (floatArrayAllocator!=null) {\n      floatArrayAllocator.free(floatArray);\n      // Should give up handle to the array now\n      // that it is freed.\n      floatArray = null;\n    }\n    arraysLength = 0;\n  }",
+  "code_after": "public final void free() {\n    doFree(floats, ints);\n    ints = null;\n    floats = null;\n  }",
+  "javadoc_before": "/**\n   * Notify allocators that they can free arrays allocated \n   * on behalf of this FacetArrays object. \n   */",
+  "javadoc_after": "/**\n   * Notifies that the arrays obtained from {@link #getIntArray()}\n   * or {@link #getFloatArray()} are no longer needed and can be freed.\n   */"
+}

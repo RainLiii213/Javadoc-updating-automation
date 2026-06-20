@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4db8e8e359cb0a209b7321b5afc3a304e941c9f0",
+  "issue_summary": "Introduce DisplayNameUtils helper",
+  "code_before": "Class<? extends DisplayNameGenerator> value() default DisplayNameGenerator.DefaultGenerator.class;",
+  "code_after": "Class<? extends DisplayNameGenerator> value();",
+  "javadoc_before": "/**\n\t * Custom display name generator.\n\t *\n\t * @return custom display name generator implementation, defaults\n\t *         to {@link org.junit.jupiter.api.DisplayNameGenerator.DefaultGenerator}\n\t */",
+  "javadoc_after": "/**\n\t * Custom display name generator.\n\t *\n\t * @return custom display name generator class\n\t */"
+}

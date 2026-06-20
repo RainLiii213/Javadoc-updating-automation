@@ -1,0 +1,8 @@
+{
+  "commit_hash": "583a60baedb135c0f2db8aae8117b2817320a97e",
+  "issue_summary": "Improved working with getters and setters for PersistentProperty.",
+  "code_before": "public void setProperty(PersistentProperty<?> property, Object value) throws IllegalAccessException,\n\t\t\tInvocationTargetException {\n\t\tsetProperty(property, value, false);\n\t}",
+  "code_after": "public void setProperty(PersistentProperty<?> property, Object value) {\n\t\tsetProperty(property, value, false);\n\t}",
+  "javadoc_before": "/**\n\t * Sets the given {@link PersistentProperty} to the given value. Will do type conversion if a\n\t * {@link ConversionService} is configured. Will use the accessor method of the given {@link PersistentProperty} if it\n\t * has one or field access otherwise.\n\t * \n\t * @param property\n\t * @param value\n\t * @throws IllegalAccessException\n\t * @throws InvocationTargetException\n\t */",
+  "javadoc_after": "/**\n\t * Sets the given {@link PersistentProperty} to the given value. Will do type conversion if a\n\t * {@link ConversionService} is configured. Will use the accessor method of the given {@link PersistentProperty} if it\n\t * has one or field access otherwise.\n\t * \n\t * @param property must not be {@literal null}.\n\t * @param value\n\t */"
+}

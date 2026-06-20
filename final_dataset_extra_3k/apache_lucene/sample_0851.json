@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1c06c7739391e7cb405ecb99ce202f8d2cba2adb",
+  "issue_summary": "highlighting",
+  "code_before": "public static void setReturnFields(String fl,\n                                     SolrQueryResponse res) {\n\n    if (fl != null) {\n      // TODO - this could become more efficient if widely used.\n      // TODO - should field order be maintained?\n      String[] flst = splitList.split(fl.trim(),0);\n      if (flst.length > 0 && !(flst.length==1 && flst[0].length()==0)) {\n        Set<String> set = new HashSet<String>();\n        for (String fname : flst) set.add(fname);\n        res.setReturnFields(set);\n      }\n    }\n  }",
+  "code_after": "public static int setReturnFields(String fl,\n                                    SolrQueryResponse res) {\n    int flags = 0;\n    if (fl != null) {\n      // TODO - this could become more efficient if widely used.\n      // TODO - should field order be maintained?\n      String[] flst = splitList.split(fl.trim(),0);\n      if (flst.length > 0 && !(flst.length==1 && flst[0].length()==0)) {\n        Set<String> set = new HashSet<String>();\n        for (String fname : flst) {\n          if(\"score\".equalsIgnoreCase(fname))\n            flags |= SolrIndexSearcher.GET_SCORES;\n          set.add(fname);\n        }\n        res.setReturnFields(set);\n      }\n    }\n    return flags;\n  }",
+  "javadoc_before": "/**\n   * Given a space seperated list of field names, sets the field list on the\n   * SolrQueryResponse.\n   */",
+  "javadoc_after": "/**\n   * Given a space seperated list of field names, sets the field list on the\n   * SolrQueryResponse.\n   *\n   * @return bitfield of SolrIndexSearcher flags that need to be set\n   */"
+}

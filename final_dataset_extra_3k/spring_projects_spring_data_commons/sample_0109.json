@@ -1,0 +1,8 @@
+{
+  "commit_hash": "049970874dca2b648c9d2f3bfdd01f0e8a11de51",
+  "issue_summary": "Introduced usage of nullable annotations for API validation.",
+  "code_before": "public Class<?> getRequiredType() {\n\n\t\treturn getType().orElseThrow(() -> new IllegalStateException(\n\t\t\t\tString.format(\"Unable to obtain type! Didn't find field with annotation %s!\", annotationType)));\n\t}",
+  "code_after": "public Class<?> getRequiredType() {\n\t\treturn getRequiredField().getType();\n\t}",
+  "javadoc_before": "/**\n\t * Returns the type of the field or throws an {@link IllegalArgumentException} if no field could be found.\n\t * \n\t * @return\n\t * @throws IllegalStateException\n\t */",
+  "javadoc_after": "/**\n\t * Returns the type of the field or throws an {@link IllegalArgumentException} if no field could be found.\n\t * \n\t * @return\n\t * @throws IllegalStateException in case no field with the configured annotation was found.\n\t */"
+}

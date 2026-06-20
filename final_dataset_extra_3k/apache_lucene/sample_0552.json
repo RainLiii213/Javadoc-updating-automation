@@ -1,0 +1,8 @@
+{
+  "commit_hash": "04a44b515de19b3258ebabb8461f097d7519fb35",
+  "issue_summary": "Change all FilteredTermsEnum impls into TermsEnums decorators",
+  "code_before": "public FilteredTermsEnum(final TermsEnum tenum) {\n    this.tenum = tenum;\n  }",
+  "code_after": "public FilteredTermsEnum(final TermsEnum tenum) {\n    assert tenum != null;\n    this.tenum = tenum;\n  }",
+  "javadoc_before": "/**\n   * Creates a filtered {@link TermsEnum} on a terms enum.\n   * @param tenum the terms enumeration to filter, if {@code null} this is the null iterator.\n   */",
+  "javadoc_after": "/**\n   * Creates a filtered {@link TermsEnum} on a terms enum.\n   * @param tenum the terms enumeration to filter.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5db3def79b066caa41d3b0f61e9d51936c37736b",
+  "issue_summary": "Polishing.",
+  "code_before": "public QuerydslPredicateArgumentResolver(ConversionService conversionService) {\n\n\t\tthis.conversionService = conversionService == null ? new DefaultConversionService() : conversionService;\n\t\tthis.predicateBuilder = new QuerydslPredicateBuilder();\n\t}",
+  "code_after": "public QuerydslPredicateArgumentResolver(ConversionService conversionService) {\n\t\tthis.predicateBuilder = new QuerydslPredicateBuilder(\n\t\t\t\tconversionService == null ? new DefaultConversionService() : conversionService);\n\t}",
+  "javadoc_before": "/**\n\t * @param conversionService Defaulted to {@link DefaultConversionService} if {@literal null}.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link QuerydslPredicateArgumentResolver} using the given {@link ConversionService}.\n\t * \n\t * @param conversionService defaults to {@link DefaultConversionService} if {@literal null}.\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4d2cc9ab8ee6c3438490a6c2eb073dd58dc0c9f9",
+  "issue_summary": "Introduced StreamUtils.createStreamFromIterator(CloseableIterator).",
+  "code_before": "public static <T> Stream<T> createStreamFromIterator(Iterator<T> iterator) {\n\n\t\tAssert.notNull(iterator, \"Iterator must not be null!\");\n\n\t\tSpliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.NONNULL);\n\t\tStream<T> stream = StreamSupport.stream(spliterator, false);\n\n\t\treturn iterator instanceof CloseableIterator//\n\t\t\t\t? stream.onClose(() -> ((CloseableIterator<T>) iterator).close()) //\n\t\t\t\t: stream;\n\t}",
+  "code_after": "public static <T> Stream<T> createStreamFromIterator(Iterator<T> iterator) {\n\n\t\tSpliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.NONNULL);\n\t\treturn StreamSupport.stream(spliterator, false);\n\t}",
+  "javadoc_before": "/**\n\t * Returns a {@link Stream} backed by the given {@link Iterator}.\n\t * <p>\n\t * If the given iterator is an {@link CloseableIterator} add a {@link CloseableIteratorDisposingRunnable} wrapping the\n\t * given iterator to propagate {@link Stream#close()} accordingly.\n\t * \n\t * @param iterator must not be {@literal null}\n\t * @return\n\t * @since 1.8\n\t */",
+  "javadoc_after": "/**\n\t * Returns a {@link Stream} backed by the given {@link Iterator}\n\t * \n\t * @param iterator must not be {@literal null}.\n\t * @return\n\t */"
+}

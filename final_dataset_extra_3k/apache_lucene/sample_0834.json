@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9ba7a8e612e933da24c4eae0f927bf2fb6af32b0",
+  "issue_summary": "RAMDirectory.sizeInBytes, public flushRamSegments",
+  "code_before": "public final long fileModified(String name) {\n    RAMFile file = (RAMFile)files.get(name);\n    return file.lastModified;\n  }",
+  "code_after": "public final long fileModified(String name) throws IOException {\n    RAMFile file;\n    synchronized (this) {\n      file = (RAMFile)fileMap.get(name);\n    }\n    if (file==null)\n      throw new FileNotFoundException(name);\n    return file.getLastModified();\n  }",
+  "javadoc_before": "/** Returns the time the named file was last modified. */",
+  "javadoc_after": "/** Returns the time the named file was last modified.\n   * @throws IOException if the file does not exist\n   */"
+}

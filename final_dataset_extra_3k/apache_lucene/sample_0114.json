@@ -1,0 +1,8 @@
+{
+  "commit_hash": "67ebc26fa97552476fc9a7a49716c08c4ee47afa",
+  "issue_summary": "put current patch on branch",
+  "code_before": "public int[] sortPostings() {\n    return bytesHash.sort(BytesRef.getUTF8SortedAsUnicodeComparator());\n  }",
+  "code_after": "public int[] sortPostings() {\n    sortedTermIDs = bytesHash.sort(BytesRef.getUTF8SortedAsUnicodeComparator());\n    return sortedTermIDs;\n  }",
+  "javadoc_before": "/** Collapse the hash table & sort in-place. */",
+  "javadoc_after": "/** Collapse the hash table & sort in-place; also sets\n   * this.sortedTermIDs to the results */"
+}

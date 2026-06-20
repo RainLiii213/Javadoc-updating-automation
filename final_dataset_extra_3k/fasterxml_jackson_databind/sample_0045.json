@@ -1,0 +1,8 @@
+{
+  "commit_hash": "46515abe6f67b2bd7cfaeaaf353f508c15adab73",
+  "issue_summary": "Retrofit `CacheProvider` configuration via `BaseSettings`",
+  "code_before": "public BaseSettings(ClassIntrospector ci, AnnotationIntrospector ai,\n            PropertyNamingStrategy pns, TypeFactory tf,\n            TypeResolverBuilder<?> typer, DateFormat dateFormat, HandlerInstantiator hi,\n            Locale locale, TimeZone tz, Base64Variant defaultBase64,\n            PolymorphicTypeValidator ptv, AccessorNamingStrategy.Provider accNaming)\n    {\n        _classIntrospector = ci;\n        _annotationIntrospector = ai;\n        _propertyNamingStrategy = pns;\n        _typeFactory = tf;\n        _typeResolverBuilder = typer;\n        _dateFormat = dateFormat;\n        _handlerInstantiator = hi;\n        _locale = locale;\n        _timeZone = tz;\n        _defaultBase64 = defaultBase64;\n        _typeValidator = ptv;\n        _accessorNaming = accNaming;\n    }",
+  "code_after": "@Deprecated\n    public BaseSettings(ClassIntrospector ci, AnnotationIntrospector ai,\n            PropertyNamingStrategy pns, TypeFactory tf,\n            TypeResolverBuilder<?> typer, DateFormat dateFormat, HandlerInstantiator hi,\n            Locale locale, TimeZone tz, Base64Variant defaultBase64,\n            PolymorphicTypeValidator ptv, AccessorNamingStrategy.Provider accNaming)\n    {\n        this(ci, ai, pns, tf, typer, dateFormat, hi, locale, tz, defaultBase64, ptv, accNaming,\n                DefaultCacheProvider.defaultInstance());\n    }",
+  "javadoc_before": "/**\n     * @since 2.12\n     */",
+  "javadoc_after": "/**\n     * @since 2.12\n     * @deprecated Since 2.16, use variant that takes {@link CacheProvider} instead.\n     */"
+}

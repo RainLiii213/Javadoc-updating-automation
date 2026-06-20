@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9aa8ef35d805df0e2c0b635c62c31c0eb5fa2579",
+  "issue_summary": "remove redundant checks; improve Javadoc",
+  "code_before": "private static void requireDirectoryIfExists(final File directory, final String name) throws FileNotFoundException {\n        Objects.requireNonNull(directory, name);\n        if (directory.exists()) {\n            requireDirectoryExists(directory, name);\n        }\n    }",
+  "code_after": "private static void requireDirectoryIfExists(final File directory, final String name) throws FileNotFoundException {\n        Objects.requireNonNull(directory, name);\n        if (directory.exists() && !directory.isDirectory()) {\n            throw new IllegalArgumentException(\"Parameter '\" + name + \"' is not a directory: '\" + directory + \"'\");\n        }\n    }",
+  "javadoc_before": "/**\n     * Requires that the given {@link File} is a directory if it exists.\n     *\n     * @param directory The {@link File} to check.\n     * @param name The parameter name to use in the exception message in case of null input.\n     * @throws FileNotFoundException if the given {@link File} does not exist\n     * @throws NullPointerException if the given {@link File} is {@code null}.\n     * @throws IllegalArgumentException if the given {@link File} exists but is not a directory.\n     */",
+  "javadoc_after": "/**\n     * Requires that the given {@link File} is a directory if it exists.\n     *\n     * @param directory The {@link File} to check.\n     * @param name The parameter name to use in the exception message in case of null input.\n     * @throws NullPointerException if the given {@link File} is {@code null}.\n     * @throws IllegalArgumentException if the given {@link File} exists but is not a directory.\n     */"
+}

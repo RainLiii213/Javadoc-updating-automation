@@ -1,0 +1,8 @@
+{
+  "commit_hash": "07b4dfa01f9fe4daa3b9758c4ff68182d0c92145",
+  "issue_summary": "add \"throws IOException\" so that these analyzer compiles against Lucene 1.4 -- please tell me if I broke the encoding of the special characters",
+  "code_before": "public void setStemExclusionTable(File exclusionlist) {\n    excltable = new HashSet(WordlistLoader.getWordtable(exclusionlist).keySet());\n  }",
+  "code_after": "public void setStemExclusionTable(File exclusionlist) throws IOException {\n    excltable = new HashSet(WordlistLoader.getWordSet(exclusionlist));\n  }",
+  "javadoc_before": "/**\n   * Builds an exclusionlist from the words contained in the given file.\n   */",
+  "javadoc_after": "/**\n   * Builds an exclusionlist from the words contained in the given file.\n   * @throws IOException\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "68aa14653501d3aa0b67583e585d68bd383d9922",
+  "issue_summary": "Refactored SegmentInfos from IndexReader into the new subclass DirectoryIndexReader.",
+  "code_before": "public long getVersion() {\n    ensureOpen();\n    return segmentInfos.getVersion();\n  }",
+  "code_after": "public long getVersion() {\n    throw new UnsupportedOperationException(\"This reader does not support this method.\");\n  }",
+  "javadoc_before": "/**\n   * Version number when this IndexReader was opened.\n   */",
+  "javadoc_after": "/**\n   * Version number when this IndexReader was opened. Not implemented in the IndexReader base class.\n   * @throws UnsupportedOperationException unless overridden in subclass\n   */"
+}

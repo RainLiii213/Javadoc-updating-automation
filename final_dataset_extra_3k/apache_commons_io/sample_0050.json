@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1ac7befa44528dab09fb4864be9d7a95db8a25b6",
+  "issue_summary": "Fix possible NPEs in some file filters when paths have no parent or no elements.",
+  "code_before": "public boolean checkStartsWith(final String str, final String start) {\n        return str.regionMatches(!sensitive, 0, start, 0, start.length());\n    }",
+  "code_after": "public boolean checkStartsWith(final String str, final String start) {\n        return str != null && start != null && str.regionMatches(!sensitive, 0, start, 0, start.length());\n    }",
+  "javadoc_before": "/**\n     * Checks if one string starts with another using the case-sensitivity rule.\n     * <p>\n     * This method mimics {@link String#startsWith(String)} but takes case-sensitivity\n     * into account.\n     * </p>\n     *\n     * @param str  the string to check, not null\n     * @param start  the start to compare against, not null\n     * @return true if equal using the case rules\n     * @throws NullPointerException if either string is null\n     */",
+  "javadoc_after": "/**\n     * Checks if one string starts with another using the case-sensitivity rule.\n     * <p>\n     * This method mimics {@link String#startsWith(String)} but takes case-sensitivity\n     * into account.\n     * </p>\n     *\n     * @param str  the string to check\n     * @param start  the start to compare against\n     * @return true if equal using the case rules, false if either input is null\n     */"
+}

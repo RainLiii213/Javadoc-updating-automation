@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ca0dedf563721e1bae51483bb8c12e7c728a215c",
+  "issue_summary": "use encoding unless something else is specified.",
+  "code_before": "public Reader getReader() throws IOException {\n    String charset = getCharsetFromContentType( contentType );\n    return charset == null\n      ? new InputStreamReader( getStream() )\n      : new InputStreamReader( getStream(), charset );\n  }",
+  "code_after": "public Reader getReader() throws IOException {\n    String charset = getCharsetFromContentType( getContentType() );\n    return charset == null\n      ? new InputStreamReader( getStream(), DEFAULT_CHARSET )\n      : new InputStreamReader( getStream(), charset );\n  }",
+  "javadoc_before": "/**\n   * Base reader implementation.  If the contentType declares a \n   * charset use it, otherwise use the system default.\n   */",
+  "javadoc_after": "/**\n   * Base reader implementation.  If the contentType declares a \n   * charset use it, otherwise use \"utf-8\".\n   */"
+}

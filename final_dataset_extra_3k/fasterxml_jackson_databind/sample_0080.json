@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5e941f6f534b4a000fb93017734eb1f2e2a51703",
+  "issue_summary": "Manual merge of fix for (from PR )",
+  "code_before": "protected DeserializationConfig(DeserializationConfig src,\n            SimpleMixInResolver mixins, RootNameLookup rootNames,\n            ConfigOverrides configOverrides)\n    {\n        super(src, mixins, rootNames, configOverrides);\n        _deserFeatures = src._deserFeatures;\n        _problemHandlers = src._problemHandlers;\n        _nodeFactory = src._nodeFactory;\n        _parserFeatures = src._parserFeatures;\n        _parserFeaturesToChange = src._parserFeaturesToChange;\n        _formatReadFeatures = src._formatReadFeatures;\n        _formatReadFeaturesToChange = src._formatReadFeaturesToChange;\n    }",
+  "code_after": "@Deprecated\n    protected DeserializationConfig(DeserializationConfig src,\n            SimpleMixInResolver mixins, RootNameLookup rootNames,\n            ConfigOverrides configOverrides)\n    {\n        this(src, src._subtypeResolver, mixins, rootNames, configOverrides);\n    }",
+  "javadoc_before": "/**\n     * Copy-constructor used for making a copy used by new {@link ObjectMapper}.\n     *\n     * @since 2.9\n     */",
+  "javadoc_after": "/**\n     * @since 2.9\n     * @deprecated since 2.11.2\n     */"
+}

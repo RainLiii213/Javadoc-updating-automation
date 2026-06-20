@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ec38c40d94fb0b76f8eb1af701ee72e89781ccfb",
+  "issue_summary": "support for appended and invariant SolrParams in solrconfig.xml",
+  "code_before": "public static void setDefaults(SolrQueryRequest req, SolrParams defaults) {\n      SolrParams p = req.getParams();\n      if (defaults != null) {\n        p = new DefaultSolrParams(p,defaults);\n        // set params so they will be visible to other components such as the response writer\n        req.setParams(p);\n      }\n  }",
+  "code_after": "public static void setDefaults(SolrQueryRequest req, SolrParams defaults) {\n    setDefaults(req, defaults, null, null);\n  }",
+  "javadoc_before": "/** set defaults on a SolrQueryRequest */",
+  "javadoc_after": "/**\n   * Set defaults on a SolrQueryRequest.\n   *\n   * RequestHandlers can use this method to ensure their defaults are\n   * visible to other components such as the response writer\n   */"
+}

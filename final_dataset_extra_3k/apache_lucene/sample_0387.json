@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8e90661734c86dad3a556c046aee020e742c5c32",
+  "issue_summary": "fix AIOOBE in copyBytes/copyChars, off-by-one in subSequence",
+  "code_before": "public void grow(int newLength) {\n    bytes = ArrayUtil.grow(bytes, newLength);\n  }",
+  "code_after": "public void grow(int newLength) {\n    assert offset == 0; // NOTE: senseless if offset != 0\n    bytes = ArrayUtil.grow(bytes, newLength);\n  }",
+  "javadoc_before": "/** @lucene.internal */",
+  "javadoc_after": "/** \n   * Used to grow the reference array. \n   * \n   * In general this should not be used as it does not take the offset into account.\n   * @lucene.internal */"
+}

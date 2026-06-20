@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6eca4c05986bac88d1b65af83348a754efa36559",
+  "issue_summary": "ByteArrayOutputStream performance enhancements, from Holger Hoffstatte",
+  "code_before": "public synchronized void write(int b) {\n        write(new byte[] {(byte)b}, 0, 1);\n    }",
+  "code_after": "public synchronized void write(int b) {\n        int inBufferPos = count - filledBufferSum;\n        if (inBufferPos == currentBuffer.length) {\n            needNewBuffer(count + 1);\n            inBufferPos = 0;\n        }\n        currentBuffer[inBufferPos] = (byte) b;\n        count++;\n    }",
+  "javadoc_before": "/**\n     * Calls the write(byte[]) method.\n     *\n     * @see java.io.OutputStream#write(int)\n     */",
+  "javadoc_after": "/**\n     * @see java.io.OutputStream#write(int)\n     */"
+}

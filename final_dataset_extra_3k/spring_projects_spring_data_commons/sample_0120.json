@@ -1,0 +1,8 @@
+{
+  "commit_hash": "22dc91b68f71129ddf9aa20cf3bcfef352157444",
+  "issue_summary": "Encapsulate boundaries in value objects for Range.",
+  "code_before": "public Range(T lowerBound, T upperBound, boolean lowerInclusive, boolean upperInclusive) {\n\n\t\tthis.lowerBound = lowerBound;\n\t\tthis.upperBound = upperBound;\n\t\tthis.lowerInclusive = lowerInclusive;\n\t\tthis.upperInclusive = upperInclusive;\n\t}",
+  "code_after": "@Deprecated\n\tpublic Range(T lowerBound, T upperBound, boolean lowerInclusive, boolean upperInclusive) {\n\n\t\tthis.lowerBound = lowerBound == null ? Bound.unbounded()\n\t\t\t\t: lowerInclusive ? Bound.inclusive(lowerBound) : Bound.exclusive(lowerBound);\n\n\t\tthis.upperBound = upperBound == null ? Bound.unbounded()\n\t\t\t\t: upperInclusive ? Bound.inclusive(upperBound) : Bound.exclusive(upperBound);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link Range} with the given lower and upper bound as well as the given inclusive/exclusive\n\t * semantics.\n\t * \n\t * @param lowerBound can be {@literal null}.\n\t * @param upperBound can be {@literal null}.\n\t * @param lowerInclusive\n\t * @param upperInclusive\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link Range} with the given lower and upper bound as well as the given inclusive/exclusive\n\t * semantics.\n\t * \n\t * @param lowerBound can be {@literal null}.\n\t * @param upperBound can be {@literal null}.\n\t * @param lowerInclusive\n\t * @param upperInclusive\n\t * @deprecated since 2.0. Use {@link Range#of(Bound, Bound)} and {@link Bound} factory methods:\n\t *             {@link Bound#inclusive(Comparable)}, {@link Bound#exclusive(Comparable)}/{@link Bound#unbounded()}.\n\t */"
+}

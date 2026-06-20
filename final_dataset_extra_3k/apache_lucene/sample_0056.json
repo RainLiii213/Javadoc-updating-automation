@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bfc1b3deee543b2655c6020a8a1cd3a47578485b",
+  "issue_summary": "CachingWrapperFilter now uses RoaringDocIdSet.",
+  "code_before": "protected DocIdSet cacheImpl(DocIdSetIterator iterator, LeafReader reader) throws IOException {\n    WAH8DocIdSet.Builder builder = new WAH8DocIdSet.Builder();\n    builder.add(iterator);\n    return builder.build();\n  }",
+  "code_after": "protected DocIdSet cacheImpl(DocIdSetIterator iterator, LeafReader reader) throws IOException {\n    return new RoaringDocIdSet.Builder(reader.maxDoc()).add(iterator).build();\n  }",
+  "javadoc_before": "/**\n   * Default cache implementation: uses {@link WAH8DocIdSet}.\n   */",
+  "javadoc_after": "/**\n   * Default cache implementation: uses {@link RoaringDocIdSet}.\n   */"
+}

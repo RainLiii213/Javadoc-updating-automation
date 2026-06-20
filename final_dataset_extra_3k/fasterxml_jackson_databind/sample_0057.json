@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ae3873260339d4fcf3a1bd3e2b183b3b5cc97807",
+  "issue_summary": "Fix",
+  "code_before": "public <T extends JsonNode> T with(String propertyName) {\n        throw new UnsupportedOperationException(\"JsonNode not of type ObjectNode (but \"\n                +getClass().getName()+\"), cannot call with() on it\");\n    }",
+  "code_after": "@Deprecated // since 2.14\n    public final <T extends JsonNode> T with(String propertyName) {\n        return withObject(propertyName);\n    }",
+  "javadoc_before": "/**\n     * Method that can be called on Object nodes, to access a property\n     * that has Object value; or if no such property exists, to create,\n     * add and return such Object node.\n     * If the node method is called on is not Object node,\n     * or if property exists and has value that is not Object node,\n     * {@link UnsupportedOperationException} is thrown\n     *<p>\n     * NOTE: since 2.10 has had co-variant return type\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.14 use {@code withObject} instead\n     */"
+}

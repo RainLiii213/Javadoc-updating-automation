@@ -1,0 +1,8 @@
+{
+  "commit_hash": "eed59609bad45995700b4764b83d35fee66252ee",
+  "issue_summary": "update javadocs wrt 3.0",
+  "code_before": "public <T extends JsonNode> T require() throws IllegalArgumentException {\n        return _this();\n    }",
+  "code_after": "public <T extends JsonNode> T require() {\n        return _this();\n    }",
+  "javadoc_before": "/**\n     * Method that may be called to verify that {@code this} node is NOT so-called\n     * \"missing node\": that is, one for which {@link #isMissingNode()} returns {@code true}.\n     * If not missing node, {@code this} is returned to allow chaining; otherwise\n     * {@link IllegalArgumentException} is thrown.\n     *\n     * @return {@code this} node to allow chaining\n     *\n     * @throws IllegalArgumentException if this node is \"missing node\"\n     *\n     * @since 2.10\n     */",
+  "javadoc_after": "/**\n     * Method that may be called to verify that {@code this} node is NOT so-called\n     * \"missing node\": that is, one for which {@link #isMissingNode()} returns {@code true}.\n     * If not missing node, {@code this} is returned to allow chaining;\n     * otherwise exception is thrown.\n     *\n     * @return {@code this} node to allow chaining\n     *\n     * @throws IllegalArgumentException if this node is \"missing node\"\n     */"
+}

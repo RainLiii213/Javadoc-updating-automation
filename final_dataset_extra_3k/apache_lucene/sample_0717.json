@@ -1,0 +1,8 @@
+{
+  "commit_hash": "509e239d7028097e90a6d2907aa11889ff029629",
+  "issue_summary": "Fix MMapDirectory, add hack for JVM bug that keeps mmapped files open, fix tests, that cannot use other dir impls than SimpleFSDirectory, some API fine tuning.",
+  "code_before": "public IndexOutput createOutput(String name) throws IOException {\n    ensureOpen();\n    createDir();\n    File file = new File(directory, name);\n    if (file.exists() && !file.delete())          // delete existing, if any\n      throw new IOException(\"Cannot overwrite: \" + file);\n\n    return new FSIndexOutput(file);\n  }",
+  "code_after": "public IndexOutput createOutput(String name) throws IOException {\n    initOutput(name);\n    return new FSIndexOutput(new File(directory, name));\n  }",
+  "javadoc_before": "/** @deprecated In 3.0 this method will become abstract */",
+  "javadoc_after": "/** Creates an IndexOutput for the file with the given name.\n   * <em>In 3.0 this method will become abstract.</em> */"
+}

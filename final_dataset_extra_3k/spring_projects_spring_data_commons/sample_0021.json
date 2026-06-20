@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b10fd8f1c131300d4f11f038d9d773a1bb65e3b0",
+  "issue_summary": "Polishing.",
+  "code_before": "public interface QueryMetadata {\n\n\tMap<String, Object> serialize();\n\n\tpublic default JSONObject toJson() throws JSONException {\n\n\t\tJSONObject query = new JSONObject();\n\n\t\tfor (Map.Entry<String, Object> entry : serialize().entrySet()) {\n\t\t\tquery.put(entry.getKey(), entry.getValue());\n\t\t}\n\n\t\treturn query;\n\t}\n}",
+  "code_after": "public interface QueryMetadata {\n\n\t/**\n\t * @return serialize query metadata to a {@link Map} of key/value pairs using simple types (string, numbers).\n\t */\n\tMap<String, Object> serialize();\n\n}",
+  "javadoc_before": "/**\n * @author Mark Paluch\n */",
+  "javadoc_after": "/**\n * Interface providing metadata about a query. Name and multiplicity of keys is subject to a provider's implementation.\n *\n * @author Mark Paluch\n * @since 4.0\n */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cedd07b500a32ad8445f3e416d6f9e93cfa6cf11",
+  "issue_summary": "Solr Cell: Add support for Tika content extraction",
+  "code_before": "public static DateFormat getThreadLocalDateFormat() {\n\n    return fmtThreadLocal.get();\n  }",
+  "code_after": "public static DateFormat getThreadLocalDateFormat() {\n\n    return DateUtil.getThreadLocalDateFormat();\n  }",
+  "javadoc_before": "/**\n   * Returns a formatter that can be use by the current thread if needed to\n   * convert Date objects to the Internal representation.\n   */",
+  "javadoc_after": "/**\n   * Returns a formatter that can be use by the current thread if needed to\n   * convert Date objects to the Internal representation.\n   *\n   * @deprecated use {@link org.apache.solr.common.util.DateUtil#getThreadLocalDateFormat()}\n   */"
+}

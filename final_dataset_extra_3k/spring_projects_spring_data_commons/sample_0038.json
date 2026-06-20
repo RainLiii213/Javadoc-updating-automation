@@ -1,0 +1,8 @@
+{
+  "commit_hash": "eb184669db2666f17372b750dd1d1be1bab3a606",
+  "issue_summary": "Revise `OffsetScrollPosition` to use zero-based indexesAlign Offset Scrolling Position.",
+  "code_before": "default OffsetScrollPosition toScrollPosition() {\n\n\t\tif (isUnpaged()) {\n\t\t\tthrow new IllegalStateException(\"Cannot create OffsetScrollPosition from an unpaged instance\");\n\t\t}\n\n\t\treturn ScrollPosition.offset(getOffset());\n\t}",
+  "code_after": "default OffsetScrollPosition toScrollPosition() {\n\n\t\tif (isUnpaged()) {\n\t\t\tthrow new IllegalStateException(\"Cannot create OffsetScrollPosition from an unpaged instance\");\n\t\t}\n\n\t\treturn getOffset() > 0 ? ScrollPosition.offset(getOffset() - 1 /* scrolling is exclusive */)\n\t\t\t\t: ScrollPosition.offset();\n\t}",
+  "javadoc_before": "/**\n\t * Returns an {@link OffsetScrollPosition} from this pageable if the page request {@link #isPaged() is paged}.\n\t *\n\t * @return\n\t * @throws IllegalStateException if the request is {@link #isUnpaged()}\n\t * @since 3.1\n\t */",
+  "javadoc_after": "/**\n\t * Returns an {@link OffsetScrollPosition} from this pageable if the page request {@link #isPaged() is paged}.\n\t * <p>\n\t * Given the exclusive nature of scrolling the {@link ScrollPosition} for {@code Page(0, 10)} translates an\n\t * {@link ScrollPosition#isInitial() initial} position, where as {@code Page(1, 10)} will point to the last element of\n\t * {@code Page(0,10)} resulting in {@link ScrollPosition#offset(long) ScrollPosition(9)}.\n\t *\n\t * @return new instance of {@link OffsetScrollPosition}.\n\t * @throws IllegalStateException if the request is {@link #isUnpaged()}\n\t * @since 3.1\n\t */"
+}

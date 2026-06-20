@@ -1,0 +1,8 @@
+{
+  "commit_hash": "049970874dca2b648c9d2f3bfdd01f0e8a11de51",
+  "issue_summary": "Introduced usage of nullable annotations for API validation.",
+  "code_before": "public boolean matches(String name, Class<?> type) {\n\n\t\t\t\tif (namePattern != null && !name.matches(namePattern)) {\n\t\t\t\t\treturn false;\n\t\t\t\t}\n\n\t\t\t\tif (typeName != null && !type.getName().equals(typeName)) {\n\t\t\t\t\treturn false;\n\t\t\t\t}\n\n\t\t\t\treturn true;\n\t\t\t}",
+  "code_after": "public boolean matches(String name, Class<?> type) {\n\n\t\t\t\tAssert.notNull(name, \"Name must not be null!\");\n\t\t\t\tAssert.notNull(type, \"Type must not be null!\");\n\n\t\t\t\tif (namePattern != null && !name.matches(namePattern)) {\n\t\t\t\t\treturn false;\n\t\t\t\t}\n\n\t\t\t\tif (typeName != null && !type.getName().equals(typeName)) {\n\t\t\t\t\treturn false;\n\t\t\t\t}\n\n\t\t\t\treturn true;\n\t\t\t}",
+  "javadoc_before": "/**\n\t\t\t * Returns whether the given {@link Field} matches the defined {@link PropertyMatch}.\n\t\t\t *\n\t\t\t * @param name must not be {@literal null}.\n\t\t\t * @return\n\t\t\t */",
+  "javadoc_after": "/**\n\t\t\t * Returns whether the given {@link Field} matches the defined {@link PropertyMatch}.\n\t\t\t *\n\t\t\t * @param name must not be {@literal null}.\n\t\t\t * @param type must not be {@literal null}.\n\t\t\t * @return\n\t\t\t */"
+}

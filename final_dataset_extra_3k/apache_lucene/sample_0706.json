@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f03d77b558482b517bc7285f20f9d13075c604be",
+  "issue_summary": "switch from Weight (interface) to QueryWeight (abstract class); mate in/out-of docID order scoring between Collector & Scorer",
+  "code_before": "public Weight weight(Searcher searcher)\n    throws IOException {\n    Query query = searcher.rewrite(this);\n    Weight weight = query.createWeight(searcher);\n    float sum = weight.sumOfSquaredWeights();\n    float norm = getSimilarity(searcher).queryNorm(sum);\n    weight.normalize(norm);\n    return weight;\n  }",
+  "code_after": "public Weight weight(Searcher searcher) throws IOException {\n    return queryWeight(searcher);\n  }",
+  "javadoc_before": "/** Expert: Constructs and initializes a Weight for a top-level query. */",
+  "javadoc_after": "/**\n   * Expert: Constructs and initializes a Weight for a top-level query.\n   * \n   * @deprecated use {@link #queryWeight(Searcher)} instead.\n   */"
+}

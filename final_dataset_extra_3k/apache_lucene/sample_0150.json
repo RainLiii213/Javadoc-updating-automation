@@ -1,0 +1,8 @@
+{
+  "commit_hash": "99255ff0da685e6727d08833ed1c7feca18525ce",
+  "issue_summary": "Add Payload support to FileDictionary (Suggest) and make it more configurable",
+  "code_before": "public FileDictionary(InputStream dictFile) {\n    in = new BufferedReader(IOUtils.getDecodingReader(dictFile, IOUtils.CHARSET_UTF_8));\n  }",
+  "code_after": "public FileDictionary(InputStream dictFile) {\n    this(dictFile, DEFAULT_FIELD_DELIMITER);\n  }",
+  "javadoc_before": "/**\n   * Creates a dictionary based on an inputstream.\n   * <p>\n   * NOTE: content is treated as UTF-8\n   */",
+  "javadoc_after": "/**\n   * Creates a dictionary based on an inputstream.\n   * Using {@link #DEFAULT_FIELD_DELIMITER} as the \n   * field seperator in a line.\n   * <p>\n   * NOTE: content is treated as UTF-8\n   */"
+}

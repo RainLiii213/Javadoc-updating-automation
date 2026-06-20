@@ -1,0 +1,137 @@
+sample_id,commit_hash,issue_summary
+sample_0001,9aa8ef35d805df0e2c0b635c62c31c0eb5fa2579,remove redundant checks; improve Javadoc
+sample_0002,dd63fa3b53b4029b026d276a3c5564fa5aac42d1,Reimplemented add runtime exception support to broken streams
+sample_0003,dd63fa3b53b4029b026d276a3c5564fa5aac42d1,Reimplemented add runtime exception support to broken streams
+sample_0004,33db63489777c9782f054f50b434c70a528527d7,Rationalize and unify checking for existence of files and directories
+sample_0005,33db63489777c9782f054f50b434c70a528527d7,Rationalize and unify checking for existence of files and directories
+sample_0006,1cd45aeec8acde7ac6ecd349b16fab4cff7b346c,Remove exception from private method signature
+sample_0007,872ed3cc48de0cf5618c3821e56d8ed1a0a5817a,MessageDigestCalculatingInputStream.MessageDigestMaintainingObserver.MessageDigestMaintainingObserver(MessageDigest) now throws a NullPointerException if the MessageDigest is null
+sample_0008,43594ce6f5d5286677233442bf06b68a67874c3c,"Revert ""[] don't write a BOM on every (or any) line """
+sample_0009,469ef769dfda5da478bdf802d883bf28874ded79,don't write a BOM on every (or any) line
+sample_0010,606e72f4f85075828ac1014c318d222c35372d26,Don't throw UncheckedIOException
+sample_0011,f9d59dcfb42633c60ca0bd6f1b5e48aed6d0f59d,Add DeferredFileOutputStream.Builder.setOutputFile(Path)
+sample_0012,5035e97fa05344aa3193fb2d916939e4988d38eb,Add ThresholdingOutputStream.getOutputStream() and deprecate getStream()
+sample_0013,117e21958322bbeeef73c37cc3210317abb4bf3f,Add CharSequenceInputStream.Builder.setCharsetEncoder(CharsetEncoder)
+sample_0014,ce20baf6033cc123f9732de59ec09d83bb4ddd43,Setting builder delay duration to null acts as a reset.
+sample_0015,c93030ac0d20a7bc455207cca04b404187b310a1,Allow start the tailer thread to start on a custom executor service.
+sample_0016,4d8dcd264fd700c96062d661ac3b0bcf87164467,"Missing throw in org.apache.commons.io.FileUtils.copyFile(File, File boolean, CopyOption...)"
+sample_0017,150ba4af81b71517d3b44c0669b0da0f445e6ac3,Add ability to specify wait time to QueueInputStream
+sample_0018,150ba4af81b71517d3b44c0669b0da0f445e6ac3,Add ability to specify wait time to QueueInputStream
+sample_0019,150ba4af81b71517d3b44c0669b0da0f445e6ac3,Add ability to specify wait time to QueueInputStream
+sample_0020,b21c2ac4009a31def29055468e05f290b1019bb5,Add PollingQueueInputStream and TakingQueueInputStream to replace QueueInputStream
+sample_0021,7ecca22f175c644da3096940a4ce899be5b33740,Add builders and avoid creating more constructors for all permutations of current options.
+sample_0022,7ecca22f175c644da3096940a4ce899be5b33740,Add builders and avoid creating more constructors for all permutations of current options.
+sample_0023,7ecca22f175c644da3096940a4ce899be5b33740,Add builders and avoid creating more constructors for all permutations of current options.
+sample_0024,b9e4f5e6e718ec8e4156e31bef733874700d7cbf,Bump default buffer size to IOUtils#DEFAULT_BUFFER_SIZE
+sample_0025,7b13b4db7cec3fbf0709df90e51404345b7ad07e,SequenceReader should close readers when its close method is called .
+sample_0026,7b13b4db7cec3fbf0709df90e51404345b7ad07e,SequenceReader should close readers when its close method is called .
+sample_0027,30451321618e4e915092a38d7030719717c1c404,Use Objects.requireNonNull()
+sample_0028,fd7c8182d2117d01f43ccc9fe939105f834ba672,Add PathUtils.touch(Path)
+sample_0029,0789b2bd4bd554c6eac1f822dec0259da06d7d51,Add NTFS conversion methods from https://github.com/apache/commons-compress/pull/256
+sample_0030,69e3b819a154793128ec7c0336d33623f6cc8a21,Method that allocates should release resources.
+sample_0031,218b5e7b7d76654004f4122c674308f78c87954e,Patch from PR 32 from jonfreedman with additional changes and cleanups
+sample_0032,218b5e7b7d76654004f4122c674308f78c87954e,Patch from PR 32 from jonfreedman with additional changes and cleanups
+sample_0033,218b5e7b7d76654004f4122c674308f78c87954e,Patch from PR 32 from jonfreedman with additional changes and cleanups
+sample_0034,dcb09db922e1edbd6dc6cb1531b827451d58aa83,Add and use PathUtils.sizeOf(Path)
+sample_0035,dcb09db922e1edbd6dc6cb1531b827451d58aa83,Add and use PathUtils.sizeOf(Path)
+sample_0036,dcb09db922e1edbd6dc6cb1531b827451d58aa83,Add and use PathUtils.sizeOf(Path)
+sample_0037,a41ddc56c446a19debfb8cf063e4ae3efbe1249d,A null Charset in FileWriterWithEncoding uses the default Charset.
+sample_0038,083c58432d8bb169f350cb8936e59883f7dd448f,"Remove IOException from the method signatures that no longer throw IOException. This maintains binary compatibility but not source compatibility. FilenameUtils directoryContains(String, String) BoundedReader BoundedReader(java.io.Reader, int) IOUtils lineIterator(java.io.InputStream, Charset) lineIterator(java.io.InputStream, String) toByteArray(String) toInputStream(CharSequence, String) toInputStream(String, String) toString(byte[]) toString(byte[], String)"
+sample_0039,083c58432d8bb169f350cb8936e59883f7dd448f,"Remove IOException from the method signatures that no longer throw IOException. This maintains binary compatibility but not source compatibility. FilenameUtils directoryContains(String, String) BoundedReader BoundedReader(java.io.Reader, int) IOUtils lineIterator(java.io.InputStream, Charset) lineIterator(java.io.InputStream, String) toByteArray(String) toInputStream(CharSequence, String) toInputStream(String, String) toString(byte[]) toString(byte[], String)"
+sample_0040,083c58432d8bb169f350cb8936e59883f7dd448f,"Remove IOException from the method signatures that no longer throw IOException. This maintains binary compatibility but not source compatibility. FilenameUtils directoryContains(String, String) BoundedReader BoundedReader(java.io.Reader, int) IOUtils lineIterator(java.io.InputStream, Charset) lineIterator(java.io.InputStream, String) toByteArray(String) toInputStream(CharSequence, String) toInputStream(String, String) toString(byte[]) toString(byte[], String)"
+sample_0041,7e0d317ac61427e6004372622df4014c1e602487,Check for long streams in IOUtils.toByteArray .
+sample_0042,f01754e820f98e7e99909b9ea3900000a68ad8e9,Use the JRE CopyOption enum instead of asrc boolean.
+sample_0043,2d37ab6a0d53fce60095b352d36dddd9d26f5ab0,provide method overload for moveFile
+sample_0044,0cee29aa4c1818963ed1a55058219282e89d7488,FileUtils throws IllegalArgumentException for (most) illegal input to methods.
+sample_0045,0cee29aa4c1818963ed1a55058219282e89d7488,FileUtils throws IllegalArgumentException for (most) illegal input to methods.
+sample_0046,0cee29aa4c1818963ed1a55058219282e89d7488,FileUtils throws IllegalArgumentException for (most) illegal input to methods.
+sample_0047,09bda53aed9728ccb235fa7622e981e47cd943a0,"Add unchecked exception to a method signature and Javadoc, preserves BC since it is unchecked."
+sample_0048,b2d075642ac1d370cd8fdd8b80d29f1c88ca4757,Remove unused exception from private method signature.
+sample_0049,2bc7e31f1dee0cb6ff4f3c57a63ac09cd4c2d1aa,Reimplement some FileUtils internals in terms of refactored PathUtils methods to provide better behavioral compatibility with older versions like 2.6 in the area of deleting read-only file system elements.
+sample_0050,1ac7befa44528dab09fb4864be9d7a95db8a25b6,Fix possible NPEs in some file filters when paths have no parent or no elements.
+sample_0051,1ac7befa44528dab09fb4864be9d7a95db8a25b6,Fix possible NPEs in some file filters when paths have no parent or no elements.
+sample_0052,f3695711ed2fe576c221a21f851e2a1b874aff46,New PathFilter no longer throws to play nice with predicates and other functional interfaces.
+sample_0053,8b6d4969ffb55bf7301a44a8156f02b0213e6d68,Let org.apache.commons.io.filefilter classes work with java.nio.file.Files.walk* APIs.
+sample_0054,8b6d4969ffb55bf7301a44a8156f02b0213e6d68,Let org.apache.commons.io.filefilter classes work with java.nio.file.Files.walk* APIs.
+sample_0055,8b6d4969ffb55bf7301a44a8156f02b0213e6d68,Let org.apache.commons.io.filefilter classes work with java.nio.file.Files.walk* APIs.
+sample_0056,c1fb4aebe215fbb46339f86ee80d6ed19699e7fe,Add isFileNewer() and isFileOlder() methods that support the Java 8 Date/Time API.
+sample_0057,c1fb4aebe215fbb46339f86ee80d6ed19699e7fe,Add isFileNewer() and isFileOlder() methods that support the Java 8 Date/Time API.
+sample_0058,6a78ef8903ef7c2c785b8d0cc08a150d1e2ba818,Normalize internal buffers to 8192 bytes.
+sample_0059,6a78ef8903ef7c2c785b8d0cc08a150d1e2ba818,Normalize internal buffers to 8192 bytes.
+sample_0060,d9e154a5d7fb86c686ecbe0b1f2e1d72e65f0993,Remove throws IOException in method isSymlink()
+sample_0061,947c01f6d8000122a174da3d668208eec877a799,PR
+sample_0062,947c01f6d8000122a174da3d668208eec877a799,PR
+sample_0063,72d00532aa8f0fb96371f01688ace8b9d53b17b8,PR
+sample_0064,72d00532aa8f0fb96371f01688ace8b9d53b17b8,PR
+sample_0065,c5f2e40e7a8234fe48e08d451d3152ba58a03ac6,Allow Specifying Initial Buffer Size of DeferredFileOutputStream. Redo submitted patch.
+sample_0066,c1d92d87157b7d5a27aa989eff14e302e15f96d7,Make LineIterator implement Closeable to support try-with-resources statements.
+sample_0067,c1d92d87157b7d5a27aa989eff14e302e15f96d7,Make LineIterator implement Closeable to support try-with-resources statements.
+sample_0068,7f15b0e5cdb5c92eab77b33da0eaae6e546910f7,FileUtils.doCopyFile caches the file size; needs to be documented
+sample_0069,6d8ef99f2ed43b9f71005561af57e50c3b24f7d0,Commons IO Tailer does not respect Charset Rework to allow charset to be specified
+sample_0070,a39385a500fc0e8993d967a8025b931d3337ea04,Fix infinite loop; check that buffer size is large enough to hold any character in the charset
+sample_0071,fe0db49d62f50afabf12da2b9077ed87c0f37ed1,Deprecate all methods that use the default encoding
+sample_0072,7b9147ec56141908a88d635f8d018b7b0e80b3ee,Deprecate and then remove all methods that use the default encoding
+sample_0073,5d982c5fab42e707bb0b97b4a35ac966cb5aef42,Make explicit where the default platform encoding is being used
+sample_0074,3789b1aa9669cff2f434eba56f57c500662ead10,Tailer] InterruptedException while the thread is sleeping is silently ignored.
+sample_0075,e4c65e5424fe7a7c9795348fc855d42a247f0c00,Add XmlStreamReader support for . BOMInputStream wrongly detects LE_BOM files as LE_BOM files in method getBOM().
+sample_0076,59ffcad15d220c2bc1f70f01d58bc31dec04b423,Improve tailer's reading performance.
+sample_0077,c8f8c3aa9a9aa3d979a2306c90b78316e36b15df,Add Charset sister APIs to method that take a String charset name. LockableFileWriterTest.
+sample_0078,e62f537b2ae7a8d0128142ba7d1c774766bf3cd5,Add Charset sister APIs to method that take a String charset name. ReversedLinesFileReader.
+sample_0079,34f049caaa1f9048cc7385e0224136110bfc75f9,Add Charset sister APIs to method that take a String charset name.
+sample_0080,aad6359c39d59176c51e0d4e5ee31def1bc10077,TeeOutputStream fails executing branch.close() when main.close() raised an exception.
+sample_0081,c92f4ac0a572b70ac760612525ebb59de696431f,"Detect changes on File's size and type as well as last modified and ""refresh"" the values that were compared"
+sample_0082,70f4ddc09819068a13fcb522ad08340140d48f37,Add static helper methods; update Javadoc
+sample_0083,ed01f165f9bbb7ccbd48dde7dd3106eb044dd859,Fix URL decoding in FileUtils.toFile() - thanks to Benjamin Bentmann for the patch
+sample_0084,3ce24e5883f282e5b6dcdea3eaa5b8992ab1f86e,Pre- and post-processing support for proxied streams
+sample_0085,3ce24e5883f282e5b6dcdea3eaa5b8992ab1f86e,Pre- and post-processing support for proxied streams
+sample_0086,2853baafcb5ffc93d087efc230ce79e0bbab0536,Tagged input and output streams
+sample_0087,6eca4c05986bac88d1b65af83348a754efa36559,"ByteArrayOutputStream performance enhancements, from Holger Hoffstatte"
+sample_0088,53ff5a5b15f8b6fccdf163e66d10bdd85bb12715,"Use FileUtils.openOutputStream, thus creating parent directories if required"
+sample_0089,53ff5a5b15f8b6fccdf163e66d10bdd85bb12715,"Use FileUtils.openOutputStream, thus creating parent directories if required"
+sample_0090,9c18390762527fe8d1bf7af8ded586566cdbb59c,"FileCleaner.exitWhenFinished, to allow the thread to be terminated includes some code from Jochen Wiedmann"
+sample_0091,1d0c2d0ba1ddc78070e415d05b2bd26cb288cecb,"Make IOUtils.copy return -1 not an exception for large files, as more backwards compatible"
+sample_0092,7abbdd16ebee8cf4dc3d44e11f3a0f5b530c84ad,"Add additional cancellation support, including checkIsCancelled() and handleIsCancelled()"
+sample_0093,25a080279d01e0556091d64eef5908bdf66b5811,Add constructor to take directory and file filters separately
+sample_0094,a56cc14c2dd316cf6439e94444530b3ab4894949,"Update cancellation behaviour in DirectoryWalker to use a new CancelException, also add IOException to ""lifecycle"" method definitions."
+sample_0095,a56cc14c2dd316cf6439e94444530b3ab4894949,"Update cancellation behaviour in DirectoryWalker to use a new CancelException, also add IOException to ""lifecycle"" method definitions."
+sample_0096,a56cc14c2dd316cf6439e94444530b3ab4894949,"Update cancellation behaviour in DirectoryWalker to use a new CancelException, also add IOException to ""lifecycle"" method definitions."
+sample_0097,4147a50bae4e937d0bd41c397b13009b56a8cf2a,Modify copy() methods that return an int to throw an ArithmeticException if the returned size is too large for an int to handle. Add two new equivalent copyLarge() methods that return a long for large files.
+sample_0098,e03d721bb4dfd2e4ba7719f76ce17e860890dd2e,Change int methods from deprecated to exception throwng
+sample_0099,e03d721bb4dfd2e4ba7719f76ce17e860890dd2e,Change int methods from deprecated to exception throwng
+sample_0100,1cd7e93ab1fbd610a3b552d8295d8e565adeecb2,Fix for - Files over 2GB will result in an incorrect count being returned by the getCount() and resetCount() methods (as they return an integer). These methods have been deprecated and new getByteCount() and resetByteCount() methods have been added which return a long.
+sample_0101,1cd7e93ab1fbd610a3b552d8295d8e565adeecb2,Fix for - Files over 2GB will result in an incorrect count being returned by the getCount() and resetCount() methods (as they return an integer). These methods have been deprecated and new getByteCount() and resetByteCount() methods have been added which return a long.
+sample_0102,d4aa877eb38d603ab3656a012c156edabb1be1f3,Add cancellation support to DirectoryWalker
+sample_0103,dc5bb1187f027d3b9cdc70d3517c442d7b4c45ef,FileDeleteStrategy / FileCleaner FileDeleteStrategy is a strategy for handling file deletion and can be used as a calback in FileCleaner Together these allow FileCleaner to do a forceDelete to kill directories and provide hooks for secure delete
+sample_0104,4565a3c49d005a72d91e91fb837d51eaa72d1c02,Separate handleDirectory from handleDirectoryStart
+sample_0105,a840001204a39da7d1307bbe6fdc91b23ba7d4b5,"DirectoryWalker modifications, delete FileFinder and rename FileFinderTestCase to DirectoryWalkerTestCase Change DirectoryWalker methods to use a Collection rather than List Move the handleDirectoryEnd() method within the ""process"" check Change walk() method signature to take a Collection and not return anything"
+sample_0106,8fc87cae153493e041856c83d253d9f418dc7b15,Create DirectoryWalker by extracting from FileFinder
+sample_0107,1d4766b9f16ed6b33a26d44c3f0531ae85f0f370,Allow subclasses to block skip directory processing Add start and end callback methods Improve documentation
+sample_0108,1d4766b9f16ed6b33a26d44c3f0531ae85f0f370,Allow subclasses to block skip directory processing Add start and end callback methods Improve documentation
+sample_0109,4fe355979f38b486f9d9be307720ac3cf64f2f5b,Add WildcardFileFilter deprecating WildcardFilter
+sample_0110,62ae9ca81916868ea2408c335b6585d3c384fa76,"Cleaned up LineIterator changes include * Removed the IOIterator interface, it can be added back later when there is more than one Iterator implementations with a close method. * Doesn't automatically close the Reader at EOF. * made LineIterator final because the hasNext method isn't implemented in a subclassable way. * constructor throws an IllegaArgumentException, not a NPE when the argument is bogus."
+sample_0111,69faa8fc52bf4a8125e882d48208355a8a5ebeb8,Fix javadoc and method return type
+sample_0112,960ed15a59586ae84b8b515397f72c6fd19da839,"FileUtils.contentEquals(File,File) Performance improved by adding length and file location checking from discussion at The Server Side http://www.theserverside.com/news/thread.tss?thread_id=37035"
+sample_0113,e5cc89dec2c72e8af821a0536c768af316cb9b55,"LockableFileWriter, add encoding support, and general tidy bug 36825, from Andy Lehane"
+sample_0114,b39e430b27a666ec6195d9f77b09b3ae2c21f011,Treat separator at end of filename as sign of directory Adjust other methods to this new definition Adjust absolute prefix calculation to always end in separator Add new methods that omit the end separator
+sample_0115,b39e430b27a666ec6195d9f77b09b3ae2c21f011,Treat separator at end of filename as sign of directory Adjust other methods to this new definition Adjust absolute prefix calculation to always end in separator Add new methods that omit the end separator
+sample_0116,4cd33ce31d4245281432320a7f4f4cf6b541c690,Fix FileSystemUtils and add tests from Frank W. Zammetti
+sample_0117,c061ccfa0bc29ade5005b91c23b1a8107dc27643,Handle null List constructor more gracefully
+sample_0118,c061ccfa0bc29ade5005b91c23b1a8107dc27643,Handle null List constructor more gracefully
+sample_0119,745375d22e427574f1ef1301c8378cd81e85a1fc,"Make FilenameUtils equals methods case-sensitive, with some optional system case matching"
+sample_0120,745375d22e427574f1ef1301c8378cd81e85a1fc,"Make FilenameUtils equals methods case-sensitive, with some optional system case matching"
+sample_0121,d7ab0e88337d961f47be82db20718dd7e1d1a06e,"Handle encodings in URL to File conversion bug 32575, from Jason Madden"
+sample_0122,a09ebfc6c0f84a0aa9a05da04801461d99509ec5,"Add equals methods, document Unix/Windows behaviour"
+sample_0123,5964ce6decf3d7ab3efb7e1a9852b2f85a03ec6d,Add methods to handle filename prefixes
+sample_0124,5964ce6decf3d7ab3efb7e1a9852b2f85a03ec6d,Add methods to handle filename prefixes
+sample_0125,977e83dbfe903e712143ce281dd9a303fa8e9a7d,Update removeExtension method and remove unused code from FilenameUtils
+sample_0126,9628bca96999535c33adad8a0a3a5afa4c755340,Add indexOfXxx methods to FilenameUtils
+sample_0127,ba53c60b33b398532ae8d1a3bdad9c914b76b381,Bug - Add conditional file filters.
+sample_0128,ba53c60b33b398532ae8d1a3bdad9c914b76b381,Bug - Add conditional file filters.
+sample_0129,f0c9d8d08404ba2bad6c581bc76ecb1eef6c9bff,Deprecate CopyUtils (reverting to v1.0)
+sample_0130,f0c9d8d08404ba2bad6c581bc76ecb1eef6c9bff,Deprecate CopyUtils (reverting to v1.0)
+sample_0131,6afa3db854c9b574faaf1499247a898c524eded7,"Add encoding specific methods, Javadoc, Reformat to standards"
+sample_0132,6afa3db854c9b574faaf1499247a898c524eded7,"Add encoding specific methods, Javadoc, Reformat to standards"
+sample_0133,8d33a71d3c6ef9e1a55d7013841adb1614ec3c26,Bugzilla Fix for catPath not handling Windows-style path separators. Submitted by: Maarten Coene <Maarten.Coene.at.qmedit.com>
+sample_0134,8ab260ef261f794ec394043f496d985411ad396f,Removed methods that take a bufferSize parameter. Discussion http://www.mail-archive.com/commons-dev@jakarta.apache.org/msg19703.html http://nagoya.apache.org/eyebrowse/BrowseList?listName=commons-dev@jakarta.apache.org&by=thread&from=572862
+sample_0135,985c1831405bc7e96ea6a140b830594b9c41bf1e,"Add the new name filter. Add method to decorate a filter to become ""CVS-aware"", thus filtering out all CVS directories. This is driven by some functionality in FileUtils as I'm refactoring that class."
+sample_0136,51e80fc903c8404d9515c60436b3f67b702f7c4c,Updated build file. Sniped from alexandria's FileUtils. Added FileUtils test case.

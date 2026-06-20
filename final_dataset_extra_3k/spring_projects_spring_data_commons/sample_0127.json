@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d4811e29d9a95b97dc4ee219ae2de46be93049bb",
+  "issue_summary": "Second draft.",
+  "code_before": "public Sort(List<Order> orders) {\n\n\t\tif (null == orders || orders.isEmpty()) {\n\t\t\tthrow new IllegalArgumentException(\"You have to provide at least one sort property to sort by!\");\n\t\t}\n\n\t\tthis.orders = orders;\n\t}",
+  "code_after": "@Deprecated\n\tpublic Sort(List<Order> orders) {\n\n\t\tAssert.notNull(orders, \"Orders must not be null!\");\n\n\t\tthis.orders = Collections.unmodifiableList(orders);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link Sort} instance.\n\t * \n\t * @param orders must not be {@literal null} or contain {@literal null}.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link Sort} instance.\n\t * \n\t * @param orders must not be {@literal null} or contain {@literal null}.\n\t * @deprecated see {@link Sort#by(List)}\n\t */"
+}

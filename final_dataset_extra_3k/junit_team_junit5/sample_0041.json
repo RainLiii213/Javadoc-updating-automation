@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7be6fdec7c6b0cbed5f1349a8e550f13eaf7834c",
+  "issue_summary": "Introduce LauncherSession{Listener}",
+  "code_before": "public static Launcher create() throws PreconditionViolationException {\n\t\treturn create(LauncherConfig.builder().build());\n\t}",
+  "code_after": "public static Launcher create() throws PreconditionViolationException {\n\t\treturn create(LauncherConfig.DEFAULT);\n\t}",
+  "javadoc_before": "/**\n\t * Factory method for creating a new {@link Launcher} using automatic\n\t * registration for test engines and test execution listeners.\n\t *\n\t * @throws PreconditionViolationException if no test engines are detected\n\t * @see #create(LauncherConfig)\n\t */",
+  "javadoc_after": "/**\n\t * Factory method for creating a new {@link Launcher} using the\n\t * {@linkplain LauncherConfig#DEFAULT default} {@link LauncherConfig}.\n\t *\n\t * @throws PreconditionViolationException if no test engines are detected\n\t * @see #create(LauncherConfig)\n\t */"
+}

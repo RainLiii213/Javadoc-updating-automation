@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1c579789eebd28eb3035fae84da0adae3a14649e",
+  "issue_summary": "Consistent factory methods for `QueryCreationException`.",
+  "code_before": "public static QueryCreationException create(QueryMethod method, String message) {\n\n\t\treturn new QueryCreationException(String.format(\"Could not create query for %s; Reason: %s\", method, message),\n\t\t\t\tmethod);\n\t}",
+  "code_after": "public static QueryCreationException create(QueryMethod method, String message) {\n\t\treturn new QueryCreationException(createMessage(message, method.getMethod()), method);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link QueryCreationException}.\n\t *\n\t * @param method\n\t * @param message\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link QueryCreationException}.\n\t *\n\t * @param method the {@link QueryMethod} to create the exception for.\n\t * @param message the message to use.\n\t * @return the {@link QueryCreationException}.\n\t */"
+}

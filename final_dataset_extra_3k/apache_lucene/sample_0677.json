@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5324b752cbb7508bccf1460af246eb932204e2dd",
+  "issue_summary": "Add offset corrections in PatternTokenizerFactory",
+  "code_before": "public static List<Token> group( Matcher matcher, String input, int group )\n  {\n    ArrayList<Token> matchList = new ArrayList<Token>();\n    while(matcher.find()) {\n      Token t = new Token(\n        matcher.group(group),\n        matcher.start(group),\n        matcher.end(group) );\n      matchList.add( t );\n    }\n    return matchList;\n  }",
+  "code_after": "public static List<Token> group( Matcher matcher, String input, int group ){\n    return group(matcher, input, group, null);\n  }",
+  "javadoc_before": "/**\n   * Create tokens from the matches in a matcher \n   */",
+  "javadoc_after": "/**\n   * @deprecated\n   */"
+}

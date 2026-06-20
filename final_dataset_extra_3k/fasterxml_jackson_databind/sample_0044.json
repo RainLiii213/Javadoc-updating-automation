@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e4d183f61b66f56b6bc7337ec41b6a98e12fa3cf",
+  "issue_summary": "Merging minor piece of #4101",
+  "code_before": "public ObjectMapper setCacheProvider(CacheProvider cacheProvider) {\n        _deserializationConfig = _deserializationConfig.with(cacheProvider);\n        _serializationConfig = _serializationConfig.with(cacheProvider);\n        return this;\n    }",
+  "code_after": "public ObjectMapper setCacheProvider(CacheProvider cacheProvider) {\n        _assertNotNull(\"cacheProvider\", cacheProvider);\n        _deserializationConfig = _deserializationConfig.with(cacheProvider);\n        _serializationConfig = _serializationConfig.with(cacheProvider);\n        return this;\n    }",
+  "javadoc_before": "/**\n     * Method for specifying {@link CacheProvider} instance, to provide Cache instances to be used in components downstream.\n     *\n     * @since 2.16\n     */",
+  "javadoc_after": "/**\n     * Method for specifying {@link CacheProvider} instance, to provide Cache instances to be used in components downstream.\n     *\n     * @cacheProvider Cache provider for this mapper to use\n     *\n     * @throws IllegalArgumentException if given provider is null\n     *\n     * @since 2.16\n     */"
+}

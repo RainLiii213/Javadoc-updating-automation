@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b5f59e10c057bf4fadc0c7df945967940e98c4b3",
+  "issue_summary": "adding k-nearestneighbor classifier (based on mlt), improving testing by abstracting a basetest class, added ngram test for simplenaivebayes, changed build.xml to incorporate queries and analyzer-common deps",
+  "code_before": "public String assignClass(String text) throws IOException;",
+  "code_after": "public ClassificationResult assignClass(String text) throws IOException;",
+  "javadoc_before": "/**\n   * Assign a class to the given text String\n   * @param text a String containing text to be classified\n   * @return a String representing a class\n   * @throws IOException If there is a low-level I/O error.\n   */",
+  "javadoc_after": "/**\n   * Assign a class (with score) to the given text String\n   * @param text a String containing text to be classified\n   * @return a {@link ClassificationResult} holding assigned class and score\n   * @throws IOException If there is a low-level I/O error.\n   */"
+}

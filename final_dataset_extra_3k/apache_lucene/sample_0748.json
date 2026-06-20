@@ -1,0 +1,8 @@
+{
+  "commit_hash": "efc985cbf4930b97deab8a9dd16bafbec74690ee",
+  "issue_summary": "allow SortField to use a custom numeric FieldCache parser",
+  "code_before": "public boolean equals(Object o) {\n    if (this == o) return true;\n    if (!(o instanceof SortField)) return false;\n    final SortField other = (SortField)o;\n    return (\n      other.field == this.field // field is always interned\n      && other.type == this.type\n      && other.reverse == this.reverse\n      && (other.locale == null ? this.locale == null : other.locale.equals(this.locale))\n      && (other.factory == null ? this.factory == null : other.factory.equals(this.factory))\n    );\n  }",
+  "code_after": "public boolean equals(Object o) {\n    if (this == o) return true;\n    if (!(o instanceof SortField)) return false;\n    final SortField other = (SortField)o;\n    return (\n      other.field == this.field // field is always interned\n      && other.type == this.type\n      && other.reverse == this.reverse\n      && (other.locale == null ? this.locale == null : other.locale.equals(this.locale))\n      && (other.factory == null ? this.factory == null : other.factory.equals(this.factory))\n      && (other.parser == null ? this.parser == null : other.parser.equals(this.parser))\n    );\n  }",
+  "javadoc_before": "/** Returns true if <code>o</code> is equal to this.  If a\n   *  {@link #SortComparatorSource} was provided, it must\n   *  properly implement equals. */",
+  "javadoc_after": "/** Returns true if <code>o</code> is equal to this.  If a\n   *  {@link SortComparatorSource} or {@link\n   *  FieldCache.Parser} was provided, it must properly\n   *  implement equals (unless a singleton is always used). */"
+}

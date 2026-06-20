@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0669632a613994cfdeffecafc81078df851a211d",
+  "issue_summary": "Add missing NonNullApi and Nullable annotations.",
+  "code_before": "private S createCriteria(PartTree tree) {\n\n\t\tS base = null;\n\t\tIterator<Object> iterator = parameters.map(ParameterAccessor::iterator).orElse(null);\n\n\t\tfor (OrPart node : tree) {\n\n\t\t\tS criteria = null;\n\n\t\t\tfor (Part part : node) {\n\n\t\t\t\tcriteria = criteria == null ? create(part, iterator) : and(part, criteria, iterator);\n\t\t\t}\n\n\t\t\tbase = base == null ? criteria : or(base, criteria);\n\t\t}\n\n\t\treturn base;\n\t}",
+  "code_after": "private S createCriteria(PartTree tree) {\n\n\t\tS base = null;\n\t\tIterator<Object> iterator = parameters.map(ParameterAccessor::iterator).orElse(Collections.emptyIterator());\n\n\t\tfor (OrPart node : tree) {\n\n\t\t\tS criteria = null;\n\n\t\t\tfor (Part part : node) {\n\n\t\t\t\tcriteria = criteria == null ? create(part, iterator) : and(part, criteria, iterator);\n\t\t\t}\n\n\t\t\tbase = base == null ? criteria : or(base, criteria);\n\t\t}\n\n\t\treturn base;\n\t}",
+  "javadoc_before": "/**\n\t * Actual query building logic. Traverses the {@link PartTree} and invokes callback methods to delegate actual\n\t * criteria creation and concatenation.\n\t *\n\t * @param tree\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Actual query building logic. Traverses the {@link PartTree} and invokes callback methods to delegate actual\n\t * criteria creation and concatenation.\n\t *\n\t * @param tree must not be {@literal null}.\n\t * @return\n\t */"
+}

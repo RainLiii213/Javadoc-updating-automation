@@ -1,0 +1,8 @@
+{
+  "commit_hash": "12eee6df5a994de466e89f626bc42b67a163c09a",
+  "issue_summary": "Added term vector support.",
+  "code_before": "public static final Field Text(String name, String value) {\n    return new Field(name, value, true, true, true);\n  }",
+  "code_after": "public static final Field Text(String name, String value) {\n    return Text(name, value, false);\n  }",
+  "javadoc_before": "/** Constructs a String-valued Field that is tokenized and indexed,\n    and is stored in the index, for return with hits.  Useful for short text\n    fields, like \"title\" or \"subject\". */",
+  "javadoc_after": "/** Constructs a String-valued Field that is tokenized and indexed,\n    and is stored in the index, for return with hits.  Useful for short text\n    fields, like \"title\" or \"subject\". Term vector will not be stored for this field. */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5ddfe45731ee90ab21eb56baeb6fda12331e5788",
+  "issue_summary": "modifying MultiCore implementaion to treat \"singlecore\" as a CoreCollection with only one Core",
+  "code_before": "public void persist() {\n    File tmpFile = null;\n    try {\n      // write in temp first\n      tmpFile = File.createTempFile(\"solr\", \".xml\", configFile.getParentFile());\n      java.io.FileOutputStream out = new java.io.FileOutputStream(tmpFile);\n      synchronized(cores) {\n        Writer writer = new BufferedWriter(new OutputStreamWriter(out, \"UTF-8\"));\n        persist(writer);\n        writer.flush();\n        writer.close();\n        out.close();\n        // rename over origin or copy it it this fails\n        if (tmpFile.renameTo(configFile))\n          tmpFile = null;\n        else\n          fileCopy(tmpFile, configFile);\n      }\n    }\n    catch(java.io.FileNotFoundException xnf) {\n      throw new SolrException(SolrException.ErrorCode.SERVER_ERROR, xnf);\n    }\n    catch(java.io.IOException xio) {\n      throw new SolrException(SolrException.ErrorCode.SERVER_ERROR, xio);\n    }\n    finally {\n      if (tmpFile != null) {\n        if (!tmpFile.delete())\n          tmpFile.deleteOnExit();\n      }\n    }\n  }",
+  "code_after": "public void persist() {\n    persistFile(null);\n  }",
+  "javadoc_before": "/** Persists the multicore config file. */",
+  "javadoc_after": "/** Persists the multicore config file in multicore.xml. */"
+}

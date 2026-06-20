@@ -1,0 +1,8 @@
+{
+  "commit_hash": "985ee587f56bdf6923b840b020e722b71c2b2f64",
+  "issue_summary": "Fix",
+  "code_before": "public JsonSerializer<Object> findBeanSerializer(SerializerProvider prov, JavaType type,\n            BeanDescription beanDesc)\n        throws JsonMappingException\n    {\n        // First things first: we know some types are not beans...\n        if (!isPotentialBeanType(type.getRawClass())) {\n            // 03-Aug-2012, tatu: Except we do need to allow serializers for Enums,\n            //   as per [databind#24]\n            if (!type.isEnumType()) {\n                return null;\n            }\n        }\n        return constructBeanSerializer(prov, beanDesc);\n    }",
+  "code_after": "@Deprecated // since 2.10\n    public JsonSerializer<Object> findBeanSerializer(SerializerProvider prov, JavaType type,\n            BeanDescription beanDesc)\n        throws JsonMappingException\n    {\n        return findBeanOrAddOnSerializer(prov, type, beanDesc, prov.isEnabled(MapperFeature.USE_STATIC_TYPING));\n    }",
+  "javadoc_before": "/**\n     * Method that will try to construct a {@link BeanSerializer} for\n     * given class. Returns null if no properties are found.\n     */",
+  "javadoc_after": "/**********************************************************\n    /* Other public methods that are not part of\n    /* JsonSerializerFactory API\n    /**********************************************************\n     */"
+}

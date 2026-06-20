@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3588581c948d373fc308b97c3b7939d54893a278",
+  "issue_summary": "Cleanup duplicated code in deprecated HighlightingUtils",
+  "code_before": "public static boolean isHighlightingEnabled(SolrQueryRequest request) {\n      return getParams(request).getBool(HIGHLIGHT, false);\n   }",
+  "code_after": "public static boolean isHighlightingEnabled(SolrQueryRequest request) {\n     return HIGHLIGHTER.isHighlightingEnabled(getParams(request));\n   }",
+  "javadoc_before": "/**\n    * Check whether Highlighting is enabled for this request.\n    * @param request The current SolrQueryRequest\n    * @return <code>true</code> if highlighting enabled, <code>false</code> if not.\n    */",
+  "javadoc_after": "/**\n    * @deprecated use DefaultSolrHighlighter\n    * @see DefaultSolrHighlighter#isHighlightingEnabled\n    */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0816c74a6d2c9c522de9f34719c02462e4b3e92f",
+  "issue_summary": "Add `DeserializationFeature.FAIL_ON_SUBTYPE_CLASS_NOT_REGISTERED`",
+  "code_before": "public ClassNameIdResolver(JavaType baseType, TypeFactory typeFactory,\n            PolymorphicTypeValidator ptv) {\n        super(baseType, typeFactory);\n        _subTypeValidator = ptv;\n    }",
+  "code_after": "@Deprecated\n    public ClassNameIdResolver(JavaType baseType, TypeFactory typeFactory,\n            PolymorphicTypeValidator ptv) {\n        this(baseType, typeFactory, null, ptv);\n    }",
+  "javadoc_before": "/**\n     * @since 2.10\n     */",
+  "javadoc_after": "/**\n     * @since 2.10\n     * @deprecated Since 2.19 use variant that takes {@code Collection<NamedType>}\n     */"
+}

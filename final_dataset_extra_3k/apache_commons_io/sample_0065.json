@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c5f2e40e7a8234fe48e08d451d3152ba58a03ac6",
+  "issue_summary": "Allow Specifying Initial Buffer Size of DeferredFileOutputStream. Redo submitted patch.",
+  "code_before": "public DeferredFileOutputStream(final int threshold, final File outputFile)\n    {\n        this(threshold,  outputFile, null, null, null);\n    }",
+  "code_after": "public DeferredFileOutputStream(final int threshold, final File outputFile)\n    {\n        this(threshold,  outputFile, null, null, null, ByteArrayOutputStream.DEFAULT_SIZE);\n    }",
+  "javadoc_before": "/**\n     * Constructs an instance of this class which will trigger an event at the\n     * specified threshold, and save data to a file beyond that point.\n     *\n     * @param threshold  The number of bytes at which to trigger an event.\n     * @param outputFile The file to which data is saved beyond the threshold.\n     */",
+  "javadoc_after": "/**\n     * Constructs an instance of this class which will trigger an event at the\n     * specified threshold, and save data to a file beyond that point.\n     * The initial buffer size will default to 1024 bytes which is ByteArrayOutputStream's default buffer size.\n     *\n     * @param threshold  The number of bytes at which to trigger an event.\n     * @param outputFile The file to which data is saved beyond the threshold.\n     */"
+}

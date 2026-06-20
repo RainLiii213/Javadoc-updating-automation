@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b5dbac5e3582a1cfd59af34c1a41f88aed203da1",
+  "issue_summary": "upgrade ICU to icu4j 52.1",
+  "code_before": "static BreakIteratorWrapper wrap(BreakIterator breakIterator) {\n    if (breakIterator instanceof RuleBasedBreakIterator\n        && !(breakIterator instanceof DictionaryBasedBreakIterator))\n      return new RBBIWrapper((RuleBasedBreakIterator) breakIterator);\n    else\n      return new BIWrapper(breakIterator);\n  }",
+  "code_after": "static BreakIteratorWrapper wrap(BreakIterator breakIterator) {\n    if (breakIterator instanceof RuleBasedBreakIterator)\n      return new RBBIWrapper((RuleBasedBreakIterator) breakIterator);\n    else\n      return new BIWrapper(breakIterator);\n  }",
+  "javadoc_before": "/**\n   * If its a DictionaryBasedBreakIterator, it doesn't return rulestatus, so\n   * treat it like a generic BreakIterator If its any other\n   * RuleBasedBreakIterator, the rule status can be used for token type. If its\n   * any other BreakIterator, the rulestatus method is not available, so treat\n   * it like a generic BreakIterator.\n   */",
+  "javadoc_after": "/**\n   * If its a RuleBasedBreakIterator, the rule status can be used for token type. If its\n   * any other BreakIterator, the rulestatus method is not available, so treat\n   * it like a generic BreakIterator.\n   */"
+}

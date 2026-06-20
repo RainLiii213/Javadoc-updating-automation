@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8013c6a6a2f07463c4f78f295f5652c04554b065",
+  "issue_summary": "Convert Test Kit to a fluent API",
+  "code_before": "public static ExecutionEvent reportingEntryPublished(TestDescriptor testDescriptor, ReportEntry entry) {\n\t\tPreconditions.notNull(entry, \"ExecutionEvent of type REPORTING_ENTRY_PUBLISHED cannot have a null ReportEntry\");\n\t\treturn new ExecutionEvent(Type.REPORTING_ENTRY_PUBLISHED, testDescriptor, entry);\n\t}",
+  "code_after": "public static ExecutionEvent reportingEntryPublished(TestDescriptor testDescriptor, ReportEntry entry) {\n\t\tPreconditions.notNull(entry, \"ReportEntry must not be null\");\n\t\treturn new ExecutionEvent(EventType.REPORTING_ENTRY_PUBLISHED, testDescriptor, entry);\n\t}",
+  "javadoc_before": "/**\n\t * Construct a new {@link ExecutionEvent} of type: {@link ExecutionEvent.Type#REPORTING_ENTRY_PUBLISHED}.\n\t *\n\t * @param testDescriptor the {@link TestDescriptor} of the {@link ExecutionEvent} to create, cannot be null\n\t * @param entry the {@link ReportEntry} that was published, cannot be null\n\t * @return the newly created {@link ExecutionEvent}\n\t */",
+  "javadoc_after": "/**\n\t * Create an {@code ExecutionEvent} for a reporting entry published for the\n\t * supplied {@link TestDescriptor} and {@link ReportEntry}.\n\t *\n\t * @param testDescriptor the {@code TestDescriptor} associated with the event;\n\t * never {@code null}\n\t * @param entry the {@code ReportEntry} that was published; never {@code null}\n\t * @return the newly created {@code ExecutionEvent}\n\t * @see EventType#REPORTING_ENTRY_PUBLISHED\n\t */"
+}

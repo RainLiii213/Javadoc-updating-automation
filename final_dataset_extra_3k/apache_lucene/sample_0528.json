@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0a94d14ee6ae6ffa289f148fe597db35f7f76320",
+  "issue_summary": "Build SegmentCodecs incrementally for consistent codecIDs during indexing",
+  "code_before": "public FieldInfos() {\n    this(new FieldNumberBiMap());\n  }",
+  "code_after": "public FieldInfos() {\n    this(new FieldNumberBiMap(), SegmentCodecsBuilder.create(CodecProvider.getDefault()));\n  }",
+  "javadoc_before": "/**\n   * Creates a new {@link FieldInfos} instance with a private\n   * {@link FieldNumberBiMap}.\n   * <p>\n   * Note: this ctor should not be used during indexing use\n   * {@link FieldInfos#FieldInfos(FieldInfos)} or\n   * {@link FieldInfos#FieldInfos(FieldNumberBiMap)} instead.\n   */",
+  "javadoc_after": "/**\n   * Creates a new {@link FieldInfos} instance with a private\n   * {@link FieldNumberBiMap} and a default {@link SegmentCodecsBuilder}\n   * initialized with {@link CodecProvider#getDefault()}.\n   * <p>\n   * Note: this ctor should not be used during indexing use\n   * {@link FieldInfos#FieldInfos(FieldInfos)} or\n   * {@link FieldInfos#FieldInfos(FieldNumberBiMap)} instead.\n   */"
+}

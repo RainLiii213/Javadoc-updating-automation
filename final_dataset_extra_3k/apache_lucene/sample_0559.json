@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dd1c7a858538b2716d3844bcb8f6edbe2e702cb3",
+  "issue_summary": "MultiTermQuery boolean rewrites per segment",
+  "code_before": "protected abstract TermsEnum getTermsEnum(IndexReader reader) throws IOException;",
+  "code_after": "protected final TermsEnum getTermsEnum(IndexReader reader) throws IOException {\n    return getTermsEnum(reader, new AttributeSource());\n  }",
+  "javadoc_before": "/** Construct the enumeration to be used, expanding the\n   *  pattern term.  This method should only be called if\n   *  the field exists (ie, implementations can assume the\n   *  field does exist).  This method should not return null\n   *  (should instead return {@link TermsEnum#EMPTY} if no\n   *  terms match).  The TermsEnum must already be\n   *  positioned to the first matching term. */",
+  "javadoc_after": "/** Convenience method, if no attributes are needed:\n   * This simply passes empty attributes and is equal to:\n   * <code>getTermsEnum(reader, new AttributeSource())</code>\n   */"
+}

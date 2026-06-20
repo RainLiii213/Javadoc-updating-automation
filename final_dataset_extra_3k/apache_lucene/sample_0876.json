@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f1667be0fc27f733c6bf4ad0a96fa799278aa501",
+  "issue_summary": "Grant's nw termvector patch (Bug ) applied with some modifications.",
+  "code_before": "public TermFreqVector getTermFreqVector(int docNumber, String field) {\n    // Check if this field is invalid or has no stored term vector\n    FieldInfo fi = fieldInfos.fieldInfo(field);\n    if (fi == null || !fi.storeTermVector) return null;\n\n    return termVectorsReader.get(docNumber, field);\n  }",
+  "code_after": "public TermFreqVector getTermFreqVector(int docNumber, String field) throws IOException {\n    // Check if this field is invalid or has no stored term vector\n    FieldInfo fi = fieldInfos.fieldInfo(field);\n    if (fi == null || !fi.storeTermVector || termVectorsReader == null)\n      return null;\n\n    return termVectorsReader.get(docNumber, field);\n  }",
+  "javadoc_before": "/** Return a term frequency vector for the specified document and field. The\n   *  vector returned contains term numbers and frequencies for all terms in\n   *  the specified field of this document, if the field had storeTermVector\n   *  flag set.  If the flag was not set, the method returns null.\n   */",
+  "javadoc_after": "/** Return a term frequency vector for the specified document and field. The\n   *  vector returned contains term numbers and frequencies for all terms in\n   *  the specified field of this document, if the field had storeTermVector\n   *  flag set.  If the flag was not set, the method returns null.\n   * @throws IOException\n   */"
+}

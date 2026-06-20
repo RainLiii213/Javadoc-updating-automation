@@ -1,0 +1,8 @@
+{
+  "commit_hash": "153475ad31e803f40dc02201908f475345490f1c",
+  "issue_summary": "removed legacy code, fixed minor javadoc issues and renamed Type to ValueType",
+  "code_before": "public Type type() {\n    return type;\n  }",
+  "code_after": "public ValueType type() {\n    return type;\n  }",
+  "javadoc_before": "/**\n   * Returns the field's {@link Type}\n   */",
+  "javadoc_after": "/**\n   * Returns the field's {@link ValueType}\n   */"
+}

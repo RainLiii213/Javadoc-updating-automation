@@ -1,0 +1,11 @@
+project_slug,repository_url,retained_samples,source_folder,final_folder,commits_scanned,candidate_samples_found,filtered_samples,discarded_truncated_code_context,moved_to_review,discarded_weak_inheritdoc,issue_summary_fallbacks,complete_history,stop_reason
+apache_commons_codec,https://github.com/apache/commons-codec.git,41,dataset_apache_commons_codec_41,final_dataset/apache_commons_codec,3467,64,23,3,0,0,2,True,full_history_scanned
+apache_commons_collections,https://github.com/apache/commons-collections.git,72,dataset_apache_commons_collections_72,final_dataset/apache_commons_collections,5086,107,34,0,1,0,1,True,full_history_scanned
+apache_commons_compress,https://github.com/apache/commons-compress.git,181,dataset_apache_commons_compress_181,final_dataset/apache_commons_compress,6777,267,85,0,1,0,13,True,full_history_scanned
+apache_commons_io,https://github.com/apache/commons-io.git,39,dataset_apache_commons_io_39,final_dataset/apache_commons_io,1533,76,27,0,10,1,1,False,history_incomplete
+apache_commons_lang,https://github.com/apache/commons-lang.git,37,dataset_apache_commons_lang_37,final_dataset/apache_commons_lang,2730,37,0,0,0,0,0,True,full_history_scanned
+apache_commons_math,https://github.com/apache/commons-math.git,561,dataset_apache_commons_math_561,final_dataset/apache_commons_math,7426,1485,920,1,4,13,3,True,full_history_scanned
+apache_commons_text,https://github.com/apache/commons-text.git,35,dataset_apache_commons_text_35,final_dataset/apache_commons_text,2809,54,18,3,1,0,2,True,full_history_scanned
+apache_lucene,https://github.com/apache/lucene.git,618,dataset_apache_lucene_618,final_dataset/apache_lucene,16937,722,100,2,4,0,1,False,target_total=2000 reached
+google_guava,https://github.com/google/guava.git,291,dataset_google_guava_291,final_dataset/google_guava,7373,383,86,10,6,0,2,True,full_history_scanned
+jodaorg_joda_time,https://github.com/JodaOrg/joda-time.git,125,dataset_jodaorg_joda_time_125,final_dataset/jodaorg_joda_time,2311,218,90,0,3,0,0,True,full_history_scanned

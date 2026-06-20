@@ -1,0 +1,8 @@
+{
+  "commit_hash": "013e2776b867cc7f087ec17207a2720f2806689e",
+  "issue_summary": "CommitTracker fixes",
+  "code_before": "public void didCommit() {\n    if (pending != null) {\n      pending.cancel(false);\n      pending = null; // let it start another one\n    }\n    docsSinceCommit.set(0);\n  }",
+  "code_after": "public void didCommit() {\n  }",
+  "javadoc_before": "/** Inform tracker that a commit has occurred, cancel any pending commits */",
+  "javadoc_after": "/** Inform tracker that a commit has occurred */"
+}

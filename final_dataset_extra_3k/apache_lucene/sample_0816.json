@@ -1,0 +1,8 @@
+{
+  "commit_hash": "21a4500699c87352bf828a6662748f52cb1f7024",
+  "issue_summary": "use fixed encoding to read the files to POST",
+  "code_before": "public void postFile(File file, Writer output)\n    throws FileNotFoundException {\n\n    FileReader reader = new FileReader(file);\n    try {\n      postData(reader, output);\n    } finally {\n      try {\n        if(reader!=null) reader.close();\n      } catch (IOException e) {\n        throw new PostException(\"IOException while closing file\", e);\n      }\n    }\n  }",
+  "code_after": "public void postFile(File file, Writer output)\n    throws FileNotFoundException, UnsupportedEncodingException {\n\n    // FIXME; use a real XML parser to read files, so as to support various encodings\n    // (and we can only post well-formed XML anyway)\n    Reader reader = new InputStreamReader(new FileInputStream(file),POST_ENCODING);\n    try {\n      postData(reader, output);\n    } finally {\n      try {\n        if(reader!=null) reader.close();\n      } catch (IOException e) {\n        throw new PostException(\"IOException while closing file\", e);\n      }\n    }\n  }",
+  "javadoc_before": "/**\n   * Opens the file and posts it's contents to the solrUrl,\n   * writes to response to output.\n   */",
+  "javadoc_after": "/**\n   * Opens the file and posts it's contents to the solrUrl,\n   * writes to response to output.\n   * @throws UnsupportedEncodingException \n   */"
+}

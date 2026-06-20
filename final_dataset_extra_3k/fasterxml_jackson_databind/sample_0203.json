@@ -1,0 +1,8 @@
+{
+  "commit_hash": "06c20b1814a497cda59d46609ca03bfac20f64f1",
+  "issue_summary": "Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt",
+  "code_before": "public abstract JsonMappingException weirdStringException(Class<?> instClass, String msg);",
+  "code_after": "public JsonMappingException weirdStringException(Class<?> instClass, String msg)\n    {\n        return JsonMappingException.from(_parser, \"Can not construct instance of \"+instClass.getName()+\" from String value '\"+_valueDesc()+\"': \"+msg);\n    }",
+  "javadoc_before": "/**\n     * Helper method for constructing exception to indicate that input JSON\n     * String was not in recognized format for deserializing into given type.\n     */",
+  "javadoc_after": "/**\n     * Method that will construct an exception suitable for throwing when\n     * some String values are acceptable, but the one encountered is not.\n     */"
+}

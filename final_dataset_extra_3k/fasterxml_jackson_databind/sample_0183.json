@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ab511e5576579139951022c2085662904ad85b07",
+  "issue_summary": "Completed SerializerFactory clean up; factories now should not get or expect BeanProperty, as that is only applicable for contextualSerializers",
+  "code_before": "public abstract JsonSerializer<Object> createSerializer(SerializerProvider prov,\n            JavaType baseType, BeanProperty property)\n        throws JsonMappingException;",
+  "code_after": "@Deprecated\n    public JsonSerializer<Object> createSerializer(SerializerProvider prov,\n            JavaType baseType, BeanProperty property)\n        throws JsonMappingException {\n        return createSerializer(prov, baseType);\n    }",
+  "javadoc_before": "/**\n      * Method called to create (or, for immutable serializers, reuse) a serializer for given type. \n      * \n      * @param prov Provider that needs to be used to resolve annotation-provided\n      *    serializers (but NOT for others)\n      */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.1: need to use the new variant without 'property'\n     *    argument (since one won't be passed)\n     */"
+}

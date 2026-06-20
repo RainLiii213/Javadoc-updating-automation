@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cc5882ab7568f8946c7eb7d6ff549130ec32d7d4",
+  "issue_summary": "queryparser turns all CJK queries into phrase queries",
+  "code_before": "protected Query getFieldQuery(String field, String queryText)\n      throws ParseException {\n    throw new UnsupportedOperationException();\n  }",
+  "code_after": "@Deprecated\n  protected Query getFieldQuery(String field, String queryText) throws ParseException {\n    return getFieldQuery(field, queryText, true);\n  }",
+  "javadoc_before": "/**\n   * @exception ParseException throw in overridden method to disallow\n   */",
+  "javadoc_after": "/** @deprecated Use {@link #getFieldQuery(String, String, boolean)} instead */"
+}

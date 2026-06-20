@@ -1,0 +1,8 @@
+{
+  "commit_hash": "09bda53aed9728ccb235fa7622e981e47cd943a0",
+  "issue_summary": "Add unchecked exception to a method signature and Javadoc, preserves BC since it is unchecked.",
+  "code_before": "public static Charset toCharset(final String charsetName) {\n        return charsetName == null ? Charset.defaultCharset() : Charset.forName(charsetName);\n    }",
+  "code_after": "public static Charset toCharset(final String charsetName) throws UnsupportedCharsetException {\n        return charsetName == null ? Charset.defaultCharset() : Charset.forName(charsetName);\n    }",
+  "javadoc_before": "/**\n     * Returns a Charset for the named charset. If the name is null, return the default Charset.\n     *\n     * @param charsetName\n     *            The name of the requested charset, may be null.\n     * @return a Charset for the named charset\n     * @throws java.nio.charset.UnsupportedCharsetException\n     *             If the named charset is unavailable\n     */",
+  "javadoc_after": "/**\n     * Returns a Charset for the named charset. If the name is null, return the default Charset.\n     *\n     * @param charsetName The name of the requested charset, may be null.\n     * @return a Charset for the named charset.\n     * @throws UnsupportedCharsetException If the named charset is unavailable (unchecked exception).\n     */"
+}

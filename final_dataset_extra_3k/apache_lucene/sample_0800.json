@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d42de329840f0a224fc93e51296d81c34efd4730",
+  "issue_summary": "deprecate Token.termText() & optimize core tokenizers by re-using tokens & TokenStreams",
+  "code_before": "public void setTermText(String text) {\n    termText = text;\n  }",
+  "code_after": "public void setTermText(String text) {\n    termText = text;\n    termBuffer = null;\n  }",
+  "javadoc_before": "/** Sets the Token's term text. */",
+  "javadoc_after": "/** Sets the Token's term text.  <b>NOTE:</b> for better\n   *  indexing speed you should instead use the char[]\n   *  termBuffer methods to set the term text. */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d8731f3e07cf4a6eaf6717c7cfe3f5dd05d792e8",
+  "issue_summary": "Introduce support for constructor injection",
+  "code_before": "private Object[] resolveParameters(Executable executable, Optional<Object> target) {\n\t\t// @formatter:off\n\t\treturn Arrays.stream(executable.getParameters())\n\t\t\t\t.map(param -> resolveParameter(param, executable, target))\n\t\t\t\t.toArray(Object[]::new);\n\t\t// @formatter:on\n\t}",
+  "code_after": "private Object[] resolveParameters(Executable executable, Optional<Object> target) {\n\t\treturn resolveParameters(executable, target, null);\n\t}",
+  "javadoc_before": "/**\n\t * Resolve the array of parameters for the supplied executable and target.\n\t *\n\t * @return the array of Objects to be used as parameters in the executable\n\t * invocation; never {@code null} though potentially empty\n\t */",
+  "javadoc_after": "/**\n\t * Resolve the array of parameters for the supplied executable and target.\n\t *\n\t * @param executable the executable for which to resolve parameters\n\t * @param target the object on which the executable will be invoked;\n\t * should be {@code null} for static methods and constructors\n\t * @return the array of Objects to be used as parameters in the executable\n\t * invocation; never {@code null} though potentially empty\n\t */"
+}

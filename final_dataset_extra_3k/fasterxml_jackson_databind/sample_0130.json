@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4bd13c5da81f5de9c8864a98170f73f9bb681b14",
+  "issue_summary": "Bit more work on property config overrides",
+  "code_before": "protected MapperConfigBase(BaseSettings base,\n            SubtypeResolver str, SimpleMixInResolver mixins,\n            RootNameLookup rootNames)\n    {\n        super(base, DEFAULT_MAPPER_FEATURES);\n        _mixIns = mixins;\n        _subtypeResolver = str;\n        _rootNames = rootNames;\n        _rootName = null;\n        _view = null;\n        // default to \"no attributes\"\n        _attributes = ContextAttributes.getEmpty();\n    }",
+  "code_after": "@Deprecated\n    protected MapperConfigBase(BaseSettings base,\n            SubtypeResolver str, SimpleMixInResolver mixins,\n            RootNameLookup rootNames)\n    {\n        this(base, str, mixins, rootNames, null);\n    }",
+  "javadoc_before": "/**\n     * Constructor used when creating a new instance (compared to\n     * that of creating fluent copies)\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.8, remove from 2.9 or later\n     */"
+}

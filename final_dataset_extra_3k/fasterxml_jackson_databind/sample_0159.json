@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5a497889285b735e55eec1cb7ce985a1002fac47",
+  "issue_summary": "Naming improvements",
+  "code_before": "public ObjectWriter withSchema(FormatSchema schema) {\n        if (_schema == schema) {\n            return this;\n        }\n        _verifySchemaType(schema);\n        return new ObjectWriter(this, _config, _rootType, _rootSerializer,\n                _prettyPrinter, schema, _characterEscapes);\n    }",
+  "code_after": "@Deprecated\n    public ObjectWriter withSchema(FormatSchema schema) {\n        return with(schema);\n    }",
+  "javadoc_before": "/**\n     * Method that will construct a new instance that uses specific format schema\n     * for serialization.\n     *<p>\n     * Note that method does NOT change state of this reader, but\n     * rather construct and returns a newly configured instance.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.5 use {@link #with(FormatSchema)} instead\n     */"
+}

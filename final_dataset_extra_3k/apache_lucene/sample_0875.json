@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f1667be0fc27f733c6bf4ad0a96fa799278aa501",
+  "issue_summary": "Grant's nw termvector patch (Bug ) applied with some modifications.",
+  "code_before": "public void add(String name, boolean isIndexed, boolean storeTermVector) {\n    FieldInfo fi = fieldInfo(name);\n    if (fi == null) {\n      addInternal(name, isIndexed, storeTermVector);\n    } else {\n      if (fi.isIndexed != isIndexed) {\n        fi.isIndexed = true;                      // once indexed, always index\n      }\n      if (fi.storeTermVector != storeTermVector) {\n        fi.storeTermVector = true;                // once vector, always vector\n      }\n    }\n  }",
+  "code_after": "public void add(String name, boolean isIndexed, boolean storeTermVector){\n    add(name, isIndexed, storeTermVector, false, false);\n  }",
+  "javadoc_before": "/** If the field is not yet known, adds it. If it is known, checks to make\n   *  sure that the isIndexed flag is the same as was given previously for this\n   *  field. If not - marks it as being indexed.  Same goes for storeTermVector\n   * \n   * @param name The name of the field\n   * @param isIndexed true if the field is indexed\n   * @param storeTermVector true if the term vector should be stored\n   */",
+  "javadoc_after": "/**\n   * Calls 5 parameter add with false for term vector positions and offsets.\n   * \n   * @param name The name of the field\n   * @param isIndexed  true if the field is indexed\n   * @param storeTermVector true if the term vector should be stored\n   */"
+}

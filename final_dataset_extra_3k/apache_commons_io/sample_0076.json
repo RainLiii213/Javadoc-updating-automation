@@ -1,0 +1,8 @@
+{
+  "commit_hash": "59ffcad15d220c2bc1f70f01d58bc31dec04b423",
+  "issue_summary": "Improve tailer's reading performance.",
+  "code_before": "public static Tailer create(File file, TailerListener listener, long delay, boolean end) {\n        Tailer tailer = new Tailer(file, listener, delay, end);\n        Thread thread = new Thread(tailer);\n        thread.setDaemon(true);\n        thread.start();\n        return tailer;\n    }",
+  "code_after": "public static Tailer create(File file, TailerListener listener, long delay, boolean end) {\n        return create(file, listener, delay, end, DEFAULT_BUFSIZE);\n    }",
+  "javadoc_before": "/**\n     * Creates and starts a Tailer for the given file.\n     * \n     * @param file the file to follow.\n     * @param listener the TailerListener to use.\n     * @param delay the delay between checks of the file for new content in milliseconds.\n     * @param end Set to true to tail from the end of the file, false to tail from the beginning of the file.\n     * @return The new tailer\n     */",
+  "javadoc_after": "/**\n     * Creates and starts a Tailer for the given file with default buffer size.\n     * \n     * @param file the file to follow.\n     * @param listener the TailerListener to use.\n     * @param delay the delay between checks of the file for new content in milliseconds.\n     * @param end Set to true to tail from the end of the file, false to tail from the beginning of the file.\n     * @return The new tailer\n     */"
+}

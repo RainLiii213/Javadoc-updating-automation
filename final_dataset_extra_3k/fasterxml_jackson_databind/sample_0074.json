@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cc6d3729b017c7d19b47a7dca5fedf932c546608",
+  "issue_summary": "Fix",
+  "code_before": "public static boolean isJDKClass(Class<?> rawType) {\n        return rawType.getName().startsWith(\"java.\");\n    }",
+  "code_after": "public static boolean isJDKClass(Class<?> rawType) {\n        final String clsName = rawType.getName();\n        return clsName.startsWith(\"java.\") || clsName.startsWith(\"javax.\");\n    }",
+  "javadoc_before": "/**\n     * Some aspects of handling need to be changed for JDK types (and possibly\n     * some extensions under {@code javax.}?): for example, forcing of access\n     * will not work well for future JDKs (12 and later).\n     *\n     * @since 2.11\n     */",
+  "javadoc_after": "/**\n     * Accessor for checking whether given {@code Class} is under Java package\n     * of {@code java.*} or {@code javax.*} (including all sub-packages).\n     *<p>\n     * Added since some aspects of handling need to be changed for JDK types (and\n     * possibly some extensions under {@code javax.}?): for example, forcing of access\n     * will not work well for future JDKs (12 and later).\n     *<p>\n     * Note: in Jackson 2.11 only returned true for {@code java.*} (and not {@code javax.*});\n     * was changed in 2.12.\n     *\n     * @since 2.11\n     */"
+}

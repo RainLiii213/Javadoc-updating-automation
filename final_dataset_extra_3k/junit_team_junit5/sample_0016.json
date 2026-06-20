@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dd1e96fa8655b75092525061a4a7c0d26b4b3849",
+  "issue_summary": "Bump JDK baseline to 17",
+  "code_before": "public static boolean isJavaPlatformModuleSystemAvailable() {\n\t\treturn false;\n\t}",
+  "code_after": "public static boolean isJavaPlatformModuleSystemAvailable() {\n\t\treturn true;\n\t}",
+  "javadoc_before": "/**\n\t * Determine if the current Java runtime supports the Java Platform Module System.\n\t *\n\t * @return {@code true} if the Java Platform Module System is available,\n\t * otherwise {@code false}\n\t */",
+  "javadoc_after": "/**\n\t * Java 9+ runtime supports the Java Platform Module System.\n\t *\n\t * @return {@code true}\n\t */"
+}

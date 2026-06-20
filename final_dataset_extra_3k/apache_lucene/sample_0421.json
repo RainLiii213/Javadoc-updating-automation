@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f303bcd4650ac96d88b84dade253fbf4cb407158",
+  "issue_summary": "Cleanup Suggest / Lookup API",
+  "code_before": "public FSTCompletionBuilder() {\n    this(DEFAULT_BUCKETS, new InMemorySorter(), Integer.MAX_VALUE);\n  }",
+  "code_after": "public FSTCompletionBuilder() {\n    this(DEFAULT_BUCKETS, new InMemorySorter(BytesRef.getUTF8SortedAsUnicodeComparator()), Integer.MAX_VALUE);\n  }",
+  "javadoc_before": "/**\n   * Creates an {@link FSTCompletion} with default options: 10 buckets, exact match\n   * promoted to first position and {@link InMemorySorter}.\n   */",
+  "javadoc_after": "/**\n   * Creates an {@link FSTCompletion} with default options: 10 buckets, exact match\n   * promoted to first position and {@link InMemorySorter} with a comparator obtained from\n   * {@link BytesRef#getUTF8SortedAsUnicodeComparator()}.\n   */"
+}

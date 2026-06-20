@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b22cd7789009557c10718d470c16bc6b09e443ff",
+  "issue_summary": "added ability to wait on any Lock. changed write.lock wait to 1 sec from none.",
+  "code_before": "public With(Lock lock) {\n      this.lock = lock;\n    }",
+  "code_after": "public With(Lock lock)\n      {\n          this(lock, IndexWriter.COMMIT_LOCK_TIMEOUT);\n      }",
+  "javadoc_before": "/** Constructs an executor that will grab the named lock. */",
+  "javadoc_after": "/** Constructs an executor that will grab the named lock.\n       *  Defaults lockWaitTimeout to Lock.COMMIT_LOCK_TIMEOUT.\n       *  @deprecated Kept only to avoid breaking existing code.\n       */"
+}

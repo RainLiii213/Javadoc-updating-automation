@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d4220ed27198847e13ce75d9bee805e028a100e0",
+  "issue_summary": "Add test, fix",
+  "code_before": "protected EnumResolver(Class<Enum<?>> enumClass, Enum<?>[] enums,\n            HashMap<String, Enum<?>> map, Enum<?> defaultValue,\n            boolean isIgnoreCase, boolean isFromIntValue)\n    {\n        _enumClass = enumClass;\n        _enums = enums;\n        _enumsById = map;\n        _defaultValue = defaultValue;\n        _isIgnoreCase = isIgnoreCase;\n        _isFromIntValue = isFromIntValue;\n    }",
+  "code_after": "@Deprecated\n    protected EnumResolver(Class<Enum<?>> enumClass, Enum<?>[] enums,\n            HashMap<String, Enum<?>> map, Enum<?> defaultValue,\n            boolean isIgnoreCase, boolean isFromIntValue)\n    {\n        this(enumClass, enums, map, defaultValue, isIgnoreCase, isFromIntValue, false);\n    }",
+  "javadoc_before": "/**\n     * @since 2.12\n     */",
+  "javadoc_after": "/**\n     * @since 2.12\n     * @deprecated Since 2.20; use variant that also takes {@code hasAsValueAnnotation} argument\n     */"
+}

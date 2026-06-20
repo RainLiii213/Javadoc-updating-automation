@@ -19,6 +19,41 @@ def git(cwd: Path, *args: str) -> str:
     ).stdout
 
 
+def make_output_sample(
+    index: int,
+    *,
+    commit_hash: str = "abc",
+    entity_type: str = "method",
+    entity_name: str | None = None,
+) -> OutputSample:
+    entity_name = entity_name or f"{entity_type}{index}"
+    if entity_type == "class":
+        code_before = f"public class Type{index} {{\n    int value() {{ return {index}; }}\n}}"
+        code_after = f"public class Type{index} {{\n    int value() {{ return {index + 1}; }}\n}}"
+        signature = f"public class Type{index}"
+    else:
+        code_before = f"public int method{index}() {{\n    return {index};\n}}"
+        code_after = f"public int method{index}() {{\n    return {index + 1};\n}}"
+        signature = f"method{index}()"
+    return OutputSample(
+        repo="apache/commons-lang",
+        commit_hash=commit_hash,
+        commit_message="Make behavior null-safe",
+        issue_summary="Make behavior null-safe",
+        code_before=code_before,
+        code_after=code_after,
+        javadoc_before=f"/** Returns old value {index}. */",
+        javadoc_after=f"/** Returns new value {index}. */",
+        entity_name=entity_name,
+        entity_signature=signature,
+        javadoc_change_type="JAVADOC_MODIFICATION",
+        method_change_type="METHOD_MODIFICATION",
+        issue_id="",
+        commit_url="",
+        entity_type=entity_type,
+    )
+
+
 def test_mine_repository_extracts_connected_behavior_and_contract_update(tmp_path):
     repo = tmp_path / "repo"
     repo.mkdir()
@@ -383,55 +418,17 @@ public class Person {
 
 
 def test_selection_keeps_only_available_high_confidence_samples():
-    def sample(index):
-        return OutputSample(
-            repo="apache/commons-lang",
-            commit_hash=str(index),
-            commit_message="change",
-            issue_summary="",
-            code_before="old",
-            code_after="new",
-            javadoc_before="old docs",
-            javadoc_after="new docs",
-            entity_name=f"method{index}",
-            entity_signature=f"method{index}()",
-            javadoc_change_type="JAVADOC_MODIFICATION",
-            method_change_type="METHOD_MODIFICATION",
-            issue_id="",
-            commit_url="",
-            entity_type="method",
-        )
-
-    samples = [sample(index) for index in range(2)]
+    samples = [make_output_sample(index, commit_hash=str(index)) for index in range(2)]
     selected = _select_samples(samples, max_samples=10)
 
     assert len(selected) == 2
 
 
-def test_selection_deduplicates_same_commit_and_entity_name():
-    def sample(commit_hash, entity_name):
-        return OutputSample(
-            repo="apache/commons-lang",
-            commit_hash=commit_hash,
-            commit_message="Make behavior null-safe",
-            issue_summary="Make behavior null-safe",
-            code_before="return value;",
-            code_after="return value == null ? EMPTY : value;",
-            javadoc_before="/** Returns value. */",
-            javadoc_after="/** Returns empty for null values. */",
-            entity_name=entity_name,
-            entity_signature=f"{entity_name}()",
-            javadoc_change_type="JAVADOC_MODIFICATION",
-            method_change_type="METHOD_MODIFICATION",
-            issue_id="",
-            commit_url="",
-            entity_type="method",
-        )
-
+def test_selection_deduplicates_exact_content_only():
     samples = [
-        sample("abc", "shuffle"),
-        sample("abc", "shuffle"),
-        sample("abc", "fill"),
+        make_output_sample(1, commit_hash="abc", entity_name="shuffle"),
+        make_output_sample(1, commit_hash="abc", entity_name="shuffleCopy"),
+        make_output_sample(2, commit_hash="abc", entity_name="fill"),
     ]
     selected = _select_samples(samples, max_samples=10)
 
@@ -441,28 +438,48 @@ def test_selection_deduplicates_same_commit_and_entity_name():
     ]
 
 
-def test_selection_caps_samples_per_commit_for_review_diversity():
-    samples = []
-    for index in range(5):
-        samples.append(
-            OutputSample(
-                repo="apache/commons-lang",
-                commit_hash="abc",
-                commit_message="Make behavior null-safe",
-                issue_summary="Make behavior null-safe",
-                code_before="return value;",
-                code_after="return value == null ? EMPTY : value;",
-                javadoc_before="/** Returns value. */",
-                javadoc_after="/** Returns empty for null values. */",
-                entity_name=f"method{index}",
-                entity_signature=f"method{index}()",
-                javadoc_change_type="JAVADOC_MODIFICATION",
-                method_change_type="METHOD_MODIFICATION",
-                issue_id="",
-                commit_url="",
-                entity_type="method",
-            )
-        )
+def test_selection_keeps_five_method_changes_from_one_commit():
+    samples = [make_output_sample(index, commit_hash="abc") for index in range(5)]
     selected = _select_samples(samples, max_samples=10)
 
-    assert len(selected) == 3
+    assert len(selected) == 5
+    assert [item.entity_name for item in selected] == [f"method{index}" for index in range(5)]
+
+
+def test_selection_keeps_four_methods_and_two_classes_from_one_commit():
+    samples = [make_output_sample(index, commit_hash="abc") for index in range(4)]
+    samples.extend(make_output_sample(index, commit_hash="abc", entity_type="class") for index in range(2))
+
+    selected = _select_samples(samples, max_samples=10)
+
+    assert len(selected) == 6
+    assert [item.entity_type for item in selected].count("method") == 4
+    assert [item.entity_type for item in selected].count("class") == 2
+
+
+def test_selection_keeps_five_of_six_when_one_candidate_is_exact_duplicate():
+    samples = [make_output_sample(index, commit_hash="abc") for index in range(5)]
+    samples.append(make_output_sample(3, commit_hash="abc", entity_name="method3Duplicate"))
+
+    selected = _select_samples(samples, max_samples=10)
+
+    assert len(selected) == 5
+    assert [item.entity_name for item in selected] == [
+        "method0",
+        "method1",
+        "method2",
+        "method3",
+        "method4",
+    ]
+
+
+def test_selection_does_not_deduplicate_different_method_and_class_by_commit_hash():
+    samples = [
+        make_output_sample(1, commit_hash="abc", entity_type="method"),
+        make_output_sample(1, commit_hash="abc", entity_type="class"),
+    ]
+
+    selected = _select_samples(samples, max_samples=10)
+
+    assert len(selected) == 2
+    assert {item.entity_type for item in selected} == {"method", "class"}

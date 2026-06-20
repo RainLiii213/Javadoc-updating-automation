@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5a6427fdcfa4cc7698bfdbc702280f19a047038d",
+  "issue_summary": "Added ability to define PersistentProperty order for PersistentEntities.",
+  "code_before": "public BasicPersistentEntity(TypeInformation<T> information) {\n\t\tAssert.notNull(information);\n\t\tthis.information = information;\n\t\tthis.preferredConstructor = new PreferredConstructorDiscoverer<T>(information).getConstructor();\n\t}",
+  "code_after": "public BasicPersistentEntity(TypeInformation<T> information) {\n\t\tthis(information, null);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link BasicPersistentEntity} from the given {@link TypeInformation}.\n\t *\n\t * @param information\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link BasicPersistentEntity} from the given {@link TypeInformation}.\n\t *\n\t * @param information must not be {@literal null}.\n\t */"
+}

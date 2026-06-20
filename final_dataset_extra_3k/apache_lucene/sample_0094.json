@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8f267c8560cac15d140c5097dfd6392c4270d3d2",
+  "issue_summary": "BinaryDocValues producers don't allocate or copy bytes on each access anymore",
+  "code_before": "public static NumericDocValues getNumeric(AtomicReader in, String field) throws IOException {\n    NumericDocValues dv = in.getNumericDocValues(field);\n    if (dv == null) {\n      return EMPTY_NUMERIC;\n    } else {\n      return dv;\n    }\n  }",
+  "code_after": "public static NumericDocValues getNumeric(AtomicReader in, String field) throws IOException {\n    NumericDocValues dv = in.getNumericDocValues(field);\n    if (dv == null) {\n      return emptyNumeric();\n    } else {\n      return dv;\n    }\n  }",
+  "javadoc_before": "/**\n   * Returns NumericDocValues for the reader, or {@link #EMPTY_NUMERIC} if it has none. \n   */",
+  "javadoc_after": "/**\n   * Returns NumericDocValues for the reader, or {@link #emptyNumeric()} if it has none. \n   */"
+}

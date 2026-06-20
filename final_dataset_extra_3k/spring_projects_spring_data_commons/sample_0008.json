@@ -1,0 +1,8 @@
+{
+  "commit_hash": "c76db4a953f1b5a545be44856ef634da1872860f",
+  "issue_summary": "Move `PropertyPath` and `TypeInformation` types to `core` package.",
+  "code_before": "public class ParameterTypes {\n}",
+  "code_after": "@Deprecated(since = \"4.0\", forRemoval = true)\npublic class ParameterTypes {\n}",
+  "javadoc_before": "/**\n * Abstraction over a list of parameter value types. Allows to check whether a list of parameter values with the given\n * type setup is a candidate for the invocation of a given {@link Method} (see {@link #areValidFor(Method)}). This is\n * necessary to properly match parameter values against methods declaring varargs arguments. The implementation favors\n * direct matches and only computes the alternative sets of types to be considered if the primary one doesn't match.\n *\n * @author Oliver Drotbohm\n * @since 2.1.7\n * @soundtrack Signs, High Times - Tedeschi Trucks Band (Signs)\n */",
+  "javadoc_after": "/**\n * Abstraction over a list of parameter value types. Allows to check whether a list of parameter values with the given\n * type setup is a candidate for the invocation of a given {@link Method} (see {@link #areValidFor(Method)}). This is\n * necessary to properly match parameter values against methods declaring varargs arguments. The implementation favors\n * direct matches and only computes the alternative sets of types to be considered if the primary one doesn't match.\n *\n * @author Oliver Drotbohm\n * @since 2.1.7\n * @soundtrack Signs, High Times - Tedeschi Trucks Band (Signs)\n * @deprecated since 4.0, this class is not intended for public use and will be removed in future versions.\n */"
+}

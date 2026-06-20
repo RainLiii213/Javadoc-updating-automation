@@ -1,0 +1,8 @@
+{
+  "commit_hash": "150ba4af81b71517d3b44c0669b0da0f445e6ac3",
+  "issue_summary": "Add ability to specify wait time to QueueInputStream",
+  "code_before": "public QueueInputStream(final BlockingQueue<Integer> blockingQueue) {\n        super(blockingQueue);\n    }",
+  "code_after": "public QueueInputStream(final BlockingQueue<Integer> blockingQueue) {\n        this(blockingQueue, Duration.ofMillis(0));\n    }",
+  "javadoc_before": "/**\n     * Constructs a new instance with given queue.\n     *\n     * @param blockingQueue backing queue for the stream.\n     */",
+  "javadoc_after": "/**\n     * Constructs a new instance with given buffer and zero wait time.\n     *\n     * @param blockingQueue backing queue for the stream\n     */"
+}

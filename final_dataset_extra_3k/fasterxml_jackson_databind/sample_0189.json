@@ -1,0 +1,8 @@
+{
+  "commit_hash": "767cead79205755c97839251ea06afba361812ce",
+  "issue_summary": "Roll back changes to JSON Schema generation (pull ), since it causes Public API breakage, can't do for minor version",
+  "code_before": "public JsonNode putAll(Map<String,JsonNode> properties)\n    {\n        if (_children == null) {\n            _children = new LinkedHashMap<String, JsonNode>(properties);\n        } else {\n            for (Map.Entry<String, JsonNode> en : properties.entrySet()) {\n                JsonNode n = en.getValue();\n                if (n == null) {\n                    n = nullNode();\n                }\n                _children.put(en.getKey(), n);\n            }\n        }\n        return this;\n    }",
+  "code_after": "public JsonNode putAll(Map<String,JsonNode> properties) {\n        return setAll(properties);\n    }",
+  "javadoc_before": "/**\n     * Method for adding given properties to this object node, overriding\n     * any existing values for those properties.\n     * \n     * @param properties Properties to add\n     * \n     * @return This node (to allow chaining)\n     */",
+  "javadoc_after": "/**\n     * Method for adding given properties to this object node, overriding\n     * any existing values for those properties.\n     *<p>\n     * NOTE: this method will be <b>deprecated</b> in 2.2; and should\n     * be replace with {@link #setAll(Map)}.\n     * \n     * @param properties Properties to add\n     * \n     * @return This node after adding/replacing property values (to allow chaining)\n     */"
+}

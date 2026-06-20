@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6cd5f7c0524165bc1d31c8625c4dbea5bde6f858",
+  "issue_summary": "Replaced references to Spring's Converter to JDK 8's Function in domain package.",
+  "code_before": "public Object transformValue(Object source) {\n\t\t\treturn getPropertyValueTransformer().convert(source);\n\t\t}",
+  "code_after": "@Deprecated\n\t\tpublic Object transformValue(Object source) {\n\t\t\treturn transformValue(Optional.ofNullable(source)).orElse(null);\n\t\t}",
+  "javadoc_before": "/**\n\t\t * Transforms a given source using the {@link PropertyValueTransformer}.\n\t\t *\n\t\t * @param source\n\t\t * @return\n\t\t */",
+  "javadoc_after": "/**\n\t\t * Transforms a given source using the {@link PropertyValueTransformer}.\n\t\t *\n\t\t * @param source\n\t\t * @return\n\t\t * @deprecated since 2.0, use {@link #transformValue(Optional)} instead.\n\t\t */"
+}

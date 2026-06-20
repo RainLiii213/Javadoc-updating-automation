@@ -1,0 +1,8 @@
+{
+  "commit_hash": "75de66e17a98aa9627ad388338aacae8d8f17484",
+  "issue_summary": "Document display name generation",
+  "code_before": "Style value() default Style.DEFAULT;",
+  "code_after": "Class<? extends DisplayNameGenerator> value() default DisplayNameGenerator.DefaultGenerator.class;",
+  "javadoc_before": "/**\n\t * @return the style to use, can be overridden by a custom display name generator implementation\n\t */",
+  "javadoc_after": "/**\n\t * Custom display name generator.\n\t *\n\t * @return custom display name generator implementation, defaults\n\t *         to {@link org.junit.jupiter.api.DisplayNameGenerator.DefaultGenerator}\n\t */"
+}

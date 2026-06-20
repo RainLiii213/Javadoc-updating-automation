@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ed98c9e3c47b12f6f457f4af6fd2546e53f68284",
+  "issue_summary": "jsonschema serialization and deep equals implemented.",
+  "code_before": "public Schema getSchema() {\n\t\t\treturn schema;\n\t\t}",
+  "code_after": "@JsonValue\n\t\tpublic JsonSchema getSchema() {\n\t\t\treturn jsonSchema;\n\t\t}",
+  "javadoc_before": "/**\n\t\t * {@link ArraySchema.SingleItems#schema}\n\t\t * @return the schema\n\t\t */",
+  "javadoc_after": "/**\n\t\t * {@link ArraySchema.SingleItems#jsonSchema}\n\t\t * @return the jsonSchema\n\t\t */"
+}

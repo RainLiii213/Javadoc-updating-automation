@@ -1,0 +1,8 @@
+{
+  "commit_hash": "93a0b9b649d2c3a9acbf1846d9b43a7221bda779",
+  "issue_summary": "Yet more `AnnotatedClass` cleanup",
+  "code_before": "public static AnnotatedClass construct(JavaType type, MapperConfig<?> config)\n    {\n        AnnotationIntrospector intr = config.isAnnotationProcessingEnabled()\n                ? config.getAnnotationIntrospector() : null;\n        Class<?> raw = type.getRawClass();\n        List<JavaType> superTypes = ClassUtil.findSuperTypes(type, null, false);\n        Class<?> mixin = config.findMixInClassFor(raw);\n        Annotations classAnn = _resolveClassAnnotations(config, intr, raw, superTypes, mixin);\n        return new AnnotatedClass(type, raw, superTypes, mixin, classAnn, type.getBindings(),\n                intr, (MixInResolver) config, config.getTypeFactory());\n    }",
+  "code_after": "@Deprecated\n    public static AnnotatedClass construct(JavaType type, MapperConfig<?> config) {\n        return construct(type, config, (MixInResolver) config);\n    }",
+  "javadoc_before": "/**\n     * Factory method that instantiates an instance. Returned instance\n     * will only be initialized with class annotations, but not with\n     * any method information.\n     * \n     * @since 2.7\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.9, use methods in {@link AnnotatedClassResolver} instead.\n     */"
+}

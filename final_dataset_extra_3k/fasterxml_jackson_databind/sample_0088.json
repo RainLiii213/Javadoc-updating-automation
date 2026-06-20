@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fa402574f99daa10410682160365df0867abe4d4",
+  "issue_summary": "Implement : add `MapperFeature.BLOCK_UNSAFE_POLYMORPHIC_BASE_TYPES` for stricter validation for default typing",
+  "code_before": "public PolymorphicTypeValidator getPolymorphicTypeValidator() {\n        return _base.getPolymorphicTypeValidator();\n    }",
+  "code_after": "public PolymorphicTypeValidator getPolymorphicTypeValidator() {\n        PolymorphicTypeValidator ptv = _base.getPolymorphicTypeValidator();\n        // [databind#2587]: allow stricter default settings:\n        if (ptv == LaissezFaireSubTypeValidator.instance) {\n            if (isEnabled(MapperFeature.BLOCK_UNSAFE_POLYMORPHIC_BASE_TYPES)) {\n                ptv = new DefaultBaseTypeLimitingValidator();\n            }\n        }\n        return ptv;\n    }",
+  "javadoc_before": "/**\n     * @since 2.10\n     */",
+  "javadoc_after": "/**\n     * Simple accessor for default {@link PolymorphicTypeValidator} to use for\n     * legacy Default Typing methods ({@code ObjectMapper.enableDefaultTyping()})\n     * and annotation based enabling.\n     *<p>\n     * Since 2.11 will also check {@link MapperFeature#BLOCK_UNSAFE_POLYMORPHIC_BASE_TYPES}\n     * to possibly override default to more restrictive implementation, see\n     * {@link com.fasterxml.jackson.databind.jsontype.DefaultBaseTypeLimitingValidator}).\n     *\n     * @since 2.10\n     */"
+}

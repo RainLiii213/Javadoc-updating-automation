@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9dbfa22b82dba84252a30b0c78b25b7bc37a55ed",
+  "issue_summary": "Make IndexWriterConfig setters throw an exception when passed null if null is not a valid value.",
+  "code_before": "public IndexWriterConfig setMergeScheduler(MergeScheduler mergeScheduler) {\n    this.mergeScheduler = mergeScheduler == null ? new ConcurrentMergeScheduler() : mergeScheduler;\n    return this;\n  }",
+  "code_after": "public IndexWriterConfig setMergeScheduler(MergeScheduler mergeScheduler) {\n    if (mergeScheduler == null) {\n      throw new IllegalArgumentException(\"mergeScheduler must not be null\");\n    }\n    this.mergeScheduler = mergeScheduler;\n    return this;\n  }",
+  "javadoc_before": "/**\n   * Expert: sets the merge scheduler used by this writer. The default is\n   * {@link ConcurrentMergeScheduler}.\n   * <p>\n   * <b>NOTE:</b> the merge scheduler cannot be null. If <code>null</code> is\n   * passed, the merge scheduler will be set to the default.\n   *\n   * <p>Only takes effect when IndexWriter is first created. */",
+  "javadoc_after": "/**\n   * Expert: sets the merge scheduler used by this writer. The default is\n   * {@link ConcurrentMergeScheduler}.\n   * <p>\n   * <b>NOTE:</b> the merge scheduler cannot be null.\n   *\n   * <p>Only takes effect when IndexWriter is first created. */"
+}

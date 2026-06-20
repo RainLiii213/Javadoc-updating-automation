@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a93e2c41b0669788bcf448ea953a4d6d85ba0640",
+  "issue_summary": "switch next -> nextDoc, skipTo -> advance, doc -> docID in DISI",
+  "code_before": "public boolean skipTo(int target) throws IOException {\n    if (countingSumScorer == null) {\n      initCountingSumScorer();\n    }\n    return countingSumScorer.skipTo(target);\n  }",
+  "code_after": "public boolean skipTo(int target) throws IOException {\n    return advance(target) != NO_MORE_DOCS;\n  }",
+  "javadoc_before": "/** Skips to the first match beyond the current whose document number is\n   * greater than or equal to a given target.\n   * \n   * <p>When this method is used the {@link #explain(int)} method should not be used.\n   * \n   * @param target The target document number.\n   * @return true iff there is such a match.\n   */",
+  "javadoc_after": "/** @deprecated use {@link #advance(int)} instead. */"
+}

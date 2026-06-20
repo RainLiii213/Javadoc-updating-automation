@@ -1,0 +1,8 @@
+{
+  "commit_hash": "42abb41cddc2d04f92c417f40b8dfded477a53bd",
+  "issue_summary": "Improve TermQueryPrefixTreeStrategy and move makeQuery impl to SpatialStrategy",
+  "code_before": "public abstract Query makeQuery(SpatialArgs args, T fieldInfo);",
+  "code_after": "public Query makeQuery(SpatialArgs args, T fieldInfo) {\n    Filter filter = makeFilter(args, fieldInfo);\n    ValueSource vs = makeValueSource(args, fieldInfo);\n    return new FilteredQuery(new FunctionQuery(vs), filter);\n  }",
+  "javadoc_before": "/**\n   * Make a query\n   */",
+  "javadoc_after": "/**\n   * Make a query which has a score based on the distance from the data to the query shape.\n   * The default implementation constructs a {@link FilteredQuery} based on\n   * {@link #makeFilter(com.spatial4j.core.query.SpatialArgs, SpatialFieldInfo)} and\n   * {@link #makeValueSource(com.spatial4j.core.query.SpatialArgs, SpatialFieldInfo)}.\n   */"
+}

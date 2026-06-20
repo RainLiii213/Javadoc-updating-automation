@@ -1,0 +1,21 @@
+{
+  "project_slug": "spring_projects_spring_data_commons",
+  "repository_name": "spring-projects/spring-data-commons",
+  "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+  "retained_samples": 185,
+  "source_folder": "dataset_spring_projects_spring_data_commons_extra_3k_185_20260620044152",
+  "final_folder": "final_dataset_extra_3k/spring_projects_spring_data_commons",
+  "mined_at_utc": "2026-06-20T04:41:52+00:00",
+  "commits_scanned": 3427,
+  "candidate_samples_found": 201,
+  "filtered_samples": 13,
+  "discarded_truncated_code_context": 1,
+  "moved_to_review": 3,
+  "discarded_weak_inheritdoc": 0,
+  "issue_summary_fallbacks": 0,
+  "duplicate_against_baseline": 0,
+  "duplicate_inside_new_dataset": 0,
+  "complete_history": true,
+  "stop_reason": "full_history_scanned",
+  "skipped_previously_scanned_commits": 0
+}

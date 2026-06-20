@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8ad6fe9d4ca9a89a9d7bfc62dedad85267d9e6cf",
+  "issue_summary": "UserCredentials treats empty Strings passed as null.",
+  "code_before": "public UserCredentials(String username, String password) {\n\t\tthis.username = username;\n\t\tthis.password = password;\n\t}",
+  "code_after": "public UserCredentials(String username, String password) {\n\t\tthis.username = StringUtils.hasText(username) ? username : null;\n\t\tthis.password = StringUtils.hasText(password) ? password : null;\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link UserCredentials} instance from the given username and password.\n\t * \n\t * @param username\n\t * @param password\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link UserCredentials} instance from the given username and password. Empty {@link String}s provided\n\t * will be treated like no username or password set.\n\t * \n\t * @param username\n\t * @param password\n\t */"
+}

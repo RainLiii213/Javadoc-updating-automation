@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7d35aafe71661e51ee01639ddf88503184610329",
+  "issue_summary": "make CMS smarter about prioritizing its threads",
+  "code_before": "public void setMaxThreadCount(int count) {\n    if (count < 1)\n      throw new IllegalArgumentException(\"count should be at least 1\");\n    maxThreadCount = count;\n  }",
+  "code_after": "public void setMaxThreadCount(int count) {\n    if (count < 1) {\n      throw new IllegalArgumentException(\"count should be at least 1\");\n    }\n    if (count > maxMergeCount) {\n      throw new IllegalArgumentException(\"count should be <= maxMergeCount (= \" + maxMergeCount + \")\");\n    }\n    maxThreadCount = count;\n  }",
+  "javadoc_before": "/** Sets the max # simultaneous threads that may be\n   *  running.  If a merge is necessary yet we already have\n   *  this many threads running, the incoming thread (that\n   *  is calling add/updateDocument) will block until\n   *  a merge thread has completed. */",
+  "javadoc_after": "/** Sets the max # simultaneous merge threads that should\n   *  be running at once.  This must be <= {@link\n   *  #setMaxMergeCount}. */"
+}

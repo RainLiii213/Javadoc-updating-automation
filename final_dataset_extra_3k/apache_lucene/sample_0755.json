@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0b90b5e23d904a669c92a692765d1acd77cf1971",
+  "issue_summary": "add opaque userData String passed to IndexWriter.commit, recorded into the segments file",
+  "code_before": "public final void prepareCommit() throws CorruptIndexException, IOException {\n    ensureOpen();\n    prepareCommit(false);\n  }",
+  "code_after": "public final void prepareCommit() throws CorruptIndexException, IOException {\n    ensureOpen();\n    prepareCommit(null);\n  }",
+  "javadoc_before": "/** <p>Expert: prepare for commit.  This does the first\n   *  phase of 2-phase commit.  You can only call this when\n   *  autoCommit is false.  This method does all steps\n   *  necessary to commit changes since this writer was\n   *  opened: flushes pending added and deleted docs, syncs\n   *  the index files, writes most of next segments_N file.\n   *  After calling this you must call either {@link\n   *  #commit()} to finish the commit, or {@link\n   *  #rollback()} to revert the commit and undo all changes\n   *  done since the writer was opened.</p>\n   *\n   * You can also just call {@link #commit()} directly\n   * without prepareCommit first in which case that method\n   * will internally call prepareCommit.\n   */",
+  "javadoc_after": "/** Expert: prepare for commit.\n   * @see #prepareCommit(String) */"
+}

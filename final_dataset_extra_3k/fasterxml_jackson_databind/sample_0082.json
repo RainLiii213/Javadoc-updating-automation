@@ -1,0 +1,8 @@
+{
+  "commit_hash": "507297733ee2b667d7b7b0f53b02d82caf52e406",
+  "issue_summary": "Make `withProperties()` non-abstract (with dummy impl) just for 2.11, for improved compatibility",
+  "code_before": "protected abstract BeanSerializerBase withProperties(BeanPropertyWriter[] properties,\n            BeanPropertyWriter[] filteredProperties);",
+  "code_after": "protected BeanSerializerBase withProperties(BeanPropertyWriter[] properties,\n            BeanPropertyWriter[] filteredProperties) {\n        return this;\n    }",
+  "javadoc_before": "/**\n     * Mutant factory used for creating a new instance with modified set\n     * of properties\n     * \n     * @since 2.11.1\n     */",
+  "javadoc_after": "/**\n     * Mutant factory used for creating a new instance with modified set\n     * of properties.\n     *<p>\n     * Note: in 2.11.x, need to keep non-abstract for slightly better compatibility\n     * (XML module extends)\n     * \n     * @since 2.11.1\n     */"
+}

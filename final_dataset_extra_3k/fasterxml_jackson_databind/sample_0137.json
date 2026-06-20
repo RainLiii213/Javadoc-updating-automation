@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a8e12f0ec29ab216957d8e89bb37aabbeaed4e50",
+  "issue_summary": "Minor streamlining, in preparation of making AnnotatedClass (et al) use JavaType over Class",
+  "code_before": "public abstract Type getGenericType();",
+  "code_after": "@Deprecated\n    public Type getGenericType() {\n        return getType().getRawClass();\n    }",
+  "javadoc_before": "/**\n     * Full generic type of the annotated element; definition\n     * of what exactly this means depends on sub-class.\n     */",
+  "javadoc_after": "/**\n     * Full generic type of the annotated element; definition\n     * of what exactly this means depends on sub-class.\n     *\n     * @deprecated Since 2.7 should instead use {@link #getType()}\n     */"
+}

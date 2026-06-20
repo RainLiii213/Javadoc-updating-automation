@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4541271b9dc666c0473aebf5d1f9e4b476c10f7b",
+  "issue_summary": "added 3 new exceptions (subclasses of IOException) to better call out possible root causes of an IOException",
+  "code_before": "public IndexModifier(Directory directory, Analyzer analyzer, boolean create) throws IOException {\n    init(directory, analyzer, create);\n  }",
+  "code_after": "public IndexModifier(Directory directory, Analyzer analyzer, boolean create) throws CorruptIndexException, LockObtainFailedException, IOException {\n    init(directory, analyzer, create);\n  }",
+  "javadoc_before": "/**\n   * Open an index with write access.\n   *\n   * @param directory the index directory\n   * @param analyzer the analyzer to use for adding new documents\n   * @param create <code>true</code> to create the index or overwrite the existing one;\n   * \t<code>false</code> to append to the existing index\n   */",
+  "javadoc_after": "/**\n   * Open an index with write access.\n   *\n   * @param directory the index directory\n   * @param analyzer the analyzer to use for adding new documents\n   * @param create <code>true</code> to create the index or overwrite the existing one;\n   * \t<code>false</code> to append to the existing index\n   * @throws CorruptIndexException if the index is corrupt\n   * @throws LockObtainFailedException if another writer\n   *  has this index open (<code>write.lock</code> could not\n   *  be obtained)\n   * @throws IOException if there is a low-level IO error\n   */"
+}

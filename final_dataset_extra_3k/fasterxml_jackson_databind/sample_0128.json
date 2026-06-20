@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4bd13c5da81f5de9c8864a98170f73f9bb681b14",
+  "issue_summary": "Bit more work on property config overrides",
+  "code_before": "public DeserializationConfig(BaseSettings base,\n            SubtypeResolver str, SimpleMixInResolver mixins,\n            RootNameLookup rootNames)\n    {\n        super(base, str, mixins, rootNames);\n        _deserFeatures = collectFeatureDefaults(DeserializationFeature.class);\n        _nodeFactory = JsonNodeFactory.instance;\n        _problemHandlers = null;\n        _parserFeatures = 0;\n        _parserFeaturesToChange = 0;\n        _formatReadFeatures = 0;\n        _formatReadFeaturesToChange = 0;\n    }",
+  "code_after": "@Deprecated\n    public DeserializationConfig(BaseSettings base, SubtypeResolver str,\n            SimpleMixInResolver mixins, RootNameLookup rootNames) {\n        this(base, str, mixins, rootNames, null);\n    }",
+  "javadoc_before": "/**\n     * Constructor used by ObjectMapper to create default configuration object instance.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.8, remove from 2.9 or later\n     */"
+}

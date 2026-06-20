@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0669632a613994cfdeffecafc81078df851a211d",
+  "issue_summary": "Add missing NonNullApi and Nullable annotations.",
+  "code_before": "public T createQuery(Sort dynamicSort) {\n\t\treturn complete(createCriteria(tree), tree.getSort().and(dynamicSort));\n\t}",
+  "code_after": "public T createQuery(Sort dynamicSort) {\n\n\t\tAssert.notNull(dynamicSort, \"DynamicSort must not be null!\");\n\t\treturn complete(createCriteria(tree), tree.getSort().and(dynamicSort));\n\t}",
+  "javadoc_before": "/**\n\t * Creates the actual query object applying the given {@link Sort} parameter. Use this method in case you haven't\n\t * provided a {@link ParameterAccessor} in the first place but want to apply dynamic sorting nevertheless.\n\t *\n\t * @param dynamicSort\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Creates the actual query object applying the given {@link Sort} parameter. Use this method in case you haven't\n\t * provided a {@link ParameterAccessor} in the first place but want to apply dynamic sorting nevertheless.\n\t *\n\t * @param dynamicSort must not be {@literal null}.\n\t * @return\n\t */"
+}

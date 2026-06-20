@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dc3f92e6e58c788227b9cfe82d584cbe10e5e5bb",
+  "issue_summary": "switch to AtomicInteger for IR's ref count; remove sync from IW's ensureOpen (it's only 'best effort')",
+  "code_before": "public synchronized void decRef() throws IOException {\n    assert refCount > 0;\n    ensureOpen();\n    if (refCount == 1) {\n      commit();\n      doClose();\n    }\n    refCount--;\n  }",
+  "code_after": "public void decRef() throws IOException {\n    ensureOpen();\n    if (refCount.getAndDecrement() == 1) {\n      boolean success = false;\n      try {\n        commit();\n        doClose();\n        success = true;\n      } finally {\n        if (!success) {\n          // Put reference back on failure\n          refCount.incrementAndGet();\n        }\n      }\n    }\n  }",
+  "javadoc_before": "/**\n   * Expert: decreases the refCount of this IndexReader\n   * instance.  If the refCount drops to 0, then pending\n   * changes (if any) are committed to the index and this\n   * reader is closed.\n   * \n   * @throws IOException in case an IOException occurs in commit() or doClose()\n   *\n   * @see #incRef\n   */",
+  "javadoc_after": "/**\n   * Expert: decreases the refCount of this IndexReader\n   * instance.  If the refCount drops to 0, then pending\n   * changes (if any) are committed to the index and this\n   * reader is closed.  If an exception is hit, the refCount\n   * is unchanged.\n   *\n   * @throws IOException in case an IOException occurs in commit() or doClose()\n   *\n   * @see #incRef\n   */"
+}

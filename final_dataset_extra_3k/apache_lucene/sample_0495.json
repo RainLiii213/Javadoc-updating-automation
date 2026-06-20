@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b7846ffaa1ff8cd050feaa924e3a6ab12a43549b",
+  "issue_summary": "add BlockTreeTermsReader/Writer, a more efficient tree-structure for the terms dictionary",
+  "code_before": "public void setInfoStream(PrintStream out) {\n    infoStream = out;\n  }",
+  "code_after": "public void setInfoStream(PrintStream out) {\n    setInfoStream(out, false);\n  }",
+  "javadoc_before": "/** Set infoStream where messages should go.  If null, no\n   *  messages are printed */",
+  "javadoc_after": "/** Set infoStream where messages should go. See {@link setInfoStream(PrintStream,boolean)}. */"
+}

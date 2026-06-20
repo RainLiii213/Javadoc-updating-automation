@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6a78ef8903ef7c2c785b8d0cc08a150d1e2ba818",
+  "issue_summary": "Normalize internal buffers to 8192 bytes.",
+  "code_before": "public CircularBufferInputStream(final InputStream inputStream) {\n        this(inputStream, 8192);\n    }",
+  "code_after": "public CircularBufferInputStream(final InputStream inputStream) {\n        this(inputStream, IOUtils.DEFAULT_BUFFER_SIZE);\n    }",
+  "javadoc_before": "/**\n     * Creates a new instance, which filters the given input stream, and\n     * uses a reasonable default buffer size (8192).\n     *\n     * @param inputStream The input stream, which is being buffered.\n     */",
+  "javadoc_after": "/**\n     * Creates a new instance, which filters the given input stream, and\n     * uses a reasonable default buffer size ({@link IOUtils#DEFAULT_BUFFER_SIZE}).\n     *\n     * @param inputStream The input stream, which is being buffered.\n     */"
+}

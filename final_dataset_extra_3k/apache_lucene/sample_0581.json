@@ -1,0 +1,8 @@
+{
+  "commit_hash": "28a153babc42c6b27d102f0f3282e0bb5f2090d2",
+  "issue_summary": "add custom ExecutorService to ParallelMultiSearcher",
+  "code_before": "public ParallelMultiSearcher(Searchable... searchables) throws IOException {\n    super(searchables);\n    this.searchables = searchables;\n    this.starts = getStarts();\n    executor = Executors.newCachedThreadPool(new NamedThreadFactory(this.getClass().getSimpleName()));\n  }",
+  "code_after": "public ParallelMultiSearcher(Searchable... searchables) throws IOException {\n    this(Executors.newCachedThreadPool(new NamedThreadFactory(ParallelMultiSearcher.class.getSimpleName())), searchables);\n  }",
+  "javadoc_before": "/** Creates a {@link Searchable} which searches <i>searchables</i>. */",
+  "javadoc_after": "/** Creates a {@link Searchable} which searches <i>searchables</i> with the default \n   * executor service (a cached thread pool). */"
+}

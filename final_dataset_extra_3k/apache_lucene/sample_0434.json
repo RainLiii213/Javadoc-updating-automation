@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8fbd9d767344801e1915168cf7fa4bd404758de7",
+  "issue_summary": "Similarity.java javadocs and simplifications for 4.0",
+  "code_before": "ExactDocScorer createDocScorer(AtomicReaderContext context)\n        throws IOException {\n      return similarity.exactDocScorer(stats, term.field(), context);\n    }",
+  "code_after": "ExactSimScorer createDocScorer(AtomicReaderContext context)\n        throws IOException {\n      return similarity.exactSimScorer(stats, context);\n    }",
+  "javadoc_before": "/**\n     * Creates an {@link ExactDocScorer} for this {@link TermWeight}*/",
+  "javadoc_after": "/**\n     * Creates an {@link ExactSimScorer} for this {@link TermWeight}*/"
+}

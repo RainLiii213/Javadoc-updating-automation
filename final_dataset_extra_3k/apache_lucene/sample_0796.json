@@ -1,0 +1,8 @@
+{
+  "commit_hash": "299d6357dd296f87a099fadd0764292b28dbde47",
+  "issue_summary": "factor MergePolicy & MergeScheduler out of IndexWriter, improve overall concurrency of IndexWriter, and add ConcurrentMergeScheduler",
+  "code_before": "public void setUseCompoundFile(boolean value) {\n    ensureOpen();\n    useCompoundFile = value;\n  }",
+  "code_after": "public void setUseCompoundFile(boolean value) {\n    getLogMergePolicy().setUseCompoundFile(value);\n  }",
+  "javadoc_before": "/** Setting to turn on usage of a compound file. When on, multiple files\n   *  for each segment are merged into a single file once the segment creation\n   *  is finished. This is done regardless of what directory is in use.\n   */",
+  "javadoc_after": "/** <p>Setting to turn on usage of a compound file. When on,\n   *  multiple files for each segment are merged into a\n   *  single file when a new segment is flushed.</p>\n   *\n   *  <p>Note that this method is a convenience method: it\n   *  just calls mergePolicy.setUseCompoundFile as long as\n   *  mergePolicy is an instance of {@link LogMergePolicy}.\n   *  Otherwise an IllegalArgumentException is thrown.</p>\n   */"
+}

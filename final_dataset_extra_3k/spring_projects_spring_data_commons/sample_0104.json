@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2b4ef1a55589466c87c2f30432f504e7b00a2438",
+  "issue_summary": "Remove argument array caching from EntityInstantiators.",
+  "code_before": "static Object[] allocateArguments(int argumentCount) {\n\t\treturn argumentCount < ARG_CACHE_SIZE ? OBJECT_POOL.get()[argumentCount] : new Object[argumentCount];\n\t}",
+  "code_after": "static Object[] allocateArguments(int argumentCount) {\n\t\treturn argumentCount == 0 ? EMPTY_ARGS : new Object[argumentCount];\n\t}",
+  "javadoc_before": "/**\n\t * Allocates an object array for instance creation. This method uses the argument array cache if possible.\n\t *\n\t * @param argumentCount\n\t * @return\n\t * @since 2.0\n\t * @see #ARG_CACHE_SIZE\n\t */",
+  "javadoc_after": "/**\n\t * Allocates an object array for instance creation.\n\t *\n\t * @param argumentCount\n\t * @return\n\t * @since 2.0\n\t */"
+}

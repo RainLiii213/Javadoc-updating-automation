@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0493d131e0f5c782cef440f85ef2b0bb64984bba",
+  "issue_summary": "Remove Optional from TypeDiscoverer API.",
+  "code_before": "default TypeInformation<?> getRequiredComponentType() {\n\t\treturn getComponentType().orElseThrow(\n\t\t\t\t() -> new IllegalStateException(String.format(\"Can't resolve required component type for %s!\", getType())));\n\t}",
+  "code_after": "default TypeInformation<?> getRequiredComponentType() {\n\n\t\tTypeInformation<?> componentType = getComponentType();\n\n\t\tif (componentType != null) {\n\t\t\treturn getComponentType();\n\t\t}\n\n\t\tthrow new IllegalStateException(String.format(\"Can't resolve required component type for %s!\", getType()));\n\t}",
+  "javadoc_before": "/**\n\t * Returns the component type for {@link java.util.Collection}s, the key type for {@link java.util.Map}s or the single\n\t * generic type if available throwing an exception if it can't be resolved.\n\t * \n\t * @return\n\t * @throws IllegalStateException if the component type cannot be resolved, e.g. if a raw type is used or the type is\n\t *           not generic in the first place.\n\t */",
+  "javadoc_after": "/**\n\t * Returns the component type for {@link java.util.Collection}s, the key type for {@link java.util.Map}s or the single\n\t * generic type if available. Throws {@link IllegalStateException} if the component value type cannot be resolved.\n\t *\n\t * @return\n\t * @throws IllegalStateException if the component type cannot be resolved, e.g. if a raw type is used or the type is\n\t *           not generic in the first place.\n\t * @since 2.0\n\t */"
+}

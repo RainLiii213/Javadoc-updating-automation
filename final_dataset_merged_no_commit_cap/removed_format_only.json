@@ -1,0 +1,1416 @@
+[
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/filefilter/WildcardFileFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/ReadAheadInputStream.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/ReadAheadInputStream.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/ReaderInputStream.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/Tailer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/XmlStreamReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/XmlStreamReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/XmlStreamReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/XmlStreamReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/XmlStreamReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/XmlStreamReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/XmlStreamReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/XmlStreamReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/input/XmlStreamReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/output/DeferredFileOutputStream.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/output/DeferredFileOutputStream.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/output/FileWriterWithEncoding.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/output/LockableFileWriter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+    "file_path": "src/main/java/org/apache/commons/io/output/WriterOutputStream.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_codec",
+    "repository_url": "https://github.com/apache/commons-codec.git",
+    "commit_hash": "fc393f7bdf6c971cb0dcd977d3015ad5ce524149",
+    "file_path": "src/main/java/org/apache/commons/codec/digest/MessageDigestAlgorithms.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "dcb09db922e1edbd6dc6cb1531b827451d58aa83",
+    "file_path": "src/main/java/org/apache/commons/io/file/PathUtils.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "file_path": "src/main/java/org/apache/commons/io/filefilter/AbstractFileFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "file_path": "src/main/java/org/apache/commons/io/filefilter/AbstractFileFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "file_path": "src/main/java/org/apache/commons/io/filefilter/AndFileFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "file_path": "src/main/java/org/apache/commons/io/filefilter/FalseFileFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "file_path": "src/main/java/org/apache/commons/io/filefilter/FileFilterUtils.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "file_path": "src/main/java/org/apache/commons/io/filefilter/NotFileFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "file_path": "src/main/java/org/apache/commons/io/filefilter/OrFileFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_io",
+    "repository_url": "https://github.com/apache/commons-io.git",
+    "commit_hash": "8b6d4969ffb55bf7301a44a8156f02b0213e6d68",
+    "file_path": "src/main/java/org/apache/commons/io/filefilter/TrueFileFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_collections",
+    "repository_url": "https://github.com/apache/commons-collections.git",
+    "commit_hash": "7eb78290c8d7d1fa379536700de0bd4a81320bb0",
+    "file_path": "src/main/java/org/apache/commons/collections4/CollectionUtils.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/arj/ArjArchiveInputStream.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipFile.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "d3cfba9b29511279b79071ee8fe6ed1996a2af3c",
+    "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/SpanNearQuery.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "d3cfba9b29511279b79071ee8fe6ed1996a2af3c",
+    "file_path": "lucene/core/src/java/org/apache/lucene/search/spans/SpanOrQuery.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "a43843701d9dbf790f9104a2ce1f6f38e98e8370",
+    "file_path": "solr/solrj/src/java/org/apache/solr/client/solrj/SolrRequest.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "cf88875456e9f0230bb0dedb40a801cf8474d51b",
+    "file_path": "src/main/java/org/apache/commons/compress/utils/TimeUtils.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "c13216934c58870b487a9bd04b2fd4ea24431000",
+    "file_path": "lucene/core/src/java/org/apache/lucene/search/TermQuery.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "856a540d3eeb463527c509853f4d205f4adc272f",
+    "file_path": "src/main/java/org/apache/commons/compress/utils/BitInputStream.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/AsiExtraField.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/AsiExtraField.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipEntry.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipEntry.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipLong.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipOutputStream.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_compress",
+    "repository_url": "https://github.com/apache/commons-compress.git",
+    "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+    "file_path": "src/main/java/org/apache/commons/compress/archivers/zip/ZipShort.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "8a71c443209d385218c79226902ce8750350a620",
+    "file_path": "lucene/core/src/java/org/apache/lucene/util/packed/AbstractAppendingLongBuffer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "8a71c443209d385218c79226902ce8750350a620",
+    "file_path": "lucene/core/src/java/org/apache/lucene/util/packed/MonotonicAppendingLongBuffer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "ae2c81ad18f82278c5840d12ac22e572c3d31bf3",
+    "file_path": "src/main/java/org/apache/commons/math4/distribution/PoissonDistribution.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "9867d9f2817fd6dd20d458022de3dda8c3b43b2f",
+    "file_path": "src/main/java/org/apache/commons/math4/distribution/EnumeratedRealDistribution.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "de17206f02ada12c56b8e8910e9804a80bb07f69",
+    "file_path": "lucene/facet/src/java/org/apache/lucene/facet/search/cache/CategoryListData.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "de17206f02ada12c56b8e8910e9804a80bb07f69",
+    "file_path": "lucene/facet/src/java/org/apache/lucene/facet/search/cache/CategoryListData.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "de17206f02ada12c56b8e8910e9804a80bb07f69",
+    "file_path": "lucene/facet/src/java/org/apache/lucene/util/encoding/EightFlagsIntEncoder.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "e96b143b6a28b12b130ee49c030b5ab7dfc04903",
+    "file_path": "lucene/core/src/java/org/apache/lucene/util/packed/PackedInts.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "06880f1138498473cebcb273d034d0e9d4d4aed6",
+    "file_path": "src/main/java/org/apache/commons/math3/linear/RealMatrix.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "1a9e32ab8f63ab40517a9e3837ca8c5dce52f20d",
+    "file_path": "src/main/java/org/apache/commons/math3/genetics/ListPopulation.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "1a9e32ab8f63ab40517a9e3837ca8c5dce52f20d",
+    "file_path": "src/main/java/org/apache/commons/math3/genetics/RandomKey.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "86321681e744be1c1c3192c1e5f7cb1516e79a06",
+    "file_path": "src/main/java/org/apache/commons/math3/filter/DefaultMeasurementModel.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "86321681e744be1c1c3192c1e5f7cb1516e79a06",
+    "file_path": "src/main/java/org/apache/commons/math3/filter/DefaultProcessModel.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "86321681e744be1c1c3192c1e5f7cb1516e79a06",
+    "file_path": "src/main/java/org/apache/commons/math3/filter/KalmanFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "56a22909a1ef737952329dce5149a5b21fc4c2d7",
+    "file_path": "src/main/java/org/apache/commons/math3/linear/FieldMatrix.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "56a22909a1ef737952329dce5149a5b21fc4c2d7",
+    "file_path": "src/main/java/org/apache/commons/math3/linear/MatrixUtils.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "56a22909a1ef737952329dce5149a5b21fc4c2d7",
+    "file_path": "src/main/java/org/apache/commons/math3/linear/MatrixUtils.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "56a22909a1ef737952329dce5149a5b21fc4c2d7",
+    "file_path": "src/main/java/org/apache/commons/math3/linear/MatrixUtils.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "0af91ecfbe4deec846cd30fb32145d82b920a4ff",
+    "file_path": "src/main/java/org/apache/commons/math3/analysis/solvers/BaseAbstractUnivariateSolver.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/Field.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/Field.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/Field.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/Field.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/Field.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/Field.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/Field.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/Field.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/Field.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/NumericField.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/NumericField.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/NumericField.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/NumericField.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/NumericField.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4dad0ba89f1d663939999be9005433dd629955f1",
+    "file_path": "lucene/src/java/org/apache/lucene/document/NumericField.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "37d642ec3056d6add8a535e9ef8d47992e3c0ae7",
+    "file_path": "src/main/java/org/apache/commons/math/transform/FastFourierTransformer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "37d642ec3056d6add8a535e9ef8d47992e3c0ae7",
+    "file_path": "src/main/java/org/apache/commons/math/transform/FastFourierTransformer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "37d642ec3056d6add8a535e9ef8d47992e3c0ae7",
+    "file_path": "src/main/java/org/apache/commons/math/transform/FastFourierTransformer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "b679816a7001ba986618f103a9a9c67ececc7ff8",
+    "file_path": "lucene/src/java/org/apache/lucene/index/IndexFileNameFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "b679816a7001ba986618f103a9a9c67ececc7ff8",
+    "file_path": "lucene/src/java/org/apache/lucene/index/MultiReader.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "b679816a7001ba986618f103a9a9c67ececc7ff8",
+    "file_path": "lucene/src/java/org/apache/lucene/search/MultiTermQueryWrapperFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "file_path": "src/main/java/org/apache/commons/math/distribution/AbstractIntegerDistribution.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "file_path": "src/main/java/org/apache/commons/math/distribution/AbstractIntegerDistribution.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "file_path": "src/main/java/org/apache/commons/math/distribution/AbstractIntegerDistribution.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "file_path": "src/main/java/org/apache/commons/math/distribution/BinomialDistributionImpl.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "file_path": "src/main/java/org/apache/commons/math/distribution/ExponentialDistributionImpl.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "file_path": "src/main/java/org/apache/commons/math/distribution/IntegerDistribution.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+    "file_path": "src/main/java/org/apache/commons/math/distribution/PascalDistributionImpl.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a28aac9aa8e7288673200c10f33184455937f298",
+    "file_path": "src/main/java/org/apache/commons/math/analysis/MultivariateRealFunction.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "b6f92546451fecbd207b2d67e0854fe1e8ce27e0",
+    "file_path": "src/main/java/org/apache/commons/math/stat/StatUtils.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "0b3c388aebe23cde0c7d3afbcd1171c4a8a3f5c5",
+    "file_path": "src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "f03d77b558482b517bc7285f20f9d13075c604be",
+    "file_path": "src/java/org/apache/lucene/search/MultiSearcher.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "f03d77b558482b517bc7285f20f9d13075c604be",
+    "file_path": "src/java/org/apache/lucene/search/Searcher.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "3f353cbde4f98c6a8158d4e597bc211bd050790a",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "a93e2c41b0669788bcf448ea953a4d6d85ba0640",
+    "file_path": "src/java/org/apache/lucene/search/DisjunctionMaxScorer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "a93e2c41b0669788bcf448ea953a4d6d85ba0640",
+    "file_path": "src/java/org/apache/lucene/search/DisjunctionMaxScorer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "07f166332003e7f0857954ffc5bd3e85ca762f69",
+    "file_path": "src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "07f166332003e7f0857954ffc5bd3e85ca762f69",
+    "file_path": "src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "826fc64e968e5fd84dae5757537ab8ed815e2126",
+    "file_path": "src/main/java/org/apache/commons/math/linear/BlockRealMatrix.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "826fc64e968e5fd84dae5757537ab8ed815e2126",
+    "file_path": "src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "826fc64e968e5fd84dae5757537ab8ed815e2126",
+    "file_path": "src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "826fc64e968e5fd84dae5757537ab8ed815e2126",
+    "file_path": "src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "826fc64e968e5fd84dae5757537ab8ed815e2126",
+    "file_path": "src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "ad79d914e48c5c2b0683c8331afffe8187ae4fb2",
+    "file_path": "src/java/org/apache/lucene/search/FieldValueHitQueue.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "ad79d914e48c5c2b0683c8331afffe8187ae4fb2",
+    "file_path": "src/java/org/apache/lucene/search/FieldValueHitQueue.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "ad79d914e48c5c2b0683c8331afffe8187ae4fb2",
+    "file_path": "src/java/org/apache/lucene/search/FieldValueHitQueue.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "ad79d914e48c5c2b0683c8331afffe8187ae4fb2",
+    "file_path": "src/java/org/apache/lucene/search/TopFieldDocCollector.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "2c508b8458fe1f8c3506032b4b0a4b6d6230a635",
+    "file_path": "src/main/java/org/apache/commons/math/linear/RealMatrix.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/DifferentiableMultivariateRealOptimizer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/MultiStartDifferentiableMultivariateRealOptimizer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/MultiStartDifferentiableMultivariateRealOptimizer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/MultiStartDifferentiableMultivariateVectorialOptimizer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/MultiStartMultivariateRealOptimizer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/MultiStartMultivariateRealOptimizer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/SimpleRealPointChecker.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/SimpleVectorialPointChecker.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/SimpleVectorialPointChecker.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/direct/DirectSearchOptimizer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/general/BaseAbstractScalarOptimizer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_commons_math",
+    "repository_url": "https://github.com/apache/commons-math.git",
+    "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+    "file_path": "src/main/java/org/apache/commons/math/optimization/univariate/BracketFinder.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "bb6b7117186b656b4777850fdc463e0eaa541130",
+    "file_path": "src/java/org/apache/lucene/index/Payload.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "d42de329840f0a224fc93e51296d81c34efd4730",
+    "file_path": "src/java/org/apache/lucene/analysis/StopFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "d42de329840f0a224fc93e51296d81c34efd4730",
+    "file_path": "src/java/org/apache/lucene/analysis/StopFilter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "9ba7a8e612e933da24c4eae0f927bf2fb6af32b0",
+    "file_path": "src/java/org/apache/lucene/store/RAMDirectory.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/server/registry/GDataServerRegistry.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/server/registry/ProvidedServiceConfig.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageBuffer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageBuffer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageBuffer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageBuffer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageBuffer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageBuffer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageBuffer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageQuery.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "5e61ac9bf1836c7c33a36b8e221bf5abaa80a8b7",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageQuery.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/server/GDataRequest.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/server/GDataResponse.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/server/GDataResponse.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/servlet/handler/DefaultDeleteHandler.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/servlet/handler/DefaultUpdateHandler.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "4707eea96c4bf5ce0acd4981a2ac7819ea5a7d72",
+    "file_path": "contrib/gdata-server/src/java/org/apache/lucene/gdata/storage/lucenestorage/StorageQuery.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "942065cc3e7e3941167ab1ffacbada225d612d79",
+    "file_path": "lucene/facet/src/java/org/apache/lucene/facet/RandomSamplingFacetsCollector.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "9479f3af292591c67162c6972c1d048a2d56106f",
+    "file_path": "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "9479f3af292591c67162c6972c1d048a2d56106f",
+    "file_path": "src/main/java/com/fasterxml/jackson/databind/deser/std/EnumMapDeserializer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "9479f3af292591c67162c6972c1d048a2d56106f",
+    "file_path": "src/main/java/com/fasterxml/jackson/databind/deser/std/EnumMapDeserializer.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "9479f3af292591c67162c6972c1d048a2d56106f",
+    "file_path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "9479f3af292591c67162c6972c1d048a2d56106f",
+    "file_path": "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "9479f3af292591c67162c6972c1d048a2d56106f",
+    "file_path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/FilteredBeanPropertyWriter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "9479f3af292591c67162c6972c1d048a2d56106f",
+    "file_path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/UnwrappingBeanPropertyWriter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "fasterxml_jackson_databind",
+    "repository_url": "https://github.com/FasterXML/jackson-databind.git",
+    "commit_hash": "9479f3af292591c67162c6972c1d048a2d56106f",
+    "file_path": "src/main/java/com/fasterxml/jackson/databind/ser/impl/UnwrappingBeanPropertyWriter.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "6bba35a7096ef2d4023ba9339e9cc30268d520ce",
+    "file_path": "lucene/core/src/java/org/apache/lucene/util/fst/FST.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "apache_lucene",
+    "repository_url": "https://github.com/apache/lucene.git",
+    "commit_hash": "906679adc80f0fad1e5c311b03023c7bd95633d7",
+    "file_path": "lucene/analysis/common/src/java/org/apache/lucene/analysis/core/LowerCaseTokenizerFactory.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "spring_projects_spring_data_commons",
+    "repository_url": "https://github.com/spring-projects/spring-data-commons.git",
+    "commit_hash": "049970874dca2b648c9d2f3bfdd01f0e8a11de51",
+    "file_path": "src/main/java/org/springframework/data/mapping/model/SpELExpressionParameterValueProvider.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "73e382fa877f80994817a136b0adcc4365ccd904",
+    "file_path": "guava/src/com/google/common/util/concurrent/AtomicLongMap.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "73e382fa877f80994817a136b0adcc4365ccd904",
+    "file_path": "guava/src/com/google/common/util/concurrent/AtomicLongMap.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "73e382fa877f80994817a136b0adcc4365ccd904",
+    "file_path": "guava/src/com/google/common/util/concurrent/AtomicLongMap.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "73e382fa877f80994817a136b0adcc4365ccd904",
+    "file_path": "guava/src/com/google/common/util/concurrent/AtomicLongMap.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "73e382fa877f80994817a136b0adcc4365ccd904",
+    "file_path": "guava/src/com/google/common/util/concurrent/AtomicLongMap.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "73e382fa877f80994817a136b0adcc4365ccd904",
+    "file_path": "guava/src/com/google/common/util/concurrent/AtomicLongMap.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/base/Joiner.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/net/InternetDomainName.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "52aabe5b3834a5ec6ab4785a041c3162e127c8e4",
+    "file_path": "src/com/google/common/net/InternetDomainName.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "ee071f342edd0f5240dc2667a11e717a3a9395e6",
+    "file_path": "src/com/google/common/base/CharMatcher.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "ee071f342edd0f5240dc2667a11e717a3a9395e6",
+    "file_path": "src/com/google/common/collect/Iterators.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "google_guava",
+    "repository_url": "https://github.com/google/guava.git",
+    "commit_hash": "bbab2ce3c162b244119bdc22a990d7b75fdef0af",
+    "file_path": "src/com/google/common/util/concurrent/Futures.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "a7210d05fc3669383277fdf1305d04406bf1b9e0",
+    "file_path": "JodaTime/src/java/org/joda/time/convert/ConverterManager.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "0e07ac6b2cff63550d7df336355ca63cc05aa40b",
+    "file_path": "JodaTime/src/java/org/joda/time/MutableDateTimeFieldProperty.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "0e07ac6b2cff63550d7df336355ca63cc05aa40b",
+    "file_path": "JodaTime/src/java/org/joda/time/MutableDateTimeFieldProperty.java",
+    "reason": "format_only_javadoc"
+  },
+  {
+    "project_slug": "jodaorg_joda_time",
+    "repository_url": "https://github.com/JodaOrg/joda-time.git",
+    "commit_hash": "0e07ac6b2cff63550d7df336355ca63cc05aa40b",
+    "file_path": "JodaTime/src/java/org/joda/time/MutableDateTimeFieldProperty.java",
+    "reason": "format_only_javadoc"
+  }
+]

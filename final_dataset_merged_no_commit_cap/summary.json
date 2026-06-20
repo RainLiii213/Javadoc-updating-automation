@@ -1,0 +1,195 @@
+{
+  "current_dataset_path": "final_dataset_merged",
+  "output_dataset_path": "final_dataset_merged_no_commit_cap",
+  "recovery_dataset_path": "recovery_without_commit_cap",
+  "target_commit_count": 304,
+  "current_commit_count": 2570,
+  "current_change_count": 3591,
+  "raw_reprocessed_change_count": 3890,
+  "newly_recovered_change_count": 2995,
+  "final_commit_count": 2570,
+  "final_change_count": 6586,
+  "added_change_count": 2995,
+  "method_change_count": 4545,
+  "class_change_count": 2041,
+  "commits_with_more_than_3_changes": 274,
+  "max_changes_in_one_commit": 111,
+  "changes_per_commit_distribution": {
+    "1": 1853,
+    "2": 413,
+    "3": 30,
+    "4-5": 77,
+    "6-10": 95,
+    "11-20": 57,
+    "21-50": 35,
+    ">50": 10
+  },
+  "per_project_final_change_count": {
+    "apache_commons_codec": 71,
+    "apache_commons_collections": 120,
+    "apache_commons_compress": 297,
+    "apache_commons_io": 334,
+    "apache_commons_lang": 38,
+    "apache_commons_math": 1871,
+    "apache_commons_text": 37,
+    "apache_lucene": 2368,
+    "fasterxml_jackson_databind": 258,
+    "google_guava": 482,
+    "jodaorg_joda_time": 255,
+    "junit_team_junit5": 210,
+    "spring_projects_spring_data_commons": 245
+  },
+  "per_project_new_recovered_count": {
+    "apache_commons_codec": 30,
+    "apache_commons_collections": 48,
+    "apache_commons_compress": 116,
+    "apache_commons_io": 161,
+    "apache_commons_lang": 1,
+    "apache_commons_math": 1313,
+    "apache_commons_text": 2,
+    "apache_lucene": 855,
+    "fasterxml_jackson_databind": 45,
+    "google_guava": 198,
+    "jodaorg_joda_time": 130,
+    "junit_team_junit5": 36,
+    "spring_projects_spring_data_commons": 60
+  },
+  "duplicate_with_existing_count": 877,
+  "duplicate_within_recovery_count": 18,
+  "format_only_removed_count": 202,
+  "failed_or_partially_failed_commit_count": 0,
+  "target_report_count": 304,
+  "audit_example_change_counts": {
+    "apache_commons_compress/86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8": 46,
+    "apache_commons_io/8b6d4969ffb55bf7301a44a8156f02b0213e6d68": 24,
+    "jodaorg_joda_time/0e07ac6b2cff63550d7df336355ca63cc05aa40b": 93
+  },
+  "top_commits_by_change_count": [
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "4f05aa7d181a279ef82b268f9a441b16d5505d70",
+      "change_count": 111,
+      "issue_summary": "removed FunctionEvaluationException, DerivativeException and MatrixVisitorException these exception were deprecated in 2.2 and a smooth transition path was set up to help users, now all user functions should use the new unchecked MathUserException"
+    },
+    {
+      "project_slug": "google_guava",
+      "commit_hash": "ee071f342edd0f5240dc2667a11e717a3a9395e6",
+      "change_count": 102,
+      "issue_summary": "Huge new source dump for source release 3, which will also become our first binary release shortly."
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "826fc64e968e5fd84dae5757537ab8ed815e2126",
+      "change_count": 98,
+      "issue_summary": "Deleted deprecated classes in package \"linear\". Removed redundant methods in \"Array2DRowRealMatrix\". Removed usage of \"MatrixIndexException\" (class is now deprecated). Javadoc clean up."
+    },
+    {
+      "project_slug": "jodaorg_joda_time",
+      "commit_hash": "0e07ac6b2cff63550d7df336355ca63cc05aa40b",
+      "change_count": 93,
+      "issue_summary": "Move from Joda CVS"
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "ae26b9bf23d2c8924e854a36fa92e454a0e2c6f2",
+      "change_count": 90,
+      "issue_summary": "Added throws declarations, improved javadoc, made Kurtosis increment consistent with other moment statistics. JIRA: ."
+    },
+    {
+      "project_slug": "apache_commons_io",
+      "commit_hash": "7ecca22f175c644da3096940a4ce899be5b33740",
+      "change_count": 77,
+      "issue_summary": "Add builders and avoid creating more constructors for all permutations of current options."
+    },
+    {
+      "project_slug": "apache_lucene",
+      "commit_hash": "4541271b9dc666c0473aebf5d1f9e4b476c10f7b",
+      "change_count": 73,
+      "issue_summary": "added 3 new exceptions (subclasses of IOException) to better call out possible root causes of an IOException"
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "6f3165670c9c1c6e383b283f390270968402e081",
+      "change_count": 54,
+      "issue_summary": "Filled throws clauses for the analysis package."
+    },
+    {
+      "project_slug": "google_guava",
+      "commit_hash": "bbab2ce3c162b244119bdc22a990d7b75fdef0af",
+      "change_count": 54,
+      "issue_summary": "ARGHGH, guess I was in the wrong directory when submitting... amateurs..."
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "2e3e0829846239f4f1378a81e307ed28b11f9ecc",
+      "change_count": 53,
+      "issue_summary": "Issues https://issues.apache.org/jira/browse/ https://issues.apache.org/jira/browse/"
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "2568420bf6a022558b0cb7bb837a42659c22de51",
+      "change_count": 50,
+      "issue_summary": "Eliminated MathException from distribution interfaces and impls."
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "b883dcbc08044687bc037ed2170f18416893f7d0",
+      "change_count": 47,
+      "issue_summary": "Updated throws declaration for random package (and part of distribution)."
+    },
+    {
+      "project_slug": "apache_commons_compress",
+      "commit_hash": "86c20cdc037a8a3b73927b2ad51f0f9e844ba5f8",
+      "change_count": 46,
+      "issue_summary": "Commons IO 2.21.0 and more"
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "56a22909a1ef737952329dce5149a5b21fc4c2d7",
+      "change_count": 45,
+      "issue_summary": "populate the throws clause in package o.a.c.m.linear."
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "e8e94f59360f776d638bc31abed86cc06a1d17a2",
+      "change_count": 45,
+      "issue_summary": "populate throws declaration for ODE package"
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "62a313f67d40f2cd192b7f5890f0be14f358b390",
+      "change_count": 43,
+      "issue_summary": "Replaced NullPointerException by NullArgumentException"
+    },
+    {
+      "project_slug": "apache_lucene",
+      "commit_hash": "b679816a7001ba986618f103a9a9c67ececc7ff8",
+      "change_count": 43,
+      "issue_summary": "Reintegrate flex_1458 branch into trunk (revision 931101)"
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "e055dcd21a4ed619ac117ce806b7bfc67416f177",
+      "change_count": 42,
+      "issue_summary": "Added missing throws declarations. JIRA: ."
+    },
+    {
+      "project_slug": "apache_commons_math",
+      "commit_hash": "a21faeae6ed850c618b4fb739a422e3b144db135",
+      "change_count": 38,
+      "issue_summary": "Overhaul of the \"optimization\" package. Removed lots of duplicate code. Removed methods referring to the concept of \"iteration\". Removed interface methods to access the number of evaluations of the gradient and Jacobian. Removed all references to \"OptimizationException\" (replaced by \"ConvergenceException\"). Javadoc comments updated."
+    },
+    {
+      "project_slug": "apache_commons_compress",
+      "commit_hash": "ab9ebfc83e6e741b1a4296c4c651ac2798f467f7",
+      "change_count": 36,
+      "issue_summary": "applied patch by Christian Grobmeier"
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "commit_count": 2570,
+    "change_count": 6586,
+    "errors": {}
+  }
+}

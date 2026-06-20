@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b4540d63697890494663a9ba17c096b0b22d005d",
+  "issue_summary": "add unibigram option to CJKBigramFilter",
+  "code_before": "public CJKBigramFilter(TokenStream in, int flags) {\n    super(in);\n    doHan =      (flags & HAN) == 0      ? NO : HAN_TYPE;\n    doHiragana = (flags & HIRAGANA) == 0 ? NO : HIRAGANA_TYPE;\n    doKatakana = (flags & KATAKANA) == 0 ? NO : KATAKANA_TYPE;\n    doHangul =   (flags & HANGUL) == 0   ? NO : HANGUL_TYPE;\n  }",
+  "code_after": "public CJKBigramFilter(TokenStream in, int flags) {\n    this(in, flags, false);\n  }",
+  "javadoc_before": "/** \n   * Create a new CJKBigramFilter, specifying which writing systems should be bigrammed.\n   * @param flags OR'ed set from {@link CJKBigramFilter#HAN}, {@link CJKBigramFilter#HIRAGANA}, \n   *        {@link CJKBigramFilter#KATAKANA}, {@link CJKBigramFilter#HANGUL}\n   */",
+  "javadoc_after": "/** \n   * Calls {@link CJKBigramFilter#CJKBigramFilter(TokenStream, int, boolean)\n   *       CJKBigramFilter(in, flags, false)}\n   */"
+}

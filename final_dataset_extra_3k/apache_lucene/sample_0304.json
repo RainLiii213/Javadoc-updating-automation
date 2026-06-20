@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6c5f475b4d1c4e063028b10160138ab4cec9ac31",
+  "issue_summary": "FacetIndexing/SearchParams house cleaning",
+  "code_before": "public List<Class<? extends CategoryProperty>> getRetainableProperties();",
+  "code_after": "public List<CategoryProperty> getRetainableProperties() {\n    List<CategoryProperty> props = new ArrayList<CategoryProperty>();\n    for (CategoryEnhancement enhancement : enhancements) {\n      CategoryProperty prop = enhancement.getRetainableProperty();\n      if (prop != null) {\n        props.add(prop);\n      }\n    }\n    if (props.isEmpty()) {\n      return null;\n    }\n    return props;\n  }",
+  "javadoc_before": "/**\n   * Get a list of {@link CategoryProperty} classes to be retained when\n   * creating {@link CategoryParentsStream}.\n   * \n   * @return the list of {@link CategoryProperty} classes to be retained when\n   *         creating {@link CategoryParentsStream}, or {@code null} if there\n   *         are no such properties.\n   */",
+  "javadoc_after": "/**\n   * Returns a list of {@link CategoryProperty} which should be retained when\n   * creating {@link CategoryParentsStream}, or {@code null} if there are no\n   * such properties.\n   */"
+}

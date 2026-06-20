@@ -1,0 +1,8 @@
+{
+  "commit_hash": "10f2ce36162081f6d9ecc5a1cbc48d86b34240da",
+  "issue_summary": "Fix",
+  "code_before": "protected MapperConfigBase(MapperConfigBase<CFG,T> src,\n            SimpleMixInResolver mixins, RootNameLookup rootNames,\n            ConfigOverrides configOverrides)\n    {\n        super(src);\n        _mixIns = mixins;\n        _subtypeResolver = src._subtypeResolver;\n        _rootNames = rootNames;\n        _rootName = src._rootName;\n        _view = src._view;\n        _attributes = src._attributes;\n        _configOverrides = configOverrides;\n    }",
+  "code_after": "protected MapperConfigBase(MapperConfigBase<CFG,T> src,\n            SimpleMixInResolver mixins, RootNameLookup rootNames,\n            ConfigOverrides configOverrides)\n    {\n        // 18-Apr-2018, tatu: [databind#1898] need to force copying of `ClassIntrospector`\n        //    (to clear its cache) to avoid leakage\n        super(src, src._base.copy());\n        _mixIns = mixins;\n        _subtypeResolver = src._subtypeResolver;\n        _rootNames = rootNames;\n        _rootName = src._rootName;\n        _view = src._view;\n        _attributes = src._attributes;\n        _configOverrides = configOverrides;\n    }",
+  "javadoc_before": "/**\n     * @since 2.8\n     */",
+  "javadoc_after": "/**\n     * Copy constructor usually called to make a copy for use by\n     * ObjectMapper that is copied.\n     *\n     * @since 2.8\n     */"
+}

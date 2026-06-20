@@ -1,0 +1,8 @@
+{
+  "commit_hash": "68aa14653501d3aa0b67583e585d68bd383d9922",
+  "issue_summary": "Refactored SegmentInfos from IndexReader into the new subclass DirectoryIndexReader.",
+  "code_before": "public Directory directory() {\n    ensureOpen();\n    return directory;\n  }",
+  "code_after": "public Directory directory() {\n    ensureOpen();\n    if (null != directory) {\n      return directory;\n    } else {\n      throw new UnsupportedOperationException(\"This reader does not support this method.\");\n    }\n  }",
+  "javadoc_before": "/** Returns the directory this index resides in.\n   */",
+  "javadoc_after": "/** \n   * Returns the directory associated with this index.  The Default \n   * implementation returns the directory specified by subclasses when \n   * delegating to the IndexReader(Directory) constructor, or throws an \n   * UnsupportedOperationException if one was not specified.\n   * @throws UnsupportedOperationException if no directory\n   */"
+}

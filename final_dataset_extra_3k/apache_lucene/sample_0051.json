@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ba56e757045b0a2c15dabf1d1395bfb4f1a33d82",
+  "issue_summary": "add maxDeterminizedStates to determinize to prevent exhausting CPU/RAM when the automaton is too difficult to determinize",
+  "code_before": "public CharacterRunAutomaton(Automaton a) {\n    super(a, Character.MAX_CODE_POINT, false);\n  }",
+  "code_after": "public CharacterRunAutomaton(Automaton a) {\n    this(a, Operations.DEFAULT_MAX_DETERMINIZED_STATES);\n  }",
+  "javadoc_before": "/** Sole constructor. */",
+  "javadoc_after": "/**\n   * Construct with a default number of maxDeterminizedStates.\n   */"
+}

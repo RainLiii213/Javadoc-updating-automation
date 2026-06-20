@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2537836d4ab125dcdaf69cbefc266a17184815ea",
+  "issue_summary": "handle 0 byte values in lookup keys",
+  "code_before": "public SortedTermFreqIteratorWrapper(TermFreqIterator source, Comparator<BytesRef> comparator) throws IOException {\n    this(source, comparator, false);\n  }",
+  "code_after": "public SortedTermFreqIteratorWrapper(TermFreqIterator source, Comparator<BytesRef> comparator) throws IOException {\n    this.source = source;\n    this.comparator = comparator;\n    this.reader = sort();\n  }",
+  "javadoc_before": "/** \n   * Calls {@link #SortedTermFreqIteratorWrapper(TermFreqIterator, Comparator, boolean) \n   * SortedTermFreqIteratorWrapper(source, comparator, false)}\n   */",
+  "javadoc_after": "/**\n   * Creates a new sorted wrapper, sorting by BytesRef\n   * (ascending) then cost (ascending).\n   */"
+}

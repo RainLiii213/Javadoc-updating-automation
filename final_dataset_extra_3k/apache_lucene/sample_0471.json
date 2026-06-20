@@ -1,0 +1,8 @@
+{
+  "commit_hash": "94f98ab7f36c63641bfe35fa2216c4781a697156",
+  "issue_summary": "Filters can now be applied down-low, if their DocIdSet implements a new bits() method, returning all documents in a random access way",
+  "code_before": "public CachingWrapperFilter(Filter filter) {\n    this(filter, DeletesMode.IGNORE);\n  }",
+  "code_after": "public CachingWrapperFilter(Filter filter) {\n    this.filter = filter;\n    cache = new FilterCache<DocIdSet>();\n  }",
+  "javadoc_before": "/**\n   * New deletes are ignored by default, which gives higher\n   * cache hit rate on reopened readers.  Most of the time\n   * this is safe, because the filter will be AND'd with a\n   * Query that fully enforces deletions.  If instead you\n   * need this filter to always enforce deletions, pass\n   * either {@link DeletesMode#RECACHE} or {@link\n   * DeletesMode#DYNAMIC}.\n   * @param filter Filter to cache results of\n   */",
+  "javadoc_after": "/**\n   * New deletes are ignored by default, which gives higher\n   * cache hit rate on reopened readers.\n   * @param filter Filter to cache results of\n   */"
+}

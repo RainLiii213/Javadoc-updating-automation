@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f12b94ab86e3b395eedc15d5b9c32f987cfae48c",
+  "issue_summary": "Rename Query Type to Request Handler",
+  "code_before": "public SolrQuery setQueryType(String qt) {\n    this.set(CommonParams.QT, qt);\n    return this;\n  }",
+  "code_after": "@Deprecated\n  public SolrQuery setQueryType(String qt) {\n    return setRequestHandler(qt);\n  }",
+  "javadoc_before": "/**\n   * Query type used to determine the request handler. \n   * @see org.apache.solr.client.solrj.request.QueryRequest#getPath()\n   * \n   * @param qt Query Type that corresponds to the query request handler on the server.\n   * @return this\n   */",
+  "javadoc_after": "/**\n   * @deprecated See {@link #setRequestHandler(String)}.\n   */"
+}

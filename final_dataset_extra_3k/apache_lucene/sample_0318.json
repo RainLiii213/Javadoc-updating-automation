@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f6b3aa4054b3933f6edba908fc94513edc71907d",
+  "issue_summary": "add RefreshListener to Reference/Searcher/NRTManager",
+  "code_before": "protected void afterRefresh() throws IOException {\n  }",
+  "code_after": "void afterRefresh();",
+  "javadoc_before": "/** Called after swapReference has installed a new\n   *  instance.\n   *  @throws IOException if a low level I/O exception occurs  \n   **/",
+  "javadoc_after": "/**\n     * Called after a successful refresh and a new reference has been installed. When this is called {@link #acquire()} is guaranteed to return a new instance.\n     */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d495237c0e7b3405e107cca1348b5d91b6588ae1",
+  "issue_summary": "followup. improve handling of null handler name to make semantics closer to what they were before ConcurrentHashMap, and cleanup some now superfulous null checks",
+  "code_before": "private static String normalize( String p )\n  {\n    if(p == null) return \"\";\n    if( p != null && p.endsWith( \"/\" ) && p.length() > 1 )\n      return p.substring( 0, p.length()-1 );\n\n    return p;\n  }",
+  "code_after": "private static String normalize( String p )\n  {\n    if(p == null) return \"\";\n    if( p.endsWith( \"/\" ) && p.length() > 1 )\n      return p.substring( 0, p.length()-1 );\n\n    return p;\n  }",
+  "javadoc_before": "/**\n   * Trim the trailing '/' if its there.\n   * \n   * we want:\n   *  /update/csv\n   *  /update/csv/\n   * to map to the same handler \n   * \n   */",
+  "javadoc_after": "/**\n   * Trim the trailing '/' if its there, and convert null to empty string.\n   * \n   * we want:\n   *  /update/csv   and\n   *  /update/csv/\n   * to map to the same handler \n   * \n   */"
+}

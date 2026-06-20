@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ce9c629bef5631cf5bed6e8750df35ba72596186",
+  "issue_summary": "Add pre-validation for parsing \"stringified\" Floating-Point numbers, missing length checks",
+  "code_before": "protected final float _parseFloatPrimitive(DeserializationContext ctxt, String text)\n        throws IOException\n    {\n        try {\n            return NumberInput.parseFloat(text);\n        } catch (IllegalArgumentException iae) { }\n        Number v = (Number) ctxt.handleWeirdStringValue(Float.TYPE, text,\n                \"not a valid `float` value\");\n        return _nonNullNumber(v).floatValue();\n    }",
+  "code_after": "@Deprecated // since 2.17\n    protected final float _parseFloatPrimitive(DeserializationContext ctxt, String text)\n        throws IOException\n    {\n        // 09-Dec-2023, tatu: To avoid parser having to validate input, pre-validate:\n        if (NumberInput.looksLikeValidNumber(text)) {\n            ctxt.getParser().streamReadConstraints().validateFPLength(text.length());\n            try {\n                return NumberInput.parseFloat(text, false);\n            } catch (IllegalArgumentException iae) { }\n        }\n        Number v = (Number) ctxt.handleWeirdStringValue(Float.TYPE, text,\n                \"not a valid `float` value\");\n        return _nonNullNumber(v).floatValue();\n    }",
+  "javadoc_before": "/**\n     * @since 2.9\n     */",
+  "javadoc_after": "/**\n     * @since 2.9\n     *\n     * @deprecated Since 2.17 use {@link #_parseFloatPrimitive(JsonParser, DeserializationContext, String)}\n     */"
+}

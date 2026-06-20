@@ -1,0 +1,8 @@
+{
+  "commit_hash": "476f196316df33ddfb037006eef3fa887b704722",
+  "issue_summary": "Jackson-3] Add new `DeserializationProblemHandler.handleNullForPrimitives()`",
+  "code_before": "protected final void _verifyNullForPrimitive(DeserializationContext ctxt)\n        throws DatabindException\n    {\n        if (ctxt.isEnabled(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)) {\n            ctxt.reportInputMismatch(this,\n\"Cannot coerce `null` to %s (disable `DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES` to allow)\",\n                    _coercedTypeDesc());\n        }\n    }",
+  "code_after": "@Deprecated // @since 3.1\n    protected final void _verifyNullForPrimitive(DeserializationContext ctxt)\n            throws DatabindException\n    {\n        _verifyNullForPrimitive(ctxt, ctxt.getParser(), null);\n    }",
+  "javadoc_before": "/**\n     * Method called to verify that {@code null} token from input is acceptable\n     * for primitive (unboxed) target type. It should NOT be called if {@code null}\n     * was received by other means (coerced due to configuration, or even from\n     * optionally acceptable String {@code \"null\"} token).\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 3.1 use overload {@link #_verifyNullForPrimitive(DeserializationContext, JsonParser, Object)}\n     */"
+}

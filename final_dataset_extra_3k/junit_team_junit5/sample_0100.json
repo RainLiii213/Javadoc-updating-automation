@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1a7fde7a02f0cf3622ef84aec427241ff5be62f1",
+  "issue_summary": "Polish documentation regarding CloseableResource",
+  "code_before": "interface CloseableResource {\n\t\t\t/**\n\t\t\t * Close underlying resources.\n\t\t\t *\n\t\t\t * @throws Throwable any throwable is collected and rethrown.\n\t\t\t */\n\t\t\tvoid close() throws Throwable;\n\t\t}",
+  "code_after": "@API(status = STABLE, since = \"5.1\")\n\t\tinterface CloseableResource {\n\n\t\t\t/**\n\t\t\t * Close underlying resources.\n\t\t\t *\n\t\t\t * @throws Throwable any throwable will be caught and rethrown\n\t\t\t */\n\t\t\tvoid close() throws Throwable;\n\n\t\t}",
+  "javadoc_before": "/**\n\t\t * Classes implementing this interface indicate that they want to close\n\t\t * some underlying resources when the store is closed.\n\t\t */",
+  "javadoc_after": "/**\n\t\t * Classes implementing this interface indicate that they want to close\n\t\t * some underlying resource or resources when the enclosing {@link Store}\n\t\t * is closed.\n\t\t *\n\t\t * <p>Note that the {@code CloseableResource} API is only honored for\n\t\t * objects stored within an extension context {@link Store}.\n\t\t *\n\t\t * @since 5.1\n\t\t */"
+}

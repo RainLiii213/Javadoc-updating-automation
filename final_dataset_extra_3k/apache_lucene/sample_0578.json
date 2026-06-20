@@ -1,0 +1,8 @@
+{
+  "commit_hash": "85a977bf9df45f149507bf6c57279f28844f933f",
+  "issue_summary": "make CachingWrapperFilter treatment of new deletes customizable",
+  "code_before": "public CachingSpanFilter(SpanFilter filter) {\n    this.filter = filter;\n  }",
+  "code_after": "public CachingSpanFilter(SpanFilter filter) {\n    this(filter, CachingWrapperFilter.DeletesMode.RECACHE);\n  }",
+  "javadoc_before": "/**\n   * @param filter Filter to cache results of\n   */",
+  "javadoc_after": "/**\n   * New deletions always result in a cache miss, by default\n   * ({@link CachingWrapperFilter.DeletesMode#RECACHE}.\n   * @param filter Filter to cache results of\n   */"
+}

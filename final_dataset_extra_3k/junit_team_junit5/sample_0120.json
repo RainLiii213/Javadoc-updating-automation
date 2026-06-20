@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f16e3f6a838726ff9744edf3735a501085203483",
+  "issue_summary": "Introduce notEmpty(Object[], String) in Preconditions",
+  "code_before": "public static <T extends Collection<?>> T notEmpty(T collection, String message)\n\t\t\tthrows PreconditionViolationException {\n\t\tcondition(collection != null && !collection.isEmpty(), () -> message);\n\t\tcollection.forEach(object -> notNull(object, () -> message));\n\t\treturn collection;\n\t}",
+  "code_after": "public static <T extends Collection<?>> T notEmpty(T collection, String message)\n\t\t\tthrows PreconditionViolationException {\n\t\tcondition(collection != null && !collection.isEmpty(), message);\n\t\treturn collection;\n\t}",
+  "javadoc_before": "/**\n\t * Assert that the supplied {@link Collection} is not {@code null} or empty.\n\t *\n\t * @param collection the collection to check\n\t * @param message precondition violation message\n\t * @return the supplied collection as a convenience\n\t * @throws PreconditionViolationException if the supplied collection is {@code null} or empty\n\t * @see #condition(boolean, Supplier)\n\t */",
+  "javadoc_after": "/**\n\t * Assert that the supplied {@link Collection} is neither {@code null} nor empty.\n\t *\n\t * <p><strong>WARNING</strong>: this method does NOT check if the supplied\n\t * collection contains any {@code null} elements.\n\t *\n\t * @param collection the collection to check\n\t * @param message precondition violation message\n\t * @return the supplied collection as a convenience\n\t * @throws PreconditionViolationException if the supplied collection is {@code null} or empty\n\t * @see #containsNoNullElements(Collection, String)\n\t * @see #condition(boolean, String)\n\t */"
+}

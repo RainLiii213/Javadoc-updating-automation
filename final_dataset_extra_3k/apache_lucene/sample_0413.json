@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dd831066b24c870ba73a05d512ad272e4152d3eb",
+  "issue_summary": "remove another redundant throws FacetException from CategoryContainer",
+  "code_before": "public CategoryAttribute addCategory(CategoryPath categoryPath,\n      CategoryProperty... properties) throws FacetException {\n    CategoryAttribute ca = mapCategoryAttribute(categoryPath);\n    for (CategoryProperty attribute : properties) {\n      ca.addProperty(attribute);\n    }\n    return ca;\n  }",
+  "code_after": "public CategoryAttribute addCategory(CategoryPath categoryPath,\n      CategoryProperty... properties) {\n    CategoryAttribute ca = mapCategoryAttribute(categoryPath);\n    for (CategoryProperty attribute : properties) {\n      ca.addProperty(attribute);\n    }\n    return ca;\n  }",
+  "javadoc_before": "/**\n   * Add a category with multiple properties.\n   * \n   * @param categoryPath\n   *            The path of the category.\n   * @param properties\n   *            The properties to associate to the category.\n   * @return The {@link CategoryAttribute} of the category.\n   * @throws FacetException\n   *             When the category already has a property of the same type as\n   *             one of the new properties, and merging for this property type\n   *             is prohibited.\n   */",
+  "javadoc_after": "/**\n   * Add a category with multiple properties.\n   * \n   * @param categoryPath\n   *            The path of the category.\n   * @param properties\n   *            The properties to associate to the category.\n   * @return The {@link CategoryAttribute} of the category.\n   */"
+}

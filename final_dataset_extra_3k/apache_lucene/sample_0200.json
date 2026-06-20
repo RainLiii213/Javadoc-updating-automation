@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5a42052fbaf53d58898d35841d2c0504e29b7c5c",
+  "issue_summary": "Factor out core discovery and persistence logic",
+  "code_before": "protected boolean handleRenameAction(SolrQueryRequest req, SolrQueryResponse rsp) throws SolrException {\n    SolrParams params = req.getParams();\n\n    String name = params.get(CoreAdminParams.OTHER);\n    String cname = params.get(CoreAdminParams.CORE);\n    boolean doPersist = false;\n\n    if (cname.equals(name)) return doPersist;\n\n    doPersist = coreContainer.isPersistent();\n    coreContainer.rename(cname, name);\n\n    return doPersist;\n  }",
+  "code_after": "protected void handleRenameAction(SolrQueryRequest req, SolrQueryResponse rsp) throws SolrException {\n    SolrParams params = req.getParams();\n\n    String name = params.get(CoreAdminParams.OTHER);\n    String cname = params.get(CoreAdminParams.CORE);\n\n    if (cname.equals(name)) return;\n\n    coreContainer.rename(cname, name);\n\n  }",
+  "javadoc_before": "/**\n   * Handle \"RENAME\" Action\n   *\n   * @return true if a modification has resulted that requires persistence \n   *         of the CoreContainer configuration.\n   */",
+  "javadoc_after": "/**\n   * Handle \"RENAME\" Action\n   */"
+}

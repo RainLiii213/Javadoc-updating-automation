@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4c8ee2eba68368f90ddb501d6f5c059ded1b3329",
+  "issue_summary": "Improve BeanProperty to include 'isRequired()', as well as a method to traverse type/property hierarcy (JsonFormatVisitor)",
+  "code_before": "protected boolean isRequired(AnnotationIntrospector intr)\n    {\n        Boolean value = intr.hasRequiredMarker(_member);\n        return (value == null) ? false : value.booleanValue();\n    }",
+  "code_after": "@Deprecated\n    protected boolean isRequired(AnnotationIntrospector intr) {\n        return _isRequired;\n    }",
+  "javadoc_before": "/**\n     *<p>\n     * NOTE: due to introspection, this is a <b>slow</b> method to call\n     * and should never be called during actual serialization or filtering\n     * of the property. Rather it is needed for traversal needed for things\n     * like constructing JSON Schema instances.\n     * \n     * @since 2.1\n     */",
+  "javadoc_after": "/**\n     *<p>\n     * NOTE: due to introspection, this is a <b>slow</b> method to call\n     * and should never be called during actual serialization or filtering\n     * of the property. Rather it is needed for traversal needed for things\n     * like constructing JSON Schema instances.\n     * \n     * @since 2.1\n     * \n     * @deprecated since 2.2, use {@link #isRequired()} instead.\n     */"
+}

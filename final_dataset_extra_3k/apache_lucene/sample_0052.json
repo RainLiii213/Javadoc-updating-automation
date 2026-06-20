@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bc41d58cd37ab38c1a088ea67197bd3c338ac53f",
+  "issue_summary": "cutover to IndexOptions.NO/DocValuesType.NO instead of null",
+  "code_before": "public boolean isIndexed() {\n    return indexOptions != null;\n  }",
+  "code_after": "public boolean isIndexed() {\n    return indexOptions != IndexOptions.NO;\n  }",
+  "javadoc_before": "/**\n   * Returns true if this field is indexed (has non-null {@link #getIndexOptions}).\n   */",
+  "javadoc_after": "/**\n   * Returns true if this field is indexed ({@link #getIndexOptions} is not IndexOptions.NO).\n   */"
+}

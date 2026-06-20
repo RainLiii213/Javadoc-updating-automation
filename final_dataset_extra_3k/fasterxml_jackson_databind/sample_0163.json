@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3c2d40901088f38eca41896f5b7410729e85ef70",
+  "issue_summary": "extends iso8601 format to support parse according expression: [yyyy-MM-dd|yyyyMMdd][T(hh:mm[:ss[.sss]]|hhmm[ss[.sss]])]?[Z|[+-]hh:mm",
+  "code_before": "private static void checkOffset(String value, int offset, char expected) throws ParseException {\n        char found = value.charAt(offset);\n        if (found != expected) {\n            throw new ParseException(\"Expected '\" + expected + \"' character but found '\" + found + \"'\", offset);\n        }\n    }",
+  "code_after": "private static boolean checkOffset(String value, int offset, char expected) {\n        return value.length() > offset ? (value.charAt(offset) == expected) : false;\n    }",
+  "javadoc_before": "/**\n     * Check if the expected character exist at the given offset of the\n     *\n     * @param value    the string to check at the specified offset\n     * @param offset   the offset to look for the expected character\n     * @param expected the expected character\n     * @throws IndexOutOfBoundsException if the expected character is not found\n     */",
+  "javadoc_after": "/**\n     * Check if the expected character exist at the given offset in the value.\n     * \n     * @param value the string to check at the specified offset\n     * @param offset the offset to look for the expected character\n     * @param expected the expected character\n     * @return true if the expected character exist at the given offset\n     */"
+}

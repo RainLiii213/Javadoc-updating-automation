@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ed7723dca0354cdf5dc0e5ca6afa636c6a6e7a9a",
+  "issue_summary": "throw NullPointerException instead of IllegalArgumentException if appropriate",
+  "code_before": "public CompoundFileWriter(Directory dir, String name) {\n        if (dir == null)\n            throw new IllegalArgumentException(\"Missing directory\");\n        if (name == null)\n            throw new IllegalArgumentException(\"Missing name\");\n\n        directory = dir;\n        fileName = name;\n        ids = new HashSet();\n        entries = new LinkedList();\n    }",
+  "code_after": "public CompoundFileWriter(Directory dir, String name) {\n        if (dir == null)\n            throw new NullPointerException(\"directory cannot be null\");\n        if (name == null)\n            throw new NullPointerException(\"name cannot be null\");\n\n        directory = dir;\n        fileName = name;\n        ids = new HashSet();\n        entries = new LinkedList();\n    }",
+  "javadoc_before": "/** Create the compound stream in the specified file. The file name is the\n     *  entire name (no extensions are added).\n     */",
+  "javadoc_after": "/** Create the compound stream in the specified file. The file name is the\n     *  entire name (no extensions are added).\n     *  @throws NullPointerException if <code>dir</code> or <code>name</code> is null\n     */"
+}

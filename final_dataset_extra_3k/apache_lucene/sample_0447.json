@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cdb2ee8a7bc73b47f7334ec89b6fe8c3134fa9b1",
+  "issue_summary": "replace IR.getFieldNames with IR.getFieldInfos",
+  "code_before": "synchronized public void addOrUpdate(String name, boolean isIndexed, boolean storeTermVector){\n    addOrUpdate(name, isIndexed, storeTermVector, false, false, false);\n  }",
+  "code_after": "synchronized public void addOrUpdate(String name, boolean isIndexed, boolean storeTermVector) {\n    addOrUpdate(name, isIndexed, storeTermVector, false);\n  }",
+  "javadoc_before": "/**\n   * Calls 5 parameter add with false for term vector positions and offsets.\n   * \n   * @param name The name of the field\n   * @param isIndexed  true if the field is indexed\n   * @param storeTermVector true if the term vector should be stored\n   */",
+  "javadoc_after": "/** If the field is not yet known, adds it. If it is known, checks to make\n   *  sure that the isIndexed flag is the same as was given previously for this\n   *  field. If not - marks it as being indexed.  Same goes for the TermVector\n   * parameters.\n   * \n   * @param name The name of the field\n   * @param isIndexed true if the field is indexed\n   * @param storeTermVector true if the term vector should be stored\n   */"
+}

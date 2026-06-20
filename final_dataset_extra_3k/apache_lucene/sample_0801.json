@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d42de329840f0a224fc93e51296d81c34efd4730",
+  "issue_summary": "deprecate Token.termText() & optimize core tokenizers by re-using tokens & TokenStreams",
+  "code_before": "public final String termText() { return termText; }",
+  "code_after": "public final String termText() {\n    if (termText == null && termBuffer != null)\n      termText = new String(termBuffer, 0, termLength);\n    return termText;\n  }",
+  "javadoc_before": "/** Returns the Token's term text. */",
+  "javadoc_after": "/** Returns the Token's term text.\n   * \n   * @deprecated Use {@link #termBuffer()} and {@link\n   * #termLength()} instead. */"
+}

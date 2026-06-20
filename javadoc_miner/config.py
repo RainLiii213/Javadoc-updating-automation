@@ -11,3 +11,6 @@ class MinerConfig:
     max_samples: int = 50
     full_history: bool = False
     force_refresh: bool = False
+    skip_commits: int = 0
+    fetch_existing: bool = True
+    progress_interval: int = 0

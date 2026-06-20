@@ -1,0 +1,8 @@
+{
+  "commit_hash": "00f07ee46006b65ee352088931bb0cbdf09870bc",
+  "issue_summary": "Contrib Analyzer Setters should be deprecated and replace with ctor arguments, thanks to Simon Willnauer",
+  "code_before": "public CzechAnalyzer(Version matchVersion, File stopwords ) throws IOException {\n          stoptable = WordlistLoader.getWordSet( stopwords );\n          this.matchVersion = matchVersion;\n\t}",
+  "code_after": "public CzechAnalyzer(Version matchVersion, File stopwords ) throws IOException {\n    this(matchVersion, (Set<?>)WordlistLoader.getWordSet( stopwords ));\n\t}",
+  "javadoc_before": "/**\n\t * Builds an analyzer with the given stop words.\n\t */",
+  "javadoc_after": "/**\n\t * Builds an analyzer with the given stop words.\n\t * @deprecated use {@link #CzechAnalyzer(Version, Set)} instead\n\t */"
+}

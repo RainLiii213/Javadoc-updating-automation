@@ -1,0 +1,8 @@
+{
+  "commit_hash": "922c7316d81bd44376b635f5cee4c9bb38f1d09e",
+  "issue_summary": "Support dateline and circles for TwoDoublesStrategy",
+  "code_before": "private Query makeWithin(Rectangle bbox) {\n    Query qX = NumericRangeQuery.newDoubleRange(\n      fieldNameX,\n      precisionStep,\n      bbox.getMinX(),\n      bbox.getMaxX(),\n      true,\n      true);\n    Query qY = NumericRangeQuery.newDoubleRange(\n      fieldNameY,\n      precisionStep,\n      bbox.getMinY(),\n      bbox.getMaxY(),\n      true,\n      true);\n\n    BooleanQuery bq = new BooleanQuery();\n    bq.add(qX,BooleanClause.Occur.MUST);\n    bq.add(qY,BooleanClause.Occur.MUST);\n    return bq;\n  }",
+  "code_after": "private Query makeWithin(Rectangle bbox) {\n    BooleanQuery bq = new BooleanQuery();\n    BooleanClause.Occur MUST = BooleanClause.Occur.MUST;\n    if (bbox.getCrossesDateLine()) {\n      //use null as performance trick since no data will be beyond the world bounds\n      bq.add(rangeQuery(fieldNameX, null/*-180*/, bbox.getMaxX()), BooleanClause.Occur.SHOULD );\n      bq.add(rangeQuery(fieldNameX, bbox.getMinX(), null/*+180*/), BooleanClause.Occur.SHOULD );\n      bq.setMinimumNumberShouldMatch(1);//must match at least one of the SHOULD\n    } else {\n      bq.add(rangeQuery(fieldNameX, bbox.getMinX(), bbox.getMaxX()), MUST);\n    }\n    bq.add(rangeQuery(fieldNameY, bbox.getMinY(), bbox.getMaxY()), MUST);\n    return bq;\n  }",
+  "javadoc_before": "/**\n   * Constructs a query to retrieve documents that fully contain the input envelope.\n   * @return the spatial query\n   */",
+  "javadoc_after": "/**\n   * Constructs a query to retrieve documents that fully contain the input envelope.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bebdb3707afc698c9de43f56732cb2142dad8460",
+  "issue_summary": "ValueSource.getSortField() shouldn't throw IOException",
+  "code_before": "public SortField getSortField(boolean reverse) throws IOException {\n    return new ValueSourceSortField(reverse);\n  }",
+  "code_after": "public SortField getSortField(boolean reverse) {\n    return new ValueSourceSortField(reverse);\n  }",
+  "javadoc_before": "/**\n   * EXPERIMENTAL: This method is subject to change.\n   * <p>\n   * Get the SortField for this ValueSource.  Uses the {@link #getValues(java.util.Map, AtomicReaderContext)}\n   * to populate the SortField.\n   *\n   * @param reverse true if this is a reverse sort.\n   * @return The {@link org.apache.lucene.search.SortField} for the ValueSource\n   * @throws IOException if there was a problem reading the values.\n   */",
+  "javadoc_after": "/**\n   * EXPERIMENTAL: This method is subject to change.\n   * <p>\n   * Get the SortField for this ValueSource.  Uses the {@link #getValues(java.util.Map, AtomicReaderContext)}\n   * to populate the SortField.\n   *\n   * @param reverse true if this is a reverse sort.\n   * @return The {@link org.apache.lucene.search.SortField} for the ValueSource\n   */"
+}

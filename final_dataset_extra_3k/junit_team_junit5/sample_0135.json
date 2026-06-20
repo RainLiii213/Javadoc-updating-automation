@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6b46df0ee35ef56021ca5f4dc9e41ac96b19de0e",
+  "issue_summary": "Introduce default semantics for Node.isLeaf()",
+  "code_before": "boolean isLeaf();",
+  "code_after": "default boolean isLeaf() {\n\t\treturn false;\n\t}",
+  "javadoc_before": "/**\n\t * Determine if this {@code Node} is a leaf in the hierarchy.\n\t */",
+  "javadoc_after": "/**\n\t * Determine if this {@code Node} is a leaf in the hierarchy.\n\t *\n\t * <p>The default implementation returns {@code false}.\n\t */"
+}

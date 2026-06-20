@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f91901387fd2fbd4c91881faab22c79c72d03089",
+  "issue_summary": "Accept JsonProvider upon JsonProjectingMethodInterceptorFactory creation.",
+  "code_before": "public JsonProjectingMethodInterceptorFactory(MappingProvider mappingProvider) {\n\n\t\tAssert.notNull(mappingProvider, \"MappingProvider must not be null!\");\n\n\t\tConfiguration build = Configuration.builder()//\n\t\t\t\t.options(Option.ALWAYS_RETURN_LIST)//\n\t\t\t\t.mappingProvider(mappingProvider)//\n\t\t\t\t.build();\n\n\t\tthis.context = JsonPath.using(build);\n\t}",
+  "code_after": "@Deprecated\n\tpublic JsonProjectingMethodInterceptorFactory(MappingProvider mappingProvider) {\n\t    this(mappingProvider, Configuration.defaultConfiguration().jsonProvider());\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link JsonProjectingMethodInterceptorFactory} using the given {@link ObjectMapper}.\n\t *\n\t * @param mapper must not be {@literal null}.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link JsonProjectingMethodInterceptorFactory} using the given {@link MappingProvider}.\n\t *\n\t * @param mappingProvider must not be {@literal null}.\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "35d4733fea906c6853ef0f12ba4bb86c838d6046",
+  "issue_summary": "Add missing preconditions in Launcher module",
+  "code_before": "public static LoggingListener forJavaUtilLogging(Level logLevel) {\n\t\tLogger logger = Logger.getLogger(LoggingListener.class.getName());\n\t\treturn new LoggingListener((t, messageSupplier) -> logger.log(logLevel, t, messageSupplier));\n\t}",
+  "code_after": "public static LoggingListener forJavaUtilLogging(Level logLevel) {\n\t\tPreconditions.notNull(logLevel, \"logLevel must not be null\");\n\t\tLogger logger = Logger.getLogger(LoggingListener.class.getName());\n\t\treturn new LoggingListener((t, messageSupplier) -> logger.log(logLevel, t, messageSupplier));\n\t}",
+  "javadoc_before": "/**\n\t * Create a {@code LoggingListener} which delegates to a\n\t * {@link java.util.logging.Logger} using the supplied\n\t * {@linkplain Level log level}.\n\t *\n\t * @param logLevel the log level to use\n\t * @see #forJavaUtilLogging()\n\t */",
+  "javadoc_after": "/**\n\t * Create a {@code LoggingListener} which delegates to a\n\t * {@link java.util.logging.Logger} using the supplied\n\t * {@linkplain Level log level}.\n\t *\n\t * @param logLevel the log level to use; never {@code null}\n\t * @see #forJavaUtilLogging()\n\t */"
+}

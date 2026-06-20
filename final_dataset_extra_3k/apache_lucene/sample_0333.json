@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b8c727af8de81c30dc230fd27cfdaef045072b5b",
+  "issue_summary": "Fix for , unloading core with deleteInstanceDir not working unless path absolute",
+  "code_before": "public String getInstanceDir() {\n    return instanceDir;\n  }",
+  "code_after": "public String getInstanceDir() {\n    String instDir = this.instanceDir;\n    if (instDir == null) return null; // No worse than before.\n\n    if (new File(instDir).isAbsolute()) {\n      return SolrResourceLoader.normalizeDir(SolrResourceLoader.normalizeDir(instanceDir));\n    }\n    return SolrResourceLoader.normalizeDir(coreContainer.getSolrHome() +\n        SolrResourceLoader.normalizeDir(instDir));\n  }",
+  "javadoc_before": "/**@return the core instance directory. */",
+  "javadoc_after": "/**\n   *\n   * @return the core instance directory, prepended with solr_home if not an absolute path.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "bd36ce49411847a6e41af1f5228f77340c3f003d",
+  "issue_summary": "Fix",
+  "code_before": "public ObjectMapper setSerializationInclusion(JsonInclude.Include incl) {\n        setPropertyInclusion(JsonInclude.Value.construct(incl, JsonInclude.Include.USE_DEFAULTS));\n        return this;\n    }",
+  "code_after": "public ObjectMapper setSerializationInclusion(JsonInclude.Include incl) {\n        setPropertyInclusion(JsonInclude.Value.construct(incl, incl));\n        return this;\n    }",
+  "javadoc_before": "/**\n     * Convenience method, equivalent to calling:\n     *<pre>\n     *  setPropertyInclusion(JsonInclude.Value.construct(incl, Include.ALWAYS));\n     *</pre>\n     */",
+  "javadoc_after": "/**\n     * Convenience method, equivalent to calling:\n     *<pre>\n     *  setPropertyInclusion(JsonInclude.Value.construct(incl, incl));\n     *</pre>\n     *<p>\n     * NOTE: behavior differs slightly from 2.8, where second argument was\n     * implied to be <code>JsonInclude.Include.ALWAYS</code>.\n     */"
+}

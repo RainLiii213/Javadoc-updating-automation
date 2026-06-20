@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7f1a3db2ddc48addc3f6bddf065f06eedd0ac370",
+  "issue_summary": "Add `withObject(JsonPointer)`/`withArray(JsonPointer)` methods in `JsonNode`",
+  "code_before": "public <T extends JsonNode> T withObject(String propertyName) {\n        throw new UnsupportedOperationException(\"JsonNode not of type ObjectNode (but \"\n                +getClass().getName()+\"), cannot call withObject() on it\");\n    }",
+  "code_after": "public ObjectNode withObject(String propertyName) {\n        throw new UnsupportedOperationException(\"`JsonNode` not of type `ObjectNode` (but \"\n                +getClass().getName()+\"), cannot call `withObject()` on it\");\n    }",
+  "javadoc_before": "/**\n     * Method that can be called on Object nodes, to access a property\n     * that has Object value; or if no such property exists, to create,\n     * add and return such Object node.\n     * If the node method is called on is not Object node,\n     * or if property exists and has value that is not Object node,\n     * {@link UnsupportedOperationException} is thrown\n     */",
+  "javadoc_after": "/**\n     * Method that can be called on Object nodes, to access a property\n     * that has Object value; or if no such property exists, to create,\n     * add and return such Object node.\n     * If the node method is called on is not Object node,\n     * or if property exists and has value that is not Object node,\n     * {@link UnsupportedOperationException} is thrown\n     *\n     * @param propertyName Name of property for the {@link ObjectNode}\n     *\n     * @return {@link ObjectNode} found or created\n     *\n     * @since 2.14\n     */"
+}

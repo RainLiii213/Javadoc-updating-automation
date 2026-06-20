@@ -1,0 +1,8 @@
+{
+  "commit_hash": "53c19d660aad6db9c5d62272d65c38a53a728325",
+  "issue_summary": "cutover to IndexWriterConfig object for settings to IW",
+  "code_before": "synchronized public void setMergeScheduler(MergeScheduler mergeScheduler) throws CorruptIndexException, IOException {\n    ensureOpen();\n    if (mergeScheduler == null)\n      throw new NullPointerException(\"MergeScheduler must be non-null\");\n\n    if (this.mergeScheduler != mergeScheduler) {\n      finishMerges(true);\n      this.mergeScheduler.close();\n    }\n    this.mergeScheduler = mergeScheduler;\n    if (infoStream != null)\n      message(\"setMergeScheduler \" + mergeScheduler);\n  }",
+  "code_after": "synchronized public void setMergeScheduler(MergeScheduler mergeScheduler) throws CorruptIndexException, IOException {\n    ensureOpen();\n    if (mergeScheduler == null)\n      throw new NullPointerException(\"MergeScheduler must be non-null\");\n\n    if (this.mergeScheduler != mergeScheduler) {\n      finishMerges(true);\n      this.mergeScheduler.close();\n    }\n    this.mergeScheduler = mergeScheduler;\n    if (infoStream != null)\n      message(\"setMergeScheduler \" + mergeScheduler);\n    // Required so config.getSimilarity returns the right value. But this will\n    // go away together with the method in 4.0.\n    config.setMergeScheduler(mergeScheduler);\n  }",
+  "javadoc_before": "/**\n   * Expert: set the merge scheduler used by this writer.\n   */",
+  "javadoc_after": "/**\n   * Expert: set the merge scheduler used by this writer.\n   * @deprecated use {@link IndexWriterConfig#setMergeScheduler(MergeScheduler)} instead\n   */"
+}

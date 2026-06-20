@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4f3f4ff8c8fd99c88b5d346f0e1fb7efe5a3db67",
+  "issue_summary": "Add global default settings for setter info (JsonSetter.Value) to allow for default merging. Also MapperFeature to avoid exceptions.",
+  "code_before": "public SerializationConfig withPropertyInclusion(JsonInclude.Value incl) {\n        if (_serializationInclusion.equals(incl)) {\n            return this;\n        }\n        return new SerializationConfig(this, incl);\n    }",
+  "code_after": "@Deprecated\n    public SerializationConfig withPropertyInclusion(JsonInclude.Value incl) {\n        _configOverrides.setDefaultInclusion(incl);\n        return this;\n    }",
+  "javadoc_before": "/**\n     * @since 2.7\n     */",
+  "javadoc_after": "/**\n     * Mutant factory method for constructing a new instance with different\n     * default inclusion criteria configuration.\n     *\n     * @since 2.7\n     *\n     * @deprecated Since 2.9; not needed any more\n     */"
+}

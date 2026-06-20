@@ -1,0 +1,8 @@
+{
+  "commit_hash": "11f7304cd625e21eff1cfc5ad27fe4a9e4cb9549",
+  "issue_summary": "Implemented , DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES",
+  "code_before": "public String getUnrecognizedPropertyName() {\n        return _unrecognizedPropertyName;\n    }",
+  "code_after": "@Deprecated // since 2.3\n    public String getUnrecognizedPropertyName() {\n        return getPropertyName();\n    }",
+  "javadoc_before": "/**\n     * Convenience method for accessing logical property name that could\n     * not be mapped. Note that it is the last path reference in the\n     * underlying path.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.3, use {@link #getPropertyName} instead.\n     */"
+}

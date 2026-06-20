@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1a39c55c4c49423b64ec6ab9bbdf08058d83fb85",
+  "issue_summary": "only throw ParseException from parse methods",
+  "code_before": "public Query parse(String query) throws ParseException, TokenMgrError {\n    ReInit(new FastCharStream(new StringReader(query)));\n    return Query(field);\n  }",
+  "code_after": "public Query parse(String query) throws ParseException {\n    ReInit(new FastCharStream(new StringReader(query)));\n    try {\n      return Query(field);\n    }\n    catch (TokenMgrError tme) {\n      throw new ParseException(tme.getMessage());\n    }\n  }",
+  "javadoc_before": "/** Parses a query string, returning a\n   * <a href=\"lucene.search.Query.html\">Query</a>.\n   *  @param query\tthe query string to be parsed.\n   *  @throws ParseException if the parsing fails\n   *  @throws TokenMgrError if ther parsing fails\n   */",
+  "javadoc_after": "/** Parses a query string, returning a\n   * <a href=\"lucene.search.Query.html\">Query</a>.\n   *  @param query\tthe query string to be parsed.\n   *  @throws ParseException if the parsing fails\n   */"
+}

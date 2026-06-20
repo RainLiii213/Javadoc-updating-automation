@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0a5e6806f381bdb332aec56c678e167462d157b0",
+  "issue_summary": "some small cleanups after landing flex",
+  "code_before": "@Override\n    public boolean isCacheable() {\n      return canIgnoreDeletedDocs || !reader.hasDeletions();\n    }",
+  "code_after": "@Override\n    public boolean isCacheable() {\n      return true;\n    }",
+  "javadoc_before": "/**\n     * this DocIdSet is cacheable, if it can ignore deletions\n     */",
+  "javadoc_after": "/**\n     * this DocIdSet is always cacheable (does not go back\n     * to the reader for iteration)\n     */"
+}

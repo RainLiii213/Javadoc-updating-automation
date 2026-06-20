@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1c1c979e8ae8e868f1da868077694093ca0132f0",
+  "issue_summary": "Ensure Random ordering with custom seed works with parallel execution",
+  "code_before": "@Override\n\t\tpublic ExecutionMode getDefaultExecutionMode() {\n\t\t\treturn ExecutionMode.CONCURRENT;\n\t\t}",
+  "code_after": "@Override\n\t\tpublic ExecutionMode getDefaultExecutionMode() {\n\t\t\treturn this.usingCustomSeed ? ExecutionMode.SAME_THREAD : ExecutionMode.CONCURRENT;\n\t\t}",
+  "javadoc_before": "/**\n\t\t * Get the <em>default</em> {@link ExecutionMode} for the test class.\n\t\t *\n\t\t * @return {@link ExecutionMode#CONCURRENT CONCURRENT} to allow concurrent\n\t\t * execution of randomly ordered methods by default\n\t\t */",
+  "javadoc_after": "/**\n\t\t * Get the <em>default</em> {@link ExecutionMode} for the test class.\n\t\t *\n\t\t * <p>If a custom seed has been specified, this method returns\n\t\t * {@link ExecutionMode#SAME_THREAD SAME_THREAD} in order to ensure that\n\t\t * the results are repeatable across executions of the test plan.\n\t\t * Otherwise, this method returns {@link ExecutionMode#CONCURRENT\n\t\t * CONCURRENT} to allow concurrent execution of randomly ordered methods\n\t\t * by default.\n\t\t *\n\t\t * @return {@code SAME_THREAD} if a custom seed has been configured;\n\t\t * otherwise, {@code CONCURRENT}\n\t\t */"
+}

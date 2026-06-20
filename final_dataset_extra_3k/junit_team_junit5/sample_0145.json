@@ -1,0 +1,8 @@
+{
+  "commit_hash": "facb1062bc35b18b6280f2ad93f143101f7abc78",
+  "issue_summary": "Add missing preconditions to TagFilter",
+  "code_before": "public static PostDiscoveryFilter excludeTags(String... tags) {\n\t\treturn excludeTags(asList(tags));\n\t}",
+  "code_after": "public static PostDiscoveryFilter excludeTags(String... tags) {\n\t\tPreconditions.notNull(tags, \"tags must not be null\");\n\t\treturn excludeTags(asList(tags));\n\t}",
+  "javadoc_before": "/**\n\t * Create an <em>exclude</em> filter based on the supplied {@code tags}.\n\t *\n\t * <p>Containers and tests will only be executed if they are <em>not</em>\n\t * tagged with any of the supplied <em>exclude</em> tags.\n\t */",
+  "javadoc_after": "/**\n\t * Create an <em>exclude</em> filter based on the supplied {@code tags}.\n\t *\n\t * <p>Containers and tests will only be executed if they are <em>not</em>\n\t * tagged with any of the supplied <em>exclude</em> tags.\n\t *\n\t * @param tags the exclude tags; never {@code null} or empty\n\t */"
+}

@@ -1,0 +1,216 @@
+sample_id,commit_hash,issue_summary
+sample_0001,01d1692c8d0ed03e51a0e3c4f8a9e6908e4931e5,Backport fix for in 2.18 branch
+sample_0002,01d1692c8d0ed03e51a0e3c4f8a9e6908e4931e5,Backport fix for in 2.18 branch
+sample_0003,24529da29fdf46ff94ca38de9ebf31cd188f5e8e,Fix : `BasicPolymorphicTypeValidator` setting `allowIfSubTypeIsArray()` should validate element type
+sample_0004,24529da29fdf46ff94ca38de9ebf31cd188f5e8e,Fix : `BasicPolymorphicTypeValidator` setting `allowIfSubTypeIsArray()` should validate element type
+sample_0005,aca9295618b06cd11e7c368208e3c6426a79a26c,Fix : Forward Object Id references in Collection properties leak Builder instance
+sample_0006,aca9295618b06cd11e7c368208e3c6426a79a26c,Fix : Forward Object Id references in Collection properties leak Builder instance
+sample_0007,f2ba387cf1107f939029853c64f7a2abc41545fa,"Fix : allow use of ""updating"" deserialization with Builder value"
+sample_0008,d2466d97ad458a39d9feeb38b8c73cf8115edcf1,Reproduce : unwrapped with prefix empty Object
+sample_0009,562a1ed6315db942eeb0e2f45c7b92e9cf9655d7,"Implement : Allow injecting `MissingNode` for ""absent"" `JsonNode` via Creator"
+sample_0010,fd2789b3a839068d3900430632dc5772f9886f9e,Fix : StackOverflowError in TypeFactory with mutually recursive generic wildcard bounds
+sample_0011,47a18c214ff6fa36189f531d5b5793356823a749,Fix : Support numeric `@JsonProperty` enum indexes with `Shape.NUMBER`
+sample_0012,6ff0f656f2b27d189d69f28b0fddedcf1a01df69,Fix
+sample_0013,ffb347eab3c69b8204c8dcdf8baa5824ae2b91a7,Fix : primitive wrapper default values
+sample_0014,ffb347eab3c69b8204c8dcdf8baa5824ae2b91a7,Fix : primitive wrapper default values
+sample_0015,ffb347eab3c69b8204c8dcdf8baa5824ae2b91a7,Fix : primitive wrapper default values
+sample_0016,36f6aea9accd32d3fcdfa9e696366eb4e6d5500e,Implement (msec truncate on read/write)
+sample_0017,476f196316df33ddfb037006eef3fa887b704722,Jackson-3] Add new `DeserializationProblemHandler.handleNullForPrimitives()`
+sample_0018,99a2480dc6e14242a78c0996acd9a2a672deb86b,"Fix , Enum serialization with `@JsonProperty`"
+sample_0019,d4220ed27198847e13ce75d9bee805e028a100e0,"Add test, fix"
+sample_0020,ff8c5a22c630333d4bce7e3717b89bece77ef0e6,Fix (custom Map `@JsonMerge` fail)
+sample_0021,c3b7946e238e351663a0c4b9d2069057203fc589,Fix : prevent `ClassCastException` from `DeserializationProblemHandler.handleUnexpectedToken()`
+sample_0022,707c3c19a3adb7eebfc6eeee4e7fce7b0c235518,"Fix , add `MapperFeature.REQUIRE_HANDLERS_FOR_JAVA8_TIMES`"
+sample_0023,08251b9d75f9d5105f2888b66b6b163c811f0383,Fixes : generate distinct names (type ids) if `Version` has no artifact id
+sample_0024,0816c74a6d2c9c522de9f34719c02462e4b3e92f,Add `DeserializationFeature.FAIL_ON_SUBTYPE_CLASS_NOT_REGISTERED`
+sample_0025,b7e2be53f9141b384851c3adb0f06a5dfdb81058,Fix : make naming rules for getters stricter
+sample_0026,bd7adfbd1f8fa6bf6e22826fcc24ea2ada1a4dc9,Allow default enums with `@JsonCreator`
+sample_0027,6743f4cea3018ddc336f01cceaa0c8a8381b2c1b,Fix : add `MapperFeature.REQUIRE_HANDLERS_FOR_JAVA8_OPTIONALS`
+sample_0028,0a2c836f76838694a5aa569f592c3a56ff23080c,Fix : add/update `JsonNode.xxxValue()` for non-number scalars
+sample_0029,d7adffa7bd9f1882ec3db3c431f74d92502049ab,Fix : add null checks for ObjectNode keys
+sample_0030,d7adffa7bd9f1882ec3db3c431f74d92502049ab,Fix : add null checks for ObjectNode keys
+sample_0031,d7adffa7bd9f1882ec3db3c431f74d92502049ab,Fix : add null checks for ObjectNode keys
+sample_0032,99d0ab645116f87f606f25150a410abcf3c507a1,Implement : improve/add number accessors to `JsonNode`
+sample_0033,99d0ab645116f87f606f25150a410abcf3c507a1,Implement : improve/add number accessors to `JsonNode`
+sample_0034,99d0ab645116f87f606f25150a410abcf3c507a1,Implement : improve/add number accessors to `JsonNode`
+sample_0035,38b1f7758797af9533eedfd66f4210904c189699,Fix
+sample_0036,38b1f7758797af9533eedfd66f4210904c189699,Fix
+sample_0037,1c07359f351786fcc5777df94e4b984056a09685,Badoken/global enum naming strategy
+sample_0038,1c07359f351786fcc5777df94e4b984056a09685,Badoken/global enum naming strategy
+sample_0039,26bdfec3dd07c809e910d6360a6bf3ea764cc286,Add more `EnumNamingStrategies`
+sample_0040,3862a3de65d038b63809aebc24b0eda84c8a157f,"Revert ""Add `UpperCamelCase` `EnumNamingStrategy` """
+sample_0041,5bf17d921ae0cd3523e378ffe57e2b83b5aa08b5,Add `UpperCamelCase` `EnumNamingStrategy`
+sample_0042,7c4bd23d5fbc7e1a2054e0f1cd2aef22a77d5dac,Rework locking in `DeserializerCache`
+sample_0043,ce9c629bef5631cf5bed6e8750df35ba72596186,"Add pre-validation for parsing ""stringified"" Floating-Point numbers, missing length checks"
+sample_0044,e4d183f61b66f56b6bc7337ec41b6a98e12fa3cf,Merging minor piece of #4101
+sample_0045,46515abe6f67b2bd7cfaeaaf353f508c15adab73,Retrofit `CacheProvider` configuration via `BaseSettings`
+sample_0046,c5eabf8b96018e2563934776a5d82da0371f7b62,Add new `@JsonTypeInfo.requireTypeIdForSubtypes` usage
+sample_0047,9f455309dcaa8cb52ee1e27e27f60c2771751cfb,fix issue where unexpected properties can cause deserialization issues
+sample_0048,9906b135a0a2e97246c50f632d752db4ef28f4d7,Fix TypeFactory cache performance degradation with `constructSpecializedType`
+sample_0049,39fdb63607a0e7a6dbf9d6be84fe7e380e661dcb,"Minor changes post to avoid changing API (but trading in ""sneaky"" throws)"
+sample_0050,2228d54781fbe9f364bc86c0a99ae93b92ea9813,validate scale before converting to BigInt
+sample_0051,1bafb26a3a626ea08f694b031247241f435474b5,Implement : add `JsonNodeFeature.STRIP_TRAILING_BIGDECIMAL_ZEROES`
+sample_0052,1bafb26a3a626ea08f694b031247241f435474b5,Implement : add `JsonNodeFeature.STRIP_TRAILING_BIGDECIMAL_ZEROES`
+sample_0053,0b04883a25e4ff173b12a0ca90fa995305c32593,"Add release notes for , minor tweaks over"
+sample_0054,9a23f81dd9b3ecd9783c8909e5365cee90bedbfc,Implement : allow `JsonNode` valued Fields for `@JsonAnySetter`
+sample_0055,7f1a3db2ddc48addc3f6bddf065f06eedd0ac370,Add `withObject(JsonPointer)`/`withArray(JsonPointer)` methods in `JsonNode`
+sample_0056,56fb5d3fd3c69157d6625e94a43fd60aa57bbf72,Continue with #1980
+sample_0057,ae3873260339d4fcf3a1bd3e2b183b3b5cc97807,Fix
+sample_0058,a8a233f2b860e4f3652f528564a4f9da9a666b33,Implement core of #3405 (#3420)
+sample_0059,9202d13c121fb6c86d9e707e8c47fa032fcc5671,Fix
+sample_0060,c54e7605121def35c1c1edc9e83282f4b379f77c,Backport fix in 2.13
+sample_0061,9ff5b793600ca10092f8b29bb7cefdefa297a68a,Expose message of cause in case of `InvocationTargetException`
+sample_0062,1221684a2705c2683d40bdf58cc593be3f338f43,Add `Deserializers.hasDeserializerFor()` now that interface default method impls allowed (was included in 2.11 for `Deserializers.Base`)
+sample_0063,4adcbff5373bf0bde7a12760a83e340762b03aa0,Fix
+sample_0064,e58e3a0ab9cbdfcb3ea6e372ffa291a26bf514af,Follow-up renaming inspired by jackson-core/670
+sample_0065,9479f3af292591c67162c6972c1d048a2d56106f,Yet more work on deprecating JsonMappingException in 3.0; down to ~100
+sample_0066,9479f3af292591c67162c6972c1d048a2d56106f,Yet more work on deprecating JsonMappingException in 3.0; down to ~100
+sample_0067,9479f3af292591c67162c6972c1d048a2d56106f,Yet more work on deprecating JsonMappingException in 3.0; down to ~100
+sample_0068,5e95458cb23774874a72e4f448e9d4e3b8c6fcfe,Implement
+sample_0069,5e95458cb23774874a72e4f448e9d4e3b8c6fcfe,Implement
+sample_0070,608187518175f4b0042c74cb0f39a119deec3d7f,some more clean up
+sample_0071,1a30aea9ea194edd41104b644c7f20b9e4a05894,Finalizing aspects of and resolution
+sample_0072,85edd63b704c875cdceb372aa771c15c35e2696f,Fix : Added case sensitivity check flag from MapperConfig to EnumResolver
+sample_0073,85edd63b704c875cdceb372aa771c15c35e2696f,Fix : Added case sensitivity check flag from MapperConfig to EnumResolver
+sample_0074,cc6d3729b017c7d19b47a7dca5fedf932c546608,Fix
+sample_0075,6d92680d59befcb85298c1147b358af84de4459c,One last improvement for to make `DefaultAccessorNamingStrategy.Provider` bit configurable
+sample_0076,9f97baa28c31b450b6fde22ae56e067dd50c2eb4,Start work on #2715
+sample_0077,825ab66f492c1a9061ac76f1695870ae0fd3ad80,Minor streamlining
+sample_0078,d9c0332e5ad76d7e4f35d9906f0b8e94a5237627,FasterXML/jackson-databind @JsonIncludeProperties
+sample_0079,d9c0332e5ad76d7e4f35d9906f0b8e94a5237627,FasterXML/jackson-databind @JsonIncludeProperties
+sample_0080,5e941f6f534b4a000fb93017734eb1f2e2a51703,Manual merge of fix for (from PR )
+sample_0081,5e941f6f534b4a000fb93017734eb1f2e2a51703,Manual merge of fix for (from PR )
+sample_0082,507297733ee2b667d7b7b0f53b02d82caf52e406,"Make `withProperties()` non-abstract (with dummy impl) just for 2.11, for improved compatibility"
+sample_0083,22d95950e99b5edb968d406f47c1e3e9b5db9827,Undo unnecessary (and actually inconsistent) change to parser/context argument ordering for helper methods in `StdDeserializer`
+sample_0084,f0ef5cd78235af44a5faf6e23e49a11cbff6bd8a,fix
+sample_0085,90aa990cc878d42f4040b0201ba5f6c5e49c363b,Fix
+sample_0086,09ce4befa126abc293952c715b8bb24f8a302388,More work towards solving
+sample_0087,8af03c149c2316c390cdfd5302932ec5b0de07e0,Fix
+sample_0088,fa402574f99daa10410682160365df0867abe4d4,Implement : add `MapperFeature.BLOCK_UNSAFE_POLYMORPHIC_BASE_TYPES` for stricter validation for default typing
+sample_0089,eed59609bad45995700b4764b83d35fee66252ee,update javadocs wrt 3.0
+sample_0090,eed59609bad45995700b4764b83d35fee66252ee,update javadocs wrt 3.0
+sample_0091,eed59609bad45995700b4764b83d35fee66252ee,update javadocs wrt 3.0
+sample_0092,28e28c636fbedba82cba3a4d05477a949c26365c,Improve javadocs wrt
+sample_0093,28e28c636fbedba82cba3a4d05477a949c26365c,Improve javadocs wrt
+sample_0094,28e28c636fbedba82cba3a4d05477a949c26365c,Improve javadocs wrt
+sample_0095,28e775fcac16452cc011903cd9cca7661c5e9a6f,Improve `DeserializationProblemHandler.handleUnexpectedToken()` to allow handling of Collection problems
+sample_0096,9051c796e3bf01207896d7668f56cfe8d2c77a4a,Fix
+sample_0097,985ee587f56bdf6923b840b020e722b71c2b2f64,Fix
+sample_0098,01ed12c853f234f3731095c6cc32265c0aa6d799,More work on #2195
+sample_0099,01ed12c853f234f3731095c6cc32265c0aa6d799,More work on #2195
+sample_0100,03dd8cd360fa44588820054886bb2526706a6416,More reworking of implementation
+sample_0101,54dc16297ee22b2b1680717d7536fa22a6c13727,"Continuing work to support ""shape-shifting"""
+sample_0102,8d50efeb16422ba12faec531d36b57da9379a127,Convert `DeserializationContext` to be built as well (instead of blueprint/instance separation)
+sample_0103,10f2ce36162081f6d9ecc5a1cbc48d86b34240da,Fix
+sample_0104,4db3fdf2302b09d617f60c12520028c6c710bc10,"start tackling ""shape-shifting"" serializers"
+sample_0105,7bf434c4f02ab39a7bcc6794ba3378fdb4708212,Minor refactorign wrt default typing; javadoc updates
+sample_0106,b3542d2cfb5dd0551711b980d4b7ca075ebb6106,Simplify `VisibilityChecker` (see if it can be further merged with `@JsonAutoDetect.Value`)
+sample_0107,af413a0cbeb491d968b116b2b408656689b5cea3,Declare wrapAndThrows to return an IOException to allow callers to use in order to improve readability and code coverage. It also has the side-effect of ensuring all paths through wrapAndThrow actually throw because they would otherwise be required to return an IOException.
+sample_0108,91a3636eac479761172c102a7708a54c06419fac,Fix (for 3.0)
+sample_0109,534abb14054fc429239e4427a5af5c1f50b6a87b,Fix
+sample_0110,93a0b9b649d2c3a9acbf1846d9b43a7221bda779,Yet more `AnnotatedClass` cleanup
+sample_0111,89662b14ef9092fdecf812c8fc7d18e7de1dd0a5,Fixed
+sample_0112,89662b14ef9092fdecf812c8fc7d18e7de1dd0a5,Fixed
+sample_0113,bd36ce49411847a6e41af1f5228f77340c3f003d,Fix
+sample_0114,b8b0e72c640de1c6001a497636173c70d14807a8,Fix
+sample_0115,423db743f4dba81eeac625e5a6bd167f1c9b2980,"minor clean up of builder-based deserializer; add better error checking, reporting"
+sample_0116,4f3f4ff8c8fd99c88b5d346f0e1fb7efe5a3db67,Add global default settings for setter info (JsonSetter.Value) to allow for default merging. Also MapperFeature to avoid exceptions.
+sample_0117,4f3f4ff8c8fd99c88b5d346f0e1fb7efe5a3db67,Add global default settings for setter info (JsonSetter.Value) to allow for default merging. Also MapperFeature to avoid exceptions.
+sample_0118,4f3f4ff8c8fd99c88b5d346f0e1fb7efe5a3db67,Add global default settings for setter info (JsonSetter.Value) to allow for default merging. Also MapperFeature to avoid exceptions.
+sample_0119,dc29c3ecfc884bfc0fa54dbf645176765bce327d,more annotation handling simplification
+sample_0120,fbc1fa23c92a69da474f3a7039e5494de7dc7ae2,Fixed . And tons of assorted related improvements to try to pipe `targetType` to input mismatch exception.
+sample_0121,cdf8041a29df98179f47f51747df1ce930c0e6c3,"More work on ; rewriting Map-include handling, adding temporarily test failures"
+sample_0122,68245442f201f8bcfbb075fecc66a6c06b236ea9,"Yet more work for ; added `DeserializationProblemHandler.handleMissingInstantiator()` (and supporting functionality), to replace `instantiationException(Class, String)`"
+sample_0123,34eaa4febe360b92f47b2f6c7d827778a395d6ae,yet more error reporting changes
+sample_0124,6ed7caab6700210ab65746fc12a45be0044974d1,Fix ; add `JsonGenerator` ref to `SerializerProvider` and change `JsonMappingException` construction to use it
+sample_0125,24407a462cd8779fd36ae4229d0c5fe01f57e507,Refactorings to use JsonIgnoreProperties.Value to allow config overrides
+sample_0126,24407a462cd8779fd36ae4229d0c5fe01f57e507,Refactorings to use JsonIgnoreProperties.Value to allow config overrides
+sample_0127,6519db34cb56dc2f9a2d885d11c50e14de02681e,simplify type handling for virtual members
+sample_0128,4bd13c5da81f5de9c8864a98170f73f9bb681b14,Bit more work on property config overrides
+sample_0129,4bd13c5da81f5de9c8864a98170f73f9bb681b14,Bit more work on property config overrides
+sample_0130,4bd13c5da81f5de9c8864a98170f73f9bb681b14,Bit more work on property config overrides
+sample_0131,7e6ba9e49a2037932a4d52de44576aab2b4f46e2,Introduced `AnnotationIntrospector` arguments while maintaining backwards compatibility.
+sample_0132,6fec75fdf074e13937594bfd075796e11cae6a03,Fix
+sample_0133,cebfddbae8e9fb585cc03f4f4706e268b767b5a9,Fixed
+sample_0134,cebfddbae8e9fb585cc03f4f4706e268b767b5a9,Fixed
+sample_0135,52ae85f72940673a6a54bfd18c836d18d07c243c,Fix
+sample_0136,52ae85f72940673a6a54bfd18c836d18d07c243c,Fix
+sample_0137,a8e12f0ec29ab216957d8e89bb37aabbeaed4e50,"Minor streamlining, in preparation of making AnnotatedClass (et al) use JavaType over Class"
+sample_0138,07d946c11d447ba88b62d28750a33651c897da29,"Fixed -- and also rewrote the whole type resolution system, which will require cascading changes in various datatype modules"
+sample_0139,07d946c11d447ba88b62d28750a33651c897da29,"Fixed -- and also rewrote the whole type resolution system, which will require cascading changes in various datatype modules"
+sample_0140,07d946c11d447ba88b62d28750a33651c897da29,"Fixed -- and also rewrote the whole type resolution system, which will require cascading changes in various datatype modules"
+sample_0141,cfbf1e5f694b348d22db3c223a5dc6cd4aa0179e,"Remove last uses of deprecated 'findSerializationType' methods, by ensuring 'is-static' flag is retained"
+sample_0142,a2ff432585cc8b3fd44fc1a6225bbb08a855c811,Update inclusion calls to new introspection methods
+sample_0143,dce8ae6a7c6a052363dd5dee5738b7eb6137c60a,"Try to upgrade exception handling to pass underlying JsonParser/JsonGenerator, when possible"
+sample_0144,dce8ae6a7c6a052363dd5dee5738b7eb6137c60a,"Try to upgrade exception handling to pass underlying JsonParser/JsonGenerator, when possible"
+sample_0145,9ed3abf2f233a789c28f863221f3da6681b9cf86,Finish support for per-property unwrap-single-elem-arrays feature via JsonFormat(with=...)
+sample_0146,9ed3abf2f233a789c28f863221f3da6681b9cf86,Finish support for per-property unwrap-single-elem-arrays feature via JsonFormat(with=...)
+sample_0147,bd256eaa8934384409ac74ec58bf67925209af35,More work on contextual property features via @JsonFormat
+sample_0148,429f70f64976765d7f1714989307edb5ecd970f6,Fix with minor modifications
+sample_0149,c0b9552892a55bdd6f8f6263c6f22fd9c56f8cfa,Implement : Add `ObjectMapper.setDefaultPrettyPrinter(...)`
+sample_0150,2e0453f5ee3f74f15713a040e3299630f89be1ba,Add ObjectMapper.setVisibility(VisibilityChecker) to replace setVisibilityChecker (which is non-chainable).
+sample_0151,759aef00ea5ac1d07d154babe438425a2f154976,Implement
+sample_0152,44df4d2e7b02371a8f1f95f71a34b60e0e9f6812,Fixed
+sample_0153,42ef5bb69ba5945e6d588e0db8d6834b4febe771,Fixed
+sample_0154,f14407078b3d0367e74c175466f626f89a7f2beb,"Add a convenience ""no-op"" filter implementation"
+sample_0155,333f5acca8f776699cccddf4e421c82110aa5916,Complete initial SequenceWriter implementation. To be tested.
+sample_0156,ab554d540bb957dfc97fc2b9879b9fa62e56b6e4,"Starting to work on adding SequenceWriter, counterpart to MappingIterator on reader side"
+sample_0157,b478c792e0e68039224109129350dd71f768ddc1,Still tweaking bean property handling for deser
+sample_0158,5a497889285b735e55eec1cb7ce985a1002fac47,Naming improvements
+sample_0159,5a497889285b735e55eec1cb7ce985a1002fac47,Naming improvements
+sample_0160,17ab26bfbc3bf4820cf81bae220ed336b65488c7,Cleaning up slightly; add another related fluent-style method
+sample_0161,e381bc890ed64380c27b7811435413bc7eac1b28,"Restore of version of addMixin call, and add to new fluent method to ensure binary-comaptibility"
+sample_0162,29446171c4157d3f9404f7855842e78e8893e420,"Initial work to support Map.Entry; now serialization works, some improvements to type handling as well"
+sample_0163,3c2d40901088f38eca41896f5b7410729e85ef70,extends iso8601 format to support parse according expression: [yyyy-MM-dd|yyyyMMdd][T(hh:mm[:ss[.sss]]|hhmm[ss[.sss]])]?[Z|[+-]hh:mm
+sample_0164,295d9e425e536b71ddc94901f2e9cca9b14dcb5c,Minor improvement wrt : prevent attempts to use `JsonTypeInfo.As.EXTERNAL_PROPERTY` for default typing (throw IllegalArgumentException if attempted)
+sample_0165,d1f58c6dc5ee84afd2818a45e25ed08937e999a7,"Implement , give annotation access through PropertyWriter (similar to what BeanPropertyWriter had)"
+sample_0166,40f1c93b492e535a9d1c74579c702a08123f329d,Avoid setting explName to true if name is null in POJOPropertyBuilder
+sample_0167,40f1c93b492e535a9d1c74579c702a08123f329d,Avoid setting explName to true if name is null in POJOPropertyBuilder
+sample_0168,40f1c93b492e535a9d1c74579c702a08123f329d,Avoid setting explName to true if name is null in POJOPropertyBuilder
+sample_0169,6b89162eb32a94c5686ed56dc9c8e5a4d1c7e919,"Trying to make StdDateFormat use Locale, if defined"
+sample_0170,6b89162eb32a94c5686ed56dc9c8e5a4d1c7e919,"Trying to make StdDateFormat use Locale, if defined"
+sample_0171,11f7304cd625e21eff1cfc5ad27fe4a9e4cb9549,"Implemented , DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES"
+sample_0172,2322ce6a6a26ff604fe05cb0da92a51466fcc0d6,"Implement : make ArrayNode, ObjectNode non-final again"
+sample_0173,2322ce6a6a26ff604fe05cb0da92a51466fcc0d6,"Implement : make ArrayNode, ObjectNode non-final again"
+sample_0174,84042ca4dc76880854cea7cd422e48a2fa47c57e,First part of custom null serializers implemented (per-property)
+sample_0175,bb0e2b5edd644e9dd438c29675678a802bbe8f7a,Implement
+sample_0176,767ecb29a5a79f799113d13eb137389ff5a4c2c5,Try to add support for retaining type ids via TokenBuffer
+sample_0177,1488cef12ee88e25dd0161f1b85c552a32775778,Completing conversion to using PropertyName instead of String in most parts of API
+sample_0178,43307b438d6aab67686cb0941e6541c82a6fab2a,Fixed
+sample_0179,8416dde89136e2fa8a6f996ce3196560eba1dd26,Completed [Issue] implementation
+sample_0180,d8b407137ca2d33e0950b734cf94b959a2ed7b79,"Implement [Issue], make JavaType implement java.lang.reflect.Type"
+sample_0181,4c8ee2eba68368f90ddb501d6f5c059ded1b3329,"Improve BeanProperty to include 'isRequired()', as well as a method to traverse type/property hierarcy (JsonFormatVisitor)"
+sample_0182,4c8ee2eba68368f90ddb501d6f5c059ded1b3329,"Improve BeanProperty to include 'isRequired()', as well as a method to traverse type/property hierarcy (JsonFormatVisitor)"
+sample_0183,ab511e5576579139951022c2085662904ad85b07,"Completed SerializerFactory clean up; factories now should not get or expect BeanProperty, as that is only applicable for contextualSerializers"
+sample_0184,bd3ded190c05c5f2f34a5677bbb4469d02599444,"More SerializerFactory clean up, getting read of BeanProperty arg"
+sample_0185,65b73d92974414c018dec24a67c285ae484654c8,"Starting to clean up SerializerFactory, to remove/reduce passing of BeanProperty, which in general is not available at time of call."
+sample_0186,f88c50a10bbd2d1dc4ae6d7ca0a4ece68adc00c1,JsonNodeFactory: normalize DecimalNode instances by default
+sample_0187,bc6485776be5c45a52e4b07459caf3b9a78c80d3,"Minor improvements to SubtypeResolver, to pass base type of property, to support structured values properly"
+sample_0188,d0f31bdb2a4e02c944c8223f07d580f1e8ad100f,previously removed generateSchema is returned
+sample_0189,767cead79205755c97839251ea06afba361812ce,"Roll back changes to JSON Schema generation (pull ), since it causes Public API breakage, can't do for minor version"
+sample_0190,ed98c9e3c47b12f6f457f4af6fd2546e53f68284,jsonschema serialization and deep equals implemented.
+sample_0191,ed98c9e3c47b12f6f457f4af6fd2546e53f68284,jsonschema serialization and deep equals implemented.
+sample_0192,ac1f2abbbc73dd40b3205a79ad546add80130d78,Implement
+sample_0193,ac1f2abbbc73dd40b3205a79ad546add80130d78,Implement
+sample_0194,dd3485677ca295a8fcbf99dba90db5337755b8ef,"Implemented [Issue-20], JsonFormatException"
+sample_0195,d14fb0772edb682a1ee97e07c8b2e71bc39e845b,"Completing [Issue-29], ability to (de)serialize POJOs to/from JSON Arrays, to condense output"
+sample_0196,32fcb5ddd31ee7bcec0028d34c7d2a9f36463ffa,Improve default impl for missing type handling
+sample_0197,e6faa455fdc0475c62fe268e7dbd39bfebddffd0,...
+sample_0198,2fd4ffd9963545ce735a58957a84afb90809561e,Implement Builder-based deserializer; fix a few ObjectId issues
+sample_0199,6679caeac9198802d271f8659017bb63eebd615f,Further simplification; eliminated StdSerializerProvider
+sample_0200,6679caeac9198802d271f8659017bb63eebd615f,Further simplification; eliminated StdSerializerProvider
+sample_0201,06c20b1814a497cda59d46609ca03bfac20f64f1,"Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt"
+sample_0202,06c20b1814a497cda59d46609ca03bfac20f64f1,"Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt"
+sample_0203,06c20b1814a497cda59d46609ca03bfac20f64f1,"Simplified DeserializationContext handling a bit by removing StdDeserializationContext, demoting functionaliyt"
+sample_0204,9e6c28f2ec520cc669e05c6d2f13b4486fa3f026,"Fix [], inability to use Injectables with delegation constructor"
+sample_0205,dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2,Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig
+sample_0206,dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2,Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig
+sample_0207,dfed9240ab1a46ed8c5dfea8d8dd4e38d86646f2,Completed major rewrite of handling of on/off features for ObjectMapper/SerConfig/DeserConfig
+sample_0208,eaedfb7677e74c1a610928655f464c454176d1c0,Still more config changes
+sample_0209,cbfafc6f45529dc502268c0ab3cc944e97d7ca51,Start work on [] for databind
+sample_0210,a03e0ebf5825d587230093436b6db53f368185a0,Implemented [] for 2.0
+sample_0211,15fb6ff785a1f3f851b6737473b2ed6778344cd2,Implement []: avoid wrapping/unwrapping with ObjectMapper.convertValue()
+sample_0212,15fb6ff785a1f3f851b6737473b2ed6778344cd2,Implement []: avoid wrapping/unwrapping with ObjectMapper.convertValue()
+sample_0213,418a239a360683f065ea18fb4d1cb8d40c646c8e,"Adding unit tests for verifying 'isEmpty()', custom null value serialization"
+sample_0214,0344ce08eb33d9d3aeb6478ce0391368596eac04,Remove separate 'isIgnoredXxx' methods; combined into 'hasIgnoralMarker' method in AnnotationIntrospector
+sample_0215,fcb1c2560541e2ff2f3fd6da99a95f69c2b28a8a,"Eliminated JsonSerializableWithType, by moving method down to JsonSerializable"

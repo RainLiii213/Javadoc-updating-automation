@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1bafb26a3a626ea08f694b031247241f435474b5",
+  "issue_summary": "Implement : add `JsonNodeFeature.STRIP_TRAILING_BIGDECIMAL_ZEROES`",
+  "code_before": "public static JsonNodeFactory withExactBigDecimals(boolean bigDecimalExact)\n    {\n        return bigDecimalExact ? decimalsAsIs : decimalsNormalized;\n    }",
+  "code_after": "@Deprecated\n    public static JsonNodeFactory withExactBigDecimals(boolean bigDecimalExact)\n    {\n        return new JsonNodeFactory(bigDecimalExact);\n    }",
+  "javadoc_before": "/**\n     * Return a factory instance with the desired behavior for BigDecimals\n     * <p>See {@link #JsonNodeFactory(boolean)} for a full description.</p>\n     *\n     * @param bigDecimalExact see description\n     * @return a factory instance\n     */",
+  "javadoc_after": "/**\n     * Return a factory instance with the desired behavior for BigDecimals\n     * <p>See {@link #JsonNodeFactory(boolean)} for a full description.</p>\n     *\n     * @param bigDecimalExact see description\n     * @return a factory instance\n     *\n     * @deprecated Use {@link com.fasterxml.jackson.databind.cfg.JsonNodeFeature#STRIP_TRAILING_BIGDECIMAL_ZEROES}\n     *   instead for configuring behavior.\n     */"
+}

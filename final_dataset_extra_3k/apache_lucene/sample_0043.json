@@ -1,0 +1,8 @@
+{
+  "commit_hash": "83f0d3578cdc35ed8f0c98877c8b3c844ee7bc88",
+  "issue_summary": "faster join using join=zipper aka merge join for nested DIH EntityProcessors",
+  "code_before": "protected void firstInit(Context context) {\n    entityName = context.getEntityAttribute(\"name\");\n    String s = context.getEntityAttribute(ON_ERROR);\n    if (s != null) onError = s;\n    initCache(context);\n    isFirstInit = false;\n  }",
+  "code_after": "protected void firstInit(Context context) {\n    entityName = context.getEntityAttribute(\"name\");\n    String s = context.getEntityAttribute(ON_ERROR);\n    if (s != null) onError = s;\n\n    zipper = Zipper.createOrNull(context);\n\n    if(zipper==null){\n      initCache(context);\n    }\n    isFirstInit = false;\n  }",
+  "javadoc_before": "/**first time init call. do one-time operations here\n   */",
+  "javadoc_after": "/**\n   * first time init call. do one-time operations here\n   * it's necessary to call it from the overridden method,\n   * otherwise it throws NPE on accessing zipper from nextRow()\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a43843701d9dbf790f9104a2ce1f6f38e98e8370",
+  "issue_summary": "Add optional collection parameter to all SolrClient methods",
+  "code_before": "public UpdateResponse addBeans(Collection<?> beans, int commitWithinMs) throws SolrServerException, IOException {\n    DocumentObjectBinder binder = this.getBinder();\n    ArrayList<SolrInputDocument> docs =  new ArrayList<>(beans.size());\n    for (Object bean : beans) {\n      docs.add(binder.toSolrInputDocument(bean));\n    }\n    return add(docs, commitWithinMs);\n  }",
+  "code_after": "public UpdateResponse addBeans(Collection<?> beans, int commitWithinMs) throws SolrServerException, IOException {\n    return addBeans(null, beans, commitWithinMs);\n  }",
+  "javadoc_before": "/**\n   * Adds a collection of beans specifying max time before they become committed\n   * @param beans  the collection of beans\n   * @param commitWithinMs  max time (in ms) before a commit will happen \n   * @throws IOException If there is a low-level I/O error.\n   * @since solr 3.5\n   */",
+  "javadoc_after": "/**\n   * Adds a collection of beans specifying max time before they become committed\n   *\n   * The beans are converted to {@link SolrInputDocument}s by the client's\n   * {@link org.apache.solr.client.solrj.beans.DocumentObjectBinder}\n   *\n   * @param beans  the collection of beans\n   * @param commitWithinMs  max time (in ms) before a commit will happen\n   *\n   * @return an {@link org.apache.solr.client.solrj.response.UpdateResponse} from the server\n   *\n   * @throws IOException         if there is a communication error with the server\n   * @throws SolrServerException if there is an error on the server\n   *\n   * @see SolrClient#getBinder()\n   *\n   * @since solr 3.5\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f14407078b3d0367e74c175466f626f89a7f2beb",
+  "issue_summary": "Add a convenience \"no-op\" filter implementation",
+  "code_before": "protected abstract boolean include(PropertyWriter writer);",
+  "code_after": "protected boolean include(PropertyWriter writer) {\n        return true;\n    }",
+  "javadoc_before": "/**\n     * @since 2.3\n     */",
+  "javadoc_after": "/**\n     * Method called to determine whether property will be included\n     * (if 'true' returned) or filtered out (if 'false' returned)\n     *\n     * @since 2.3\n     */"
+}

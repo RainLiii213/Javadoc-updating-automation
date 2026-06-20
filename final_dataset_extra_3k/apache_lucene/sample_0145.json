@@ -1,0 +1,8 @@
+{
+  "commit_hash": "18bcf7fc8252e6b6083147fa18b730c68bd4e0ab",
+  "issue_summary": "Fix improperly named module solr-extraction -> solr-cell",
+  "code_before": "private String antProjectToArtifactName(String origModule) {\n    String module = origModule;\n    if ( ! origModule.startsWith(\"solr-\")) { // lucene modules names don't have \"lucene-\" prepended\n      module = \"lucene-\" + module;\n    }\n    if (module.equals(\"solr-cell\")) {\n      module = \"solr-extraction\";\n    }\n    return module;\n  }",
+  "code_after": "private String antProjectToArtifactName(String origModule) {\n    String module = origModule;\n    if ( ! origModule.startsWith(\"solr-\")) { // lucene modules names don't have \"lucene-\" prepended\n      module = \"lucene-\" + module;\n    }\n    return module;\n  }",
+  "javadoc_before": "/**\n   * Convert Ant project names to artifact names: prepend \"lucene-\"\n   * to Lucene project names; and \"solr-cell\" -> \"solr-extraction\"\n   */",
+  "javadoc_after": "/**\n   * Convert Ant project names to artifact names: prepend \"lucene-\"\n   * to Lucene project names\n   */"
+}

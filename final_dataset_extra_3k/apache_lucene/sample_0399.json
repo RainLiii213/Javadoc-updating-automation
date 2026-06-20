@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8f7c1da3ba370effb17306cfc119c24c6e029706",
+  "issue_summary": "FuzzyQuery should never do edit distance > 2",
+  "code_before": "public FuzzyQuery(Term term) {\n    this(term, defaultMinSimilarity, defaultPrefixLength, defaultMaxExpansions);\n  }",
+  "code_after": "public FuzzyQuery(Term term) {\n    this(term, defaultMaxEdits);\n  }",
+  "javadoc_before": "/**\n   * Calls {@link #FuzzyQuery(Term, float) FuzzyQuery(term, defaultMinSimilarity, 0, defaultMaxExpansions)}.\n   */",
+  "javadoc_after": "/**\n   * Calls {@link #FuzzyQuery(Term, int) FuzzyQuery(term, defaultMaxEdits)}.\n   */"
+}

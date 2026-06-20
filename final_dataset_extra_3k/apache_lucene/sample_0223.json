@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fa76c30147024cc3c12a852596b5643bbe2a496d",
+  "issue_summary": "Completely remove deprecated options in 5.0.",
+  "code_before": "public TrimFilter(Version version, TokenStream in) {\n    this(version, in, false);\n  }",
+  "code_after": "public TrimFilter(Version version, TokenStream in) {\n    super(in);\n  }",
+  "javadoc_before": "/** Create a new {@link TrimFilter} on top of <code>in</code>. */",
+  "javadoc_after": "/**\n   * Create a new {@link TrimFilter}.\n   * @param version       the Lucene match version\n   * @param in            the stream to consume\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7bac883930543f98337621c27231a5337ba5acc4",
+  "issue_summary": "Avoid `NullPointerException´ and `IllegalArgumentException` for control flow in `Sort`.",
+  "code_before": "public static Optional<Direction> fromOptionalString(String value) {\n\n\t\t\ttry {\n\t\t\t\treturn Optional.of(fromString(value));\n\t\t\t} catch (IllegalArgumentException e) {\n\t\t\t\treturn Optional.empty();\n\t\t\t}\n\t\t}",
+  "code_after": "public static Optional<Direction> fromOptionalString(String value) {\n\n\t\t\tif (value == null) {\n\t\t\t\treturn Optional.empty();\n\t\t\t}\n\n\t\t\ttry {\n\t\t\t\treturn Optional.of(fromString(value));\n\t\t\t} catch (IllegalArgumentException e) {\n\t\t\t\treturn Optional.empty();\n\t\t\t}\n\t\t}",
+  "javadoc_before": "/**\n\t\t * Returns the {@link Direction} enum for the given {@link String} or null if it cannot be parsed into an enum\n\t\t * value.\n\t\t *\n\t\t * @param value\n\t\t * @return\n\t\t */",
+  "javadoc_after": "/**\n\t\t * Returns the {@link Direction} enum for the given {@link String} or empty if it cannot be parsed into an enum\n\t\t * value.\n\t\t *\n\t\t * @param value\n\t\t * @return\n\t\t */"
+}

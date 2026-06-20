@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e99a78098dae04b1fd2c5cc28ff2a09ab77567e4",
+  "issue_summary": "Add Launcher.execute(LauncherDiscoveryRequest, TestExecutionListener...)",
+  "code_before": "void execute(LauncherDiscoveryRequest launcherDiscoveryRequest);",
+  "code_after": "@Deprecated\n\tdefault void execute(LauncherDiscoveryRequest launcherDiscoveryRequest) {\n\t\texecute(launcherDiscoveryRequest, new TestExecutionListener[0]);\n\t}",
+  "javadoc_before": "/**\n\t * Execute a {@link TestPlan} which is built according to the supplied\n\t * {@link LauncherDiscoveryRequest} by querying all registered engines and\n\t * collecting their results, and notify {@linkplain #registerTestExecutionListeners\n\t * registered listeners} about the progress and results of the execution.\n\t *\n\t * @param launcherDiscoveryRequest the launcher discovery request; never {@code null}\n\t */",
+  "javadoc_after": "/**\n\t * Execute a {@link TestPlan} which is built according to the supplied\n\t * {@link LauncherDiscoveryRequest} by querying all registered engines and\n\t * collecting their results, and notify {@linkplain #registerTestExecutionListeners\n\t * registered listeners} about the progress and results of the execution.\n\t *\n\t * <p>The <em>deprecated</em> default implementation delegates to\n\t * {@link #execute(LauncherDiscoveryRequest, TestExecutionListener...)} with no\n\t * additional listeners.\n\t *\n\t * <p>The method will be removed in milestone M5.\n\t * @deprecated Use {@link #execute(LauncherDiscoveryRequest, TestExecutionListener...)} instead.\n\t */"
+}

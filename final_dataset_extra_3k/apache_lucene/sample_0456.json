@@ -1,0 +1,8 @@
+{
+  "commit_hash": "21989c90c26821ff8444c9d8d6d840434a5a499f",
+  "issue_summary": "Commit to not corrumpt Robert's work on Default*: Improve InfoStream class in trunk to be more consistent with logging-frameworks like slf4j/log4j/commons-logging",
+  "code_before": "public static void setDefault(InfoStream infoStream) {\n    defaultInfoStream = infoStream;\n  }",
+  "code_after": "public static synchronized void setDefault(InfoStream infoStream) {\n    if (infoStream == null) {\n      throw new IllegalArgumentException(\"Cannot set InfoStream default implementation to null. \"+\n        \"To disable logging use InfoStream.NO_OUTPUT\");\n    }\n    defaultInfoStream = infoStream;\n  }",
+  "javadoc_before": "/** Sets the default infoStream (possibly null) used\n   * by a newly instantiated classes.\n   * @see #setDefault */",
+  "javadoc_after": "/** Sets the default {@code InfoStream} used\n   * by a newly instantiated classes. It cannot be {@code null},\n   * to disable logging use {@link #NO_OUTPUT}.\n   * @see #getDefault */"
+}

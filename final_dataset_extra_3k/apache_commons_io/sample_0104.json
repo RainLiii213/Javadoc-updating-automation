@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4565a3c49d005a72d91e91fb837d51eaa72d1c02",
+  "issue_summary": "Separate handleDirectory from handleDirectoryStart",
+  "code_before": "protected boolean handleDirectoryStart(File directory, int depth, Collection results) {\n        // do nothing - overridable by subclass\n        return true;\n    }",
+  "code_after": "protected void handleDirectoryStart(File directory, int depth, Collection results) {\n        // do nothing - overridable by subclass\n    }",
+  "javadoc_before": "/**\n     * Overridable callback method invoked at the start of processing each directory.\n     * <p>\n     * This method returns a boolean to indicate if the directory should be examined\n     * or not. If you return false, the next event received will be the\n     * {@link #handleDirectoryEnd} for that directory. Note that this functionality\n     * is in addition to the filtering by file filter.\n     * <p>\n     * This implementation does nothing and returns true.\n     *\n     * @param directory  the current directory being processed\n     * @param depth  the current directory level (starting directory = 0)\n     * @param results  the collection of result objects, may be updated\n     * @return true to process this directory, false to skip this directory\n     */",
+  "javadoc_after": "/**\n     * Overridable callback method invoked at the start of processing each directory.\n     * <p>\n     * This implementation does nothing.\n     *\n     * @param directory  the current directory being processed\n     * @param depth  the current directory level (starting directory = 0)\n     * @param results  the collection of result objects, may be updated\n     */"
+}

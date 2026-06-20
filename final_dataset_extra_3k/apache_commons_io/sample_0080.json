@@ -1,0 +1,8 @@
+{
+  "commit_hash": "aad6359c39d59176c51e0d4e5ee31def1bc10077",
+  "issue_summary": "TeeOutputStream fails executing branch.close() when main.close() raised an exception.",
+  "code_before": "@Override\n    public void close() throws IOException {\n        super.close();\n        this.branch.close();\n    }",
+  "code_after": "@Override\n    public void close() throws IOException {\n        try {\n            super.close();\n        } catch (IOException e) {\n            this.branch.close();\n            throw e;\n        }\n        this.branch.close();\n    }",
+  "javadoc_before": "/**\n     * Closes both streams. \n     * @throws IOException if an I/O error occurs\n     */",
+  "javadoc_after": "/**\n     * Closes both output streams.\n     * \n     * If closing the main output stream throws an exception, attempt to close the branch output stream.\n     * \n     * If closing the main and branch output streams both throw exceptions, which exceptions is thrown by this method is\n     * currently unspecified and subject to change.\n     * \n     * @throws IOException\n     *             if an I/O error occurs\n     */"
+}

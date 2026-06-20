@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8f184caf793beb93b1df21405d3ae5e1c866ee47",
+  "issue_summary": "facet.sort=false for distrib search + change facet.sort to count/lex",
+  "code_before": "public boolean getFacetSort() {\n    return this.getBool(FacetParams.FACET_SORT, true);\n  }",
+  "code_after": "@Deprecated\n  public boolean getFacetSort() {\n    return this.get(FacetParams.FACET_SORT, FacetParams.FACET_SORT_COUNT).equals(FacetParams.FACET_SORT_COUNT);\n  }",
+  "javadoc_before": "/** get facet sort\n   * \n   * @return facet sort or default of true\n   */",
+  "javadoc_after": "/** get facet sort\n   * \n   * @return facet sort or default of true\n   * @deprecated Use {@link #getFacetSortString()} instead, true corresponds to\n   * FacetParams.FACET_SORT_COUNT and false to FacetParams.FACET_SORT_LEX.\n   */"
+}

@@ -1,0 +1,57 @@
+{
+  "old_dataset_path": "final_dataset",
+  "new_dataset_path": "final_dataset_extra_3k",
+  "old_dataset_raw_change_count": 2000,
+  "new_dataset_raw_change_count": 1621,
+  "merged_raw_change_count": 3621,
+  "duplicate_change_count": 29,
+  "old_new_duplicate_count": 0,
+  "format_only_removed_count": 0,
+  "weak_issue_detected_count": 34,
+  "weak_issue_resolved_count": 33,
+  "weak_issue_unresolved_count": 1,
+  "entity_type_review_count": 0,
+  "invalid_change_count": 0,
+  "final_commit_count": 2570,
+  "final_method_change_count": 2294,
+  "final_class_change_count": 1297,
+  "final_total_change_count": 3591,
+  "average_changes_per_commit": 1.3973,
+  "max_changes_in_one_commit": 3,
+  "commits_with_multiple_changes": 717,
+  "changes_per_commit_distribution": {
+    "1": 1853,
+    "2": 413,
+    "3": 304
+  },
+  "per_project_change_count": {
+    "apache_commons_codec": 41,
+    "apache_commons_collections": 72,
+    "apache_commons_compress": 181,
+    "apache_commons_io": 173,
+    "apache_commons_lang": 37,
+    "apache_commons_math": 558,
+    "apache_commons_text": 35,
+    "apache_lucene": 1513,
+    "fasterxml_jackson_databind": 213,
+    "google_guava": 284,
+    "jodaorg_joda_time": 125,
+    "junit_team_junit5": 174,
+    "spring_projects_spring_data_commons": 185
+  },
+  "per_entity_type_count": {
+    "class": 1297,
+    "method": 2294
+  },
+  "issue_summary_source_counts": {
+    "commit_subject": 31,
+    "existing_issue_summary": 3560
+  },
+  "javadoc_format_review_count": 225,
+  "validation": {
+    "passed": true,
+    "commit_count": 2570,
+    "change_count": 3591,
+    "errors": {}
+  }
+}

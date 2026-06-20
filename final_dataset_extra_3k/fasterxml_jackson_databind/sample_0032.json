@@ -1,0 +1,8 @@
+{
+  "commit_hash": "99d0ab645116f87f606f25150a410abcf3c507a1",
+  "issue_summary": "Implement : improve/add number accessors to `JsonNode`",
+  "code_before": "public Number numberValue() { return null; }",
+  "code_after": "public abstract Number numberValue();",
+  "javadoc_before": "/**\n     * Returns numeric value for this node, <b>if and only if</b>\n     * this node is numeric ({@link #isNumber} returns true); otherwise\n     * returns null\n     *\n     * @return Number value this node contains, if any (null for non-number\n     *   nodes).\n     */",
+  "javadoc_after": "/**\n     * Method that will try to access value of this node as {@link Number}\n     * that accurately represents its value, if (and only if) this is\n     * a number node (returns {@code true} for {@link #isNumber}).\n     * If this node is NOT a number node, a {@link JsonNodeException} will be thrown.\n     *\n     * @return Number value this node contains, if numeric node\n     */"
+}

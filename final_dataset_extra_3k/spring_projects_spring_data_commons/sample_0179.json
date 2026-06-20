@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7ff8a43a7558a6640292da7f86ad42503ea0d467",
+  "issue_summary": "Added support for IgnoreCase as query keyword.",
+  "code_before": "public boolean isDistinct() {\n\n\t\treturn distinct;\n\t}",
+  "code_after": "public boolean isDistinct() {\n\n\t\treturn subject.isDistinct();\n\t}",
+  "javadoc_before": "/**\n\t * Returns whether we indicate distinct lookup of entities.\n\t *\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Returns whether we indicate distinct lookup of entities.\n\t * \n\t * @return <tt>true<tt> if distinct\n\t */"
+}

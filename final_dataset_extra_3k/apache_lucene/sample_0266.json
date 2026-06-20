@@ -1,0 +1,8 @@
+{
+  "commit_hash": "3f8993715bac570c137af771621410cf3cebf375",
+  "issue_summary": "rename FacetIndexingParams.ALL_PARENTS to DEFAULT",
+  "code_before": "public Facet42Codec() {\n    this(FacetIndexingParams.ALL_PARENTS);\n  }",
+  "code_after": "public Facet42Codec() {\n    this(FacetIndexingParams.DEFAULT);\n  }",
+  "javadoc_before": "/** Default constructor, uses {@link FacetIndexingParams#ALL_PARENTS}. */",
+  "javadoc_after": "/** Default constructor, uses {@link FacetIndexingParams#DEFAULT}. */"
+}

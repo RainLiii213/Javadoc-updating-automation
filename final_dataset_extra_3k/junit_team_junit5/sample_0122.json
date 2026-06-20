@@ -1,0 +1,8 @@
+{
+  "commit_hash": "38bfd4d2a40b8d5ee18d09d07ca7e9a6ac3fd409",
+  "issue_summary": "Support empty string as default package for classpath scanning",
+  "code_before": "public static JavaPackageSelector selectJavaPackage(String packageName) {\n\t\tPreconditions.notBlank(packageName, \"Package name must not be null or blank\");\n\t\treturn new JavaPackageSelector(packageName);\n\t}",
+  "code_after": "public static JavaPackageSelector selectJavaPackage(String packageName) {\n\t\tPreconditions.notNull(packageName, \"Package name must not be null\");\n\t\tPreconditions.condition(packageName.equals(\"\") || packageName.trim().length() != 0,\n\t\t\t\"Package name must not contain only whitespace\");\n\t\treturn new JavaPackageSelector(packageName.trim());\n\t}",
+  "javadoc_before": "/**\n\t * Create a {@code PackageSelector} for the supplied package name.\n\t *\n\t * @param packageName the package name to select; never {@code null} or blank\n\t * @see JavaPackageSelector\n\t */",
+  "javadoc_after": "/**\n\t * Create a {@code PackageSelector} for the supplied package name.\n\t *\n\t * <p>The default package is represented by an empty string ({@code \"\"}).\n\t *\n\t * @param packageName the package name to select; never {@code null} and\n\t * never containing whitespace only\n\t * @see JavaPackageSelector\n\t */"
+}

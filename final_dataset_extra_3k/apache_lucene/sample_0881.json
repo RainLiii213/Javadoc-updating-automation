@@ -1,0 +1,8 @@
+{
+  "commit_hash": "99fdf6af1f8312403be094a3c7b75db478b29453",
+  "issue_summary": "Permit unbuffered index input.",
+  "code_before": "public abstract InputStream openFile(String name)\n       throws IOException;",
+  "code_after": "public InputStream openFile(String name) throws IOException {\n    return (InputStream)openInput(name);\n  }",
+  "javadoc_before": "/** Returns a stream reading an existing file. */",
+  "javadoc_after": "/** @deprecated use {@link openInput(String)}. */"
+}

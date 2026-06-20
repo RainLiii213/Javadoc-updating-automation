@@ -1,0 +1,8 @@
+{
+  "commit_hash": "94db475afed4129486aa0a2d2d02e159709d50f9",
+  "issue_summary": "Polishing of newly introduced geo value objects.",
+  "code_before": "public Distance add(Distance other) {\n\t\tdouble newNormalizedValue = getNormalizedValue() + other.getNormalizedValue();\n\t\treturn new Distance(newNormalizedValue * metric.getMultiplier(), metric);\n\t}",
+  "code_after": "public Distance add(Distance other) {\n\n\t\tAssert.notNull(other, \"Distance to add must not be null!\");\n\n\t\tdouble newNormalizedValue = getNormalizedValue() + other.getNormalizedValue();\n\n\t\treturn new Distance(newNormalizedValue * metric.getMultiplier(), metric);\n\t}",
+  "javadoc_before": "/**\n\t * Adds the given distance to the current one. The resulting {@link Distance} will be in the same metric as the\n\t * current one.\n\t * \n\t * @param other\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Adds the given distance to the current one. The resulting {@link Distance} will be in the same metric as the\n\t * current one.\n\t * \n\t * @param other must not be {@literal null}.\n\t * @return\n\t */"
+}

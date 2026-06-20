@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ec49499e50ea3a282ed2031a467c5b02189ad130",
+  "issue_summary": "RepositoryConfigurationDelegate now expects an Environment.",
+  "code_before": "public RepositoryConfigurationSourceSupport(Environment environment) {\n\t\tthis.environment = environment == null ? new StandardEnvironment() : environment;\n\t}",
+  "code_after": "public RepositoryConfigurationSourceSupport(Environment environment) {\n\n\t\tAssert.notNull(environment, \"Environment must not be null!\");\n\t\tthis.environment = environment;\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link RepositoryConfigurationSourceSupport} with the given environment. Defaults to a plain\n\t * {@link StandardEnvironment} in case the given argument is {@literal null}.\n\t * \n\t * @param environment nullable, defaults to a {@link StandardEnvironment}.\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link RepositoryConfigurationSourceSupport} with the given environment. Defaults to a plain\n\t * {@link StandardEnvironment} in case the given argument is {@literal null}.\n\t * \n\t * @param environment must not be {@literal null}.\n\t */"
+}

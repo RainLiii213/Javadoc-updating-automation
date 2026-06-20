@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9fed484fb108e53cd6026133f660b3fd270e2025",
+  "issue_summary": "merge in solrcloud branch (watch out hudson!)",
+  "code_before": "public int getLocalPort() {\n    Connector[] conns = server.getConnectors();\n    if (0 == conns.length) {\n      throw new RuntimeException(\"Jetty Server has no Connectors\");\n    }\n    return conns[0].getLocalPort();\n  }",
+  "code_after": "public int getLocalPort() {\n    if (lastPort == -1) {\n      throw new IllegalStateException(\"You cannot get the port until this instance has started\");\n    }\n    return lastPort;\n  }",
+  "javadoc_before": "/**\n   * Returns the Local Port of the first Connector found for the jetty Server.\n   * \n   * @exception RuntimeException if there is no Connector\n   */",
+  "javadoc_after": "/**\n   * Returns the Local Port of the jetty Server.\n   * \n   * @exception RuntimeException if there is no Connector\n   */"
+}

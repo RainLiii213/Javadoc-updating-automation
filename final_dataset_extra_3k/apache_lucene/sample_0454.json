@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0bd1fcf488e84aee93a4a0d40dd40b51fac68840",
+  "issue_summary": "throw exception for MultiSortedSource instead of returning null",
+  "code_before": "public Object getArray() {\n      return null;\n    }",
+  "code_after": "public Object getArray() {\n      throw new UnsupportedOperationException(\"getArray is not supported\");\n    }",
+  "javadoc_before": "/**\n     * Returns the internal array representation iff this {@link Source} uses an\n     * array as its inner representation, otherwise <code>null</code>.\n     */",
+  "javadoc_after": "/**\n     * Returns the internal array representation iff this {@link Source} uses an\n     * array as its inner representation, otherwise <code>UOE</code>.\n     */"
+}

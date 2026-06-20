@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8ef98119381d522e5159ad07edc231b734a65ddc",
+  "issue_summary": "progress towards full cutover to 2.0 apis",
+  "code_before": "public DocValues.Type docValueType();",
+  "code_after": "public DocValuesType docValueType();",
+  "javadoc_before": "/** \n   * DocValues {@link DocValues.Type}: if non-null then the field's value\n   * will be indexed into docValues.\n   */",
+  "javadoc_after": "/** \n   * DocValues {@link DocValuesType}: if non-null then the field's value\n   * will be indexed into docValues.\n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ff8c5a22c630333d4bce7e3717b89bece77ef0e6",
+  "issue_summary": "Fix (custom Map `@JsonMerge` fail)",
+  "code_before": "public abstract void assign(Object bean)\n        throws IOException;",
+  "code_after": "@Deprecated // since 2.20\n    public final void assign(Object bean) throws IOException {\n        assign(null, bean);\n    }",
+  "javadoc_before": "/**\n     * Method called to assign stored value of this property to specified\n     * bean instance\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.20 use {@link #assign(DeserializationContext, Object)}\n     */"
+}

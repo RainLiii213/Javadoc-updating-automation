@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1760d4242d9c510e88e5754aa772b48165002cba",
+  "issue_summary": "changing the SolrDocument/SolrInputDocument implementation so each one as as efficient as it can be. The API changes mostly affect solrj users.",
+  "code_before": "public Object getFieldValue(String name) {\n    Collection v = _fields.get( name );\n    if( v != null && v.size() > 0 ) {\n      return v.iterator().next();\n    }\n    return null;\n  }",
+  "code_after": "public Object getFieldValue(String name) {\n    return _fields.get( name );\n  }",
+  "javadoc_before": "/**\n   * returns the first value for this field\n   */",
+  "javadoc_after": "/**\n   * Get the value or collection of values for a given field.  \n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "eb184669db2666f17372b750dd1d1be1bab3a606",
+  "issue_summary": "Revise `OffsetScrollPosition` to use zero-based indexesAlign Offset Scrolling Position.",
+  "code_before": "public long getOffset() {\n\t\treturn offset;\n\t}",
+  "code_after": "public long getOffset() {\n\n\t\tAssert.state(offset != null, \"Initial state does not have an offset. Make sure to check #isInitial()\");\n\t\treturn offset;\n\t}",
+  "javadoc_before": "/**\n\t * The zero or positive offset.\n\t *\n\t * @return the offset.\n\t */",
+  "javadoc_after": "/**\n\t * The zero or positive offset.\n\t * <p>\n\t * An {@link #isInitial() initial} position does not define an offset and will raise an error.\n\t *\n\t * @return the offset.\n\t * @throws IllegalStateException if {@link #isInitial()}.\n\t */"
+}

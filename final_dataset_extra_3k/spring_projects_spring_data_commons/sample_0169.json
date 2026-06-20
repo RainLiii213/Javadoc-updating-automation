@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ae9ee5b428d6c9800424f852f5a77046f84bf1d3",
+  "issue_summary": "Improvements in null handling in PartTree area.",
+  "code_before": "public static <S> TypeInformation<S> fromReturnTypeOf(Method method) {\n\t\treturn new ClassTypeInformation(method.getDeclaringClass()).createInfo(method.getGenericReturnType());\n\t}",
+  "code_after": "public static <S> TypeInformation<S> fromReturnTypeOf(Method method) {\n\n\t\tAssert.notNull(method, \"Method must not be null!\");\n\t\treturn new ClassTypeInformation(method.getDeclaringClass()).createInfo(method.getGenericReturnType());\n\t}",
+  "javadoc_before": "/**\n\t * Creates a {@link TypeInformation} from the given method's return type.\n\t * \n\t * @param method\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Creates a {@link TypeInformation} from the given method's return type.\n\t * \n\t * @param method must not be {@literal null}.\n\t * @return\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "7d35aafe71661e51ee01639ddf88503184610329",
+  "issue_summary": "make CMS smarter about prioritizing its threads",
+  "code_before": "public synchronized void setMergeThreadPriority(int pri) {\n    if (pri > Thread.MAX_PRIORITY || pri < Thread.MIN_PRIORITY)\n      throw new IllegalArgumentException(\"priority must be in range \" + Thread.MIN_PRIORITY + \" .. \" + Thread.MAX_PRIORITY + \" inclusive\");\n    mergeThreadPriority = pri;\n\n    final int numThreads = mergeThreadCount();\n    for(int i=0;i<numThreads;i++) {\n      MergeThread merge = mergeThreads.get(i);\n      merge.setThreadPriority(pri);\n    }\n  }",
+  "code_after": "public synchronized void setMergeThreadPriority(int pri) {\n    if (pri > Thread.MAX_PRIORITY || pri < Thread.MIN_PRIORITY)\n      throw new IllegalArgumentException(\"priority must be in range \" + Thread.MIN_PRIORITY + \" .. \" + Thread.MAX_PRIORITY + \" inclusive\");\n    mergeThreadPriority = pri;\n    updateMergeThreads();\n  }",
+  "javadoc_before": "/** Set the priority that merge threads run at. */",
+  "javadoc_after": "/** Set the base priority that merge threads run at.\n   *  Note that CMS may increase priority of some merge\n   *  threads beyond this base priority.  It's best not to\n   *  set this any higher than\n   *  Thread.MAX_PRIORITY-maxThreadCount, so that CMS has\n   *  room to set relative priority among threads.  */"
+}

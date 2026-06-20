@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9edfb3b66ade32697ba356525b1adaafa4ed604a",
+  "issue_summary": "Prepare CharArraySet for Unicode 4.0",
+  "code_before": "public CharArraySet(int startSize, boolean ignoreCase) {\n    this.ignoreCase = ignoreCase;\n    int size = INIT_SIZE;\n    while(startSize + (startSize>>2) > size)\n      size <<= 1;\n    entries = new char[size][];\n  }",
+  "code_after": "public CharArraySet(int startSize, boolean ignoreCase) {\n    this(Version.LUCENE_30, startSize, ignoreCase);\n  }",
+  "javadoc_before": "/** Create set with enough capacity to hold startSize\n   *  terms */",
+  "javadoc_after": "/**\n   * Creates a set with enough capacity to hold startSize terms\n   * \n   * @param startSize\n   *          the initial capacity\n   * @param ignoreCase\n   *          <code>false</code> if and only if the set should be case sensitive\n   *          otherwise <code>true</code>.\n   * @deprecated use {@link #CharArraySet(Version, int, boolean)} instead\n   */"
+}

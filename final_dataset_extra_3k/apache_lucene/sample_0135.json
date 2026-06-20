@@ -1,0 +1,8 @@
+{
+  "commit_hash": "20a280c33cd9765ca9186593771fc628b92cf6b3",
+  "issue_summary": "faster drill-down/sideways on costly filters",
+  "code_before": "public void add(String dim, Query subQuery) {\n\n    // TODO: we should use FilteredQuery?\n\n    // So scores of the drill-down query don't have an\n    // effect:\n    final ConstantScoreQuery drillDownQuery = new ConstantScoreQuery(subQuery);\n    drillDownQuery.setBoost(0.0f);\n\n    query.add(drillDownQuery, Occur.MUST);\n\n    drillDownDims.put(dim, drillDownDims.size());\n  }",
+  "code_after": "public void add(String dim, Query subQuery) {\n\n    if (drillDownDims.containsKey(dim)) {\n      throw new IllegalArgumentException(\"dimension \\\"\" + dim + \"\\\" already has a drill-down\");\n    }\n    // TODO: we should use FilteredQuery?\n\n    // So scores of the drill-down query don't have an\n    // effect:\n    final ConstantScoreQuery drillDownQuery = new ConstantScoreQuery(subQuery);\n    drillDownQuery.setBoost(0.0f);\n\n    query.add(drillDownQuery, Occur.MUST);\n\n    drillDownDims.put(dim, drillDownDims.size());\n  }",
+  "javadoc_before": "/** Expert: add a custom drill-down subQuery.  Use this\n   *  when you have a separate way to drill-down on the\n   *  dimension than the indexed facet ordinals (for\n   *  example, use a {@link NumericRangeQuery} to drill down\n   *  after {@link LongRangeFacetCounts} or {@link DoubleRangeFacetCounts}. */",
+  "javadoc_after": "/** Expert: add a custom drill-down subQuery.  Use this\n   *  when you have a separate way to drill-down on the\n   *  dimension than the indexed facet ordinals. */"
+}

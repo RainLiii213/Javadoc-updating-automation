@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a338c7b30998a3aa15dc7e31429e6819e09e7662",
+  "issue_summary": "committing _phillipe_ramalho_3.patch from git-svn-id: https://svn.apache.org/repos/asf/lucene/dev/trunk@1142862 13f79535-47bb-0310-9956-ffa450edef68",
+  "code_before": "public void setDefaultPhraseSlop(int defaultPhraseSlop) {\n    DefaultPhraseSlopAttribute attr = getQueryConfigHandler().addAttribute(DefaultPhraseSlopAttribute.class);\n    attr.setDefaultPhraseSlop(defaultPhraseSlop);\n  }",
+  "code_after": "@Deprecated\n  public void setDefaultPhraseSlop(int defaultPhraseSlop) {\n    getQueryConfigHandler().set(ConfigurationKeys.PHRASE_SLOP, defaultPhraseSlop);\n  }",
+  "javadoc_before": "/**\n   * Sets the default slop for phrases. If zero, then exact phrase matches are\n   * required. Default value is zero.\n   */",
+  "javadoc_after": "/**\n   * Sets the default slop for phrases. If zero, then exact phrase matches are\n   * required. Default value is zero.\n   * \n   * @deprecated renamed to {@link #setPhraseSlop(int)}\n   */"
+}

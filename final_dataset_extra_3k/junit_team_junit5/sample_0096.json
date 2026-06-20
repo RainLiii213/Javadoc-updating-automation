@@ -1,0 +1,8 @@
+{
+  "commit_hash": "f7e9ea0b14e17285ff72673ee6fbc0409989097e",
+  "issue_summary": "Remove Accessor interface from public API",
+  "code_before": "public static class Accessor implements EnabledIf.Accessor {\n\n\t\tstatic Accessor of(Function<String, Object> accessor) {\n\t\t\treturn new Accessor(accessor);\n\t\t}\n\n\t\tprivate final Function<String, Object> accessor;\n\n\t\tprivate Accessor(Function<String, Object> accessor) {\n\t\t\tthis.accessor = accessor;\n\t\t}\n\n\t\t@Override\n\t\tpublic String get(String key) {\n\t\t\tObject value = accessor.apply(key);\n\t\t\tif (value instanceof Optional) {\n\t\t\t\tvalue = ((Optional<?>) value).orElse(null);\n\t\t\t}\n\t\t\treturn String.valueOf(value);\n\t\t}\n\t}",
+  "code_after": "public interface Accessor {\n\n\t\t/**\n\t\t * Get the value of the property with the supplied name.\n\t\t *\n\t\t * @param name the name of the property to look up\n\t\t * @return the value assigned to the specified name; may be {@code null}\n\t\t */\n\t\tString get(String name);\n\n\t}",
+  "javadoc_before": "/**\n\t * Provides read-only access to e.g. values of {@link java.util.Map}.\n\t *\n\t * <p>Usage example: {@code Accessor.of(System::getProperty)} is\n\t * analog for {@code System.getProperty(key)} without exposing the\n\t * system properties instance.\n\t */",
+  "javadoc_after": "/**\n\t * Used to access named properties without exposing direct access to the\n\t * underlying source.\n\t */"
+}

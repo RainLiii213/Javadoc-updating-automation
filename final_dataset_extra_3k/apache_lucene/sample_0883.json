@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a6fad246dd8feb71df4e32130c43dd5ff6e6697d",
+  "issue_summary": "Applied patch supplied by Drew Farris and Bernhard Messer.",
+  "code_before": "public final String get(String name) {\n    Field field = getField(name);\n    if (field != null)\n      return field.stringValue();\n    else\n      return null;\n  }",
+  "code_after": "public final String get(String name) {\n    for (int i = 0; i < fields.size(); i++) {\n      Field field = (Field)fields.get(i);\n      if (field.name().equals(name) && (!field.isBinary()))\n        return field.stringValue();\n    }\n    return null;\n  }",
+  "javadoc_before": "/** Returns the string value of the field with the given name if any exist in\n   * this document, or null.  If multiple fields exist with this name, this\n   * method returns the first value added.\n   */",
+  "javadoc_after": "/** Returns the string value of the field with the given name if any exist in\n   * this document, or null.  If multiple fields exist with this name, this\n   * method returns the first value added. If only binary fields with this name\n   * exist, returns null.\n   */"
+}

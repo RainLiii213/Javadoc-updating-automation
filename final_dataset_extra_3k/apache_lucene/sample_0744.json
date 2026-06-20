@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e2c19ac5ad545f8f64411bbcb8a517337d570a06",
+  "issue_summary": "Javadoc, one deprecation and one warning",
+  "code_before": "public void setMaxRetries( int maxRetries ) {\n    _maxRetries = maxRetries;\n  }",
+  "code_after": "public void setMaxRetries( int maxRetries ) {\n    if (maxRetries > 1) {\n      log.warn(\"CommonsHttpSolrServer: maximum Retries \" + maxRetries + \" > 1. Maximum recommended retries is 1.\");\n    }\n    _maxRetries = maxRetries;\n  }",
+  "javadoc_before": "/**\n   * set maximum number of retries to attempt in the event of\n   * transient errors.  Default: 0 (no) retries. No more than 1\n   * recommended.\n   */",
+  "javadoc_after": "/**\n   * set maximum number of retries to attempt in the event of\n   * transient errors.\n   * @param maxRetries No more than 1 recommended\n   * @see #_maxRetries\n   */"
+}

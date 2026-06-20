@@ -1,0 +1,8 @@
+{
+  "commit_hash": "b679816a7001ba986618f103a9a9c67ececc7ff8",
+  "issue_summary": "Reintegrate flex_1458 branch into trunk (revision 931101)",
+  "code_before": "public long getUniqueTermCount() throws IOException {\n    throw new UnsupportedOperationException(\"this reader does not implement getUniqueTermCount()\");\n  }",
+  "code_after": "public long getUniqueTermCount() throws IOException {\n    long numTerms = 0;\n    final Fields fields = fields();\n    if (fields == null) {\n      return 0;\n    }\n    FieldsEnum it = fields.iterator();\n    while(true) {\n      String field = it.next();\n      if (field == null) {\n        break;\n      }\n      numTerms += fields.terms(field).getUniqueTermCount();\n    }\n    return numTerms;\n  }",
+  "javadoc_before": "/** Returns the number of unique terms (across all fields)\n   *  in this reader.\n   *\n   *  This method returns long, even though internally\n   *  Lucene cannot handle more than 2^31 unique terms, for\n   *  a possible future when this limitation is removed.\n   *\n   *  @throws UnsupportedOperationException if this count\n   *  cannot be easily determined (eg Multi*Readers).\n   *  Instead, you should call {@link\n   *  #getSequentialSubReaders} and ask each sub reader for\n   *  its unique term count. */",
+  "javadoc_after": "/** Returns the number of unique terms (across all fields)\n   *  in this reader.\n   *\n   *  @throws UnsupportedOperationException if this count\n   *  cannot be easily determined (eg Multi*Readers).\n   *  Instead, you should call {@link\n   *  #getSequentialSubReaders} and ask each sub reader for\n   *  its unique term count. */"
+}

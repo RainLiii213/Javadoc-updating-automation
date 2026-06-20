@@ -1,0 +1,8 @@
+{
+  "commit_hash": "8268373d11c11c4d4793314c969b716efbe45883",
+  "issue_summary": "Further polishing in MappingContext APIs.",
+  "code_before": "public void setSimpleTypeHolder(SimpleTypeHolder simpleTypes) {\n\t\tthis.simpleTypeHolder = simpleTypes == null ? new SimpleTypeHolder() : simpleTypes;\n\t}",
+  "code_after": "public void setSimpleTypeHolder(SimpleTypeHolder simpleTypes) {\n\n\t\tAssert.notNull(simpleTypes, \"SimpleTypeHolder must not be null!\");\n\n\t\tthis.simpleTypeHolder = simpleTypes;\n\t}",
+  "javadoc_before": "/**\n\t * Configures the {@link SimpleTypeHolder} to be used by the {@link MappingContext}. Allows customization of what\n\t * types will be regarded as simple types and thus not recursively analysed. Setting this to {@literal null} will\n\t * reset the context to use the default {@link SimpleTypeHolder}.\n\t *\n\t * @param simpleTypes\n\t */",
+  "javadoc_after": "/**\n\t * Configures the {@link SimpleTypeHolder} to be used by the {@link MappingContext}. Allows customization of what\n\t * types will be regarded as simple types and thus not recursively analysed.\n\t *\n\t * @param simpleTypes must not be {@literal null}.\n\t */"
+}

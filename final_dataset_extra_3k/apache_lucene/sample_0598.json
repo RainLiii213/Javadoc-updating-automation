@@ -1,0 +1,8 @@
+{
+  "commit_hash": "65a21459a258c9a180ad7161f9da318692215c99",
+  "issue_summary": "a hackey commit of stuff needed to get on lucene 3.0.1",
+  "code_before": "public CommonGramsQueryFilter(CommonGramsFilter input) {\n    super(input);\n    prev = new Token();\n  }",
+  "code_after": "public CommonGramsQueryFilter(CommonGramsFilter input) {\n    super(input);\n  }",
+  "javadoc_before": "/**\n   * Constructor\n   * \n   * @param input must be a CommonGramsFilter!\n   * \n   */",
+  "javadoc_after": "/**\n   * Constructs a new CommonGramsQueryFilter based on the provided CommomGramsFilter \n   * \n   * @param input CommonGramsFilter the QueryFilter will use\n   */"
+}

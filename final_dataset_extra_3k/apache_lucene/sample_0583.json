@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cd45643b96dd638feba5015571a8008d448766d3",
+  "issue_summary": "Remove hack, as JFlex trunk now has the zzBuffer bug fixed",
+  "code_before": "public final void yyreset(java.io.Reader reader) {\n    zzReader = reader;\n    zzAtBOL  = true;\n    zzAtEOF  = false;\n    zzEOFDone = false;\n    zzEndRead = zzStartRead = 0;\n    zzCurrentPos = zzMarkedPos = 0;\n    yyline = yychar = yycolumn = 0;\n    zzLexicalState = YYINITIAL;\n  }",
+  "code_after": "public final void yyreset(java.io.Reader reader) {\n    zzReader = reader;\n    zzAtBOL  = true;\n    zzAtEOF  = false;\n    zzEOFDone = false;\n    zzEndRead = zzStartRead = 0;\n    zzCurrentPos = zzMarkedPos = 0;\n    yyline = yychar = yycolumn = 0;\n    zzLexicalState = YYINITIAL;\n    if (zzBuffer.length > ZZ_BUFFERSIZE)\n      zzBuffer = new char[ZZ_BUFFERSIZE];\n  }",
+  "javadoc_before": "/**\n   * Resets the scanner to read from a new input stream.\n   * Does not close the old reader.\n   *\n   * All internal variables are reset, the old input stream \n   * <b>cannot</b> be reused (internal buffer is discarded and lost).\n   * Lexical state is set to <tt>ZZ_INITIAL</tt>.\n   *\n   * @param reader   the new input stream \n   */",
+  "javadoc_after": "/**\n   * Resets the scanner to read from a new input stream.\n   * Does not close the old reader.\n   *\n   * All internal variables are reset, the old input stream \n   * <b>cannot</b> be reused (internal buffer is discarded and lost).\n   * Lexical state is set to <tt>ZZ_INITIAL</tt>.\n   *\n   * Internal scan buffer is resized down to its initial length, if it has grown.\n   *\n   * @param reader   the new input stream \n   */"
+}

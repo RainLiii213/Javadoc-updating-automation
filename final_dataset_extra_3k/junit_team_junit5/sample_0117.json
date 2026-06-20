@@ -1,0 +1,8 @@
+{
+  "commit_hash": "058276c9e78aa35826da2804b9dfafc43371fac7",
+  "issue_summary": "Provide consistent API in LauncherDiscoveryRequestBuilder regarding nullability",
+  "code_before": "public LauncherDiscoveryRequestBuilder selectors(List<? extends DiscoverySelector> selectors) {\n\t\tif (selectors != null) {\n\t\t\tthis.selectors.addAll(selectors);\n\t\t}\n\t\treturn this;\n\t}",
+  "code_after": "public LauncherDiscoveryRequestBuilder selectors(List<? extends DiscoverySelector> selectors) {\n\t\tPreconditions.notNull(selectors, \"selectors list must not be null\");\n\t\tPreconditions.containsNoNullElements(selectors, \"individual selectors must not be null\");\n\t\tthis.selectors.addAll(selectors);\n\t\treturn this;\n\t}",
+  "javadoc_before": "/**\n\t * Add all of the supplied {@code selectors} to the request.\n\t *\n\t * @param selectors the {@code DiscoverySelectors} to add\n\t */",
+  "javadoc_after": "/**\n\t * Add all of the supplied {@code selectors} to the request.\n\t *\n\t * @param selectors the {@code DiscoverySelectors} to add; never {@code null}\n\t * @return this builder for method chaining\n\t */"
+}

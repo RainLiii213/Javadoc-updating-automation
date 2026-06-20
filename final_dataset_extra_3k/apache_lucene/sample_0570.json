@@ -1,0 +1,8 @@
+{
+  "commit_hash": "48dde8359f9177780e270921b2249349659e272f",
+  "issue_summary": "speed up BaseCharFilter",
+  "code_before": "@Override\n  protected int correct(int currentOff) {\n    if (pcmList == null || pcmList.isEmpty()) {\n      return currentOff;\n    }\n    for (int i = pcmList.size() - 1; i >= 0; i--) {\n      if (currentOff >=  pcmList.get(i).off) {\n        return currentOff + pcmList.get(i).cumulativeDiff;\n      }\n    }\n    return currentOff;\n  }",
+  "code_after": "@Override\n  protected int correct(int currentOff) {\n    if (offsets == null || currentOff < offsets[0]) {\n      return currentOff;\n    }\n\n    int hi = size - 1;\n    if(currentOff >= offsets[hi])\n      return currentOff + diffs[hi];\n\n    int lo = 0;\n    int mid = -1;\n\n    while (hi >= lo) {\n      mid = (lo + hi) >>> 1;\n      if (currentOff < offsets[mid])\n        hi = mid - 1;\n      else if (currentOff > offsets[mid])\n        lo = mid + 1;\n      else\n        return currentOff + diffs[mid];\n    }\n\n    if (currentOff < offsets[mid])\n      return mid == 0 ? currentOff : currentOff + diffs[mid-1];\n    else\n      return currentOff + diffs[mid];\n  }",
+  "javadoc_before": "/** Retrieve the corrected offset.  Note that this method\n   *  is slow, if you correct positions far before the most\n   *  recently added position, as it's a simple linear\n   *  search backwards through all offset corrections added\n   *  by {@link #addOffCorrectMap}. */",
+  "javadoc_after": "/** Retrieve the corrected offset. */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9051c796e3bf01207896d7668f56cfe8d2c77a4a",
+  "issue_summary": "Fix",
+  "code_before": "public <T> T reportBadMerge(JsonDeserializer<?> deser) throws JsonMappingException\n    {\n        if (isEnabled(MapperFeature.IGNORE_MERGE_FOR_UNMERGEABLE)) {\n            return null;\n        }\n        JavaType type = constructType(deser.handledType());\n        String msg = String.format(\"Invalid configuration: values of type %s cannot be merged\", type);\n        throw InvalidDefinitionException.from(getParser(), msg, type);\n    }",
+  "code_after": "@Deprecated // since 2.10\n    public <T> T reportBadMerge(JsonDeserializer<?> deser) throws JsonMappingException {\n        handleBadMerge(deser);\n        return null;\n    }",
+  "javadoc_before": "/**\n     * Method that deserializer may call if it is called to do an update (\"merge\")\n     * but deserializer operates on a non-mergeable type. Although this should\n     * usually be caught earlier, sometimes it may only be caught during operation\n     * and if so this is the method to call.\n     * Note that if {@link MapperFeature#IGNORE_MERGE_FOR_UNMERGEABLE} is enabled,\n     * this method will simply return null; otherwise {@link InvalidDefinitionException}\n     * will be thrown.\n     *\n     * @since 2.9\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.10 use {@link #handleBadMerge} instead\n     */"
+}

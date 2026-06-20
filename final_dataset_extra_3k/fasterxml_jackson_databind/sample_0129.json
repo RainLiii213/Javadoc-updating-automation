@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4bd13c5da81f5de9c8864a98170f73f9bb681b14",
+  "issue_summary": "Bit more work on property config overrides",
+  "code_before": "public SerializationConfig(BaseSettings base,\n            SubtypeResolver str, SimpleMixInResolver mixins,\n            RootNameLookup rootNames)\n    {\n        super(base, str, mixins, rootNames);\n        _serFeatures = collectFeatureDefaults(SerializationFeature.class);\n        _filterProvider = null;\n        _defaultPrettyPrinter = DEFAULT_PRETTY_PRINTER;\n        _generatorFeatures = 0;\n        _generatorFeaturesToChange = 0;\n        _formatWriteFeatures = 0;\n        _formatWriteFeaturesToChange = 0;\n        _serializationInclusion = DEFAULT_INCLUSION;\n    }",
+  "code_after": "@Deprecated\n    public SerializationConfig(BaseSettings base,\n            SubtypeResolver str, SimpleMixInResolver mixins,\n            RootNameLookup rootNames)\n    {\n        this(base, str, mixins, rootNames, null);\n    }",
+  "javadoc_before": "/**\n     * Constructor used by ObjectMapper to create default configuration object instance.\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.8, remove from 2.9 or later\n     */"
+}

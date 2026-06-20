@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4c8ee2eba68368f90ddb501d6f5c059ded1b3329",
+  "issue_summary": "Improve BeanProperty to include 'isRequired()', as well as a method to traverse type/property hierarcy (JsonFormatVisitor)",
+  "code_before": "public CreatorProperty(String name, JavaType type, TypeDeserializer typeDeser,\n            Annotations contextAnnotations, AnnotatedParameter param,\n            int index, Object injectableValueId)\n    {\n        super(name, type, typeDeser, contextAnnotations);\n        _annotated = param;\n        _creatorIndex = index;\n        _injectableValueId = injectableValueId;\n    }",
+  "code_after": "@Deprecated\n    public CreatorProperty(String name, JavaType type, TypeDeserializer typeDeser,\n            Annotations contextAnnotations, AnnotatedParameter param,\n            int index, Object injectableValueId)\n    {\n        this(name, type, typeDeser, contextAnnotations, param, index, injectableValueId,\n                true);\n    }",
+  "javadoc_before": "/**\n     * @param name Name of the logical property\n     * @param type Type of the property, used to find deserializer\n     * @param typeDeser Type deserializer to use for handling polymorphic type\n     *    information, if one is needed\n     * @param contextAnnotations Contextual annotations (usually by class that\n     *    declares creator [constructor, factory method] that includes\n     *    this property)\n     * @param param Representation of property, constructor or factory\n     *    method parameter; used for accessing annotations of the property\n     * @param index Index of this property within creator invocatino\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.2: use the method that takes <code>isRequired</code> property\n     */"
+}

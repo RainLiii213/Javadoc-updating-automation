@@ -1,0 +1,8 @@
+{
+  "commit_hash": "fea853a3d2e6360db3bfcf6c808b5681cd6cefae",
+  "issue_summary": "Fix FieldType so setting an analyzer on a FieldType that doesn't expect it will generate an error",
+  "code_before": "public void setQueryAnalyzer(Analyzer analyzer) {\n    this.queryAnalyzer = analyzer;\n    log.trace(\"FieldType: \" + typeName + \".setQueryAnalyzer(\" + analyzer.getClass().getName() + \")\" );\n  }",
+  "code_after": "public void setQueryAnalyzer(Analyzer analyzer) {\n    SolrException e = new SolrException\n      (ErrorCode.SERVER_ERROR,\n       \"FieldType: \" + this.getClass().getSimpleName() +\n       \" (\" + typeName + \") does not support specifying an analyzer\");\n    SolrException.logOnce(log,null,e);\n    throw e;\n  }",
+  "javadoc_before": "/**\n   * Sets the Analyzer to be used when querying fields of this type.\n   * @see #getQueryAnalyzer\n   */",
+  "javadoc_after": "/**\n   * Sets the Analyzer to be used when querying fields of this type.\n   *\n   * <p>\n   * The default implementation throws a SolrException.  \n   * Subclasses that override this method need to ensure the behavior \n   * of the analyzer is consistent with the implementation of toInternal.\n   * </p>\n   * \n   * @see #toInternal\n   * @see #setAnalyzer\n   * @see #getQueryAnalyzer\n   */"
+}

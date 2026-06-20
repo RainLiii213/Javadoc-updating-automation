@@ -1,0 +1,8 @@
+{
+  "commit_hash": "138bd925d85c079c5777efa61206f6af57110b52",
+  "issue_summary": "switch BytesRef/BytesRefHash hashing to MurmurHash3",
+  "code_before": "public int find(BytesRef bytes) {\n    return find(bytes, bytes.hashCode());\n  }",
+  "code_after": "public int find(BytesRef bytes) {\n    return ids[findHash(bytes)];\n  }",
+  "javadoc_before": "/**\n   * Returns the id of the given {@link BytesRef}.\n   * \n   * @see #find(BytesRef, int)\n   */",
+  "javadoc_after": "/**\n   * Returns the id of the given {@link BytesRef}.\n   * \n   * @param bytes\n   *          the bytes to look for\n   * \n   * @return the id of the given bytes, or {@code -1} if there is no mapping for the\n   *         given bytes.\n   */"
+}

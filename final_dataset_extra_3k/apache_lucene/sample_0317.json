@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1cee959d6bc01e4a41182e45be9e75465a14bdfa",
+  "issue_summary": "progress - introduce DocCollection, add properties for collections, add a router collection property, add some builtin routers, rename HashPartitioner to DocRouter",
+  "code_before": "public String getShardId(String coreNodeName) {\n    for (Entry<String, Map<String, Slice>> states: collectionStates.entrySet()){\n      for(Entry<String, Slice> slices: states.getValue().entrySet()) {\n        for(Entry<String, Replica> shards: slices.getValue().getReplicasMap().entrySet()){\n          if(coreNodeName.equals(shards.getKey())) {\n            return slices.getKey();\n          }\n        }\n      }\n    }\n    return null;\n  }",
+  "code_after": "public String getShardId(String coreNodeName) {\n     // System.out.println(\"###### getShardId(\"+coreNodeName+\") in \" + collectionStates);\n    for (DocCollection coll : collectionStates.values()) {\n      for (Slice slice : coll.getSlices()) {\n        if (slice.getReplicasMap().containsKey(coreNodeName)) return slice.getName();\n      }\n    }\n    return null;\n  }",
+  "javadoc_before": "/**\n   * Get shardId for core.\n   * @param coreNodeName in the form of nodeName_coreName\n   */",
+  "javadoc_after": "/**\n   * Get the slice/shardId for a core.\n   * @param coreNodeName in the form of nodeName_coreName (the name of the replica)\n   */"
+}

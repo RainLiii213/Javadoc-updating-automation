@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d3cfba9b29511279b79071ee8fe6ed1996a2af3c",
+  "issue_summary": "cutover Spans to DISI, reuse ConjunctionDISI, use two-phased iteration",
+  "code_before": "public SpanOrQuery(SpanQuery... clauses) {\n\n    // copy clauses array into an ArrayList\n    this.clauses = new ArrayList<>(clauses.length);\n    for (int i = 0; i < clauses.length; i++) {\n      addClause(clauses[i]);\n    }\n  }",
+  "code_after": "public SpanOrQuery(SpanQuery... clauses) {\n    this.clauses = new ArrayList<>(clauses.length);\n    for (SpanQuery seq : clauses) {\n      addClause(seq);\n    }\n  }",
+  "javadoc_before": "/** Construct a SpanOrQuery merging the provided clauses. */",
+  "javadoc_after": "/** Construct a SpanOrQuery merging the provided clauses.\n   * All clauses must have the same field. \n   */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "35a2f45736c0a4785858e88949944686990559be",
+  "issue_summary": "Tighten nullability contract of PersistentPropertyPath.",
+  "code_before": "public PersistentPropertyPath<P> from(Class<?> type, String propertyPath) {\n\n\t\tAssert.notNull(type, \"Type must not be null\");\n\t\tAssert.notNull(propertyPath, \"Property path must not be null\");\n\n\t\treturn getPersistentPropertyPath(TypeInformation.of(type), propertyPath);\n\t}",
+  "code_after": "public PersistentPropertyPath<P> from(Class<?> type, String propertyPath) {\n\n\t\tAssert.notNull(type, \"Type must not be null\");\n\t\tAssert.hasText(propertyPath, \"Property path must not be null or empty\");\n\n\t\treturn getPersistentPropertyPath(TypeInformation.of(type), propertyPath);\n\t}",
+  "javadoc_before": "/**\n\t * Creates a new {@link PersistentPropertyPath} for the given property path on the given type.\n\t *\n\t * @param type must not be {@literal null}.\n\t * @param propertyPath must not be {@literal null}.\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Creates a new {@link PersistentPropertyPath} for the given property path on the given type.\n\t *\n\t * @param type must not be {@literal null}.\n\t * @param propertyPath must not be {@literal null} or empty.\n\t * @return\n\t */"
+}

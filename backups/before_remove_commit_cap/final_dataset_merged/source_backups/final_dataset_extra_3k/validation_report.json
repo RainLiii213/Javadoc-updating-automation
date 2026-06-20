@@ -1,0 +1,26 @@
+{
+  "total_samples": 1621,
+  "project_sample_total": 1621,
+  "per_project": {
+    "apache_commons_io": 136,
+    "apache_lucene": 911,
+    "fasterxml_jackson_databind": 215,
+    "junit_team_junit5": 174,
+    "spring_projects_spring_data_commons": 185
+  },
+  "schema_failures": [],
+  "empty_field_failures": [],
+  "duplicate_count": 0,
+  "duplicate_inside_new": [],
+  "duplicate_against_baseline_count": 0,
+  "duplicate_against_baseline": [],
+  "dangling_issue_summary_count": 0,
+  "dangling_issue_summaries": [],
+  "truncated_or_invalid_code_count": 0,
+  "truncated_or_invalid_code": [],
+  "identical_code_count": 0,
+  "identical_code": [],
+  "identical_javadoc_after_whitespace_count": 0,
+  "identical_javadoc_after_whitespace": [],
+  "passed": true
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6e9cbf3986981ff44b1a508e2583c1579d5140ce",
+  "issue_summary": "pack the core attributes into one impl by default",
+  "code_before": "public CollationAttributeFactory(Collator collator) {\n    this(AttributeSource.AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY, collator);\n  }",
+  "code_after": "public CollationAttributeFactory(Collator collator) {\n    this(Token.TOKEN_ATTRIBUTE_FACTORY, collator);\n  }",
+  "javadoc_before": "/**\n   * Create a CollationAttributeFactory, using \n   * {@link org.apache.lucene.util.AttributeSource.AttributeFactory#DEFAULT_ATTRIBUTE_FACTORY} as the\n   * factory for all other attributes.\n   * @param collator CollationKey generator\n   */",
+  "javadoc_after": "/**\n   * Create a CollationAttributeFactory, using \n   * {@link org.apache.lucene.analysis.Token#TOKEN_ATTRIBUTE_FACTORY} as the\n   * factory for all other attributes.\n   * @param collator CollationKey generator\n   */"
+}

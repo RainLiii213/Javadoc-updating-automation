@@ -1,0 +1,8 @@
+{
+  "commit_hash": "adb9a5c594f9da02a40d51078f0c0c4552686df4",
+  "issue_summary": "DocValues cleanup: constructor & getInnerArray().",
+  "code_before": "Object getInnerArray() {\n    return new Object[0];\n  }",
+  "code_after": "Object getInnerArray() {\n    throw new UnsupportedOperationException(\"this optional method is for test purposes only\");\n  }",
+  "javadoc_before": "/**\n   * Expert: for test purposes only, return the inner array of values, or null if not applicable.\n   * <p>\n   * Allows tests to verify that loaded values are:\n   * <ol>\n   *   <li>indeed cached/reused.</li>\n   *   <li>stored in the expected size/type (byte/short/int/float).</li>\n   * </ol>\n   * Note: Tested implementations of DocValues must override this method for the test to pass!\n   */",
+  "javadoc_after": "/**\n   * Expert: for test purposes only, return the inner array of values, or null if not applicable.\n   * <p>\n   * Allows tests to verify that loaded values are:\n   * <ol>\n   *   <li>indeed cached/reused.</li>\n   *   <li>stored in the expected size/type (byte/short/int/float).</li>\n   * </ol>\n   * Note: implementations of DocValues must override this method for \n   * these test elements to be tested, Otherwise the test would not fail, just \n   * print a warning.\n   */"
+}

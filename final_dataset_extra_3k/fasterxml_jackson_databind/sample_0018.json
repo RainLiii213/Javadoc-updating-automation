@@ -1,0 +1,8 @@
+{
+  "commit_hash": "99a2480dc6e14242a78c0996acd9a2a672deb86b",
+  "issue_summary": "Fix , Enum serialization with `@JsonProperty`",
+  "code_before": "public SerializableString compileString(String src) {\n        // 20-Jan-2014, tatu: For now we will just construct it directly but in distant\n        //   future might want to allow overriding somehow?\n        return new SerializedString(src);\n    }",
+  "code_after": "public SerializableString compileString(String src) {\n        // 20-Jan-2014, tatu: For now we will just construct it directly but in distant\n        //   future might want to allow overriding somehow?\n        if (src == null) {\n            return null;\n        }\n        return new SerializedString(src);\n    }",
+  "javadoc_before": "/**\n     * Method for constructing a specialized textual object that can typically\n     * be serialized faster than basic {@link java.lang.String} (depending\n     * on escaping needed if any, char-to-byte encoding if needed).\n     *\n     * @param src Text to represent\n     *\n     * @return Optimized text object constructed\n     */",
+  "javadoc_after": "/**\n     * Method for constructing a specialized textual object that can typically\n     * be serialized faster than basic {@link java.lang.String} (depending\n     * on escaping needed if any, char-to-byte encoding if needed).\n     *\n     * @param src Text to represent\n     *\n     * @return Optimized text object constructed, if {@code src} not {@code null};\n     *    {@code null} otherwise\n     */"
+}

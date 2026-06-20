@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6f5c10b30552439f5277053eadafaef703685707",
+  "issue_summary": "Added consumeAllTokens option to LimitTokenCountFilter",
+  "code_before": "public LimitTokenCountFilter(TokenStream in, int maxTokenCount) {\n    super(in);\n    this.maxTokenCount = maxTokenCount;\n  }",
+  "code_after": "public LimitTokenCountFilter(TokenStream in, int maxTokenCount) {\n    this(in, maxTokenCount, false);\n  }",
+  "javadoc_before": "/**\n   * Build a filter that only accepts tokens up to a maximum number.\n   */",
+  "javadoc_after": "/**\n   * Build a filter that only accepts tokens up to a maximum number.\n   * This filter will not consume any tokens beyond the maxTokenCount limit\n   *\n   * @see #LimitTokenCountFilter(TokenStream,int,boolean)\n   */"
+}

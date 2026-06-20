@@ -1,0 +1,8 @@
+{
+  "commit_hash": "344be1a6b196e5fce7ffeae020ff97de77f75ff7",
+  "issue_summary": "Remove methods and classes deprecated in 4.x",
+  "code_before": "@Deprecated\n  public EmbeddedSolrServer(SolrCore core)\n  {\n    if ( core == null ) {\n      throw new NullPointerException(\"SolrCore instance required\");\n    }\n    CoreDescriptor dcore = core.getCoreDescriptor();\n    if (dcore == null)\n      throw new NullPointerException(\"CoreDescriptor required\");\n\n    CoreContainer cores = dcore.getCoreContainer();\n    if (cores == null)\n      throw new NullPointerException(\"CoreContainer required\");\n\n    coreName = dcore.getName();\n    coreContainer = cores;\n    _parser = new SolrRequestParsers( null );\n  }",
+  "code_after": "public EmbeddedSolrServer(SolrCore core)\n  {\n    this(core.getCoreDescriptor().getCoreContainer(), core.getName());\n  }",
+  "javadoc_before": "/**\n   * Use the other constructor using a CoreContainer and a name.\n   * @deprecated use {@link #EmbeddedSolrServer(CoreContainer, String)} instead.\n   */",
+  "javadoc_after": "/**\n   * Use the other constructor using a CoreContainer and a name.\n   */"
+}

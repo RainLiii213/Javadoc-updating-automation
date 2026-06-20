@@ -1,0 +1,8 @@
+{
+  "commit_hash": "cc63e5b7a4d505b65e6610ff2b935d98077c9743",
+  "issue_summary": "First draft.",
+  "code_before": "@Deprecated\n\tprotected T create(CreationalContext<T> creationalContext, Class<T> repositoryType) {\n\n\t\tBean<?> customImplementationBean = getCustomImplementationBean(repositoryType, beanManager, qualifiers);\n\t\tObject customImplementation = customImplementationBean == null ? null\n\t\t\t\t: beanManager.getReference(customImplementationBean, customImplementationBean.getBeanClass(),\n\t\t\t\t\t\tbeanManager.createCreationalContext(customImplementationBean));\n\n\t\treturn create(creationalContext, repositoryType, customImplementation);\n\t}",
+  "code_after": "private final T create(CreationalContext<T> creationalContext, Class<T> repositoryType) {\n\n\t\tOptional<Bean<?>> customImplementationBean = getCustomImplementationBean(repositoryType, beanManager, qualifiers);\n\t\tOptional<Object> customImplementation = customImplementationBean\n\t\t\t\t.map(it -> beanManager.getReference(it, it.getBeanClass(), beanManager.createCreationalContext(it)));\n\n\t\treturn create(creationalContext, repositoryType, customImplementation);\n\t}",
+  "javadoc_before": "/**\n\t * Creates the actual component instance.\n\t * \n\t * @param creationalContext will never be {@literal null}.\n\t * @param repositoryType will never be {@literal null}.\n\t * @return\n\t * @deprecated overide {@link #create(CreationalContext, Class, Object)} instead.\n\t */",
+  "javadoc_after": "/**\n\t * Creates the actual component instance.\n\t * \n\t * @param creationalContext will never be {@literal null}.\n\t * @param repositoryType will never be {@literal null}.\n\t * @return\n\t */"
+}

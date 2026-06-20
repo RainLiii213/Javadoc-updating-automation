@@ -1,0 +1,8 @@
+{
+  "commit_hash": "299d6357dd296f87a099fadd0764292b28dbde47",
+  "issue_summary": "factor MergePolicy & MergeScheduler out of IndexWriter, improve overall concurrency of IndexWriter, and add ConcurrentMergeScheduler",
+  "code_before": "public boolean getUseCompoundFile() {\n    ensureOpen();\n    return useCompoundFile;\n  }",
+  "code_after": "public boolean getUseCompoundFile() {\n    return getLogMergePolicy().getUseCompoundFile();\n  }",
+  "javadoc_before": "/** Get the current setting of whether to use the compound file format.\n   *  Note that this just returns the value you set with setUseCompoundFile(boolean)\n   *  or the default. You cannot use this to query the status of an existing index.\n   *  @see #setUseCompoundFile(boolean)\n   */",
+  "javadoc_after": "/** <p>Get the current setting of whether newly flushed\n   *  segments will use the compound file format.  Note that\n   *  this just returns the value previously set with\n   *  setUseCompoundFile(boolean), or the default value\n   *  (true).  You cannot use this to query the status of\n   *  previously flushed segments.</p>\n   *\n   *  <p>Note that this method is a convenience method: it\n   *  just calls mergePolicy.getUseCompoundFile as long as\n   *  mergePolicy is an instance of {@link LogMergePolicy}.\n   *  Otherwise an IllegalArgumentException is thrown.</p>\n   *\n   *  @see #setUseCompoundFile(boolean)\n   */"
+}

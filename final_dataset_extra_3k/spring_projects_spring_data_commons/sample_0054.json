@@ -1,0 +1,8 @@
+{
+  "commit_hash": "07342cffb59eddd6cd9d31b931282fffde444a3c",
+  "issue_summary": "Polishing.",
+  "code_before": "@Deprecated\n\tpublic static TypeInformation<?> fromReturnTypeOf(Method method) {\n\t\treturn new TypeDiscoverer<>(ResolvableType.forMethodReturnType(method));\n\t}",
+  "code_after": "@Deprecated\n\tpublic static <S> TypeInformation<S> fromReturnTypeOf(Method method) {\n\t\treturn (TypeInformation<S>) TypeInformation.of(ResolvableType.forMethodReturnType(method));\n\t}",
+  "javadoc_before": "/**\n\t * Warning: Does not fully resolve generic arguments.\n\t * @param method\n\t * @return\n\t * @deprecated since 3.0 Use {@link #fromReturnTypeOf(Method, Class)} instead.\n\t */",
+  "javadoc_after": "/**\n\t * Warning: Does not fully resolve generic arguments.\n\t *\n\t * @param method\n\t * @return\n\t * @deprecated since 3.0. Use {@link TypeInformation#fromReturnTypeOf(Method)} instead.\n\t */"
+}

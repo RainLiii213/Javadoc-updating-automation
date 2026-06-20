@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6679caeac9198802d271f8659017bb63eebd615f",
+  "issue_summary": "Further simplification; eliminated StdSerializerProvider",
+  "code_before": "public abstract void setDefaultKeySerializer(JsonSerializer<Object> ks);",
+  "code_after": "public void setDefaultKeySerializer(JsonSerializer<Object> ks)\n    {\n        if (ks == null) {\n            throw new IllegalArgumentException(\"Can not pass null JsonSerializer\");\n        }\n        _keySerializer = ks;\n    }",
+  "javadoc_before": "/**\n     * Method that can be used to specify serializer to use for serializing\n     * all non-null JSON property names, unless more specific key serializer\n     * is found (i.e. if not custom key serializer has been registered for\n     * Java type).\n     *<p>\n     * Note that key serializer registration are different from value serializer\n     * registrations.\n     */",
+  "javadoc_after": "/**\n     * Method that can be used to specify serializer that will be\n     * used to write JSON property names matching null keys for Java\n     * Maps (which will throw an exception if try write such property\n     * name)\n     */"
+}

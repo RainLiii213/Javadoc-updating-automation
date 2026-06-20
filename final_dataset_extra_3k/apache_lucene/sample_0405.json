@@ -1,0 +1,8 @@
+{
+  "commit_hash": "d2875edd993256568f555ccd76270ace90393053",
+  "issue_summary": "New support for a \"TZ\" request param which overrides the TimeZone used when rounding Dates in DateMath expressions",
+  "code_before": "public DateMathParser(TimeZone tz, Locale l) {\n    zone = tz;\n    loc = l;\n  }",
+  "code_after": "public DateMathParser(TimeZone tz, Locale l) {\n    loc = (null != l) ? l : DEFAULT_MATH_LOCALE;\n    if (null == tz) {\n      SolrRequestInfo reqInfo = SolrRequestInfo.getRequestInfo();\n      tz = (null != reqInfo) ? reqInfo.getClientTimeZone() : DEFAULT_MATH_TZ;\n    }\n    zone = (null != tz) ? tz : DEFAULT_MATH_TZ;\n  }",
+  "javadoc_before": "/**\n   * @param tz The TimeZone used for rounding (to determine when hours/days begin)\n   * @param l The Locale used for rounding (to determine when weeks begin)\n   * @see Calendar#getInstance(TimeZone,Locale)\n   */",
+  "javadoc_after": "/**\n   * @param tz The TimeZone used for rounding (to determine when hours/days begin).  If null, then this method defaults to the value dicated by the SolrRequestInfo if it \n   * exists -- otherwise it uses UTC.\n   * @param l The Locale used for rounding (to determine when weeks begin).  If null, then this method defaults to en_US.\n   * @see #DEFAULT_MATH_TZ\n   * @see #DEFAULT_MATH_LOCALE\n   * @see Calendar#getInstance(TimeZone,Locale)\n   * @see SolrRequestInfo#getClientTimeZone\n   */"
+}

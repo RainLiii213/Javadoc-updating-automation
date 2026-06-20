@@ -1,0 +1,8 @@
+{
+  "commit_hash": "decaeffc5566049ca2eee3bf09d8dd911907adcd",
+  "issue_summary": "Store raw path in FileSelector and DirectorySelector",
+  "code_before": "public static FileSelector selectFile(String path) {\n\t\tPreconditions.notBlank(path, \"File path must not be null or blank\");\n\t\treturn selectFile(new File(path));\n\t}",
+  "code_after": "public static FileSelector selectFile(String path) {\n\t\tPreconditions.notBlank(path, \"File path must not be null or blank\");\n\t\treturn new FileSelector(path);\n\t}",
+  "javadoc_before": "/**\n\t * Create a {@code FileSelector} for the supplied file path.\n\t *\n\t * <p>This method selects the file in its {@linkplain File#getCanonicalFile()\n\t * canonical} form.\n\t *\n\t * @param path the path to the file to select; never {@code null} or blank\n\t * @see FileSelector\n\t * @see #selectFile(File)\n\t * @see #selectDirectory(String)\n\t * @see #selectDirectory(File)\n\t */",
+  "javadoc_after": "/**\n\t * Create a {@code FileSelector} for the supplied file path.\n\t *\n\t * <p>This method selects the file using the supplied path <em>as is</em>,\n\t * without verifying if the file exists.\n\t *\n\t * @param path the path to the file to select; never {@code null} or blank\n\t * @see FileSelector\n\t * @see #selectFile(File)\n\t * @see #selectDirectory(String)\n\t * @see #selectDirectory(File)\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "109edfb06253f873ae412de1081e5ddcbce3d1f6",
+  "issue_summary": "cleanup FacetsAccumulator API",
+  "code_before": "public static FacetsCollector create(FacetSearchParams fsp, IndexReader indexReader, TaxonomyReader taxoReader) {\n    if (CountingFacetsCollector.assertParams(fsp) == null) {\n      return new CountingFacetsCollector(fsp, taxoReader);\n    }\n\n    if (StandardFacetsCollector.assertParams(fsp) == null) {\n      return new StandardFacetsCollector(fsp, indexReader, taxoReader);\n    }\n\n    throw new IllegalArgumentException(\"None of the built-in FacetsCollectors can handle the given search params\");\n  }",
+  "code_after": "public static FacetsCollector create(FacetSearchParams fsp, IndexReader indexReader, TaxonomyReader taxoReader) {\n    if (fsp.indexingParams.getPartitionSize() != Integer.MAX_VALUE) {\n      return create(new StandardFacetsAccumulator(fsp, indexReader, taxoReader));\n    }\n\n    for (FacetRequest fr : fsp.facetRequests) {\n      if (!(fr instanceof CountFacetRequest)) {\n        return create(new StandardFacetsAccumulator(fsp, indexReader, taxoReader));\n      }\n    }\n\n    return create(new FacetsAccumulator(fsp, indexReader, taxoReader));\n  }",
+  "javadoc_before": "/**\n   * Returns the most optimized {@link FacetsCollector} for the given search\n   * parameters. The returned {@link FacetsCollector} is guaranteed to satisfy\n   * the requested parameters.\n   * \n   * @throws IllegalArgumentException\n   *           if there is no built-in collector that can satisfy the search\n   *           parameters.\n   */",
+  "javadoc_after": "/**\n   * Creates a {@link FacetsCollector} with the default\n   * {@link FacetsAccumulator}.\n   */"
+}

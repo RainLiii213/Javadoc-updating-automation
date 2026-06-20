@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a84575b8433bc02ac8e2ff018c904c780ae89d1f",
+  "issue_summary": "Replace TestSource constructors with static factory methods",
+  "code_before": "public int getColumn() {\n\t\treturn this.column;\n\t}",
+  "code_after": "public Optional<Integer> getColumn() {\n\t\treturn Optional.ofNullable(this.column);\n\t}",
+  "javadoc_before": "/**\n\t * Get the column (1-based) of this position.\n\t */",
+  "javadoc_after": "/**\n\t * Get the column number of this {@code FilePosition}, if available.\n\t *\n\t * @return an {@code Optional} containing the column number; never\n\t * {@code null} but potentially empty\n\t */"
+}

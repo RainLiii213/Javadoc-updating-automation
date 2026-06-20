@@ -1,0 +1,8 @@
+{
+  "commit_hash": "2fa013d7df0b7f5ef53ef5757bfeaee6e3d507d0",
+  "issue_summary": "Fix various places that still assume File based paths even when not using a file based DirectoryFactory. CachingDirectoryFactory needs to create CacheEntry's with the fullpath not path.",
+  "code_before": "public abstract boolean exists(String path);",
+  "code_after": "public abstract boolean exists(String path) throws IOException;",
+  "javadoc_before": "/**\n   * Returns true if a Directory exists for a given path.\n   * \n   */",
+  "javadoc_after": "/**\n   * Returns true if a Directory exists for a given path.\n   * @throws IOException If there is a low-level I/O error.\n   * \n   */"
+}

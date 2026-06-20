@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0d86474d3c59396d27add2263b742e988ad9ddca",
+  "issue_summary": "FilteredQuery and IndexSearcher.search(Query, Filter,...) now optimize the special case \"query instanceof MatchAllDocsQuery\" to execute as ConstantScoreQuery",
+  "code_before": "@Override\n  public Query rewrite(IndexReader reader) throws IOException {\n    Query rewritten = query.rewrite(reader);\n    if (rewritten != query) {\n      FilteredQuery clone = (FilteredQuery)this.clone();\n      clone.query = rewritten;\n      return clone;\n    } else {\n      return this;\n    }\n  }",
+  "code_after": "@Override\n  public Query rewrite(IndexReader reader) throws IOException {\n    final Query queryRewritten = query.rewrite(reader);\n\n    if (queryRewritten instanceof MatchAllDocsQuery) {\n      // Special case: If the query is a MatchAllDocsQuery, we only\n      // return a CSQ(filter).\n      final Query rewritten = new ConstantScoreQuery(filter);\n      // Combine boost of MatchAllDocsQuery and the wrapped rewritten query:\n      rewritten.setBoost(this.getBoost() * queryRewritten.getBoost());\n      return rewritten;\n    }\n\n    if (queryRewritten != query) {\n      // rewrite to a new FilteredQuery wrapping the rewritten query\n      final Query rewritten = new FilteredQuery(queryRewritten, filter);\n      rewritten.setBoost(this.getBoost());\n      return rewritten;\n    } else {\n      // nothing to rewrite, we are done!\n      return this;\n    }\n  }",
+  "javadoc_before": "/** Rewrites the wrapped query. */",
+  "javadoc_after": "/** Rewrites the query. If the wrapped is an instance of\n   * {@link MatchAllDocsQuery} it returns a {@link ConstantScoreQuery}. Otherwise\n   * it returns a new {@code FilteredQuery} wrapping the rewritten query. */"
+}

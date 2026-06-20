@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1ce405b75fa351193717c293c8ab19aa0b10efff",
+  "issue_summary": "Document that `BooleanSuppliers` are called exactly once",
+  "code_before": "public static void assertTrue(BooleanSupplier booleanSupplier) {\n\t\tAssertTrue.assertTrue(booleanSupplier);\n\t}",
+  "code_after": "public static void assertTrue(BooleanSupplier booleanSupplier) {\n\t\tassertTrue(booleanSupplier.getAsBoolean());\n\t}",
+  "javadoc_before": "/**\n\t * <em>Assert</em> that the boolean condition supplied by {@code booleanSupplier} is {@code true}.\n\t */",
+  "javadoc_after": "/**\n\t * <em>Assert</em> that the boolean condition supplied by\n\t * {@code booleanSupplier} is {@code true}.\n\t *\n\t * <p>The supplier will be called exactly once so calling this method is\n\t * equivalent to calling {@code assertTrue(booleanSupplier.get())}.\n\t */"
+}

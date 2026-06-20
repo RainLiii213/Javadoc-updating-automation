@@ -1,0 +1,8 @@
+{
+  "commit_hash": "6d18f027e04c83ccbb8476a9b1bf209ac2b5d846",
+  "issue_summary": "Commit . Omitted the typed collection change in DUH2 (trunk has been updated), and added autocommits to the stats tracked by DUH2",
+  "code_before": "public void didCommit() {\n      didCommit(docsSinceCommit);\n    }",
+  "code_after": "public void didCommit() {\n      if( pending != null ) {\n        pending.cancel(false);\n        pending = null; // let it start another one\n      }\n      docsSinceCommit = 0;\n    }",
+  "javadoc_before": "/** Inform tracker that a commit has occurred */",
+  "javadoc_after": "/** Inform tracker that a commit has occurred, cancel any pending commits */"
+}

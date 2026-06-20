@@ -1,0 +1,8 @@
+{
+  "commit_hash": "24407a462cd8779fd36ae4229d0c5fe01f57e507",
+  "issue_summary": "Refactorings to use JsonIgnoreProperties.Value to allow config overrides",
+  "code_before": "protected abstract BeanSerializerBase withIgnorals(String[] toIgnore);",
+  "code_after": "@Deprecated\n    protected BeanSerializerBase withIgnorals(String[] toIgnore) {\n        return withIgnorals(ArrayBuilders.arrayToSet(toIgnore));\n    }",
+  "javadoc_before": "/**\n     * Mutant factory used for creating a new instance with additional\n     * set of properties to ignore (from properties this instance otherwise has)\n     * \n     * @since 2.0\n     */",
+  "javadoc_after": "/**\n     * Mutant factory used for creating a new instance with additional\n     * set of properties to ignore (from properties this instance otherwise has)\n     * \n     * @deprecated since 2.8\n     */"
+}

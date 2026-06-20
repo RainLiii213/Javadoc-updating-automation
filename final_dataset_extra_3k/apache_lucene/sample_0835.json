@@ -1,0 +1,8 @@
+{
+  "commit_hash": "9ba7a8e612e933da24c4eae0f927bf2fb6af32b0",
+  "issue_summary": "RAMDirectory.sizeInBytes, public flushRamSegments",
+  "code_before": "public void touchFile(String name) {\n//     final boolean MONITOR = false;\n\n    RAMFile file = (RAMFile)files.get(name);\n    long ts2, ts1 = System.currentTimeMillis();\n    do {\n      try {\n        Thread.sleep(0, 1);\n      } catch (InterruptedException e) {}\n      ts2 = System.currentTimeMillis();\n//       if (MONITOR) {\n//         count++;\n//       }\n    } while(ts1 == ts2);\n\n    file.lastModified = ts2;\n\n//     if (MONITOR)\n//         System.out.println(\"SLEEP COUNT: \" + count);\n  }",
+  "code_after": "public void touchFile(String name) throws IOException {\n    RAMFile file;\n    synchronized (this) {\n      file = (RAMFile)fileMap.get(name);\n    }\n    if (file==null)\n      throw new FileNotFoundException(name);\n\n    long ts2, ts1 = System.currentTimeMillis();\n    do {\n      try {\n        Thread.sleep(0, 1);\n      } catch (InterruptedException e) {}\n      ts2 = System.currentTimeMillis();\n    } while(ts1 == ts2);\n\n    file.setLastModified(ts2);\n  }",
+  "javadoc_before": "/** Set the modified time of an existing file to now. */",
+  "javadoc_after": "/** Set the modified time of an existing file to now.\n   * @throws IOException if the file does not exist\n   */"
+}

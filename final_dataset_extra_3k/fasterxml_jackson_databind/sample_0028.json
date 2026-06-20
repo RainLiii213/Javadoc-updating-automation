@@ -1,0 +1,8 @@
+{
+  "commit_hash": "0a2c836f76838694a5aa569f592c3a56ff23080c",
+  "issue_summary": "Fix : add/update `JsonNode.xxxValue()` for non-number scalars",
+  "code_before": "public String stringValue() { return null; }",
+  "code_after": "public abstract String stringValue();",
+  "javadoc_before": "/**\n     * Method to use for accessing String values.\n     * Does <b>NOT</b> do any conversions for non-String value nodes;\n     * for non-String values (ones for which {@link #isString} returns\n     * false) null will be returned.\n     * For String values, null is never returned (but empty Strings may be)\n     *<p>\n     * NOTE: in Jackson 2.x, was {@code textValue()}.\n     *\n     * @return String value this node contains, iff node is created from\n     *   a String value.\n     */",
+  "javadoc_after": "/**\n     * Method that will try to access value of this node as a Java {@code String}\n     * which works if (and only if) node contains JSON String value:\n     * if not, a {@link JsonNodeException} will be thrown.\n     *<p>\n     * NOTE: for more lenient conversions, use {@link #asString()}\n     *<p>\n     * NOTE: in Jackson 2.x, was {@code textValue()}.\n     *\n     * @return {@code String} value this node represents (if JSON String)\n     *\n     * @throws JsonNodeException if node value is not a JSON String value\n     */"
+}

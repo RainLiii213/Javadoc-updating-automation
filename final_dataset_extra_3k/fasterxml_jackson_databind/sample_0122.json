@@ -1,0 +1,8 @@
+{
+  "commit_hash": "68245442f201f8bcfbb075fecc66a6c06b236ea9",
+  "issue_summary": "Yet more work for ; added `DeserializationProblemHandler.handleMissingInstantiator()` (and supporting functionality), to replace `instantiationException(Class, String)`",
+  "code_before": "public JsonMappingException reportWrongTokenException(JsonParser p,\n            JsonToken expToken, String msg, Object... msgArgs)\n        throws JsonMappingException\n    {\n        if (msgArgs.length > 0) {\n            msg = String.format(msg, msgArgs);\n        }\n        throw wrongTokenException(p, expToken, msg);\n    }",
+  "code_after": "public void reportWrongTokenException(JsonParser p,\n            JsonToken expToken, String msg, Object... msgArgs)\n        throws JsonMappingException\n    {\n        if (msgArgs.length > 0) {\n            msg = String.format(msg, msgArgs);\n        }\n        throw wrongTokenException(p, expToken, msg);\n    }",
+  "javadoc_before": "/**\n     * @since 2.8\n     */",
+  "javadoc_after": "/**\n     * Method for deserializers to call \n     * when the token encountered was of type different than what <b>should</b>\n     * be seen at that position, usually within a sequence of expected tokens.\n     * Note that this method will throw a {@link JsonMappingException} and no\n     * recovery is attempted (via {@link DeserializationProblemHandler}, as\n     * problem is considered to be difficult to recover from, in general.\n     * \n     * @since 2.8\n     */"
+}

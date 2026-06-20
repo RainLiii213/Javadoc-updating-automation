@@ -1,0 +1,8 @@
+{
+  "commit_hash": "4f9aec446c0885b8b5e3ff1eb7d031bcdfc8d993",
+  "issue_summary": "Replace \"blacklisted\" with \"unrecoverable\" exceptions",
+  "code_before": "public static void rethrowIfBlacklisted(Throwable exception) {\n\t\tif (blacklist.stream().anyMatch(exceptionType -> exceptionType.isInstance(exception))) {\n\t\t\tExceptionUtils.throwAsUncheckedException(exception);\n\t\t}\n\t}",
+  "code_after": "@Deprecated\n\tpublic static void rethrowIfBlacklisted(Throwable exception) {\n\t\tUnrecoverableExceptions.rethrowIfUnrecoverable(exception);\n\t}",
+  "javadoc_before": "/**\n\t * Rethrow the supplied {@link Throwable exception} if it is\n\t * <em>blacklisted</em>.\n\t *\n\t * <p>If the supplied {@code exception} is not <em>blacklisted</em>,\n\t * this method does nothing.\n\t */",
+  "javadoc_after": "/**\n\t * Rethrow the supplied {@link Throwable exception} if it is\n\t * <em>unrecoverable</em>.\n\t *\n\t * <p>If the supplied {@code exception} is not <em>unrecoverable</em>, this\n\t * method does nothing.\n\t *\n\t * @deprecated Use {@link UnrecoverableExceptions#rethrowIfUnrecoverable}\n\t * instead.\n\t */"
+}

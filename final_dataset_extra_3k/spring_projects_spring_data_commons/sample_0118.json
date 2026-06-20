@@ -1,0 +1,8 @@
+{
+  "commit_hash": "92e890703063af1785f4e0400cc3a4c67e731b69",
+  "issue_summary": "Allow Repositories to be composed of an arbitrary number of implementation classes.",
+  "code_before": "public <T> T getRepository(Class<T> repositoryInterface, Object customImplementation) {\n\t\treturn getRepository(repositoryInterface, Optional.of(customImplementation));\n\t}",
+  "code_after": "@Deprecated\n\tpublic <T> T getRepository(Class<T> repositoryInterface, Object customImplementation) {\n\t\treturn getRepository(repositoryInterface, RepositoryFragments.just(customImplementation));\n\t}",
+  "javadoc_before": "/**\n\t * Returns a repository instance for the given interface backed by an instance providing implementation logic for\n\t * custom logic.\n\t *\n\t * @param <T>\n\t * @param repositoryInterface\n\t * @param customImplementation\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Returns a repository instance for the given interface backed by an instance providing implementation logic for\n\t * custom logic.\n\t *\n\t * @param repositoryInterface must not be {@literal null}.\n\t * @param customImplementation must not be {@literal null}.\n\t * @return\n\t * @deprecated since 2.0. Use {@link RepositoryFragments} with {@link #getRepository(Class, RepositoryFragments)} to\n\t *             compose repositories backed by custom implementations.\n\t */"
+}

@@ -1,0 +1,8 @@
+{
+  "commit_hash": "e3374c9c9b6e6d915ac77526b16cce018d94b0eb",
+  "issue_summary": "OpenExchangeRates.Org Exchange Rate Provider and improved ExchangeRateProvider interface",
+  "code_before": "public String[] listAvailableCurrencies();",
+  "code_after": "public Set<String> listAvailableCurrencies();",
+  "javadoc_before": "/**\n   * List all configured currency code pairs\n   * @return a string array of <a href=\"http://en.wikipedia.org/wiki/ISO_4217\">ISO 4217</a> currency codes on the format\n   * [\"SRC,DST\", \"SRC,DST\"...]\n   */",
+  "javadoc_after": "/**\n   * List all configured currency codes which are valid as source/target for this Provider\n   * @return a Set of <a href=\"http://en.wikipedia.org/wiki/ISO_4217\">ISO 4217</a> currency code strings\n   */"
+}

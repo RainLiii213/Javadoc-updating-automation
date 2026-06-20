@@ -1,0 +1,8 @@
+{
+  "commit_hash": "5200e8e38f5f44b78e8c9d066a1947f6a84a4046",
+  "issue_summary": "port 3.x's FieldCache.getDocsWithField to trunk",
+  "code_before": "@Deprecated\n  public FieldCache.Parser getParser() {\n    return (creator==null) ? null : creator.getParser();\n  }",
+  "code_after": "public FieldCache.Parser getParser() {\n    return parser;\n  }",
+  "javadoc_before": "/** Returns the instance of a {@link FieldCache} parser that fits to the given sort type.\n   * May return <code>null</code> if no parser was specified. Sorting is using the default parser then.\n   * @return An instance of a {@link FieldCache} parser, or <code>null</code>.\n   * @deprecated (4.0) use getEntryCreator()\n   */",
+  "javadoc_after": "/** Returns the instance of a {@link FieldCache} parser that fits to the given sort type.\n   * May return <code>null</code> if no parser was specified. Sorting is using the default parser then.\n   * @return An instance of a {@link FieldCache} parser, or <code>null</code>.\n   */"
+}

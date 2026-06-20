@@ -1,0 +1,8 @@
+{
+  "commit_hash": "825ab66f492c1a9061ac76f1695870ae0fd3ad80",
+  "issue_summary": "Minor streamlining",
+  "code_before": "protected abstract BeanSerializerBase withIgnorals(Set<String> toIgnore);",
+  "code_after": "@Deprecated // since 2.12\n    protected BeanSerializerBase withIgnorals(Set<String> toIgnore) {\n        return withByNameInclusion(toIgnore, null);\n    }",
+  "javadoc_before": "/**\n     * Mutant factory used for creating a new instance with additional\n     * set of properties to ignore (from properties this instance otherwise has)\n     * \n     * @since 2.8\n     */",
+  "javadoc_after": "/**\n     * Mutant factory used for creating a new instance with additional\n     * set of properties to ignore (from properties this instance otherwise has)\n     * \n     * @since 2.8\n     * @deprecated Since 2.12\n     */"
+}

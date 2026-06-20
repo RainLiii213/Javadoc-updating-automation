@@ -1,0 +1,8 @@
+{
+  "commit_hash": "48b275af8085e54bdd13fd4fe32bad45e94b128f",
+  "issue_summary": "don't accept Store for binary fields -- it must always be YES",
+  "code_before": "public Field(String name, byte[] value, Store store) {\n    this(name, value, 0, value.length, store);\n  }",
+  "code_after": "@Deprecated\n  public Field(String name, byte[] value, Store store) {\n    this(name, value, 0, value.length);\n\n    if (store == Store.NO) {\n      throw new IllegalArgumentException(\"binary values can't be unstored\");\n    }\n  }",
+  "javadoc_before": "/**\n   * Create a stored field with binary value. Optionally the value may be compressed.\n   * \n   * @param name The name of the field\n   * @param value The binary value\n   * @param store How <code>value</code> should be stored (compressed or not)\n   * @throws IllegalArgumentException if store is <code>Store.NO</code> \n   */",
+  "javadoc_after": "/**\n   * Create a stored field with binary value. Optionally the value may be compressed.\n   * \n   * @param name The name of the field\n   * @param value The binary value\n   * @param store Must be Store.YES\n   * @throws IllegalArgumentException if store is <code>Store.NO</code> \n   * @deprecated Use {@link #Field(String, byte[]) instead}\n   */"
+}

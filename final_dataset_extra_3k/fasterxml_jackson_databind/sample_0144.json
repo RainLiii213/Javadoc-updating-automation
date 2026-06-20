@@ -1,0 +1,8 @@
+{
+  "commit_hash": "dce8ae6a7c6a052363dd5dee5738b7eb6137c60a",
+  "issue_summary": "Try to upgrade exception handling to pass underlying JsonParser/JsonGenerator, when possible",
+  "code_before": "public InvalidFormatException(String msg,\n            Object value, Class<?> targetType)\n    {\n        super(msg);\n        _value = value;\n        _targetType = targetType;\n    }",
+  "code_after": "@Deprecated // since 2.7\n    public InvalidFormatException(String msg,\n            Object value, Class<?> targetType)\n    {\n        super(null, msg);\n        _value = value;\n        _targetType = targetType;\n    }",
+  "javadoc_before": "/**********************************************************\n    /* Life-cycle\n    /**********************************************************\n     */",
+  "javadoc_after": "/**\n     * @deprecated Since 2.7 Use variant that takes {@link JsonParser}\n     */"
+}

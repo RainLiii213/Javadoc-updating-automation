@@ -1,0 +1,8 @@
+{
+  "commit_hash": "ae9ee5b428d6c9800424f852f5a77046f84bf1d3",
+  "issue_summary": "Improvements in null handling in PartTree area.",
+  "code_before": "public static <S> TypeInformation<S> from(Class<S> type) {\n\n\t\tReference<TypeInformation<?>> cachedReference = CACHE.get(type);\n\t\tTypeInformation<?> cachedTypeInfo = cachedReference == null ? null : cachedReference.get();\n\n\t\tif (cachedTypeInfo != null) {\n\t\t\treturn (TypeInformation<S>) cachedTypeInfo;\n\t\t}\n\n\t\tTypeInformation<S> result = new ClassTypeInformation<S>(type);\n\t\tCACHE.put(type, new WeakReference<TypeInformation<?>>(result));\n\t\treturn result;\n\t}",
+  "code_after": "public static <S> TypeInformation<S> from(Class<S> type) {\n\n\t\tAssert.notNull(type, \"Type must not be null!\");\n\n\t\tReference<TypeInformation<?>> cachedReference = CACHE.get(type);\n\t\tTypeInformation<?> cachedTypeInfo = cachedReference == null ? null : cachedReference.get();\n\n\t\tif (cachedTypeInfo != null) {\n\t\t\treturn (TypeInformation<S>) cachedTypeInfo;\n\t\t}\n\n\t\tTypeInformation<S> result = new ClassTypeInformation<S>(type);\n\t\tCACHE.put(type, new WeakReference<TypeInformation<?>>(result));\n\t\treturn result;\n\t}",
+  "javadoc_before": "/**\n\t * Simple factory method to easily create new instances of {@link ClassTypeInformation}.\n\t * \n\t * @param <S>\n\t * @param type\n\t * @return\n\t */",
+  "javadoc_after": "/**\n\t * Simple factory method to easily create new instances of {@link ClassTypeInformation}.\n\t * \n\t * @param <S>\n\t * @param type must not be {@literal null}.\n\t * @return\n\t */"
+}

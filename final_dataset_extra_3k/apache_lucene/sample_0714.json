@@ -1,0 +1,8 @@
+{
+  "commit_hash": "a93e2c41b0669788bcf448ea953a4d6d85ba0640",
+  "issue_summary": "switch next -> nextDoc, skipTo -> advance, doc -> docID in DISI",
+  "code_before": "public boolean next() throws IOException {\n        if (!more) return false;\n        if (firstTime) {\n            heapify();\n            firstTime = false;\n            return true;   // more would have been false if no subScorers had any docs\n        }\n        // Increment all generators that generated the last doc and adjust the heap.\n        int lastdoc = ((Scorer) subScorers.get(0)).doc();\n        do {\n            if (((Scorer) subScorers.get(0)).next())\n                heapAdjust(0);\n            else {\n                heapRemoveRoot();\n                if (subScorers.isEmpty()) return (more = false);\n            }\n        } while ( ((Scorer) subScorers.get(0)).doc()==lastdoc );\n        return true;\n    }",
+  "code_after": "public boolean next() throws IOException {\n    return nextDoc() != NO_MORE_DOCS;\n  }",
+  "javadoc_before": "/** Generate the next document matching our associated DisjunctionMaxQuery.\n     * @return true iff there is a next document\n     */",
+  "javadoc_after": "/**\n   * Generate the next document matching our associated DisjunctionMaxQuery.\n   * \n   * @return true iff there is a next document\n   * @deprecated use {@link #nextDoc()} instead.\n   */"
+}

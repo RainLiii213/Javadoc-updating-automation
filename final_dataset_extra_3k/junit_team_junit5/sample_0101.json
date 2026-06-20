@@ -1,0 +1,8 @@
+{
+  "commit_hash": "1e84ffce09db824535a63313a570f1e3d4f730ba",
+  "issue_summary": "Stop closing EngineExecutionContext in Node.cleanUp() by default",
+  "code_before": "default void cleanUp(C context) throws Exception {\n\t\tcontext.close();\n\t}",
+  "code_after": "default void cleanUp(C context) throws Exception {\n\t}",
+  "javadoc_before": "/**\n\t * Cleanup the supplied {@code context} after execution.\n\t *\n\t * <p>The default implementation invokes {@link EngineExecutionContext#close()}\n\t * on the supplied context.\n\t */",
+  "javadoc_after": "/**\n\t * Cleanup the supplied {@code context} after execution.\n\t *\n\t * <p>The default implementation does nothing.\n\t *\n\t * @since 1.1\n\t * @see #prepare(EngineExecutionContext)\n\t */"
+}
